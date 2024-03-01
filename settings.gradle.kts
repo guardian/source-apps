@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Source for Android"
 include(":sample")
+include(":source")
