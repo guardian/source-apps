@@ -1,4 +1,4 @@
-package com.theguardian.source.ui.theme
+package com.gu.source.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

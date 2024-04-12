@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.theguardian.source"
+    namespace = "com.gu.source"
 
     defaultConfig {
         consumerProguardFiles("consumer-rules.pro")
@@ -36,7 +36,7 @@ dependencies {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "com.theguardian"
+            groupId = "com.gu"
             artifactId = "source"
             version = libs.versions.libraryVersion.get()
 
@@ -47,8 +47,8 @@ publishing {
     }
     repositories {
         maven {
-            name = "theguardiansource"
-            url = uri("${project.buildDir}/theguardiansource")
+            name = "gusource"
+            url = uri("${project.buildDir}/gusource")
         }
     }
 }

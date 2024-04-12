@@ -5,10 +5,10 @@ plugins {
 }
 
 android {
-    namespace = "com.theguardian.source.sample"
+    namespace = "com.gu.source.sample"
 
     defaultConfig {
-        applicationId = "com.theguardian.source"
+        applicationId = "com.gu.source.sample"
         versionCode = 1
         versionName = libs.versions.libraryVersion.get()
 
