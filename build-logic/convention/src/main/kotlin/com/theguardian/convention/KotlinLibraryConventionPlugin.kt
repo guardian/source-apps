@@ -1,6 +1,8 @@
 package com.theguardian.convention
 
 import com.theguardian.convention.shared.addBaseDependencies
+import com.theguardian.convention.shared.libs
+import com.theguardian.convention.shared.plugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -18,7 +20,7 @@ class KotlinLibraryConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("org.jetbrains.kotlin.jvm")
                 apply("jvm-module-test")
-                apply("org.jmailen.kotlinter")
+                apply(libs.plugin("kotlinter").pluginId)
             }
 
             addBaseDependencies()

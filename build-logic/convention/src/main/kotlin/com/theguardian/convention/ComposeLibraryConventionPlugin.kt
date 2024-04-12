@@ -3,6 +3,7 @@ package com.theguardian.convention
 import com.android.build.gradle.LibraryExtension
 import com.theguardian.convention.shared.configureAndroidCompose
 import com.theguardian.convention.shared.libs
+import com.theguardian.convention.shared.plugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.attributes.java.TargetJvmEnvironment
@@ -16,7 +17,7 @@ class ComposeLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             apply {
-                val id = libs.findPlugin("paparazzi").get().get().pluginId
+                val id = libs.plugin("paparazzi").pluginId
                 plugin(id)
 
                 plugins.withId(id) {

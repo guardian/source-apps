@@ -2,6 +2,7 @@ package com.theguardian.convention
 
 import com.theguardian.convention.shared.isJvmModule
 import com.theguardian.convention.shared.libs
+import com.theguardian.convention.shared.plugin
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import io.gitlab.arturbosch.detekt.report.ReportMergeTask
@@ -16,7 +17,7 @@ class DetektPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
-                apply(libs.findPlugin("detekt").get().get().pluginId)
+                apply(libs.plugin("detekt").pluginId)
             }
 
             tasks.register("reportMerge", ReportMergeTask::class.java) {
@@ -53,7 +54,7 @@ class DetektPlugin : Plugin<Project> {
 
             extensions.configure(DetektExtension::class.java) {
                 toolVersion = libs.findVersion("detekt").get().requiredVersion
-                config.setFrom(file("${rootDir}/config/detekt/detekt.yml"))
+                config.setFrom(file("${rootDir}/config/detekt.yml"))
                 parallel = true
 
                 basePath = rootProject.projectDir.absolutePath

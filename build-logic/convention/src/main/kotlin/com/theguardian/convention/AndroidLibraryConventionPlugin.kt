@@ -4,6 +4,8 @@ import com.android.build.api.variant.LibraryAndroidComponentsExtension
 import com.android.build.gradle.LibraryExtension
 import com.theguardian.convention.shared.configureAndroidModule
 import com.theguardian.convention.shared.configureAndroidTests
+import com.theguardian.convention.shared.libs
+import com.theguardian.convention.shared.plugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -24,9 +26,9 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             val shouldSetupAndroidTests = hasAndroidTests()
 
             with(pluginManager) {
-                apply("com.android.library")
-                apply("org.jetbrains.kotlin.android")
-                apply("org.jmailen.kotlinter")
+                apply(libs.plugin("agp-library").pluginId)
+                apply(libs.plugin("kgp").pluginId)
+                apply(libs.plugin("kotlinter").pluginId)
             }
 
             extensions.configure<LibraryExtension> {

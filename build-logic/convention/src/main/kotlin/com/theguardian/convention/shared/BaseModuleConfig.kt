@@ -9,6 +9,7 @@ import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.provideDelegate
 import org.gradle.kotlin.dsl.withType
+import org.gradle.plugin.use.PluginDependency
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /**
@@ -16,6 +17,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
  */
 internal val Project.libs
     get(): VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
+internal fun VersionCatalog.plugin(alias: String): PluginDependency = findPlugin(alias).get().get()
 
 /**
  * Sets up core config for all Android modules - application and library.

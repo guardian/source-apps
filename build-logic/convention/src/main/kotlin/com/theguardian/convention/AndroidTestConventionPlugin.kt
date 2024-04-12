@@ -3,6 +3,8 @@ package com.theguardian.convention
 import com.android.build.gradle.TestExtension
 import com.theguardian.convention.shared.configureAndroidModule
 import com.theguardian.convention.shared.configureAndroidTests
+import com.theguardian.convention.shared.libs
+import com.theguardian.convention.shared.plugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -21,9 +23,9 @@ class AndroidTestConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
-                apply("com.android.test")
-                apply("org.jetbrains.kotlin.android")
-                apply("org.jmailen.kotlinter")
+                apply(libs.plugin("agp-test").pluginId)
+                apply(libs.plugin("kgp").pluginId)
+                apply(libs.plugin("kotlinter").pluginId)
             }
 
             extensions.configure<TestExtension> {

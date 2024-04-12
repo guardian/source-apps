@@ -12,3 +12,10 @@ plugins {
     alias(libs.plugins.detekt) apply false
     alias(libs.plugins.paparazzi) apply false
 }
+
+allprojects {
+    // Exclude generated files from linter
+    tasks.withType<org.jmailen.gradle.kotlinter.tasks.LintTask> {
+        exclude { it.file.path.contains("/build/generated/") }
+    }
+}
