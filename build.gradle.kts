@@ -1,6 +1,14 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    dependencies {
+        classpath(libs.other.composeLint)
+    }
+}
+
 plugins {
-    alias(libs.plugins.androidApplication) apply false
-    alias(libs.plugins.jetbrainsKotlinAndroid) apply false
-    alias(libs.plugins.androidLibrary) apply false
+    alias(libs.plugins.agp.application) apply false
+    alias(libs.plugins.kgp) apply false
+    alias(libs.plugins.agp.library) apply false
+    alias(libs.plugins.kotlinter) apply false
+    alias(libs.plugins.detekt) apply false
+    alias(libs.plugins.paparazzi) apply false
 }
