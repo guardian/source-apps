@@ -21,33 +21,8 @@ import com.theguardian.source.utils.fontFamilyResource
  * Note: Article pages and sign-in/registration pages are presented in a webview, hence
  * utilising web typography presets.
  */
+@Suppress("LargeClass")
 object Typography {
-    @Suppress("MagicNumber")
-    private object LineHeight {
-        const val Tight = 1.15f
-        const val Regular = 1.3f
-        const val Loose = 1.4f
-    }
-
-    @Suppress("ObjectPropertyNaming")
-    private object TextSize {
-        val _11 = 11.sp
-        val _12 = 12.sp
-        val _14 = 14.sp
-        val _15 = 15.sp
-        val _16 = 16.sp
-        val _17 = 17.sp
-        val _18 = 18.sp
-        val _20 = 20.sp
-        val _22 = 22.sp
-        val _24 = 24.sp
-        val _28 = 28.sp
-        val _34 = 34.sp
-        val _42 = 42.sp
-        val _50 = 50.sp
-        val _70 = 70.sp
-    }
-
     /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
     val headlineBold14 = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_bold),
@@ -1387,4 +1362,30 @@ object Typography {
         fontStyle = FontStyle.Normal,
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
+}
+
+@Suppress("MagicNumber")
+private object LineHeight {
+    const val Tight = 1.15f
+    const val Regular = 1.3f
+    const val Loose = 1.4f
+}
+
+@Suppress("ObjectPropertyNaming")
+private object TextSize {
+    val _11 = 11.sp
+    val _12 = 12.sp
+    val _14 = 14.sp
+    val _15 = 15.sp
+    val _16 = 16.sp
+    val _17 = 17.sp
+    val _18 = 18.sp
+    val _20 = 20.sp
+    val _22 = 22.sp
+    val _24 = 24.sp
+    val _28 = 28.sp
+    val _34 = 34.sp
+    val _42 = 42.sp
+    val _50 = 50.sp
+    val _70 = 70.sp
 }

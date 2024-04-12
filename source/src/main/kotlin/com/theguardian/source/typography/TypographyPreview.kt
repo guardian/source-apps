@@ -150,7 +150,6 @@ private fun Preview() {
                 style = Typography.headlineLight42,
                 modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
             )
-
         }
 
         FlowRow {
