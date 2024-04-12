@@ -54,7 +54,7 @@ class DetektPlugin : Plugin<Project> {
 
             extensions.configure(DetektExtension::class.java) {
                 toolVersion = libs.findVersion("detekt").get().requiredVersion
-                config.setFrom(file("${rootDir}/config/detekt.yml"))
+                config.setFrom(file("$rootDir/config/detekt.yml"))
                 parallel = true
 
                 basePath = rootProject.projectDir.absolutePath

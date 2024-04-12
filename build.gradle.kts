@@ -1,3 +1,5 @@
+import org.jmailen.gradle.kotlinter.tasks.FormatTask
+
 buildscript {
     dependencies {
         classpath(libs.other.composeLint)
@@ -16,6 +18,9 @@ plugins {
 allprojects {
     // Exclude generated files from linter
     tasks.withType<org.jmailen.gradle.kotlinter.tasks.LintTask> {
-        exclude { it.file.path.contains("/build/generated/") }
+        source = this.source.minus(fileTree("src/build/generated")).asFileTree
+    }
+    tasks.withType<FormatTask> {
+        source = this.source.minus(fileTree("src/build/generated")).asFileTree
     }
 }

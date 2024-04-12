@@ -44,7 +44,8 @@ internal fun Project.configureAndroidCompose(
             )
             add(
                 configurationName = "implementation",
-                dependencyNotation = libs.findLibrary("androidx-compose-material3-windowSize").get(),
+                dependencyNotation = libs.findLibrary("androidx-compose-material3-windowSize")
+                    .get(),
             )
             // endregion
 

@@ -38,7 +38,7 @@ class ComposeLibraryConventionPlugin : Plugin<Project> {
                                     """
                                         LayoutLib and sdk-common depend on Guava's -jre published 
                                         variant.See https://github.com/cashapp/paparazzi/issues/906.
-                                    """.trimIndent()
+                                    """.trimIndent(),
                                 )
                             }
                         }
