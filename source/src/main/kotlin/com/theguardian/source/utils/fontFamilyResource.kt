@@ -8,4 +8,4 @@ import androidx.compose.ui.text.font.FontFamily
 /**
  * Load the font resource into a FontFamily object.
  */
-fun fontFamilyResource(@FontRes fontResId: Int) = FontFamily(Font(fontResId))
+internal fun fontFamilyResource(@FontRes fontResId: Int) = FontFamily(Font(fontResId))
