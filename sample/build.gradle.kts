@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.theguardian.source"
         versionCode = 1
-        versionName = "1.0"
+        versionName = libs.versions.libraryVersion.get()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

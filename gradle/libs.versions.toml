@@ -1,4 +1,5 @@
 [versions]
+libraryVersion = "0.0.1"
 compilesdk = "34"
 minsdk = "26"
 targetsdk = "33"

@@ -29,8 +29,8 @@ internal fun Project.configureAndroidCompose(
             // Animations
             add("implementation", "androidx.compose.animation:animation")
             // Tooling support (Previews, etc.)
-            add("debugImplementation", "androidx.compose.ui:ui-tooling")
-            add("debugImplementation", "androidx.compose.ui:ui-tooling-preview")
+            add("implementation", "androidx.compose.ui:ui-tooling")
+            add("implementation", "androidx.compose.ui:ui-tooling-preview")
 
             // region Material 3
             add(
