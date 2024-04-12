@@ -29,7 +29,6 @@ jobs:
 
       - name: Run ktlint
         run: |
-          mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
           ./gradlew lintKotlin
           ./gradlew :build-logic:convention:lint
 
@@ -51,7 +50,6 @@ jobs:
 
       - name: Run detekt
         run: |
-          mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
           ./gradlew detektDebug --continue
 
       - name: Upload SARIF report for code scanning report
