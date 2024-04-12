@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.guardian.application)
     alias(libs.plugins.guardian.compose.application)
-    alias(libs.plugins.detekt)
+    alias(libs.plugins.guardian.detekt)
 }
 
 android {
@@ -34,6 +34,11 @@ android {
         }
     }
 }
+
+detekt {
+    baseline = file("detekt-baseline-debug.xml")
+}
+
 
 dependencies {
     implementation(libs.androidx.activity.compose)
