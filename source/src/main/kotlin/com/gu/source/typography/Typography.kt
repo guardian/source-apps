@@ -1,6 +1,5 @@
 package com.gu.source.typography
 
-import androidx.annotation.RestrictTo
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
@@ -23,7 +22,6 @@ import com.gu.source.utils.fontFamilyResource
  * utilising web typography presets.
  */
 @Suppress("LargeClass")
-@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 object Typography {
     /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
     val headlineBold14 = TextStyle(
