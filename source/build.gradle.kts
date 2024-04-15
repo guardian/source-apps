@@ -104,9 +104,8 @@ publishing {
 signing {
     useInMemoryPgpKeys(
         // TODO: 15/04/2024 Figure out how to provide GPG key for signing
-        System.getenv("KEY_ID") ?: "",
-        System.getenv("KEY") ?: "",
-        System.getenv("KEY_PASSWORD") ?: "",
+        System.getenv("GPG_KEY") ?: "",
+        System.getenv("GPG_KEY_PASSWORD") ?: "",
     )
     sign(publishing.publications)
 }
