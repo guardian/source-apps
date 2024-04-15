@@ -85,10 +85,7 @@ publishing {
             name = "sonatype"
             url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
             credentials {
-                // TODO: 15/04/2024 Figure out what's used for sonatype username in the new setup
-                // AUTOMATED_MAVEN_RELEASE_PGP_SECRET
-                // AUTOMATED_MAVEN_RELEASE_GITHUB_APP_PRIVATE_KEY
-                username = System.getenv("SONATYPE_USERNAME")
+                username = "guardian.automated.maven.release"
                 password = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD")
             }
         }
@@ -103,8 +100,8 @@ publishing {
 
 signing {
     useInMemoryPgpKeys(
-        // TODO: 15/04/2024 Figure out how to provide GPG key for signing
-        System.getenv("GPG_KEY") ?: "",
+        System.getenv("AUTOMATED_MAVEN_RELEASE_PGP_SECRET") ?: "",
+        // TODO: 15/04/2024 Figure out how to provide GPG password for signing (or is it blank?)
         System.getenv("GPG_KEY_PASSWORD") ?: "",
     )
     sign(publishing.publications)
