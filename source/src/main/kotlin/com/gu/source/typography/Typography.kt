@@ -1,4 +1,4 @@
-package com.theguardian.source.typography
+package com.gu.source.typography
 
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
@@ -6,11 +6,11 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.times
-import com.theguardian.source.R
-import com.theguardian.source.utils.fontFamilyResource
+import com.gu.source.R
+import com.gu.source.utils.fontFamilyResource
 
 /**
- * App typography presets
+ * App typography presets.
  * The Guardian has four bespoke typefaces, which were created for different purposes. When
  * used effectively, they create contrast and alter the tone in which text is read.
  *

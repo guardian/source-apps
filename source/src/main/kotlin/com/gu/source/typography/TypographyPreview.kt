@@ -1,4 +1,4 @@
-package com.theguardian.source.typography
+package com.gu.source.typography
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi

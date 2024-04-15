@@ -1,5 +1,5 @@
 // ktlint-disable filename
-package com.theguardian.source.utils
+package com.gu.source.utils
 
 import androidx.annotation.FontRes
 import androidx.compose.ui.text.font.Font
