@@ -10,20 +10,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.gu.source.ui.theme.SourceForAndroidTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SourceForAndroidTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background,
-                ) {
-                    Greeting("Android")
-                }
+            Surface(
+                modifier = Modifier.fillMaxSize(),
+                color = MaterialTheme.colorScheme.background,
+            ) {
+                Greeting("Android")
             }
         }
     }
@@ -34,13 +30,12 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
         modifier = modifier,
+        style = Source.typography.textArticle17,
     )
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun GreetingPreview() {
-    SourceForAndroidTheme {
-        Greeting("Android")
-    }
+    Greeting("Android")
 }
