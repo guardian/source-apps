@@ -36,8 +36,8 @@ dependencies {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "com.gu"
-            artifactId = "source"
+            groupId = "com.gu.source"
+            artifactId = "source-android"
             version = libs.versions.libraryVersion.get()
 
             afterEvaluate {
