@@ -11,7 +11,7 @@ import com.gu.source.R
 import com.gu.source.utils.fontFamilyResource
 
 /**
- * App typography presets
+ * App typography presets.
  * The Guardian has four bespoke typefaces, which were created for different purposes. When
  * used effectively, they create contrast and alter the tone in which text is read.
  *
