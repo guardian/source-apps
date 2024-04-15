@@ -1,5 +1,6 @@
 plugins {
     `maven-publish`
+    signing
     alias(libs.plugins.guardian.library.android)
     alias(libs.plugins.guardian.compose.library)
     alias(libs.plugins.guardian.detekt)
@@ -50,7 +51,7 @@ publishing {
                 licenses {
                     license {
                         name.set("Apache License, Version 2.0")
-                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                        url.set("https://github.com/guardian/source-android/tree/main?tab=Apache-2.0-1-ov-file#readme")
                     }
                 }
                 developers {
@@ -59,11 +60,16 @@ publishing {
                         name.set("Aditya Bhaskar")
                         email.set("aditya.bhaskar@guardian.co.uk")
                         url.set("https://github.com/ab-gnm")
-                        organization {
-                            name.set("Guardian News & Media")
-                            url.set("https://www.theguardian.com")
-                        }
                     }
+                }
+                organization {
+                    name.set("Guardian News & Media")
+                    url.set("https://www.theguardian.com")
+                }
+                scm {
+                    connection.set("scm:git:github.com/guardian/source-android.git")
+                    developerConnection.set("scm:git:ssh://github.com/guardian/source-android.git")
+                    url.set("https://github.com/guardian/source-android/tree/main")
                 }
             }
 
@@ -75,10 +81,32 @@ publishing {
     }
 
     repositories {
+        maven {
+            name = "sonatype"
+            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            credentials {
+                // TODO: 15/04/2024 Figure out what's used for sonatype username in the new setup
+                // AUTOMATED_MAVEN_RELEASE_PGP_SECRET
+                // AUTOMATED_MAVEN_RELEASE_GITHUB_APP_PRIVATE_KEY
+                username = System.getenv("SONATYPE_USERNAME")
+                password = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD")
+            }
+        }
+
         // Adds a task for publishing locally to the build directory.
         maven {
             name = "gusource"
             url = uri("${project.buildDir}/gusource")
         }
     }
+}
+
+signing {
+    useInMemoryPgpKeys(
+        // TODO: 15/04/2024 Figure out how to provide GPG key for signing
+        System.getenv("KEY_ID") ?: "",
+        System.getenv("KEY") ?: "",
+        System.getenv("KEY_PASSWORD") ?: "",
+    )
+    sign(publishing.publications)
 }
