@@ -19,7 +19,7 @@ compose-compiler = "1.5.11"
 
 activity = "1.8.2"
 appcompat = "1.6.1"
-composeBom = "2024.02.01"
+composeBom = "2024.04.00"
 composeLint = "0.1.10"
 coreKtx = "1.12.0"
 detekt = "1.23.6"
