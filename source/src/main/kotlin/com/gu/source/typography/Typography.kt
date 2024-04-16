@@ -1371,7 +1371,7 @@ private object LineHeight {
     const val Loose = 1.4f
 }
 
-@Suppress("ObjectPropertyNaming")
+@Suppress("ObjectPropertyNaming", "ktlint:standard:backing-property-naming")
 private object TextSize {
     val _11 = 11.sp
     val _12 = 12.sp
