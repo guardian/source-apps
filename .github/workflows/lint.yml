@@ -29,6 +29,7 @@ jobs:
 
       - name: Run ktlint
         run: |
+          cd android
           ./gradlew lintKotlin --continue
           ./gradlew :build-logic:convention:lint --continue
 
@@ -50,6 +51,7 @@ jobs:
 
       - name: Run detekt
         run: |
+          cd android
           ./gradlew detektDebug --continue
 
       - name: Upload SARIF report for code scanning report
