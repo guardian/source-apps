@@ -24,6 +24,4 @@ jobs:
             AUTOMATED_MAVEN_RELEASE_PGP_SECRET: ${{ secrets.AUTOMATED_MAVEN_RELEASE_PGP_SECRET }}
             AUTOMATED_MAVEN_RELEASE_GITHUB_APP_PRIVATE_KEY: ${{ secrets.AUTOMATED_MAVEN_RELEASE_GITHUB_APP_PRIVATE_KEY }}
             AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD: ${{ secrets.AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD }}
-# These don't exist and need to be provided somehow.
-            GPG_KEY_PASSWORD: ${{ secrets.GPG_PASSWORD }}
           run: ./gradlew :source:publishAllPublicationsToSonatypeRepository

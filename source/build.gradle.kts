@@ -83,7 +83,7 @@ publishing {
     repositories {
         maven {
             name = "sonatype"
-            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
             credentials {
                 username = "guardian.automated.maven.release"
                 password = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD")
@@ -101,8 +101,8 @@ publishing {
 signing {
     useInMemoryPgpKeys(
         System.getenv("AUTOMATED_MAVEN_RELEASE_PGP_SECRET") ?: "",
-        // TODO: 15/04/2024 Figure out how to provide GPG password for signing (or is it blank?)
-        System.getenv("GPG_KEY_PASSWORD") ?: "",
+        // We use a passwordless key so the an empty string is used as password here.
+        "",
     )
     sign(publishing.publications)
 }
