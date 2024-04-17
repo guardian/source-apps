@@ -13,6 +13,9 @@ updates:
     open-pull-requests-limit: 5
     labels:
       - "Dependency Update"
+      - "Android"
+    reviewers:
+      - "guardian/android-developers"
     groups:
       # Request that all kotlin specific dependencies are grouped together
       kotlin:
@@ -40,4 +43,7 @@ updates:
       day: sunday
     labels:
       - "Dependency Update"
+      - "Android"
+    reviewers:
+      - "guardian/android-developers"
     open-pull-requests-limit: 1
