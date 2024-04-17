@@ -29,6 +29,7 @@ jobs:
 
       - name: Run ktlint
         run: |
+          cd android
           ./gradlew lintKotlin --continue
           ./gradlew :build-logic:convention:lint --continue
 
@@ -50,12 +51,13 @@ jobs:
 
       - name: Run detekt
         run: |
+          cd android
           ./gradlew detektDebug --continue
 
       - name: Upload SARIF report for code scanning report
         uses: github/codeql-action/upload-sarif@v3
         if: success() || failure()
         with:
-          sarif_file: build/reports/detekt/merge.sarif
+          sarif_file: android/build/reports/detekt/merge.sarif
           # Used to differentiate multiple results for one commit
           category: detekt

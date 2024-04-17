@@ -6,7 +6,7 @@
 version: 2
 updates:
   - package-ecosystem: "gradle"
-    directory: /
+    directory: /android/
     schedule:
       interval: weekly
       day: sunday
@@ -34,7 +34,7 @@ updates:
           - "com.android.tools.lint:lint-tests"
 
   - package-ecosystem: github-actions
-    directory: /
+    directory: /android/
     schedule:
       interval: weekly
       day: sunday
