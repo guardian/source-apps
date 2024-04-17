@@ -55,9 +55,8 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
     /**
      * Checks if any AndroidTest files exist.
      */
-    private fun Project.hasAndroidTests() =
-        projectDir.resolve("src/androidTest").exists() &&
-            projectDir.resolve("src/androidTest")
-                .walkBottomUp()
-                .firstOrNull { it.isFile } != null
+    private fun Project.hasAndroidTests() = projectDir.resolve("src/androidTest").exists() &&
+        projectDir.resolve("src/androidTest")
+            .walkBottomUp()
+            .firstOrNull { it.isFile } != null
 }
