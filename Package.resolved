@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/guardian/fonts.git",
       "state" : {
-        "branch" : "ios-line-spacing",
-        "revision" : "7d960efa6222e8c69b42ccb5e00f45cd99510b19"
+        "branch" : "main",
+        "revision" : "c521d10c0328770a96bf0ff6a0299a463b875d05"
       }
     }
   ],
