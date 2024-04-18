@@ -1,3 +1,4 @@
 .DS_Store
 .swiftpm/xcode/xcuserdata
-.swiftpm/xcode/package.xcworkspace/xcuserdata
+.swiftpm/xcode/package.xcworkspace/xcuserdata/
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
