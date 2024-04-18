@@ -2,15 +2,15 @@ name: Static code checks
 on:
   pull_request:
     paths:
-      - 'android/'
-      - '.github/'
+      - 'android/**'
+      - '.github/**'
   merge_group:
     types: [checks_requested]
   push:
     branches: [ main ]
     paths:
-      - 'android/'
-      - '.github/'
+      - 'android/**'
+      - '.github/**'
   workflow_dispatch:
 
 concurrency:
