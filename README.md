@@ -24,7 +24,7 @@ Now, the `Source` Swift Package should be added to your project and you can impo
 
 ## Using in Another Swift Package
 
-If you're developing a Swift Package and want to use `GuardianFonts`, you can add it as a dependency in your `Package.swift` file.
+If you're developing a Swift Package and want to use `Source`, you can add it as a dependency in your `Package.swift` file.
 
 Here's how you can do it:
 
@@ -38,7 +38,7 @@ dependencies: [
 ]
 ```
 
-3. Add `GuardianFonts` as a dependency for your target:
+3. Add `Source` as a dependency for your target:
 
 ```swift
 targets: [
