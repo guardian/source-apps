@@ -1,5 +1,6 @@
 plugins {
     `maven-publish`
+    signing
     alias(libs.plugins.guardian.library.android)
     alias(libs.plugins.guardian.compose.library)
     alias(libs.plugins.guardian.detekt)
@@ -22,6 +23,8 @@ android {
         }
     }
 
+    // Create a single variant for publishing called "release". Add separate jars for javadoc
+    // and sources.
     publishing {
         singleVariant("release") {
             withSourcesJar()
@@ -40,15 +43,66 @@ publishing {
             artifactId = "source-android"
             version = libs.versions.libraryVersion.get()
 
+            pom {
+                name.set("Source Android")
+                description.set("Guardian design system library for Android")
+                url.set("https://github.com/guardian/source-android")
+                packaging = "aar"
+                licenses {
+                    license {
+                        name.set("Apache License, Version 2.0")
+                        url.set("https://github.com/guardian/source-android/tree/main?tab=Apache-2.0-1-ov-file#readme")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("ab-gnm")
+                        name.set("Aditya Bhaskar")
+                        email.set("aditya.bhaskar@guardian.co.uk")
+                        url.set("https://github.com/ab-gnm")
+                    }
+                }
+                organization {
+                    name.set("Guardian News & Media")
+                    url.set("https://www.theguardian.com")
+                }
+                scm {
+                    connection.set("scm:git:github.com/guardian/source-android.git")
+                    developerConnection.set("scm:git:ssh://github.com/guardian/source-android.git")
+                    url.set("https://github.com/guardian/source-android/tree/main")
+                }
+            }
+
+            // Use the artifacts called "release" for publishing.
             afterEvaluate {
                 from(components["release"])
             }
         }
     }
+
     repositories {
+        maven {
+            name = "sonatype"
+            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+            credentials {
+                username = "guardian.automated.maven.release"
+                password = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD")
+            }
+        }
+
+        // Adds a task for publishing locally to the build directory.
         maven {
             name = "gusource"
             url = uri("${project.buildDir}/gusource")
         }
     }
+}
+
+signing {
+    useInMemoryPgpKeys(
+        System.getenv("AUTOMATED_MAVEN_RELEASE_PGP_SECRET") ?: "",
+        // We use a passwordless key so the an empty string is used as password here.
+        "",
+    )
+    sign(publishing.publications)
 }
