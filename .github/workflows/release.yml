@@ -25,5 +25,5 @@ jobs:
             AUTOMATED_MAVEN_RELEASE_GITHUB_APP_PRIVATE_KEY: ${{ secrets.AUTOMATED_MAVEN_RELEASE_GITHUB_APP_PRIVATE_KEY }}
             AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD: ${{ secrets.AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD }}
           run: |
-          cd android
-          ./gradlew :source:publishAllPublicationsToSonatypeRepository
+            cd android
+            ./gradlew :source:publishAllPublicationsToSonatypeRepository
