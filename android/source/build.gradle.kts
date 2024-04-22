@@ -46,12 +46,12 @@ publishing {
             pom {
                 name.set("Source Android")
                 description.set("Guardian design system library for Android")
-                url.set("https://github.com/guardian/source-android")
+                url.set("https://github.com/guardian/source-apps")
                 packaging = "aar"
                 licenses {
                     license {
                         name.set("Apache License, Version 2.0")
-                        url.set("https://github.com/guardian/source-android/tree/main?tab=Apache-2.0-1-ov-file#readme")
+                        url.set("https://github.com/guardian/source-apps/tree/main?tab=Apache-2.0-1-ov-file#readme")
                     }
                 }
                 developers {
@@ -67,9 +67,9 @@ publishing {
                     url.set("https://www.theguardian.com")
                 }
                 scm {
-                    connection.set("scm:git:github.com/guardian/source-android.git")
-                    developerConnection.set("scm:git:ssh://github.com/guardian/source-android.git")
-                    url.set("https://github.com/guardian/source-android/tree/main")
+                    connection.set("scm:git:github.com/guardian/source-apps.git")
+                    developerConnection.set("scm:git:ssh://github.com/guardian/source-apps.git")
+                    url.set("https://github.com/guardian/source-apps/tree/main")
                 }
             }
 
