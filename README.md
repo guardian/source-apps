@@ -73,3 +73,11 @@ The Typography fonts provided by this library are of type `GuardianFont`. Guardi
 1. Import framework - `import Source` 
 
 2. Use font modifier from `GuardianFonts` package - `.font(Typography.headlineBld14)`
+
+## ColorPalette
+This defines the brand colours from [Source documentation](https://design.theguardian.com/#colour-palette).
+
+### Usage
+
+1. Import framework - `import Source`
+2. Access colours like so - `ColorPalette.brand400`
