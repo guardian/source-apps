@@ -7,6 +7,7 @@ import androidx.compose.ui.graphics.Color
  *
  * [Palette colour definitions](https://theguardian.design/2a1e5182b/p/71fb50-colour/b/399c59)).
  */
+@Suppress("UndocumentedPublicProperty")
 object Palette {
     val brand_100 = Color(color = 0xff001536)
     val brand_300 = Color(color = 0xff041f4a)
