@@ -1,16 +1,10 @@
 name: Static code checks
 on:
   pull_request:
-    paths:
-      - 'android/**'
-      - '.github/**'
   merge_group:
     types: [checks_requested]
   push:
     branches: [ main ]
-    paths:
-      - 'android/**'
-      - '.github/**'
   workflow_dispatch:
 
 concurrency:
@@ -18,8 +12,26 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      android: ${{ steps.filter.outputs.android }}
+    steps:
+    - uses: actions/checkout@v3
+    - uses: dorny/paths-filter@v3
+      id: filter
+      with:
+        filters: |
+          android:
+            - 'android/**'
+            - '.github/**'          
+
   lint:
     name: ktlint & gradle lint
+    needs: changes
+    if: ${{ needs.changes.outputs.android == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -41,6 +53,8 @@ jobs:
 
   detekt:
     name: Detekt
+    needs: changes
+    if: ${{ needs.changes.outputs.android == 'true' }}
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
