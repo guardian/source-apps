@@ -4,6 +4,49 @@
 
 ----
 
+# Android Usage
+
+![Available on maven central](https://maven-badges.herokuapp.com/maven-central/com.gu.source/source-android/badge.svg)
+
+## Add the library dependency
+
+Add the dependency to `build.gradle.kts` for the consuming module:
+
+```kotlin
+implementation("com.gu.source:source-android:<version>")
+```
+
+Alternatively, add it to your app's core design module as an `api` dependency. It will be transitively available to all other modules:
+
+```kotlin
+api("com.gu.source:source-android:<version>")
+```
+
+> [!Note]
+> See [here](/android/README.md) if you need to build and bundle the library as a local repository.
+
+## Using the library
+
+The library exposes a single object `com.gu.Source`. Design presets are available as properties on this object, e.g. `Source.typography.headlineBold15`.
+
+The library bundles app font files, so they are not separately required in consumer apps.
+
+### Typography presets
+
+Typography presets include `fontFamily`, `fontSize`, `lineHeight`, `fontWeight`, `fontStyle` in a single token.
+
+Use typography presets directly in a `Text` component.
+
+```kotlin
+Text(
+    text = "The world's leading liberal voice",
+    style = Source.typography.textEgyptianItalic14,
+)
+```
+
+
+----
+
 # iOS Usage 
 
 ## Adding the Swift Package To Xcode

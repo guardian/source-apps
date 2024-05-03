@@ -3,11 +3,21 @@
 # The Source library for Android
 
 > [!Note]
-> This is an exploratory project as we evolve Source to support the apps, and the accompanying code infra.
+> ~~This is an exploratory project as we evolve Source to support the apps, and the accompanying code infra.~~
+
+### Using the library
+
+Add the library dependency:
+
+```kotlin
+implementation("com.gu.source:source-android:0.0.1")
+```
+
+See the main [README](../README.md) for using the library.
 
 ### Building and using as a bundled repo
 
-Please note: This is a temporary solution until we publish the library to mavencentral
+~~Please note: This is a temporary solution until we publish the library to mavencentral~~
 
 1. Build the library
    Run
