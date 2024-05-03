@@ -14,12 +14,14 @@ concurrency:
 jobs:
   changes:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
     outputs:
-      android: ${{ steps.changes.outputs.android }}
+      android: ${{ steps.filter.outputs.android }}
     steps:
     - uses: actions/checkout@v3
-    - uses: dorny/paths-filter@v2
-      id: changes
+    - uses: dorny/paths-filter@v3
+      id: filter
       with:
         filters: |
           android:
@@ -28,6 +30,7 @@ jobs:
 
   lint:
     name: ktlint & gradle lint
+    needs: changes
     if: ${{ needs.changes.outputs.android == 'true' }}
     runs-on: ubuntu-latest
     steps:
@@ -50,6 +53,7 @@ jobs:
 
   detekt:
     name: Detekt
+    needs: changes
     if: ${{ needs.changes.outputs.android == 'true' }}
     permissions: write-all
     runs-on: ubuntu-latest
