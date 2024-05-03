@@ -6,22 +6,24 @@
 
 # Android Usage
 
+![Available on maven central](https://maven-badges.herokuapp.com/maven-central/com.gu.source/source-android/badge.svg)
+
 ## Add the library dependency
 
 Add the dependency to `build.gradle.kts` for the consuming module:
 
 ```kotlin
-implementation("com.gu.source:source-android:0.0.1")
+implementation("com.gu.source:source-android:<version>")
 ```
 
 Alternatively, add it to your app's core design module as an `api` dependency. It will be transitively available to all other modules:
 
 ```kotlin
-api("com.gu.source:source-android:0.0.1")
+api("com.gu.source:source-android:<version>")
 ```
 
 > [!Note]
-> See [here](/android/README.md) for how to build and bundle the library as a local repository.
+> See [here](/android/README.md) if you need to build and bundle the library as a local repository.
 
 ## Using the library
 
