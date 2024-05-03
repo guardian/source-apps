@@ -1,4 +1,4 @@
-package com.gu.source.typography
+package com.gu.source.presets.typography
 
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle

@@ -2,7 +2,7 @@ package com.gu.source
 
 import androidx.compose.ui.text.TextStyle
 import com.gu.source.Source.typography
-import com.gu.source.typography.Typography
+import com.gu.source.presets.typography.Typography
 
 /**
  * Source is the Guardian's design system. This object provides handles to tokens for colours(TBD),
