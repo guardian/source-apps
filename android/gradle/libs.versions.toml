@@ -1,12 +1,12 @@
 [versions]
-libraryVersion = "0.0.2"
+libraryVersion = "0.1.0"
 compilesdk = "34"
 minsdk = "26"
 targetsdk = "33"
 java = "17"
 
 
-agp = "8.3.2"
+agp = "8.4.0"
 kotlin = "1.9.23"
 # Kotlinter version is tied closely to min & max Kotlin and Gradle versions. Update Kotlinter
 # when updating Kotlin. Check compatible versions here:
@@ -17,12 +17,12 @@ kotlinter = "3.15.0"
 # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
 compose-compiler = "1.5.11"
 
-activity = "1.8.2"
+activity = "1.9.0"
 appcompat = "1.6.1"
-composeBom = "2024.04.00"
+composeBom = "2024.04.01"
 composeLint = "0.1.10"
 #composeLint = "0.3.15"
-coreKtx = "1.13.0"
+coreKtx = "1.13.1"
 detekt = "1.23.6"
 inject = "1"
 kotlinx-collections-immutable = "0.3.7"
@@ -36,7 +36,7 @@ androidx-junit = "1.1.5"
 androidx-test-core = "1.5.0"
 androidx-test-rules = "1.5.0"
 androidx-test-runner = "1.5.2"
-testparameterinjector = "1.15"
+testparameterinjector = "1.16"
 paparazzi = "1.3.3"
 
 # Convention plugin versions

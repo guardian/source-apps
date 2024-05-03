@@ -1,4 +1,4 @@
-package com.gu.source.typography
+package com.gu.source.presets.typography
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi

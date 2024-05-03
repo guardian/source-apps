@@ -28,9 +28,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 private fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = "Hello $name!\nWe're the Guardian, the world's leading liberal voice.",
         modifier = modifier,
         style = Source.typography.textArticle17,
+        color = Source.palette.brand_400,
     )
 }
 
