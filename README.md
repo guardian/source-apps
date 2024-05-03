@@ -43,6 +43,17 @@ Text(
     style = Source.typography.textEgyptianItalic14,
 )
 ```
+### Core palette colours
+
+Core palette colours are available for direct use in components through `Source.palette`.
+
+```kotlin
+Text(
+    text = "The world's leading liberal voice",
+    color = Source.palette.brand_400,
+)
+```
+
 
 
 ----
