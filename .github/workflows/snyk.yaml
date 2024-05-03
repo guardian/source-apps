@@ -9,8 +9,9 @@ jobs:
   security:
     uses: guardian/.github/.github/workflows/sbt-node-snyk.yml@main
     with:
-      ORG: <SNYK_ORG_ID>
+      ORG: guardian-mobile
       SKIP_SBT: true
       SKIP_NODE: true
+      JAVA_VERSION: "17"
     secrets:
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
