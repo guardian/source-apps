@@ -23,6 +23,7 @@ object Palette {
     val neutral_7 = Color(color = 0xff121212)
     val neutral_10 = Color(color = 0xff1a1a1a)
     val neutral_20 = Color(color = 0xff333333)
+
     /** Was previously #606060. Updated to improve contrast for accessibility. */
     val neutral_38 = Color(color = 0xff545454)
     val neutral_46 = Color(color = 0xff707070)
