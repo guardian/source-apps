@@ -26,4 +26,5 @@ jobs:
             AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD: ${{ secrets.AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD }}
           run: |
             cd android
-            ./gradlew :source:publishAllPublicationsToSonatypeRepository
+            ./gradlew :source:publishToSonatype closeAndReleaseSonatypeStagingRepository
+            # ./gradlew :source:publishAllPublicationsToSonatypeRepository
