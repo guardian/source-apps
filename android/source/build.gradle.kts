@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.gu.source"
+    namespace = libs.versions.group.get()
 
     defaultConfig {
         consumerProguardFiles("consumer-rules.pro")
@@ -39,13 +39,13 @@ dependencies {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "com.gu.source"
+            groupId = libs.versions.group.get()
             artifactId = "source-android"
             version = libs.versions.libraryVersion.get()
 
             pom {
                 name.set("Source Android")
-                description.set("Guardian design system library for Android")
+                description.set("The Guardian's design system library for Android")
                 url.set("https://github.com/guardian/source-apps")
                 packaging = "aar"
                 licenses {
@@ -81,16 +81,19 @@ publishing {
     }
 
     repositories {
-        maven {
-            name = "sonatype"
-            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
-            credentials {
-                username = "guardian.automated.maven.release"
-                password = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD")
-            }
-        }
+        // This is commented out because we're using nexus publishing plugin to publish to Sonatype.
+        // That's configured in the root build.gradle.kts file.
+//        maven {
+//            name = "sonatype"
+//            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+//            credentials {
+//                username = "guardian.automated.maven.release"
+//                password = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD")
+//            }
+//        }
 
         // Adds a task for publishing locally to the build directory.
+        // Use as `./gradlew :source:publishReleasePublicationToGusourceRepository`
         maven {
             name = "gusource"
             url = uri("${project.buildDir}/gusource")

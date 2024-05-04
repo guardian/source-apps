@@ -1,5 +1,6 @@
 [versions]
-libraryVersion = "0.1.0"
+group = "com.gu.source"
+libraryVersion = "0.1.1"
 compilesdk = "34"
 minsdk = "26"
 targetsdk = "33"
@@ -28,6 +29,7 @@ inject = "1"
 kotlinx-collections-immutable = "0.3.7"
 lifecycleRuntimeKtx = "2.7.0"
 lint-gradle = "1.0.0-alpha01"
+nexus-publish = "2.0.0"
 timber = "5.0.1"
 
 junit = "4.13.2"
@@ -91,6 +93,8 @@ agp-test = { id = "com.android.test", version.ref = "agp" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
+
+nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexus-publish" }
 
 # Guardian's convention plugins
 guardian-application = { id = "com.theguardian.application", version.ref = "guardian-convention-plugins" }

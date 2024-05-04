@@ -13,6 +13,20 @@ plugins {
     alias(libs.plugins.kotlinter) apply false
     alias(libs.plugins.detekt) apply false
     alias(libs.plugins.paparazzi) apply false
+    alias(libs.plugins.nexus.publish)
+}
+
+
+group = libs.versions.group.get()
+version = libs.versions.libraryVersion.get()
+
+nexusPublishing {
+    repositories {
+        sonatype {
+            username = "guardian.automated.maven.release"
+            password = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD")
+        }
+    }
 }
 
 allprojects {
