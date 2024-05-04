@@ -45,7 +45,7 @@ publishing {
 
             pom {
                 name.set("Source Android")
-                description.set("Guardian design system library for Android")
+                description.set("The Guardian's design system library for Android")
                 url.set("https://github.com/guardian/source-apps")
                 packaging = "aar"
                 licenses {

@@ -27,4 +27,3 @@ jobs:
           run: |
             cd android
             ./gradlew :source:publishToSonatype closeAndReleaseSonatypeStagingRepository
-            # ./gradlew :source:publishAllPublicationsToSonatypeRepository
