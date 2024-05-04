@@ -81,16 +81,19 @@ publishing {
     }
 
     repositories {
-        maven {
-            name = "sonatype"
-            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
-            credentials {
-                username = "guardian.automated.maven.release"
-                password = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD")
-            }
-        }
+        // This is commented out because we're using nexus publishing plugin to publish to Sonatype.
+        // That's configured in the root build.gradle.kts file.
+//        maven {
+//            name = "sonatype"
+//            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+//            credentials {
+//                username = "guardian.automated.maven.release"
+//                password = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD")
+//            }
+//        }
 
         // Adds a task for publishing locally to the build directory.
+        // Use as `./gradlew :source:publishReleasePublicationToGusourceRepository`
         maven {
             name = "gusource"
             url = uri("${project.buildDir}/gusource")

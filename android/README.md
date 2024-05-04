@@ -2,12 +2,9 @@
 
 # The Source library for Android
 
-> [!Note]
-> ~~This is an exploratory project as we evolve Source to support the apps, and the accompanying code infra.~~
-
 ### Using the library
 
-Add the library dependency:
+The library is available on Maven Central. Add the library dependency to your `build.gradle.kts` file:
 
 ```kotlin
 implementation("com.gu.source:source-android:0.0.1")
@@ -16,8 +13,6 @@ implementation("com.gu.source:source-android:0.0.1")
 See the main [README](../README.md) for using the library.
 
 ### Building and using as a bundled repo
-
-~~Please note: This is a temporary solution until we publish the library to mavencentral~~
 
 1. Build the library
    Run
@@ -31,6 +26,27 @@ See the main [README](../README.md) for using the library.
 
 3. Update the version number in the news app
    If the library version has changed, update it in the version catalog for the news app.
+
+### Building and using from maven local
+
+1. Build the library
+   Run
+   ```shell
+   ./gradlew :source:publishToMavenLocal
+   ```
+   This will publish the library to your local maven repository.
+
+2. Update the version number in the news app
+   If the library version has changed, update it in the version catalog for the news app.
+   
+3. Ensure you have `mavenLocal` declared first in your repositories
+   ```groovy
+   repositories {
+       mavenLocal()
+       mavenCentral()
+       google()
+   }
+   ```
 
 ### Other notes
 
