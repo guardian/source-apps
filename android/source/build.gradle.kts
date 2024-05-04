@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.gu.source"
+    namespace = libs.versions.group.get()
 
     defaultConfig {
         consumerProguardFiles("consumer-rules.pro")
@@ -39,7 +39,7 @@ dependencies {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "com.gu.source"
+            groupId = libs.versions.group.get()
             artifactId = "source-android"
             version = libs.versions.libraryVersion.get()
 
