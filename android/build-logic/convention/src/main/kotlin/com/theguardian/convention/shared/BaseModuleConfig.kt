@@ -72,6 +72,8 @@ private fun Project.setupKotlinCompilerOptions() {
                 "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
                 "-opt-in=kotlinx.coroutines.FlowPreview",
                 "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+                "-P",
+                "plugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=${libs.findVersion("kotlin").get()}",
             )
         }
     }

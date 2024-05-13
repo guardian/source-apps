@@ -16,7 +16,7 @@ kotlinter = "3.15.0"
 #kotlinter = "4.3.0"
 # Check kotlin-compose compiler compatibility chart here:
 # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
-compose-compiler = "1.5.11"
+compose-compiler = "1.5.13"
 
 activity = "1.9.0"
 appcompat = "1.6.1"
