@@ -10,6 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.gu.source.presets.palette.brand_400
+import com.gu.source.presets.typography.textArticle17
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,8 +32,8 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!\nWe're the Guardian, the world's leading liberal voice.",
         modifier = modifier,
-        style = Source.typography.textArticle17,
-        color = Source.palette.brand_400,
+        style = Source.Typography.textArticle17,
+        color = Source.Palette.brand_400,
     )
 }
 
