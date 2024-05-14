@@ -27,7 +27,7 @@ api("com.gu.source:source-android:<version>")
 
 ## Using the library
 
-The library exposes a single object `com.gu.Source`. Design presets are available as properties on this object, e.g. `Source.Typography.headlineBold15`.
+The library exposes a single object `com.gu.Source`. Design presets are available as properties on this object, e.g. `Source.Typography.HeadlineBold15`.
 
 The library bundles app font files, so they are not separately required in consumer apps.
 
@@ -40,7 +40,7 @@ Use typography presets directly in a `Text` component.
 ```kotlin
 Text(
     text = "The world's leading liberal voice",
-    style = Source.Typography.textEgyptianItalic14,
+    style = Source.Typography.TextEgyptianItalic14,
 )
 ```
 ### Core palette colours
@@ -50,7 +50,7 @@ Core palette colours are available for direct use in components through `Source.
 ```kotlin
 Text(
     text = "The world's leading liberal voice",
-    color = Source.Palette.brand_400,
+    color = Source.Palette.Brand_400,
 )
 ```
 

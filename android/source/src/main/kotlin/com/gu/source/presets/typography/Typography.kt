@@ -13,7 +13,7 @@ import com.gu.source.Source
 import com.gu.source.utils.fontFamilyResource
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineBold14: TextStyle
+val Source.Typography.HeadlineBold14: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_bold),
         fontSize = TextSize._14,
@@ -24,7 +24,7 @@ val Source.Typography.headlineBold14: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineBold15: TextStyle
+val Source.Typography.HeadlineBold15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_bold),
         fontSize = TextSize._15,
@@ -35,7 +35,7 @@ val Source.Typography.headlineBold15: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineBold16: TextStyle
+val Source.Typography.HeadlineBold16: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_bold),
         fontSize = TextSize._16,
@@ -46,7 +46,7 @@ val Source.Typography.headlineBold16: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineBold17: TextStyle
+val Source.Typography.HeadlineBold17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_bold),
         fontSize = TextSize._17,
@@ -57,7 +57,7 @@ val Source.Typography.headlineBold17: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineBold18: TextStyle
+val Source.Typography.HeadlineBold18: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_bold),
         fontSize = TextSize._18,
@@ -68,7 +68,7 @@ val Source.Typography.headlineBold18: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineBold20: TextStyle
+val Source.Typography.HeadlineBold20: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_bold),
         fontSize = TextSize._20,
@@ -79,7 +79,7 @@ val Source.Typography.headlineBold20: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineBold22: TextStyle
+val Source.Typography.HeadlineBold22: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_bold),
         fontSize = TextSize._22,
@@ -90,7 +90,7 @@ val Source.Typography.headlineBold22: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineBold24: TextStyle
+val Source.Typography.HeadlineBold24: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_bold),
         fontSize = TextSize._24,
@@ -101,7 +101,7 @@ val Source.Typography.headlineBold24: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineBold28: TextStyle
+val Source.Typography.HeadlineBold28: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_bold),
         fontSize = TextSize._28,
@@ -112,7 +112,7 @@ val Source.Typography.headlineBold28: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineBold34: TextStyle
+val Source.Typography.HeadlineBold34: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_bold),
         fontSize = TextSize._34,
@@ -123,7 +123,7 @@ val Source.Typography.headlineBold34: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineBold42: TextStyle
+val Source.Typography.HeadlineBold42: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_bold),
         fontSize = TextSize._42,
@@ -134,7 +134,7 @@ val Source.Typography.headlineBold42: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineLight14: TextStyle
+val Source.Typography.HeadlineLight14: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_light),
         fontSize = TextSize._14,
@@ -145,7 +145,7 @@ val Source.Typography.headlineLight14: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineLight15: TextStyle
+val Source.Typography.HeadlineLight15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_light),
         fontSize = TextSize._15,
@@ -156,7 +156,7 @@ val Source.Typography.headlineLight15: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineLight16: TextStyle
+val Source.Typography.HeadlineLight16: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_light),
         fontSize = TextSize._16,
@@ -167,7 +167,7 @@ val Source.Typography.headlineLight16: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineLight17: TextStyle
+val Source.Typography.HeadlineLight17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_light),
         fontSize = TextSize._17,
@@ -178,7 +178,7 @@ val Source.Typography.headlineLight17: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineLight18: TextStyle
+val Source.Typography.HeadlineLight18: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_light),
         fontSize = TextSize._18,
@@ -189,7 +189,7 @@ val Source.Typography.headlineLight18: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineLight20: TextStyle
+val Source.Typography.HeadlineLight20: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_light),
         fontSize = TextSize._20,
@@ -200,7 +200,7 @@ val Source.Typography.headlineLight20: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineLight22: TextStyle
+val Source.Typography.HeadlineLight22: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_light),
         fontSize = TextSize._22,
@@ -211,7 +211,7 @@ val Source.Typography.headlineLight22: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineLight24: TextStyle
+val Source.Typography.HeadlineLight24: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_light),
         fontSize = TextSize._24,
@@ -222,7 +222,7 @@ val Source.Typography.headlineLight24: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineLight28: TextStyle
+val Source.Typography.HeadlineLight28: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_light),
         fontSize = TextSize._28,
@@ -233,7 +233,7 @@ val Source.Typography.headlineLight28: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineLight34: TextStyle
+val Source.Typography.HeadlineLight34: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_light),
         fontSize = TextSize._34,
@@ -244,7 +244,7 @@ val Source.Typography.headlineLight34: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineLight42: TextStyle
+val Source.Typography.HeadlineLight42: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_light),
         fontSize = TextSize._42,
@@ -255,7 +255,7 @@ val Source.Typography.headlineLight42: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMedium14: TextStyle
+val Source.Typography.HeadlineMedium14: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_medium),
         fontSize = TextSize._14,
@@ -266,7 +266,7 @@ val Source.Typography.headlineMedium14: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMedium15: TextStyle
+val Source.Typography.HeadlineMedium15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_medium),
         fontSize = TextSize._15,
@@ -277,7 +277,7 @@ val Source.Typography.headlineMedium15: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMedium16: TextStyle
+val Source.Typography.HeadlineMedium16: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_medium),
         fontSize = TextSize._16,
@@ -288,7 +288,7 @@ val Source.Typography.headlineMedium16: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMedium17: TextStyle
+val Source.Typography.HeadlineMedium17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_medium),
         fontSize = TextSize._17,
@@ -299,7 +299,7 @@ val Source.Typography.headlineMedium17: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMedium18: TextStyle
+val Source.Typography.HeadlineMedium18: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_medium),
         fontSize = TextSize._18,
@@ -310,7 +310,7 @@ val Source.Typography.headlineMedium18: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMedium20: TextStyle
+val Source.Typography.HeadlineMedium20: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_medium),
         fontSize = TextSize._20,
@@ -321,7 +321,7 @@ val Source.Typography.headlineMedium20: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMedium22: TextStyle
+val Source.Typography.HeadlineMedium22: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_medium),
         fontSize = TextSize._22,
@@ -332,7 +332,7 @@ val Source.Typography.headlineMedium22: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMedium24: TextStyle
+val Source.Typography.HeadlineMedium24: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_medium),
         fontSize = TextSize._24,
@@ -343,7 +343,7 @@ val Source.Typography.headlineMedium24: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMedium28: TextStyle
+val Source.Typography.HeadlineMedium28: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_medium),
         fontSize = TextSize._28,
@@ -354,7 +354,7 @@ val Source.Typography.headlineMedium28: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMedium34: TextStyle
+val Source.Typography.HeadlineMedium34: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_medium),
         fontSize = TextSize._34,
@@ -365,7 +365,7 @@ val Source.Typography.headlineMedium34: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMedium42: TextStyle
+val Source.Typography.HeadlineMedium42: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_medium),
         fontSize = TextSize._42,
@@ -376,7 +376,7 @@ val Source.Typography.headlineMedium42: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMediumItalic14: TextStyle
+val Source.Typography.HeadlineMediumItalic14: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_mediumitalic),
         fontSize = TextSize._14,
@@ -387,7 +387,7 @@ val Source.Typography.headlineMediumItalic14: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMediumItalic15: TextStyle
+val Source.Typography.HeadlineMediumItalic15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_mediumitalic),
         fontSize = TextSize._15,
@@ -398,7 +398,7 @@ val Source.Typography.headlineMediumItalic15: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMediumItalic16: TextStyle
+val Source.Typography.HeadlineMediumItalic16: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_mediumitalic),
         fontSize = TextSize._16,
@@ -409,7 +409,7 @@ val Source.Typography.headlineMediumItalic16: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMediumItalic17: TextStyle
+val Source.Typography.HeadlineMediumItalic17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_mediumitalic),
         fontSize = TextSize._17,
@@ -420,7 +420,7 @@ val Source.Typography.headlineMediumItalic17: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMediumItalic18: TextStyle
+val Source.Typography.HeadlineMediumItalic18: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_mediumitalic),
         fontSize = TextSize._18,
@@ -431,7 +431,7 @@ val Source.Typography.headlineMediumItalic18: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMediumItalic20: TextStyle
+val Source.Typography.HeadlineMediumItalic20: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_mediumitalic),
         fontSize = TextSize._20,
@@ -442,7 +442,7 @@ val Source.Typography.headlineMediumItalic20: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMediumItalic22: TextStyle
+val Source.Typography.HeadlineMediumItalic22: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_mediumitalic),
         fontSize = TextSize._22,
@@ -453,7 +453,7 @@ val Source.Typography.headlineMediumItalic22: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMediumItalic24: TextStyle
+val Source.Typography.HeadlineMediumItalic24: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_mediumitalic),
         fontSize = TextSize._24,
@@ -464,7 +464,7 @@ val Source.Typography.headlineMediumItalic24: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMediumItalic28: TextStyle
+val Source.Typography.HeadlineMediumItalic28: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_mediumitalic),
         fontSize = TextSize._28,
@@ -475,7 +475,7 @@ val Source.Typography.headlineMediumItalic28: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMediumItalic34: TextStyle
+val Source.Typography.HeadlineMediumItalic34: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_mediumitalic),
         fontSize = TextSize._34,
@@ -486,7 +486,7 @@ val Source.Typography.headlineMediumItalic34: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineMediumItalic42: TextStyle
+val Source.Typography.HeadlineMediumItalic42: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_mediumitalic),
         fontSize = TextSize._42,
@@ -497,7 +497,7 @@ val Source.Typography.headlineMediumItalic42: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineSemiBold14: TextStyle
+val Source.Typography.HeadlineSemiBold14: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_semibold),
         fontSize = TextSize._14,
@@ -508,7 +508,7 @@ val Source.Typography.headlineSemiBold14: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineSemiBold15: TextStyle
+val Source.Typography.HeadlineSemiBold15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_semibold),
         fontSize = TextSize._15,
@@ -519,7 +519,7 @@ val Source.Typography.headlineSemiBold15: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineSemiBold16: TextStyle
+val Source.Typography.HeadlineSemiBold16: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_semibold),
         fontSize = TextSize._16,
@@ -530,7 +530,7 @@ val Source.Typography.headlineSemiBold16: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineSemiBold18: TextStyle
+val Source.Typography.HeadlineSemiBold18: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_semibold),
         fontSize = TextSize._18,
@@ -541,7 +541,7 @@ val Source.Typography.headlineSemiBold18: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineSemiBold24: TextStyle
+val Source.Typography.HeadlineSemiBold24: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_semibold),
         fontSize = TextSize._24,
@@ -552,7 +552,7 @@ val Source.Typography.headlineSemiBold24: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
-val Source.Typography.headlineSemiBold28: TextStyle
+val Source.Typography.HeadlineSemiBold28: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_semibold),
         fontSize = TextSize._28,
@@ -563,7 +563,7 @@ val Source.Typography.headlineSemiBold28: TextStyle
     )
 
 /** Use for article body text. */
-val Source.Typography.textArticle15: TextStyle
+val Source.Typography.TextArticle15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_regular),
         fontSize = TextSize._15,
@@ -574,7 +574,7 @@ val Source.Typography.textArticle15: TextStyle
     )
 
 /** Use for article body text. */
-val Source.Typography.textArticle17: TextStyle
+val Source.Typography.TextArticle17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_regular),
         fontSize = TextSize._17,
@@ -585,7 +585,7 @@ val Source.Typography.textArticle17: TextStyle
     )
 
 /** Use for article body text. */
-val Source.Typography.textArticleBold15: TextStyle
+val Source.Typography.TextArticleBold15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_medium),
         fontSize = TextSize._15,
@@ -596,7 +596,7 @@ val Source.Typography.textArticleBold15: TextStyle
     )
 
 /** Use for article body text. */
-val Source.Typography.textArticleBold17: TextStyle
+val Source.Typography.TextArticleBold17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_medium),
         fontSize = TextSize._17,
@@ -607,7 +607,7 @@ val Source.Typography.textArticleBold17: TextStyle
     )
 
 /** Use for article body text. */
-val Source.Typography.textArticleItalic15: TextStyle
+val Source.Typography.TextArticleItalic15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_regularitalic),
         fontSize = TextSize._15,
@@ -618,7 +618,7 @@ val Source.Typography.textArticleItalic15: TextStyle
     )
 
 /** Use for article body text. */
-val Source.Typography.textArticleItalic17: TextStyle
+val Source.Typography.TextArticleItalic17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_regularitalic),
         fontSize = TextSize._17,
@@ -629,7 +629,7 @@ val Source.Typography.textArticleItalic17: TextStyle
     )
 
 /** Use for article body text. */
-val Source.Typography.textArticleBoldItalic15: TextStyle
+val Source.Typography.TextArticleBoldItalic15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_mediumitalic),
         fontSize = TextSize._15,
@@ -640,7 +640,7 @@ val Source.Typography.textArticleBoldItalic15: TextStyle
     )
 
 /** Use for article body text. */
-val Source.Typography.textArticleBoldItalic17: TextStyle
+val Source.Typography.TextArticleBoldItalic17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_mediumitalic),
         fontSize = TextSize._17,
@@ -651,7 +651,7 @@ val Source.Typography.textArticleBoldItalic17: TextStyle
     )
 
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
-val Source.Typography.textEgyptian14: TextStyle
+val Source.Typography.TextEgyptian14: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_regular),
         fontSize = TextSize._14,
@@ -662,7 +662,7 @@ val Source.Typography.textEgyptian14: TextStyle
     )
 
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
-val Source.Typography.textEgyptian15: TextStyle
+val Source.Typography.TextEgyptian15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_regular),
         fontSize = TextSize._15,
@@ -673,7 +673,7 @@ val Source.Typography.textEgyptian15: TextStyle
     )
 
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
-val Source.Typography.textEgyptian17: TextStyle
+val Source.Typography.TextEgyptian17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_regular),
         fontSize = TextSize._17,
@@ -685,7 +685,7 @@ val Source.Typography.textEgyptian17: TextStyle
 
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
 // TODO: 12/04/2024 App doesn't have a bold Egyptian font so using medium
-val Source.Typography.textEgyptianBold14: TextStyle
+val Source.Typography.TextEgyptianBold14: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_medium),
         fontSize = TextSize._14,
@@ -697,7 +697,7 @@ val Source.Typography.textEgyptianBold14: TextStyle
 
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
 // TODO: 12/04/2024 App doesn't have a bold Egyptian font so using medium
-val Source.Typography.textEgyptianBold15: TextStyle
+val Source.Typography.TextEgyptianBold15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_medium),
         fontSize = TextSize._15,
@@ -709,7 +709,7 @@ val Source.Typography.textEgyptianBold15: TextStyle
 
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
 // TODO: 12/04/2024 App doesn't have a bold Egyptian font so using medium
-val Source.Typography.textEgyptianBold17: TextStyle
+val Source.Typography.TextEgyptianBold17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_medium),
         fontSize = TextSize._17,
@@ -721,7 +721,7 @@ val Source.Typography.textEgyptianBold17: TextStyle
 
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
 // TODO: 12/04/2024 App doesn't have a bold Egyptian font so using medium
-val Source.Typography.textEgyptianBoldItalic14: TextStyle
+val Source.Typography.TextEgyptianBoldItalic14: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_mediumitalic),
         fontSize = TextSize._14,
@@ -733,7 +733,7 @@ val Source.Typography.textEgyptianBoldItalic14: TextStyle
 
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
 // TODO: 12/04/2024 App doesn't have a bold Egyptian font so using medium
-val Source.Typography.textEgyptianBoldItalic15: TextStyle
+val Source.Typography.TextEgyptianBoldItalic15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_mediumitalic),
         fontSize = TextSize._15,
@@ -745,7 +745,7 @@ val Source.Typography.textEgyptianBoldItalic15: TextStyle
 
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
 // TODO: 12/04/2024 App doesn't have a bold Egyptian font so using medium
-val Source.Typography.textEgyptianBoldItalic17: TextStyle
+val Source.Typography.TextEgyptianBoldItalic17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_mediumitalic),
         fontSize = TextSize._17,
@@ -756,7 +756,7 @@ val Source.Typography.textEgyptianBoldItalic17: TextStyle
     )
 
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
-val Source.Typography.textEgyptianItalic14: TextStyle
+val Source.Typography.TextEgyptianItalic14: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_regularitalic),
         fontSize = TextSize._14,
@@ -767,7 +767,7 @@ val Source.Typography.textEgyptianItalic14: TextStyle
     )
 
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
-val Source.Typography.textEgyptianItalic15: TextStyle
+val Source.Typography.TextEgyptianItalic15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_regularitalic),
         fontSize = TextSize._15,
@@ -778,7 +778,7 @@ val Source.Typography.textEgyptianItalic15: TextStyle
     )
 
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
-val Source.Typography.textEgyptianItalic17: TextStyle
+val Source.Typography.TextEgyptianItalic17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardiantextegyptian_regularitalic),
         fontSize = TextSize._17,
@@ -801,7 +801,7 @@ val Source.Typography.textEgyptianItalic17: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSans11: TextStyle
+val Source.Typography.TextSans11: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._11,
@@ -824,7 +824,7 @@ val Source.Typography.textSans11: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSans12: TextStyle
+val Source.Typography.TextSans12: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._12,
@@ -847,7 +847,7 @@ val Source.Typography.textSans12: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSans14: TextStyle
+val Source.Typography.TextSans14: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._14,
@@ -870,7 +870,7 @@ val Source.Typography.textSans14: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSans15: TextStyle
+val Source.Typography.TextSans15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._15,
@@ -893,7 +893,7 @@ val Source.Typography.textSans15: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSans17: TextStyle
+val Source.Typography.TextSans17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._17,
@@ -916,7 +916,7 @@ val Source.Typography.textSans17: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSans20: TextStyle
+val Source.Typography.TextSans20: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._20,
@@ -939,7 +939,7 @@ val Source.Typography.textSans20: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSans24: TextStyle
+val Source.Typography.TextSans24: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._24,
@@ -962,7 +962,7 @@ val Source.Typography.textSans24: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSans28: TextStyle
+val Source.Typography.TextSans28: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._28,
@@ -985,7 +985,7 @@ val Source.Typography.textSans28: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSans34: TextStyle
+val Source.Typography.TextSans34: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._34,
@@ -1008,7 +1008,7 @@ val Source.Typography.textSans34: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansBold11: TextStyle
+val Source.Typography.TextSansBold11: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_bold),
         fontSize = TextSize._11,
@@ -1031,7 +1031,7 @@ val Source.Typography.textSansBold11: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansBold12: TextStyle
+val Source.Typography.TextSansBold12: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_bold),
         fontSize = TextSize._12,
@@ -1054,7 +1054,7 @@ val Source.Typography.textSansBold12: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansBold14: TextStyle
+val Source.Typography.TextSansBold14: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_bold),
         fontSize = TextSize._14,
@@ -1077,7 +1077,7 @@ val Source.Typography.textSansBold14: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansBold15: TextStyle
+val Source.Typography.TextSansBold15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_bold),
         fontSize = TextSize._15,
@@ -1100,7 +1100,7 @@ val Source.Typography.textSansBold15: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansBold17: TextStyle
+val Source.Typography.TextSansBold17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_bold),
         fontSize = TextSize._17,
@@ -1123,7 +1123,7 @@ val Source.Typography.textSansBold17: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansBold20: TextStyle
+val Source.Typography.TextSansBold20: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_bold),
         fontSize = TextSize._20,
@@ -1146,7 +1146,7 @@ val Source.Typography.textSansBold20: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansBold24: TextStyle
+val Source.Typography.TextSansBold24: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_bold),
         fontSize = TextSize._24,
@@ -1169,7 +1169,7 @@ val Source.Typography.textSansBold24: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansBold28: TextStyle
+val Source.Typography.TextSansBold28: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_bold),
         fontSize = TextSize._28,
@@ -1192,7 +1192,7 @@ val Source.Typography.textSansBold28: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansBold34: TextStyle
+val Source.Typography.TextSansBold34: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_bold),
         fontSize = TextSize._34,
@@ -1216,7 +1216,7 @@ val Source.Typography.textSansBold34: TextStyle
  * from editorial content.
  */
 // TODO: 12/04/2024 App doesn't have an italic text sans font so using regular
-val Source.Typography.textSansItalic11: TextStyle
+val Source.Typography.TextSansItalic11: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._11,
@@ -1239,7 +1239,7 @@ val Source.Typography.textSansItalic11: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansItalic12: TextStyle
+val Source.Typography.TextSansItalic12: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._12,
@@ -1262,7 +1262,7 @@ val Source.Typography.textSansItalic12: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansItalic14: TextStyle
+val Source.Typography.TextSansItalic14: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._14,
@@ -1285,7 +1285,7 @@ val Source.Typography.textSansItalic14: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansItalic15: TextStyle
+val Source.Typography.TextSansItalic15: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._15,
@@ -1308,7 +1308,7 @@ val Source.Typography.textSansItalic15: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansItalic17: TextStyle
+val Source.Typography.TextSansItalic17: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._17,
@@ -1331,7 +1331,7 @@ val Source.Typography.textSansItalic17: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansItalic20: TextStyle
+val Source.Typography.TextSansItalic20: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._20,
@@ -1354,7 +1354,7 @@ val Source.Typography.textSansItalic20: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansItalic24: TextStyle
+val Source.Typography.TextSansItalic24: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._24,
@@ -1377,7 +1377,7 @@ val Source.Typography.textSansItalic24: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansItalic28: TextStyle
+val Source.Typography.TextSansItalic28: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._28,
@@ -1400,7 +1400,7 @@ val Source.Typography.textSansItalic28: TextStyle
  * _Note_: Text Sans is used across the board on paid content templates to help differentiate
  * from editorial content.
  */
-val Source.Typography.textSansItalic34: TextStyle
+val Source.Typography.TextSansItalic34: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.guardian_texsan_two_regular),
         fontSize = TextSize._34,
@@ -1414,7 +1414,7 @@ val Source.Typography.textSansItalic34: TextStyle
  * Use for impact. Ideal for marketing messages, page headers and numerals. Use sparingly
  * and at large sizes only.
  */
-val Source.Typography.titlepiece42: TextStyle
+val Source.Typography.Titlepiece42: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.gtguardiantitlepiece_bold),
         fontSize = TextSize._42,
@@ -1428,7 +1428,7 @@ val Source.Typography.titlepiece42: TextStyle
  * Use for impact. Ideal for marketing messages, page headers and numerals. Use sparingly
  * and at large sizes only.
  */
-val Source.Typography.titlepiece50: TextStyle
+val Source.Typography.Titlepiece50: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.gtguardiantitlepiece_bold),
         fontSize = TextSize._50,
@@ -1442,7 +1442,7 @@ val Source.Typography.titlepiece50: TextStyle
  * Use for impact. Ideal for marketing messages, page headers and numerals. Use sparingly
  * and at large sizes only.
  */
-val Source.Typography.titlepiece70: TextStyle
+val Source.Typography.Titlepiece70: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.gtguardiantitlepiece_bold),
         fontSize = TextSize._70,
