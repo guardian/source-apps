@@ -16,18 +16,18 @@ Add the dependency to `build.gradle.kts` for the consuming module:
 implementation("com.gu.source:source-android:<version>")
 ```
 
-Alternatively, add it to your app's core design module as an `api` dependency. It will be transitively available to all other modules:
+<!-- Alternatively, add it to your app's core design module as an `api` dependency. It will be transitively available to all other modules:
 
 ```kotlin
 api("com.gu.source:source-android:<version>")
-```
+```-->
 
 > [!Note]
 > See [here](/android/README.md) if you need to build and bundle the library as a local repository.
 
 ## Using the library
 
-The library exposes a single object `com.gu.Source`. Design presets are available as properties on this object, e.g. `Source.typography.headlineBold15`.
+The library exposes a single object `com.gu.Source`. Design presets are available as properties on this object, e.g. `Source.Typography.headlineBold15`.
 
 The library bundles app font files, so they are not separately required in consumer apps.
 
@@ -40,17 +40,17 @@ Use typography presets directly in a `Text` component.
 ```kotlin
 Text(
     text = "The world's leading liberal voice",
-    style = Source.typography.textEgyptianItalic14,
+    style = Source.Typography.textEgyptianItalic14,
 )
 ```
 ### Core palette colours
 
-Core palette colours are available for direct use in components through `Source.palette`.
+Core palette colours are available for direct use in components through `Source.Palette`.
 
 ```kotlin
 Text(
     text = "The world's leading liberal voice",
-    color = Source.palette.brand_400,
+    color = Source.Palette.brand_400,
 )
 ```
 
