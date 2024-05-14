@@ -1,23 +1,31 @@
 package com.gu.source
 
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
-import com.gu.source.Source.typography
-import com.gu.source.presets.palette.Palette
-import com.gu.source.presets.typography.Typography
+import com.gu.source.Source.Palette
+import com.gu.source.Source.Typography
 
 /**
- * Source is the Guardian's design system. This object provides handles to tokens for colours(TBD),
- * [typography] and more.
+ * Source is the Guardian's design system. This object provides handles to tokens for [Typography],
+ * [Palette] and more.
  */
 object Source {
     /**
-     * [TextStyle] presets.
+     * App typography presets.
+     * The Guardian has four bespoke typefaces, which were created for different purposes. When
+     * used effectively, they create contrast and alter the tone in which text is read.
+     *
+     * **Where do we use app typography presets?**
+     * Any content crafted and developed within the app's native environment, including the app
+     * fronts, My Guardian, custom modals, and supporter revenue messages.
+     *
+     * Note: Article pages and sign-in/registration pages are presented in a webview, hence
+     * utilising web typography presets.
      */
-    val typography = Typography
+    object Typography
 
     /**
-     * Core [Color] palette tokens.
+     * App core colour palette.
+     *
+     * [Palette colour definitions](https://theguardian.design/2a1e5182b/p/71fb50-colour/b/399c59)).
      */
-    val palette = Palette
+    object Palette
 }
