@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.gu.source.presets.palette.Brand_400
+import com.gu.source.presets.palette.Brand400
 import com.gu.source.presets.typography.TextArticle17
 
 class MainActivity : ComponentActivity() {
@@ -33,7 +33,7 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
         text = "Hello $name!\nWe're the Guardian, the world's leading liberal voice.",
         modifier = modifier,
         style = Source.Typography.TextArticle17,
-        color = Source.Palette.Brand_400,
+        color = Source.Palette.Brand400,
     )
 }
 
