@@ -1,11 +1,11 @@
 name: Test
 
 on:
-  # pull_request:
-  # merge_group:
-  #   types: [checks_requested]
-  # push:
-  #   branches: [ main ]
+  pull_request:
+  merge_group:
+    types: [checks_requested]
+  push:
+    branches: [ main ]
   workflow_dispatch:
 
 concurrency:
@@ -31,7 +31,7 @@ jobs:
             - '.github/**'          
 
   screenshots:
-    name: UI regression tests
+    name: Screenshot tests
     needs: changes
     if: ${{ needs.changes.outputs.android == 'true' }}
     runs-on: ubuntu-latest
@@ -54,6 +54,7 @@ jobs:
       - name: Run tests
         id: screenshot-tests
         run: |
+          cd android
           ./gradlew verifyPaparazziDebug --continue --quiet
 
       - name: Create companion branch and comment content
@@ -92,7 +93,7 @@ jobs:
             echo "reports<<${delimiter}"
 
             # Create markdown table header
-            echo "**Screenshot tests failed**<br/>${#files_to_add[@]} failures.Please check the failure diffs:"
+            echo "**Screenshot tests failed**<br/>${#files_to_add[@]} failures. Please check the failure diffs:"
             echo "| Image |"
             echo "|-------|"
           } >> "$GITHUB_OUTPUT"
