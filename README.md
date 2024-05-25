@@ -6,7 +6,7 @@
 
 # Android Usage
 
-![Available on maven central](https://maven-badges.herokuapp.com/maven-central/com.gu.source/source-android/badge.svg)
+[![Available on maven central](https://maven-badges.herokuapp.com/maven-central/com.gu.source/source-android/badge.svg)](https://central.sonatype.com/artifact/com.gu.source/source-android)
 
 ## Add the library dependency
 
@@ -50,7 +50,7 @@ Core palette colours are available for direct use in components through `Source.
 ```kotlin
 Text(
     text = "The world's leading liberal voice",
-    color = Source.Palette.Brand_400,
+    color = Source.Palette.Brand400,
 )
 ```
 
