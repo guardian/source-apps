@@ -1,15 +1,20 @@
 package com.gu.source.components.buttons
 
 import androidx.annotation.Discouraged
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Done
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
+import com.gu.source.daynight.AppColourMode
 import com.gu.source.presets.palette.Brand400
 import com.gu.source.presets.typography.TextSansBold14
 import com.gu.source.presets.typography.TextSansBold17
@@ -48,7 +53,8 @@ object SourceButton {
         TertiaryOnBlue,
         PrimaryOnYellow,
         SecondaryOnYellow,
-        TertiaryOnYellow,;
+        TertiaryOnYellow,
+        ;
 
         fun isSecondary() = this in setOf(
             SecondaryOnWhite,
@@ -95,7 +101,12 @@ fun SourceTextButton(
     imagePosition: SourceButton.ImagePosition = SourceButton.ImagePosition.Left,
     imageContent: @Composable () -> Unit = {},
 ) {
-    SourceBaseButton(size = size, style = style, modifier = modifier, theme = theme) {
+    SourceBaseButton(
+        size = size,
+        style = style,
+        modifier = modifier,
+        theme = theme,
+    ) {
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             if (imagePosition == SourceButton.ImagePosition.Left) {
                 imageContent()
@@ -112,14 +123,47 @@ fun SourceTextButton(
 
 @Composable
 fun SourceIconButton(
-    text: String,
     size: SourceButton.Size,
     style: SourceButton.Style,
     modifier: Modifier = Modifier,
     @Discouraged("Wrap the whole composition in the theme local composition instead.")
     theme: SourceButton.Theme? = null,
-    imagePosition: SourceButton.ImagePosition = SourceButton.ImagePosition.Left,
     imageContent: @Composable () -> Unit = {},
 ) {
-    // TODO: 23/05/2024
+    SourceBaseButton(
+        size = size,
+        style = style,
+        modifier = modifier,
+        theme = theme,
+    ) {
+        imageContent()
+    }
+}
+
+@Preview
+@Composable
+private fun TextButtonPreview() {
+    AppColourMode {
+        SourceTextButton(
+            text = "Button",
+            size = SourceButton.Size.Small,
+            style = SourceButton.Style.PrimaryOnWhite,
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun IconButtonPreview() {
+    AppColourMode {
+        SourceIconButton(
+            size = SourceButton.Size.Small,
+            style = SourceButton.Style.PrimaryOnWhite,
+        ) {
+            Image(
+                imageVector = Icons.Default.Done,
+                contentDescription = null,
+            )
+        }
+    }
 }
