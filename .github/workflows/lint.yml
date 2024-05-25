@@ -1,4 +1,4 @@
-name: Static code checks
+name: Lint
 on:
   pull_request:
   merge_group:
@@ -13,6 +13,7 @@ concurrency:
 
 jobs:
   changes:
+    name: Check for Android changes
     runs-on: ubuntu-latest
     permissions:
       pull-requests: read
