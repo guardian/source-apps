@@ -93,7 +93,7 @@ jobs:
             echo "reports<<${delimiter}"
 
             # Create markdown table header
-            echo "**Screenshot tests failed**<br/>${#files_to_add[@]} failures.Please check the failure diffs:"
+            echo "**Screenshot tests failed**<br/>${#files_to_add[@]} failures. Please check the failure diffs:"
             echo "| Image |"
             echo "|-------|"
           } >> "$GITHUB_OUTPUT"
