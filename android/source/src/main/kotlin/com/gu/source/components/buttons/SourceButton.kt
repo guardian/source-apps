@@ -6,6 +6,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Done
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -78,6 +81,7 @@ object SourceButton {
 fun SourceBaseButton(
     size: SourceButton.Size,
     style: SourceButton.Style,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @Discouraged("Wrap the whole composition in the theme local composition instead.")
     theme: SourceButton.Theme? = null,
@@ -88,13 +92,34 @@ fun SourceBaseButton(
     ) { "ReaderRevenue theme doesn't have secondary buttons." }
 
     // TODO: 23/05/2024
+    Button(
+        onClick = onClick,
+        modifier = modifier,
+//            .defaultMinSize(
+//            minWidth = defaultMinWidth,
+//            minHeight = defaultMinHeight,
+//        )
+//        shape = MaterialTheme.shapes.small.copy(all = CornerSize(viewData.cornerRadius)),
+        //colors = viewData.buttonColors,
+        elevation = ButtonDefaults.buttonElevation(
+            defaultElevation = 0.dp,
+            pressedElevation = 0.dp,
+            focusedElevation = 0.dp,
+            hoveredElevation = 0.dp,
+            disabledElevation = 0.dp,
+        ),
+        //border = viewData.borderStroke,
+        //contentPadding = padding,
+        content = { content() },
+    )
 }
 
 @Composable
-fun SourceTextButton(
+fun SourceButton(
     text: String,
     size: SourceButton.Size,
     style: SourceButton.Style,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @Discouraged("Wrap the whole composition in the theme local composition instead.")
     theme: SourceButton.Theme? = null,
@@ -104,6 +129,7 @@ fun SourceTextButton(
     SourceBaseButton(
         size = size,
         style = style,
+        onClick = onClick,
         modifier = modifier,
         theme = theme,
     ) {
@@ -125,17 +151,13 @@ fun SourceTextButton(
 fun SourceIconButton(
     size: SourceButton.Size,
     style: SourceButton.Style,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @Discouraged("Wrap the whole composition in the theme local composition instead.")
     theme: SourceButton.Theme? = null,
     imageContent: @Composable () -> Unit = {},
 ) {
-    SourceBaseButton(
-        size = size,
-        style = style,
-        modifier = modifier,
-        theme = theme,
-    ) {
+    IconButton(onClick = { /*TODO*/ }) {
         imageContent()
     }
 }
@@ -144,10 +166,11 @@ fun SourceIconButton(
 @Composable
 private fun TextButtonPreview() {
     AppColourMode {
-        SourceTextButton(
+        SourceButton(
             text = "Button",
             size = SourceButton.Size.Small,
             style = SourceButton.Style.PrimaryOnWhite,
+            onClick = {},
         )
     }
 }
@@ -159,6 +182,7 @@ private fun IconButtonPreview() {
         SourceIconButton(
             size = SourceButton.Size.Small,
             style = SourceButton.Style.PrimaryOnWhite,
+            onClick = {},
         ) {
             Image(
                 imageVector = Icons.Default.Done,
