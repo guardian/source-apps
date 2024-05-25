@@ -28,7 +28,6 @@ import com.gu.source.components.buttons.SourceButton.MinButtonWidth
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.Check
-import com.gu.source.icons.SourceIcon
 import com.gu.source.presets.palette.Brand400
 import com.gu.source.presets.palette.BrandAlt400
 import com.gu.source.presets.palette.Neutral100
@@ -59,6 +58,8 @@ object SourceButton {
     /** Enum for the size of the [SourceButton]. */
     enum class Size(
         internal val heightDp: Int,
+        /** This icon size is used for icons in [SourceIconButton]. */
+        internal val iconSizeDp: Int,
         internal val textStyle: TextStyle,
         internal val contentPadding: PaddingValues,
         internal val shortName: String,
@@ -66,6 +67,7 @@ object SourceButton {
         /** Thin button, 24dp tall. */
         XSmall(
             heightDp = 24,
+            iconSizeDp = 14,
             textStyle = Source.Typography.TextSansBold14.copy(letterSpacing = 0.sp),
             contentPadding = ContentPaddingXSmall,
             shortName = "xsm",
@@ -74,6 +76,7 @@ object SourceButton {
         /** Normal button, 36dp tall. */
         Small(
             heightDp = 36,
+            iconSizeDp = 18,
             textStyle = Source.Typography.TextSansBold17.copy(letterSpacing = 0.sp),
             contentPadding = ContentPadding,
             shortName = "sm",
@@ -82,6 +85,7 @@ object SourceButton {
         /** Large button, 44dp tall. */
         Medium(
             heightDp = 44,
+            iconSizeDp = 22,
             textStyle = Source.Typography.TextSansBold17.copy(letterSpacing = 0.sp),
             contentPadding = ContentPadding,
             shortName = "md",
@@ -164,7 +168,7 @@ object SourceButton {
 /**
  * A basic Source compatible button component.
  * This is a low-level component and should be sparingly used only for custom buttons. Prefer to
- * use [SourceButton] or [SourceIconButton] instead.
+ * use [SourceButton] or [SourceBaseIconButton] instead.
  *
  * @param size Button size from [SourceButton.Size]s.
  * @param style Button style from [SourceButton.Style]s.
@@ -202,11 +206,10 @@ fun SourceBaseButton(
 
     Button(
         onClick = onClick,
-        modifier = modifier
-            .defaultMinSize(
-                minWidth = MinButtonWidth,
-                minHeight = size.heightDp.dp,
-            ),
+        modifier = modifier.defaultMinSize(
+            minWidth = MinButtonWidth,
+            minHeight = size.heightDp.dp,
+        ),
         shape = CircleShape,
         colors = ButtonDefaults.buttonColors(
             containerColor = buttonColours.container.current,
@@ -312,7 +315,7 @@ private fun CoreButtonIconBeforePreview() {
                                 iconPosition = SourceButton.IconPosition.Left,
                                 icon = {
                                     Icon(
-                                        imageVector = SourceIcon.Check,
+                                        imageVector = Source.Icons.Base.Check,
                                         contentDescription = null,
                                         modifier = it,
                                     )
@@ -349,7 +352,7 @@ private fun RrButtonIconBeforePreview() {
                                     iconPosition = SourceButton.IconPosition.Left,
                                     icon = {
                                         Icon(
-                                            imageVector = SourceIcon.Check,
+                                            imageVector = Source.Icons.Base.Check,
                                             contentDescription = null,
                                             modifier = it,
                                         )
@@ -444,7 +447,7 @@ private fun CoreButtonIconAfterPreview() {
                                 iconPosition = SourceButton.IconPosition.Right,
                                 icon = {
                                     Icon(
-                                        imageVector = SourceIcon.Check,
+                                        imageVector = Source.Icons.Base.Check,
                                         contentDescription = null,
                                         modifier = it,
                                     )
@@ -481,7 +484,7 @@ private fun RrButtonIconAfterPreview() {
                                     iconPosition = SourceButton.IconPosition.Right,
                                     icon = {
                                         Icon(
-                                            imageVector = SourceIcon.Check,
+                                            imageVector = Source.Icons.Base.Check,
                                             contentDescription = null,
                                             modifier = it,
                                         )
