@@ -1,7 +1,8 @@
 package com.gu.source.components.buttons
 
 import com.gu.source.Source
-import com.gu.source.Source.Theme.*
+import com.gu.source.Source.Theme.Core
+import com.gu.source.Source.Theme.ReaderRevenue
 import com.gu.source.components.buttons.SourceButton.Style.*
 import com.gu.source.daynight.AppColour
 import com.gu.source.presets.palette.*
@@ -276,7 +277,7 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
             )
         }
 
-        else -> {
+        SecondaryOnBlue, SecondaryOnWhite, SecondaryOnYellow -> {
             throw IllegalArgumentException("Secondary not supported in ReaderRevenue theme")
         }
     }

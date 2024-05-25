@@ -48,11 +48,11 @@ object SourceButton {
     // increased to 24.dp.
     internal val ContentPadding = PaddingValues(
         vertical = 8.dp,
-        horizontal = 20.dp
+        horizontal = 20.dp,
     )
     internal val ContentPaddingXSmall = PaddingValues(
         vertical = 0.dp,
-        horizontal = 20.dp
+        horizontal = 20.dp,
     )
     internal val MinButtonWidth = 66.dp
 
@@ -63,18 +63,23 @@ object SourceButton {
         internal val contentPadding: PaddingValues,
         internal val shortName: String,
     ) {
+        /** Thin button, 24dp tall. */
         XSmall(
             heightDp = 24,
             textStyle = Source.Typography.TextSansBold14.copy(letterSpacing = 0.sp),
             contentPadding = ContentPaddingXSmall,
             shortName = "xsm",
         ),
+
+        /** Normal button, 36dp tall. */
         Small(
             heightDp = 36,
             textStyle = Source.Typography.TextSansBold17.copy(letterSpacing = 0.sp),
             contentPadding = ContentPadding,
             shortName = "sm",
         ),
+
+        /** Large button, 44dp tall. */
         Medium(
             heightDp = 44,
             textStyle = Source.Typography.TextSansBold17.copy(letterSpacing = 0.sp),
@@ -150,12 +155,34 @@ object SourceButton {
         }
     }
 
-    /** Enum for the icon position in text button. */
+    /** Enum for the position of icon relative to the button text. */
     enum class IconPosition {
         Left, Right,
     }
 }
 
+/**
+ * A basic Source compatible button component.
+ * This is a low-level component and should be sparingly used only for custom buttons. Prefer to
+ * use [SourceButton] or [SourceIconButton] instead.
+ *
+ * @param size Button size from [SourceButton.Size]s.
+ * @param style Button style from [SourceButton.Style]s.
+ * @param onClick Callback for action to take when user clicks the button.
+ * @param modifier Optional [Modifier]
+ * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
+ * from [LocalSourceTheme] will be used.
+ *
+ * Unless using the button as a standalone component, it is recommended to wrap the whole
+ * screen/sheet with [SourceCoreTheme] or [ReaderRevenueTheme] to provide consistent theme to all
+ * child components once.
+ * @param content Slot for composable content to present inside the button.
+ */
+@Discouraged(
+    "Prefer to use `SourceButton`." +
+        " It provide correct correct styling & size for text and icons." +
+        " This variant is for custom button designs only.",
+)
 @Composable
 fun SourceBaseButton(
     size: SourceButton.Size,
@@ -194,13 +221,31 @@ fun SourceBaseButton(
         ),
         border = BorderStroke(
             width = 1.dp,
-            color = buttonColours.border.current
+            color = buttonColours.border.current,
         ),
         contentPadding = size.contentPadding,
         content = { content() },
     )
 }
 
+/**
+ * A Source button component with text and an optional icon.
+ *
+ * @param text Text to display on the button.
+ * @param size Button size from [SourceButton.Size]s.
+ * @param style Button style from [SourceButton.Style]s.
+ * @param onClick Callback for action to take when user clicks the button.
+ * @param modifier Optional [Modifier]
+ * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
+ * from [LocalSourceTheme] will be used.
+ *
+ * Unless using the button as a standalone component, it is recommended to wrap the whole
+ * screen/sheet with [SourceCoreTheme] or [ReaderRevenueTheme] to provide consistent theme to all
+ * child components once.
+ * @param iconPosition Optional position of the icon relative to the button text. Defaults to
+ * [SourceButton.IconPosition.Left].
+ * @param icon Optional icon to display on the button.
+ */
 @Composable
 fun SourceButton(
     text: String,
@@ -235,7 +280,7 @@ fun SourceButton(
                 softWrap = false,
                 maxLines = 1,
                 letterSpacing = 0.sp,
-                modifier = Modifier.offset(y = (-1).dp)
+                modifier = Modifier.offset(y = (-1).dp),
             )
 
             if (iconPosition == SourceButton.IconPosition.Right) {
