@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -234,7 +235,7 @@ fun SourceButton(
                 softWrap = false,
                 maxLines = 1,
                 letterSpacing = 0.sp,
-                modifier = Modifier.alignByBaseline()
+                modifier = Modifier.offset(y = (-1).dp)
             )
 
             if (iconPosition == SourceButton.IconPosition.Right) {
