@@ -31,7 +31,7 @@ jobs:
             - '.github/**'          
 
   screenshots:
-    name: UI regression tests
+    name: Screenshot tests
     needs: changes
     if: ${{ needs.changes.outputs.android == 'true' }}
     runs-on: ubuntu-latest
