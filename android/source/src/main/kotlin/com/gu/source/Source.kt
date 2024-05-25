@@ -30,8 +30,8 @@ object Source {
      */
     object Palette
 
-    @Discouraged("These are not ready for production use.")
     /** Source provided raw icons. */
+    @Discouraged("These are not ready for production use.")
     object Icons {
         /** Base icons without any decoration around them. */
         object Base

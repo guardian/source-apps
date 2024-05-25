@@ -1,6 +1,7 @@
 package com.gu.source.components.buttons
 
 import androidx.annotation.Discouraged
+import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -293,9 +294,10 @@ fun SourceButton(
     }
 }
 
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PhoneBothModePreviews
 @Composable
-private fun CoreButtonIconBeforePreview() {
+internal fun CoreButtonIconBeforePreview() {
     AppColourMode {
         SourceCoreTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
@@ -329,9 +331,10 @@ private fun CoreButtonIconBeforePreview() {
     }
 }
 
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PhoneBothModePreviews
 @Composable
-private fun RrButtonIconBeforePreview() {
+internal fun RrButtonIconBeforePreview() {
     AppColourMode {
         ReaderRevenueTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
@@ -367,9 +370,10 @@ private fun RrButtonIconBeforePreview() {
     }
 }
 
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PhoneBothModePreviews
 @Composable
-private fun CoreButtonTextOnlyPreview() {
+internal fun CoreButtonTextOnlyPreview() {
     AppColourMode {
         SourceCoreTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
@@ -395,9 +399,10 @@ private fun CoreButtonTextOnlyPreview() {
     }
 }
 
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PhoneBothModePreviews
 @Composable
-private fun RrButtonTextOnlyPreview() {
+internal fun RrButtonTextOnlyPreview() {
     AppColourMode {
         ReaderRevenueTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
@@ -425,9 +430,10 @@ private fun RrButtonTextOnlyPreview() {
     }
 }
 
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PhoneBothModePreviews
 @Composable
-private fun CoreButtonIconAfterPreview() {
+internal fun CoreButtonIconAfterPreview() {
     AppColourMode {
         SourceCoreTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
@@ -461,9 +467,10 @@ private fun CoreButtonIconAfterPreview() {
     }
 }
 
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PhoneBothModePreviews
 @Composable
-private fun RrButtonIconAfterPreview() {
+internal fun RrButtonIconAfterPreview() {
     AppColourMode {
         ReaderRevenueTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {

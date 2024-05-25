@@ -1,5 +1,6 @@
 package com.gu.source.components.buttons
 
+import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -210,9 +211,10 @@ fun SourceIconButton(
     }
 }
 
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PhoneBothModePreviews
 @Composable
-private fun CoreIconButtonPreview() {
+internal fun CoreIconButtonPreview() {
     AppColourMode {
         SourceCoreTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
@@ -239,9 +241,10 @@ private fun CoreIconButtonPreview() {
     }
 }
 
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PhoneBothModePreviews
 @Composable
-private fun RrIconButtonPreview() {
+internal fun RrIconButtonPreview() {
     AppColourMode {
         ReaderRevenueTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
