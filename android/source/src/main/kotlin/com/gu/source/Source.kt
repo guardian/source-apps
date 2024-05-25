@@ -28,4 +28,9 @@ object Source {
      * [Palette colour definitions](https://theguardian.design/2a1e5182b/p/71fb50-colour/b/399c59)).
      */
     object Palette
+
+    /** Source colour themes used by components. */
+    enum class Theme {
+        Core, ReaderRevenue,
+    }
 }
