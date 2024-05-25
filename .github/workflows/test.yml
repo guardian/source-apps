@@ -54,6 +54,7 @@ jobs:
       - name: Run tests
         id: screenshot-tests
         run: |
+          cd android
           ./gradlew verifyPaparazziDebug --continue --quiet
 
       - name: Create companion branch and comment content
