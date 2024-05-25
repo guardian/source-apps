@@ -1,5 +1,6 @@
 package com.gu.source.presets.typography
 
+import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
@@ -12,10 +13,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @OptIn(ExperimentalLayoutApi::class)
 @Preview(device = Devices.PIXEL_C, showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
-private fun Preview() {
+internal fun TypographyPreview() {
     Column {
         FlowRow {
             Text(

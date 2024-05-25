@@ -3,3 +3,4 @@
 .swiftpm/xcode/package.xcworkspace/xcuserdata/
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 *.xcuserstate
+.vscode
