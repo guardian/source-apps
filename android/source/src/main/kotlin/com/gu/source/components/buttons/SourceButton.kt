@@ -30,9 +30,12 @@ import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.Check
 import com.gu.source.presets.palette.Brand400
+import com.gu.source.presets.palette.BrandAlt200
 import com.gu.source.presets.palette.BrandAlt400
+import com.gu.source.presets.palette.Neutral0
 import com.gu.source.presets.palette.Neutral100
 import com.gu.source.presets.palette.Neutral38
+import com.gu.source.presets.palette.Neutral7
 import com.gu.source.presets.typography.TextSansBold14
 import com.gu.source.presets.typography.TextSansBold17
 import com.gu.source.theme.LocalSourceTheme
@@ -95,15 +98,15 @@ object SourceButton {
 
     /** Enum for the style of the [SourceButton]. */
     enum class Style {
-        PrimaryOnWhite,
-        SecondaryOnWhite,
-        TertiaryOnWhite,
         PrimaryOnBlue,
         SecondaryOnBlue,
         TertiaryOnBlue,
         PrimaryOnYellow,
         SecondaryOnYellow,
         TertiaryOnYellow,
+        PrimaryOnWhite,
+        SecondaryOnWhite,
+        TertiaryOnWhite,
         ;
 
         internal fun isSecondary() = this in setOf(
@@ -112,51 +115,20 @@ object SourceButton {
             SecondaryOnYellow,
         )
 
-        internal fun getBackdropColour() = when (this) {
-            PrimaryOnWhite -> AppColour(
+        internal fun getBackdropColour() = when {
+            name.endsWith("OnWhite") -> AppColour(
                 light = Source.Palette.Neutral100,
-                dark = Source.Palette.Neutral100,
+                dark = Source.Palette.Neutral0,
             )
-
-            SecondaryOnWhite -> AppColour(
-                light = Source.Palette.Neutral100,
-                dark = Source.Palette.Neutral100,
-            )
-
-            TertiaryOnWhite -> AppColour(
-                light = Source.Palette.Neutral100,
-                dark = Source.Palette.Neutral100,
-            )
-
-            PrimaryOnBlue -> AppColour(
+            name.endsWith("OnBlue") -> AppColour(
                 light = Source.Palette.Brand400,
-                dark = Source.Palette.Brand400,
+                dark = Source.Palette.Neutral7,
             )
-
-            SecondaryOnBlue -> AppColour(
-                light = Source.Palette.Brand400,
-                dark = Source.Palette.Brand400,
-            )
-
-            TertiaryOnBlue -> AppColour(
-                light = Source.Palette.Brand400,
-                dark = Source.Palette.Brand400,
-            )
-
-            PrimaryOnYellow -> AppColour(
+            name.endsWith("OnYellow") -> AppColour(
                 light = Source.Palette.BrandAlt400,
-                dark = Source.Palette.BrandAlt400,
+                dark = Source.Palette.BrandAlt200,
             )
-
-            SecondaryOnYellow -> AppColour(
-                light = Source.Palette.BrandAlt400,
-                dark = Source.Palette.BrandAlt400,
-            )
-
-            TertiaryOnYellow -> AppColour(
-                light = Source.Palette.BrandAlt400,
-                dark = Source.Palette.BrandAlt400,
-            )
+            else -> AppColour.Unspecified
         }
     }
 

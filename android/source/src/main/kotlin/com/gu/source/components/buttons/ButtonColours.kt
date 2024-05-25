@@ -24,15 +24,15 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Brand400,
+                    dark = Source.Palette.Neutral86,
                 ),
                 container = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Brand400,
+                    dark = Source.Palette.Neutral86,
                 ),
                 content = AppColour(
                     light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral100,
+                    dark = Source.Palette.Brand400,
                 ),
             )
         }
@@ -41,15 +41,12 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.Brand800,
-                    dark = Source.Palette.Brand800,
                 ),
                 container = AppColour(
                     light = Source.Palette.Brand800,
-                    dark = Source.Palette.Brand800,
                 ),
                 content = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Brand400,
                 ),
             )
         }
@@ -58,15 +55,15 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Brand400,
+                    dark = Source.Palette.Neutral86,
                 ),
                 container = AppColour(
                     light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral100,
+                    dark = Source.Palette.Neutral0,
                 ),
                 content = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Brand400,
+                    dark = Source.Palette.Neutral86,
                 ),
             )
         }
@@ -75,15 +72,12 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral100,
                 ),
                 container = AppColour(
                     light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral100,
                 ),
                 content = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Brand400,
                 ),
             )
         }
@@ -92,15 +86,12 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.Brand600,
-                    dark = Source.Palette.Brand600,
                 ),
                 container = AppColour(
                     light = Source.Palette.Brand600,
-                    dark = Source.Palette.Brand600,
                 ),
                 content = AppColour(
                     light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral100,
                 ),
             )
         }
@@ -113,11 +104,11 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
                 ),
                 container = AppColour(
                     light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral100,
+                    dark = Source.Palette.Neutral7,
                 ),
                 content = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Brand400,
+                    dark = Source.Palette.Neutral100,
                 ),
             )
         }
@@ -126,15 +117,12 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.Neutral0,
-                    dark = Source.Palette.Neutral0,
                 ),
                 container = AppColour(
                     light = Source.Palette.Neutral0,
-                    dark = Source.Palette.Neutral0,
                 ),
                 content = AppColour(
                     light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral100,
                 ),
             )
         }
@@ -143,15 +131,14 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.BrandAlt200,
-                    dark = Source.Palette.BrandAlt200,
+                    dark = Source.Palette.Brand800,
                 ),
                 container = AppColour(
                     light = Source.Palette.BrandAlt200,
-                    dark = Source.Palette.BrandAlt200,
+                    dark = Source.Palette.Brand800,
                 ),
                 content = AppColour(
                     light = Source.Palette.Neutral7,
-                    dark = Source.Palette.Neutral7,
                 ),
             )
         }
@@ -160,15 +147,12 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.Neutral7,
-                    dark = Source.Palette.Neutral7,
                 ),
                 container = AppColour(
                     light = Source.Palette.BrandAlt400,
-                    dark = Source.Palette.BrandAlt400,
                 ),
                 content = AppColour(
                     light = Source.Palette.Neutral7,
-                    dark = Source.Palette.Neutral7,
                 ),
             )
         }
@@ -179,15 +163,12 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.BrandAlt400,
-                    dark = Source.Palette.BrandAlt400,
                 ),
                 container = AppColour(
                     light = Source.Palette.BrandAlt400,
-                    dark = Source.Palette.BrandAlt400,
                 ),
                 content = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Brand400,
                 ),
             )
         }
@@ -196,15 +177,15 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Brand400,
+                    dark = Source.Palette.Neutral86,
                 ),
                 container = AppColour(
                     light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral100,
+                    dark = Source.Palette.Neutral0,
                 ),
                 content = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Brand400,
+                    dark = Source.Palette.Neutral86,
                 ),
             )
         }
@@ -213,15 +194,12 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.BrandAlt400,
-                    dark = Source.Palette.BrandAlt400,
                 ),
                 container = AppColour(
                     light = Source.Palette.BrandAlt400,
-                    dark = Source.Palette.BrandAlt400,
                 ),
                 content = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Brand400,
                 ),
             )
         }
@@ -234,7 +212,7 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
                 ),
                 container = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Brand400,
+                    dark = Source.Palette.Neutral7,
                 ),
                 content = AppColour(
                     light = Source.Palette.BrandAlt400,
@@ -246,16 +224,13 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
         PrimaryOnYellow -> {
             ButtonColours(
                 border = AppColour(
-                    light = Source.Palette.Neutral0,
-                    dark = Source.Palette.Neutral0,
+                    light = Source.Palette.Neutral7,
                 ),
                 container = AppColour(
-                    light = Source.Palette.Neutral0,
-                    dark = Source.Palette.Neutral0,
+                    light = Source.Palette.Neutral7,
                 ),
                 content = AppColour(
                     light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral100,
                 ),
             )
         }
@@ -268,7 +243,7 @@ internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
                 ),
                 container = AppColour(
                     light = Source.Palette.BrandAlt400,
-                    dark = Source.Palette.BrandAlt400,
+                    dark = Source.Palette.BrandAlt200,
                 ),
                 content = AppColour(
                     light = Source.Palette.Neutral7,
