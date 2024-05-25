@@ -111,7 +111,7 @@ jobs:
         uses: peter-evans/find-comment@v3
         id: find-comment
         # Don't run on merge queue branches
-        if: ${{ always() && !startsWith(github.ref, 'refs/heads/gh-readonly-queue/') }}
+        if: ${{ always() && !startsWith(github.ref, 'refs/heads/gh-readonly-queue/') && github.ref != 'refs/heads/main' }}
         with:
           issue-number: ${{ github.event.number }}
           comment-author: 'github-actions[bot]'
@@ -120,7 +120,7 @@ jobs:
       - name: Add or update comment on PR
         uses: peter-evans/create-or-update-comment@v4
         # Don't run on merge queue branches, only run if screenshot tests failed and companion branch created
-        if: ${{ failure() && !startsWith(github.ref, 'refs/heads/gh-readonly-queue/') && steps.screenshot-tests.outcome != 'success' && steps.create-companion-branch.outcome == 'success' }}
+        if: ${{ failure() && !startsWith(github.ref, 'refs/heads/gh-readonly-queue/')  && github.ref != 'refs/heads/main' && steps.screenshot-tests.outcome != 'success' && steps.create-companion-branch.outcome == 'success' }}
         with:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}
           issue-number: ${{ github.event.number }}
@@ -130,7 +130,7 @@ jobs:
       - name: Resolve comment on PR
         uses: peter-evans/create-or-update-comment@v4
         # Don't run on merge queue branches, only run if screenshot tests passed and comment exists
-        if: ${{ success() && !startsWith(github.ref, 'refs/heads/gh-readonly-queue/') && success() && steps.find-comment.outputs.comment-id != '' }}
+        if: ${{ success() && !startsWith(github.ref, 'refs/heads/gh-readonly-queue/')  && github.ref != 'refs/heads/main' && success() && steps.find-comment.outputs.comment-id != '' }}
         with:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}
           issue-number: ${{ github.event.number }}
