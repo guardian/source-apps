@@ -92,11 +92,11 @@ fun SourceBaseIconButton(
  *
  * @param icon The icon to display in the button. Use an icon from [Source.Icons] or Material
  * [Icons].
- * @param size The size of the button.
  * @param style The style of the button.
  * @param contentDescription The content description for the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
+ * @param size Optional size for the button. Defaults to [SourceButton.Size.Medium].
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
  * from [LocalSourceTheme] will be used.
  *
@@ -107,11 +107,11 @@ fun SourceBaseIconButton(
 @Composable
 fun SourceIconButton(
     icon: ImageVector,
-    size: SourceButton.Size,
     style: SourceButton.Style,
     contentDescription: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    size: SourceButton.Size = SourceButton.Size.Medium,
     theme: Source.Theme? = null,
 ) {
     SourceBaseIconButton(
@@ -133,11 +133,11 @@ fun SourceIconButton(
  * Source icon-only button.
  *
  * @param painter The icon to display in the button.
- * @param size The size of the button.
  * @param style The style of the button.
  * @param contentDescription The content description for the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
+ * @param size Optional size for the button. Defaults to [SourceButton.Size.Medium].
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
  * from [LocalSourceTheme] will be used.
  *
@@ -148,11 +148,11 @@ fun SourceIconButton(
 @Composable
 fun SourceIconButton(
     painter: Painter,
-    size: SourceButton.Size,
     style: SourceButton.Style,
     contentDescription: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    size: SourceButton.Size = SourceButton.Size.Medium,
     theme: Source.Theme? = null,
 ) {
     SourceBaseIconButton(
@@ -174,11 +174,11 @@ fun SourceIconButton(
  * Source icon-only button.
  *
  * @param icon The icon to display in the button.
- * @param size The size of the button.
  * @param style The style of the button.
  * @param contentDescription The content description for the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
+ * @param size Optional size for the button. Defaults to [SourceButton.Size.Medium].
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
  * from [LocalSourceTheme] will be used.
  *
@@ -189,11 +189,11 @@ fun SourceIconButton(
 @Composable
 fun SourceIconButton(
     icon: ImageBitmap,
-    size: SourceButton.Size,
     style: SourceButton.Style,
     contentDescription: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    size: SourceButton.Size = SourceButton.Size.Medium,
     theme: Source.Theme? = null,
 ) {
     SourceBaseIconButton(
@@ -228,10 +228,10 @@ internal fun CoreIconButtonPreview() {
                         SourceButton.Size.entries.forEach { size ->
                             SourceIconButton(
                                 icon = Source.Icons.Base.Check,
-                                size = size,
                                 style = style,
                                 contentDescription = null,
                                 onClick = {},
+                                size = size,
                             )
                         }
                     }
@@ -259,10 +259,10 @@ internal fun RrIconButtonPreview() {
                             SourceButton.Size.entries.forEach { size ->
                                 SourceIconButton(
                                     icon = Source.Icons.Base.Check,
-                                    size = size,
                                     style = style,
                                     contentDescription = null,
                                     onClick = {},
+                                    size = size,
                                 )
                             }
                         }

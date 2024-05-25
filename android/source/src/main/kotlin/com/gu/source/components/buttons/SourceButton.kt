@@ -208,10 +208,11 @@ fun SourceBaseButton(
  * A Source button component with text and an optional icon.
  *
  * @param text Text to display on the button.
- * @param size Button size from [SourceButton.Size]s.
  * @param style Button style from [SourceButton.Style]s.
  * @param onClick Callback for action to take when user clicks the button.
  * @param modifier Optional [Modifier]
+ * @param size Optional button size from [SourceButton.Size]s. Defaults to
+ * [SourceButton.Size.Small].
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
  * from [LocalSourceTheme] will be used.
  *
@@ -225,11 +226,10 @@ fun SourceBaseButton(
 @Composable
 fun SourceButton(
     text: String,
-    size: SourceButton.Size,
     style: SourceButton.Style,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    @Discouraged("Wrap the whole composition in the theme local composition instead.")
+    size: SourceButton.Size = SourceButton.Size.Small,
     theme: Source.Theme? = null,
     iconPosition: SourceButton.IconPosition = SourceButton.IconPosition.Left,
     icon: @Composable (Modifier) -> Unit = {},
@@ -283,9 +283,9 @@ internal fun CoreButtonIconBeforePreview() {
                         SourceButton.Size.entries.forEach { size ->
                             SourceButton(
                                 text = style.getPreviewName(size),
-                                size = size,
                                 style = style,
                                 onClick = {},
+                                size = size,
                                 iconPosition = SourceButton.IconPosition.Left,
                                 icon = {
                                     Icon(
@@ -321,9 +321,9 @@ internal fun RrButtonIconBeforePreview() {
                             SourceButton.Size.entries.forEach { size ->
                                 SourceButton(
                                     text = style.getPreviewName(size),
-                                    size = size,
                                     style = style,
                                     onClick = {},
+                                    size = size,
                                     iconPosition = SourceButton.IconPosition.Left,
                                     icon = {
                                         Icon(
@@ -359,9 +359,9 @@ internal fun CoreButtonTextOnlyPreview() {
                         SourceButton.Size.entries.forEach { size ->
                             SourceButton(
                                 text = style.getPreviewName(size),
-                                size = size,
                                 style = style,
                                 onClick = {},
+                                size = size,
                             )
                         }
                     }
@@ -389,9 +389,9 @@ internal fun RrButtonTextOnlyPreview() {
                             SourceButton.Size.entries.forEach { size ->
                                 SourceButton(
                                     text = style.getPreviewName(size),
-                                    size = size,
                                     style = style,
                                     onClick = {},
+                                    size = size,
                                 )
                             }
                         }
@@ -419,9 +419,9 @@ internal fun CoreButtonIconAfterPreview() {
                         SourceButton.Size.entries.forEach { size ->
                             SourceButton(
                                 text = style.getPreviewName(size),
-                                size = size,
                                 style = style,
                                 onClick = {},
+                                size = size,
                                 iconPosition = SourceButton.IconPosition.Right,
                                 icon = {
                                     Icon(
@@ -457,9 +457,9 @@ internal fun RrButtonIconAfterPreview() {
                             SourceButton.Size.entries.forEach { size ->
                                 SourceButton(
                                     text = style.getPreviewName(size),
-                                    size = size,
                                     style = style,
                                     onClick = {},
+                                    size = size,
                                     iconPosition = SourceButton.IconPosition.Right,
                                     icon = {
                                         Icon(
