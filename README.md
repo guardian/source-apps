@@ -54,7 +54,43 @@ Text(
 )
 ```
 
+### Buttons
 
+Two button components are available - `SourceButton` and `SourceIconButton`.
+
+The buttons are have preset style and size variants corresponding to Source presets. Both Core and Reader Revenue themes are also provided.
+
+Using `SourceButton`:
+```kotlin
+SourceButton(
+    text = "Sign in",
+    style = SourceButton.Style.PrimaryOnWhite,
+    onClick = {},
+    size = SourceButton.Size.Small,
+)
+```
+
+Using `SourceIconButton` with a Material Icon:
+```kotlin
+SourceIconButton(
+    icon = Icons.Default.Person,
+    style = SourceButton.Style.SecondaryOnBlue,
+    contentDescription = null,
+    onClick = {},
+    size = SourceButton.Size.Medium,
+)
+```
+
+Using `SourceIconButton` with a drawable resource:
+```kotlin
+SourceIconButton(
+    painter = painterResource(R.drawable.ic_person),
+    style = SourceButton.Style.SecondaryOnBlue,
+    contentDescription = null,
+    onClick = {},
+    size = SourceButton.Size.Medium,
+)
+```
 
 ----
 
