@@ -1,24 +1,41 @@
 package com.gu.source.components.buttons
 
 import androidx.annotation.Discouraged
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Done
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.IconButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
+import com.gu.source.components.buttons.SourceButton.MinButtonWidth
+import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
+import com.gu.source.icons.Check
+import com.gu.source.icons.SourceIcon
 import com.gu.source.presets.palette.Brand400
+import com.gu.source.presets.palette.BrandAlt400
+import com.gu.source.presets.palette.Neutral100
+import com.gu.source.presets.palette.Neutral38
 import com.gu.source.presets.typography.TextSansBold14
 import com.gu.source.presets.typography.TextSansBold17
 
@@ -27,22 +44,42 @@ import com.gu.source.presets.typography.TextSansBold17
  * Object for property models for the [SourceBasicButton] component.
  */
 object SourceButton {
+    // Horizontal padding updated to match M2 button padding. In M3, the horizontal padding has
+    // increased to 24.dp.
+    internal val ContentPadding = PaddingValues(
+        vertical = 8.dp,
+        horizontal = 20.dp
+    )
+    internal val ContentPaddingXSmall = PaddingValues(
+        vertical = 0.dp,
+        horizontal = 20.dp
+    )
+    internal val MinButtonWidth = 66.dp
+
     /** Enum for the size of the [SourceBasicButton]. */
     enum class Size(
         internal val heightDp: Int,
         internal val textStyle: TextStyle,
+        internal val contentPadding: PaddingValues,
+        internal val shortName: String,
     ) {
         XSmall(
             heightDp = 24,
             textStyle = Source.Typography.TextSansBold14.copy(letterSpacing = 0.sp),
+            contentPadding = ContentPaddingXSmall,
+            shortName = "xsm",
         ),
         Small(
             heightDp = 36,
             textStyle = Source.Typography.TextSansBold17.copy(letterSpacing = 0.sp),
+            contentPadding = ContentPadding,
+            shortName = "sm",
         ),
         Medium(
             heightDp = 44,
             textStyle = Source.Typography.TextSansBold17.copy(letterSpacing = 0.sp),
+            contentPadding = ContentPadding,
+            shortName = "md",
         ),
     }
 
@@ -59,20 +96,62 @@ object SourceButton {
         TertiaryOnYellow,
         ;
 
-        fun isSecondary() = this in setOf(
+        internal fun isSecondary() = this in setOf(
             SecondaryOnWhite,
             SecondaryOnBlue,
             SecondaryOnYellow,
         )
+
+        internal fun getBackdropColour() = when (this) {
+            PrimaryOnWhite -> AppColour(
+                light = Source.Palette.Neutral100,
+                dark = Source.Palette.Neutral100,
+            )
+
+            SecondaryOnWhite -> AppColour(
+                light = Source.Palette.Neutral100,
+                dark = Source.Palette.Neutral100,
+            )
+
+            TertiaryOnWhite -> AppColour(
+                light = Source.Palette.Neutral100,
+                dark = Source.Palette.Neutral100,
+            )
+
+            PrimaryOnBlue -> AppColour(
+                light = Source.Palette.Brand400,
+                dark = Source.Palette.Brand400,
+            )
+
+            SecondaryOnBlue -> AppColour(
+                light = Source.Palette.Brand400,
+                dark = Source.Palette.Brand400,
+            )
+
+            TertiaryOnBlue -> AppColour(
+                light = Source.Palette.Brand400,
+                dark = Source.Palette.Brand400,
+            )
+
+            PrimaryOnYellow -> AppColour(
+                light = Source.Palette.BrandAlt400,
+                dark = Source.Palette.BrandAlt400,
+            )
+
+            SecondaryOnYellow -> AppColour(
+                light = Source.Palette.BrandAlt400,
+                dark = Source.Palette.BrandAlt400,
+            )
+
+            TertiaryOnYellow -> AppColour(
+                light = Source.Palette.BrandAlt400,
+                dark = Source.Palette.BrandAlt400,
+            )
+        }
     }
 
-    /** Enum for the source style theme. */
-    enum class Theme {
-        Core,
-        ReaderRevenue,
-    }
-
-    enum class ImagePosition {
+    /** Enum for the icon position in text button. */
+    enum class IconPosition {
         Left, Right,
     }
 }
@@ -84,23 +163,27 @@ fun SourceBaseButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @Discouraged("Wrap the whole composition in the theme local composition instead.")
-    theme: SourceButton.Theme? = null,
+    theme: Source.Theme? = null,
     content: @Composable () -> Unit,
 ) {
     require(
-        !(theme == SourceButton.Theme.ReaderRevenue && style.isSecondary()),
+        !(theme == Source.Theme.ReaderRevenue && style.isSecondary()),
     ) { "ReaderRevenue theme doesn't have secondary buttons." }
 
-    // TODO: 23/05/2024
+    val buttonColours = style.toColours(theme ?: Source.Theme.Core)
+
     Button(
         onClick = onClick,
-        modifier = modifier,
-//            .defaultMinSize(
-//            minWidth = defaultMinWidth,
-//            minHeight = defaultMinHeight,
-//        )
-//        shape = MaterialTheme.shapes.small.copy(all = CornerSize(viewData.cornerRadius)),
-        //colors = viewData.buttonColors,
+        modifier = modifier
+            .defaultMinSize(
+                minWidth = MinButtonWidth,
+                minHeight = size.heightDp.dp,
+            ),
+        shape = CircleShape,
+        colors = ButtonDefaults.buttonColors(
+            containerColor = buttonColours.container.current,
+            contentColor = buttonColours.content.current,
+        ),
         elevation = ButtonDefaults.buttonElevation(
             defaultElevation = 0.dp,
             pressedElevation = 0.dp,
@@ -108,8 +191,11 @@ fun SourceBaseButton(
             hoveredElevation = 0.dp,
             disabledElevation = 0.dp,
         ),
-        //border = viewData.borderStroke,
-        //contentPadding = padding,
+        border = BorderStroke(
+            width = 1.dp,
+            color = buttonColours.border.current
+        ),
+        contentPadding = size.contentPadding,
         content = { content() },
     )
 }
@@ -122,9 +208,9 @@ fun SourceButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @Discouraged("Wrap the whole composition in the theme local composition instead.")
-    theme: SourceButton.Theme? = null,
-    imagePosition: SourceButton.ImagePosition = SourceButton.ImagePosition.Left,
-    imageContent: @Composable () -> Unit = {},
+    theme: Source.Theme? = null,
+    iconPosition: SourceButton.IconPosition = SourceButton.IconPosition.Left,
+    icon: @Composable (Modifier) -> Unit = {},
 ) {
     SourceBaseButton(
         size = size,
@@ -133,47 +219,159 @@ fun SourceButton(
         modifier = modifier,
         theme = theme,
     ) {
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            if (imagePosition == SourceButton.ImagePosition.Left) {
-                imageContent()
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            if (iconPosition == SourceButton.IconPosition.Left) {
+                icon(Modifier.size(size.textStyle.fontSize.value.dp))
             }
 
-            Text(text = text, style = size.textStyle, color = Source.Palette.Brand400)
+            Text(
+                text = text,
+                style = size.textStyle,
+                overflow = TextOverflow.Ellipsis,
+                softWrap = false,
+                maxLines = 1,
+                letterSpacing = 0.sp,
+                modifier = Modifier.alignByBaseline()
+            )
 
-            if (imagePosition == SourceButton.ImagePosition.Right) {
-                imageContent()
+            if (iconPosition == SourceButton.IconPosition.Right) {
+                icon(Modifier.size(size.textStyle.fontSize.value.dp))
             }
         }
     }
 }
 
+@Preview
 @Composable
-fun SourceIconButton(
-    size: SourceButton.Size,
-    style: SourceButton.Style,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-    @Discouraged("Wrap the whole composition in the theme local composition instead.")
-    theme: SourceButton.Theme? = null,
-    imageContent: @Composable () -> Unit = {},
-) {
-    IconButton(onClick = { /*TODO*/ }) {
-        imageContent()
+private fun CoreButtonIconBeforePreview() {
+    AppColourMode {
+        Column(Modifier.background(Source.Palette.Neutral38)) {
+            SourceButton.Style.entries.forEach { style ->
+                Row(
+                    modifier = Modifier
+                        .background(style.getBackdropColour().current)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceAround,
+                ) {
+                    SourceButton.Size.entries.forEach { size ->
+                        SourceButton(
+                            text = style.getPreviewName(size),
+                            size = size,
+                            style = style,
+                            onClick = {},
+                            iconPosition = SourceButton.IconPosition.Left,
+                            icon = {
+                                Icon(
+                                    imageVector = SourceIcon.Check,
+                                    contentDescription = null,
+                                    modifier = it,
+                                )
+                            },
+                        )
+                    }
+                }
+            }
+        }
     }
 }
 
 @Preview
 @Composable
-private fun TextButtonPreview() {
+private fun RrButtonIconBeforePreview() {
     AppColourMode {
-        SourceButton(
-            text = "Button",
-            size = SourceButton.Size.Small,
-            style = SourceButton.Style.PrimaryOnWhite,
-            onClick = {},
-        )
+        Column(Modifier.background(Source.Palette.Neutral38)) {
+            SourceButton.Style.entries.forEach { style ->
+                if (!style.name.contains("Secondary")) {
+                    Row(
+                        modifier = Modifier
+                            .background(style.getBackdropColour().current)
+                            .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceAround,
+                    ) {
+                        SourceButton.Size.entries.forEach { size ->
+                            SourceButton(
+                                text = style.getPreviewName(size),
+                                size = size,
+                                style = style,
+                                onClick = {},
+                                theme = Source.Theme.ReaderRevenue,
+                                iconPosition = SourceButton.IconPosition.Left,
+                                icon = {
+                                    Icon(
+                                        imageVector = SourceIcon.Check,
+                                        contentDescription = null,
+                                        modifier = it,
+                                    )
+                                },
+                            )
+                        }
+                    }
+                }
+            }
+        }
     }
 }
+
+@Preview
+@Composable
+private fun CoreButtonTextOnlyPreview() {
+    AppColourMode {
+        Column(Modifier.background(Source.Palette.Neutral38)) {
+            SourceButton.Style.entries.forEach { style ->
+                Row(
+                    modifier = Modifier
+                        .background(style.getBackdropColour().current)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceAround,
+                ) {
+                    SourceButton.Size.entries.forEach { size ->
+                        SourceButton(
+                            text = style.getPreviewName(size),
+                            size = size,
+                            style = style,
+                            onClick = {},
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun RrButtonTextOnlyPreview() {
+    AppColourMode {
+        Column(Modifier.background(Source.Palette.Neutral38)) {
+            SourceButton.Style.entries.forEach { style ->
+                if (!style.name.contains("Secondary")) {
+                    Row(
+                        modifier = Modifier
+                            .background(style.getBackdropColour().current)
+                            .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceAround,
+                    ) {
+                        SourceButton.Size.entries.forEach { size ->
+                            SourceButton(
+                                text = style.getPreviewName(size),
+                                size = size,
+                                style = style,
+                                onClick = {},
+                                theme = Source.Theme.ReaderRevenue,
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+private fun SourceButton.Style.getPreviewName(size: SourceButton.Size) =
+    "${name.take(n = 3).lowercase()}.${size.shortName}"
 
 @Preview
 @Composable
