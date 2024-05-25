@@ -2,7 +2,6 @@ package com.gu.source.components.buttons
 
 import androidx.annotation.Discouraged
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,8 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Done
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -24,7 +21,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
@@ -39,10 +35,13 @@ import com.gu.source.presets.palette.Neutral100
 import com.gu.source.presets.palette.Neutral38
 import com.gu.source.presets.typography.TextSansBold14
 import com.gu.source.presets.typography.TextSansBold17
-
+import com.gu.source.theme.LocalSourceTheme
+import com.gu.source.theme.ReaderRevenueTheme
+import com.gu.source.theme.SourceCoreTheme
+import com.gu.source.utils.PhoneBothModePreviews
 
 /**
- * Object for property models for the [SourceBasicButton] component.
+ * Object for property models for the [SourceButton] component.
  */
 object SourceButton {
     // Horizontal padding updated to match M2 button padding. In M3, the horizontal padding has
@@ -57,7 +56,7 @@ object SourceButton {
     )
     internal val MinButtonWidth = 66.dp
 
-    /** Enum for the size of the [SourceBasicButton]. */
+    /** Enum for the size of the [SourceButton]. */
     enum class Size(
         internal val heightDp: Int,
         internal val textStyle: TextStyle,
@@ -84,7 +83,7 @@ object SourceButton {
         ),
     }
 
-    /** Enum for the style of the [SourceBasicButton]. */
+    /** Enum for the style of the [SourceButton]. */
     enum class Style {
         PrimaryOnWhite,
         SecondaryOnWhite,
@@ -163,17 +162,16 @@ fun SourceBaseButton(
     style: SourceButton.Style,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    @Discouraged(
-        "Wrap the whole screen/sheet in the theme local composition to provide theme to all child components at once.",
-    )
     theme: Source.Theme? = null,
     content: @Composable () -> Unit,
 ) {
+    val appliedTheme = theme ?: LocalSourceTheme.current
+
     require(
-        !(theme == Source.Theme.ReaderRevenue && style.isSecondary()),
+        !(appliedTheme == Source.Theme.ReaderRevenue && style.isSecondary()),
     ) { "ReaderRevenue theme doesn't have secondary buttons." }
 
-    val buttonColours = style.toColours(theme ?: Source.Theme.Core)
+    val buttonColours = style.toColours(appliedTheme)
 
     Button(
         onClick = onClick,
@@ -247,47 +245,13 @@ fun SourceButton(
     }
 }
 
-@Preview
+@PhoneBothModePreviews
 @Composable
 private fun CoreButtonIconBeforePreview() {
     AppColourMode {
-        Column(Modifier.background(Source.Palette.Neutral38)) {
-            SourceButton.Style.entries.forEach { style ->
-                Row(
-                    modifier = Modifier
-                        .background(style.getBackdropColour().current)
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceAround,
-                ) {
-                    SourceButton.Size.entries.forEach { size ->
-                        SourceButton(
-                            text = style.getPreviewName(size),
-                            size = size,
-                            style = style,
-                            onClick = {},
-                            iconPosition = SourceButton.IconPosition.Left,
-                            icon = {
-                                Icon(
-                                    imageVector = SourceIcon.Check,
-                                    contentDescription = null,
-                                    modifier = it,
-                                )
-                            },
-                        )
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Preview
-@Composable
-private fun RrButtonIconBeforePreview() {
-    AppColourMode {
-        Column(Modifier.background(Source.Palette.Neutral38)) {
-            SourceButton.Style.entries.forEach { style ->
-                if (!style.name.contains("Secondary")) {
+        SourceCoreTheme {
+            Column(Modifier.background(Source.Palette.Neutral38)) {
+                SourceButton.Style.entries.forEach { style ->
                     Row(
                         modifier = Modifier
                             .background(style.getBackdropColour().current)
@@ -300,7 +264,6 @@ private fun RrButtonIconBeforePreview() {
                                 size = size,
                                 style = style,
                                 onClick = {},
-                                theme = Source.Theme.ReaderRevenue,
                                 iconPosition = SourceButton.IconPosition.Left,
                                 icon = {
                                     Icon(
@@ -318,25 +281,37 @@ private fun RrButtonIconBeforePreview() {
     }
 }
 
-@Preview
+@PhoneBothModePreviews
 @Composable
-private fun CoreButtonTextOnlyPreview() {
+private fun RrButtonIconBeforePreview() {
     AppColourMode {
-        Column(Modifier.background(Source.Palette.Neutral38)) {
-            SourceButton.Style.entries.forEach { style ->
-                Row(
-                    modifier = Modifier
-                        .background(style.getBackdropColour().current)
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceAround,
-                ) {
-                    SourceButton.Size.entries.forEach { size ->
-                        SourceButton(
-                            text = style.getPreviewName(size),
-                            size = size,
-                            style = style,
-                            onClick = {},
-                        )
+        ReaderRevenueTheme {
+            Column(Modifier.background(Source.Palette.Neutral38)) {
+                SourceButton.Style.entries.forEach { style ->
+                    if (!style.name.contains("Secondary")) {
+                        Row(
+                            modifier = Modifier
+                                .background(style.getBackdropColour().current)
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceAround,
+                        ) {
+                            SourceButton.Size.entries.forEach { size ->
+                                SourceButton(
+                                    text = style.getPreviewName(size),
+                                    size = size,
+                                    style = style,
+                                    onClick = {},
+                                    iconPosition = SourceButton.IconPosition.Left,
+                                    icon = {
+                                        Icon(
+                                            imageVector = SourceIcon.Check,
+                                            contentDescription = null,
+                                            modifier = it,
+                                        )
+                                    },
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -344,13 +319,13 @@ private fun CoreButtonTextOnlyPreview() {
     }
 }
 
-@Preview
+@PhoneBothModePreviews
 @Composable
-private fun RrButtonTextOnlyPreview() {
+private fun CoreButtonTextOnlyPreview() {
     AppColourMode {
-        Column(Modifier.background(Source.Palette.Neutral38)) {
-            SourceButton.Style.entries.forEach { style ->
-                if (!style.name.contains("Secondary")) {
+        SourceCoreTheme {
+            Column(Modifier.background(Source.Palette.Neutral38)) {
+                SourceButton.Style.entries.forEach { style ->
                     Row(
                         modifier = Modifier
                             .background(style.getBackdropColour().current)
@@ -363,7 +338,6 @@ private fun RrButtonTextOnlyPreview() {
                                 size = size,
                                 style = style,
                                 onClick = {},
-                                theme = Source.Theme.ReaderRevenue,
                             )
                         }
                     }
@@ -373,33 +347,29 @@ private fun RrButtonTextOnlyPreview() {
     }
 }
 
-@Preview
+@PhoneBothModePreviews
 @Composable
-private fun CoreButtonIconAfterPreview() {
+private fun RrButtonTextOnlyPreview() {
     AppColourMode {
-        Column(Modifier.background(Source.Palette.Neutral38)) {
-            SourceButton.Style.entries.forEach { style ->
-                Row(
-                    modifier = Modifier
-                        .background(style.getBackdropColour().current)
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceAround,
-                ) {
-                    SourceButton.Size.entries.forEach { size ->
-                        SourceButton(
-                            text = style.getPreviewName(size),
-                            size = size,
-                            style = style,
-                            onClick = {},
-                            iconPosition = SourceButton.IconPosition.Right,
-                            icon = {
-                                Icon(
-                                    imageVector = SourceIcon.Check,
-                                    contentDescription = null,
-                                    modifier = it,
+        ReaderRevenueTheme {
+            Column(Modifier.background(Source.Palette.Neutral38)) {
+                SourceButton.Style.entries.forEach { style ->
+                    if (!style.name.contains("Secondary")) {
+                        Row(
+                            modifier = Modifier
+                                .background(style.getBackdropColour().current)
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceAround,
+                        ) {
+                            SourceButton.Size.entries.forEach { size ->
+                                SourceButton(
+                                    text = style.getPreviewName(size),
+                                    size = size,
+                                    style = style,
+                                    onClick = {},
                                 )
-                            },
-                        )
+                            }
+                        }
                     }
                 }
             }
@@ -407,13 +377,13 @@ private fun CoreButtonIconAfterPreview() {
     }
 }
 
-@Preview
+@PhoneBothModePreviews
 @Composable
-private fun RrButtonIconAfterPreview() {
+private fun CoreButtonIconAfterPreview() {
     AppColourMode {
-        Column(Modifier.background(Source.Palette.Neutral38)) {
-            SourceButton.Style.entries.forEach { style ->
-                if (!style.name.contains("Secondary")) {
+        SourceCoreTheme {
+            Column(Modifier.background(Source.Palette.Neutral38)) {
+                SourceButton.Style.entries.forEach { style ->
                     Row(
                         modifier = Modifier
                             .background(style.getBackdropColour().current)
@@ -426,7 +396,6 @@ private fun RrButtonIconAfterPreview() {
                                 size = size,
                                 style = style,
                                 onClick = {},
-                                theme = Source.Theme.ReaderRevenue,
                                 iconPosition = SourceButton.IconPosition.Right,
                                 icon = {
                                     Icon(
@@ -444,22 +413,43 @@ private fun RrButtonIconAfterPreview() {
     }
 }
 
-private fun SourceButton.Style.getPreviewName(size: SourceButton.Size) =
-    "${name.take(n = 3).lowercase()}.${size.shortName}"
-
-@Preview
+@PhoneBothModePreviews
 @Composable
-private fun IconButtonPreview() {
+private fun RrButtonIconAfterPreview() {
     AppColourMode {
-        SourceIconButton(
-            size = SourceButton.Size.Small,
-            style = SourceButton.Style.PrimaryOnWhite,
-            onClick = {},
-        ) {
-            Image(
-                imageVector = Icons.Default.Done,
-                contentDescription = null,
-            )
+        ReaderRevenueTheme {
+            Column(Modifier.background(Source.Palette.Neutral38)) {
+                SourceButton.Style.entries.forEach { style ->
+                    if (!style.name.contains("Secondary")) {
+                        Row(
+                            modifier = Modifier
+                                .background(style.getBackdropColour().current)
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceAround,
+                        ) {
+                            SourceButton.Size.entries.forEach { size ->
+                                SourceButton(
+                                    text = style.getPreviewName(size),
+                                    size = size,
+                                    style = style,
+                                    onClick = {},
+                                    iconPosition = SourceButton.IconPosition.Right,
+                                    icon = {
+                                        Icon(
+                                            imageVector = SourceIcon.Check,
+                                            contentDescription = null,
+                                            modifier = it,
+                                        )
+                                    },
+                                )
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
+
+private fun SourceButton.Style.getPreviewName(size: SourceButton.Size) =
+    "${name.take(n = 3).lowercase()}.${size.shortName}"
