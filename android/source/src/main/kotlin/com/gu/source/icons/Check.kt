@@ -2,6 +2,8 @@
 
 package com.gu.source.icons
 
+import androidx.compose.material3.Icon
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathFillType.Companion.EvenOdd
 import androidx.compose.ui.graphics.SolidColor
@@ -10,12 +12,12 @@ import androidx.compose.ui.graphics.StrokeJoin.Companion.Miter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.ImageVector.Builder
 import androidx.compose.ui.graphics.vector.path
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.gu.source.Source
 
-/**
- * Check mark icon.
- */
-val SourceIcon.Check: ImageVector
+/** Base check mark icon. */
+val Source.Icons.Base.Check: ImageVector
     get() = _check ?: Builder(
         name = "Check",
         defaultWidth = 24.0.dp,
@@ -48,3 +50,12 @@ val SourceIcon.Check: ImageVector
 
 @Suppress("TopLevelPropertyNaming")
 private var _check: ImageVector? = null
+
+@Preview
+@Composable
+private fun Preview() {
+    Icon(
+        imageVector = Source.Icons.Base.Check,
+        contentDescription = null,
+    )
+}

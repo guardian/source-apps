@@ -1,5 +1,6 @@
 package com.gu.source
 
+import androidx.annotation.Discouraged
 import com.gu.source.Source.Palette
 import com.gu.source.Source.Typography
 
@@ -28,6 +29,13 @@ object Source {
      * [Palette colour definitions](https://theguardian.design/2a1e5182b/p/71fb50-colour/b/399c59)).
      */
     object Palette
+
+    @Discouraged("These are not ready for production use.")
+    /** Source provided raw icons. */
+    object Icons {
+        /** Base icons without any decoration around them. */
+        object Base
+    }
 
     /** Source colour themes used by components. */
     enum class Theme {
