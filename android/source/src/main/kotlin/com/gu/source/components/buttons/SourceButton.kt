@@ -1,38 +1,25 @@
 package com.gu.source.components.buttons
 
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.width
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
+import androidx.annotation.Discouraged
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.semantics.invisibleToUser
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
 import com.gu.source.presets.palette.Brand400
-import com.gu.source.presets.palette.Neutral100
 import com.gu.source.presets.typography.TextSansBold14
 import com.gu.source.presets.typography.TextSansBold17
 
 
-@Composable
-fun SourceButton(modifier: Modifier = Modifier) {
-    // TODO: 23/05/2024
-}
-
-
 /**
- * Object for property models for the [SourceButton] component.
+ * Object for property models for the [SourceBasicButton] component.
  */
 object SourceButton {
-    /** Enum for the size of the [SourceButton]. */
+    /** Enum for the size of the [SourceBasicButton]. */
     enum class Size(
         internal val heightDp: Int,
         internal val textStyle: TextStyle,
@@ -50,138 +37,89 @@ object SourceButton {
             textStyle = Source.Typography.TextSansBold17.copy(letterSpacing = 0.sp),
         ),
     }
+
+    /** Enum for the style of the [SourceBasicButton]. */
+    enum class Style {
+        PrimaryOnWhite,
+        SecondaryOnWhite,
+        TertiaryOnWhite,
+        PrimaryOnBlue,
+        SecondaryOnBlue,
+        TertiaryOnBlue,
+        PrimaryOnYellow,
+        SecondaryOnYellow,
+        TertiaryOnYellow,;
+
+        fun isSecondary() = this in setOf(
+            SecondaryOnWhite,
+            SecondaryOnBlue,
+            SecondaryOnYellow,
+        )
+    }
+
+    /** Enum for the source style theme. */
+    enum class Theme {
+        Core,
+        ReaderRevenue,
+    }
+
+    enum class ImagePosition {
+        Left, Right,
+    }
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
-internal fun SourceButton(
-    guardianButtonViewData: GuardianButtonViewData,
-    text: String,
-    onClick: () -> Unit,
+fun SourceBaseButton(
+    size: SourceButton.Size,
+    style: SourceButton.Style,
     modifier: Modifier = Modifier,
-    size: SourceButton.Size = SourceButton.Size.Small,
-    buttonIcon: ButtonIcon? = null,
+    @Discouraged("Wrap the whole composition in the theme local composition instead.")
+    theme: SourceButton.Theme? = null,
+    content: @Composable () -> Unit,
 ) {
-    GuardianContentButton(
-        viewData = guardianButtonViewData,
-        onClick = onClick,
-        modifier = modifier,
-        height = size.heightDp.dp,
-    ) {
-//        val guardianButtonTextViewData = GuardianButtonTextViewData(
-//            text = text,
-//            fontFamily = fontFamilyResource(R.font.guardian_texsan_two_bold),
-//            letterSpacing = spDimensionResource2(
-//                id = R.dimen.button_letterSpacing,
-//            ),
-//        )
-        if (buttonIcon?.side == ButtonIcon.Side.LEFT) {
-            Icon(
-                painter = buttonIcon.painter,
-                contentDescription = null,
-                modifier = Modifier
-//                    .height(guardianButtonTextViewData.fontSize.value.dp)
-                    .align(Alignment.CenterVertically)
-                    .semantics { invisibleToUser() },
-            )
-            Spacer(Modifier.width(8.dp))
-        }
-//        ButtonText(
-//            viewData = guardianButtonTextViewData,
-//            textStyle = size.textStyle,
-//        )
-        if (buttonIcon?.side == ButtonIcon.Side.RIGHT) {
-            Spacer(
-                Modifier.width(8.dp),
-            )
-            Icon(
-                painter = buttonIcon.painter,
-                contentDescription = null,
-                modifier = Modifier
-//                    .height(guardianButtonTextViewData.fontSize.value.dp)
-                    .align(Alignment.CenterVertically)
-                    .semantics { invisibleToUser() },
-            )
+    require(
+        !(theme == SourceButton.Theme.ReaderRevenue && style.isSecondary()),
+    ) { "ReaderRevenue theme doesn't have secondary buttons." }
+
+    // TODO: 23/05/2024
+}
+
+@Composable
+fun SourceTextButton(
+    text: String,
+    size: SourceButton.Size,
+    style: SourceButton.Style,
+    modifier: Modifier = Modifier,
+    @Discouraged("Wrap the whole composition in the theme local composition instead.")
+    theme: SourceButton.Theme? = null,
+    imagePosition: SourceButton.ImagePosition = SourceButton.ImagePosition.Left,
+    imageContent: @Composable () -> Unit = {},
+) {
+    SourceBaseButton(size = size, style = style, modifier = modifier, theme = theme) {
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            if (imagePosition == SourceButton.ImagePosition.Left) {
+                imageContent()
+            }
+
+            Text(text = text, style = size.textStyle, color = Source.Palette.Brand400)
+
+            if (imagePosition == SourceButton.ImagePosition.Right) {
+                imageContent()
+            }
         }
     }
 }
 
 @Composable
-private fun SourceButtonPreview(size: SourceButton.Size) {
-//    val backgroundColour = colorResource(id = R.color.coreWhite_primaryButton_background)
-//    val contentColour = colorResource(id = R.color.coreWhite_primaryButton_textColour)
-    val backgroundColour = Source.Palette.Neutral100
-    val contentColour = Source.Palette.Brand400
-
-//    PreviewColumn {
-        SourceButton(
-            guardianButtonViewData = GuardianButtonViewData(
-                buttonColors = ButtonDefaults.buttonColors(
-                    containerColor = backgroundColour,
-                    contentColor = contentColour,
-                ),
-            ),
-            text = "OK, I understand",
-            size = size,
-            onClick = {},
-        )
-        SourceButton(
-            guardianButtonViewData = GuardianButtonViewData(
-                buttonColors = ButtonDefaults.buttonColors(
-                    containerColor = backgroundColour,
-                    contentColor = contentColour,
-                ),
-            ),
-            text = "OK, I understand",
-            onClick = {},
-            size = size,
-//            buttonIcon = ButtonIcon(
-//                painter = painterResource(id = R.drawable.ic_reload),
-//                side = ButtonIcon.Side.LEFT,
-//            ),
-        )
-        SourceButton(
-            guardianButtonViewData = GuardianButtonViewData(
-                buttonColors = ButtonDefaults.buttonColors(
-                    containerColor = backgroundColour,
-                    contentColor = contentColour,
-                ),
-            ),
-            text = "OK, I understand",
-            onClick = {},
-            size = size,
-//            buttonIcon = ButtonIcon(
-//                painter = painterResource(id = R.drawable.ic_reload),
-//                side = ButtonIcon.Side.RIGHT,
-//            ),
-        )
-//    }
-}
-
-@Preview
-@Composable
-private fun MediumPreview() {
-    SourceButtonPreview(SourceButton.Size.Medium)
-}
-
-@Preview
-@Composable
-private fun SmallPreview() {
-    SourceButtonPreview(SourceButton.Size.Small)
-}
-
-@Preview
-@Composable
-private fun XSmallPreview() {
-    SourceButtonPreview(SourceButton.Size.XSmall)
-}
-
-data class ButtonIcon(
-    val painter: Painter,
-    val side: Side,
+fun SourceIconButton(
+    text: String,
+    size: SourceButton.Size,
+    style: SourceButton.Style,
+    modifier: Modifier = Modifier,
+    @Discouraged("Wrap the whole composition in the theme local composition instead.")
+    theme: SourceButton.Theme? = null,
+    imagePosition: SourceButton.ImagePosition = SourceButton.ImagePosition.Left,
+    imageContent: @Composable () -> Unit = {},
 ) {
-    enum class Side {
-        LEFT,
-        RIGHT,
-    }
+    // TODO: 23/05/2024
 }
