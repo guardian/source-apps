@@ -156,9 +156,9 @@ object SourceButton {
  * @param content Slot for composable content to present inside the button.
  */
 @Discouraged(
-    "Prefer to use `SourceButton`." +
-        " It provide correct correct styling & size for text and icons." +
-        " This variant is for custom button designs only.",
+    "Preferably use `SourceButton`." +
+        " It provides correct styling & size for text and icons." +
+        " This variant is for supporting custom button designs only.",
 )
 @Composable
 fun SourceBaseButton(
