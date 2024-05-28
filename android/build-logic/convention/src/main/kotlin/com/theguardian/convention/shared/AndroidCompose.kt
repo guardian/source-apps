@@ -3,6 +3,7 @@ package com.theguardian.convention.shared
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
+import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginExtension
 
 /**
  * This extension function applies the correct flags and dependencies to the module represented by
@@ -18,6 +19,11 @@ internal fun Project.configureAndroidCompose(
     extension.apply {
         buildFeatures {
             compose = true
+        }
+
+        extensions.configure(ComposeCompilerGradlePluginExtension::class.java) {
+            reportsDestination.set(layout.buildDirectory.dir("compose_compiler"))
+            enableStrongSkippingMode.set(true)
         }
 
         dependencies {
