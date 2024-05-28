@@ -16,7 +16,6 @@ kotlinter = "3.15.0"
 #kotlinter = "4.3.0"
 # Check kotlin-compose compiler compatibility chart here:
 # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
-compose-compiler = "1.5.14"
 
 activity = "1.9.0"
 appcompat = "1.6.1"
@@ -87,11 +86,12 @@ other-composeLint = { group = "io.nlopez.compose.rules", name = "ktlint", versio
 
 android-lint = { id = "com.android.lint", version.ref = "agp"}
 agp-application = { id = "com.android.application", version.ref = "agp" }
-kgp = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 agp-library = { id = "com.android.library", version.ref = "agp" }
 agp-test = { id = "com.android.test", version.ref = "agp" }
-kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+kgp = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
 
 nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexus-publish" }
