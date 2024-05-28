@@ -12,16 +12,12 @@ kotlin = "2.0.0"
 # Kotlinter version is tied closely to min & max Kotlin and Gradle versions. Update Kotlinter
 # when updating Kotlin. Check compatible versions here:
 # https://github.com/jeremymailen/kotlinter-gradle/blob/master/README.md#compatibility
-kotlinter = "3.15.0"
-#kotlinter = "4.3.0"
-# Check kotlin-compose compiler compatibility chart here:
-# https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+kotlinter = "4.3.0"
 
 activity = "1.9.0"
 appcompat = "1.6.1"
 composeBom = "2024.05.00"
-composeLint = "0.1.10"
-#composeLint = "0.3.15"
+composeLint = "0.4.3"
 coreKtx = "1.13.1"
 detekt = "1.23.6"
 inject = "1"
