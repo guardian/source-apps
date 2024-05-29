@@ -28,8 +28,8 @@ import com.gu.source.utils.PhoneBothModePreviews
 /**
  * Source icon-only button. This variant allows providing the icon as a composable slot.
  *
- * @param size The size of the button.
- * @param priority The priority of the button.
+ * @param size The size of the button. Reflects the prominence of the action.
+ * @param priority The priority of the button. Informs users of how important an action is.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
@@ -92,11 +92,12 @@ fun SourceBaseIconButton(
  *
  * @param icon The icon to display in the button. Use an icon from [Source.Icons] or Material
  * [Icons].
- * @param priority The priority of the button.
+ * @param priority The priority of the button. Informs users of how important an action is.
  * @param contentDescription The content description for the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
- * @param size Optional size for the button. Defaults to [SourceButton.Size.Medium].
+ * @param size Optional size for the button. Reflects the prominence of the action. Defaults to
+ * [SourceButton.Size.Medium].
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
  * from [LocalSourceTheme] will be used.
  *
@@ -133,11 +134,12 @@ fun SourceIconButton(
  * Source icon-only button.
  *
  * @param painter The icon to display in the button.
- * @param priority The priority of the button.
+ * @param priority The priority of the button. Informs users of how important an action is.
  * @param contentDescription The content description for the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
- * @param size Optional size for the button. Defaults to [SourceButton.Size.Medium].
+ * @param size Optional size for the button. Reflects the prominence of the action. Defaults to
+ * [SourceButton.Size.Medium].
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
  * from [LocalSourceTheme] will be used.
  *
@@ -174,11 +176,12 @@ fun SourceIconButton(
  * Source icon-only button.
  *
  * @param icon The icon to display in the button.
- * @param priority The priority of the button.
+ * @param priority The priority of the button. Informs users of how important an action is.
  * @param contentDescription The content description for the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
- * @param size Optional size for the button. Defaults to [SourceButton.Size.Medium].
+ * @param size Optional size for the button. Reflects the prominence of the action. Defaults to
+ * [SourceButton.Size.Medium].
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
  * from [LocalSourceTheme] will be used.
  *

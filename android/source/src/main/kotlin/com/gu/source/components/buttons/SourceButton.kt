@@ -49,7 +49,7 @@ object SourceButton {
     )
     internal val MinButtonWidth = 66.dp
 
-    /** Enum for the size of the [SourceButton]. */
+    /** Enum for the size of the [SourceButton]. Reflects the prominence of the action. */
     enum class Size(
         internal val heightDp: Int,
         /** This icon size is used for icons in [SourceIconButton]. */
@@ -86,7 +86,7 @@ object SourceButton {
         ),
     }
 
-    /** Enum for the priority of the [SourceButton]. */
+    /** Enum for the priority of the [SourceButton]. Informs users of how important an action is. */
     enum class Priority {
         PrimaryOnBlue,
         SecondaryOnBlue,
@@ -111,8 +111,8 @@ object SourceButton {
         }
     }
 
-    /** Enum for the position of icon relative to the button text. */
-    enum class IconPosition {
+    /** Enum for the side of the button on which the icon appears. */
+    enum class IconSide {
         Left, Right,
     }
 }
@@ -122,8 +122,9 @@ object SourceButton {
  * This is a low-level component and should be sparingly used only for custom buttons. Prefer to
  * use [SourceButton] or [SourceBaseIconButton] instead.
  *
- * @param size Button size from [SourceButton.Size]s.
- * @param priority Button priority from [SourceButton.Priority]s.
+ * @param size Button size from [SourceButton.Size]s. Reflects the prominence of the action.
+ * @param priority Button priority from [SourceButton.Priority]s. Informs users of how important an
+ * action is.
  * @param onClick Callback for action to take when user clicks the button.
  * @param modifier Optional [Modifier]
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
@@ -187,19 +188,20 @@ fun SourceBaseButton(
  * A Source button component with text and an optional icon.
  *
  * @param text Text to display on the button.
- * @param priority Button priority from [SourceButton.Priority]s.
+ * @param priority Button priority from [SourceButton.Priority]s. Informs users of how important an
+ * action is.
  * @param onClick Callback for action to take when user clicks the button.
  * @param modifier Optional [Modifier]
- * @param size Optional button size from [SourceButton.Size]s. Defaults to
- * [SourceButton.Size.Small].
+ * @param size Optional button size from [SourceButton.Size]s. Reflects the prominence of the
+ * action. Defaults to [SourceButton.Size.Small].
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
  * from [LocalSourceTheme] will be used.
  *
  * Unless using the button as a standalone component, it is recommended to wrap the whole
  * screen/sheet with [SourceCoreTheme] or [ReaderRevenueTheme] to provide consistent theme to all
  * child components once.
- * @param iconPosition Optional position of the icon relative to the button text. Defaults to
- * [SourceButton.IconPosition.Left].
+ * @param iconSide Optional the side of the button on which the icon appears. Defaults to
+ * [SourceButton.IconSide.Left].
  * @param icon Optional icon to display on the button.
  */
 @Composable
@@ -210,7 +212,7 @@ fun SourceButton(
     modifier: Modifier = Modifier,
     size: SourceButton.Size = SourceButton.Size.Small,
     theme: Source.Theme? = null,
-    iconPosition: SourceButton.IconPosition = SourceButton.IconPosition.Left,
+    iconSide: SourceButton.IconSide = SourceButton.IconSide.Left,
     icon: @Composable (Modifier) -> Unit = {},
 ) {
     SourceBaseButton(
@@ -224,7 +226,7 @@ fun SourceButton(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            if (iconPosition == SourceButton.IconPosition.Left) {
+            if (iconSide == SourceButton.IconSide.Left) {
                 icon(Modifier.size(size.textStyle.fontSize.value.dp))
             }
 
@@ -238,7 +240,7 @@ fun SourceButton(
                 modifier = Modifier.offset(y = (-1).dp),
             )
 
-            if (iconPosition == SourceButton.IconPosition.Right) {
+            if (iconSide == SourceButton.IconSide.Right) {
                 icon(Modifier.size(size.textStyle.fontSize.value.dp))
             }
         }
@@ -265,7 +267,7 @@ internal fun CoreButtonIconBeforePreview() {
                                 priority = priority,
                                 onClick = {},
                                 size = size,
-                                iconPosition = SourceButton.IconPosition.Left,
+                                iconSide = SourceButton.IconSide.Left,
                                 icon = {
                                     Icon(
                                         imageVector = Source.Icons.Base.Check,
@@ -303,7 +305,7 @@ internal fun RrButtonIconBeforePreview() {
                                     priority = priority,
                                     onClick = {},
                                     size = size,
-                                    iconPosition = SourceButton.IconPosition.Left,
+                                    iconSide = SourceButton.IconSide.Left,
                                     icon = {
                                         Icon(
                                             imageVector = Source.Icons.Base.Check,
@@ -401,7 +403,7 @@ internal fun CoreButtonIconAfterPreview() {
                                 priority = priority,
                                 onClick = {},
                                 size = size,
-                                iconPosition = SourceButton.IconPosition.Right,
+                                iconSide = SourceButton.IconSide.Right,
                                 icon = {
                                     Icon(
                                         imageVector = Source.Icons.Base.Check,
@@ -439,7 +441,7 @@ internal fun RrButtonIconAfterPreview() {
                                     priority = priority,
                                     onClick = {},
                                     size = size,
-                                    iconPosition = SourceButton.IconPosition.Right,
+                                    iconSide = SourceButton.IconSide.Right,
                                     icon = {
                                         Icon(
                                             imageVector = Source.Icons.Base.Check,
