@@ -112,50 +112,6 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
                 ),
             )
         }
-
-        PrimaryOnYellow -> {
-            ButtonColours(
-                border = AppColour(
-                    light = Source.Palette.Neutral0,
-                ),
-                container = AppColour(
-                    light = Source.Palette.Neutral0,
-                ),
-                content = AppColour(
-                    light = Source.Palette.Neutral100,
-                ),
-            )
-        }
-
-        SecondaryOnYellow -> {
-            ButtonColours(
-                border = AppColour(
-                    light = Source.Palette.BrandAlt200,
-                    dark = Source.Palette.Brand800,
-                ),
-                container = AppColour(
-                    light = Source.Palette.BrandAlt200,
-                    dark = Source.Palette.Brand800,
-                ),
-                content = AppColour(
-                    light = Source.Palette.Neutral7,
-                ),
-            )
-        }
-
-        TertiaryOnYellow -> {
-            ButtonColours(
-                border = AppColour(
-                    light = Source.Palette.Neutral7,
-                ),
-                container = AppColour(
-                    light = Source.Palette.BrandAlt400,
-                ),
-                content = AppColour(
-                    light = Source.Palette.Neutral7,
-                ),
-            )
-        }
     }
 
     ReaderRevenue -> when (this) {
@@ -221,38 +177,7 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
             )
         }
 
-        PrimaryOnYellow -> {
-            ButtonColours(
-                border = AppColour(
-                    light = Source.Palette.Neutral7,
-                ),
-                container = AppColour(
-                    light = Source.Palette.Neutral7,
-                ),
-                content = AppColour(
-                    light = Source.Palette.Neutral100,
-                ),
-            )
-        }
-
-        TertiaryOnYellow -> {
-            ButtonColours(
-                border = AppColour(
-                    light = Source.Palette.Neutral7,
-                    dark = Source.Palette.Neutral7,
-                ),
-                container = AppColour(
-                    light = Source.Palette.BrandAlt400,
-                    dark = Source.Palette.BrandAlt200,
-                ),
-                content = AppColour(
-                    light = Source.Palette.Neutral7,
-                    dark = Source.Palette.Neutral7,
-                ),
-            )
-        }
-
-        SecondaryOnBlue, SecondaryOnWhite, SecondaryOnYellow -> {
+        SecondaryOnBlue, SecondaryOnWhite -> {
             throw IllegalArgumentException("Secondary not supported in ReaderRevenue theme")
         }
     }

@@ -88,19 +88,12 @@ object SourceButton {
         PrimaryOnBlue,
         SecondaryOnBlue,
         TertiaryOnBlue,
-        PrimaryOnYellow,
-        SecondaryOnYellow,
-        TertiaryOnYellow,
         PrimaryOnWhite,
         SecondaryOnWhite,
         TertiaryOnWhite,
         ;
 
-        internal fun isSecondary() = this in setOf(
-            SecondaryOnWhite,
-            SecondaryOnBlue,
-            SecondaryOnYellow,
-        )
+        internal fun isSecondary() = this in setOf(SecondaryOnWhite, SecondaryOnBlue)
 
         internal fun getBackdropColour() = when {
             name.endsWith("OnWhite") -> AppColour(
