@@ -17,7 +17,6 @@ internal data class ButtonColours(
 /**
  * Maps a [SourceButton.Priority] to a set of colours based on the theme.
  */
-// TODO: 25/05/2024 Dark mode colours
 internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme) {
     Core -> when (this) {
         PrimaryOnWhite -> {
@@ -41,12 +40,15 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.Brand800,
+                    dark = Source.Palette.Brand600,
                 ),
                 container = AppColour(
                     light = Source.Palette.Brand800,
+                    dark = Source.Palette.Brand600,
                 ),
                 content = AppColour(
                     light = Source.Palette.Brand400,
+                    dark = Source.Palette.Neutral97,
                 ),
             )
         }
@@ -59,7 +61,7 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
                 ),
                 container = AppColour(
                     light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral0,
+                    dark = Source.Palette.Neutral7,
                 ),
                 content = AppColour(
                     light = Source.Palette.Brand400,
@@ -72,9 +74,11 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.Neutral100,
+                    dark = Source.Palette.Neutral86,
                 ),
                 container = AppColour(
                     light = Source.Palette.Neutral100,
+                    dark = Source.Palette.Neutral86,
                 ),
                 content = AppColour(
                     light = Source.Palette.Brand400,
@@ -86,12 +90,15 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.Brand600,
+                    dark = Source.Palette.SpecialReport400,
                 ),
                 container = AppColour(
                     light = Source.Palette.Brand600,
+                    dark = Source.Palette.SpecialReport400,
                 ),
                 content = AppColour(
                     light = Source.Palette.Neutral100,
+                    dark = Source.Palette.Neutral97,
                 ),
             )
         }
@@ -100,7 +107,7 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral100,
+                    dark = Source.Palette.Neutral86,
                 ),
                 container = AppColour(
                     light = Source.Palette.Neutral100,
@@ -108,7 +115,7 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
                 ),
                 content = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Neutral100,
+                    dark = Source.Palette.Neutral86,
                 ),
             )
         }
@@ -119,9 +126,11 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.BrandAlt400,
+                    dark = Source.Palette.BrandAlt200,
                 ),
                 container = AppColour(
                     light = Source.Palette.BrandAlt400,
+                    dark = Source.Palette.BrandAlt200,
                 ),
                 content = AppColour(
                     light = Source.Palette.Brand400,
@@ -133,15 +142,15 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Neutral86,
+                    dark = Source.Palette.BrandAlt200,
                 ),
                 container = AppColour(
                     light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral0,
+                    dark = Source.Palette.Neutral7,
                 ),
                 content = AppColour(
                     light = Source.Palette.Brand400,
-                    dark = Source.Palette.Neutral86,
+                    dark = Source.Palette.BrandAlt200,
                 ),
             )
         }
@@ -150,9 +159,11 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.BrandAlt400,
+                    dark = Source.Palette.BrandAlt200,
                 ),
                 container = AppColour(
                     light = Source.Palette.BrandAlt400,
+                    dark = Source.Palette.BrandAlt200,
                 ),
                 content = AppColour(
                     light = Source.Palette.Brand400,
@@ -164,7 +175,7 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
             ButtonColours(
                 border = AppColour(
                     light = Source.Palette.BrandAlt400,
-                    dark = Source.Palette.BrandAlt400,
+                    dark = Source.Palette.BrandAlt200,
                 ),
                 container = AppColour(
                     light = Source.Palette.Brand400,
@@ -172,7 +183,7 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
                 ),
                 content = AppColour(
                     light = Source.Palette.BrandAlt400,
-                    dark = Source.Palette.BrandAlt400,
+                    dark = Source.Palette.BrandAlt200,
                 ),
             )
         }

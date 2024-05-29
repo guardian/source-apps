@@ -22,7 +22,10 @@ import com.gu.source.components.buttons.SourceButton.MinButtonWidth
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.Check
-import com.gu.source.presets.palette.*
+import com.gu.source.presets.palette.Brand400
+import com.gu.source.presets.palette.Neutral100
+import com.gu.source.presets.palette.Neutral38
+import com.gu.source.presets.palette.Neutral7
 import com.gu.source.presets.typography.TextSansBold14
 import com.gu.source.presets.typography.TextSansBold17
 import com.gu.source.theme.LocalSourceTheme
@@ -98,15 +101,11 @@ object SourceButton {
         internal fun getBackdropColour() = when {
             name.endsWith("OnWhite") -> AppColour(
                 light = Source.Palette.Neutral100,
-                dark = Source.Palette.Neutral0,
+                dark = Source.Palette.Neutral7,
             )
             name.endsWith("OnBlue") -> AppColour(
                 light = Source.Palette.Brand400,
                 dark = Source.Palette.Neutral7,
-            )
-            name.endsWith("OnYellow") -> AppColour(
-                light = Source.Palette.BrandAlt400,
-                dark = Source.Palette.BrandAlt200,
             )
             else -> AppColour.Unspecified
         }
