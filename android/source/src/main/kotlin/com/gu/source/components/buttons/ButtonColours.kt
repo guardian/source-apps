@@ -108,7 +108,7 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
                 ),
                 container = AppColour.Transparent,
                 content = AppColour(
-                    light = Source.Palette.Brand400,
+                    light = Source.Palette.Neutral100,
                     dark = Source.Palette.Neutral86,
                 ),
             )
