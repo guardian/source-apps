@@ -59,10 +59,7 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
                     light = Source.Palette.Brand400,
                     dark = Source.Palette.Neutral86,
                 ),
-                container = AppColour(
-                    light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral7,
-                ),
+                container = AppColour.Transparent,
                 content = AppColour(
                     light = Source.Palette.Brand400,
                     dark = Source.Palette.Neutral86,
@@ -109,10 +106,7 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
                     light = Source.Palette.Neutral100,
                     dark = Source.Palette.Neutral86,
                 ),
-                container = AppColour(
-                    light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral7,
-                ),
+                container = AppColour.Transparent,
                 content = AppColour(
                     light = Source.Palette.Brand400,
                     dark = Source.Palette.Neutral86,
@@ -144,10 +138,7 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
                     light = Source.Palette.Brand400,
                     dark = Source.Palette.BrandAlt200,
                 ),
-                container = AppColour(
-                    light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral7,
-                ),
+                container = AppColour.Transparent,
                 content = AppColour(
                     light = Source.Palette.Brand400,
                     dark = Source.Palette.BrandAlt200,
@@ -177,10 +168,7 @@ internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme)
                     light = Source.Palette.BrandAlt400,
                     dark = Source.Palette.BrandAlt200,
                 ),
-                container = AppColour(
-                    light = Source.Palette.Brand400,
-                    dark = Source.Palette.Neutral7,
-                ),
+                container = AppColour.Transparent,
                 content = AppColour(
                     light = Source.Palette.BrandAlt400,
                     dark = Source.Palette.BrandAlt200,
