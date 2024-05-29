@@ -64,7 +64,7 @@ Using `SourceButton`:
 ```kotlin
 SourceButton(
     text = "Sign in",
-    style = SourceButton.Style.PrimaryOnWhite,
+    priority = SourceButton.Priority.PrimaryOnWhite,
     onClick = {},
     size = SourceButton.Size.Small,
 )
@@ -74,7 +74,7 @@ Using `SourceIconButton` with a Material Icon:
 ```kotlin
 SourceIconButton(
     icon = Icons.Default.Person,
-    style = SourceButton.Style.SecondaryOnBlue,
+    priority = SourceButton.Priority.SecondaryOnBlue,
     contentDescription = null,
     onClick = {},
     size = SourceButton.Size.Medium,
@@ -85,10 +85,9 @@ Using `SourceIconButton` with a drawable resource:
 ```kotlin
 SourceIconButton(
     painter = painterResource(R.drawable.ic_person),
-    style = SourceButton.Style.SecondaryOnBlue,
+    priority = SourceButton.Priority.SecondaryOnBlue,
     contentDescription = null,
     onClick = {},
-    size = SourceButton.Size.Medium,
 )
 ```
 

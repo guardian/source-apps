@@ -2,12 +2,14 @@
 
 # The Source library for Android
 
+[![Available on maven central](https://maven-badges.herokuapp.com/maven-central/com.gu.source/source-android/badge.svg)](https://central.sonatype.com/artifact/com.gu.source/source-android)
+
 ### Using the library
 
 The library is available on Maven Central. Add the library dependency to your `build.gradle.kts` file:
 
 ```kotlin
-implementation("com.gu.source:source-android:0.0.1")
+implementation("com.gu.source:source-android:<version>")
 ```
 
 See the main [README](../README.md) for using the library.

@@ -3,7 +3,7 @@ package com.gu.source.components.buttons
 import com.gu.source.Source
 import com.gu.source.Source.Theme.Core
 import com.gu.source.Source.Theme.ReaderRevenue
-import com.gu.source.components.buttons.SourceButton.Style.*
+import com.gu.source.components.buttons.SourceButton.Priority.*
 import com.gu.source.daynight.AppColour
 import com.gu.source.presets.palette.*
 
@@ -15,10 +15,10 @@ internal data class ButtonColours(
 
 @Suppress("CyclomaticComplexMethod", "LongMethod")
 /**
- * Maps a [SourceButton.Style] to a set of colours based on the theme.
+ * Maps a [SourceButton.Priority] to a set of colours based on the theme.
  */
 // TODO: 25/05/2024 Dark mode colours
-internal fun SourceButton.Style.toColours(theme: Source.Theme) = when (theme) {
+internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme) {
     Core -> when (this) {
         PrimaryOnWhite -> {
             ButtonColours(

@@ -29,7 +29,7 @@ import com.gu.source.utils.PhoneBothModePreviews
  * Source icon-only button. This variant allows providing the icon as a composable slot.
  *
  * @param size The size of the button.
- * @param style The style of the button.
+ * @param priority The priority of the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
@@ -44,7 +44,7 @@ import com.gu.source.utils.PhoneBothModePreviews
 @Composable
 fun SourceBaseIconButton(
     size: SourceButton.Size,
-    style: SourceButton.Style,
+    priority: SourceButton.Priority,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     theme: Source.Theme? = null,
@@ -53,10 +53,10 @@ fun SourceBaseIconButton(
     val appliedTheme = theme ?: LocalSourceTheme.current
 
     require(
-        !(appliedTheme == Source.Theme.ReaderRevenue && style.isSecondary()),
+        !(appliedTheme == Source.Theme.ReaderRevenue && priority.isSecondary()),
     ) { "ReaderRevenue theme doesn't have secondary buttons." }
 
-    val buttonColours = style.toColours(appliedTheme)
+    val buttonColours = priority.toColours(appliedTheme)
 
     IconButton(
         onClick = onClick,
@@ -92,7 +92,7 @@ fun SourceBaseIconButton(
  *
  * @param icon The icon to display in the button. Use an icon from [Source.Icons] or Material
  * [Icons].
- * @param style The style of the button.
+ * @param priority The priority of the button.
  * @param contentDescription The content description for the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
@@ -107,7 +107,7 @@ fun SourceBaseIconButton(
 @Composable
 fun SourceIconButton(
     icon: ImageVector,
-    style: SourceButton.Style,
+    priority: SourceButton.Priority,
     contentDescription: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -116,7 +116,7 @@ fun SourceIconButton(
 ) {
     SourceBaseIconButton(
         size = size,
-        style = style,
+        priority = priority,
         onClick = onClick,
         modifier = modifier,
         theme = theme,
@@ -133,7 +133,7 @@ fun SourceIconButton(
  * Source icon-only button.
  *
  * @param painter The icon to display in the button.
- * @param style The style of the button.
+ * @param priority The priority of the button.
  * @param contentDescription The content description for the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
@@ -148,7 +148,7 @@ fun SourceIconButton(
 @Composable
 fun SourceIconButton(
     painter: Painter,
-    style: SourceButton.Style,
+    priority: SourceButton.Priority,
     contentDescription: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -157,7 +157,7 @@ fun SourceIconButton(
 ) {
     SourceBaseIconButton(
         size = size,
-        style = style,
+        priority = priority,
         onClick = onClick,
         modifier = modifier,
         theme = theme,
@@ -174,7 +174,7 @@ fun SourceIconButton(
  * Source icon-only button.
  *
  * @param icon The icon to display in the button.
- * @param style The style of the button.
+ * @param priority The priority of the button.
  * @param contentDescription The content description for the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
@@ -189,7 +189,7 @@ fun SourceIconButton(
 @Composable
 fun SourceIconButton(
     icon: ImageBitmap,
-    style: SourceButton.Style,
+    priority: SourceButton.Priority,
     contentDescription: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -198,7 +198,7 @@ fun SourceIconButton(
 ) {
     SourceBaseIconButton(
         size = size,
-        style = style,
+        priority = priority,
         onClick = onClick,
         modifier = modifier,
         theme = theme,
@@ -218,17 +218,17 @@ internal fun CoreIconButtonPreview() {
     AppColourMode {
         SourceCoreTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Style.entries.forEach { style ->
+                SourceButton.Priority.entries.forEach { priority ->
                     Row(
                         modifier = Modifier
-                            .background(style.getBackdropColour().current)
+                            .background(priority.getBackdropColour().current)
                             .fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceAround,
                     ) {
                         SourceButton.Size.entries.forEach { size ->
                             SourceIconButton(
                                 icon = Source.Icons.Base.Check,
-                                style = style,
+                                priority = priority,
                                 contentDescription = null,
                                 onClick = {},
                                 size = size,
@@ -248,18 +248,18 @@ internal fun RrIconButtonPreview() {
     AppColourMode {
         ReaderRevenueTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Style.entries.forEach { style ->
-                    if (!style.name.contains("Secondary")) {
+                SourceButton.Priority.entries.forEach { priority ->
+                    if (!priority.name.contains("Secondary")) {
                         Row(
                             modifier = Modifier
-                                .background(style.getBackdropColour().current)
+                                .background(priority.getBackdropColour().current)
                                 .fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceAround,
                         ) {
                             SourceButton.Size.entries.forEach { size ->
                                 SourceIconButton(
                                     icon = Source.Icons.Base.Check,
-                                    style = style,
+                                    priority = priority,
                                     contentDescription = null,
                                     onClick = {},
                                     size = size,

@@ -4,14 +4,7 @@ import androidx.annotation.Discouraged
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -29,13 +22,7 @@ import com.gu.source.components.buttons.SourceButton.MinButtonWidth
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.Check
-import com.gu.source.presets.palette.Brand400
-import com.gu.source.presets.palette.BrandAlt200
-import com.gu.source.presets.palette.BrandAlt400
-import com.gu.source.presets.palette.Neutral0
-import com.gu.source.presets.palette.Neutral100
-import com.gu.source.presets.palette.Neutral38
-import com.gu.source.presets.palette.Neutral7
+import com.gu.source.presets.palette.*
 import com.gu.source.presets.typography.TextSansBold14
 import com.gu.source.presets.typography.TextSansBold17
 import com.gu.source.theme.LocalSourceTheme
@@ -96,8 +83,8 @@ object SourceButton {
         ),
     }
 
-    /** Enum for the style of the [SourceButton]. */
-    enum class Style {
+    /** Enum for the priority of the [SourceButton]. */
+    enum class Priority {
         PrimaryOnBlue,
         SecondaryOnBlue,
         TertiaryOnBlue,
@@ -144,7 +131,7 @@ object SourceButton {
  * use [SourceButton] or [SourceBaseIconButton] instead.
  *
  * @param size Button size from [SourceButton.Size]s.
- * @param style Button style from [SourceButton.Style]s.
+ * @param priority Button priority from [SourceButton.Priority]s.
  * @param onClick Callback for action to take when user clicks the button.
  * @param modifier Optional [Modifier]
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
@@ -163,7 +150,7 @@ object SourceButton {
 @Composable
 fun SourceBaseButton(
     size: SourceButton.Size,
-    style: SourceButton.Style,
+    priority: SourceButton.Priority,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     theme: Source.Theme? = null,
@@ -172,10 +159,10 @@ fun SourceBaseButton(
     val appliedTheme = theme ?: LocalSourceTheme.current
 
     require(
-        !(appliedTheme == Source.Theme.ReaderRevenue && style.isSecondary()),
+        !(appliedTheme == Source.Theme.ReaderRevenue && priority.isSecondary()),
     ) { "ReaderRevenue theme doesn't have secondary buttons." }
 
-    val buttonColours = style.toColours(appliedTheme)
+    val buttonColours = priority.toColours(appliedTheme)
 
     Button(
         onClick = onClick,
@@ -208,7 +195,7 @@ fun SourceBaseButton(
  * A Source button component with text and an optional icon.
  *
  * @param text Text to display on the button.
- * @param style Button style from [SourceButton.Style]s.
+ * @param priority Button priority from [SourceButton.Priority]s.
  * @param onClick Callback for action to take when user clicks the button.
  * @param modifier Optional [Modifier]
  * @param size Optional button size from [SourceButton.Size]s. Defaults to
@@ -226,7 +213,7 @@ fun SourceBaseButton(
 @Composable
 fun SourceButton(
     text: String,
-    style: SourceButton.Style,
+    priority: SourceButton.Priority,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     size: SourceButton.Size = SourceButton.Size.Small,
@@ -236,7 +223,7 @@ fun SourceButton(
 ) {
     SourceBaseButton(
         size = size,
-        style = style,
+        priority = priority,
         onClick = onClick,
         modifier = modifier,
         theme = theme,
@@ -273,17 +260,17 @@ internal fun CoreButtonIconBeforePreview() {
     AppColourMode {
         SourceCoreTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Style.entries.forEach { style ->
+                SourceButton.Priority.entries.forEach { priority ->
                     Row(
                         modifier = Modifier
-                            .background(style.getBackdropColour().current)
+                            .background(priority.getBackdropColour().current)
                             .fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceAround,
                     ) {
                         SourceButton.Size.entries.forEach { size ->
                             SourceButton(
-                                text = style.getPreviewName(size),
-                                style = style,
+                                text = priority.getPreviewName(size),
+                                priority = priority,
                                 onClick = {},
                                 size = size,
                                 iconPosition = SourceButton.IconPosition.Left,
@@ -310,18 +297,18 @@ internal fun RrButtonIconBeforePreview() {
     AppColourMode {
         ReaderRevenueTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Style.entries.forEach { style ->
-                    if (!style.name.contains("Secondary")) {
+                SourceButton.Priority.entries.forEach { priority ->
+                    if (!priority.name.contains("Secondary")) {
                         Row(
                             modifier = Modifier
-                                .background(style.getBackdropColour().current)
+                                .background(priority.getBackdropColour().current)
                                 .fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceAround,
                         ) {
                             SourceButton.Size.entries.forEach { size ->
                                 SourceButton(
-                                    text = style.getPreviewName(size),
-                                    style = style,
+                                    text = priority.getPreviewName(size),
+                                    priority = priority,
                                     onClick = {},
                                     size = size,
                                     iconPosition = SourceButton.IconPosition.Left,
@@ -349,17 +336,17 @@ internal fun CoreButtonTextOnlyPreview() {
     AppColourMode {
         SourceCoreTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Style.entries.forEach { style ->
+                SourceButton.Priority.entries.forEach { priority ->
                     Row(
                         modifier = Modifier
-                            .background(style.getBackdropColour().current)
+                            .background(priority.getBackdropColour().current)
                             .fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceAround,
                     ) {
                         SourceButton.Size.entries.forEach { size ->
                             SourceButton(
-                                text = style.getPreviewName(size),
-                                style = style,
+                                text = priority.getPreviewName(size),
+                                priority = priority,
                                 onClick = {},
                                 size = size,
                             )
@@ -378,18 +365,18 @@ internal fun RrButtonTextOnlyPreview() {
     AppColourMode {
         ReaderRevenueTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Style.entries.forEach { style ->
-                    if (!style.name.contains("Secondary")) {
+                SourceButton.Priority.entries.forEach { priority ->
+                    if (!priority.name.contains("Secondary")) {
                         Row(
                             modifier = Modifier
-                                .background(style.getBackdropColour().current)
+                                .background(priority.getBackdropColour().current)
                                 .fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceAround,
                         ) {
                             SourceButton.Size.entries.forEach { size ->
                                 SourceButton(
-                                    text = style.getPreviewName(size),
-                                    style = style,
+                                    text = priority.getPreviewName(size),
+                                    priority = priority,
                                     onClick = {},
                                     size = size,
                                 )
@@ -409,17 +396,17 @@ internal fun CoreButtonIconAfterPreview() {
     AppColourMode {
         SourceCoreTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Style.entries.forEach { style ->
+                SourceButton.Priority.entries.forEach { priority ->
                     Row(
                         modifier = Modifier
-                            .background(style.getBackdropColour().current)
+                            .background(priority.getBackdropColour().current)
                             .fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceAround,
                     ) {
                         SourceButton.Size.entries.forEach { size ->
                             SourceButton(
-                                text = style.getPreviewName(size),
-                                style = style,
+                                text = priority.getPreviewName(size),
+                                priority = priority,
                                 onClick = {},
                                 size = size,
                                 iconPosition = SourceButton.IconPosition.Right,
@@ -446,18 +433,18 @@ internal fun RrButtonIconAfterPreview() {
     AppColourMode {
         ReaderRevenueTheme {
             Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Style.entries.forEach { style ->
-                    if (!style.name.contains("Secondary")) {
+                SourceButton.Priority.entries.forEach { priority ->
+                    if (!priority.name.contains("Secondary")) {
                         Row(
                             modifier = Modifier
-                                .background(style.getBackdropColour().current)
+                                .background(priority.getBackdropColour().current)
                                 .fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceAround,
                         ) {
                             SourceButton.Size.entries.forEach { size ->
                                 SourceButton(
-                                    text = style.getPreviewName(size),
-                                    style = style,
+                                    text = priority.getPreviewName(size),
+                                    priority = priority,
                                     onClick = {},
                                     size = size,
                                     iconPosition = SourceButton.IconPosition.Right,
@@ -478,5 +465,5 @@ internal fun RrButtonIconAfterPreview() {
     }
 }
 
-private fun SourceButton.Style.getPreviewName(size: SourceButton.Size) =
+private fun SourceButton.Priority.getPreviewName(size: SourceButton.Size) =
     "${name.take(n = 3).lowercase()}.${size.shortName}"
