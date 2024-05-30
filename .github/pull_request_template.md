@@ -7,16 +7,16 @@
 #### Testing notes/instructions:
 
 
-#### Recommended reviewiers:
-
-- [ ] Design review from the design system team for UI changes
-- [ ] Code review from @guardian/android-developers or @guardian/ios-developers
-- [ ] Optional code/API review from @guardian/client-side-infra
-
-##### Checklist
+#### Checklist
 - [ ] Changes have been checked by the developer
 - [ ] Changes have been checked by the reviewers
 - [ ] Unit tested
+
+##### Recommended reviewiers
+
+- Design review for UI changes from @guardian/design-system
+- Code review from @guardian/android-developers or @guardian/ios-developers
+- Optional code/API review from @guardian/client-side-infra
 
 ##### Specific notes/instructions for the reviewer: <!-- Delete if not applicable -->
 
@@ -33,8 +33,9 @@
 <!-- Put a markdown-uploaded image on each side of the pipe in the last row; repeat if necessary -->
 <!-- Do not delete this ↓ blank line or the table won't work -->
 
-| `Before` | `After` |
-| --- | --- |
-|
+| | `Before` | `After` |
+| --- | --- | --- |
+| Light | | |
+| Dark | | |
 
 <!-- Do not delete this ↑ blank line or the table won't work -->
