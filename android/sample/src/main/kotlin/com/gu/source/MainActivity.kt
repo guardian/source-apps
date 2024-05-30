@@ -53,7 +53,7 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
                 size = SourceButton.Size.XSmall,
             )
             SourceButton(
-                text = "Hello",
+                text = "Welcome",
                 priority = SourceButton.Priority.SecondaryOnWhite,
                 onClick = {},
                 size = SourceButton.Size.XSmall,
@@ -79,7 +79,7 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
                     size = SourceButton.Size.Small,
                 )
                 SourceButton(
-                    text = "Hello",
+                    text = "to",
                     priority = SourceButton.Priority.PrimaryOnWhite,
                     onClick = {},
                     size = SourceButton.Size.Small,
@@ -105,7 +105,7 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
                 size = SourceButton.Size.Medium,
             )
             SourceButton(
-                text = "Hello",
+                text = "Source",
                 priority = SourceButton.Priority.SecondaryOnWhite,
                 onClick = {},
                 size = SourceButton.Size.Medium,
