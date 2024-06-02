@@ -19,7 +19,7 @@ kotlinter = "3.15.0"
 compose-compiler = "1.5.14"
 
 activity = "1.9.0"
-appcompat = "1.6.1"
+appcompat = "1.7.0"
 composeBom = "2024.05.00"
 composeLint = "0.1.10"
 #composeLint = "0.3.15"
