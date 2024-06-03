@@ -14,8 +14,8 @@ plugins {
     alias(libs.plugins.detekt) apply false
     alias(libs.plugins.paparazzi) apply false
     alias(libs.plugins.nexus.publish)
+    alias(libs.plugins.compose.compiler) apply false
 }
-
 
 group = libs.versions.group.get()
 version = libs.versions.libraryVersion.get()
