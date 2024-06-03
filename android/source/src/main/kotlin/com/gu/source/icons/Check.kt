@@ -48,7 +48,7 @@ val Source.Icons.Base.Check: ImageVector
         .build()
         .also { _check = it }
 
-@Suppress("TopLevelPropertyNaming")
+@Suppress("TopLevelPropertyNaming", "ktlint:standard:backing-property-naming")
 private var _check: ImageVector? = null
 
 @Preview

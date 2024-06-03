@@ -1,3 +1,5 @@
+@file:Suppress("ktlint:compose:preview-annotation-naming")
+
 package com.gu.source.utils
 
 import android.content.res.Configuration

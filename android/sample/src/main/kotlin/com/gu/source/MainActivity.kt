@@ -34,10 +34,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 private fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Column {
+    Column(modifier = modifier) {
         Text(
             text = "Hello $name!\nWe're the Guardian, the world's leading liberal voice.",
-            modifier = modifier,
+            modifier = Modifier,
             style = Source.Typography.TextArticle17,
             color = Source.Palette.Brand400,
         )

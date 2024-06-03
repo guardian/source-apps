@@ -113,7 +113,8 @@ object SourceButton {
 
     /** Enum for the side of the button on which the icon appears. */
     enum class IconSide {
-        Left, Right,
+        Left,
+        Right,
     }
 }
 

@@ -39,6 +39,7 @@ object Source {
 
     /** Source colour themes used by components. */
     enum class Theme {
-        Core, ReaderRevenue,
+        Core,
+        ReaderRevenue,
     }
 }
