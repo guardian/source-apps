@@ -33,4 +33,4 @@ google-services.json
 *.hprof
 
 
-/.kotlin/sessions/kotlin-compiler-*.salive
+/.kotlin/**
