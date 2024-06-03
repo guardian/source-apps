@@ -776,12 +776,16 @@ ij_groovy_wrap_long_lines = false
 
 [*.{kt,kts}]
 # Ktlint specific rules and other overrides from standard rules
-ktlint_code_style = intellij_idea
+ktlint_code_style = android_studio
 ktlint_standard_no-wildcard-imports = disabled
 ktlint_standard_if-else-bracing = enabled
 # This doesn't appear to have an impact at the moment, so we may still need to use suppress
 #  annotations for it.
 ktlint_standard_parameter-wrapping = disabled
+
+# Some rules from the Compose ruleset are not working. These are being overridden here for now.
+ktlint_function_naming_ignore_when_annotated_with = Composable
+ktlint_standard_property-naming = disabled
 
 ij_kotlin_indent_size = 4
 ij_kotlin_continuation_indent_size = 4

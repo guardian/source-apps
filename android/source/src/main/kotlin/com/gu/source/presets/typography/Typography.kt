@@ -1452,7 +1452,6 @@ val Source.Typography.Titlepiece70: TextStyle
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
 
-@Suppress("MagicNumber")
 private object LineHeight {
     const val Tight = 1.15f
     const val Regular = 1.3f
