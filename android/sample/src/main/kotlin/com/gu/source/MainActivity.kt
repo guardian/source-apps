@@ -9,15 +9,17 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.components.buttons.SourceButton
 import com.gu.source.components.buttons.SourceIconButton
+import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.Check
 import com.gu.source.presets.palette.Brand400
+import com.gu.source.presets.palette.Neutral97
 import com.gu.source.presets.typography.TextArticle17
 import com.gu.source.theme.ReaderRevenueTheme
+import com.gu.source.utils.PhoneBothModePreviews
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +44,10 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
             text = "Hello $name!\nWe're the Guardian, the world's leading liberal voice.",
             modifier = Modifier,
             style = Source.Typography.TextArticle17,
-            color = Source.Palette.Brand400,
+            color = AppColour(
+                light = Source.Palette.Brand400,
+                dark = Source.Palette.Neutral97
+            ).current,
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -124,8 +129,10 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+@PhoneBothModePreviews
 @Composable
 private fun GreetingPreview() {
-    Greeting("Android")
+    AppColourMode {
+        Greeting("Android")
+    }
 }
