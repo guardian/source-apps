@@ -790,7 +790,7 @@ ktlint_standard_property-naming = disabled
 ij_kotlin_indent_size = 4
 ij_kotlin_continuation_indent_size = 4
 
-compose_allowed_composition_locals = LocalIsDarkModeActive
+compose_allowed_composition_locals = LocalIsDarkModeActive,LocalSourceTheme
 
 # Kotlin/IJ rules
 ij_smart_tabs = false

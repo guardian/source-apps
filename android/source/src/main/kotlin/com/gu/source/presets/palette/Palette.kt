@@ -141,7 +141,7 @@ val Source.Palette.SpecialReport200: Color
 val Source.Palette.SpecialReport300: Color
     get() = Color(color = 0xff3f464a)
 val Source.Palette.SpecialReport400: Color
-    get() = Color(color = 0xff63717a)
+    get() = Color(color = 0xff595C5F)
 val Source.Palette.SpecialReport500: Color
     get() = Color(color = 0xffabc2c9)
 val Source.Palette.SpecialReport800: Color
