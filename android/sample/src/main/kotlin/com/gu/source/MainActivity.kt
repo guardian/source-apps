@@ -46,7 +46,7 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
             style = Source.Typography.TextArticle17,
             color = AppColour(
                 light = Source.Palette.Brand400,
-                dark = Source.Palette.Neutral97
+                dark = Source.Palette.Neutral97,
             ).current,
         )
 
