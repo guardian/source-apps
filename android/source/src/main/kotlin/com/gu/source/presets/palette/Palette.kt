@@ -5,6 +5,9 @@ package com.gu.source.presets.palette
 import androidx.compose.ui.graphics.Color
 import com.gu.source.Source
 
+// Dev note: When adding new colours here, please also add them to `PalettePreview.kt` in the
+// sample module.
+
 val Source.Palette.Brand100: Color
     get() = Color(color = 0xff001536)
 val Source.Palette.Brand300: Color
