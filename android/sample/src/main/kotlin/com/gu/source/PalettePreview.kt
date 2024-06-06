@@ -17,14 +17,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.daynight.AppColour
+import com.gu.source.daynight.AppColourMode
 import com.gu.source.presets.palette.*
 import com.gu.source.presets.typography.HeadlineBold20
 import com.gu.source.presets.typography.TextSans11
 import com.gu.source.presets.typography.TextSansBold14
 import com.gu.source.presets.typography.TextSansBold15
+import com.gu.source.utils.PhoneBothModePreviews
 
 private data class Colour(
     val name: String,
@@ -34,6 +35,8 @@ private data class Colour(
         .toHexString(HexFormat.UpperCase)
         .substring(2),
 )
+
+private const val ContentColourThreshold = 0.5f
 
 private val colours = mapOf(
     "Brand" to listOf(
@@ -134,14 +137,17 @@ private val colours = mapOf(
     ),
 )
 
-@Preview(device = "spec:width=1080px,height=8340px,dpi=440")
 @Composable
 internal fun Palette(modifier: Modifier = Modifier) {
     Surface(
-        modifier = modifier,
+        modifier = modifier.safeDrawingPadding(),
         color = AppColour(
             Source.Palette.Neutral100,
             Source.Palette.Neutral0,
+        ).current,
+        contentColor = AppColour(
+            Source.Palette.Neutral0,
+            Source.Palette.Neutral100,
         ).current,
     ) {
         LazyVerticalGrid(
@@ -168,8 +174,12 @@ internal fun Palette(modifier: Modifier = Modifier) {
                     }
                 }
                 items(colours[palette].orEmpty()) { colour ->
-                    val contentColour =
-                        if (colour.colour.luminance() > 0.5f) Color.Black else Color.White
+                    val contentColour = if (colour.colour.luminance() > ContentColourThreshold) {
+                        Color.Black
+                    } else {
+                        Color.White
+                    }
+
                     Box(
                         modifier = Modifier
                             .height(50.dp)
@@ -196,5 +206,13 @@ internal fun Palette(modifier: Modifier = Modifier) {
                 }
             }
         }
+    }
+}
+
+@PhoneBothModePreviews
+@Composable
+private fun Preview() {
+    AppColourMode {
+        Palette()
     }
 }
