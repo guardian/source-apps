@@ -12,7 +12,7 @@ val Source.Palette.Brand300: Color
 val Source.Palette.Brand400: Color
     get() = Color(color = 0xff052962)
 val Source.Palette.Brand500: Color
-    get() = Color(color = 0xff007abc)
+    get() = Color(color = 0xff0077b6)
 val Source.Palette.Brand600: Color
     get() = Color(color = 0xff506991)
 val Source.Palette.Brand800: Color
@@ -55,9 +55,13 @@ val Source.Palette.Neutral100: Color
 val Source.Palette.Error400: Color
     get() = Color(color = 0xffc70000)
 val Source.Palette.Error500: Color
-    get() = Color(color = 0xffFF9081)
+    get() = Color(color = 0xffff9081)
+val Source.Palette.Success300: Color
+    get() = Color(color = 0xff185e36)
 val Source.Palette.Success400: Color
     get() = Color(color = 0xff22874d)
+val Source.Palette.Success500: Color
+    get() = Color(color = 0xff58d08b)
 
 val Source.Palette.News100: Color
     get() = Color(color = 0xff660505)
@@ -69,6 +73,8 @@ val Source.Palette.News400: Color
     get() = Color(color = 0xffc70000)
 val Source.Palette.News500: Color
     get() = Color(color = 0xffff5943)
+val Source.Palette.News550: Color
+    get() = Color(color = 0xffff9081)
 val Source.Palette.News600: Color
     get() = Color(color = 0xffffbac8)
 val Source.Palette.News800: Color
@@ -81,9 +87,13 @@ val Source.Palette.Opinion200: Color
 val Source.Palette.Opinion300: Color
     get() = Color(color = 0xffbd5318)
 val Source.Palette.Opinion400: Color
+    get() = Color(color = 0xffc74600)
+val Source.Palette.Opinion450: Color
     get() = Color(color = 0xffe05e00)
 val Source.Palette.Opinion500: Color
     get() = Color(color = 0xffff7f0f)
+val Source.Palette.Opinion550: Color
+    get() = Color(color = 0xffff9941)
 val Source.Palette.Opinion600: Color
     get() = Color(color = 0xfff9b376)
 val Source.Palette.Opinion800: Color
@@ -96,7 +106,7 @@ val Source.Palette.Sport200: Color
 val Source.Palette.Sport300: Color
     get() = Color(color = 0xff005689)
 val Source.Palette.Sport400: Color
-    get() = Color(color = 0xff0077B6)
+    get() = Color(color = 0xff0077b6)
 val Source.Palette.Sport500: Color
     get() = Color(color = 0xff00b2ff)
 val Source.Palette.Sport600: Color
@@ -104,6 +114,8 @@ val Source.Palette.Sport600: Color
 val Source.Palette.Sport800: Color
     get() = Color(color = 0xfff1f8fc)
 
+val Source.Palette.Culture50: Color
+    get() = Color(color = 0xff2b2625)
 val Source.Palette.Culture100: Color
     get() = Color(color = 0xff3e3323)
 val Source.Palette.Culture200: Color
@@ -111,11 +123,15 @@ val Source.Palette.Culture200: Color
 val Source.Palette.Culture300: Color
     get() = Color(color = 0xff6b5840)
 val Source.Palette.Culture400: Color
+    get() = Color(color = 0xff866d50)
+val Source.Palette.Culture450: Color
     get() = Color(color = 0xffa1845c)
 val Source.Palette.Culture500: Color
     get() = Color(color = 0xffeacca0)
 val Source.Palette.Culture600: Color
     get() = Color(color = 0xffe7d4b9)
+val Source.Palette.Culture700: Color
+    get() = Color(color = 0xffefe8dd)
 val Source.Palette.Culture800: Color
     get() = Color(color = 0xfffbf6ef)
 
@@ -127,6 +143,8 @@ val Source.Palette.Lifestyle300: Color
     get() = Color(color = 0xff7d0068)
 val Source.Palette.Lifestyle400: Color
     get() = Color(color = 0xffbb3b80)
+val Source.Palette.Lifestyle450: Color
+    get() = Color(color = 0xfff37abc)
 val Source.Palette.Lifestyle500: Color
     get() = Color(color = 0xffffabdb)
 val Source.Palette.Lifestyle600: Color
@@ -141,7 +159,7 @@ val Source.Palette.SpecialReport200: Color
 val Source.Palette.SpecialReport300: Color
     get() = Color(color = 0xff3f464a)
 val Source.Palette.SpecialReport400: Color
-    get() = Color(color = 0xff595C5F)
+    get() = Color(color = 0xff595c5f)
 val Source.Palette.SpecialReport500: Color
     get() = Color(color = 0xffabc2c9)
 val Source.Palette.SpecialReport800: Color
