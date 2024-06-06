@@ -16,7 +16,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
-import com.gu.source.daynight.AppColour
 import com.gu.source.presets.palette.Culture200
 import com.gu.source.presets.palette.Culture800
 
@@ -140,9 +139,9 @@ private fun Preview() {
         text = "Button",
         size = SourceButton.Size.Small,
         buttonColours = ButtonColours(
-            border = AppColour(Source.Palette.Culture200),
-            container = AppColour(Source.Palette.Culture800),
-            content = AppColour(Source.Palette.Culture200),
+            border = Source.Palette.Culture200,
+            container = Source.Palette.Culture800,
+            content = Source.Palette.Culture200,
         ),
         onClick = {},
     )

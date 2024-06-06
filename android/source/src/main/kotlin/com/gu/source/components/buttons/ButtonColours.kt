@@ -1,5 +1,6 @@
 package com.gu.source.components.buttons
 
+import androidx.compose.ui.graphics.Color
 import com.gu.source.Source
 import com.gu.source.Source.Theme.Core
 import com.gu.source.Source.Theme.ReaderRevenue
@@ -17,7 +18,21 @@ data class ButtonColours(
     val border: AppColour,
     val container: AppColour,
     val content: AppColour,
-)
+) {
+    /**
+     * Secondary constructor to allow creating an instance without using `AppColour`. This can be
+     * used when loading colours from resources using `colourResource`.
+     */
+    constructor(
+        border: Color,
+        container: Color,
+        content: Color,
+    ) : this(
+        border = AppColour(light = border),
+        container = AppColour(container),
+        content = AppColour(content),
+    )
+}
 
 @Suppress("CyclomaticComplexMethod", "LongMethod")
 /**
