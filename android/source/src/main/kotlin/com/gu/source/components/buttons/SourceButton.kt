@@ -142,7 +142,7 @@ object SourceButton {
         " This variant is for supporting custom button designs only.",
 )
 @Composable
-fun SourceBaseButton(
+fun SourceContentButton(
     size: SourceButton.Size,
     priority: SourceButton.Priority,
     onClick: () -> Unit,
@@ -216,7 +216,7 @@ fun SourceButton(
     iconSide: SourceButton.IconSide = SourceButton.IconSide.Left,
     icon: @Composable (Modifier) -> Unit = {},
 ) {
-    SourceBaseButton(
+    SourceContentButton(
         size = size,
         priority = priority,
         onClick = onClick,
