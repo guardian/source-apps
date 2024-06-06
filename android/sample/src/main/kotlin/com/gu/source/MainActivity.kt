@@ -8,17 +8,17 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.gu.source.components.buttons.ButtonColours
+import com.gu.source.components.buttons.PlainSourceButton
 import com.gu.source.components.buttons.SourceButton
 import com.gu.source.components.buttons.SourceIconButton
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.Check
-import com.gu.source.presets.palette.Brand400
-import com.gu.source.presets.palette.Neutral0
-import com.gu.source.presets.palette.Neutral100
-import com.gu.source.presets.palette.Neutral97
+import com.gu.source.presets.palette.*
 import com.gu.source.presets.typography.HeadlineMedium20
 import com.gu.source.presets.typography.TextSansBold17
 import com.gu.source.theme.ReaderRevenueTheme
@@ -108,7 +108,7 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
                     modifier = Modifier.weight(1f),
                 )
                 SourceButton(
-                    text = "Welcome",
+                    text = "Xsm core",
                     priority = SourceButton.Priority.SecondaryOnWhite,
                     onClick = {},
                     size = SourceButton.Size.XSmall,
@@ -135,7 +135,7 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
                         modifier = Modifier.weight(1f),
                     )
                     SourceButton(
-                        text = "to",
+                        text = "Sm RR",
                         priority = SourceButton.Priority.PrimaryOnWhite,
                         onClick = {},
                         size = SourceButton.Size.Small,
@@ -162,7 +162,7 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
                     modifier = Modifier.weight(1f),
                 )
                 SourceButton(
-                    text = "Source",
+                    text = "Md Core",
                     priority = SourceButton.Priority.SecondaryOnWhite,
                     onClick = {},
                     size = SourceButton.Size.Medium,
@@ -177,6 +177,18 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
                     modifier = Modifier.weight(1f),
                 )
             }
+
+            PlainSourceButton(
+                text = "Un-themed",
+                size = SourceButton.Size.Small,
+                buttonColours = ButtonColours(
+                    border = AppColour(Source.Palette.Culture200),
+                    container = AppColour(Source.Palette.Culture800),
+                    content = AppColour(Source.Palette.Culture200),
+                ),
+                onClick = {},
+                modifier = Modifier.align(CenterHorizontally),
+            )
         }
     }
 }

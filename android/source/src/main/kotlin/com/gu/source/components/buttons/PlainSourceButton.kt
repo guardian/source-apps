@@ -17,8 +17,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
-import com.gu.source.presets.palette.Sport200
-import com.gu.source.presets.palette.Sport800
+import com.gu.source.presets.palette.Culture200
+import com.gu.source.presets.palette.Culture800
 
 /**
  * A basic Source compatible button component. This button does not have any Source colour theming.
@@ -140,9 +140,9 @@ private fun Preview() {
         text = "Button",
         size = SourceButton.Size.Small,
         buttonColours = ButtonColours(
-            border = AppColour(Source.Palette.Sport200),
-            container = AppColour(Source.Palette.Sport800),
-            content = AppColour(Source.Palette.Sport200),
+            border = AppColour(Source.Palette.Culture200),
+            container = AppColour(Source.Palette.Culture800),
+            content = AppColour(Source.Palette.Culture200),
         ),
         onClick = {},
     )
