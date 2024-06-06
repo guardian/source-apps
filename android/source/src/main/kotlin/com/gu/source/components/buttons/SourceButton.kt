@@ -1,5 +1,6 @@
 package com.gu.source.components.buttons
 
+import android.annotation.SuppressLint
 import androidx.annotation.Discouraged
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.BorderStroke
@@ -205,6 +206,7 @@ fun SourceContentButton(
  * [SourceButton.IconSide.Left].
  * @param icon Optional icon to display on the button.
  */
+@SuppressLint("DiscouragedApi")
 @Composable
 fun SourceButton(
     text: String,
@@ -249,6 +251,7 @@ fun SourceButton(
 }
 
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+@SuppressLint("DiscouragedApi")
 @PhoneBothModePreviews
 @Composable
 internal fun CoreButtonIconBeforePreview() {
@@ -285,6 +288,7 @@ internal fun CoreButtonIconBeforePreview() {
     }
 }
 
+@SuppressLint("DiscouragedApi")
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PhoneBothModePreviews
 @Composable
@@ -384,6 +388,7 @@ internal fun RrButtonTextOnlyPreview() {
     }
 }
 
+@SuppressLint("DiscouragedApi")
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PhoneBothModePreviews
 @Composable
@@ -421,6 +426,7 @@ internal fun CoreButtonIconAfterPreview() {
     }
 }
 
+@SuppressLint("DiscouragedApi")
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PhoneBothModePreviews
 @Composable
