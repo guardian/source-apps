@@ -10,7 +10,6 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -187,10 +186,6 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
                 )
             }
         }
-    }
-
-    LaunchedEffect(key1 = Unit) {
-        scaffoldState.bottomSheetState.expand()
     }
 }
 
