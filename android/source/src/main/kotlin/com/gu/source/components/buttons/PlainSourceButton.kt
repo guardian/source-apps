@@ -16,31 +16,42 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
-import com.gu.source.presets.palette.Culture200
-import com.gu.source.presets.palette.Culture800
+import com.gu.source.daynight.AppColour
+import com.gu.source.presets.palette.Neutral0
+import com.gu.source.presets.palette.Neutral100
+
+private val PlainDefault: ButtonColours
+    get() = ButtonColours(
+        border = AppColour(Source.Palette.Neutral0, Source.Palette.Neutral100),
+        container = AppColour.Transparent,
+        content = AppColour(Source.Palette.Neutral0, Source.Palette.Neutral100),
+    )
 
 /**
- * A basic Source compatible button component. This button does not have any Source colour theming.
+ * A plain, basic Source compatible button component. This button does not have any Source colour
+ * theming. Provide [buttonColours] to theme the button.
+ *
+ *
  * This is a low-level component and should be sparingly used only for custom buttons. Prefer to
- * use [SourceButton] or [SourceBaseIconButton] instead.
+ * use [PlainSourceButton] or [SourceIconButton] instead.
  *
  * @param size Button size from [SourceButton.Size]s. Reflects the prominence of the action.
- * @param buttonColours Colours for the button. Use [ButtonColours] to create the colours.
  * @param onClick Callback for action to take when user clicks the button.
  * @param modifier Optional [Modifier]
+ * @param buttonColours Optional colours for the button. Use this to theme the button.
  * @param content Slot for composable content to present inside the button.
  */
 @Discouraged(
-    "Preferably use `SourceButton`." +
+    "Preferably use `PlainSourceButton`." +
         " It provides correct styling & size for text and icons." +
         " This variant is for supporting custom button designs only.",
 )
 @Composable
 fun PlainSourceContentButton(
     size: SourceButton.Size,
-    buttonColours: ButtonColours,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    buttonColours: ButtonColours = PlainDefault,
     content: @Composable () -> Unit,
 ) {
     Button(
@@ -71,40 +82,35 @@ fun PlainSourceContentButton(
 }
 
 /**
- * A plain Source button component with text and an optional icon, but no Source colour theming.
+ * A plain Source button component with text and an optional icon. This has no Source colour
+ * theming. Provide [buttonColours] to theme the button.
  *
  * Prefer to use [SourceButton] or [SourceBaseIconButton] instead.
  *
  * @param text Text to display on the button.
  * @param size Button size from [SourceButton.Size]s. Reflects the prominence of the action.
- * @param buttonColours Colours for the button. Use [ButtonColours] to create the colours.
  * @param onClick Callback for action to take when user clicks the button.
  * @param modifier Optional [Modifier]
+ * @param buttonColours Optional colours for the button. Use this to theme the button.
  * @param iconSide Optional the side of the button on which the icon appears. Defaults to
  * [SourceButton.IconSide.Left].
  * @param icon Optional icon to display on the button.
  */
-@SuppressLint("DiscouragedApi")
-@Discouraged(
-    "Preferably use `SourceButton`." +
-        " It provides correct styling & size for text and icons." +
-        " This variant is for supporting custom button designs and colours only.",
-)
 @Composable
 fun PlainSourceButton(
     text: String,
     size: SourceButton.Size,
-    buttonColours: ButtonColours,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    buttonColours: ButtonColours = PlainDefault,
     iconSide: SourceButton.IconSide = SourceButton.IconSide.Left,
     icon: @Composable (Modifier) -> Unit = {},
 ) {
     PlainSourceContentButton(
         size = size,
-        buttonColours = buttonColours,
         onClick = onClick,
         modifier = modifier,
+        buttonColours = buttonColours,
     ) {
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -138,11 +144,6 @@ private fun Preview() {
     PlainSourceButton(
         text = "Button",
         size = SourceButton.Size.Small,
-        buttonColours = ButtonColours(
-            border = Source.Palette.Culture200,
-            container = Source.Palette.Culture800,
-            content = Source.Palette.Culture200,
-        ),
         onClick = {},
     )
 }

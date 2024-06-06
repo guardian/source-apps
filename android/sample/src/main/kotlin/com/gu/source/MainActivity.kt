@@ -1,5 +1,6 @@
 package com.gu.source
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -7,7 +8,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -37,6 +37,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@SuppressLint("DiscouragedApi")
 @Composable
 private fun Greeting(name: String, modifier: Modifier = Modifier) {
     val coroutineScope = rememberCoroutineScope()
@@ -55,11 +56,11 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
             Source.Palette.Neutral0,
         ).current,
         modifier = modifier,
-    ) {
+    ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(it + PaddingValues(16.dp)),
+                .padding(paddingValues + PaddingValues(16.dp)),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Text(
@@ -86,7 +87,7 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
             SourceButton(
                 text = "Open palette",
                 priority = SourceButton.Priority.TertiaryOnWhite,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
+                modifier = Modifier.align(CenterHorizontally),
                 onClick = {
                     coroutineScope.launch {
                         scaffoldState.bottomSheetState.expand()
@@ -181,13 +182,13 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
             PlainSourceButton(
                 text = "Un-themed",
                 size = SourceButton.Size.Small,
-                buttonColours = ButtonColours(
-                    border = AppColour(Source.Palette.Culture200),
-                    container = AppColour(Source.Palette.Culture800),
-                    content = AppColour(Source.Palette.Culture200),
-                ),
                 onClick = {},
                 modifier = Modifier.align(CenterHorizontally),
+                buttonColours = ButtonColours(
+                    border = AppColour(Source.Palette.Culture200, Source.Palette.Culture800),
+                    container = AppColour(Source.Palette.Culture800, Source.Palette.Culture200),
+                    content = AppColour(Source.Palette.Culture200, Source.Palette.Culture800),
+                ),
             )
         }
     }

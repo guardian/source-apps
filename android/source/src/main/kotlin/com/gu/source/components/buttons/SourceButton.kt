@@ -119,7 +119,7 @@ object SourceButton {
 /**
  * A basic Source compatible button component.
  * This is a low-level component and should be sparingly used only for custom buttons. Prefer to
- * use [SourceButton] or [SourceBaseIconButton] instead.
+ * use [SourceButton] or [SourceIconButton] instead.
  *
  * @param size Button size from [SourceButton.Size]s. Reflects the prominence of the action.
  * @param priority Button priority from [SourceButton.Priority]s. Informs users of how important an
@@ -159,9 +159,9 @@ fun SourceContentButton(
 
     PlainSourceContentButton(
         size = size,
-        buttonColours = buttonColours,
         onClick = onClick,
         modifier = modifier,
+        buttonColours = buttonColours,
         content = content,
     )
 }
