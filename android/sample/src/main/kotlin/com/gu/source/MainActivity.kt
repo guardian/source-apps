@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AppColourMode {
-                Greeting("Android")
+                Greeting(name = "Android", modifier = it)
             }
         }
     }
@@ -99,21 +99,22 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
 
             Text(text = "Button variants", style = Source.Typography.TextSansBold17)
 
-            Row {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceAround,
+            ) {
                 SourceIconButton(
                     icon = Source.Icons.Base.Check,
                     priority = SourceButton.Priority.PrimaryOnWhite,
                     contentDescription = null,
                     onClick = {},
                     size = SourceButton.Size.XSmall,
-                    modifier = Modifier.weight(1f),
                 )
                 SourceButton(
-                    text = "Xsm core",
+                    text = "Extra small - Core",
                     priority = SourceButton.Priority.SecondaryOnWhite,
                     onClick = {},
                     size = SourceButton.Size.XSmall,
-                    modifier = Modifier.weight(1f),
                 )
                 SourceIconButton(
                     icon = Source.Icons.Base.Check,
@@ -121,26 +122,26 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
                     contentDescription = null,
                     onClick = {},
                     size = SourceButton.Size.XSmall,
-                    modifier = Modifier.weight(1f),
                 )
             }
 
             ReaderRevenueTheme {
-                Row(modifier = it) {
+                Row(
+                    modifier = it.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceAround,
+                ) {
                     SourceIconButton(
                         icon = Source.Icons.Base.Check,
                         priority = SourceButton.Priority.PrimaryOnWhite,
                         contentDescription = null,
                         onClick = {},
                         size = SourceButton.Size.Small,
-                        modifier = Modifier.weight(1f),
                     )
                     SourceButton(
-                        text = "Sm RR",
+                        text = "Small - RR",
                         priority = SourceButton.Priority.PrimaryOnWhite,
                         onClick = {},
                         size = SourceButton.Size.Small,
-                        modifier = Modifier.weight(1f),
                     )
                     SourceIconButton(
                         icon = Source.Icons.Base.Check,
@@ -148,26 +149,26 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
                         contentDescription = null,
                         onClick = {},
                         size = SourceButton.Size.Small,
-                        modifier = Modifier.weight(1f),
                     )
                 }
             }
 
-            Row {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceAround,
+            ) {
                 SourceIconButton(
                     icon = Source.Icons.Base.Check,
                     priority = SourceButton.Priority.PrimaryOnWhite,
                     contentDescription = null,
                     onClick = {},
                     size = SourceButton.Size.Medium,
-                    modifier = Modifier.weight(1f),
                 )
                 SourceButton(
-                    text = "Md Core",
+                    text = "Medium - Core",
                     priority = SourceButton.Priority.SecondaryOnWhite,
                     onClick = {},
                     size = SourceButton.Size.Medium,
-                    modifier = Modifier.weight(1f),
                 )
                 SourceIconButton(
                     icon = Source.Icons.Base.Check,
@@ -175,19 +176,26 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
                     contentDescription = null,
                     onClick = {},
                     size = SourceButton.Size.Medium,
-                    modifier = Modifier.weight(1f),
                 )
             }
 
             PlainSourceButton(
-                text = "Un-themed",
-                size = SourceButton.Size.Small,
+                text = "Custom themed",
                 onClick = {},
                 modifier = Modifier.align(CenterHorizontally),
                 buttonColours = ButtonColours(
-                    border = AppColour(Source.Palette.Culture200, Source.Palette.Culture800),
-                    container = AppColour(Source.Palette.Culture800, Source.Palette.Culture200),
-                    content = AppColour(Source.Palette.Culture200, Source.Palette.Culture800),
+                    border = AppColour(
+                        light = Source.Palette.Culture200,
+                        dark = Source.Palette.Culture800,
+                    ),
+                    container = AppColour(
+                        light = Source.Palette.Culture800,
+                        dark = Source.Palette.Culture200,
+                    ),
+                    content = AppColour(
+                        light = Source.Palette.Culture200,
+                        dark = Source.Palette.Culture800,
+                    ),
                 ),
             )
         }

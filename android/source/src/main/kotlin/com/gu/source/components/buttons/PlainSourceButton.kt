@@ -88,10 +88,10 @@ fun PlainSourceContentButton(
  * Prefer to use [SourceButton] or [SourceBaseIconButton] instead.
  *
  * @param text Text to display on the button.
- * @param size Button size from [SourceButton.Size]s. Reflects the prominence of the action.
  * @param onClick Callback for action to take when user clicks the button.
  * @param modifier Optional [Modifier]
  * @param buttonColours Optional colours for the button. Use this to theme the button.
+ * @param size Button size from [SourceButton.Size]s. Reflects the prominence of the action.
  * @param iconSide Optional the side of the button on which the icon appears. Defaults to
  * [SourceButton.IconSide.Left].
  * @param icon Optional icon to display on the button.
@@ -99,10 +99,10 @@ fun PlainSourceContentButton(
 @Composable
 fun PlainSourceButton(
     text: String,
-    size: SourceButton.Size,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     buttonColours: ButtonColours = PlainDefault,
+    size: SourceButton.Size = SourceButton.Size.Small,
     iconSide: SourceButton.IconSide = SourceButton.IconSide.Left,
     icon: @Composable (Modifier) -> Unit = {},
 ) {
@@ -143,7 +143,7 @@ fun PlainSourceButton(
 private fun Preview() {
     PlainSourceButton(
         text = "Button",
-        size = SourceButton.Size.Small,
         onClick = {},
+        size = SourceButton.Size.Small,
     )
 }
