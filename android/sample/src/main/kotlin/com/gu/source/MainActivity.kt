@@ -4,9 +4,14 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
+import androidx.compose.material3.BottomSheetScaffold
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Text
+import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
@@ -29,6 +34,7 @@ import kotlinx.coroutines.launch
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
             AppColourMode {
                 Greeting(name = "Android", modifier = it)
@@ -41,21 +47,24 @@ class MainActivity : ComponentActivity() {
 @Composable
 private fun Greeting(name: String, modifier: Modifier = Modifier) {
     val coroutineScope = rememberCoroutineScope()
-    val sheetState = rememberStandardBottomSheetState(skipHiddenState = true)
-    val scaffoldState = rememberBottomSheetScaffoldState(
-        bottomSheetState = sheetState,
-    )
+    val scaffoldState = rememberBottomSheetScaffoldState()
 
     BottomSheetScaffold(
         sheetContent = { Palette() },
         scaffoldState = scaffoldState,
         sheetPeekHeight = 0.dp,
         sheetDragHandle = { Spacer(Modifier.height(4.dp)) },
+        sheetContainerColor = AppColour(
+            Source.Palette.Neutral100,
+            Source.Palette.Neutral0,
+        ).current,
+        sheetShadowElevation = 8.dp,
+        sheetTonalElevation = 8.dp,
         containerColor = AppColour(
             Source.Palette.Neutral100,
             Source.Palette.Neutral0,
         ).current,
-        modifier = modifier,
+        modifier = modifier.safeDrawingPadding(),
     ) { paddingValues ->
         Column(
             modifier = Modifier
@@ -199,6 +208,10 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
                 ),
             )
         }
+    }
+
+    LaunchedEffect(key1 = Unit) {
+        scaffoldState.bottomSheetState.expand()
     }
 }
 
