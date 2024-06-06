@@ -84,6 +84,8 @@ val Source.Palette.Opinion100: Color
     get() = Color(color = 0xff672005)
 val Source.Palette.Opinion200: Color
     get() = Color(color = 0xff8d2700)
+
+@Deprecated("Use Opinion400 instead", ReplaceWith("Opinion400"))
 val Source.Palette.Opinion300: Color
     get() = Color(color = 0xffbd5318)
 val Source.Palette.Opinion400: Color
