@@ -7,7 +7,13 @@ import com.gu.source.components.buttons.SourceButton.Priority.*
 import com.gu.source.daynight.AppColour
 import com.gu.source.presets.palette.*
 
-internal data class ButtonColours(
+/**
+ * Model to provide colours for a button.
+ * @property border
+ * @property container
+ * @property content Colour for the content of the button including text and icons.
+ */
+data class ButtonColours(
     val border: AppColour,
     val container: AppColour,
     val content: AppColour,
