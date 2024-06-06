@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.gu.source.components.buttons.SourceButton
@@ -15,10 +16,14 @@ import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.Check
 import com.gu.source.presets.palette.Brand400
+import com.gu.source.presets.palette.Neutral0
+import com.gu.source.presets.palette.Neutral100
 import com.gu.source.presets.palette.Neutral97
-import com.gu.source.presets.typography.TextArticle17
+import com.gu.source.presets.typography.HeadlineMedium20
+import com.gu.source.presets.typography.TextSansBold17
 import com.gu.source.theme.ReaderRevenueTheme
 import com.gu.source.utils.PhoneBothModePreviews
+import com.gu.source.utils.plus
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -45,112 +50,132 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
         scaffoldState = scaffoldState,
         sheetPeekHeight = 0.dp,
         sheetDragHandle = { Spacer(Modifier.height(4.dp)) },
+        containerColor = AppColour(
+            Source.Palette.Neutral100,
+            Source.Palette.Neutral0,
+        ).current,
         modifier = modifier,
     ) {
-        Surface(
+        Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp),
-            color = MaterialTheme.colorScheme.background,
+                .padding(it + PaddingValues(16.dp)),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Column(
-                modifier = Modifier.padding(it),
-                verticalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                Text(
-                    text = "Hello $name!\nWe're the Guardian, the world's leading liberal voice.",
-                    modifier = Modifier,
-                    style = Source.Typography.TextArticle17,
-                    color = AppColour(
-                        light = Source.Palette.Brand400,
-                        dark = Source.Palette.Neutral97,
-                    ).current,
-                )
+            Text(
+                text = "Hello $name!",
+                modifier = Modifier,
+                style = Source.Typography.HeadlineMedium20,
+                color = AppColour(
+                    light = Source.Palette.Brand400,
+                    dark = Source.Palette.Neutral97,
+                ).current,
+            )
+            Text(
+                text = "We're Guardian, the world's leading liberal voice.",
+                modifier = Modifier,
+                style = Source.Typography.HeadlineMedium20,
+                color = AppColour(
+                    light = Source.Palette.Brand400,
+                    dark = Source.Palette.Neutral97,
+                ).current,
+            )
 
-                HorizontalDivider()
+            HorizontalDivider()
 
-                SourceButton(
-                    text = "Open palette",
-                    priority = SourceButton.Priority.TertiaryOnWhite,
-                    onClick = {
-                        coroutineScope.launch {
-                            scaffoldState.bottomSheetState.expand()
-                        }
-                    },
-                )
-
-                HorizontalDivider()
-
-                Row {
-                    SourceIconButton(
-                        icon = Source.Icons.Base.Check,
-                        priority = SourceButton.Priority.PrimaryOnWhite,
-                        contentDescription = null,
-                        onClick = {},
-                        size = SourceButton.Size.XSmall,
-                    )
-                    SourceButton(
-                        text = "Welcome",
-                        priority = SourceButton.Priority.SecondaryOnWhite,
-                        onClick = {},
-                        size = SourceButton.Size.XSmall,
-                    )
-                    SourceIconButton(
-                        icon = Source.Icons.Base.Check,
-                        priority = SourceButton.Priority.TertiaryOnWhite,
-                        contentDescription = null,
-                        onClick = {},
-                        size = SourceButton.Size.XSmall,
-                    )
-                }
-
-                ReaderRevenueTheme {
-                    Row(modifier = it) {
-                        SourceIconButton(
-                            icon = Source.Icons.Base.Check,
-                            priority = SourceButton.Priority.PrimaryOnWhite,
-                            contentDescription = null,
-                            onClick = {},
-                            size = SourceButton.Size.Small,
-                        )
-                        SourceButton(
-                            text = "to",
-                            priority = SourceButton.Priority.PrimaryOnWhite,
-                            onClick = {},
-                            size = SourceButton.Size.Small,
-                        )
-                        SourceIconButton(
-                            icon = Source.Icons.Base.Check,
-                            priority = SourceButton.Priority.TertiaryOnWhite,
-                            contentDescription = null,
-                            onClick = {},
-                            size = SourceButton.Size.Small,
-                        )
+            SourceButton(
+                text = "Open palette",
+                priority = SourceButton.Priority.TertiaryOnWhite,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+                onClick = {
+                    coroutineScope.launch {
+                        scaffoldState.bottomSheetState.expand()
                     }
-                }
+                },
+            )
 
-                Row {
+            HorizontalDivider()
+
+            Text(text = "Button variants", style = Source.Typography.TextSansBold17)
+
+            Row {
+                SourceIconButton(
+                    icon = Source.Icons.Base.Check,
+                    priority = SourceButton.Priority.PrimaryOnWhite,
+                    contentDescription = null,
+                    onClick = {},
+                    size = SourceButton.Size.XSmall,
+                    modifier = Modifier.weight(1f),
+                )
+                SourceButton(
+                    text = "Welcome",
+                    priority = SourceButton.Priority.SecondaryOnWhite,
+                    onClick = {},
+                    size = SourceButton.Size.XSmall,
+                    modifier = Modifier.weight(1f),
+                )
+                SourceIconButton(
+                    icon = Source.Icons.Base.Check,
+                    priority = SourceButton.Priority.TertiaryOnWhite,
+                    contentDescription = null,
+                    onClick = {},
+                    size = SourceButton.Size.XSmall,
+                    modifier = Modifier.weight(1f),
+                )
+            }
+
+            ReaderRevenueTheme {
+                Row(modifier = it) {
                     SourceIconButton(
                         icon = Source.Icons.Base.Check,
                         priority = SourceButton.Priority.PrimaryOnWhite,
                         contentDescription = null,
                         onClick = {},
-                        size = SourceButton.Size.Medium,
+                        size = SourceButton.Size.Small,
+                        modifier = Modifier.weight(1f),
                     )
                     SourceButton(
-                        text = "Source",
-                        priority = SourceButton.Priority.SecondaryOnWhite,
+                        text = "to",
+                        priority = SourceButton.Priority.PrimaryOnWhite,
                         onClick = {},
-                        size = SourceButton.Size.Medium,
+                        size = SourceButton.Size.Small,
+                        modifier = Modifier.weight(1f),
                     )
                     SourceIconButton(
                         icon = Source.Icons.Base.Check,
                         priority = SourceButton.Priority.TertiaryOnWhite,
                         contentDescription = null,
                         onClick = {},
-                        size = SourceButton.Size.Medium,
+                        size = SourceButton.Size.Small,
+                        modifier = Modifier.weight(1f),
                     )
                 }
+            }
+
+            Row {
+                SourceIconButton(
+                    icon = Source.Icons.Base.Check,
+                    priority = SourceButton.Priority.PrimaryOnWhite,
+                    contentDescription = null,
+                    onClick = {},
+                    size = SourceButton.Size.Medium,
+                    modifier = Modifier.weight(1f),
+                )
+                SourceButton(
+                    text = "Source",
+                    priority = SourceButton.Priority.SecondaryOnWhite,
+                    onClick = {},
+                    size = SourceButton.Size.Medium,
+                    modifier = Modifier.weight(1f),
+                )
+                SourceIconButton(
+                    icon = Source.Icons.Base.Check,
+                    priority = SourceButton.Priority.TertiaryOnWhite,
+                    contentDescription = null,
+                    onClick = {},
+                    size = SourceButton.Size.Medium,
+                    modifier = Modifier.weight(1f),
+                )
             }
         }
     }

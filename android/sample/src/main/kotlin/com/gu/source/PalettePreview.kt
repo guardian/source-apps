@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalStdlibApi::class)
+
 package com.gu.source
 
 import androidx.compose.foundation.background
@@ -7,22 +9,30 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.gu.source.daynight.AppColour
 import com.gu.source.presets.palette.*
 import com.gu.source.presets.typography.HeadlineBold20
-import com.gu.source.presets.typography.TextSans14
+import com.gu.source.presets.typography.TextSans11
 import com.gu.source.presets.typography.TextSansBold14
+import com.gu.source.presets.typography.TextSansBold15
 
 private data class Colour(
     val name: String,
     val colour: Color,
+    val colourValue: String = colour
+        .toArgb()
+        .toHexString(HexFormat.UpperCase)
+        .substring(2),
 )
 
 private val colours = mapOf(
@@ -124,46 +134,65 @@ private val colours = mapOf(
     ),
 )
 
-@Preview
+@Preview(device = "spec:width=1080px,height=8340px,dpi=440")
 @Composable
 internal fun Palette(modifier: Modifier = Modifier) {
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
-        contentPadding = PaddingValues(vertical = 8.dp),
+    Surface(
         modifier = modifier,
+        color = AppColour(
+            Source.Palette.Neutral100,
+            Source.Palette.Neutral0,
+        ).current,
     ) {
-        item {
-            Text(
-                text = "Palette",
-                style = Source.Typography.HeadlineBold20,
-                modifier = Modifier.padding(8.dp),
-            )
-        }
-        colours.keys.forEachIndexed { paletteIndex, palette ->
-            item(span = { GridItemSpan(2) }) {
-                Column {
-                    Spacer(modifier = Modifier.height(8.dp))
-                    HorizontalDivider()
-                    Text(
-                        text = palette,
-                        style = Source.Typography.TextSansBold14,
-                        modifier = Modifier.padding(8.dp),
-                    )
-                }
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            contentPadding = PaddingValues(vertical = 8.dp),
+        ) {
+            item {
+                Text(
+                    text = "Palette",
+                    style = Source.Typography.HeadlineBold20,
+                    modifier = Modifier.padding(8.dp),
+                )
             }
-            items(colours[palette].orEmpty()) { colour ->
-                Box(
-                    modifier = Modifier
-                        .height(50.dp)
-                        .fillMaxWidth()
-                        .background(colour.colour),
-                ) {
-                    Text(
-                        text = colour.name,
-                        modifier = Modifier.align(Alignment.Center),
-                        style = Source.Typography.TextSans14,
-                        color = if (colour.colour.luminance() > 0.5f) Color.Black else Color.White,
-                    )
+            colours.keys.forEachIndexed { paletteIndex, palette ->
+                item(span = { GridItemSpan(2) }) {
+                    Column {
+                        Spacer(modifier = Modifier.height(8.dp))
+                        HorizontalDivider()
+                        Text(
+                            text = palette,
+                            style = Source.Typography.TextSansBold14,
+                            modifier = Modifier.padding(8.dp),
+                        )
+                    }
+                }
+                items(colours[palette].orEmpty()) { colour ->
+                    val contentColour =
+                        if (colour.colour.luminance() > 0.5f) Color.Black else Color.White
+                    Box(
+                        modifier = Modifier
+                            .height(50.dp)
+                            .fillMaxWidth()
+                            .background(colour.colour),
+                    ) {
+                        Text(
+                            text = colour.name,
+                            modifier = Modifier
+                                .align(Alignment.TopCenter)
+                                .padding(top = 8.dp),
+                            style = Source.Typography.TextSansBold15,
+                            color = contentColour,
+                        )
+                        Text(
+                            text = "#${colour.colourValue}",
+                            color = contentColour,
+                            modifier = Modifier
+                                .align(Alignment.BottomCenter)
+                                .padding(bottom = 8.dp),
+                            style = Source.Typography.TextSans11,
+                        )
+                    }
                 }
             }
         }
