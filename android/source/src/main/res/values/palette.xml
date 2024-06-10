@@ -106,7 +106,23 @@
     <color name="specialReport_200">#303538</color>
     <color name="specialReport_300">#3f464a</color>
     <color name="specialReport_400">#595c5f</color>
+    <color name="specialReport_450">#9da0a2</color>
     <color name="specialReport_500">#abc2c9</color>
+    <color name="specialReport_700">#e4e5e8</color>
     <color name="specialReport_800">#eff1f2</color>
+    <!-- endregion -->
+    
+    <!-- region SpecialReportAlt -->
+    <color name="specialReportAlt_100">#2b2b2a</color>
+    <color name="specialReportAlt_200">#b9300a</color>
+    <color name="specialReportAlt_300">#ff663d</color>
+    <color name="specialReportAlt_700">#ebe6e1</color>
+    <color name="specialReportAlt_800">#f5f0eb</color>
+    <!-- endregion -->
+    
+    <!-- region Labs -->
+    <color name="labs_200">#0c7a73</color>
+    <color name="labs_300">#65a897</color>
+    <color name="labs_400">#69d1ca</color>
     <!-- endregion -->
 </resources>

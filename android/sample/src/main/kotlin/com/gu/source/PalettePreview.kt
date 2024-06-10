@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
@@ -25,7 +26,6 @@ import com.gu.source.presets.typography.HeadlineBold20
 import com.gu.source.presets.typography.TextSans11
 import com.gu.source.presets.typography.TextSansBold14
 import com.gu.source.presets.typography.TextSansBold15
-import com.gu.source.utils.PhoneBothModePreviews
 
 private data class Colour(
     val name: String,
@@ -132,8 +132,22 @@ private val colours = mapOf(
         Colour("SpecialReport200", Source.Palette.SpecialReport200),
         Colour("SpecialReport300", Source.Palette.SpecialReport300),
         Colour("SpecialReport400", Source.Palette.SpecialReport400),
+        Colour("SpecialReport450", Source.Palette.SpecialReport450),
         Colour("SpecialReport500", Source.Palette.SpecialReport500),
+        Colour("SpecialReport700", Source.Palette.SpecialReport700),
         Colour("SpecialReport800", Source.Palette.SpecialReport800),
+    ),
+    "SpecialReportAlt" to listOf(
+        Colour("SpecialReportAlt100", Source.Palette.SpecialReportAlt100),
+        Colour("SpecialReportAlt200", Source.Palette.SpecialReportAlt200),
+        Colour("SpecialReportAlt300", Source.Palette.SpecialReportAlt300),
+        Colour("SpecialReportAlt700", Source.Palette.SpecialReportAlt700),
+        Colour("SpecialReportAlt800", Source.Palette.SpecialReportAlt800),
+    ),
+    "Labs" to listOf(
+        Colour("Labs200", Source.Palette.Labs200),
+        Colour("Labs300", Source.Palette.Labs300),
+        Colour("Labs400", Source.Palette.Labs400),
     ),
 )
 
@@ -209,7 +223,7 @@ internal fun Palette(modifier: Modifier = Modifier) {
     }
 }
 
-@PhoneBothModePreviews
+@Preview(device = "spec:width=1080px,height=8340px,dpi=440")
 @Composable
 private fun Preview() {
     AppColourMode {
