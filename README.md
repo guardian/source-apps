@@ -33,7 +33,7 @@ The library bundles app font files, so they are not separately required in consu
 
 ### Typography presets
 
-Typography presets include `fontFamily`, `fontSize`, `lineHeight`, `fontWeight`, `fontStyle` in a single token.
+Typography presets include `fontFamily`, `fontSize`, `lineHeight`, `fontWeight`, `fontStyle` in a single token. [A rough preview of all typography styles is available here.](https://github.com/guardian/source-apps/blob/main/android/source/src/test/snapshots/images/com.gu.source.presets.typography_TypographyPreviewTest_snapshot.png)
 
 Use typography presets directly in a `Text` component.
 
