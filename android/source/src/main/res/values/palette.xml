@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- region Core brand colour -->
+    <color name="brand_400">#052962</color> <!-- guardian_brand_main -->
+    <!-- endregion -->
+    
+    <!-- region Core brand extended colours -->
+    <color name="brand_100">#001536</color>
+    <color name="brand_300">#041f4a</color>
+    <color name="brand_500">#0077b6</color>
+    <color name="brand_600">#506991</color>
+    <color name="brand_800">#c1d8fc</color>
+    <!-- endregion -->
+    
+    <!-- region Alternative brand colours -->
+    <color name="brandAlt_200">#f3c100</color>
+    <color name="brandAlt_400">#ffe500</color>
+    <color name="brandAlt_300">#ffd900</color>
+    <!-- endregion -->
+    
+    <!-- region Neutral -->
+    <color name="neutral_0">#000000</color>
+    <color name="neutral_7">#121212</color>
+    <color name="neutral_10">#1a1a1a</color>
+    <color name="neutral_20">#333333</color>
+    <color name="neutral_38">#545454</color>
+    <color name="neutral_46">#707070</color>
+    <color name="neutral_60">#999999</color>
+    <color name="neutral_73">#bababa</color>
+    <color name="neutral_86">#dcdcdc</color>
+    <color name="neutral_93">#ededed</color>
+    <color name="neutral_97">#f6f6f6</color>
+    <color name="neutral_100">#ffffff</color>
+    <!-- endregion -->
+    
+    <!-- region Error -->
+    <color name="error_400">#c70000</color>
+    <color name="error_500">#ff9081</color>
+    <!-- endregion -->
+    
+    <!-- region Success -->
+    <color name="success_300">#185e36</color>
+    <color name="success_400">#22874d</color>
+    <color name="success_500">#58d08b</color>
+    <!-- endregion -->
+    
+    <!-- region News -->
+    <color name="news_100">#660505</color>
+    <color name="news_200">#8b0000</color>
+    <color name="news_300">#ab0613</color>
+    <color name="news_400">#c70000</color>
+    <color name="news_500">#ff5943</color>
+    <color name="news_550">#ff9081</color>
+    <color name="news_600">#ffbac8</color>
+    <color name="news_800">#fff4f2</color>
+    <!-- endregion -->
+    
+    <!-- region Opinion -->
+    <color name="opinion_100">#672005</color>
+    <color name="opinion_200">#8d2700</color>
+    <color name="opinion_300">#bd5318</color>
+    <color name="opinion_400">#c74600</color>
+    <color name="opinion_450">#e05e00</color>
+    <color name="opinion_500">#ff7f0f</color>
+    <color name="opinion_550">#ff9941</color>
+    <color name="opinion_600">#f9b376</color>
+    <color name="opinion_800">#fef9f5</color>
+    <!-- endregion -->
+    
+    <!-- region Sport -->
+    <color name="sport_100">#003c60</color>
+    <color name="sport_200">#004e7c</color>
+    <color name="sport_300">#005689</color>
+    <color name="sport_400">#0077b6</color>
+    <color name="sport_500">#00b2ff</color>
+    <color name="sport_600">#90dcff</color>
+    <color name="sport_800">#f1f8fc</color>
+    <!-- endregion -->
+    
+    <!-- region Culture -->
+    <color name="culture_50">#2b2625</color>
+    <color name="culture_100">#3e3323</color>
+    <color name="culture_200">#574835</color>
+    <color name="culture_300">#6b5840</color>
+    <color name="culture_400">#866d50</color>
+    <color name="culture_450">#a1845c</color>
+    <color name="culture_500">#eacca0</color>
+    <color name="culture_600">#e7d4b9</color>
+    <color name="culture_700">#efe8dd</color>
+    <color name="culture_800">#fbf6ef</color>
+    <!-- endregion -->
+    
+    <!-- region Lifestyle -->
+    <color name="lifestyle_100">#510043</color>
+    <color name="lifestyle_200">#650054</color>
+    <color name="lifestyle_300">#7d0068</color>
+    <color name="lifestyle_400">#bb3b80</color>
+    <color name="lifestyle_450">#f37abc</color>
+    <color name="lifestyle_500">#ffabdb</color>
+    <color name="lifestyle_600">#fec8d3</color>
+    <color name="lifestyle_800">#feeef7</color>
+    <!-- endregion -->
+    
+    <!-- region Special Report -->
+    <color name="specialReport_100">#222527</color>
+    <color name="specialReport_200">#303538</color>
+    <color name="specialReport_300">#3f464a</color>
+    <color name="specialReport_400">#595c5f</color>
+    <color name="specialReport_450">#9da0a2</color>
+    <color name="specialReport_500">#abc2c9</color>
+    <color name="specialReport_700">#e4e5e8</color>
+    <color name="specialReport_800">#eff1f2</color>
+    <!-- endregion -->
+    
+    <!-- region SpecialReportAlt -->
+    <color name="specialReportAlt_100">#2b2b2a</color>
+    <color name="specialReportAlt_200">#b9300a</color>
+    <color name="specialReportAlt_300">#ff663d</color>
+    <color name="specialReportAlt_700">#ebe6e1</color>
+    <color name="specialReportAlt_800">#f5f0eb</color>
+    <!-- endregion -->
+    
+    <!-- region Labs -->
+    <color name="labs_200">#0c7a73</color>
+    <color name="labs_300">#65a897</color>
+    <color name="labs_400">#69d1ca</color>
+    <!-- endregion -->
+</resources>
