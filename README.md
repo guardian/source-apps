@@ -56,9 +56,9 @@ Text(
 
 ### Buttons
 
-Two button components are available - `SourceButton` and `SourceIconButton`.
+Three button components are available - `SourceButton`, `SourceIconButton` and `PlainSourceButton`.
 
-The buttons are have preset style and size variants corresponding to Source presets. Both Core and Reader Revenue themes are also provided.
+The source buttons have preset style and size variants corresponding to Source specifications. Both Core and Reader Revenue themes are provided.
 
 Using `SourceButton`:
 ```kotlin
@@ -88,6 +88,30 @@ SourceIconButton(
     priority = SourceButton.Priority.SecondaryOnBlue,
     contentDescription = null,
     onClick = {},
+)
+```
+
+The plain button is intended for when custom colour schemes are used. It does not use preconfigured `priority` or `theme`. It can instead directly be provided with `ButtonColours`. (Plain button is available from version `0.2.1`)
+
+```kotlin
+PlainSourceButton(
+    text = "Culture themed",
+    onClick = {},
+    modifier = Modifier.align(CenterHorizontally),
+    buttonColours = ButtonColours(
+        border = AppColour(
+            light = Source.Palette.Culture200,
+            dark = Source.Palette.Culture800,
+        ),
+        container = AppColour(
+            light = Source.Palette.Culture800,
+            dark = Source.Palette.Culture200,
+        ),
+        content = AppColour(
+            light = Source.Palette.Culture200,
+            dark = Source.Palette.Culture800,
+        ),
+    ),
 )
 ```
 

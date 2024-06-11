@@ -1,13 +1,10 @@
 package com.gu.source.components.buttons
 
+import android.annotation.SuppressLint
 import androidx.annotation.Discouraged
 import androidx.annotation.VisibleForTesting
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,7 +15,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
-import com.gu.source.components.buttons.SourceButton.MinButtonWidth
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.Check
@@ -103,10 +99,12 @@ object SourceButton {
                 light = Source.Palette.Neutral100,
                 dark = Source.Palette.Neutral7,
             )
+
             name.endsWith("OnBlue") -> AppColour(
                 light = Source.Palette.Brand400,
                 dark = Source.Palette.Neutral7,
             )
+
             else -> AppColour.Unspecified
         }
     }
@@ -121,7 +119,7 @@ object SourceButton {
 /**
  * A basic Source compatible button component.
  * This is a low-level component and should be sparingly used only for custom buttons. Prefer to
- * use [SourceButton] or [SourceBaseIconButton] instead.
+ * use [SourceButton] or [SourceIconButton] instead.
  *
  * @param size Button size from [SourceButton.Size]s. Reflects the prominence of the action.
  * @param priority Button priority from [SourceButton.Priority]s. Informs users of how important an
@@ -136,13 +134,14 @@ object SourceButton {
  * child components once.
  * @param content Slot for composable content to present inside the button.
  */
+@SuppressLint("DiscouragedApi")
 @Discouraged(
     "Preferably use `SourceButton`." +
         " It provides correct styling & size for text and icons." +
         " This variant is for supporting custom button designs only.",
 )
 @Composable
-fun SourceBaseButton(
+fun SourceContentButton(
     size: SourceButton.Size,
     priority: SourceButton.Priority,
     onClick: () -> Unit,
@@ -158,30 +157,12 @@ fun SourceBaseButton(
 
     val buttonColours = priority.toColours(appliedTheme)
 
-    Button(
+    PlainSourceContentButton(
+        size = size,
         onClick = onClick,
-        modifier = modifier.defaultMinSize(
-            minWidth = MinButtonWidth,
-            minHeight = size.heightDp.dp,
-        ),
-        shape = CircleShape,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = buttonColours.container.current,
-            contentColor = buttonColours.content.current,
-        ),
-        elevation = ButtonDefaults.buttonElevation(
-            defaultElevation = 0.dp,
-            pressedElevation = 0.dp,
-            focusedElevation = 0.dp,
-            hoveredElevation = 0.dp,
-            disabledElevation = 0.dp,
-        ),
-        border = BorderStroke(
-            width = 1.dp,
-            color = buttonColours.border.current,
-        ),
-        contentPadding = size.contentPadding,
-        content = { content() },
+        modifier = modifier,
+        buttonColours = buttonColours,
+        content = content,
     )
 }
 
@@ -205,6 +186,7 @@ fun SourceBaseButton(
  * [SourceButton.IconSide.Left].
  * @param icon Optional icon to display on the button.
  */
+@SuppressLint("DiscouragedApi")
 @Composable
 fun SourceButton(
     text: String,
@@ -216,7 +198,7 @@ fun SourceButton(
     iconSide: SourceButton.IconSide = SourceButton.IconSide.Left,
     icon: @Composable (Modifier) -> Unit = {},
 ) {
-    SourceBaseButton(
+    SourceContentButton(
         size = size,
         priority = priority,
         onClick = onClick,
@@ -249,6 +231,7 @@ fun SourceButton(
 }
 
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+@SuppressLint("DiscouragedApi")
 @PhoneBothModePreviews
 @Composable
 internal fun CoreButtonIconBeforePreview() {
@@ -285,6 +268,7 @@ internal fun CoreButtonIconBeforePreview() {
     }
 }
 
+@SuppressLint("DiscouragedApi")
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PhoneBothModePreviews
 @Composable
@@ -384,6 +368,7 @@ internal fun RrButtonTextOnlyPreview() {
     }
 }
 
+@SuppressLint("DiscouragedApi")
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PhoneBothModePreviews
 @Composable
@@ -421,6 +406,7 @@ internal fun CoreButtonIconAfterPreview() {
     }
 }
 
+@SuppressLint("DiscouragedApi")
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PhoneBothModePreviews
 @Composable
