@@ -29,7 +29,7 @@ timber = "5.0.1"
 
 junit = "4.13.2"
 espressoCore = "3.5.1"
-androidx-junit = "1.1.5"
+androidx-junit = "1.2.1"
 androidx-test-core = "1.5.0"
 androidx-test-rules = "1.5.0"
 androidx-test-runner = "1.5.2"
