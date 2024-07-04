@@ -23,8 +23,12 @@ version = libs.versions.libraryVersion.get()
 nexusPublishing {
     repositories {
         sonatype {
-            username = "guardian.automated.maven.release"
-            password = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN")
+            val (uname, pwd) = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN")
+                .split(":")
+//            username = "guardian.automated.maven.release"
+//            password = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN")
+            username = uname
+            password = pwd
         }
     }
 }
