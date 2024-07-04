@@ -26,8 +26,8 @@ nexusPublishing {
             // Sonatype token provides username and passwords as revokable secrets combined with a
             // colon. We split them and provide it to the nexus plugin. See here for more:
             // https://github.com/guardian/gha-scala-library-release-workflow/commit/23a148a03cf71bb2093a91f047d3c368adcdf45c
-            val (uname, pwd) = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN")
-                .split(":")
+            val token = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN") ?: ":"
+            val (uname, pwd) = token.split(":")
             username = uname
             password = pwd
         }
