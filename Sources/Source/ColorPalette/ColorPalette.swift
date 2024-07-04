@@ -28,6 +28,7 @@ public enum ColorPalette {
     public static let neutral46 = UIColor(resource: .neutral46)
     public static let neutral60 = UIColor(resource: .neutral60)
     public static let neutral86 = UIColor(resource: .neutral86)
+    public static let neutral73 = UIColor(resource: .neutral73)
     public static let neutral93 = UIColor(resource: .neutral93)
     public static let neutral97 = UIColor(resource: .neutral97)
     public static let neutral100 = UIColor(resource: .neutral100)
