@@ -24,7 +24,7 @@ nexusPublishing {
     repositories {
         sonatype {
             username = "guardian.automated.maven.release"
-            password = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_PASSWORD")
+            password = System.getenv("AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN")
         }
     }
 }
