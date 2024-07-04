@@ -12,7 +12,7 @@ kotlin = "2.0.0"
 # Kotlinter version is tied closely to min & max Kotlin and Gradle versions. Update Kotlinter
 # when updating Kotlin. Check compatible versions here:
 # https://github.com/jeremymailen/kotlinter-gradle/blob/master/README.md#compatibility
-kotlinter = "4.3.0"
+kotlinter = "4.4.0"
 
 activity = "1.9.0"
 appcompat = "1.7.0"
