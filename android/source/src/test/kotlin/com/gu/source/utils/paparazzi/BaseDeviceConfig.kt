@@ -5,7 +5,9 @@ import app.cash.paparazzi.DeviceConfig
 /**
  * Used to define the device variants to use for screenshot tests.
  */
-enum class BaseDeviceConfig(val deviceConfig: DeviceConfig) {
+enum class BaseDeviceConfig(
+    val deviceConfig: DeviceConfig,
+) {
     Phone(DeviceConfig.PIXEL_6),
     Tablet(DeviceConfig.PIXEL_C),
 }
@@ -15,7 +17,10 @@ enum class BaseDeviceConfig(val deviceConfig: DeviceConfig) {
  * Have disabled the small && large variants to reduce the number of screenshots.
  * @property value The float value corresponding to the scale.
  */
-enum class FontScale(val value: Float) {
+@Suppress("unused")
+enum class FontScale(
+    val value: Float,
+) {
     //    Small(0.85f),
     Normal(value = 1f),
 
