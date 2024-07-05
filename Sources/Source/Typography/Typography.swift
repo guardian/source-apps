@@ -155,3 +155,11 @@ public enum Typography {
         static let loose = 1.4
     }
 }
+
+public extension GuardianFont {
+    var lineHeightDescription: String? {
+        guard let lineHeight else { return nil }
+        let percentage = (lineHeight / size ) * 100
+        return "\(Int(percentage))"
+    }
+}

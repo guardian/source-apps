@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/guardian/fonts.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "8861ba9a4f5515f3c878ee9943ad1ec13f27f438"
+        "branch" : "aml-macos-compatibility",
+        "revision" : "68ccea0d2a1c5b803c04e98d6cfd6c64d585b946"
       }
     }
   ],

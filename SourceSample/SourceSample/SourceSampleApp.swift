@@ -17,14 +17,7 @@ struct SourceSampleApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TabView {
-                ColorSwatchView()
-                    .tabItem {
-                        Image(systemName: "paintpalette")
-                            .symbolRenderingMode(.multicolor)
-                        Text("Palette")
-                    }
-            }
+            NavigationRootView()
         }
     }
 }
