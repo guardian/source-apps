@@ -16,25 +16,25 @@ struct ColorSection {
 struct PaletteViewModel {
     let sections = [
         ColorSection(name: "News", colors: [
-        ColorSwatch(color: ColorPalette.news100, description: "100"),
-        ColorSwatch(color: ColorPalette.news200, description: "200"),
-        ColorSwatch(color: ColorPalette.news300, description: "300"),
-        ColorSwatch(color: ColorPalette.news400, description: "400"),
-        ColorSwatch(color: ColorPalette.news500, description: "500"),
-        ColorSwatch(color: ColorPalette.news550, description: "550"),
-        ColorSwatch(color: ColorPalette.news600, description: "600"),
-        ColorSwatch(color: ColorPalette.news800, description: "800")
-    ]),
-                    ColorSection(name: "Opinion", colors: [
-                        ColorSwatch(color: ColorPalette.opinion100, description: "100"),
-                        ColorSwatch(color: ColorPalette.opinion200, description: "200"),
-                        ColorSwatch(color: ColorPalette.opinion400, description: "400"),
-                        ColorSwatch(color: ColorPalette.opinion450, description: "450"),
-                        ColorSwatch(color: ColorPalette.opinion500, description: "500"),
-                        ColorSwatch(color: ColorPalette.opinion550, description: "550"),
-                        ColorSwatch(color: ColorPalette.opinion600, description: "600"),
-                        ColorSwatch(color: ColorPalette.opinion800, description: "800")
-                    ]),
+            ColorSwatch(color: ColorPalette.news100, description: "100"),
+            ColorSwatch(color: ColorPalette.news200, description: "200"),
+            ColorSwatch(color: ColorPalette.news300, description: "300"),
+            ColorSwatch(color: ColorPalette.news400, description: "400"),
+            ColorSwatch(color: ColorPalette.news500, description: "500"),
+            ColorSwatch(color: ColorPalette.news550, description: "550"),
+            ColorSwatch(color: ColorPalette.news600, description: "600"),
+            ColorSwatch(color: ColorPalette.news800, description: "800")
+        ]),
+        ColorSection(name: "Opinion", colors: [
+            ColorSwatch(color: ColorPalette.opinion100, description: "100"),
+            ColorSwatch(color: ColorPalette.opinion200, description: "200"),
+            ColorSwatch(color: ColorPalette.opinion400, description: "400"),
+            ColorSwatch(color: ColorPalette.opinion450, description: "450"),
+            ColorSwatch(color: ColorPalette.opinion500, description: "500"),
+            ColorSwatch(color: ColorPalette.opinion550, description: "550"),
+            ColorSwatch(color: ColorPalette.opinion600, description: "600"),
+            ColorSwatch(color: ColorPalette.opinion800, description: "800")
+        ]),
         ColorSection(name: "Sport", colors: [
             ColorSwatch(color: ColorPalette.sport100, description: "100"),
             ColorSwatch(color: ColorPalette.sport200, description: "200"),
@@ -114,7 +114,7 @@ struct PaletteViewModel {
             ColorSwatch(color: ColorPalette.labs200, description: "200"),
             ColorSwatch(color: ColorPalette.labs300, description: "300"),
             ColorSwatch(color: ColorPalette.labs400, description: "400")
-            ]),
+        ]),
         ColorSection(name: "Error", colors: [
             ColorSwatch(color: ColorPalette.error400, description: "400"),
             ColorSwatch(color: ColorPalette.error500, description: "500")

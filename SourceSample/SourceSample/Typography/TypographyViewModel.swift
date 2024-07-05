@@ -54,7 +54,7 @@ struct TypographyViewModel {
         GuardianFontViewModel(propertyName:"Typography.articleBldIta17", font: Typography.articleBldIta17)
     ])
 
-    private static let textEgyptainFamily = FontFamilyViewModel(fontFamily: .textEgyptian, fonts: [
+    private static let textEgyptianFamily = FontFamilyViewModel(fontFamily: .textEgyptian, fonts: [
         GuardianFontViewModel(propertyName:"Typography.textEgyp14", font: Typography.textEgyp14),
         GuardianFontViewModel(propertyName:"Typography.textEgyp15", font: Typography.textEgyp15),
         GuardianFontViewModel(propertyName:"Typography.textEgyp17", font: Typography.textEgyp17),
@@ -69,6 +69,6 @@ struct TypographyViewModel {
         GuardianFontViewModel(propertyName:"Typography.textEgypIta17", font: Typography.textEgypIta17)
     ])
 
-    let sections: [FontFamilyViewModel] = [TypographyViewModel.headlineFamily, TypographyViewModel.articleFamily, textEgyptainFamily]
+    let sections: [FontFamilyViewModel] = [TypographyViewModel.headlineFamily, TypographyViewModel.articleFamily, textEgyptianFamily]
 
 }
