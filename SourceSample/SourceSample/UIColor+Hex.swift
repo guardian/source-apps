@@ -4,7 +4,7 @@
 //
 //  Created by Aoife McLaughlin on 04/07/2024.
 //
-
+#if os(iOS)
 import UIKit
 
 extension UIColor {
@@ -38,3 +38,4 @@ extension UIColor {
         }
     }
 }
+#endif

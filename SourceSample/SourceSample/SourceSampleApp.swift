@@ -19,6 +19,11 @@ struct SourceSampleApp: App {
         WindowGroup {
             TabView {
                 ColorSwatchView()
+                    .tabItem {
+                        Image(systemName: "paintpalette")
+                            .symbolRenderingMode(.multicolor)
+                        Text("Palette")
+                    }
             }
         }
     }

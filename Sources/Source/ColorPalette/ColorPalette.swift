@@ -1,5 +1,5 @@
+#if os(iOS)
 import UIKit
-
 /**
  Module that defines the brand colours from [Source documentation](https://design.theguardian.com/#colour-palette).
  This currently only holds references to the colours and extensions to assist with defining colours elsewhere.
@@ -115,3 +115,4 @@ public enum ColorPalette {
     public static let success400 = UIColor(resource: .success400)
     public static let success500 = UIColor(resource: .success500)
 }
+#endif

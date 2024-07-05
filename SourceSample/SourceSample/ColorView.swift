@@ -15,16 +15,22 @@ struct ColorView: View {
 
     var body: some View {
         VStack {
+            #if os(iOS)
             Color.init(uiColor: color.color)
+            #else
+            Color.init(nsColor: color.color)
                 .overlay {
                     if isHovering, let hex = color.hexString {
                         Text(hex)
+                            .textSelection(.enabled)
+                            .copyable([hex])
                     }
                 }
                 .onHover(perform: { hovering in
                     isHovering = hovering
 
                 })
+            #endif
             Text(color.description)
         }
     }
