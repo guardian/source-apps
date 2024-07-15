@@ -3,7 +3,7 @@ group = "com.gu.source"
 libraryVersion = "0.2.2"
 compilesdk = "34"
 minsdk = "26"
-targetsdk = "33"
+targetsdk = "34"
 java = "17"
 
 
