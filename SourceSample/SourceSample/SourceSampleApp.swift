@@ -10,10 +10,6 @@ import GuardianFonts
 
 @main
 struct SourceSampleApp: App {
-    @State private var selectedSection: String?
-    init() {
-        GuardianFonts.registerFonts()
-    }
     
     var body: some Scene {
         WindowGroup {
