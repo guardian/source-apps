@@ -4,9 +4,15 @@ package com.gu.source.components.pager
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -66,18 +72,21 @@ private fun Preview() {
 
     LaunchedEffect(pagerState) {
         while (true) {
-            pagerState.scrollToPage((pagerState.settledPage + 1) % pagerState.pageCount)
             delay(1000)
+            pagerState.scrollToPage((pagerState.currentPage + 1) % pagerState.pageCount)
         }
     }
 
-    BasePagerProgressIndicator(pagerState) { index, selectedIndex ->
-        PagerProgressItem(
-            index = index,
-            selectedIndex = selectedIndex,
-            selectedIndicatorSize = 16.dp,
-            selectedColour = Color.Red,
-            unSelectedColour = Color.Gray,
-        )
+    Column {
+        HorizontalPager(state = pagerState) { Text(text = it.toString()) }
+        BasePagerProgressIndicator(pagerState) { index, selectedIndex ->
+            PagerProgressItem(
+                index = index,
+                selectedIndex = selectedIndex,
+                selectedIndicatorSize = 16.dp,
+                selectedColour = Color.Red,
+                unSelectedColour = Color.Gray,
+            )
+        }
     }
 }
