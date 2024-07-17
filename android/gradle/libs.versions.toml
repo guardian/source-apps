@@ -7,7 +7,7 @@ targetsdk = "34"
 java = "17"
 
 
-agp = "8.5.0"
+agp = "8.5.1"
 kotlin = "2.0.0"
 # Kotlinter version is tied closely to min & max Kotlin and Gradle versions. Update Kotlinter
 # when updating Kotlin. Check compatible versions here:
