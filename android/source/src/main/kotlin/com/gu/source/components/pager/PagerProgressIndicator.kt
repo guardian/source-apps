@@ -56,6 +56,7 @@ fun PagerProgressIndicator(
     val listState = rememberLazyListState()
 
     val widthInPx = with(LocalDensity.current) { selectedItemSize.toPx() }
+    val adjustedMaxItems = maxVisibleItems.coerceAtMost(pagerState.pageCount)
 
     LaunchedEffect(pagerState.currentPage) {
         val viewportSize = listState.layoutInfo.viewportSize
@@ -68,7 +69,7 @@ fun PagerProgressIndicator(
 
     LazyRow(
         state = listState,
-        modifier = modifier.width((selectedItemSize + itemSpacing) * maxVisibleItems),
+        modifier = modifier.width((selectedItemSize + itemSpacing) * adjustedMaxItems),
         horizontalArrangement = Arrangement.spacedBy(itemSpacing),
         verticalAlignment = itemsVerticalAlignment,
         userScrollEnabled = false,
