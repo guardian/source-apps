@@ -1,7 +1,6 @@
 package com.gu.source.components.pager
 
 import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,15 +10,12 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
-
-private const val ScaleOffsetOne = 0.75F
-private const val ScaleOffsetTwo = 0.5F
 
 /**
  * Draws a single pager progress indicator item.
@@ -33,6 +29,7 @@ private const val ScaleOffsetTwo = 0.5F
  * @param selectedColour The colour of the selected indicator.
  * @param unSelectedColour The colour of the unselected indicator.
  * @param modifier The modifier to be applied to the item.
+ * @param shape Optional shape for the item. Defaults to [CircleShape].
  */
 @Composable
 internal fun PagerProgressItem(
@@ -42,16 +39,8 @@ internal fun PagerProgressItem(
     selectedColour: Color,
     unSelectedColour: Color,
     modifier: Modifier = Modifier,
+    shape: Shape = CircleShape,
 ) {
-    val size by animateDpAsState(
-        targetValue = selectedIndicatorSize * when (index) {
-            selectedIndex -> 1f
-            selectedIndex - 1, selectedIndex + 1 -> ScaleOffsetOne
-            else -> ScaleOffsetTwo
-        },
-        label = "PagerIndicatorItemSize",
-    )
-
     val colour by animateColorAsState(
         targetValue = if (index == selectedIndex) selectedColour else unSelectedColour,
         label = "PagerIndicatorItemColour",
@@ -59,11 +48,10 @@ internal fun PagerProgressItem(
 
     Box(
         modifier = modifier
-            .size(size)
-            .clip(CircleShape)
+            .size(selectedIndicatorSize)
             .background(
                 color = colour,
-                shape = CircleShape,
+                shape = shape,
             ),
     )
 }
