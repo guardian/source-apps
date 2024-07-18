@@ -2,6 +2,7 @@
 
 package com.gu.source.components.pager
 
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -14,6 +15,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -22,15 +24,18 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.util.lerp
 import com.gu.source.Source
 import com.gu.source.presets.palette.Neutral46
 import com.gu.source.presets.palette.Neutral86
 import com.gu.source.presets.typography.Titlepiece70
 import kotlinx.coroutines.delay
+import kotlin.math.absoluteValue
 
-private const val ScaleOffsetOne = 0.75F
-private const val ScaleOffsetTwo = 0.5F
-private val SelectedItemSize = 16.dp
+private const val ScaleOffset = 0.5F
+private val DefaultSelectedItemSize = 16.dp
+private val DefaultItemSpacing = 4.dp
+private const val DefaultIndicatorCount = 5
 
 /**
  * A pager progress indicator that displays a set of items that represent the pages in a pager.
@@ -48,9 +53,10 @@ private val SelectedItemSize = 16.dp
 fun PagerProgressIndicator(
     pagerState: PagerState,
     modifier: Modifier = Modifier,
-    maxVisibleItems: Int = 5,
-    itemSpacing: Dp = 4.dp,
-    selectedItemSize: Dp = SelectedItemSize,
+    maxVisibleItems: Int = DefaultIndicatorCount,
+    itemSpacing: Dp = DefaultItemSpacing,
+    selectedItemSize: Dp = DefaultSelectedItemSize,
+    unselectedItemScaleOffset: Float = ScaleOffset,
     itemsVerticalAlignment: Alignment.Vertical = Alignment.CenterVertically,
 ) {
     val listState = rememberLazyListState()
@@ -61,7 +67,7 @@ fun PagerProgressIndicator(
     LaunchedEffect(pagerState.currentPage) {
         val viewportSize = listState.layoutInfo.viewportSize
 
-        listState.scrollToItem(
+        listState.animateScrollToItem(
             index = pagerState.currentPage,
             scrollOffset = (widthInPx / 2 - viewportSize.width / 2).toInt(),
         )
@@ -76,6 +82,13 @@ fun PagerProgressIndicator(
         contentPadding = PaddingValues(horizontal = itemSpacing),
     ) {
         items(pagerState.pageCount) { pageIndex ->
+            val size by animateFloatAsState(
+                targetValue = lerp(
+                    start = 1f,
+                    stop = unselectedItemScaleOffset,
+                    fraction = (pageIndex - pagerState.currentPage).absoluteValue / 2f,
+                ).coerceAtLeast(unselectedItemScaleOffset),
+            )
             PagerProgressItem(
                 index = pageIndex,
                 selectedIndex = pagerState.currentPage,
@@ -83,11 +96,6 @@ fun PagerProgressIndicator(
                 selectedColour = Color.Red,
                 unSelectedColour = Color.Gray,
                 modifier = Modifier.graphicsLayer {
-                    val size = when (pageIndex) {
-                        pagerState.currentPage -> 1f
-                        pagerState.currentPage - 1, pagerState.currentPage + 1 -> ScaleOffsetOne
-                        else -> ScaleOffsetTwo
-                    }
                     scaleX = size
                     scaleY = size
                 },
