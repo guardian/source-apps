@@ -19,6 +19,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
 import androidx.compose.ui.util.lerp
+import com.gu.source.Source
+import com.gu.source.presets.palette.Neutral73
+import com.gu.source.presets.palette.Sport500
 import kotlinx.coroutines.delay
 import kotlin.math.absoluteValue
 
@@ -28,52 +31,61 @@ import kotlin.math.absoluteValue
  * The item size is scaled down based on its position relative to the selected index. Fill colour
  * is based on selected state.
  *
- * @param index The index of the item to be drawn.
- * @param selectedIndex The index of the selected item.
- * @param boxSize The size of the selected indicator.
+ * @param itemIndex The index of the item to be drawn.
+ * @param selectedItemIndex The index of the selected item.
+ * @param selectedItemSize The size of the selected indicator.
  * @param selectedColour The colour of the selected indicator.
  * @param unSelectedColour The colour of the unselected indicator.
+ * @param unselectedItemScaling The scaling factor for unselected items.
+ * @param numberOfItemsToScale The number of items to spread scaling across on each side of
+ * selected item.
+ * @param itemShape Shape for the item.
  * @param modifier The modifier to be applied to the item.
- * @param shape Optional shape for the item. Defaults to [CircleShape].
  */
 @Composable
 internal fun PagerProgressItem(
-    index: Int,
-    selectedIndex: Int,
-    boxSize: Dp,
+    itemIndex: Int,
+    selectedItemIndex: Int,
     selectedItemSize: Dp,
     selectedColour: Color,
     unSelectedColour: Color,
+    unselectedItemScaling: Float,
+    numberOfItemsToScale: Int,
+    itemShape: Shape,
     modifier: Modifier = Modifier,
-    shape: Shape = CircleShape,
-    unselectedItemScaleOffset: Float = DefaultScaleOffset
 ) {
     val colour by animateColorAsState(
-        targetValue = if (index == selectedIndex) selectedColour else unSelectedColour,
+        targetValue = if (itemIndex == selectedItemIndex) selectedColour else unSelectedColour,
         label = "PagerIndicatorItemColour",
     )
 
-    val size by animateFloatAsState(
+    val indexDifference = (itemIndex - selectedItemIndex).absoluteValue
+    val adjustedNumberOfItemsToScale = (numberOfItemsToScale + 1).coerceAtLeast(1).toFloat()
+
+    val itemScale by animateFloatAsState(
         targetValue = lerp(
             start = 1f,
-            stop = unselectedItemScaleOffset,
-            fraction = (index - selectedIndex).absoluteValue / 2f,
-        ).coerceAtLeast(unselectedItemScaleOffset),
+            stop = unselectedItemScaling,
+            fraction = indexDifference / adjustedNumberOfItemsToScale,
+        ).coerceAtLeast(unselectedItemScaling),
+        label = "PagerIndicatorItemScale",
     )
 
-    val indicatorSize1 by animateDpAsState(size * selectedItemSize)
+    val itemSize by animateDpAsState(
+        targetValue = itemScale * selectedItemSize,
+        label = "PagerIndicatorItemSize",
+    )
 
-    Box(modifier = modifier.size(boxSize)) {
+    Box(modifier = modifier.size(selectedItemSize)) {
         Box(
             modifier = Modifier
-                .size(indicatorSize1)
+                .size(itemSize)
                 .background(
                     color = colour,
-                    shape = shape,
+                    shape = itemShape,
                 )
                 .align(Alignment.Center),
-
-            )
+        )
     }
 }
 
@@ -81,7 +93,7 @@ internal fun PagerProgressItem(
 @Composable
 private fun Preview() {
     var selectedItem by remember {
-        mutableIntStateOf(2)
+        mutableIntStateOf(3)
     }
     Row(
         horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -89,17 +101,19 @@ private fun Preview() {
     ) {
         repeat(5) {
             PagerProgressItem(
-                index = it,
-                selectedIndex = selectedItem,
-                boxSize = 16.dp,
-                selectedColour = Color.Red,
-                unSelectedColour = Color.Gray,
+                itemIndex = it,
+                selectedItemIndex = selectedItem,
                 selectedItemSize = 16.dp,
+                selectedColour = Source.Palette.Sport500,
+                unSelectedColour = Source.Palette.Neutral73,
+                unselectedItemScaling = 0.5f,
+                numberOfItemsToScale = 1,
+                itemShape = CircleShape,
             )
         }
     }
 
-    LaunchedEffect(key1 = Unit) {
+    LaunchedEffect(Unit) {
         while (true) {
             delay(1000)
             selectedItem = (selectedItem + 1) % 5
