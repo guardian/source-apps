@@ -2,7 +2,6 @@
 
 package com.gu.source.components.pager
 
-import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -15,24 +14,20 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.util.lerp
 import com.gu.source.Source
 import com.gu.source.presets.palette.Neutral46
 import com.gu.source.presets.palette.Neutral86
 import com.gu.source.presets.typography.Titlepiece70
 import kotlinx.coroutines.delay
-import kotlin.math.absoluteValue
 
-private const val ScaleOffset = 0.5F
+internal const val DefaultScaleOffset = 0.5F
 private val DefaultSelectedItemSize = 16.dp
 private val DefaultItemSpacing = 4.dp
 private const val DefaultIndicatorCount = 5
@@ -56,7 +51,7 @@ fun PagerProgressIndicator(
     maxVisibleItems: Int = DefaultIndicatorCount,
     itemSpacing: Dp = DefaultItemSpacing,
     selectedItemSize: Dp = DefaultSelectedItemSize,
-    unselectedItemScaleOffset: Float = ScaleOffset,
+    unselectedItemScaleOffset: Float = DefaultScaleOffset,
     itemsVerticalAlignment: Alignment.Vertical = Alignment.CenterVertically,
 ) {
     val listState = rememberLazyListState()
@@ -82,23 +77,14 @@ fun PagerProgressIndicator(
         contentPadding = PaddingValues(horizontal = itemSpacing),
     ) {
         items(pagerState.pageCount) { pageIndex ->
-            val size by animateFloatAsState(
-                targetValue = lerp(
-                    start = 1f,
-                    stop = unselectedItemScaleOffset,
-                    fraction = (pageIndex - pagerState.currentPage).absoluteValue / 2f,
-                ).coerceAtLeast(unselectedItemScaleOffset),
-            )
             PagerProgressItem(
                 index = pageIndex,
                 selectedIndex = pagerState.currentPage,
-                selectedIndicatorSize = selectedItemSize,
+                boxSize = selectedItemSize,
+                selectedItemSize = selectedItemSize,
                 selectedColour = Color.Red,
                 unSelectedColour = Color.Gray,
-                modifier = Modifier.graphicsLayer {
-                    scaleX = size
-                    scaleY = size
-                },
+                unselectedItemScaleOffset = unselectedItemScaleOffset,
             )
         }
     }

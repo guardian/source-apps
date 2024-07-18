@@ -1,6 +1,8 @@
 package com.gu.source.components.pager
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -15,7 +17,10 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.times
+import androidx.compose.ui.util.lerp
 import kotlinx.coroutines.delay
+import kotlin.math.absoluteValue
 
 /**
  * Draws a single pager progress indicator item.
@@ -25,7 +30,7 @@ import kotlinx.coroutines.delay
  *
  * @param index The index of the item to be drawn.
  * @param selectedIndex The index of the selected item.
- * @param selectedIndicatorSize The size of the selected indicator.
+ * @param boxSize The size of the selected indicator.
  * @param selectedColour The colour of the selected indicator.
  * @param unSelectedColour The colour of the unselected indicator.
  * @param modifier The modifier to be applied to the item.
@@ -35,25 +40,41 @@ import kotlinx.coroutines.delay
 internal fun PagerProgressItem(
     index: Int,
     selectedIndex: Int,
-    selectedIndicatorSize: Dp,
+    boxSize: Dp,
+    selectedItemSize: Dp,
     selectedColour: Color,
     unSelectedColour: Color,
     modifier: Modifier = Modifier,
     shape: Shape = CircleShape,
+    unselectedItemScaleOffset: Float = DefaultScaleOffset
 ) {
     val colour by animateColorAsState(
         targetValue = if (index == selectedIndex) selectedColour else unSelectedColour,
         label = "PagerIndicatorItemColour",
     )
 
-    Box(
-        modifier = modifier
-            .size(selectedIndicatorSize)
-            .background(
-                color = colour,
-                shape = shape,
-            ),
+    val size by animateFloatAsState(
+        targetValue = lerp(
+            start = 1f,
+            stop = unselectedItemScaleOffset,
+            fraction = (index - selectedIndex).absoluteValue / 2f,
+        ).coerceAtLeast(unselectedItemScaleOffset),
     )
+
+    val indicatorSize1 by animateDpAsState(size * selectedItemSize)
+
+    Box(modifier = modifier.size(boxSize)) {
+        Box(
+            modifier = Modifier
+                .size(indicatorSize1)
+                .background(
+                    color = colour,
+                    shape = shape,
+                )
+                .align(Alignment.Center),
+
+            )
+    }
 }
 
 @Preview
@@ -70,9 +91,10 @@ private fun Preview() {
             PagerProgressItem(
                 index = it,
                 selectedIndex = selectedItem,
-                selectedIndicatorSize = 16.dp,
+                boxSize = 16.dp,
                 selectedColour = Color.Red,
                 unSelectedColour = Color.Gray,
+                selectedItemSize = 16.dp,
             )
         }
     }
