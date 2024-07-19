@@ -7,11 +7,14 @@
 
 import SwiftUI
 
+/// A scrolling page indicator, inspired by instagrams paging indicator.
+///
+/// This uses a ScrollViewProxy to programmatically scroll to the selected index, anchoring it to the center of the scroll view.
 public struct ScrollingPageIndicator: View {
 
     private let pageCount: Int
     @Binding private var selectedIndex: Int
-    private let numberOfVisibleDots = 5
+    private let numberOfVisibleDots: Int
     private let spacing: CGFloat
     private let indicatorWidth: CGFloat
     private let selectedColor: Color
@@ -22,24 +25,43 @@ public struct ScrollingPageIndicator: View {
 
     /// This determines the visible area of the paging indicators based on the maximum number of visible dots
     private var scrollViewWidth: CGFloat {
-        CGFloat(numberOfVisibleDots * Int(spacing + indicatorWidth))
+        CGFloat(numberOfVisibleDots * Int(indicatorWidth) + (numberOfVisibleDots - 1) * Int(spacing))
     }
 
-    public init(pageCount: Int, indicatorWidth: CGFloat, spacing: CGFloat = 4, selectedIndex: Binding<Int>, scaleSpan: Int = 2, selectedColor: Color, unselectedColor: Color) {
+    public init(
+        pageCount: Int,
+        numberOfVisibleDots: Int = 5,
+        indicatorWidth: CGFloat,
+        spacing: CGFloat = 4,
+        selectedIndex: Binding<Int>,
+        scaleSpan: Int = 2,
+        selectedColor: Color,
+        unselectedColor: Color
+    ) {
+        self.pageCount = pageCount
+        self.numberOfVisibleDots = numberOfVisibleDots
         self.indicatorWidth = indicatorWidth
         self.spacing = spacing
-        self.pageCount = pageCount
         self.scaleSpan = scaleSpan
         self.selectedColor = selectedColor
         self.unselectedColor = unselectedColor
         self._selectedIndex = selectedIndex
     }
 
+    /// Calculates the scale factor for an item based on its distance from the selected index.
+    ///
+    /// The scaling effect is such that items closer to the selected index are
+    /// scaled larger, while those farther away are scaled smaller. The scale factor is clamped between
+    /// `minimumScale` and `maximumScale`.
+    ///
+    /// - Parameter index: The index of the item for which the scale factor is to be calculated.
+    /// - Returns: A `CGFloat` value representing the scale factor for the item at the given index.
     private func scale(for index: Int) -> CGFloat {
+        guard pageCount >= numberOfVisibleDots else { return 1.0 }
         let distance = abs(index - selectedIndex)
-            let scaleFactor = 1.0 - (CGFloat(distance) / CGFloat(scaleSpan))
-            let scale = minimumScale + (maximumScale - minimumScale) * scaleFactor
-            return max(minimumScale, scale)
+        let scaleFactor = 1.0 - (CGFloat(distance) / CGFloat(scaleSpan))
+        let scale = minimumScale + (maximumScale - minimumScale) * scaleFactor
+        return max(minimumScale, scale)
     }
 
     public var body: some View {
