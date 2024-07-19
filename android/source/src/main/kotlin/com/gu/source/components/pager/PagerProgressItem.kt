@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
@@ -42,6 +43,7 @@ import kotlin.math.absoluteValue
  * @param numberOfItemsToScale The number of items to scale in size, including selected item.
  * @param itemShape Shape for the item.
  * @param modifier The modifier to be applied to the item.
+ * @param rotate Fun argument to rotate items as they animate. Works with non-circle shapes.
  */
 @Composable
 internal fun PagerProgressItem(
@@ -54,6 +56,7 @@ internal fun PagerProgressItem(
     numberOfItemsToScale: Int,
     itemShape: Shape,
     modifier: Modifier = Modifier,
+    rotate: Boolean = false,
 ) {
     require(numberOfItemsToScale > 0 && numberOfItemsToScale % 2 == 1) {
         "numberOfItemsToScale must be an odd number greater than 0"
@@ -83,9 +86,15 @@ internal fun PagerProgressItem(
         label = "PagerIndicatorItemSize",
     )
 
+    val rotation by animateFloatAsState(
+        targetValue = if (!rotate) 0f else 90f * (itemIndex - selectedItemIndex).absoluteValue,
+        label = "PagerIndicatorItemRotation",
+    )
+
     Box(modifier = modifier.size(selectedItemSize)) {
         Box(
             modifier = Modifier
+                .rotate(rotation)
                 .size(itemSize)
                 .background(
                     color = colour,
@@ -157,10 +166,10 @@ private fun Preview() {
                     unselectedItemScaleFactor = 0.5f,
                     numberOfItemsToScale = 1,
                     itemShape = RectangleShape,
+                    rotate = true,
                 )
             }
         }
-
     }
 
     LaunchedEffect(Unit) {

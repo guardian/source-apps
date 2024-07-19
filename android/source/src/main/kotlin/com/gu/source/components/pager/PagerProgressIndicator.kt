@@ -166,7 +166,6 @@ internal fun PagerProgressIndicatorPreview() {
         verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = Modifier.padding(8.dp),
     ) {
-
         Column(modifier = Modifier.padding(8.dp)) {
             PagerProgressIndicator(
                 pagerState = rememberPagerState(0) { 5 },
@@ -211,6 +210,5 @@ internal fun PagerProgressIndicatorPreview() {
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             )
         }
-
     }
 }
