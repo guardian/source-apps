@@ -12,8 +12,8 @@ public struct ScrollingPageIndicator: View {
     private let pageCount: Int
     @Binding private var selectedIndex: Int
     private let numberOfVisibleDots = 5
-    private let spacing: CGFloat = 4
-    private let indicatorSize: CGFloat = 16
+    private let spacing: CGFloat
+    private let indicatorWidth: CGFloat
     private let selectedColor: Color
     private let unselectedColor: Color
     private let scaleSpan: Int
@@ -22,10 +22,12 @@ public struct ScrollingPageIndicator: View {
 
     /// This determines the visible area of the paging indicators based on the maximum number of visible dots
     private var scrollViewWidth: CGFloat {
-        CGFloat(numberOfVisibleDots * Int(spacing + indicatorSize))
+        CGFloat(numberOfVisibleDots * Int(spacing + indicatorWidth))
     }
 
-    public init(pageCount: Int, selectedIndex: Binding<Int>, scaleSpan: Int = 2, selectedColor: Color, unselectedColor: Color) {
+    public init(pageCount: Int, indicatorWidth: CGFloat, spacing: CGFloat = 4, selectedIndex: Binding<Int>, scaleSpan: Int = 2, selectedColor: Color, unselectedColor: Color) {
+        self.indicatorWidth = indicatorWidth
+        self.spacing = spacing
         self.pageCount = pageCount
         self.scaleSpan = scaleSpan
         self.selectedColor = selectedColor
@@ -49,7 +51,7 @@ public struct ScrollingPageIndicator: View {
                             .id(index)
                             .scaleEffect(scale(for: index))
                             .foregroundStyle(selectedIndex == index ? selectedColor : unselectedColor)
-                            .frame(height: indicatorSize)
+                            .frame(width: indicatorWidth)
 
                     }
                 }
@@ -78,7 +80,7 @@ struct ScrollingPageIndicator_Previews_Container: PreviewProvider {
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
-            ScrollingPageIndicator(pageCount: elementArray.count, selectedIndex: $selectedIndex, selectedColor: .blue, unselectedColor: .black)
+            ScrollingPageIndicator(pageCount: elementArray.count, indicatorWidth: 16, selectedIndex: $selectedIndex, selectedColor: .blue, unselectedColor: .black)
                 .padding()
         }
     }
