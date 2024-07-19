@@ -32,10 +32,10 @@ import com.gu.source.presets.palette.Sport500
 import com.gu.source.presets.typography.Titlepiece70
 import kotlinx.coroutines.delay
 
-private const val DefaultUnselectedItemScaling = 0.5F
+private const val DefaultUnselectedItemScaling = 0.33F
 private val DefaultSelectedItemSize = 16.dp
 private val DefaultItemSpacing = 4.dp
-private const val DefaultIndicatorCount = 9
+private const val DefaultIndicatorCount = 5
 private const val DefaultNumberOfItemsToScale = 3
 
 /**
@@ -48,12 +48,12 @@ private const val DefaultNumberOfItemsToScale = 3
  * @param selectedIndicatorColour The colour to use for the selected page indicator.
  * @param unSelectedIndicatorColour The colour to use for the unselected page indicator.
  * @param modifier The modifier to apply to the layout.
- * @param maxIndicatorCount The maximum number of indicators to display. Defaults to 5, maximum
- * is constrained to the number of pages in the [PagerState]. This will be scaled down to the
+ * @param maxIndicatorCount The maximum number of indicators to display. The maximum
+ * is constrained to the number of pages in the [PagerState]. The count will be scaled down to the
  * next lower odd number if its even.
- * @param indicatorSpacing Horizontal spacing between indicator. Defaults to `4.dp`.
+ * @param indicatorSpacing Horizontal spacing between indicator. Defaults to [DefaultItemSpacing].
  * @param indicatorShape The shape to use for the indicator. Defaults to [CircleShape].
- * @param selectedItemSize The size of each item. Defaults to `16.dp`.
+ * @param selectedItemSize The size of each item. Defaults to [DefaultSelectedItemSize].
  * @param unselectedItemScaleFactor The scaling factor for unselected items as a ratio of the
  * [selectedItemSize]. Set this to `1F` to disable scaling.
  * @param numberOfItemsToScale The number of items to scale in size. This will be scaled down to the
@@ -123,8 +123,8 @@ private fun Int.toOddUnder() = if (this % 2 == 0) this - 1 else this
 
 @Preview
 @Composable
-private fun Preview() {
-    val pagerState = rememberPagerState(5) { 10 }
+private fun AnimatedPreview() {
+    val pagerState = rememberPagerState(0) { 10 }
 
     LaunchedEffect(pagerState) {
         while (true) {
@@ -156,5 +156,61 @@ private fun Preview() {
                 .padding(top = 8.dp)
                 .align(Alignment.CenterHorizontally),
         )
+    }
+}
+
+@Preview
+@Composable
+internal fun PagerProgressIndicatorPreview() {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = Modifier.padding(8.dp),
+    ) {
+
+        Column(modifier = Modifier.padding(8.dp)) {
+            PagerProgressIndicator(
+                pagerState = rememberPagerState(0) { 5 },
+                selectedIndicatorColour = Source.Palette.Sport500,
+                unSelectedIndicatorColour = Source.Palette.Neutral73,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
+        }
+
+        Column(modifier = Modifier.padding(8.dp)) {
+            PagerProgressIndicator(
+                pagerState = rememberPagerState(1) { 5 },
+                selectedIndicatorColour = Source.Palette.Sport500,
+                unSelectedIndicatorColour = Source.Palette.Neutral73,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
+        }
+
+        Column(modifier = Modifier.padding(8.dp)) {
+            PagerProgressIndicator(
+                pagerState = rememberPagerState(2) { 5 },
+                selectedIndicatorColour = Source.Palette.Sport500,
+                unSelectedIndicatorColour = Source.Palette.Neutral73,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
+        }
+
+        Column(modifier = Modifier.padding(8.dp)) {
+            PagerProgressIndicator(
+                pagerState = rememberPagerState(3) { 5 },
+                selectedIndicatorColour = Source.Palette.Sport500,
+                unSelectedIndicatorColour = Source.Palette.Neutral73,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
+        }
+
+        Column(modifier = Modifier.padding(8.dp)) {
+            PagerProgressIndicator(
+                pagerState = rememberPagerState(4) { 5 },
+                selectedIndicatorColour = Source.Palette.Sport500,
+                unSelectedIndicatorColour = Source.Palette.Neutral73,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
+        }
+
     }
 }
