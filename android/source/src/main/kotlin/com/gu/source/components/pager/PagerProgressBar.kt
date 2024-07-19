@@ -188,14 +188,16 @@ private fun ProgressButtons(
 @PhoneBothModePreviews
 @TabletBothModePreviews
 @Composable
-private fun Preview() {
+internal fun PagerProgressBarPreview() {
     AppColourMode {
         val pagerState = rememberPagerState(1) { 10 }
 
         Column(
-            modifier = Modifier.background(
-                AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
-            ),
+            modifier = Modifier
+                .background(
+                    AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
+                )
+                .width(600.dp),
         ) {
             HorizontalPager(state = pagerState) {}
             PagerProgressBar(pagerState = pagerState)
