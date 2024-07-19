@@ -32,7 +32,7 @@ public struct ScrollingPageIndicator: View {
         unselectedColor: Color
     ) {
         self.pageCount = pageCount
-        self.numberOfVisibleDots = numberOfVisibleDots
+        self.numberOfVisibleDots = numberOfVisibleDots.nearestOddNumberBelow()
         self.indicatorWidth = indicatorWidth
         self.spacing = spacing
         self.scaleSpan = scaleSpan
@@ -84,24 +84,36 @@ public struct ScrollingPageIndicator: View {
 
 struct ScrollingPageIndicator_Previews_Container: PreviewProvider {
     struct Container: View {
-    @State var selectedIndex = 0
-      let elementArray = [0, 1, 2, 3, 4, 5, 6]
-    var body: some View {
-        VStack {
-            TabView(selection: $selectedIndex) {
-                ForEach(elementArray, id: \.self) { index in
-                    Text("\(index)")
-                        .font(.largeTitle)
+        @State var selectedIndex = 0
+        let elementArray = [0, 1, 2, 3, 4, 5, 6]
+        var body: some View {
+            VStack {
+                TabView(selection: $selectedIndex) {
+                    ForEach(elementArray, id: \.self) { index in
+                        Text("\(index)")
+                            .font(.largeTitle)
+                    }
                 }
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                ScrollingPageIndicator(pageCount: elementArray.count, indicatorWidth: 16, selectedIndex: $selectedIndex, selectedColor: .blue, unselectedColor: .black)
+                    .padding()
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            ScrollingPageIndicator(pageCount: elementArray.count, indicatorWidth: 16, selectedIndex: $selectedIndex, selectedColor: .blue, unselectedColor: .black)
-                .padding()
         }
     }
-  }
 
     static var previews: some View {
-    Container()
-  }
+        Container()
+    }
+}
+
+fileprivate extension Int {
+    
+    /// Returns the nearest odd number, will just return itself if it is an odd number already.
+    /// - Returns: An odd Integer
+    func nearestOddNumberBelow() -> Int {
+        if self % 2 != 0 {
+            return self
+        }
+        return self - 1
+    }
 }
