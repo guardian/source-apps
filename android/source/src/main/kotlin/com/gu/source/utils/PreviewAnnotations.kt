@@ -26,14 +26,14 @@ annotation class PhoneBothModePreviews
 /** Creates two previews on a Pixel tablet device for light and dark mode. */
 @Preview(
     name = "Pixel tablet day mode",
-    device = Devices.PIXEL_TABLET,
+    device = "spec:parent=pixel_tablet,orientation=portrait",
     uiMode = Configuration.UI_MODE_NIGHT_NO,
     backgroundColor = 0xFFFFFFFF,
     showBackground = true,
 )
 @Preview(
     name = "Pixel tablet night mode",
-    device = Devices.PIXEL_TABLET,
+    device = "spec:parent=pixel_tablet,orientation=portrait",
     uiMode = Configuration.UI_MODE_NIGHT_YES,
     backgroundColor = 0xFF000000,
     showBackground = true,
