@@ -14,7 +14,7 @@ public struct ScrollingPageIndicator: View {
     private let unselectedColor: Color
     private let scaleSpan: Int
     private let maximumScale = 1.0
-    private let minimumScale = 0.5
+    private let minimumScale = 0.33
 
     /// This determines the visible area of the paging indicators based on the maximum number of visible dots
     private var scrollViewWidth: CGFloat {
@@ -67,6 +67,7 @@ public struct ScrollingPageIndicator: View {
                             .scaleEffect(scale(for: index))
                             .foregroundStyle(selectedIndex == index ? selectedColor : unselectedColor)
                             .frame(width: indicatorWidth)
+                            .animation(.smooth, value: selectedIndex)
 
                     }
                 }
