@@ -164,7 +164,9 @@ private fun AnimatedPreview() {
 internal fun PagerProgressIndicatorPreview() {
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp),
-        modifier = Modifier.padding(8.dp),
+        modifier = Modifier
+            .background(Color.White)
+            .padding(8.dp),
     ) {
         Column(modifier = Modifier.padding(8.dp)) {
             PagerProgressIndicator(
