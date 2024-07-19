@@ -32,11 +32,11 @@ import com.gu.source.presets.palette.Sport500
 import com.gu.source.presets.typography.Titlepiece70
 import kotlinx.coroutines.delay
 
-private const val DefaultUnselectedItemScaling = 0.33F
-private val DefaultSelectedItemSize = 16.dp
+private const val DefaultUnselectedItemScaling = 0.375F
+private val DefaultSelectedItemSize = 8.dp
 private val DefaultItemSpacing = 4.dp
 private const val DefaultIndicatorCount = 5
-private const val DefaultNumberOfItemsToScale = 3
+private const val DefaultNumberOfItemsToScale = 5
 
 /**
  * A pager progress indicator that displays progress indicators to represent progress in a
