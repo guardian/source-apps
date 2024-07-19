@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import com.gu.source.components.pager.PagerProgressBar
 import com.gu.source.utils.TabletBothModePreviews
 
+@Suppress("MagicNumber")
 @Composable
 internal fun ImagePagerWithProgressIndicator(modifier: Modifier = Modifier) {
     val pagerState = rememberPagerState { 10 }

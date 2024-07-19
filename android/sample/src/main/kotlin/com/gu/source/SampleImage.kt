@@ -7,7 +7,7 @@ import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
 import coil.compose.AsyncImage
 
-private val ImageUrl = "https://picsum.photos/695/544?random="
+private const val ImageUrl = "https://picsum.photos/695/544?random="
 
 /**
  * Renders the appropriate Composable for [SampleImage]. In preview mode, a default placeholder
@@ -17,10 +17,7 @@ private val ImageUrl = "https://picsum.photos/695/544?random="
  * use the existing cached image again.
  */
 @Composable
-internal fun SampleImage(
-    modifier: Modifier = Modifier,
-    randomKey: Int = 0,
-) {
+internal fun SampleImage(modifier: Modifier = Modifier, randomKey: Int = 0) {
     val placeholder = if (LocalInspectionMode.current) {
         painterResource(id = android.R.drawable.ic_menu_gallery)
     } else {

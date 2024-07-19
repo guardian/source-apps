@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AppColourMode {
-                Greeting(name = "Android", modifier = it)
+                Greeting(modifier = it)
             }
         }
     }
@@ -45,7 +45,7 @@ private enum class SheetContentType {
 
 @SuppressLint("DiscouragedApi")
 @Composable
-private fun Greeting(name: String, modifier: Modifier = Modifier) {
+private fun Greeting(modifier: Modifier = Modifier) {
     val coroutineScope = rememberCoroutineScope()
     val scaffoldState = rememberBottomSheetScaffoldState()
 
@@ -145,6 +145,6 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 private fun GreetingPreview() {
     AppColourMode {
-        Greeting("Android")
+        Greeting()
     }
 }
