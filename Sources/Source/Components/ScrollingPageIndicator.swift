@@ -71,7 +71,7 @@ public struct ScrollingPageIndicator: View {
                     }
                 }
             }
-            .disabled(true)
+            .disabled(true) // The scroll view is only used for the scroll effect and shouldn't be interactable
             .frame(width: scrollViewWidth)
             .onChange(of: selectedIndex) { newValue in
                 withAnimation {
