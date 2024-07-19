@@ -102,23 +102,12 @@ private fun Preview() {
     var selectedItem by remember {
         mutableIntStateOf(2)
     }
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
-        verticalAlignment = Alignment.CenterVertically,
+
+    Column(
+        modifier = Modifier.padding(8.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        repeat(5) {
-            PagerProgressItem(
-                itemIndex = it,
-                selectedItemIndex = selectedItem,
-                selectedItemSize = 16.dp,
-                selectedColour = Source.Palette.Sport500,
-                unSelectedColour = Source.Palette.Neutral73,
-                unselectedItemScaling = 0.5f,
-                numberOfItemsToScale = 1,
-                itemShape = CircleShape,
-            )
-        }
-    }
+        Row(
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -135,6 +124,44 @@ private fun Preview() {
                 )
             }
         }
+
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            repeat(5) {
+                PagerProgressItem(
+                    itemIndex = it,
+                    selectedItemIndex = selectedItem,
+                    selectedItemSize = 16.dp,
+                    selectedColour = Source.Palette.News550,
+                    unSelectedColour = Source.Palette.Neutral73,
+                    unselectedItemScaleFactor = 0.5f,
+                    numberOfItemsToScale = 3,
+                    itemShape = AbsoluteCutCornerShape(50),
+                )
+            }
+        }
+
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            repeat(5) {
+                PagerProgressItem(
+                    itemIndex = it,
+                    selectedItemIndex = selectedItem,
+                    selectedItemSize = 16.dp,
+                    selectedColour = Source.Palette.Labs400,
+                    unSelectedColour = Source.Palette.Neutral73,
+                    unselectedItemScaleFactor = 0.5f,
+                    numberOfItemsToScale = 1,
+                    itemShape = RectangleShape,
+                )
+            }
+        }
+
+    }
 
     LaunchedEffect(Unit) {
         while (true) {
