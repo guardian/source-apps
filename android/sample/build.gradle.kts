@@ -42,4 +42,6 @@ detekt {
 dependencies {
     implementation(project(path = ":source"))
     implementation(libs.androidx.activity.compose)
+
+    implementation(libs.coil.compose)
 }
