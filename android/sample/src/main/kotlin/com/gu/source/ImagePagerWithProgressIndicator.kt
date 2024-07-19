@@ -3,6 +3,7 @@
 package com.gu.source
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -11,9 +12,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.components.pager.PagerProgressBar
+import com.gu.source.daynight.AppColour
+import com.gu.source.daynight.AppColourMode
+import com.gu.source.presets.palette.Neutral10
+import com.gu.source.presets.palette.Neutral100
+import com.gu.source.utils.PhoneBothModePreviews
 import com.gu.source.utils.TabletBothModePreviews
 
 @Suppress("MagicNumber")
@@ -41,11 +46,22 @@ internal fun ImagePagerWithProgressIndicator(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview
+@PhoneBothModePreviews
 @TabletBothModePreviews
 @Composable
 private fun Preview() {
-    Box(modifier = Modifier.fillMaxSize()) {
-        ImagePagerWithProgressIndicator(modifier = Modifier.align(Alignment.TopCenter))
+    AppColourMode {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    AppColour(
+                        light = Source.Palette.Neutral100,
+                        dark = Source.Palette.Neutral10,
+                    ).current,
+                ),
+        ) {
+            ImagePagerWithProgressIndicator(modifier = Modifier.align(Alignment.TopCenter))
+        }
     }
 }

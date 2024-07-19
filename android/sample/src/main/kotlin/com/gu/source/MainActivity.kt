@@ -17,7 +17,7 @@ import com.gu.source.components.buttons.SourceButton
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.presets.palette.Brand400
-import com.gu.source.presets.palette.Neutral0
+import com.gu.source.presets.palette.Neutral10
 import com.gu.source.presets.palette.Neutral100
 import com.gu.source.presets.palette.Neutral97
 import com.gu.source.presets.typography.HeadlineMedium20
@@ -67,13 +67,13 @@ private fun Greeting(modifier: Modifier = Modifier) {
         sheetDragHandle = { Spacer(Modifier.height(4.dp)) },
         sheetContainerColor = AppColour(
             Source.Palette.Neutral100,
-            Source.Palette.Neutral0,
+            Source.Palette.Neutral10,
         ).current,
         sheetShadowElevation = 8.dp,
         sheetTonalElevation = 8.dp,
         containerColor = AppColour(
             Source.Palette.Neutral100,
-            Source.Palette.Neutral0,
+            Source.Palette.Neutral10,
         ).current,
         modifier = modifier.safeDrawingPadding(),
     ) { paddingValues ->
