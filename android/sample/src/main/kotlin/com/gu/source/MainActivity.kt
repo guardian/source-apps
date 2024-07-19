@@ -10,8 +10,7 @@ import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberBottomSheetScaffoldState
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -42,14 +41,28 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+private enum class SheetContentType {
+    Palette,
+    PagerProgressBar,
+}
+
 @SuppressLint("DiscouragedApi")
 @Composable
 private fun Greeting(name: String, modifier: Modifier = Modifier) {
     val coroutineScope = rememberCoroutineScope()
     val scaffoldState = rememberBottomSheetScaffoldState()
 
+    var sheetContentType by remember {
+        mutableStateOf(SheetContentType.Palette)
+    }
+
     BottomSheetScaffold(
-        sheetContent = { Palette() },
+        sheetContent = {
+            when (sheetContentType) {
+                SheetContentType.Palette -> Palette()
+                SheetContentType.PagerProgressBar -> ImagePagerWithProgressIndicator()
+            }
+        },
         scaffoldState = scaffoldState,
         sheetPeekHeight = 0.dp,
         sheetDragHandle = { Spacer(Modifier.height(4.dp)) },
@@ -97,6 +110,22 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 modifier = Modifier.align(CenterHorizontally),
                 onClick = {
+                    sheetContentType = SheetContentType.Palette
+                    coroutineScope.launch {
+                        scaffoldState.bottomSheetState.expand()
+                    }
+                },
+            )
+
+            HorizontalDivider()
+
+            SourceButton(
+                text = "Open pager progress bar sample",
+                priority = SourceButton.Priority.TertiaryOnWhite,
+                modifier = Modifier.align(CenterHorizontally),
+                onClick = {
+                    sheetContentType = SheetContentType.PagerProgressBar
+                    // TODO: 19/07/2024 Close and reexpand if already visible.
                     coroutineScope.launch {
                         scaffoldState.bottomSheetState.expand()
                     }
