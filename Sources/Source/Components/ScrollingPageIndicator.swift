@@ -18,7 +18,8 @@ public struct ScrollingPageIndicator: View {
 
     /// This determines the visible area of the paging indicators based on the maximum number of visible dots
     private var scrollViewWidth: CGFloat {
-        CGFloat(numberOfVisibleDots * Int(indicatorWidth) + (numberOfVisibleDots - 1) * Int(spacing))
+        let visibleDots = min(numberOfVisibleDots, pageCount)
+        return CGFloat(visibleDots * Int(indicatorWidth) + (visibleDots - 1) * Int(spacing))
     }
 
     public init(
