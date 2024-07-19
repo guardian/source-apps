@@ -8,6 +8,7 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
@@ -20,7 +21,6 @@ internal fun ImagePagerWithProgressIndicator(modifier: Modifier = Modifier) {
     val pagerState = rememberPagerState { 10 }
     Column(
         modifier = modifier
-            .safeDrawingPadding()
             .padding(8.dp)
             .widthIn(max = 695.dp),
     ) {
@@ -44,5 +44,7 @@ internal fun ImagePagerWithProgressIndicator(modifier: Modifier = Modifier) {
 @TabletBothModePreviews
 @Composable
 private fun Preview() {
-    ImagePagerWithProgressIndicator()
+    Box(modifier = Modifier.fillMaxSize()) {
+        ImagePagerWithProgressIndicator(modifier = Modifier.align(Alignment.TopCenter))
+    }
 }
