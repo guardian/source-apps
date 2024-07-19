@@ -1,13 +1,6 @@
-//
-//  SwiftUIView.swift
-//  
-//
-//  Created by Aoife McLaughlin on 19/07/2024.
-//
-
 import SwiftUI
 
-/// A scrolling page indicator, inspired by instagrams paging indicator.
+/// A scrolling page indicator, inspired by Instagram's paging indicator.
 ///
 /// This uses a ScrollViewProxy to programmatically scroll to the selected index, anchoring it to the center of the scroll view.
 public struct ScrollingPageIndicator: View {
