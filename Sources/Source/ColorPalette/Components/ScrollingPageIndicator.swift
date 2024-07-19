@@ -17,28 +17,28 @@ struct ScrollingPageIndicator: View {
     private let indicatorSize: CGFloat = 16
     private let selectedColor: Color
     private let unselectedColor: Color
-    
+    private let scaleSpan: Int
+    private let maximumScale = 1.0
+    private let minimumScale = 0.5
+
     /// This determines the visible area of the paging indicators based on the maximum number of visible dots
     private var scrollViewWidth: CGFloat {
         CGFloat(numberOfVisibleDots * Int(spacing + indicatorSize))
     }
 
-    init(pageCount: Int, selectedIndex: Binding<Int>, selectedColor: Color, unselectedColor: Color) {
+    init(pageCount: Int, selectedIndex: Binding<Int>, scaleSpan: Int = 2, selectedColor: Color, unselectedColor: Color) {
         self.pageCount = pageCount
+        self.scaleSpan = scaleSpan
         self.selectedColor = selectedColor
         self.unselectedColor = unselectedColor
         self._selectedIndex = selectedIndex
     }
 
-    // TODO: make this more dynamic
     private func scale(for index: Int) -> CGFloat {
-        if selectedIndex == index {
-             return 1
-        } else if abs(index - selectedIndex) < 2 {
-            return  0.75
-        } else {
-            return 0.5
-        }
+        let distance = abs(index - selectedIndex)
+            let scaleFactor = 1.0 - (CGFloat(distance) / CGFloat(scaleSpan))
+            let scale = minimumScale + (maximumScale - minimumScale) * scaleFactor
+            return max(minimumScale, scale)
     }
 
     var body: some View {
@@ -70,7 +70,7 @@ struct ScrollingPageIndicator: View {
 struct ScrollingPageIndicator_Previews_Container: PreviewProvider {
     struct Container: View {
     @State var selectedIndex = 0
-      let elementArray = [0, 1, 2, 3, 4, 5, 6, 7]
+      let elementArray = [0, 1, 2, 3, 4, 5, 6]
     var body: some View {
         VStack {
             TabView(selection: $selectedIndex) {
