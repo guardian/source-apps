@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-@available(iOS 17.0, *)
-struct ScrollingPageIndicator: View {
+public struct ScrollingPageIndicator: View {
 
     private let pageCount: Int
     @Binding private var selectedIndex: Int
@@ -26,7 +25,7 @@ struct ScrollingPageIndicator: View {
         CGFloat(numberOfVisibleDots * Int(spacing + indicatorSize))
     }
 
-    init(pageCount: Int, selectedIndex: Binding<Int>, scaleSpan: Int = 2, selectedColor: Color, unselectedColor: Color) {
+    public init(pageCount: Int, selectedIndex: Binding<Int>, scaleSpan: Int = 2, selectedColor: Color, unselectedColor: Color) {
         self.pageCount = pageCount
         self.scaleSpan = scaleSpan
         self.selectedColor = selectedColor
@@ -41,7 +40,7 @@ struct ScrollingPageIndicator: View {
             return max(minimumScale, scale)
     }
 
-    var body: some View {
+    public var body: some View {
         ScrollViewReader { scrollViewProxy in
             ScrollView(.horizontal) {
                 HStack(spacing: spacing) {
@@ -66,7 +65,6 @@ struct ScrollingPageIndicator: View {
     }
 }
 
-@available(iOS 17.0, *)
 struct ScrollingPageIndicator_Previews_Container: PreviewProvider {
     struct Container: View {
     @State var selectedIndex = 0
@@ -76,7 +74,7 @@ struct ScrollingPageIndicator_Previews_Container: PreviewProvider {
             TabView(selection: $selectedIndex) {
                 ForEach(elementArray, id: \.self) { index in
                     Text("\(index)")
-                        .id(index)
+                        .font(.largeTitle)
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
