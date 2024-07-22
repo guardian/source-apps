@@ -8,8 +8,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,14 +26,13 @@ import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.ChevronLeft
 import com.gu.source.icons.ChevronRight
-import com.gu.source.presets.palette.Neutral0
-import com.gu.source.presets.palette.Neutral10
-import com.gu.source.presets.palette.Neutral100
-import com.gu.source.presets.palette.Neutral7
+import com.gu.source.presets.palette.*
+import com.gu.source.presets.typography.Titlepiece70
 import com.gu.source.theme.LocalSourceTheme
 import com.gu.source.utils.PhoneBothModePreviews
 import com.gu.source.utils.TabletBothModePreviews
 import com.gu.source.utils.isTabletDevice
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 private enum class ProgressDirection {
@@ -83,8 +85,6 @@ fun PagerProgressBar(
 
     Box(
         modifier = modifier
-            // TODO: 19/07/2024 Confirm whether these go inside or outside the component.
-//            .padding(top = 8.dp, bottom = 20.dp)
             .height(56.dp)
             .fillMaxWidth(),
     ) {
@@ -134,7 +134,7 @@ fun PagerProgressBar(
  * @param unSelectedIndicatorColour The colour of the unselected indicators items.
  */
 
-@Suppress("CognitiveComplexMethod")
+@Suppress("CognitiveComplexMethod", "Unused")
 @Composable
 fun PagerProgressBar(
     pagerState: PagerState,
@@ -150,6 +150,56 @@ fun PagerProgressBar(
         selectedIndicatorColour = selectedIndicatorColour,
         unSelectedIndicatorColour = unSelectedIndicatorColour,
     )
+}
+
+@Suppress("MagicNumber")
+@PhoneBothModePreviews
+@TabletBothModePreviews
+@Composable
+private fun AnimatedPreview() {
+    AppColourMode {
+        val pagerState = rememberPagerState(0) { 10 }
+
+        LaunchedEffect(pagerState) {
+            while (true) {
+                delay(timeMillis = 1000)
+                pagerState.scrollToPage((pagerState.currentPage + 1) % pagerState.pageCount)
+            }
+        }
+
+        Column(
+            modifier = Modifier
+                .padding(8.dp)
+                .width(400.dp),
+        ) {
+            HorizontalPager(state = pagerState) {
+                Box(
+                    modifier = Modifier
+                        .size(400.dp)
+                        .background(
+                            color = AppColour(
+                                light = Source.Palette.Neutral86,
+                                dark = Source.Palette.Neutral38,
+                            ).current,
+                            shape = RoundedCornerShape(8.dp),
+                        ),
+                ) {
+                    Text(
+                        text = (it + 1).toString(),
+                        style = Source.Typography.Titlepiece70,
+                        modifier = Modifier.align(Alignment.Center),
+                        color = Source.Palette.Neutral60,
+                    )
+                }
+            }
+            PagerProgressBar(
+                pagerState = pagerState,
+                modifier = Modifier
+                    .padding(top = 8.dp)
+                    .align(Alignment.CenterHorizontally),
+            )
+        }
+    }
 }
 
 @Composable
