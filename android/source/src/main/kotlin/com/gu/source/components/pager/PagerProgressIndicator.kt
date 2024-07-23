@@ -168,48 +168,14 @@ internal fun PagerProgressIndicatorPreview() {
             .background(Color.White)
             .padding(8.dp),
     ) {
-        Column(modifier = Modifier.padding(8.dp)) {
+        repeat(5) {
             PagerProgressIndicator(
-                pagerState = rememberPagerState(0) { 5 },
+                pagerState = rememberPagerState(it) { 5 },
                 selectedIndicatorColour = Source.Palette.Sport500,
                 unSelectedIndicatorColour = Source.Palette.Neutral73,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-            )
-        }
-
-        Column(modifier = Modifier.padding(8.dp)) {
-            PagerProgressIndicator(
-                pagerState = rememberPagerState(1) { 5 },
-                selectedIndicatorColour = Source.Palette.Sport500,
-                unSelectedIndicatorColour = Source.Palette.Neutral73,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-            )
-        }
-
-        Column(modifier = Modifier.padding(8.dp)) {
-            PagerProgressIndicator(
-                pagerState = rememberPagerState(2) { 5 },
-                selectedIndicatorColour = Source.Palette.Sport500,
-                unSelectedIndicatorColour = Source.Palette.Neutral73,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-            )
-        }
-
-        Column(modifier = Modifier.padding(8.dp)) {
-            PagerProgressIndicator(
-                pagerState = rememberPagerState(3) { 5 },
-                selectedIndicatorColour = Source.Palette.Sport500,
-                unSelectedIndicatorColour = Source.Palette.Neutral73,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-            )
-        }
-
-        Column(modifier = Modifier.padding(8.dp)) {
-            PagerProgressIndicator(
-                pagerState = rememberPagerState(4) { 5 },
-                selectedIndicatorColour = Source.Palette.Sport500,
-                unSelectedIndicatorColour = Source.Palette.Neutral73,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
+                modifier = Modifier
+                    .padding(8.dp)
+                    .align(Alignment.CenterHorizontally),
             )
         }
     }
