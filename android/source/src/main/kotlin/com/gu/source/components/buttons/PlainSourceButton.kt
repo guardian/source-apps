@@ -85,7 +85,7 @@ fun PlainSourceContentButton(
  * A plain Source button component with text and an optional icon. This has no Source colour
  * theming. Provide [buttonColours] to theme the button.
  *
- * Prefer to use [SourceButton] or [SourceBaseIconButton] instead.
+ * Prefer to use [SourceButton] or [SourceIconButton] instead.
  *
  * @param text Text to display on the button.
  * @param onClick Callback for action to take when user clicks the button.
