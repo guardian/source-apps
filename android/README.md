@@ -20,7 +20,7 @@ api("com.gu.source:source-android:<version>")
 ```-->
 
 > [!note]
-> See [here](#building-and-using-as-a-bundled-repo) if you need to build and bundle the library as a local repository.
+> See [here](#building-and-using-directly) if you need to build and bundle the library as a local repository.
 
 ## Using the library
 
