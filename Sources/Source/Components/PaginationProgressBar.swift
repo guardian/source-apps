@@ -48,16 +48,14 @@ public struct PaginationProgressBar: View {
 
     private var progressButtons: some View {
         HStack {
-            IconButton(icon: Image(.chevronLeft), primaryColor: primaryColor, secondaryColor: secondaryColor, action: {
-                if selectedIndex > 0 {
-                    selectedIndex -= 1
-                }
-            })
-            IconButton(icon: Image(.chevronRight), primaryColor: primaryColor, secondaryColor: secondaryColor, action: {
-                if selectedIndex < pageCount - 1 {
-                    selectedIndex += 1
-                }
-            })
+            IconButton(icon: Image(.chevronLeft), primaryColor: primaryColor, secondaryColor: secondaryColor) {
+                selectedIndex -= 1
+            }
+            .disabled(selectedIndex == 0)
+            IconButton(icon: Image(.chevronRight), primaryColor: primaryColor, secondaryColor: secondaryColor) {
+                selectedIndex += 1
+            }
+            .disabled(selectedIndex == pageCount - 1)
         }
     }
 
