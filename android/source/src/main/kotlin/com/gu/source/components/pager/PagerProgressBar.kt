@@ -62,6 +62,12 @@ private val DefaultButtonColours = ButtonColours(
     ),
 )
 
+private val BarHeightPhone = 28.dp
+private val BarHeightTablet = 56.dp
+
+@Composable
+private fun getBarHeight() = if (isTabletDevice()) BarHeightTablet else BarHeightPhone
+
 /**
  * A progress bar that shows the current page of a [PagerState] and, on tablets, allows the user to
  * navigate between pages using next/prev buttons.
@@ -92,7 +98,7 @@ fun PagerProgressBar(
 
     Box(
         modifier = modifier
-            .height(56.dp)
+            .height(getBarHeight())
             .fillMaxWidth(),
     ) {
         PagerProgressIndicator(
@@ -119,11 +125,11 @@ fun PagerProgressBar(
                         pagerState.animateScrollToPage(page)
                     }
                 },
-                // Offset the row so the buttons visually set at end of the progress bar despite the extra
-                // touch size padding.
                 prevButtonContentDescription = prevButtonContentDescription,
                 nextButtonContentDescription = nextButtonContentDescription,
                 modifier = Modifier
+                    // Offset the row so the buttons visually set at end of the progress bar despite
+                    // the extra touch size padding.
                     .offset(x = 6.dp)
                     .align(Alignment.CenterEnd),
             )
