@@ -71,6 +71,8 @@ private val DefaultButtonColours = ButtonColours(
  * @param buttonColours The colours for the next/prev buttons.
  * @param selectedIndicatorColour The colour of the selected indicator item.
  * @param unSelectedIndicatorColour The colour of the unselected indicators items.
+ * @param prevButtonContentDescription The content description for the previous button.
+ * @param nextButtonContentDescription The content description for the next button.
  */
 @Suppress("CognitiveComplexMethod")
 @Composable
@@ -80,6 +82,8 @@ fun PagerProgressBar(
     buttonColours: ButtonColours = DefaultButtonColours,
     selectedIndicatorColour: AppColour = SelectedIndicatorColour,
     unSelectedIndicatorColour: AppColour = UnSelectedIndicatorColour,
+    prevButtonContentDescription: String? = null,
+    nextButtonContentDescription: String? = null,
 ) {
     val coroutineScope = rememberCoroutineScope()
 
@@ -114,6 +118,8 @@ fun PagerProgressBar(
                 },
                 // Offset the row so the buttons visually set at end of the progress bar despite the extra
                 // touch size padding.
+                prevButtonContentDescription = prevButtonContentDescription,
+                nextButtonContentDescription = nextButtonContentDescription,
                 modifier = Modifier
                     .offset(x = 6.dp)
                     .align(Alignment.CenterEnd),
@@ -132,8 +138,9 @@ fun PagerProgressBar(
  * @param modifier
  * @param selectedIndicatorColour The colour of the selected indicator item.
  * @param unSelectedIndicatorColour The colour of the unselected indicators items.
+ * @param prevButtonContentDescription The content description for the previous button.
+ * @param nextButtonContentDescription The content description for the next button.
  */
-
 @Suppress("CognitiveComplexMethod", "Unused")
 @Composable
 fun PagerProgressBar(
@@ -142,6 +149,8 @@ fun PagerProgressBar(
     modifier: Modifier = Modifier,
     selectedIndicatorColour: AppColour = SelectedIndicatorColour,
     unSelectedIndicatorColour: AppColour = UnSelectedIndicatorColour,
+    prevButtonContentDescription: String? = null,
+    nextButtonContentDescription: String? = null,
 ) {
     PagerProgressBar(
         pagerState = pagerState,
@@ -149,7 +158,43 @@ fun PagerProgressBar(
         buttonColours = buttonPriority.toColours(LocalSourceTheme.current),
         selectedIndicatorColour = selectedIndicatorColour,
         unSelectedIndicatorColour = unSelectedIndicatorColour,
+        prevButtonContentDescription = prevButtonContentDescription,
+        nextButtonContentDescription = nextButtonContentDescription,
     )
+}
+
+@Composable
+private fun ProgressButtons(
+    buttonColours: ButtonColours,
+    onClick: (progressDirection: ProgressDirection) -> Unit,
+    prevButtonContentDescription: String?,
+    nextButtonContentDescription: String?,
+    modifier: Modifier = Modifier,
+) {
+    Row(modifier = modifier) {
+        SourceBaseIconButton(
+            buttonColours = buttonColours,
+            size = SourceButton.Size.Small,
+            onClick = { onClick(ProgressDirection.Previous) },
+        ) {
+            Icon(
+                imageVector = Source.Icons.Base.ChevronLeft,
+                contentDescription = prevButtonContentDescription,
+                modifier = it,
+            )
+        }
+        SourceBaseIconButton(
+            buttonColours = buttonColours,
+            size = SourceButton.Size.Small,
+            onClick = { onClick(ProgressDirection.Next) },
+        ) {
+            Icon(
+                imageVector = Source.Icons.Base.ChevronRight,
+                contentDescription = nextButtonContentDescription,
+                modifier = it,
+            )
+        }
+    }
 }
 
 @Suppress("MagicNumber")
@@ -197,38 +242,6 @@ private fun AnimatedPreview() {
                 modifier = Modifier
                     .padding(top = 8.dp)
                     .align(Alignment.CenterHorizontally),
-            )
-        }
-    }
-}
-
-@Composable
-private fun ProgressButtons(
-    buttonColours: ButtonColours,
-    onClick: (progressDirection: ProgressDirection) -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    Row(modifier = modifier) {
-        SourceBaseIconButton(
-            buttonColours = buttonColours,
-            size = SourceButton.Size.Small,
-            onClick = { onClick(ProgressDirection.Previous) },
-        ) {
-            Icon(
-                imageVector = Source.Icons.Base.ChevronLeft,
-                contentDescription = null,
-                modifier = it,
-            )
-        }
-        SourceBaseIconButton(
-            buttonColours = buttonColours,
-            size = SourceButton.Size.Small,
-            onClick = { onClick(ProgressDirection.Next) },
-        ) {
-            Icon(
-                imageVector = Source.Icons.Base.ChevronRight,
-                contentDescription = null,
-                modifier = it,
             )
         }
     }
