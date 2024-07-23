@@ -16,10 +16,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 
-/** Base check mark icon. */
+/** Base small right chevron icon. */
 @Suppress("UnusedReceiverParameter")
-val Source.Icons.Base.Check: ImageVector
-    get() = _check ?: Builder(
+val Source.Icons.Base.ChevronRight: ImageVector
+    get() = _icon ?: Builder(
         name = "Check",
         defaultWidth = 24.0.dp,
         defaultHeight = 24.0.dp,
@@ -35,28 +35,28 @@ val Source.Icons.Base.Check: ImageVector
             strokeLineMiter = 4.0f,
             pathFillType = EvenOdd,
         ) {
-            moveTo(3.0114f, 11.8835f)
-            lineTo(2.0f, 12.8949f)
-            lineTo(7.0569f, 19.9745f)
-            horizontalLineTo(7.5373f)
-            lineTo(22.0f, 5.0061f)
-            lineTo(20.9886f, 4.02f)
-            lineTo(7.5373f, 16.2071f)
-            lineTo(3.0114f, 11.8835f)
+            moveTo(9.00005f, 5.96996f)
+            lineTo(13.925f, 11.985f)
+            lineTo(9.00505f, 17.97f)
+            lineTo(9.88505f, 18.855f)
+            lineTo(16.425f, 12.315f)
+            lineTo(16.425f, 11.625f)
+            lineTo(9.88505f, 5.08496f)
+            lineTo(9.00005f, 5.96996f)
             close()
         }
     }
         .build()
-        .also { _check = it }
+        .also { _icon = it }
 
 @Suppress("TopLevelPropertyNaming", "ktlint:standard:backing-property-naming")
-private var _check: ImageVector? = null
+private var _icon: ImageVector? = null
 
 @Preview
 @Composable
 private fun Preview() {
     Icon(
-        imageVector = Source.Icons.Base.Check,
+        imageVector = Source.Icons.Base.ChevronRight,
         contentDescription = null,
     )
 }
