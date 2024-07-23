@@ -31,13 +31,12 @@ public struct PaginationProgressBar: View {
 
     public var body: some View {
         if sizeClass == .regular {
-            HStack {
-                Spacer()
+            ZStack(alignment: .trailing) {
                 scrollingIndicator
-                Spacer()
+                    .frame(maxWidth: .infinity, alignment: .center)
                 progressButtons
+                    .frame(alignment: .trailing)
             }
-            .frame(maxWidth: .infinity, alignment: .center)
         } else {
             scrollingIndicator
         }
