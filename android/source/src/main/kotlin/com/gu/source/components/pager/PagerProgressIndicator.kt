@@ -173,9 +173,7 @@ internal fun PagerProgressIndicatorPreview() {
                 pagerState = rememberPagerState(it) { 5 },
                 selectedIndicatorColour = Source.Palette.Sport500,
                 unSelectedIndicatorColour = Source.Palette.Neutral73,
-                modifier = Modifier
-                    .padding(8.dp)
-                    .align(Alignment.CenterHorizontally),
+                modifier = Modifier.align(Alignment.CenterHorizontally),
             )
         }
     }
