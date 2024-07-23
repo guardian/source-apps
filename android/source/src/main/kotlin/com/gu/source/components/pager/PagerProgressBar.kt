@@ -73,6 +73,8 @@ private val DefaultButtonColours = ButtonColours(
  * @param unSelectedIndicatorColour The colour of the unselected indicators items.
  * @param prevButtonContentDescription The content description for the previous button.
  * @param nextButtonContentDescription The content description for the next button.
+ * @param showProgressButtons Whether to show the next/prev buttons. By default they are enabled on
+ * tablet devices (`sw600dp`).
  */
 @Suppress("CognitiveComplexMethod")
 @Composable
@@ -84,6 +86,7 @@ fun PagerProgressBar(
     unSelectedIndicatorColour: AppColour = UnSelectedIndicatorColour,
     prevButtonContentDescription: String? = null,
     nextButtonContentDescription: String? = null,
+    showProgressButtons: Boolean = isTabletDevice(),
 ) {
     val coroutineScope = rememberCoroutineScope()
 
@@ -98,7 +101,7 @@ fun PagerProgressBar(
             unSelectedIndicatorColour = unSelectedIndicatorColour.current,
             modifier = Modifier.align(Alignment.Center),
         )
-        if (isTabletDevice()) {
+        if (showProgressButtons) {
             ProgressButtons(
                 buttonColours = buttonColours,
                 onClick = {
@@ -140,6 +143,8 @@ fun PagerProgressBar(
  * @param unSelectedIndicatorColour The colour of the unselected indicators items.
  * @param prevButtonContentDescription The content description for the previous button.
  * @param nextButtonContentDescription The content description for the next button.
+ * @param showProgressButtons Whether to show the next/prev buttons. By default they are enabled on
+ * tablet devices (`sw600dp`).
  */
 @Suppress("CognitiveComplexMethod", "Unused")
 @Composable
@@ -151,6 +156,7 @@ fun PagerProgressBar(
     unSelectedIndicatorColour: AppColour = UnSelectedIndicatorColour,
     prevButtonContentDescription: String? = null,
     nextButtonContentDescription: String? = null,
+    showProgressButtons: Boolean = isTabletDevice(),
 ) {
     PagerProgressBar(
         pagerState = pagerState,
@@ -160,6 +166,7 @@ fun PagerProgressBar(
         unSelectedIndicatorColour = unSelectedIndicatorColour,
         prevButtonContentDescription = prevButtonContentDescription,
         nextButtonContentDescription = nextButtonContentDescription,
+        showProgressButtons = showProgressButtons,
     )
 }
 
