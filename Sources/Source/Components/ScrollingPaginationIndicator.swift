@@ -1,5 +1,4 @@
 import SwiftUI
-import Accelerate
 
 /// A scrolling page indicator, inspired by Instagram's paging indicator.
 ///
