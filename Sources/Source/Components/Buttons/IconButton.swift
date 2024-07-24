@@ -7,51 +7,67 @@ public struct IconButton: View {
     private let icon: Image
     private let size: ButtonSize
     private let iconColor: Color
-    private let borderColor: Color?
-    private let fillColor: Color?
+    private let borderColor: Color
     private let action: () -> ()
+    @Binding private var disabled: Bool
 
-    public init(icon: Image, size: ButtonSize, iconColor: Color, borderColor: Color? = nil, fillColor: Color? = nil, action: @escaping () -> Void) {
+    public init(icon: Image, size: ButtonSize, iconColor: Color, borderColor: Color, disabled: Binding<Bool>, action: @escaping () -> Void) {
         self.icon = icon
         self.size = size
         self.iconColor = iconColor
         self.borderColor = borderColor
-        self.fillColor = fillColor
+        self._disabled = disabled
         self.action = action
     }
 
     public var body: some View {
         Button {
+            guard disabled == false else { return }
             action()
         } label: {
             icon
                 .resizable()
-                .frame(width: size.iconSize, height: size.iconSize)
-                .foregroundStyle(iconColor)
-                .padding(size.iconPadding)
         }
-        .background {
-            buttonBackground
-        }
+        .buttonStyle(IconButtonStyle(size: size, isDisabled: $disabled, borderColor: borderColor, iconColor: iconColor))
 
-    }
-
-    @ViewBuilder
-    private var buttonBackground: some View {
-        if let borderColor {
-            Circle()
-                .stroke(borderColor, lineWidth: 1.0)
-        } else if let fillColor {
-            Circle()
-                .fill(fillColor)
-        }
     }
 }
 
-// FIXME: modifer button appearance based on priority and colours 
+/// Custom button style used to style an icon button.
+///
+/// Custom disabled functionality has been used here, rather than the native to ensure the styling of the button in the disabled state is correctly reflected and that no touch events are passed through to the view behind. 
+struct IconButtonStyle: ButtonStyle {
+    let size: ButtonSize
+    @Binding private var isDisabled: Bool
+    let borderColor: Color
+    let iconColor: Color
+
+    init(size: ButtonSize, isDisabled: Binding<Bool>, borderColor: Color, iconColor: Color) {
+        self.size = size
+        self._isDisabled = isDisabled
+        self.borderColor = borderColor
+        self.iconColor = iconColor
+    }
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(width: size.iconSize, height: size.iconSize)
+            .foregroundStyle(isDisabled ? borderColor : iconColor)
+            .padding(size.iconPadding)
+            .background {
+                if configuration.isPressed, isDisabled == false {
+                    Circle()
+                        .fill(borderColor)
+                } else {
+                    Circle()
+                        .stroke(borderColor, lineWidth: 1.0)
+                }
+            }
+    }
+}
 
 #Preview {
-    IconButton(icon: Image(.chevronLeft), size: .small, iconColor: .black, borderColor: .gray, action: {})
+    IconButton(icon: Image(.chevronLeft), size: .small, iconColor: .black, borderColor: .gray, disabled: .constant(false), action: {})
 }
 
 // Maps button size to layout values for icon.

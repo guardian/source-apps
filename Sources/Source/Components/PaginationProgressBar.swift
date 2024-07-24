@@ -1,11 +1,13 @@
 import SwiftUI
 import Source
 
+/// This component used to signpost progression through a paginated view.
+///
+/// On tablet, buttons are provided to allow users to navigate through the pages. 
 public struct PaginationProgressBar: View {
 
     private let pageCount: Int
     private let indicatorWidth: CGFloat
-    private let scaleSpan: Int
     @Binding private var selectedIndex: Int
     private let primaryColor: Color
     private let secondaryColor: Color
@@ -13,32 +15,39 @@ public struct PaginationProgressBar: View {
     @Environment(\.horizontalSizeClass)
     private var sizeClass
 
+    @State private var canNavigateBack = true
+
+    @State private var canNavigateForward = false
+
     public init(
         pageCount: Int,
         indicatorWidth: CGFloat,
-        scaleSpan: Int = 2,
         selectedIndex: Binding<Int>,
         primaryColor: Color,
         secondaryColor: Color
     ) {
         self.pageCount = pageCount
         self.indicatorWidth = indicatorWidth
-        self.scaleSpan = scaleSpan
         self._selectedIndex = selectedIndex
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor
     }
 
     public var body: some View {
-        if sizeClass == .regular {
-            ZStack(alignment: .trailing) {
+        Group {
+            if sizeClass == .regular {
+                ZStack(alignment: .trailing) {
+                    scrollingIndicator
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    progressButtons
+                        .frame(alignment: .trailing)
+                }
+            } else {
                 scrollingIndicator
-                    .frame(maxWidth: .infinity, alignment: .center)
-                progressButtons
-                    .frame(alignment: .trailing)
             }
-        } else {
-            scrollingIndicator
+        }
+        .onChange(of: selectedIndex) { selectedIndex in
+            updateButtonDisabledState()
         }
     }
 
@@ -48,24 +57,19 @@ public struct PaginationProgressBar: View {
 
     private var progressButtons: some View {
         HStack {
-            IconButton(icon: Image(.chevronLeft), size: .small, iconColor: primaryColor, borderColor: secondaryColor) {
-                if selectedIndex > 0 {
-                    selectedIndex -= 1
-                } else {
-                     selectedIndex = pageCount - 1
-                }
+            IconButton(icon: Image(.chevronLeft), size: .small, iconColor: primaryColor, borderColor: secondaryColor, disabled: $canNavigateBack) {
+                selectedIndex -= 1
             }
-            IconButton(icon: Image(.chevronRight), size: .small, iconColor: primaryColor, borderColor: secondaryColor) {
-                if selectedIndex < pageCount - 1 {
-                    selectedIndex += 1
-                } else {
-                    selectedIndex = 0
-                }
+            IconButton(icon: Image(.chevronRight), size: .small, iconColor: primaryColor, borderColor: secondaryColor, disabled: $canNavigateForward) {
+                selectedIndex += 1
             }
         }
     }
 
-
+    private func updateButtonDisabledState() {
+        canNavigateBack = selectedIndex == 0
+        canNavigateForward = selectedIndex == pageCount - 1
+    }
 }
 
 struct PaginationProgressBar_Previews_Container: PreviewProvider {
