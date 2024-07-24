@@ -30,10 +30,16 @@ private val PlainDefault: ButtonColours
 
 /**
  * Updates the colour based on enabled state.
- * When disabled the colour opacity is reduced to 50%, unless opacity is already lower.
+ * If [disabledColour] is provided, it is used when the button is disabled.
+ * Otherwise the colour opacity is reduced to 50%, unless opacity is already lower (mainly to avoid
+ * changing transparent colours).
  */
-internal fun Color.whenEnabled(enabled: Boolean) =
-    if (enabled) this else copy(alpha = 0.5f.coerceAtMost(alpha))
+internal fun Color.whenEnabled(enabled: Boolean, disabledColour: Color? = null) =
+    if (enabled) {
+        this
+    } else {
+        disabledColour ?: copy(alpha = 0.5f.coerceAtMost(alpha))
+    }
 
 /**
  * A plain, basic Source compatible button component. This button does not have any Source colour

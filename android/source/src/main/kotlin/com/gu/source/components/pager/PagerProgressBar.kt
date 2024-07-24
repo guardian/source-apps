@@ -180,8 +180,8 @@ private fun ProgressButtons(
 ) {
     Row(modifier = modifier) {
         SourceBaseIconButton(
-            buttonColours = buttonColours,
             size = SourceButton.Size.Small,
+            buttonColours = buttonColours,
             onClick = { onClick(ProgressDirection.Previous) },
         ) {
             Icon(
@@ -191,8 +191,8 @@ private fun ProgressButtons(
             )
         }
         SourceBaseIconButton(
-            buttonColours = buttonColours,
             size = SourceButton.Size.Small,
+            buttonColours = buttonColours,
             onClick = { onClick(ProgressDirection.Next) },
         ) {
             Icon(
