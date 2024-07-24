@@ -12,7 +12,6 @@ import com.gu.source.R
 import com.gu.source.Source
 import com.gu.source.utils.fontFamilyResource
 
-
 // region HeadlineBold
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
