@@ -114,12 +114,11 @@ fun PagerProgressBar(
                     coroutineScope.launch {
                         val page = when (it) {
                             ProgressDirection.Previous -> {
-                                (pagerState.currentPage - 1)
-                                    .let { if (it < 0) pagerState.pageCount - 1 else it }
+                                (pagerState.currentPage - 1).coerceAtLeast(0)
                             }
 
                             ProgressDirection.Next -> {
-                                (pagerState.currentPage + 1) % pagerState.pageCount
+                                (pagerState.currentPage + 1).coerceAtMost(pagerState.pageCount - 1)
                             }
                         }
                         pagerState.animateScrollToPage(page)
