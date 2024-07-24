@@ -90,12 +90,14 @@ internal fun ButtonPreview(modifier: Modifier = Modifier) {
                 contentDescription = null,
                 onClick = {},
                 size = SourceButton.Size.Medium,
+                enabled = false,
             )
             SourceButton(
                 text = "Medium - Core",
                 priority = SourceButton.Priority.SecondaryOnWhite,
                 onClick = {},
                 size = SourceButton.Size.Medium,
+                enabled = false,
             )
             SourceIconButton(
                 icon = Source.Icons.Base.Check,
@@ -103,6 +105,7 @@ internal fun ButtonPreview(modifier: Modifier = Modifier) {
                 contentDescription = null,
                 onClick = {},
                 size = SourceButton.Size.Medium,
+                enabled = false,
             )
         }
 

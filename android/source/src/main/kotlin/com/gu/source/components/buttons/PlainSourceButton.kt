@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -28,6 +29,13 @@ private val PlainDefault: ButtonColours
     )
 
 /**
+ * Updates the colour based on enabled state.
+ * When disabled the colour opacity is reduced to 50%, unless opacity is already lower.
+ */
+internal fun Color.whenEnabled(enabled: Boolean) =
+    if (enabled) this else copy(alpha = 0.5f.coerceAtMost(alpha))
+
+/**
  * A plain, basic Source compatible button component. This button does not have any Source colour
  * theming. Provide [buttonColours] to theme the button.
  *
@@ -38,6 +46,7 @@ private val PlainDefault: ButtonColours
  * @param size Button size from [SourceButton.Size]s. Reflects the prominence of the action.
  * @param onClick Callback for action to take when user clicks the button.
  * @param modifier Optional [Modifier]
+ * @param enabled Whether the button is enabled and can be interacted with.
  * @param buttonColours Optional colours for the button. Use this to theme the button.
  * @param content Slot for composable content to present inside the button.
  */
@@ -51,6 +60,7 @@ fun PlainSourceContentButton(
     size: SourceButton.Size,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     buttonColours: ButtonColours = PlainDefault,
     content: @Composable () -> Unit,
 ) {
@@ -60,10 +70,13 @@ fun PlainSourceContentButton(
             minWidth = SourceButton.MinButtonWidth,
             minHeight = size.heightDp.dp,
         ),
+        enabled = enabled,
         shape = CircleShape,
         colors = ButtonDefaults.buttonColors(
             containerColor = buttonColours.container.current,
             contentColor = buttonColours.content.current,
+            disabledContainerColor = buttonColours.container.current.whenEnabled(enabled),
+            disabledContentColor = buttonColours.content.current.whenEnabled(enabled),
         ),
         elevation = ButtonDefaults.buttonElevation(
             defaultElevation = 0.dp,
@@ -74,7 +87,7 @@ fun PlainSourceContentButton(
         ),
         border = BorderStroke(
             width = 1.dp,
-            color = buttonColours.border.current,
+            color = buttonColours.border.current.whenEnabled(enabled),
         ),
         contentPadding = size.contentPadding,
         content = { content() },
@@ -90,6 +103,7 @@ fun PlainSourceContentButton(
  * @param text Text to display on the button.
  * @param onClick Callback for action to take when user clicks the button.
  * @param modifier Optional [Modifier]
+ * @param enabled Whether the button is enabled and can be interacted with.
  * @param buttonColours Optional colours for the button. Use this to theme the button.
  * @param size Button size from [SourceButton.Size]s. Reflects the prominence of the action.
  * @param iconSide Optional the side of the button on which the icon appears. Defaults to
@@ -101,6 +115,7 @@ fun PlainSourceButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     buttonColours: ButtonColours = PlainDefault,
     size: SourceButton.Size = SourceButton.Size.Small,
     iconSide: SourceButton.IconSide = SourceButton.IconSide.Left,
@@ -110,6 +125,7 @@ fun PlainSourceButton(
         size = size,
         onClick = onClick,
         modifier = modifier,
+        enabled = enabled,
         buttonColours = buttonColours,
     ) {
         Row(

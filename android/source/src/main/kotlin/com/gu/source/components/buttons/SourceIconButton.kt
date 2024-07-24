@@ -65,9 +65,7 @@ fun SourceBaseIconButton(
                 .background(buttonColours.container.current, CircleShape)
                 .border(
                     width = 1.dp,
-                    color = buttonColours.border.current.copy(
-                        alpha = if (enabled) 1f else 0.5f,
-                    ),
+                    color = buttonColours.border.current.whenEnabled(enabled),
                     shape = CircleShape,
                 ),
         ) {
