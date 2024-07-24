@@ -285,6 +285,143 @@ val Source.Typography.HeadlineLight50: TextStyle
 
 // endregion
 
+// region HeadlineLightItalic
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineLightItalic14: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_lightitalic),
+        fontSize = TextSize._14,
+        lineHeight = LineHeight.Tight * TextSize._14,
+        fontWeight = FontWeight.W300,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineLightItalic15: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_lightitalic),
+        fontSize = TextSize._15,
+        lineHeight = LineHeight.Tight * TextSize._15,
+        fontWeight = FontWeight.W300,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineLightItalic16: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_lightitalic),
+        fontSize = TextSize._16,
+        lineHeight = LineHeight.Tight * TextSize._16,
+        fontWeight = FontWeight.W300,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineLightItalic17: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_lightitalic),
+        fontSize = TextSize._17,
+        lineHeight = LineHeight.Tight * TextSize._17,
+        fontWeight = FontWeight.W300,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineLightItalic18: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_lightitalic),
+        fontSize = TextSize._18,
+        lineHeight = LineHeight.Tight * TextSize._18,
+        fontWeight = FontWeight.W300,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineLightItalic20: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_lightitalic),
+        fontSize = TextSize._20,
+        lineHeight = LineHeight.Tight * TextSize._20,
+        fontWeight = FontWeight.W300,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineLightItalic22: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_lightitalic),
+        fontSize = TextSize._22,
+        lineHeight = LineHeight.Tight * TextSize._22,
+        fontWeight = FontWeight.W300,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineLightItalic24: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_lightitalic),
+        fontSize = TextSize._24,
+        lineHeight = LineHeight.Tight * TextSize._24,
+        fontWeight = FontWeight.W300,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineLightItalic28: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_lightitalic),
+        fontSize = TextSize._28,
+        lineHeight = LineHeight.Tight * TextSize._28,
+        fontWeight = FontWeight.W300,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineLightItalic34: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_lightitalic),
+        fontSize = TextSize._34,
+        lineHeight = LineHeight.Tight * TextSize._34,
+        fontWeight = FontWeight.W300,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineLightItalic42: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_lightitalic),
+        fontSize = TextSize._42,
+        lineHeight = LineHeight.Tight * TextSize._42,
+        fontWeight = FontWeight.W300,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineLightItalic50: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_lightitalic),
+        fontSize = TextSize._50,
+        lineHeight = LineHeight.Tight * TextSize._50,
+        fontWeight = FontWeight.W300,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+// endregion
+
+// region HeadlineMedium
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
 val Source.Typography.HeadlineMedium14: TextStyle
