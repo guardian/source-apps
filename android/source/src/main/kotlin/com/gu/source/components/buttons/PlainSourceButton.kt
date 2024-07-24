@@ -1,8 +1,9 @@
 package com.gu.source.components.buttons
 
-import android.annotation.SuppressLint
 import androidx.annotation.Discouraged
+import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
@@ -13,13 +14,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
-import com.gu.source.presets.palette.Neutral0
-import com.gu.source.presets.palette.Neutral100
+import com.gu.source.daynight.AppColourMode
+import com.gu.source.presets.palette.*
+import com.gu.source.utils.PhoneBothModePreviews
 
 private val PlainDefault: ButtonColours
     get() = ButtonColours(
@@ -174,13 +175,74 @@ fun PlainSourceButton(
     }
 }
 
-@SuppressLint("DiscouragedApi")
-@Preview
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+@PhoneBothModePreviews
 @Composable
-private fun Preview() {
-    PlainSourceButton(
-        text = "Button",
-        onClick = {},
-        size = SourceButton.Size.Small,
-    )
+internal fun PlainSourceButtonPreview() {
+    AppColourMode {
+        Column(
+            Modifier.background(
+                AppColour(
+                    light = Source.Palette.Neutral100,
+                    dark = Source.Palette.Neutral7,
+                ).current,
+            ),
+        ) {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                // Variants with default disable state colours - alpha 0.5
+                repeat(2) {
+                    PlainSourceButton(
+                        text = "Button",
+                        onClick = {},
+                        enabled = it % 2 == 0,
+                        size = SourceButton.Size.Small,
+                        buttonColours = ButtonColours(
+                            border = AppColour(
+                                light = Source.Palette.Culture200,
+                                dark = Source.Palette.Culture600,
+                            ),
+                            container = AppColour.Transparent,
+                            content = AppColour(
+                                light = Source.Palette.Culture200,
+                                dark = Source.Palette.Culture600,
+                            ),
+                        ),
+                    )
+                }
+            }
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                // Variants with explicitly provided disabled state colours
+                repeat(2) {
+                    PlainSourceButton(
+                        text = "Button",
+                        onClick = {},
+                        enabled = it % 2 == 0,
+                        size = SourceButton.Size.Small,
+                        buttonColours = ButtonColours(
+                            border = AppColour(
+                                light = Source.Palette.Culture200,
+                                dark = Source.Palette.Culture600,
+                            ),
+                            container = AppColour.Transparent,
+                            content = AppColour(
+                                light = Source.Palette.Culture200,
+                                dark = Source.Palette.Culture600,
+                            ),
+                        ),
+                        disabledButtonColours = ButtonColours(
+                            border = AppColour(
+                                light = Source.Palette.Sport200,
+                                dark = Source.Palette.Sport600,
+                            ),
+                            container = AppColour.Transparent,
+                            content = AppColour(
+                                light = Source.Palette.Sport200,
+                                dark = Source.Palette.Sport600,
+                            ),
+                        ),
+                    )
+                }
+            }
+        }
+    }
 }
