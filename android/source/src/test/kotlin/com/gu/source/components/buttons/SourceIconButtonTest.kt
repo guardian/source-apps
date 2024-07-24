@@ -28,4 +28,11 @@ class SourceIconButtonTest(
             RrIconButtonPreview()
         }
     }
+
+    @Test
+    fun sourceBaseIconButton() {
+        paparazzi.snapshot {
+            SourceBaseIconButtonPreview()
+        }
+    }
 }

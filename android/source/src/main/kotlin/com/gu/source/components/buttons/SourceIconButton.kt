@@ -305,3 +305,85 @@ internal fun RrIconButtonPreview() {
         }
     }
 }
+
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+@PhoneBothModePreviews
+@Composable
+internal fun SourceBaseIconButtonPreview() {
+    AppColourMode {
+        Column(
+            Modifier.background(
+                AppColour(
+                    light = Source.Palette.Neutral100,
+                    dark = Source.Palette.Neutral7,
+                ).current,
+            ),
+        ) {
+            Row {
+                // Variants with default disable state colours - alpha 0.5
+                repeat(2) {
+                    SourceBaseIconButton(
+                        size = SourceButton.Size.Small,
+                        buttonColours = ButtonColours(
+                            border = AppColour(
+                                light = Source.Palette.Culture200,
+                                dark = Source.Palette.Culture600,
+                            ),
+                            container = AppColour.Transparent,
+                            content = AppColour(
+                                light = Source.Palette.Culture200,
+                                dark = Source.Palette.Culture600,
+                            ),
+                        ),
+                        onClick = { },
+                        enabled = it % 2 == 0,
+                    ) { modifier ->
+                        Icon(
+                            imageVector = Source.Icons.Base.Check,
+                            contentDescription = null,
+                            modifier = modifier,
+                        )
+                    }
+                }
+            }
+            Row {
+                // Variants with explicitly provided disabled state colours
+                repeat(2) {
+                    SourceBaseIconButton(
+                        size = SourceButton.Size.Small,
+                        buttonColours = ButtonColours(
+                            border = AppColour(
+                                light = Source.Palette.Culture200,
+                                dark = Source.Palette.Culture600,
+                            ),
+                            container = AppColour.Transparent,
+                            content = AppColour(
+                                light = Source.Palette.Culture200,
+                                dark = Source.Palette.Culture600,
+                            ),
+                        ),
+                        disabledButtonColours = ButtonColours(
+                            border = AppColour(
+                                light = Source.Palette.Sport200,
+                                dark = Source.Palette.Sport600,
+                            ),
+                            container = AppColour.Transparent,
+                            content = AppColour(
+                                light = Source.Palette.Sport200,
+                                dark = Source.Palette.Sport600,
+                            ),
+                        ),
+                        onClick = { },
+                        enabled = it % 2 == 0,
+                    ) { modifier ->
+                        Icon(
+                            imageVector = Source.Icons.Base.Check,
+                            contentDescription = null,
+                            modifier = modifier,
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
