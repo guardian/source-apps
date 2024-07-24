@@ -17,9 +17,10 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
+import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.Check
-import com.gu.source.presets.palette.Neutral38
+import com.gu.source.presets.palette.*
 import com.gu.source.theme.LocalSourceTheme
 import com.gu.source.theme.ReaderRevenueTheme
 import com.gu.source.theme.SourceCoreTheme
@@ -56,6 +57,8 @@ fun SourceBaseIconButton(
         modifier = modifier,
         colors = IconButtonDefaults.iconButtonColors(
             contentColor = buttonColours.content.current,
+            disabledContentColor = disabledButtonColours?.content?.current
+                ?: buttonColours.content.current.whenEnabled(enabled = false),
         ),
         enabled = enabled,
     ) {
