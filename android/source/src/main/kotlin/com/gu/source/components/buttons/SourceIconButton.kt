@@ -57,8 +57,10 @@ fun SourceBaseIconButton(
         modifier = modifier,
         colors = IconButtonDefaults.iconButtonColors(
             contentColor = buttonColours.content.current,
-            disabledContentColor = disabledButtonColours?.content?.current
-                ?: buttonColours.content.current.whenEnabled(enabled = false),
+            disabledContentColor = buttonColours.content.current.whenEnabled(
+                enabled = false,
+                disabledColour = disabledButtonColours?.content?.current,
+            ),
         ),
         enabled = enabled,
     ) {

@@ -53,6 +53,8 @@ internal fun Color.whenEnabled(enabled: Boolean, disabledColour: Color? = null) 
  * @param modifier Optional [Modifier]
  * @param enabled Whether the button is enabled and can be interacted with.
  * @param buttonColours Optional colours for the button. Use this to theme the button.
+ * @param disabledButtonColours Optional colours for the button when it is disabled. If not
+ * provided, the button colours are used with reduced opacity.
  * @param content Slot for composable content to present inside the button.
  */
 @Discouraged(
@@ -67,6 +69,7 @@ fun PlainSourceContentButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     buttonColours: ButtonColours = PlainDefault,
+    disabledButtonColours: ButtonColours? = null,
     content: @Composable () -> Unit,
 ) {
     Button(
@@ -80,8 +83,14 @@ fun PlainSourceContentButton(
         colors = ButtonDefaults.buttonColors(
             containerColor = buttonColours.container.current,
             contentColor = buttonColours.content.current,
-            disabledContainerColor = buttonColours.container.current.whenEnabled(enabled),
-            disabledContentColor = buttonColours.content.current.whenEnabled(enabled),
+            disabledContainerColor = buttonColours.container.current.whenEnabled(
+                enabled = false,
+                disabledColour = disabledButtonColours?.container?.current,
+            ),
+            disabledContentColor = buttonColours.content.current.whenEnabled(
+                enabled = false,
+                disabledColour = disabledButtonColours?.content?.current,
+            ),
         ),
         elevation = ButtonDefaults.buttonElevation(
             defaultElevation = 0.dp,
@@ -92,7 +101,10 @@ fun PlainSourceContentButton(
         ),
         border = BorderStroke(
             width = 1.dp,
-            color = buttonColours.border.current.whenEnabled(enabled),
+            color = buttonColours.border.current.whenEnabled(
+                enabled = enabled,
+                disabledColour = disabledButtonColours?.border?.current,
+            ),
         ),
         contentPadding = size.contentPadding,
         content = { content() },
@@ -110,6 +122,8 @@ fun PlainSourceContentButton(
  * @param modifier Optional [Modifier]
  * @param enabled Whether the button is enabled and can be interacted with.
  * @param buttonColours Optional colours for the button. Use this to theme the button.
+ * @param disabledButtonColours Optional colours for the button when it is disabled. If not
+ * provided, the button colours are used with reduced opacity.
  * @param size Button size from [SourceButton.Size]s. Reflects the prominence of the action.
  * @param iconSide Optional the side of the button on which the icon appears. Defaults to
  * [SourceButton.IconSide.Left].
@@ -122,6 +136,7 @@ fun PlainSourceButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     buttonColours: ButtonColours = PlainDefault,
+    disabledButtonColours: ButtonColours? = null,
     size: SourceButton.Size = SourceButton.Size.Small,
     iconSide: SourceButton.IconSide = SourceButton.IconSide.Left,
     icon: @Composable (Modifier) -> Unit = {},
@@ -132,6 +147,7 @@ fun PlainSourceButton(
         modifier = modifier,
         enabled = enabled,
         buttonColours = buttonColours,
+        disabledButtonColours = disabledButtonColours,
     ) {
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
