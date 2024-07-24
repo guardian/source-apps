@@ -12,6 +12,9 @@ import com.gu.source.R
 import com.gu.source.Source
 import com.gu.source.utils.fontFamilyResource
 
+
+// region HeadlineBold
+
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
 val Source.Typography.HeadlineBold14: TextStyle
     get() = TextStyle(
@@ -132,6 +135,21 @@ val Source.Typography.HeadlineBold42: TextStyle
         fontStyle = FontStyle.Normal,
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineBold50: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_bold),
+        fontSize = TextSize._50,
+        lineHeight = LineHeight.Tight * TextSize._50,
+        fontWeight = FontWeight.W700,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+// endregion
+
+// region HeadlineLight
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
 val Source.Typography.HeadlineLight14: TextStyle
@@ -255,6 +273,20 @@ val Source.Typography.HeadlineLight42: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineLight50: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_light),
+        fontSize = TextSize._50,
+        lineHeight = LineHeight.Tight * TextSize._50,
+        fontWeight = FontWeight.W300,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+// endregion
+
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
 val Source.Typography.HeadlineMedium14: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_medium),
@@ -374,6 +406,21 @@ val Source.Typography.HeadlineMedium42: TextStyle
         fontStyle = FontStyle.Normal,
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineMedium50: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_medium),
+        fontSize = TextSize._50,
+        lineHeight = LineHeight.Tight * TextSize._50,
+        fontWeight = FontWeight.W500,
+        fontStyle = FontStyle.Normal,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+// endregion
+
+// region HeadlineMediumItalic
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
 val Source.Typography.HeadlineMediumItalic14: TextStyle
@@ -497,6 +544,21 @@ val Source.Typography.HeadlineMediumItalic42: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineMediumItalic50: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_mediumitalic),
+        fontSize = TextSize._50,
+        lineHeight = LineHeight.Tight * TextSize._50,
+        fontWeight = FontWeight.W500,
+        fontStyle = FontStyle.Italic,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+// endregion
+
+// region HeadlineSemiBold
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
 val Source.Typography.HeadlineSemiBold14: TextStyle
     get() = TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_semibold),
@@ -561,6 +623,21 @@ val Source.Typography.HeadlineSemiBold28: TextStyle
         fontStyle = FontStyle.Italic,
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineSemiBold50: TextStyle
+    get() = TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_semibold),
+        fontSize = TextSize._50,
+        lineHeight = LineHeight.Tight * TextSize._50,
+        fontWeight = FontWeight.W500,
+        fontStyle = FontStyle.Italic,
+        platformStyle = PlatformTextStyle(includeFontPadding = false),
+    )
+
+// endregion
+
+// region TextArticle
 
 /** Use for article body text. */
 val Source.Typography.TextArticle15: TextStyle
@@ -628,6 +705,10 @@ val Source.Typography.TextArticleItalic17: TextStyle
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
 
+// endregion
+
+// region TextArticleBoldItalic
+
 /** Use for article body text. */
 val Source.Typography.TextArticleBoldItalic15: TextStyle
     get() = TextStyle(
@@ -649,6 +730,10 @@ val Source.Typography.TextArticleBoldItalic17: TextStyle
         fontStyle = FontStyle.Italic,
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
+
+// endregion
+
+// region TextEgyptian
 
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
 val Source.Typography.TextEgyptian14: TextStyle
@@ -682,6 +767,10 @@ val Source.Typography.TextEgyptian17: TextStyle
         fontStyle = FontStyle.Normal,
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
+
+// endregion
+
+// region TextEgyptianBold
 
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
 // TODO: 12/04/2024 App doesn't have a bold Egyptian font so using medium
@@ -719,6 +808,10 @@ val Source.Typography.TextEgyptianBold17: TextStyle
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
 
+// endregion
+
+// region TextEgyptianBoldItalic
+
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
 // TODO: 12/04/2024 App doesn't have a bold Egyptian font so using medium
 val Source.Typography.TextEgyptianBoldItalic14: TextStyle
@@ -755,6 +848,10 @@ val Source.Typography.TextEgyptianBoldItalic17: TextStyle
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
 
+// endregion
+
+// region TextEgyptianItalic
+
 /** Use for multiple sentences/paragraphs of text, like paragraphs of text on marketing pages. */
 val Source.Typography.TextEgyptianItalic14: TextStyle
     get() = TextStyle(
@@ -787,6 +884,10 @@ val Source.Typography.TextEgyptianItalic17: TextStyle
         fontStyle = FontStyle.Italic,
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
+
+// endregion
+
+// region TextSans
 
 /**
  * Use for interactive page elements like buttons and text input fields and for meta
@@ -995,6 +1096,10 @@ val Source.Typography.TextSans34: TextStyle
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
 
+// endregion
+
+// region TextSansBold
+
 /**
  * Use for interactive page elements like buttons and text input fields and for meta
  * information like datelines, image captions and data visualisations. Use for interactive
@@ -1201,6 +1306,10 @@ val Source.Typography.TextSansBold34: TextStyle
         fontStyle = FontStyle.Normal,
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
+
+// endregion
+
+// region TextSansItalic
 
 /**
  * Use for interactive page elements like buttons and text input fields and for meta
@@ -1410,6 +1519,10 @@ val Source.Typography.TextSansItalic34: TextStyle
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
 
+// endregion
+
+// region Titlepiece
+
 /**
  * Use for impact. Ideal for marketing messages, page headers and numerals. Use sparingly
  * and at large sizes only.
@@ -1451,6 +1564,8 @@ val Source.Typography.Titlepiece70: TextStyle
         fontStyle = FontStyle.Normal,
         platformStyle = PlatformTextStyle(includeFontPadding = false),
     )
+
+// endregion
 
 private object LineHeight {
     const val Tight = 1.15f
