@@ -25,6 +25,7 @@ public enum Typography {
     public static let headlineBld28 = GuardianFont(style: .headlineBold, size: 28, lineHeight: 28 * LineHeight.tight)
     public static let headlineBld34 = GuardianFont(style: .headlineBold, size: 34, lineHeight: 34 * LineHeight.tight)
     public static let headlineBld42 = GuardianFont(style: .headlineBold, size: 42, lineHeight: 42 * LineHeight.tight)
+    public static let headlineBld50 = GuardianFont(style: .headlineBold, size: 50, lineHeight: 50 * LineHeight.tight)
 
     public static let headlineLit14 = GuardianFont(style: .headlineLight, size: 14, lineHeight: 14 * LineHeight.tight)
     public static let headlineLit15 = GuardianFont(style: .headlineLight, size: 15, lineHeight: 15 * LineHeight.tight)
@@ -37,6 +38,20 @@ public enum Typography {
     public static let headlineLit28 = GuardianFont(style: .headlineLight, size: 28, lineHeight: 28 * LineHeight.tight)
     public static let headlineLit34 = GuardianFont(style: .headlineLight, size: 34, lineHeight: 34 * LineHeight.tight)
     public static let headlineLit42 = GuardianFont(style: .headlineLight, size: 42, lineHeight: 42 * LineHeight.tight)
+    public static let headlineLit50 = GuardianFont(style: .headlineLight, size: 50, lineHeight: 50 * LineHeight.tight)
+
+    public static let headlineLitIta14 = GuardianFont(style: .headlineLightItalic, size: 14, lineHeight: 14 * LineHeight.tight)
+    public static let headlineLitIta15 = GuardianFont(style: .headlineLightItalic, size: 15, lineHeight: 15 * LineHeight.tight)
+    public static let headlineLitIta16 = GuardianFont(style: .headlineLightItalic, size: 16, lineHeight: 16 * LineHeight.tight)
+    public static let headlineLitIta17 = GuardianFont(style: .headlineLightItalic, size: 17, lineHeight: 17 * LineHeight.tight)
+    public static let headlineLitIta18 = GuardianFont(style: .headlineLightItalic, size: 18, lineHeight: 18 * LineHeight.tight)
+    public static let headlineLitIta20 = GuardianFont(style: .headlineLightItalic, size: 20, lineHeight: 20 * LineHeight.tight)
+    public static let headlineLitIta22 = GuardianFont(style: .headlineLightItalic, size: 22, lineHeight: 22 * LineHeight.tight)
+    public static let headlineLitIta24 = GuardianFont(style: .headlineLightItalic, size: 24, lineHeight: 24 * LineHeight.tight)
+    public static let headlineLitIta28 = GuardianFont(style: .headlineLightItalic, size: 28, lineHeight: 28 * LineHeight.tight)
+    public static let headlineLitIta34 = GuardianFont(style: .headlineLightItalic, size: 34, lineHeight: 34 * LineHeight.tight)
+    public static let headlineLitIta42 = GuardianFont(style: .headlineLightItalic, size: 42, lineHeight: 42 * LineHeight.tight)
+    public static let headlineLitIta50 = GuardianFont(style: .headlineLightItalic, size: 50, lineHeight: 50 * LineHeight.tight)
 
     public static let headlineMed14 = GuardianFont(style: .headlineMedium, size: 14, lineHeight: 14 * LineHeight.tight)
     public static let headlineMed15 = GuardianFont(style: .headlineMedium, size: 15, lineHeight: 15 * LineHeight.tight)
@@ -49,6 +64,7 @@ public enum Typography {
     public static let headlineMed28 = GuardianFont(style: .headlineMedium, size: 28, lineHeight: 28 * LineHeight.tight)
     public static let headlineMed34 = GuardianFont(style: .headlineMedium, size: 34, lineHeight: 34 * LineHeight.tight)
     public static let headlineMed42 = GuardianFont(style: .headlineMedium, size: 42, lineHeight: 42 * LineHeight.tight)
+    public static let headlineMed50 = GuardianFont(style: .headlineMedium, size: 50, lineHeight: 50 * LineHeight.tight)
 
     public static let headlineMedIta14 = GuardianFont(style: .headlineMediumItalic, size: 14, lineHeight: 14 * LineHeight.tight)
     public static let headlineMedIta15 = GuardianFont(style: .headlineMediumItalic, size: 15, lineHeight: 15 * LineHeight.tight)
@@ -61,6 +77,7 @@ public enum Typography {
     public static let headlineMedIta28 = GuardianFont(style: .headlineMediumItalic, size: 28, lineHeight: 28 * LineHeight.tight)
     public static let headlineMedIta34 = GuardianFont(style: .headlineMediumItalic, size: 34, lineHeight: 34 * LineHeight.tight)
     public static let headlineMedIta42 = GuardianFont(style: .headlineMediumItalic, size: 42, lineHeight: 42 * LineHeight.tight)
+    public static let headlineMedIta50 = GuardianFont(style: .headlineMediumItalic, size: 50, lineHeight: 50 * LineHeight.tight)
 
     public static let headlineSemiBld14 = GuardianFont(style: .headlineSemibold, size: 14, lineHeight: 14 * LineHeight.tight)
     public static let headlineSemiBld15 = GuardianFont(style: .headlineSemibold, size: 15, lineHeight: 15 * LineHeight.tight)
@@ -73,6 +90,7 @@ public enum Typography {
     public static let headlineSemiBld28 = GuardianFont(style: .headlineSemibold, size: 28, lineHeight: 28 * LineHeight.tight)
     public static let headlineSemiBld34 = GuardianFont(style: .headlineSemibold, size: 34, lineHeight: 34 * LineHeight.tight)
     public static let headlineSemiBld42 = GuardianFont(style: .headlineSemibold, size: 42, lineHeight: 42 * LineHeight.tight)
+    public static let headlineSemiBld50 = GuardianFont(style: .headlineSemibold, size: 50, lineHeight: 50 * LineHeight.tight)
 
 
     // MARK: Article body text – GuardianTextEgyptian
