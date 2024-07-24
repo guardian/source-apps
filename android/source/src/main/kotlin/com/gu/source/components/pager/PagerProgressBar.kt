@@ -11,9 +11,7 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -108,6 +106,16 @@ fun PagerProgressBar(
             modifier = Modifier.align(Alignment.Center),
         )
         if (showProgressButtons) {
+            var isNextButtonEnabled by remember { mutableStateOf(false) }
+            var isPrevButtonEnabled by remember { mutableStateOf(false) }
+
+            LaunchedEffect(pagerState) {
+                snapshotFlow { pagerState.currentPage }.collect {
+                    isNextButtonEnabled = it < pagerState.pageCount - 1
+                    isPrevButtonEnabled = it > 0
+                }
+            }
+
             ProgressButtons(
                 buttonColours = buttonColours,
                 onClick = {
@@ -126,6 +134,8 @@ fun PagerProgressBar(
                 },
                 prevButtonContentDescription = prevButtonContentDescription,
                 nextButtonContentDescription = nextButtonContentDescription,
+                isNextEnabled = isNextButtonEnabled,
+                isPrevEnabled = isPrevButtonEnabled,
                 modifier = Modifier
                     // Offset the row so the buttons visually set at end of the progress bar despite
                     // the extra touch size padding.
@@ -179,6 +189,8 @@ fun PagerProgressBar(
 private fun ProgressButtons(
     buttonColours: ButtonColours,
     onClick: (progressDirection: ProgressDirection) -> Unit,
+    isNextEnabled: Boolean,
+    isPrevEnabled: Boolean,
     prevButtonContentDescription: String?,
     nextButtonContentDescription: String?,
     modifier: Modifier = Modifier,
@@ -188,6 +200,7 @@ private fun ProgressButtons(
             size = SourceButton.Size.Small,
             buttonColours = buttonColours,
             onClick = { onClick(ProgressDirection.Previous) },
+            enabled = isPrevEnabled,
         ) {
             Icon(
                 imageVector = Source.Icons.Base.ChevronLeft,
@@ -199,6 +212,7 @@ private fun ProgressButtons(
             size = SourceButton.Size.Small,
             buttonColours = buttonColours,
             onClick = { onClick(ProgressDirection.Next) },
+            enabled = isNextEnabled,
         ) {
             Icon(
                 imageVector = Source.Icons.Base.ChevronRight,
