@@ -60,6 +60,18 @@ private val DefaultButtonColours = ButtonColours(
     ),
 )
 
+private val DefaultDisabledButtonColours = ButtonColours(
+    border = AppColour(
+        light = Source.Palette.Neutral7.copy(alpha = 0.2f),
+        dark = Source.Palette.Neutral100.copy(alpha = 0.3f),
+    ),
+    container = AppColour.Transparent,
+    content = AppColour(
+        light = Source.Palette.Neutral7.copy(alpha = 0.2f),
+        dark = Source.Palette.Neutral100.copy(alpha = 0.2f),
+    ),
+)
+
 private val BarHeightPhone = 28.dp
 private val BarHeightTablet = 56.dp
 
@@ -73,6 +85,7 @@ private fun getBarHeight() = if (isTabletDevice()) BarHeightTablet else BarHeigh
  * @param pagerState The [PagerState] that this indicator should be bound to.
  * @param modifier
  * @param buttonColours The colours for the next/prev buttons.
+ * @param disabledButtonColours The colours for the next/prev buttons when they are disabled.
  * @param selectedIndicatorColour The colour of the selected indicator item.
  * @param unSelectedIndicatorColour The colour of the unselected indicators items.
  * @param prevButtonContentDescription The content description for the previous button.
@@ -86,6 +99,7 @@ fun PagerProgressBar(
     pagerState: PagerState,
     modifier: Modifier = Modifier,
     buttonColours: ButtonColours = DefaultButtonColours,
+    disabledButtonColours: ButtonColours? = DefaultDisabledButtonColours,
     selectedIndicatorColour: AppColour = SelectedIndicatorColour,
     unSelectedIndicatorColour: AppColour = UnSelectedIndicatorColour,
     prevButtonContentDescription: String? = null,
@@ -132,15 +146,16 @@ fun PagerProgressBar(
                         pagerState.animateScrollToPage(page)
                     }
                 },
-                prevButtonContentDescription = prevButtonContentDescription,
-                nextButtonContentDescription = nextButtonContentDescription,
                 isNextEnabled = isNextButtonEnabled,
                 isPrevEnabled = isPrevButtonEnabled,
+                prevButtonContentDescription = prevButtonContentDescription,
+                nextButtonContentDescription = nextButtonContentDescription,
                 modifier = Modifier
                     // Offset the row so the buttons visually set at end of the progress bar despite
                     // the extra touch size padding.
                     .offset(x = 6.dp)
                     .align(Alignment.CenterEnd),
+                disabledButtonColours = disabledButtonColours,
             )
         }
     }
@@ -194,11 +209,13 @@ private fun ProgressButtons(
     prevButtonContentDescription: String?,
     nextButtonContentDescription: String?,
     modifier: Modifier = Modifier,
+    disabledButtonColours: ButtonColours? = null,
 ) {
     Row(modifier = modifier) {
         SourceBaseIconButton(
             size = SourceButton.Size.Small,
             buttonColours = buttonColours,
+            disabledButtonColours = disabledButtonColours,
             onClick = { onClick(ProgressDirection.Previous) },
             enabled = isPrevEnabled,
         ) {
@@ -211,6 +228,7 @@ private fun ProgressButtons(
         SourceBaseIconButton(
             size = SourceButton.Size.Small,
             buttonColours = buttonColours,
+            disabledButtonColours = disabledButtonColours,
             onClick = { onClick(ProgressDirection.Next) },
             enabled = isNextEnabled,
         ) {
