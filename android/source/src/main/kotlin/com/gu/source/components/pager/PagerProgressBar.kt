@@ -72,12 +72,16 @@ private val DefaultDisabledButtonColours = ButtonColours(
     ),
 )
 
+// The progress buttons get a min touch size padding of 12.dp, so we need to things by half that to
+// get the correct offset and padding
+private val ProgressButtonTouchAdjustment = 6.dp
+
 @Composable
 private fun getBarPadding() = if (isTabletDevice()) {
-    // The progress buttons get a min touch size padding of 12.dp, so we need to adjust the padding
-    // of the progress bar to match.
-    val paddingAdjustment = (48.dp - 36.dp) / 2
-    PaddingValues(top = 8.dp - paddingAdjustment, bottom = 12.dp - paddingAdjustment)
+    PaddingValues(
+        top = 8.dp - ProgressButtonTouchAdjustment,
+        bottom = 12.dp - ProgressButtonTouchAdjustment,
+    )
 } else {
     PaddingValues(top = 8.dp, bottom = 12.dp)
 }
@@ -155,9 +159,7 @@ fun PagerProgressBar(
                 prevButtonContentDescription = prevButtonContentDescription,
                 nextButtonContentDescription = nextButtonContentDescription,
                 modifier = Modifier
-                    // Offset the row so the buttons visually set at end of the progress bar despite
-                    // the extra touch size padding.
-                    .offset(x = 6.dp)
+                    .offset(x = ProgressButtonTouchAdjustment)
                     .align(Alignment.CenterEnd),
                 disabledButtonColours = disabledButtonColours,
             )
@@ -287,9 +289,7 @@ private fun AnimatedPreview() {
             }
             PagerProgressBar(
                 pagerState = pagerState,
-                modifier = Modifier
-                    .padding(top = 8.dp)
-                    .align(Alignment.CenterHorizontally),
+                modifier = Modifier.align(Alignment.CenterHorizontally),
             )
         }
     }
