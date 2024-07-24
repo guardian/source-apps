@@ -35,7 +35,7 @@ public struct IconButton: View {
 
 /// Custom button style used to style an icon button.
 ///
-/// Custom disabled functionality has been used here, rather than the native to ensure the styling of the button in the disabled state is correctly reflected and that no touch events are passed through to the view behind. 
+/// Custom disabled functionality has been used here, rather than the native to ensure the styling of the button in the disabled state is correctly reflected and that no touch events are passed through to the view behind.
 struct IconButtonStyle: ButtonStyle {
     let size: ButtonSize
     @Binding private var isDisabled: Bool
@@ -52,7 +52,8 @@ struct IconButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(width: size.iconSize, height: size.iconSize)
-            .foregroundStyle(isDisabled ? borderColor : iconColor)
+            .foregroundStyle(iconColor)
+            .opacity(isDisabled ? 0.5 : 1.0)
             .padding(size.iconPadding)
             .background {
                 if configuration.isPressed, isDisabled == false {

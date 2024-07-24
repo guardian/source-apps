@@ -14,7 +14,7 @@ public struct ScrollingPaginationIndicator: View {
     private let primaryColor: Color
     private let secondaryColor: Color
     private let maximumScale = 1.0
-    private let minimumScale = 0.33
+    private let minimumScale = 0.375
 
     /// This determines the visible area of the paging indicators based on the maximum number of visible dots
     private var scrollViewWidth: CGFloat {
@@ -58,27 +58,10 @@ public struct ScrollingPaginationIndicator: View {
     /// - Returns: A `CGFloat` value representing the scale factor for the item at the given index.
     private func scale(for index: Int) -> CGFloat {
         guard pageCount >= numberOfVisibleDots else { return 1.0 }
-        let visibleMiddleIndex = numberOfVisibleDots / 2
-        let middleIndex = pageCount / 2
-        // BEGINNING PHASE
-        if selectedIndex <= visibleMiddleIndex {
-            if index <= visibleMiddleIndex {
-                return maximumScale
-            } else {
-                return minimumScale * 2
-            }
-            // MIDDLE PHASE
-        } else if selectedIndex > pageCount - middleIndex {
-            if index > pageCount - middleIndex {
-                return maximumScale
-            } else {
-                return minimumScale * 2
-            }
-            // END PHASE
-        } else {
-            let distance = abs(selectedIndex - index)
-            return max(maximumScale - (CGFloat(distance) * minimumScale), minimumScale)
-        }
+        let indexDifference = abs(index - selectedIndex)
+        let scaleSpread = max((CGFloat(numberOfVisibleDots - 1) / 2 + 1), 1)
+        let scaleFactor = CGFloat(indexDifference) / scaleSpread
+        return max(1.0 + scaleFactor * (minimumScale - 1.0), minimumScale)
     }
 
     public var body: some View {
