@@ -262,7 +262,7 @@ private fun AnimatedPreview() {
 
         Column(
             modifier = Modifier
-                .padding(8.dp)
+                .padding(top = 8.dp, start = 8.dp, end = 8.dp)
                 .width(400.dp),
         ) {
             HorizontalPager(state = pagerState) {
