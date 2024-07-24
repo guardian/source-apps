@@ -35,6 +35,7 @@ private const val ReaderRevenueSecondaryThemeErrorMessage =
  * @param buttonColours The colours to apply to the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
+ * @param enabled Whether the button is enabled and can be interacted with.
  * @param icon The icon to display in the button. Use a material [Icon] component to display the
  * icon.
  */
@@ -44,6 +45,7 @@ fun SourceBaseIconButton(
     buttonColours: ButtonColours,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     icon: @Composable (Modifier) -> Unit = {},
 ) {
     IconButton(
@@ -52,6 +54,7 @@ fun SourceBaseIconButton(
         colors = IconButtonDefaults.iconButtonColors(
             contentColor = buttonColours.content.current,
         ),
+        enabled = enabled,
     ) {
         Box(
             modifier = Modifier
@@ -62,7 +65,9 @@ fun SourceBaseIconButton(
                 .background(buttonColours.container.current, CircleShape)
                 .border(
                     width = 1.dp,
-                    color = buttonColours.border.current,
+                    color = buttonColours.border.current.copy(
+                        alpha = if (enabled) 1f else 0.5f,
+                    ),
                     shape = CircleShape,
                 ),
         ) {
@@ -92,6 +97,7 @@ fun SourceBaseIconButton(
  * Unless using the button as a standalone component, it is recommended to wrap the whole
  * screen/sheet with [SourceCoreTheme] or [ReaderRevenueTheme] to provide consistent theme to all
  * child components once.
+ * @param enabled Whether the button is enabled and can be interacted with.
  */
 @Composable
 fun SourceIconButton(
@@ -102,6 +108,7 @@ fun SourceIconButton(
     modifier: Modifier = Modifier,
     size: SourceButton.Size = SourceButton.Size.Medium,
     theme: Source.Theme? = null,
+    enabled: Boolean = true,
 ) {
     val appliedTheme = theme ?: LocalSourceTheme.current
 
@@ -114,6 +121,7 @@ fun SourceIconButton(
         buttonColours = priority.toColours(appliedTheme),
         onClick = onClick,
         modifier = modifier,
+        enabled = enabled,
     ) {
         Icon(
             imageVector = icon,
@@ -139,6 +147,7 @@ fun SourceIconButton(
  * Unless using the button as a standalone component, it is recommended to wrap the whole
  * screen/sheet with [SourceCoreTheme] or [ReaderRevenueTheme] to provide consistent theme to all
  * child components once.
+ * @param enabled Whether the button is enabled and can be interacted with.
  */
 @Composable
 fun SourceIconButton(
@@ -149,6 +158,7 @@ fun SourceIconButton(
     modifier: Modifier = Modifier,
     size: SourceButton.Size = SourceButton.Size.Medium,
     theme: Source.Theme? = null,
+    enabled: Boolean = true,
 ) {
     val appliedTheme = theme ?: LocalSourceTheme.current
 
@@ -161,6 +171,7 @@ fun SourceIconButton(
         buttonColours = priority.toColours(appliedTheme),
         onClick = onClick,
         modifier = modifier,
+        enabled = enabled,
     ) {
         Icon(
             painter = painter,
@@ -186,6 +197,7 @@ fun SourceIconButton(
  * Unless using the button as a standalone component, it is recommended to wrap the whole
  * screen/sheet with [SourceCoreTheme] or [ReaderRevenueTheme] to provide consistent theme to all
  * child components once.
+ * @param enabled Whether the button is enabled and can be interacted with.
  */
 @Composable
 fun SourceIconButton(
@@ -196,6 +208,7 @@ fun SourceIconButton(
     modifier: Modifier = Modifier,
     size: SourceButton.Size = SourceButton.Size.Medium,
     theme: Source.Theme? = null,
+    enabled: Boolean = true,
 ) {
     val appliedTheme = theme ?: LocalSourceTheme.current
 
@@ -208,6 +221,7 @@ fun SourceIconButton(
         buttonColours = priority.toColours(appliedTheme),
         onClick = onClick,
         modifier = modifier,
+        enabled = enabled,
     ) {
         Icon(
             bitmap = icon,
