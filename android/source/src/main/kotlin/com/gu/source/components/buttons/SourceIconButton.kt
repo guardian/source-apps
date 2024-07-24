@@ -17,9 +17,10 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
+import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.Check
-import com.gu.source.presets.palette.Neutral38
+import com.gu.source.presets.palette.*
 import com.gu.source.theme.LocalSourceTheme
 import com.gu.source.theme.ReaderRevenueTheme
 import com.gu.source.theme.SourceCoreTheme
@@ -35,6 +36,9 @@ private const val ReaderRevenueSecondaryThemeErrorMessage =
  * @param buttonColours The colours to apply to the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
+ * @param enabled Whether the button is enabled and can be interacted with.
+ * @param disabledButtonColours Optional colours to apply to the button when it is disabled. If not
+ * provided, the [buttonColours] will be used with reduced opacity.
  * @param icon The icon to display in the button. Use a material [Icon] component to display the
  * icon.
  */
@@ -44,6 +48,8 @@ fun SourceBaseIconButton(
     buttonColours: ButtonColours,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    disabledButtonColours: ButtonColours? = null,
     icon: @Composable (Modifier) -> Unit = {},
 ) {
     IconButton(
@@ -51,7 +57,12 @@ fun SourceBaseIconButton(
         modifier = modifier,
         colors = IconButtonDefaults.iconButtonColors(
             contentColor = buttonColours.content.current,
+            disabledContentColor = buttonColours.content.current.whenEnabled(
+                enabled = false,
+                disabledColour = disabledButtonColours?.content?.current,
+            ),
         ),
+        enabled = enabled,
     ) {
         Box(
             modifier = Modifier
@@ -59,10 +70,19 @@ fun SourceBaseIconButton(
                     minWidth = size.heightDp.dp,
                     minHeight = size.heightDp.dp,
                 )
-                .background(buttonColours.container.current, CircleShape)
+                .background(
+                    color = buttonColours.container.current.whenEnabled(
+                        enabled = enabled,
+                        disabledColour = disabledButtonColours?.container?.current,
+                    ),
+                    shape = CircleShape,
+                )
                 .border(
                     width = 1.dp,
-                    color = buttonColours.border.current,
+                    color = buttonColours.border.current.whenEnabled(
+                        enabled = enabled,
+                        disabledColour = disabledButtonColours?.border?.current,
+                    ),
                     shape = CircleShape,
                 ),
         ) {
@@ -84,6 +104,7 @@ fun SourceBaseIconButton(
  * @param contentDescription The content description for the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
+ * @param enabled Whether the button is enabled and can be interacted with.
  * @param size Optional size for the button. Reflects the prominence of the action. Defaults to
  * [SourceButton.Size.Medium].
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
@@ -100,6 +121,7 @@ fun SourceIconButton(
     contentDescription: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     size: SourceButton.Size = SourceButton.Size.Medium,
     theme: Source.Theme? = null,
 ) {
@@ -114,6 +136,7 @@ fun SourceIconButton(
         buttonColours = priority.toColours(appliedTheme),
         onClick = onClick,
         modifier = modifier,
+        enabled = enabled,
     ) {
         Icon(
             imageVector = icon,
@@ -131,6 +154,7 @@ fun SourceIconButton(
  * @param contentDescription The content description for the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
+ * @param enabled Whether the button is enabled and can be interacted with.
  * @param size Optional size for the button. Reflects the prominence of the action. Defaults to
  * [SourceButton.Size.Medium].
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
@@ -147,6 +171,7 @@ fun SourceIconButton(
     contentDescription: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     size: SourceButton.Size = SourceButton.Size.Medium,
     theme: Source.Theme? = null,
 ) {
@@ -161,6 +186,7 @@ fun SourceIconButton(
         buttonColours = priority.toColours(appliedTheme),
         onClick = onClick,
         modifier = modifier,
+        enabled = enabled,
     ) {
         Icon(
             painter = painter,
@@ -178,6 +204,7 @@ fun SourceIconButton(
  * @param contentDescription The content description for the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
+ * @param enabled Whether the button is enabled and can be interacted with.
  * @param size Optional size for the button. Reflects the prominence of the action. Defaults to
  * [SourceButton.Size.Medium].
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
@@ -194,6 +221,7 @@ fun SourceIconButton(
     contentDescription: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     size: SourceButton.Size = SourceButton.Size.Medium,
     theme: Source.Theme? = null,
 ) {
@@ -208,6 +236,7 @@ fun SourceIconButton(
         buttonColours = priority.toColours(appliedTheme),
         onClick = onClick,
         modifier = modifier,
+        enabled = enabled,
     ) {
         Icon(
             bitmap = icon,
@@ -272,6 +301,88 @@ internal fun RrIconButtonPreview() {
                                 )
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+@PhoneBothModePreviews
+@Composable
+internal fun SourceBaseIconButtonPreview() {
+    AppColourMode {
+        Column(
+            Modifier.background(
+                AppColour(
+                    light = Source.Palette.Neutral100,
+                    dark = Source.Palette.Neutral7,
+                ).current,
+            ),
+        ) {
+            Row {
+                // Variants with default disable state colours - alpha 0.5
+                repeat(2) {
+                    SourceBaseIconButton(
+                        size = SourceButton.Size.Small,
+                        buttonColours = ButtonColours(
+                            border = AppColour(
+                                light = Source.Palette.Culture200,
+                                dark = Source.Palette.Culture600,
+                            ),
+                            container = AppColour.Transparent,
+                            content = AppColour(
+                                light = Source.Palette.Culture200,
+                                dark = Source.Palette.Culture600,
+                            ),
+                        ),
+                        onClick = { },
+                        enabled = it % 2 == 0,
+                    ) { modifier ->
+                        Icon(
+                            imageVector = Source.Icons.Base.Check,
+                            contentDescription = null,
+                            modifier = modifier,
+                        )
+                    }
+                }
+            }
+            Row {
+                // Variants with explicitly provided disabled state colours
+                repeat(2) {
+                    SourceBaseIconButton(
+                        size = SourceButton.Size.Small,
+                        buttonColours = ButtonColours(
+                            border = AppColour(
+                                light = Source.Palette.Culture200,
+                                dark = Source.Palette.Culture600,
+                            ),
+                            container = AppColour.Transparent,
+                            content = AppColour(
+                                light = Source.Palette.Culture200,
+                                dark = Source.Palette.Culture600,
+                            ),
+                        ),
+                        disabledButtonColours = ButtonColours(
+                            border = AppColour(
+                                light = Source.Palette.Sport200,
+                                dark = Source.Palette.Sport600,
+                            ),
+                            container = AppColour.Transparent,
+                            content = AppColour(
+                                light = Source.Palette.Sport200,
+                                dark = Source.Palette.Sport600,
+                            ),
+                        ),
+                        onClick = { },
+                        enabled = it % 2 == 0,
+                    ) { modifier ->
+                        Icon(
+                            imageVector = Source.Icons.Base.Check,
+                            contentDescription = null,
+                            modifier = modifier,
+                        )
                     }
                 }
             }

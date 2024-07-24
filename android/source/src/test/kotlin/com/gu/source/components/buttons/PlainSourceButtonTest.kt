@@ -9,30 +9,16 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(TestParameterInjector::class)
-class SourceIconButtonTest(
+class PlainSourceButtonTest(
     @TestParameter private val nightMode: NightMode,
 ) {
     @get:Rule
     val paparazzi = createComponentPaparazziRule(nightMode)
 
     @Test
-    fun core() {
+    fun plainSourceButton() {
         paparazzi.snapshot {
-            CoreIconButtonPreview()
-        }
-    }
-
-    @Test
-    fun readerRevenue() {
-        paparazzi.snapshot {
-            RrIconButtonPreview()
-        }
-    }
-
-    @Test
-    fun sourceBaseIconButton() {
-        paparazzi.snapshot {
-            SourceBaseIconButtonPreview()
+            PlainSourceButtonPreview()
         }
     }
 }

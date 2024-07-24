@@ -126,6 +126,7 @@ object SourceButton {
  * action is.
  * @param onClick Callback for action to take when user clicks the button.
  * @param modifier Optional [Modifier]
+ * @param enabled Whether the button is enabled and can be interacted with.
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
  * from [LocalSourceTheme] will be used.
  *
@@ -146,6 +147,7 @@ fun SourceContentButton(
     priority: SourceButton.Priority,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     theme: Source.Theme? = null,
     content: @Composable () -> Unit,
 ) {
@@ -161,6 +163,7 @@ fun SourceContentButton(
         size = size,
         onClick = onClick,
         modifier = modifier,
+        enabled = enabled,
         buttonColours = buttonColours,
         content = content,
     )
@@ -174,6 +177,7 @@ fun SourceContentButton(
  * action is.
  * @param onClick Callback for action to take when user clicks the button.
  * @param modifier Optional [Modifier]
+ * @param enabled Whether the button is enabled and can be interacted with.
  * @param size Optional button size from [SourceButton.Size]s. Reflects the prominence of the
  * action. Defaults to [SourceButton.Size.Small].
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
@@ -193,6 +197,7 @@ fun SourceButton(
     priority: SourceButton.Priority,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     size: SourceButton.Size = SourceButton.Size.Small,
     theme: Source.Theme? = null,
     iconSide: SourceButton.IconSide = SourceButton.IconSide.Left,
@@ -203,6 +208,7 @@ fun SourceButton(
         priority = priority,
         onClick = onClick,
         modifier = modifier,
+        enabled = enabled,
         theme = theme,
     ) {
         Row(
