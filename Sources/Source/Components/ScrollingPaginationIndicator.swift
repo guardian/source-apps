@@ -13,9 +13,8 @@ public struct ScrollingPaginationIndicator: View {
     private let indicatorWidth: CGFloat
     private let primaryColor: Color
     private let secondaryColor: Color
-    private let scaleSpan: Int
     private let maximumScale = 1.0
-    private let minimumScale = 0.25
+    private let minimumScale = 0.33
 
     /// This determines the visible area of the paging indicators based on the maximum number of visible dots
     private var scrollViewWidth: CGFloat {
@@ -29,7 +28,6 @@ public struct ScrollingPaginationIndicator: View {
     ///   - indicatorWidth: Width of dot indicator
     ///   - spacing: Spacing between dot indicators
     ///   - selectedIndex: Index of selected page
-    ///   - scaleSpan: <#scaleSpan description#>
     ///   - primaryColor: Primary colour, used for
     ///   - secondaryColor: Color for the unselected state of dot indicator
     public init(
@@ -37,7 +35,6 @@ public struct ScrollingPaginationIndicator: View {
         numberOfVisibleDots: Int = 5,
         indicatorWidth: CGFloat,
         spacing: CGFloat = 4,
-        scaleSpan: Int = 3,
         selectedIndex: Binding<Int>,
         primaryColor: Color,
         secondaryColor: Color
@@ -46,7 +43,6 @@ public struct ScrollingPaginationIndicator: View {
         self.numberOfVisibleDots = numberOfVisibleDots.nearestOddNumberBelow()
         self.indicatorWidth = indicatorWidth
         self.spacing = spacing
-        self.scaleSpan = scaleSpan
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor
         self._selectedIndex = selectedIndex
@@ -62,10 +58,27 @@ public struct ScrollingPaginationIndicator: View {
     /// - Returns: A `CGFloat` value representing the scale factor for the item at the given index.
     private func scale(for index: Int) -> CGFloat {
         guard pageCount >= numberOfVisibleDots else { return 1.0 }
-        let distance = abs(index - selectedIndex)
-        let scaleFactor = 1.0 - (CGFloat(distance) / CGFloat(scaleSpan))
-        let scale = minimumScale + (maximumScale - minimumScale) * scaleFactor
-        return max(minimumScale, scale)
+        let visibleMiddleIndex = numberOfVisibleDots / 2
+        let middleIndex = pageCount / 2
+        // BEGINNING PHASE
+        if selectedIndex <= visibleMiddleIndex {
+            if index <= visibleMiddleIndex {
+                return maximumScale
+            } else {
+                return minimumScale * 2
+            }
+            // MIDDLE PHASE
+        } else if selectedIndex > pageCount - middleIndex {
+            if index > pageCount - middleIndex {
+                return maximumScale
+            } else {
+                return minimumScale * 2
+            }
+            // END PHASE
+        } else {
+            let distance = abs(selectedIndex - index)
+            return max(maximumScale - (CGFloat(distance) * minimumScale), minimumScale)
+        }
     }
 
     public var body: some View {
@@ -75,11 +88,10 @@ public struct ScrollingPaginationIndicator: View {
                     ForEach(0..<pageCount, id: \.self) { index in
                         Circle()
                             .id(index)
-                            .scaleEffect(scale(for: index))
                             .foregroundStyle(selectedIndex == index ? primaryColor : secondaryColor)
                             .frame(width: indicatorWidth)
+                            .scaleEffect(scale(for: index))
                             .animation(.smooth, value: selectedIndex)
-
                     }
                 }
             }
@@ -97,7 +109,7 @@ public struct ScrollingPaginationIndicator: View {
 struct ScrollingPageIndicator_Previews_Container: PreviewProvider {
     struct Container: View {
         @State var selectedIndex = 0
-        let elementArray = [0, 1, 2, 3, 4, 5, 6]
+        let elementArray = [0, 1, 2, 3, 4, 5, 6, 7, 8]
         var body: some View {
             VStack {
                 TabView(selection: $selectedIndex) {

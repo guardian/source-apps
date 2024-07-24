@@ -43,7 +43,7 @@ public struct PaginationProgressBar: View {
     }
 
     private var scrollingIndicator: some View {
-        ScrollingPaginationIndicator(pageCount: pageCount, indicatorWidth: indicatorWidth, scaleSpan: scaleSpan, selectedIndex: $selectedIndex, primaryColor: primaryColor, secondaryColor: secondaryColor)
+        ScrollingPaginationIndicator(pageCount: pageCount, indicatorWidth: indicatorWidth, selectedIndex: $selectedIndex, primaryColor: primaryColor, secondaryColor: secondaryColor)
     }
 
     private var progressButtons: some View {
