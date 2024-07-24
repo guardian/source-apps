@@ -72,11 +72,15 @@ private val DefaultDisabledButtonColours = ButtonColours(
     ),
 )
 
-private val BarHeightPhone = 28.dp
-private val BarHeightTablet = 56.dp
-
 @Composable
-private fun getBarHeight() = if (isTabletDevice()) BarHeightTablet else BarHeightPhone
+private fun getBarPadding() = if (isTabletDevice()) {
+    // The progress buttons get a min touch size padding of 12.dp, so we need to adjust the padding
+    // of the progress bar to match.
+    val paddingAdjustment = (48.dp - 36.dp) / 2
+    PaddingValues(top = 8.dp - paddingAdjustment, bottom = 12.dp - paddingAdjustment)
+} else {
+    PaddingValues(top = 8.dp, bottom = 12.dp)
+}
 
 /**
  * A progress bar that shows the current page of a [PagerState] and, on tablets, allows the user to
@@ -110,7 +114,7 @@ fun PagerProgressBar(
 
     Box(
         modifier = modifier
-            .height(getBarHeight())
+            .padding(getBarPadding())
             .fillMaxWidth(),
     ) {
         PagerProgressIndicator(
