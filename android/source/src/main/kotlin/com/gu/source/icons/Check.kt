@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 
 /** Base check mark icon. */
+@Suppress("UnusedReceiverParameter")
 val Source.Icons.Base.Check: ImageVector
     get() = _check ?: Builder(
         name = "Check",

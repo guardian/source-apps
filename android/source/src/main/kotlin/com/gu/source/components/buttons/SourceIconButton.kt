@@ -25,39 +25,27 @@ import com.gu.source.theme.ReaderRevenueTheme
 import com.gu.source.theme.SourceCoreTheme
 import com.gu.source.utils.PhoneBothModePreviews
 
+private const val ReaderRevenueSecondaryThemeErrorMessage =
+    "ReaderRevenue theme doesn't have secondary buttons."
+
 /**
  * Source icon-only button. This variant allows providing the icon as a composable slot.
  *
  * @param size The size of the button. Reflects the prominence of the action.
- * @param priority The priority of the button. Informs users of how important an action is.
+ * @param buttonColours The colours to apply to the button.
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
- * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
- * from [LocalSourceTheme] will be used.
- *
- * Unless using the button as a standalone component, it is recommended to wrap the whole
- * screen/sheet with [SourceCoreTheme] or [ReaderRevenueTheme] to provide consistent theme to all
- * child components once.
  * @param icon The icon to display in the button. Use a material [Icon] component to display the
  * icon.
  */
 @Composable
 fun SourceBaseIconButton(
     size: SourceButton.Size,
-    priority: SourceButton.Priority,
+    buttonColours: ButtonColours,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    theme: Source.Theme? = null,
     icon: @Composable (Modifier) -> Unit = {},
 ) {
-    val appliedTheme = theme ?: LocalSourceTheme.current
-
-    require(
-        !(appliedTheme == Source.Theme.ReaderRevenue && priority.isSecondary()),
-    ) { "ReaderRevenue theme doesn't have secondary buttons." }
-
-    val buttonColours = priority.toColours(appliedTheme)
-
     IconButton(
         onClick = onClick,
         modifier = modifier,
@@ -115,12 +103,17 @@ fun SourceIconButton(
     size: SourceButton.Size = SourceButton.Size.Medium,
     theme: Source.Theme? = null,
 ) {
+    val appliedTheme = theme ?: LocalSourceTheme.current
+
+    require(
+        !(appliedTheme == Source.Theme.ReaderRevenue && priority.isSecondary()),
+    ) { ReaderRevenueSecondaryThemeErrorMessage }
+
     SourceBaseIconButton(
         size = size,
-        priority = priority,
+        buttonColours = priority.toColours(appliedTheme),
         onClick = onClick,
         modifier = modifier,
-        theme = theme,
     ) {
         Icon(
             imageVector = icon,
@@ -157,12 +150,17 @@ fun SourceIconButton(
     size: SourceButton.Size = SourceButton.Size.Medium,
     theme: Source.Theme? = null,
 ) {
+    val appliedTheme = theme ?: LocalSourceTheme.current
+
+    require(
+        !(appliedTheme == Source.Theme.ReaderRevenue && priority.isSecondary()),
+    ) { ReaderRevenueSecondaryThemeErrorMessage }
+
     SourceBaseIconButton(
         size = size,
-        priority = priority,
+        buttonColours = priority.toColours(appliedTheme),
         onClick = onClick,
         modifier = modifier,
-        theme = theme,
     ) {
         Icon(
             painter = painter,
@@ -199,12 +197,17 @@ fun SourceIconButton(
     size: SourceButton.Size = SourceButton.Size.Medium,
     theme: Source.Theme? = null,
 ) {
+    val appliedTheme = theme ?: LocalSourceTheme.current
+
+    require(
+        !(appliedTheme == Source.Theme.ReaderRevenue && priority.isSecondary()),
+    ) { ReaderRevenueSecondaryThemeErrorMessage }
+
     SourceBaseIconButton(
         size = size,
-        priority = priority,
+        buttonColours = priority.toColours(appliedTheme),
         onClick = onClick,
         modifier = modifier,
-        theme = theme,
     ) {
         Icon(
             bitmap = icon,

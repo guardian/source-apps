@@ -154,7 +154,7 @@ private val colours = mapOf(
 @Composable
 internal fun Palette(modifier: Modifier = Modifier) {
     Surface(
-        modifier = modifier.safeDrawingPadding(),
+        modifier = modifier,
         color = AppColour(
             Source.Palette.Neutral100,
             Source.Palette.Neutral0,
