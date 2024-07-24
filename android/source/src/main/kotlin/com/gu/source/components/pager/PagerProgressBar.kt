@@ -301,17 +301,30 @@ private fun AnimatedPreview() {
 @Composable
 internal fun PagerProgressBarPreview() {
     AppColourMode {
-        val pagerState = rememberPagerState(1) { 10 }
+        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Column(
+                modifier = Modifier
+                    .background(
+                        AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
+                    )
+                    .width(600.dp),
+            ) {
+                val pagerState = rememberPagerState(2) { 10 }
+                HorizontalPager(state = pagerState) {}
+                PagerProgressBar(pagerState = pagerState)
+            }
 
-        Column(
-            modifier = Modifier
-                .background(
-                    AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
-                )
-                .width(600.dp),
-        ) {
-            HorizontalPager(state = pagerState) {}
-            PagerProgressBar(pagerState = pagerState)
+            Column(
+                modifier = Modifier
+                    .background(
+                        AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
+                    )
+                    .width(600.dp),
+            ) {
+                val pagerState = rememberPagerState(0) { 10 }
+                HorizontalPager(state = pagerState) {}
+                PagerProgressBar(pagerState = pagerState)
+            }
         }
     }
 }
