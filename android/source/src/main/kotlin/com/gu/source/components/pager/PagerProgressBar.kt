@@ -3,6 +3,9 @@
 package com.gu.source.components.pager
 
 import android.annotation.SuppressLint
+import androidx.compose.animation.core.AnimationSpec
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -41,12 +44,12 @@ private enum class ProgressDirection {
     Next,
 }
 
-private val SelectedIndicatorColour = AppColour(
+private val DefaultSelectedIndicatorColour = AppColour(
     light = Source.Palette.Neutral0,
     dark = Source.Palette.Neutral100,
 )
 
-private val UnSelectedIndicatorColour = AppColour(
+private val DefaultUnSelectedIndicatorColour = AppColour(
     light = Source.Palette.Neutral0.copy(alpha = 0.2f),
     dark = Source.Palette.Neutral100.copy(alpha = 0.3f),
 )
@@ -62,6 +65,8 @@ private val DefaultButtonColours = ButtonColours(
         dark = Source.Palette.Neutral100,
     ),
 )
+
+private val DefaultPageSlideAnimationSpec = spring<Float>(stiffness = Spring.StiffnessLow)
 
 private const val DisabledButtonAlphaLight = 0.2f
 private const val DisabledButtonAlphaDark = 0.4f
@@ -109,6 +114,8 @@ private fun Modifier.progressBarPadding() = this.padding(
  * @param nextButtonContentDescription The content description for the next button.
  * @param showProgressButtons Whether to show the next/prev buttons. By default they are enabled on
  * tablet devices (`sw600dp`).
+ * @param pageSlideAnimationSpec The animation spec to use when animating to the next/prev page.
+ * This is only used when the user uses prev/next buttons to navigate between pages.
  */
 @Suppress("CognitiveComplexMethod")
 @Composable
@@ -117,11 +124,12 @@ fun PagerProgressBar(
     modifier: Modifier = Modifier,
     buttonColours: ButtonColours = DefaultButtonColours,
     disabledButtonColours: ButtonColours? = disabledModeButtonColours(buttonColours),
-    selectedIndicatorColour: AppColour = SelectedIndicatorColour,
-    unSelectedIndicatorColour: AppColour = UnSelectedIndicatorColour,
+    selectedIndicatorColour: AppColour = DefaultSelectedIndicatorColour,
+    unSelectedIndicatorColour: AppColour = DefaultUnSelectedIndicatorColour,
     prevButtonContentDescription: String? = null,
     nextButtonContentDescription: String? = null,
     showProgressButtons: Boolean = isTabletDevice(),
+    pageSlideAnimationSpec: AnimationSpec<Float> = DefaultPageSlideAnimationSpec,
 ) {
     val coroutineScope = rememberCoroutineScope()
 
@@ -150,7 +158,10 @@ fun PagerProgressBar(
                                 (pagerState.currentPage + 1).coerceAtMost(pagerState.pageCount - 1)
                             }
                         }
-                        pagerState.animateScrollToPage(page)
+                        pagerState.animateScrollToPage(
+                            page = page,
+                            animationSpec = pageSlideAnimationSpec,
+                        )
                     }
                 },
                 isNextEnabled = pagerState.canScrollForward,
@@ -180,6 +191,8 @@ fun PagerProgressBar(
  * @param nextButtonContentDescription The content description for the next button.
  * @param showProgressButtons Whether to show the next/prev buttons. By default they are enabled on
  * tablet devices (`sw600dp`).
+ * @param pageSlideAnimationSpec The animation spec to use when animating to the next/prev page.
+ * This is only used when the user uses prev/next buttons to navigate between pages.
  */
 @Suppress("CognitiveComplexMethod", "Unused")
 @Composable
@@ -187,11 +200,12 @@ fun PagerProgressBar(
     pagerState: PagerState,
     buttonPriority: SourceButton.Priority,
     modifier: Modifier = Modifier,
-    selectedIndicatorColour: AppColour = SelectedIndicatorColour,
-    unSelectedIndicatorColour: AppColour = UnSelectedIndicatorColour,
+    selectedIndicatorColour: AppColour = DefaultSelectedIndicatorColour,
+    unSelectedIndicatorColour: AppColour = DefaultUnSelectedIndicatorColour,
     prevButtonContentDescription: String? = null,
     nextButtonContentDescription: String? = null,
     showProgressButtons: Boolean = isTabletDevice(),
+    pageSlideAnimationSpec: AnimationSpec<Float> = DefaultPageSlideAnimationSpec,
 ) {
     PagerProgressBar(
         pagerState = pagerState,
@@ -202,6 +216,7 @@ fun PagerProgressBar(
         prevButtonContentDescription = prevButtonContentDescription,
         nextButtonContentDescription = nextButtonContentDescription,
         showProgressButtons = showProgressButtons,
+        pageSlideAnimationSpec = pageSlideAnimationSpec,
     )
 }
 
@@ -259,12 +274,30 @@ private fun AnimatedPreview() {
     AppColourMode {
         val pagerState = rememberPagerState(0) { 10 }
 
+        val animationSpec = spring<Float>(stiffness = Spring.StiffnessLow)
+
         LaunchedEffect(pagerState) {
             while (true) {
                 delay(timeMillis = 1000)
-                pagerState.scrollToPage((pagerState.currentPage + 1) % pagerState.pageCount)
+                pagerState.animateScrollToPage(
+                    page = (pagerState.currentPage + 1) % pagerState.pageCount,
+                    animationSpec = animationSpec,
+                )
             }
         }
+
+        val backgrounds = listOf(
+            Source.Palette.Neutral0,
+            Source.Palette.Neutral10,
+            Source.Palette.Neutral20,
+            Source.Palette.Neutral38,
+            Source.Palette.Neutral46,
+            Source.Palette.Neutral60,
+            Source.Palette.Neutral86,
+            Source.Palette.Neutral93,
+            Source.Palette.Neutral97,
+            Source.Palette.Neutral100,
+        )
 
         Column(
             modifier = Modifier
@@ -276,10 +309,8 @@ private fun AnimatedPreview() {
                     modifier = Modifier
                         .size(400.dp)
                         .background(
-                            color = AppColour(
-                                light = Source.Palette.Neutral86,
-                                dark = Source.Palette.Neutral38,
-                            ).current,
+                            color = AppColour(light = backgrounds[(it + 3) % backgrounds.size])
+                                .current,
                             shape = RoundedCornerShape(8.dp),
                         ),
                 ) {
@@ -287,13 +318,14 @@ private fun AnimatedPreview() {
                         text = (it + 1).toString(),
                         style = Source.Typography.Titlepiece70,
                         modifier = Modifier.align(Alignment.Center),
-                        color = Source.Palette.Neutral60,
+                        color = Source.Palette.Sport500,
                     )
                 }
             }
             PagerProgressBar(
                 pagerState = pagerState,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
+                pageSlideAnimationSpec = animationSpec,
             )
         }
     }
