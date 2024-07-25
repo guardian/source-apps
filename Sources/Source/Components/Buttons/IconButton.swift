@@ -11,7 +11,14 @@ public struct IconButton: View {
     private let action: () -> ()
     @Binding private var disabled: Bool
 
-    public init(icon: Image, size: ButtonSize, iconColor: Color, borderColor: Color, disabled: Binding<Bool>, action: @escaping () -> Void) {
+    public init(
+        icon: Image,
+        size: ButtonSize,
+        iconColor: Color,
+        borderColor: Color,
+        disabled: Binding<Bool>,
+        action: @escaping () -> Void
+    ) {
         self.icon = icon
         self.size = size
         self.iconColor = iconColor

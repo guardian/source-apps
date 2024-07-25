@@ -3,7 +3,7 @@ import Source
 
 /// This component used to signpost progression through a paginated view.
 ///
-/// On tablet, buttons are provided to allow users to navigate through the pages. 
+/// On tablet, buttons are provided to allow users to navigate through the pages.
 public struct PaginationProgressBar: View {
 
     private let pageCount: Int
@@ -52,15 +52,33 @@ public struct PaginationProgressBar: View {
     }
 
     private var scrollingIndicator: some View {
-        ScrollingPaginationIndicator(pageCount: pageCount, indicatorWidth: indicatorWidth, selectedIndex: $selectedIndex, primaryColor: primaryColor, secondaryColor: secondaryColor)
+        ScrollingPaginationIndicator(
+            pageCount: pageCount,
+            indicatorWidth: indicatorWidth,
+            selectedIndex: $selectedIndex,
+            primaryColor: primaryColor,
+            secondaryColor: secondaryColor
+        )
     }
 
     private var progressButtons: some View {
         HStack {
-            IconButton(icon: Image(.chevronLeft), size: .small, iconColor: primaryColor, borderColor: secondaryColor, disabled: $canNavigateBack) {
+            IconButton(
+                icon: Image(.chevronLeft),
+                size: .small,
+                iconColor: primaryColor,
+                borderColor: secondaryColor,
+                disabled: $canNavigateBack
+            ) {
                 selectedIndex -= 1
             }
-            IconButton(icon: Image(.chevronRight), size: .small, iconColor: primaryColor, borderColor: secondaryColor, disabled: $canNavigateForward) {
+            IconButton(
+                icon: Image(.chevronRight),
+                size: .small,
+                iconColor: primaryColor,
+                borderColor: secondaryColor,
+                disabled: $canNavigateForward
+            ) {
                 selectedIndex += 1
             }
         }
