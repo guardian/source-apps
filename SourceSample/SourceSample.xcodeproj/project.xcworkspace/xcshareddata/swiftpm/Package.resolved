@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "fonts",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/guardian/fonts.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "2ce970124c9385688a4c1e89fe7f9c1990777d64"
+      }
+    }
+  ],
+  "version" : 2
+}

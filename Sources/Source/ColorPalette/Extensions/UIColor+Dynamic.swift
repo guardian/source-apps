@@ -1,5 +1,5 @@
 //
-
+#if os(iOS)
 import UIKit
 
 public extension UIColor {
@@ -22,3 +22,4 @@ public extension UIColor {
     }
     // swiftlint: enable color_named_reference
 }
+#endif
