@@ -30,7 +30,7 @@ The design presets are available name spaced under the `com.gu.Source` object, e
 
 ### Typography presets
 
-Typography presets include `fontFamily`, `fontSize`, `lineHeight`, `fontWeight`, `fontStyle` in a single token. [A rough preview of all typography styles is available here.](https://github.com/guardian/source-apps/blob/main/android/source/src/test/snapshots/images/com.gu.source.presets.typography_TypographyPreviewTest_snapshot.png)
+Typography presets include `fontFamily`, `fontSize`, `lineHeight`, `fontWeight`, `fontStyle` in a single token. [All typography tokens with their previews are listed here](/android/source/src/main/kotlin/com/gu/source/presets/typography/README.md)
 
 The library bundles app font files, so they are not separately required in consumer apps.
 

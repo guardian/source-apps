@@ -2,6 +2,7 @@
 
 package com.gu.source.components.pager
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -62,6 +63,33 @@ private val DefaultButtonColours = ButtonColours(
     ),
 )
 
+private const val DisabledButtonAlpha = 0.2f
+private val DefaultDisabledButtonColours = ButtonColours(
+    border = AppColour(
+        light = Source.Palette.Neutral7.copy(alpha = DisabledButtonAlpha),
+        dark = Source.Palette.Neutral100.copy(alpha = DisabledButtonAlpha),
+    ),
+    container = AppColour.Transparent,
+    content = AppColour(
+        light = Source.Palette.Neutral7.copy(alpha = DisabledButtonAlpha),
+        dark = Source.Palette.Neutral100.copy(alpha = DisabledButtonAlpha),
+    ),
+)
+
+// The progress buttons get a min touch size padding of 12.dp, so we need to things by half that to
+// get the correct offset and padding
+private val ProgressButtonTouchAdjustment = 6.dp
+
+@Composable
+private fun getBarPadding() = if (isTabletDevice()) {
+    PaddingValues(
+        top = 8.dp - ProgressButtonTouchAdjustment,
+        bottom = 12.dp - ProgressButtonTouchAdjustment,
+    )
+} else {
+    PaddingValues(top = 8.dp, bottom = 12.dp)
+}
+
 /**
  * A progress bar that shows the current page of a [PagerState] and, on tablets, allows the user to
  * navigate between pages using next/prev buttons.
@@ -69,6 +97,7 @@ private val DefaultButtonColours = ButtonColours(
  * @param pagerState The [PagerState] that this indicator should be bound to.
  * @param modifier
  * @param buttonColours The colours for the next/prev buttons.
+ * @param disabledButtonColours The colours for the next/prev buttons when they are disabled.
  * @param selectedIndicatorColour The colour of the selected indicator item.
  * @param unSelectedIndicatorColour The colour of the unselected indicators items.
  * @param prevButtonContentDescription The content description for the previous button.
@@ -82,6 +111,7 @@ fun PagerProgressBar(
     pagerState: PagerState,
     modifier: Modifier = Modifier,
     buttonColours: ButtonColours = DefaultButtonColours,
+    disabledButtonColours: ButtonColours? = DefaultDisabledButtonColours,
     selectedIndicatorColour: AppColour = SelectedIndicatorColour,
     unSelectedIndicatorColour: AppColour = UnSelectedIndicatorColour,
     prevButtonContentDescription: String? = null,
@@ -92,7 +122,7 @@ fun PagerProgressBar(
 
     Box(
         modifier = modifier
-            .height(56.dp)
+            .padding(getBarPadding())
             .fillMaxWidth(),
     ) {
         PagerProgressIndicator(
@@ -108,24 +138,24 @@ fun PagerProgressBar(
                     coroutineScope.launch {
                         val page = when (it) {
                             ProgressDirection.Previous -> {
-                                (pagerState.currentPage - 1)
-                                    .let { if (it < 0) pagerState.pageCount - 1 else it }
+                                (pagerState.currentPage - 1).coerceAtLeast(0)
                             }
 
                             ProgressDirection.Next -> {
-                                (pagerState.currentPage + 1) % pagerState.pageCount
+                                (pagerState.currentPage + 1).coerceAtMost(pagerState.pageCount - 1)
                             }
                         }
                         pagerState.animateScrollToPage(page)
                     }
                 },
-                // Offset the row so the buttons visually set at end of the progress bar despite the extra
-                // touch size padding.
+                isNextEnabled = pagerState.canScrollForward,
+                isPrevEnabled = pagerState.canScrollBackward,
                 prevButtonContentDescription = prevButtonContentDescription,
                 nextButtonContentDescription = nextButtonContentDescription,
                 modifier = Modifier
-                    .offset(x = 6.dp)
+                    .offset(x = ProgressButtonTouchAdjustment)
                     .align(Alignment.CenterEnd),
+                disabledButtonColours = disabledButtonColours,
             )
         }
     }
@@ -170,19 +200,29 @@ fun PagerProgressBar(
     )
 }
 
+@SuppressLint("DiscouragedApi")
 @Composable
 private fun ProgressButtons(
     buttonColours: ButtonColours,
     onClick: (progressDirection: ProgressDirection) -> Unit,
+    isNextEnabled: Boolean,
+    isPrevEnabled: Boolean,
     prevButtonContentDescription: String?,
     nextButtonContentDescription: String?,
     modifier: Modifier = Modifier,
+    disabledButtonColours: ButtonColours? = null,
 ) {
-    Row(modifier = modifier) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
         SourceBaseIconButton(
             size = SourceButton.Size.Small,
             buttonColours = buttonColours,
+            disabledButtonColours = disabledButtonColours,
             onClick = { onClick(ProgressDirection.Previous) },
+            enabled = isPrevEnabled,
+            modifier = Modifier.offset(x = ProgressButtonTouchAdjustment * 2),
         ) {
             Icon(
                 imageVector = Source.Icons.Base.ChevronLeft,
@@ -193,7 +233,9 @@ private fun ProgressButtons(
         SourceBaseIconButton(
             size = SourceButton.Size.Small,
             buttonColours = buttonColours,
+            disabledButtonColours = disabledButtonColours,
             onClick = { onClick(ProgressDirection.Next) },
+            enabled = isNextEnabled,
         ) {
             Icon(
                 imageVector = Source.Icons.Base.ChevronRight,
@@ -221,7 +263,7 @@ private fun AnimatedPreview() {
 
         Column(
             modifier = Modifier
-                .padding(8.dp)
+                .padding(top = 8.dp, start = 8.dp, end = 8.dp)
                 .width(400.dp),
         ) {
             HorizontalPager(state = pagerState) {
@@ -246,9 +288,7 @@ private fun AnimatedPreview() {
             }
             PagerProgressBar(
                 pagerState = pagerState,
-                modifier = Modifier
-                    .padding(top = 8.dp)
-                    .align(Alignment.CenterHorizontally),
+                modifier = Modifier.align(Alignment.CenterHorizontally),
             )
         }
     }
@@ -260,17 +300,30 @@ private fun AnimatedPreview() {
 @Composable
 internal fun PagerProgressBarPreview() {
     AppColourMode {
-        val pagerState = rememberPagerState(1) { 10 }
+        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Column(
+                modifier = Modifier
+                    .background(
+                        AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
+                    )
+                    .width(600.dp),
+            ) {
+                val pagerState = rememberPagerState(2) { 10 }
+                HorizontalPager(state = pagerState) {}
+                PagerProgressBar(pagerState = pagerState)
+            }
 
-        Column(
-            modifier = Modifier
-                .background(
-                    AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
-                )
-                .width(600.dp),
-        ) {
-            HorizontalPager(state = pagerState) {}
-            PagerProgressBar(pagerState = pagerState)
+            Column(
+                modifier = Modifier
+                    .background(
+                        AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
+                    )
+                    .width(600.dp),
+            ) {
+                val pagerState = rememberPagerState(0) { 10 }
+                HorizontalPager(state = pagerState) {}
+                PagerProgressBar(pagerState = pagerState)
+            }
         }
     }
 }

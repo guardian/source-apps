@@ -6,21 +6,120 @@ import androidx.compose.ui.Modifier
 import com.gu.source.Source
 import com.gu.source.presets.palette.Neutral100
 import com.gu.source.utils.paparazzi.BaseDeviceConfig
-import com.gu.source.utils.paparazzi.createScreenPaparazziRule
+import com.gu.source.utils.paparazzi.createComponentPaparazziRule
 import org.junit.Rule
 import org.junit.Test
 
 class TypographyPreviewTest {
     @get:Rule
-    val paparazzi = createScreenPaparazziRule(
+    val paparazzi = createComponentPaparazziRule(
         deviceConfig = BaseDeviceConfig.Tablet.deviceConfig,
     )
 
     @Test
-    fun snapshot() {
+    fun headlineBold() {
         paparazzi.snapshot {
             Box(modifier = Modifier.background(Source.Palette.Neutral100)) {
-                TypographyPreview()
+                HeadlineBoldPreview()
+            }
+        }
+    }
+
+    @Test
+    fun headlineLight() {
+        paparazzi.snapshot {
+            Box(modifier = Modifier.background(Source.Palette.Neutral100)) {
+                HeadlineLightPreview()
+            }
+        }
+    }
+
+    @Test
+    fun headlineLightItalic() {
+        paparazzi.snapshot {
+            Box(modifier = Modifier.background(Source.Palette.Neutral100)) {
+                HeadlineLightItalicPreview()
+            }
+        }
+    }
+
+    @Test
+    fun headlineMedium() {
+        paparazzi.snapshot {
+            Box(modifier = Modifier.background(Source.Palette.Neutral100)) {
+                HeadlineMediumPreview()
+            }
+        }
+    }
+
+    @Test
+    fun headlineMediumItalic() {
+        paparazzi.snapshot {
+            Box(modifier = Modifier.background(Source.Palette.Neutral100)) {
+                HeadlineMediumItalicPreview()
+            }
+        }
+    }
+
+    @Test
+    fun headlineSemiBold() {
+        paparazzi.snapshot {
+            Box(modifier = Modifier.background(Source.Palette.Neutral100)) {
+                HeadlineSemiBoldPreview()
+            }
+        }
+    }
+
+    @Test
+    fun textArticle() {
+        paparazzi.snapshot {
+            Box(modifier = Modifier.background(Source.Palette.Neutral100)) {
+                TextArticlePreview()
+            }
+        }
+    }
+
+    @Test
+    fun textEgyptian() {
+        paparazzi.snapshot {
+            Box(modifier = Modifier.background(Source.Palette.Neutral100)) {
+                TextEgyptianPreview()
+            }
+        }
+    }
+
+    @Test
+    fun textSans() {
+        paparazzi.snapshot {
+            Box(modifier = Modifier.background(Source.Palette.Neutral100)) {
+                TextSansPreview()
+            }
+        }
+    }
+
+    @Test
+    fun textSansBold() {
+        paparazzi.snapshot {
+            Box(modifier = Modifier.background(Source.Palette.Neutral100)) {
+                TextSansBoldPreview()
+            }
+        }
+    }
+
+    @Test
+    fun textSansItalic() {
+        paparazzi.snapshot {
+            Box(modifier = Modifier.background(Source.Palette.Neutral100)) {
+                TextSansItalicPreview()
+            }
+        }
+    }
+
+    @Test
+    fun titlepiece() {
+        paparazzi.snapshot {
+            Box(modifier = Modifier.background(Source.Palette.Neutral100)) {
+                TitlepiecePreview()
             }
         }
     }
