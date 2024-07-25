@@ -63,7 +63,7 @@ struct IconButtonStyle: ButtonStyle {
                         .stroke(borderColor, lineWidth: 1.0)
                 }
             }
-            .opacity(isDisabled ? 0.5 : 1.0)
+            .opacity(isDisabled ? 0.2 : 1.0)
     }
 }
 
