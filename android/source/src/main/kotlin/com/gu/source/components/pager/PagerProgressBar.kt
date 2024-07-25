@@ -217,13 +217,17 @@ private fun ProgressButtons(
     modifier: Modifier = Modifier,
     disabledButtonColours: ButtonColours? = null,
 ) {
-    Row(modifier = modifier) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
         SourceBaseIconButton(
             size = SourceButton.Size.Small,
             buttonColours = buttonColours,
             disabledButtonColours = disabledButtonColours,
             onClick = { onClick(ProgressDirection.Previous) },
             enabled = isPrevEnabled,
+            modifier = Modifier.offset(x = ProgressButtonTouchAdjustment * 2),
         ) {
             Icon(
                 imageVector = Source.Icons.Base.ChevronLeft,
