@@ -54,7 +54,7 @@ private val UnSelectedIndicatorColour = AppColour(
 private val DefaultButtonColours = ButtonColours(
     border = AppColour(
         light = Source.Palette.Neutral7.copy(alpha = 0.2f),
-        dark = Source.Palette.Neutral100.copy(alpha = 0.3f),
+        dark = Source.Palette.Neutral100.copy(alpha = 0.4f),
     ),
     container = AppColour.Transparent,
     content = AppColour(
@@ -63,18 +63,20 @@ private val DefaultButtonColours = ButtonColours(
     ),
 )
 
-private const val DisabledButtonAlpha = 0.2f
-private val DefaultDisabledButtonColours = ButtonColours(
-    border = AppColour(
-        light = Source.Palette.Neutral7.copy(alpha = DisabledButtonAlpha),
-        dark = Source.Palette.Neutral100.copy(alpha = DisabledButtonAlpha),
-    ),
-    container = AppColour.Transparent,
-    content = AppColour(
-        light = Source.Palette.Neutral7.copy(alpha = DisabledButtonAlpha),
-        dark = Source.Palette.Neutral100.copy(alpha = DisabledButtonAlpha),
-    ),
+private const val DisabledButtonAlphaLight = 0.2f
+private const val DisabledButtonAlphaDark = 0.4f
+
+private fun AppColour.setDisabledAlpha() = AppColour(
+    light = light.copy(alpha = DisabledButtonAlphaLight.coerceAtMost(light.alpha)),
+    dark = dark.copy(alpha = DisabledButtonAlphaDark.coerceAtMost(light.alpha)),
 )
+
+private fun disabledModeButtonColours(enabledColours: ButtonColours = DefaultButtonColours) =
+    ButtonColours(
+        border = enabledColours.border.setDisabledAlpha(),
+        container = enabledColours.container.setDisabledAlpha(),
+        content = enabledColours.content.setDisabledAlpha(),
+    )
 
 // The progress buttons get a min touch size padding of 12.dp, so we need to things by half that to
 // get the correct offset and padding
@@ -114,7 +116,7 @@ fun PagerProgressBar(
     pagerState: PagerState,
     modifier: Modifier = Modifier,
     buttonColours: ButtonColours = DefaultButtonColours,
-    disabledButtonColours: ButtonColours? = DefaultDisabledButtonColours,
+    disabledButtonColours: ButtonColours? = disabledModeButtonColours(buttonColours),
     selectedIndicatorColour: AppColour = SelectedIndicatorColour,
     unSelectedIndicatorColour: AppColour = UnSelectedIndicatorColour,
     prevButtonContentDescription: String? = null,
