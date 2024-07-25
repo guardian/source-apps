@@ -16,7 +16,7 @@ public struct IconButton: View {
         size: ButtonSize,
         iconColor: Color,
         borderColor: Color,
-        disabled: Binding<Bool>,
+        disabled: Binding<Bool> = .constant(false),
         action: @escaping () -> Void
     ) {
         self.icon = icon
@@ -49,18 +49,25 @@ struct IconButtonStyle: ButtonStyle {
     let borderColor: Color
     let iconColor: Color
 
-    init(size: ButtonSize, isDisabled: Binding<Bool>, borderColor: Color, iconColor: Color) {
+    @Environment(\.colorScheme) private
+    var colorScheme
+
+    init(size: ButtonSize, isDisabled: Binding<Bool> = .constant(false), borderColor: Color, iconColor: Color) {
         self.size = size
         self._isDisabled = isDisabled
         self.borderColor = borderColor
         self.iconColor = iconColor
     }
 
+    private var disabledOpacity: CGFloat {
+        return colorScheme == .dark ? 0.4 : 0.2
+    }
+
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(width: size.iconSize, height: size.iconSize)
             .foregroundStyle(iconColor)
-            .opacity(isDisabled ? 0.2 : 1.0)
+            .opacity(isDisabled ? disabledOpacity : 1.0)
             .padding(size.iconPadding)
             .background {
                 if configuration.isPressed, isDisabled == false {
