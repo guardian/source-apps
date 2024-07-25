@@ -103,8 +103,14 @@ struct PaginationProgressBar_Previews_Container: PreviewProvider {
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
-                PaginationProgressBar(pageCount: elementArray.count, indicatorWidth: 16, selectedIndex: $selectedIndex, primaryColor: .blue, secondaryColor: .black)
-                    .padding()
+                PaginationProgressBar(
+                    pageCount: elementArray.count,
+                    indicatorWidth: 16,
+                    selectedIndex: $selectedIndex,
+                    primaryColor: Color(uiColor: ColorPalette.neutral0),
+                    secondaryColor: Color(uiColor: ColorPalette.neutral73)
+                )
+                .padding()
             }
         }
     }
