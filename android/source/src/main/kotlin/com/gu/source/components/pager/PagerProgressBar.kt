@@ -2,6 +2,7 @@
 
 package com.gu.source.components.pager
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -60,15 +61,16 @@ private val DefaultButtonColours = ButtonColours(
     ),
 )
 
+private const val DisabledButtonAlpha = 0.2f
 private val DefaultDisabledButtonColours = ButtonColours(
     border = AppColour(
-        light = Source.Palette.Neutral7.copy(alpha = 0.2f),
-        dark = Source.Palette.Neutral100.copy(alpha = 0.3f),
+        light = Source.Palette.Neutral7.copy(alpha = DisabledButtonAlpha),
+        dark = Source.Palette.Neutral100.copy(alpha = DisabledButtonAlpha),
     ),
     container = AppColour.Transparent,
     content = AppColour(
-        light = Source.Palette.Neutral7.copy(alpha = 0.2f),
-        dark = Source.Palette.Neutral100.copy(alpha = 0.2f),
+        light = Source.Palette.Neutral7.copy(alpha = DisabledButtonAlpha),
+        dark = Source.Palette.Neutral100.copy(alpha = DisabledButtonAlpha),
     ),
 )
 
@@ -206,6 +208,7 @@ fun PagerProgressBar(
     )
 }
 
+@SuppressLint("DiscouragedApi")
 @Composable
 private fun ProgressButtons(
     buttonColours: ButtonColours,
