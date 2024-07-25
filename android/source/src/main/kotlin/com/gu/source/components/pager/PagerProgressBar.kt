@@ -12,7 +12,9 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -130,16 +132,6 @@ fun PagerProgressBar(
             modifier = Modifier.align(Alignment.Center),
         )
         if (showProgressButtons) {
-            var isNextButtonEnabled by remember { mutableStateOf(false) }
-            var isPrevButtonEnabled by remember { mutableStateOf(false) }
-
-            LaunchedEffect(pagerState) {
-                snapshotFlow { pagerState.currentPage }.collect {
-                    isNextButtonEnabled = it < pagerState.pageCount - 1
-                    isPrevButtonEnabled = it > 0
-                }
-            }
-
             ProgressButtons(
                 buttonColours = buttonColours,
                 onClick = {
@@ -156,8 +148,8 @@ fun PagerProgressBar(
                         pagerState.animateScrollToPage(page)
                     }
                 },
-                isNextEnabled = isNextButtonEnabled,
-                isPrevEnabled = isPrevButtonEnabled,
+                isNextEnabled = pagerState.canScrollForward,
+                isPrevEnabled = pagerState.canScrollBackward,
                 prevButtonContentDescription = prevButtonContentDescription,
                 nextButtonContentDescription = nextButtonContentDescription,
                 modifier = Modifier
