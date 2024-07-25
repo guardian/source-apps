@@ -53,6 +53,7 @@ struct IconButtonStyle: ButtonStyle {
         configuration.label
             .frame(width: size.iconSize, height: size.iconSize)
             .foregroundStyle(iconColor)
+            .opacity(isDisabled ? 0.2 : 1.0)
             .padding(size.iconPadding)
             .background {
                 if configuration.isPressed, isDisabled == false {
@@ -63,7 +64,6 @@ struct IconButtonStyle: ButtonStyle {
                         .stroke(borderColor, lineWidth: 1.0)
                 }
             }
-            .opacity(isDisabled ? 0.2 : 1.0)
     }
 }
 
