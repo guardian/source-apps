@@ -80,15 +80,18 @@ private val DefaultDisabledButtonColours = ButtonColours(
 // get the correct offset and padding
 private val ProgressButtonTouchAdjustment = 6.dp
 
+@Suppress("ktlint:compose:modifier-composable-check")
 @Composable
-private fun getBarPadding() = if (isTabletDevice()) {
-    PaddingValues(
-        top = 8.dp - ProgressButtonTouchAdjustment,
-        bottom = 12.dp - ProgressButtonTouchAdjustment,
-    )
-} else {
-    PaddingValues(top = 8.dp, bottom = 12.dp)
-}
+private fun Modifier.progressBarPadding() = this.padding(
+    if (isTabletDevice()) {
+        PaddingValues(
+            top = 8.dp - ProgressButtonTouchAdjustment,
+            bottom = 12.dp - ProgressButtonTouchAdjustment,
+        )
+    } else {
+        PaddingValues(top = 8.dp, bottom = 12.dp)
+    },
+)
 
 /**
  * A progress bar that shows the current page of a [PagerState] and, on tablets, allows the user to
@@ -122,7 +125,7 @@ fun PagerProgressBar(
 
     Box(
         modifier = modifier
-            .padding(getBarPadding())
+            .progressBarPadding()
             .fillMaxWidth(),
     ) {
         PagerProgressIndicator(
