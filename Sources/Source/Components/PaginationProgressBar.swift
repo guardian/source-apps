@@ -70,7 +70,9 @@ public struct PaginationProgressBar: View {
                 borderColor: secondaryColor,
                 disabled: $canNavigateBack
             ) {
-                selectedIndex -= 1
+                withAnimation {
+                    selectedIndex -= 1
+                }
             }
             IconButton(
                 icon: Image(.chevronRight),
@@ -79,7 +81,9 @@ public struct PaginationProgressBar: View {
                 borderColor: secondaryColor,
                 disabled: $canNavigateForward
             ) {
-                selectedIndex += 1
+                withAnimation {
+                    selectedIndex += 1
+                }
             }
         }
     }
