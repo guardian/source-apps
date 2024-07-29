@@ -94,6 +94,8 @@ fun PagerProgressIndicator(
         )
     }
 
+    val numberOfScaledItems = numberOfItemsToScale.toOddUnder()
+
     LazyRow(
         state = listState,
         modifier = modifier.width(indicatorWidth),
@@ -110,7 +112,7 @@ fun PagerProgressIndicator(
                 unSelectedColour = unSelectedIndicatorColour,
                 unselectedItemScaleFactor = unselectedItemScaleFactor,
                 itemShape = indicatorShape,
-                numberOfItemsToScale = numberOfItemsToScale.toOddUnder(),
+                numberOfItemsToScale = numberOfScaledItems,
             )
         }
     }
