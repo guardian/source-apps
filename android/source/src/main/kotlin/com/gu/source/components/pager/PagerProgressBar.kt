@@ -66,7 +66,7 @@ private val DefaultButtonColours = ButtonColours(
     ),
 )
 
-private val DefaultPageSlideAnimationSpec = spring<Float>(stiffness = Spring.StiffnessLow)
+private val DefaultPageSlideAnimationSpec = spring<Float>(stiffness = Spring.StiffnessMediumLow)
 
 private const val DisabledButtonAlphaLight = 0.2f
 private const val DisabledButtonAlphaDark = 0.4f
@@ -284,7 +284,7 @@ private fun AnimatedPreview() {
     AppColourMode {
         val pagerState = rememberPagerState(0) { 10 }
 
-        val animationSpec = spring<Float>(stiffness = Spring.StiffnessLow)
+        val animationSpec = spring<Float>(stiffness = Spring.StiffnessMediumLow)
 
         LaunchedEffect(pagerState) {
             while (true) {
