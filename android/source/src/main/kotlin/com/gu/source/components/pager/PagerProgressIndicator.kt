@@ -89,7 +89,7 @@ fun PagerProgressIndicator(
     LaunchedEffect(pagerState.currentPage) {
         listState.animateScrollToItem(
             index = pagerState.currentPage,
-            scrollOffset = (itemWidthInPx / 2 - rowWidthInPx / 2).toInt()
+            scrollOffset = (itemWidthInPx / 2 - rowWidthInPx / 2).toInt(),
         )
     }
 
