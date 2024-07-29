@@ -84,12 +84,12 @@ fun PagerProgressIndicator(
     val rowWidth = selectedItemSize * adjustedMaxItems +
         indicatorSpacing * (adjustedMaxItems - 1)
 
-    val widthInPx = with(LocalDensity.current) { selectedItemSize.toPx() }
+    val itemWidthInPx = with(LocalDensity.current) { selectedItemSize.toPx() }
     val rowWidthInPx = with(LocalDensity.current) { rowWidth.toPx() }
     LaunchedEffect(pagerState.currentPage) {
         listState.animateScrollToItem(
             index = pagerState.currentPage,
-            scrollOffset = (widthInPx / 2 - rowWidthInPx / 2).toInt()//.coerceAtLeast(0),
+            scrollOffset = (itemWidthInPx / 2 - rowWidthInPx / 2).toInt()
         )
     }
 
