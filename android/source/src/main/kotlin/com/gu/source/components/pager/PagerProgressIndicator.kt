@@ -81,22 +81,23 @@ fun PagerProgressIndicator(
         .coerceAtMost(pagerState.pageCount)
         .toOddUnder()
 
-    val indicatorWidth = selectedItemSize * adjustedMaxItems +
+    val rowWidth = selectedItemSize * adjustedMaxItems +
         indicatorSpacing * (adjustedMaxItems - 1)
 
-    val widthInPx = with(LocalDensity.current) { selectedItemSize.toPx() }
+    val itemWidthInPx = with(LocalDensity.current) { selectedItemSize.toPx() }
+    val rowWidthInPx = with(LocalDensity.current) { rowWidth.toPx() }
     LaunchedEffect(pagerState.currentPage) {
-        val viewportSize = listState.layoutInfo.viewportSize
-
         listState.animateScrollToItem(
             index = pagerState.currentPage,
-            scrollOffset = (widthInPx / 2 - viewportSize.width / 2).toInt(),
+            scrollOffset = (itemWidthInPx / 2 - rowWidthInPx / 2).toInt(),
         )
     }
 
+    val numberOfScaledItems = numberOfItemsToScale.coerceAtMost(adjustedMaxItems).toOddUnder()
+
     LazyRow(
         state = listState,
-        modifier = modifier.width(indicatorWidth),
+        modifier = modifier.width(rowWidth),
         horizontalArrangement = Arrangement.spacedBy(indicatorSpacing),
         verticalAlignment = itemsVerticalAlignment,
         userScrollEnabled = false,
@@ -110,7 +111,7 @@ fun PagerProgressIndicator(
                 unSelectedColour = unSelectedIndicatorColour,
                 unselectedItemScaleFactor = unselectedItemScaleFactor,
                 itemShape = indicatorShape,
-                numberOfItemsToScale = numberOfItemsToScale.toOddUnder(),
+                numberOfItemsToScale = numberOfScaledItems,
             )
         }
     }
