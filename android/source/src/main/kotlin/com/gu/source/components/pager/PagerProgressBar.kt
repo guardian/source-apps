@@ -87,18 +87,28 @@ private fun disabledModeButtonColours(enabledColours: ButtonColours = DefaultBut
 // get the correct offset and padding
 private val ProgressButtonTouchAdjustment = 6.dp
 
+/**
+ * Applies the size and padding for the progress bar. Size is explicitly required because if this
+ * is used inside a lazy column, then intrinsic size can't be measured. Padding is used to position
+ * the items correctly vertically.
+ */
 @Suppress("ktlint:compose:modifier-composable-check")
 @Composable
-private fun Modifier.progressBarPadding() = this.padding(
-    if (isTabletDevice()) {
-        PaddingValues(
-            top = 8.dp - ProgressButtonTouchAdjustment,
-            bottom = 12.dp - ProgressButtonTouchAdjustment,
-        )
-    } else {
-        PaddingValues(top = 8.dp, bottom = 12.dp)
-    },
-)
+private fun Modifier.progressBarPadding() = this
+    .then(
+        if (isTabletDevice()) {
+            Modifier
+                .height(56.dp)
+                .padding(
+                    top = 8.dp - ProgressButtonTouchAdjustment,
+                    bottom = 12.dp - ProgressButtonTouchAdjustment,
+                )
+        } else {
+            Modifier
+                .height(28.dp)
+                .padding(top = 8.dp, bottom = 12.dp)
+        },
+    )
 
 /**
  * A progress bar that shows the current page of a [PagerState] and, on tablets, allows the user to
