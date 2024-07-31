@@ -90,22 +90,22 @@ fileprivate extension ButtonSize {
     var iconSize: CGFloat {
         switch self {
             case .xsmall:
-                return 14
+                return 20
             case .small:
-                return 18
+                return 24
             case .medium:
-                return 22
+                return 28
         }
     }
 
     var iconPadding: CGFloat {
         switch self {
             case .xsmall:
-                return 5
+                return 2
             case .small:
-                return 9
+                return 6
             case .medium:
-                return 11
+                return 8
         }
     }
 }
