@@ -275,6 +275,7 @@ internal fun CoreButtonIconBeforePreview() {
 }
 
 @SuppressLint("DiscouragedApi")
+@Suppress("StringLiteralDuplication")
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PreviewPhoneBothMode
 @Composable
