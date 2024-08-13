@@ -27,7 +27,7 @@ import com.gu.source.presets.typography.TextSansBold17
 import com.gu.source.theme.LocalSourceTheme
 import com.gu.source.theme.ReaderRevenueTheme
 import com.gu.source.theme.SourceCoreTheme
-import com.gu.source.utils.PhoneBothModePreviews
+import com.gu.source.utils.PreviewPhoneBothMode
 
 /**
  * Object for property models for the [SourceButton] component.
@@ -238,7 +238,7 @@ fun SourceButton(
 
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @SuppressLint("DiscouragedApi")
-@PhoneBothModePreviews
+@PreviewPhoneBothMode
 @Composable
 internal fun CoreButtonIconBeforePreview() {
     AppColourMode {
@@ -276,7 +276,7 @@ internal fun CoreButtonIconBeforePreview() {
 
 @SuppressLint("DiscouragedApi")
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-@PhoneBothModePreviews
+@PreviewPhoneBothMode
 @Composable
 internal fun RrButtonIconBeforePreview() {
     AppColourMode {
@@ -315,7 +315,7 @@ internal fun RrButtonIconBeforePreview() {
 }
 
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-@PhoneBothModePreviews
+@PreviewPhoneBothMode
 @Composable
 internal fun CoreButtonTextOnlyPreview() {
     AppColourMode {
@@ -344,7 +344,7 @@ internal fun CoreButtonTextOnlyPreview() {
 }
 
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-@PhoneBothModePreviews
+@PreviewPhoneBothMode
 @Composable
 internal fun RrButtonTextOnlyPreview() {
     AppColourMode {
@@ -376,7 +376,7 @@ internal fun RrButtonTextOnlyPreview() {
 
 @SuppressLint("DiscouragedApi")
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-@PhoneBothModePreviews
+@PreviewPhoneBothMode
 @Composable
 internal fun CoreButtonIconAfterPreview() {
     AppColourMode {
@@ -414,7 +414,7 @@ internal fun CoreButtonIconAfterPreview() {
 
 @SuppressLint("DiscouragedApi")
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-@PhoneBothModePreviews
+@PreviewPhoneBothMode
 @Composable
 internal fun RrButtonIconAfterPreview() {
     AppColourMode {

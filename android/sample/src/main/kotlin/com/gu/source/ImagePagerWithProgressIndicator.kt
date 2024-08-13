@@ -18,8 +18,8 @@ import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.presets.palette.Neutral10
 import com.gu.source.presets.palette.Neutral100
-import com.gu.source.utils.PhoneBothModePreviews
-import com.gu.source.utils.TabletBothModePreviews
+import com.gu.source.utils.PreviewPhoneBothMode
+import com.gu.source.utils.PreviewTabletBothMode
 
 @Suppress("MagicNumber")
 @Composable
@@ -46,8 +46,8 @@ internal fun ImagePagerWithProgressIndicator(modifier: Modifier = Modifier) {
     }
 }
 
-@PhoneBothModePreviews
-@TabletBothModePreviews
+@PreviewPhoneBothMode
+@PreviewTabletBothMode
 @Composable
 private fun Preview() {
     AppColourMode {

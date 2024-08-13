@@ -21,7 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
     backgroundColor = 0xFF000000,
     showBackground = true,
 )
-annotation class PhoneBothModePreviews
+annotation class PreviewPhoneBothMode
 
 /** Creates two previews on a Pixel tablet device for light and dark mode. */
 @Preview(
@@ -39,3 +39,4 @@ annotation class PhoneBothModePreviews
     showBackground = true,
 )
 annotation class TabletBothModePreviews
+annotation class PreviewTabletBothMode
