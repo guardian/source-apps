@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.guardian.library.android)
     alias(libs.plugins.guardian.compose.library)
     alias(libs.plugins.guardian.detekt)
+    alias(libs.plugins.dokka)
 }
 
 android {
