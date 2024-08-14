@@ -781,8 +781,8 @@ style:
     allowedNames: ''
     ignoreAnnotated:
       - 'Preview'
-      - 'PhoneBothModePreviews'
-      - 'TabletBothModePreviews'
+      - 'PreviewPhoneBothMode'
+      - 'PreviewTabletBothMode'
   UnusedPrivateProperty:
     active: true
     allowedNames: '_|ignored|expected|serialVersionUID'

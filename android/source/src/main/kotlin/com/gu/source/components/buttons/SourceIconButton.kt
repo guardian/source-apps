@@ -24,7 +24,7 @@ import com.gu.source.presets.palette.*
 import com.gu.source.theme.LocalSourceTheme
 import com.gu.source.theme.ReaderRevenueTheme
 import com.gu.source.theme.SourceCoreTheme
-import com.gu.source.utils.PhoneBothModePreviews
+import com.gu.source.utils.PreviewPhoneBothMode
 
 private const val ReaderRevenueSecondaryThemeErrorMessage =
     "ReaderRevenue theme doesn't have secondary buttons."
@@ -247,7 +247,7 @@ fun SourceIconButton(
 }
 
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-@PhoneBothModePreviews
+@PreviewPhoneBothMode
 @Composable
 internal fun CoreIconButtonPreview() {
     AppColourMode {
@@ -277,7 +277,7 @@ internal fun CoreIconButtonPreview() {
 }
 
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-@PhoneBothModePreviews
+@PreviewPhoneBothMode
 @Composable
 internal fun RrIconButtonPreview() {
     AppColourMode {
@@ -309,7 +309,7 @@ internal fun RrIconButtonPreview() {
 }
 
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-@PhoneBothModePreviews
+@PreviewPhoneBothMode
 @Composable
 internal fun SourceBaseIconButtonPreview() {
     AppColourMode {

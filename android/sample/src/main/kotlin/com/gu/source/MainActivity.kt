@@ -21,7 +21,7 @@ import com.gu.source.presets.palette.Neutral10
 import com.gu.source.presets.palette.Neutral100
 import com.gu.source.presets.palette.Neutral97
 import com.gu.source.presets.typography.HeadlineMedium20
-import com.gu.source.utils.PhoneBothModePreviews
+import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.plus
 import kotlinx.coroutines.launch
 
@@ -141,7 +141,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
     }
 }
 
-@PhoneBothModePreviews
+@PreviewPhoneBothMode
 @Composable
 private fun GreetingPreview() {
     AppColourMode {

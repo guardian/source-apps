@@ -20,7 +20,7 @@ import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.presets.palette.*
-import com.gu.source.utils.PhoneBothModePreviews
+import com.gu.source.utils.PreviewPhoneBothMode
 
 private val PlainDefault: ButtonColours
     get() = ButtonColours(
@@ -176,7 +176,7 @@ fun PlainSourceButton(
 }
 
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-@PhoneBothModePreviews
+@PreviewPhoneBothMode
 @Composable
 internal fun PlainSourceButtonPreview() {
     AppColourMode {

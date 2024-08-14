@@ -33,8 +33,8 @@ import com.gu.source.icons.ChevronRight
 import com.gu.source.presets.palette.*
 import com.gu.source.presets.typography.Titlepiece70
 import com.gu.source.theme.LocalSourceTheme
-import com.gu.source.utils.PhoneBothModePreviews
-import com.gu.source.utils.TabletBothModePreviews
+import com.gu.source.utils.PreviewPhoneBothMode
+import com.gu.source.utils.PreviewTabletBothMode
 import com.gu.source.utils.isTabletDevice
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -277,8 +277,8 @@ private fun ProgressButtons(
 }
 
 @Suppress("MagicNumber")
-@PhoneBothModePreviews
-@TabletBothModePreviews
+@PreviewPhoneBothMode
+@PreviewTabletBothMode
 @Composable
 private fun AnimatedPreview() {
     AppColourMode {
@@ -342,8 +342,8 @@ private fun AnimatedPreview() {
 }
 
 @Suppress("MagicNumber")
-@PhoneBothModePreviews
-@TabletBothModePreviews
+@PreviewPhoneBothMode
+@PreviewTabletBothMode
 @Composable
 internal fun PagerProgressBarPreview() {
     AppColourMode {
