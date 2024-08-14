@@ -11,8 +11,27 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  changes:
+    name: Check for Android changes
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      android: ${{ steps.filter.outputs.android }}
+    steps:
+    - uses: actions/checkout@v3
+    - uses: dorny/paths-filter@v3
+      id: filter
+      with:
+        filters: |
+          android:
+            - 'android/**'
+            - '.github/**'          
+
   build:
     runs-on: ubuntu-latest
+    needs: changes
+    if: ${{ needs.changes.outputs.android == 'true' }}
 
     steps:
       - uses: actions/checkout@v4
