@@ -35,6 +35,7 @@ android {
 }
 
 dependencies {
+    dokkaPlugin(libs.dokka.android)
 }
 
 publishing {
