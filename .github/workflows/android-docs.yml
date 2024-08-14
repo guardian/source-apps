@@ -1,0 +1,43 @@
+name: Android Docs
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+
+      - name: Build and generate docs
+        run: |
+          cd android
+          ./gradlew :source:dokkaGfm --no-configuration-cache
+          mkdir -p ../docs
+          mv source/build/dokka/gfm/* ../docs/
+                    
+      - name: Commit and push changes
+        run: |
+          git checkout gh-pages
+          git add docs
+          git commit -m "Update docs" -- docs
+          git push origin gh-pages --set-upstream
+          
