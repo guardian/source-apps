@@ -9,6 +9,7 @@ import com.theguardian.convention.shared.plugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.dependencies
 
 /**
  * Configures the Android library modules.
@@ -28,11 +29,16 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply(libs.plugin("agp-library").pluginId)
                 apply(libs.plugin("kgp").pluginId)
+                apply(libs.plugin("dokka").pluginId)
                 apply(libs.plugin("kotlinter").pluginId)
             }
 
             extensions.configure<LibraryExtension> {
                 configureAndroidModule(this)
+
+                dependencies {
+                    add("implementation", libs.findLibrary("dokka-android").get())
+                }
 
                 if (shouldSetupAndroidTests) {
                     configureAndroidTests(this)
