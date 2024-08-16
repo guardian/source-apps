@@ -47,7 +47,7 @@ Text(
 ```
 ### Core palette colours
 
-Core palette colours are available for direct use in components through `Source.Palette`. [Preview all available colours here](https://github.com/guardian/source-apps/blob/main/android/source/src/main/kotlin/com/gu/source/presets/palette/palette.png).
+Core palette colours are available for direct use in components through `Source.Palette`. [Preview all available colours here](source/src/main/kotlin/com/gu/source/presets/palette/palette.png).
 
 ```kotlin
 Text(
