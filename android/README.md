@@ -32,7 +32,7 @@ The design presets are available name spaced under the `com.gu.Source` object, e
 
 ### Typography presets
 
-Typography presets include `fontFamily`, `fontSize`, `lineHeight`, `fontWeight`, `fontStyle` in a single token. [All typography tokens with their previews are listed here](/android/source/src/main/kotlin/com/gu/source/presets/typography/README.md)
+Typography presets include `fontFamily`, `fontSize`, `lineHeight`, `fontWeight`, `fontStyle` in a single token. [All typography tokens with their previews are listed here](source/src/main/kotlin/com/gu/source/presets/typography/README.md)
 
 The library bundles app font files, so they are not separately required in consumer apps.
 
