@@ -59,7 +59,7 @@ jobs:
       - name: Build and generate docs
         run: |
           cd android
-          ./gradlew :source:dokkaHtml --no-configuration-cache
+          ./gradlew :source:dokkaHtml --no-configuration-cache --rerun-tasks
           rm -rf docs
           mkdir -p docs
           mv source/build/dokka/html/* docs/
