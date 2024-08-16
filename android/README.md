@@ -28,7 +28,7 @@ The library provides design presets and components.
 
 The design presets are available name spaced under the `com.gu.Source` object, e.g. `Source.Typography.HeadlineBold15`.
 
-[API documentation is here.](/android/docs/).
+[API documentation is here.](https://guardian.github.io/source-apps/android/docs/index.html).
 
 ### Typography presets
 
