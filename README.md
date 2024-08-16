@@ -8,7 +8,9 @@
 
 [![Available on maven central](https://maven-badges.herokuapp.com/maven-central/com.gu.source/source-android/badge.svg)](https://central.sonatype.com/artifact/com.gu.source/source-android)
 
-[Android library details and usage notes](/android/README.md).
+[Android library details and usage notes are here.](/android/README.md).
+
+[API documentation is here.](/android/docs/).
 
 # iOS Usage 
 
