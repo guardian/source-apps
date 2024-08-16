@@ -28,9 +28,11 @@ The library provides design presets and components.
 
 The design presets are available name spaced under the `com.gu.Source` object, e.g. `Source.Typography.HeadlineBold15`.
 
+[API documentation is here.](https://guardian.github.io/source-apps/android/docs/index.html).
+
 ### Typography presets
 
-Typography presets include `fontFamily`, `fontSize`, `lineHeight`, `fontWeight`, `fontStyle` in a single token. [All typography tokens with their previews are listed here](/android/source/src/main/kotlin/com/gu/source/presets/typography/README.md)
+Typography presets include `fontFamily`, `fontSize`, `lineHeight`, `fontWeight`, `fontStyle` in a single token. [All typography tokens with their previews are listed here](source/src/main/kotlin/com/gu/source/presets/typography/README.md)
 
 The library bundles app font files, so they are not separately required in consumer apps.
 
@@ -45,7 +47,7 @@ Text(
 ```
 ### Core palette colours
 
-Core palette colours are available for direct use in components through `Source.Palette`. [Preview all available colours here](https://github.com/guardian/source-apps/blob/main/android/source/src/main/kotlin/com/gu/source/presets/palette/palette.png).
+Core palette colours are available for direct use in components through `Source.Palette`. [Preview all available colours here](source/src/main/kotlin/com/gu/source/presets/palette/palette.png).
 
 ```kotlin
 Text(
