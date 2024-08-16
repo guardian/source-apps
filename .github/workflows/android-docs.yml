@@ -60,7 +60,7 @@ jobs:
           rm -rf docs
           mkdir -p docs
           mv source/build/dokka/html/* docs/
-          git add android/docs
-          git diff --staged --quiet || git commit -m "Update docs" -- android/docs
+          git add docs
+          git diff --staged --quiet || git commit -m "Update docs" -- docs
           git push origin gh-pages --set-upstream
           
