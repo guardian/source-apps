@@ -67,6 +67,6 @@ jobs:
       - name: Commit and push changes
         run: |
           git add android/docs
-          git commit -m "Update docs" -- android/docs
+          git diff --staged --quiet || git commit -m "Update docs" -- android/docs
           git push origin gh-pages --set-upstream
           
