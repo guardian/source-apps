@@ -10,6 +10,7 @@ import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.provideDelegate
 import org.gradle.kotlin.dsl.withType
 import org.gradle.plugin.use.PluginDependency
+import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /**
@@ -74,5 +75,22 @@ private fun Project.setupKotlinCompilerOptions() {
                 "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
             )
         }
+    }
+}
+
+internal fun Project.dokkaConfig() {
+    tasks.withType<DokkaTask>().configureEach {
+        val dokkaBaseConfiguration = """
+        {
+          "customAssets": ["${file("../docsAssets/source-logo.png")}"],
+          "customStyleSheets": ["${file("../docsAssets/logo-styles.css")}"]
+        }
+        """
+        pluginsMapConfiguration.set(
+            mapOf(
+                // fully qualified plugin name to json configuration
+                "org.jetbrains.dokka.base.DokkaBase" to dokkaBaseConfiguration,
+            ),
+        )
     }
 }

@@ -2,10 +2,7 @@ package com.theguardian.convention
 
 import com.android.build.api.variant.LibraryAndroidComponentsExtension
 import com.android.build.gradle.LibraryExtension
-import com.theguardian.convention.shared.configureAndroidModule
-import com.theguardian.convention.shared.configureAndroidTests
-import com.theguardian.convention.shared.libs
-import com.theguardian.convention.shared.plugin
+import com.theguardian.convention.shared.*
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -36,14 +33,16 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             extensions.configure<LibraryExtension> {
                 configureAndroidModule(this)
 
-                dependencies {
-                    add("implementation", libs.findLibrary("dokka-android").get())
-                }
-
                 if (shouldSetupAndroidTests) {
                     configureAndroidTests(this)
                 }
             }
+
+            // Setup Dokka
+            dependencies {
+                add("implementation", libs.findLibrary("dokka-android").get())
+            }
+            dokkaConfig()
 
             if (!shouldSetupAndroidTests) {
                 // Disable unnecessary Android instrumented tests for the project if there are no
