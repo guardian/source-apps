@@ -50,13 +50,15 @@ jobs:
         run: |
           cd android
           ./gradlew :source:dokkaGfm --no-configuration-cache
-          mkdir -p ../docs
-          mv source/build/dokka/gfm/* ../docs/
+          rm -rf docs
+          mkdir -p docs
+          mv source/build/dokka/gfm/* docs/
                     
       - name: Commit and push changes
         run: |
-          git checkout gh-pages
-          git add docs
+          git rev-parse --quiet --verify refs/heads/gh-pages >/dev/null && exists=true || exists=false
+          if $exists; then git checkout gh-pages; else git checkout -b gh-pages; fi
+          git add android/docs
           git commit -m "Update docs" -- docs
           git push origin gh-pages --set-upstream
           
