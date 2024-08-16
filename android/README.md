@@ -28,6 +28,8 @@ The library provides design presets and components.
 
 The design presets are available name spaced under the `com.gu.Source` object, e.g. `Source.Typography.HeadlineBold15`.
 
+Full documentation is available [in docs](/android/docs/).
+
 ### Typography presets
 
 Typography presets include `fontFamily`, `fontSize`, `lineHeight`, `fontWeight`, `fontStyle` in a single token. [All typography tokens with their previews are listed here](/android/source/src/main/kotlin/com/gu/source/presets/typography/README.md)
