@@ -50,22 +50,22 @@ jobs:
       
       - name: Switch to gh-pages branch
         run: |
+          cd android
+          ./gradlew :source:dokkaHtml --no-configuration-cache --rerun-tasks
           git config --global user.name "GuardianAndroid"
           git config --global user.email "guardian.android@gmail.com"
           git fetch origin gh-pages
           git checkout gh-pages
           git pull origin gh-pages
-
-      - name: Build and generate docs
-        run: |
-          cd android
-          ./gradlew :source:dokkaHtml --no-configuration-cache --rerun-tasks
+      #
+      # - name: Build and generate docs
+      #   run: |
           rm -rf docs
           mkdir -p docs
           mv source/build/dokka/html/* docs/
-                    
-      - name: Commit and push changes
-        run: |
+      #             
+      # - name: Commit and push changes
+      #   run: |
           git add android/docs
           git diff --staged --quiet || git commit -m "Update docs" -- android/docs
           git push origin gh-pages --set-upstream
