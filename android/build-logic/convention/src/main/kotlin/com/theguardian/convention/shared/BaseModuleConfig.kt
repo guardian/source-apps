@@ -80,6 +80,12 @@ private fun Project.setupKotlinCompilerOptions() {
 
 internal fun Project.dokkaConfig() {
     tasks.withType<DokkaTask>().configureEach {
+
+        moduleName.set("Source for Android")
+        moduleVersion.set("v." + libs.findVersion("libraryVersion").get().toString())
+        // outputDirectory.set(layout.buildDirectory.dir("../docs"))
+
+        // Config for HTML files
         val dokkaBaseConfiguration = """
         {
           "customAssets": ["${file("../docsAssets/source-logo.png")}"],
