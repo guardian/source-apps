@@ -33,6 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: changes
     if: ${{ needs.changes.outputs.android == 'true' }}
+    permissions: write-all
 
     steps:
       - uses: actions/checkout@v4
