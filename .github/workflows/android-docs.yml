@@ -60,8 +60,9 @@ jobs:
         run: |
           git config --global user.name "GuardianAndroid"
           git config --global user.email "guardian.android@gmail.com"
-          git rev-parse --quiet --verify refs/heads/gh-pages >/dev/null && exists=true || exists=false
-          if $exists; then git checkout gh-pages; else git checkout -b gh-pages; fi
+          git fetch origin gh-pages
+          git checkout gh-pages
+          git pull origin gh-pages
           git add android/docs
           git commit -m "Update docs" -- android/docs
           git push origin gh-pages --set-upstream
