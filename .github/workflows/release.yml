@@ -5,6 +5,7 @@ on:
   release:
 
 jobs:
+  if: github.repository == 'guardian/source-apps'
   release:
       runs-on: ubuntu-latest
       steps:
