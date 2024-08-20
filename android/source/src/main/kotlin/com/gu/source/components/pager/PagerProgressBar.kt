@@ -114,6 +114,8 @@ private fun Modifier.progressBarPadding() = this
  * A progress bar that shows the current page of a [PagerState] and, on tablets, allows the user to
  * navigate between pages using next/prev buttons.
  *
+ * @sample AnimatedPreview
+ *
  * @param pagerState The [PagerState] that this indicator should be bound to.
  * @param modifier
  * @param buttonColours The colours for the next/prev buttons.
