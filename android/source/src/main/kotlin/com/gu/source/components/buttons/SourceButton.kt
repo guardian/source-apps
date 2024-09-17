@@ -82,7 +82,12 @@ object SourceButton {
         ),
     }
 
-    /** Enum for the priority of the [SourceButton]. Informs users of how important an action is. */
+    /**
+     * Enum for the priority of the [SourceButton]. Informs users of how important an action is.
+     *
+     * The priorities are named based on button priority and backdrop colour.
+     */
+    @Suppress("UndocumentedPublicProperty")
     enum class Priority {
         PrimaryOnBlue,
         SecondaryOnBlue,
@@ -110,6 +115,7 @@ object SourceButton {
     }
 
     /** Enum for the side of the button on which the icon appears. */
+    @Suppress("UndocumentedPublicProperty")
     enum class IconSide {
         Left,
         Right,

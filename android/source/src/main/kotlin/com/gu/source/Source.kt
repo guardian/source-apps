@@ -40,6 +40,7 @@ object Source {
     }
 
     /** Source colour themes used by components. */
+    @Suppress("UndocumentedPublicProperty")
     enum class Theme {
         Core,
         ReaderRevenue,
