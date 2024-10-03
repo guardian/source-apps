@@ -17,7 +17,7 @@ val Source.Icons.Core.Minus: ImageVector
             return minus!!
         }
         minus = ImageVector.Builder(
-            name = "CoreMinus",
+            name = "Minus",
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
