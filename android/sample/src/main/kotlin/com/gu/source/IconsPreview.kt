@@ -11,7 +11,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.components.buttons.SourceButton
@@ -28,11 +27,6 @@ import com.gu.source.presets.palette.Neutral100
 import com.gu.source.presets.typography.HeadlineBold20
 import com.gu.source.presets.typography.TextSansBold14
 import com.gu.source.presets.typography.TextSansBold15
-
-private data class Icon(
-    val name: String,
-    val icon: ImageVector,
-)
 
 private val icons = mapOf(
     "Base" to listOf(
@@ -70,19 +64,19 @@ internal fun Icons(modifier: Modifier = Modifier) {
                     modifier = Modifier.padding(8.dp),
                 )
             }
-            icons.keys.forEachIndexed { iconIndex, icon ->
+            icons.keys.forEachIndexed { iconIndex, iconKey ->
                 item(span = { GridItemSpan(2) }) {
                     Column {
                         Spacer(modifier = Modifier.height(8.dp))
                         HorizontalDivider()
                         Text(
-                            text = icon,
+                            text = iconKey,
                             style = Source.Typography.TextSansBold14,
                             modifier = Modifier.padding(8.dp),
                         )
                     }
                 }
-                items(icons[icon].orEmpty()) { icon ->
+                items(icons[iconKey].orEmpty()) { icon ->
                     Box(
                         modifier = Modifier
                             .height(50.dp)
