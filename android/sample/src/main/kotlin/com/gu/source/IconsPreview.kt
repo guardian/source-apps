@@ -22,8 +22,10 @@ import com.gu.source.icons.ChevronLeft
 import com.gu.source.icons.ChevronRight
 import com.gu.source.icons.core.Minus
 import com.gu.source.icons.core.Plus
+import com.gu.source.presets.palette.Brand400
 import com.gu.source.presets.palette.Neutral0
 import com.gu.source.presets.palette.Neutral100
+import com.gu.source.presets.palette.Sport500
 import com.gu.source.presets.typography.HeadlineBold20
 import com.gu.source.presets.typography.TextSansBold14
 import com.gu.source.presets.typography.TextSansBold15
@@ -90,6 +92,10 @@ internal fun Icons(modifier: Modifier = Modifier) {
                         )
                         SourceIconButton(
                             icon = icon,
+                            iconColor = AppColour(
+                                Source.Palette.Brand400,
+                                Source.Palette.Sport500,
+                            ),
                             priority = SourceButton.Priority.TertiaryOnWhite,
                             contentDescription = null,
                             onClick = {},

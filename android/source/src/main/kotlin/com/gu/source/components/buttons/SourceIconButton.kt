@@ -9,6 +9,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -105,6 +106,7 @@ fun SourceBaseIconButton(
  * @param onClick The action to perform when the button is clicked.
  * @param modifier The modifier to apply to the button.
  * @param enabled Whether the button is enabled and can be interacted with.
+ * @param iconColor The Optional light/dark mode color for the icon. If not provided, will use colors from priority.
  * @param size Optional size for the button. Reflects the prominence of the action. Defaults to
  * [SourceButton.Size.Medium].
  * @param theme Optional [Source.Theme] to apply to the button. If not provided, the current theme
@@ -122,6 +124,7 @@ fun SourceIconButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
+    iconColor: AppColour? = null,
     size: SourceButton.Size = SourceButton.Size.Medium,
     theme: Source.Theme? = null,
 ) {
@@ -133,7 +136,11 @@ fun SourceIconButton(
 
     SourceBaseIconButton(
         size = size,
-        buttonColours = priority.toColours(appliedTheme),
+        buttonColours = ButtonColours(
+            border = iconColor ?: priority.toColours(appliedTheme).border,
+            container = priority.toColours(appliedTheme).container,
+            content = priority.toColours(appliedTheme).content,
+        ),
         onClick = onClick,
         modifier = modifier,
         enabled = enabled,
@@ -142,6 +149,7 @@ fun SourceIconButton(
             imageVector = icon,
             contentDescription = contentDescription,
             modifier = it,
+            tint = iconColor?.current ?: LocalContentColor.current,
         )
     }
 }
