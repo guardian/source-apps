@@ -85,8 +85,7 @@ internal fun Icons(modifier: Modifier = Modifier) {
                         Text(
                             text = icon.name,
                             modifier = Modifier
-                                .align(Alignment.TopCenter)
-                                .padding(top = 8.dp),
+                                .align(Alignment.Center),
                             style = Source.Typography.TextSansBold15,
                         )
                         SourceIconButton(
