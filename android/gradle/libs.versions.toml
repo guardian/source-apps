@@ -7,7 +7,7 @@ targetsdk = "34"
 java = "17"
 
 
-agp = "8.6.1"
+agp = "8.7.0"
 kotlin = "2.0.20"
 # Kotlinter version is tied closely to min & max Kotlin and Gradle versions. Update Kotlinter
 # when updating Kotlin. Check compatible versions here:
@@ -35,7 +35,7 @@ androidx-junit = "1.2.1"
 androidx-test-core = "1.6.1"
 androidx-test-rules = "1.6.1"
 androidx-test-runner = "1.6.2"
-testparameterinjector = "1.17"
+testparameterinjector = "1.18"
 paparazzi = "1.3.4"
 
 # Convention plugin versions

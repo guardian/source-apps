@@ -20,7 +20,7 @@ import com.gu.source.Source
 @Suppress("UnusedReceiverParameter")
 val Source.Icons.Base.ChevronLeft: ImageVector
     get() = _icon ?: Builder(
-        name = "Check",
+        name = "ChevronLeft",
         defaultWidth = 24.0.dp,
         defaultHeight = 24.0.dp,
         viewportWidth = 24.0f,
