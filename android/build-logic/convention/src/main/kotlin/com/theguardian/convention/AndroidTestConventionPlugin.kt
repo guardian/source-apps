@@ -8,6 +8,7 @@ import com.theguardian.convention.shared.plugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
+import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 
 /**
  * Configures the Android test modules.
@@ -29,7 +30,7 @@ class AndroidTestConventionPlugin : Plugin<Project> {
             }
 
             extensions.configure<TestExtension> {
-                configureAndroidModule(this)
+                configureAndroidModule<KotlinAndroidProjectExtension>(this)
 
                 configureAndroidTests(
                     extension = this,
