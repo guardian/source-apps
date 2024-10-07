@@ -39,7 +39,7 @@ public struct PaginationProgressBar: View {
                 ZStack(alignment: .trailing) {
                     scrollingIndicator
                         .frame(maxWidth: .infinity, alignment: .center)
-                    progressButtons
+                    PaginationButtons(iconColor: primaryColor, borderColor: secondaryColor, selectedIndex: $selectedIndex, canNavigateBack: $canNavigateBack, canNavigateForward: $canNavigateForward)
                         .frame(alignment: .trailing)
                 }
             } else {
@@ -59,33 +59,6 @@ public struct PaginationProgressBar: View {
             primaryColor: primaryColor,
             secondaryColor: secondaryColor
         )
-    }
-
-    private var progressButtons: some View {
-        HStack {
-            IconButton(
-                icon: Image(.chevronLeft),
-                size: .small,
-                iconColor: primaryColor,
-                borderColor: secondaryColor,
-                disabled: $canNavigateBack
-            ) {
-                withAnimation {
-                    selectedIndex -= 1
-                }
-            }
-            IconButton(
-                icon: Image(.chevronRight),
-                size: .small,
-                iconColor: primaryColor,
-                borderColor: secondaryColor,
-                disabled: $canNavigateForward
-            ) {
-                withAnimation {
-                    selectedIndex += 1
-                }
-            }
-        }
     }
 
     private func updateButtonDisabledState() {
