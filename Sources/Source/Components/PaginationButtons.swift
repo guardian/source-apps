@@ -4,21 +4,19 @@ public struct PaginationButtons: View {
     let iconColor: Color
     let borderColor: Color
     @Binding var selectedIndex: Int
-    @Binding var canNavigateBack: Bool
-    @Binding var canNavigateForward: Bool
+    let pageCount: Int
+
 
     public init(
         iconColor: Color,
         borderColor: Color,
         selectedIndex: Binding<Int>,
-        canNavigateBack: Binding<Bool>,
-        canNavigateForward: Binding<Bool>
+        pageCount: Int
     ) {
         self.iconColor = iconColor
         self.borderColor = borderColor
         self._selectedIndex = selectedIndex
-        self._canNavigateBack = canNavigateBack
-        self._canNavigateForward = canNavigateForward
+        self.pageCount = pageCount
     }
 
     public var body: some View {
@@ -28,7 +26,7 @@ public struct PaginationButtons: View {
                 size: .small,
                 iconColor: iconColor,
                 borderColor: borderColor,
-                disabled: $canNavigateBack
+                disabled: selectedIndex > 0
             ) {
                 withAnimation {
                     selectedIndex -= 1
@@ -39,7 +37,7 @@ public struct PaginationButtons: View {
                 size: .small,
                 iconColor: iconColor,
                 borderColor: borderColor,
-                disabled: $canNavigateForward
+                disabled: selectedIndex < pageCount
             ) {
                 withAnimation {
                     selectedIndex += 1
@@ -50,5 +48,5 @@ public struct PaginationButtons: View {
 }
 
 #Preview {
-    PaginationButtons(iconColor: .blue, borderColor: .red, selectedIndex: .constant(0), canNavigateBack: .constant(true), canNavigateForward: .constant(false))
+    PaginationButtons(iconColor: .blue, borderColor: .red, selectedIndex: .constant(0), pageCount: 10)
 }
