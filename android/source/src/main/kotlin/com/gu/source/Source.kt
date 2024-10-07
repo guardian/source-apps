@@ -37,9 +37,6 @@ object Source {
     object Icons {
         /** Base icons without any decoration around them. */
         object Base
-
-        /** Core icons without any decoration around them. */
-        object Core
     }
 
     /** Source colour themes used by components. */

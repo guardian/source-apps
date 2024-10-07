@@ -20,8 +20,8 @@ import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.Check
 import com.gu.source.icons.ChevronLeft
 import com.gu.source.icons.ChevronRight
-import com.gu.source.icons.core.Minus
-import com.gu.source.icons.core.Plus
+import com.gu.source.icons.Minus
+import com.gu.source.icons.Plus
 import com.gu.source.presets.palette.Brand400
 import com.gu.source.presets.palette.Neutral0
 import com.gu.source.presets.palette.Neutral100
@@ -35,10 +35,8 @@ private val icons = mapOf(
         Source.Icons.Base.Check,
         Source.Icons.Base.ChevronLeft,
         Source.Icons.Base.ChevronRight,
-    ),
-    "Core" to listOf(
-        Source.Icons.Core.Plus,
-        Source.Icons.Core.Minus,
+        Source.Icons.Base.Minus,
+        Source.Icons.Base.Plus,
     ),
 )
 
