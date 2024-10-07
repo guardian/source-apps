@@ -5,6 +5,7 @@ import com.theguardian.convention.shared.libs
 import com.theguardian.convention.shared.plugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 
 /**
  * Configures the Android application module.
@@ -23,7 +24,7 @@ class KotlinLibraryConventionPlugin : Plugin<Project> {
                 apply(libs.plugin("kotlinter").pluginId)
             }
 
-            addBaseDependencies()
+            addBaseDependencies<KotlinJvmProjectExtension>()
         }
     }
 }
