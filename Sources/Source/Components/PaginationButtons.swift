@@ -21,12 +21,12 @@ public struct PaginationButtons: View {
 
     private var backDisabled: Bool {
         guard let selectedIndex else { return true }
-        return selectedIndex > 0
+        return selectedIndex == 0
     }
 
     private var forwardDisabled: Bool {
         guard let selectedIndex else { return true }
-        return selectedIndex < pageCount
+        return selectedIndex >= pageCount - 1
     }
 
     public var body: some View {
