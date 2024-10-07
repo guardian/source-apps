@@ -61,7 +61,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
                 SheetContentType.Palette -> Palette(sheetModifier)
                 SheetContentType.PagerProgressBar -> ImagePagerWithProgressIndicator(sheetModifier)
                 SheetContentType.Buttons -> ButtonPreview(sheetModifier)
-                SheetContentType.CoreIcons -> Icons(sheetModifier)
+                SheetContentType.CoreIcons -> IconsPreview(sheetModifier)
             }
         },
         scaffoldState = scaffoldState,

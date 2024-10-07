@@ -5,7 +5,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,31 +16,22 @@ import com.gu.source.components.buttons.SourceButton
 import com.gu.source.components.buttons.SourceIconButton
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.Check
-import com.gu.source.icons.ChevronLeft
-import com.gu.source.icons.ChevronRight
-import com.gu.source.icons.Minus
-import com.gu.source.icons.Plus
-import com.gu.source.presets.palette.Brand400
+import com.gu.source.icons.*
 import com.gu.source.presets.palette.Neutral0
 import com.gu.source.presets.palette.Neutral100
-import com.gu.source.presets.palette.Sport500
 import com.gu.source.presets.typography.HeadlineBold20
-import com.gu.source.presets.typography.TextSansBold14
 import com.gu.source.presets.typography.TextSansBold15
 
-private val icons = mapOf(
-    "Base" to listOf(
-        Source.Icons.Base.Check,
-        Source.Icons.Base.ChevronLeft,
-        Source.Icons.Base.ChevronRight,
-        Source.Icons.Base.Minus,
-        Source.Icons.Base.Plus,
-    ),
+private val icons = listOf(
+    Source.Icons.Base.Check,
+    Source.Icons.Base.ChevronLeft,
+    Source.Icons.Base.ChevronRight,
+    Source.Icons.Base.Minus,
+    Source.Icons.Base.Plus,
 )
 
 @Composable
-internal fun Icons(modifier: Modifier = Modifier) {
+internal fun IconsPreview(modifier: Modifier = Modifier) {
     Surface(
         modifier = modifier,
         color = AppColour(
@@ -57,49 +47,32 @@ internal fun Icons(modifier: Modifier = Modifier) {
             columns = GridCells.Fixed(2),
             contentPadding = PaddingValues(vertical = 8.dp),
         ) {
-            item {
+            item(span = { GridItemSpan(2) }) {
                 Text(
                     text = "Icons",
                     style = Source.Typography.HeadlineBold20,
                     modifier = Modifier.padding(8.dp),
                 )
             }
-            icons.keys.forEachIndexed { iconIndex, iconKey ->
-                item(span = { GridItemSpan(2) }) {
-                    Column {
-                        Spacer(modifier = Modifier.height(8.dp))
-                        HorizontalDivider()
-                        Text(
-                            text = iconKey,
-                            style = Source.Typography.TextSansBold14,
-                            modifier = Modifier.padding(8.dp),
-                        )
-                    }
-                }
-                items(icons[iconKey].orEmpty()) { icon ->
-                    Box(
+            items(icons) { icon ->
+                Box(
+                    modifier = Modifier
+                        .height(50.dp)
+                        .fillMaxWidth(),
+                ) {
+                    Text(
+                        text = icon.name,
                         modifier = Modifier
-                            .height(50.dp)
-                            .fillMaxWidth(),
-                    ) {
-                        Text(
-                            text = icon.name,
-                            modifier = Modifier
-                                .align(Alignment.Center),
-                            style = Source.Typography.TextSansBold15,
-                        )
-                        SourceIconButton(
-                            icon = icon,
-                            iconColor = AppColour(
-                                Source.Palette.Brand400,
-                                Source.Palette.Sport500,
-                            ),
-                            priority = SourceButton.Priority.TertiaryOnWhite,
-                            contentDescription = null,
-                            onClick = {},
-                            size = SourceButton.Size.XSmall,
-                        )
-                    }
+                            .align(Alignment.Center),
+                        style = Source.Typography.TextSansBold15,
+                    )
+                    SourceIconButton(
+                        icon = icon,
+                        priority = SourceButton.Priority.TertiaryOnWhite,
+                        contentDescription = null,
+                        onClick = {},
+                        size = SourceButton.Size.XSmall,
+                    )
                 }
             }
         }
@@ -110,6 +83,6 @@ internal fun Icons(modifier: Modifier = Modifier) {
 @Composable
 private fun Preview() {
     AppColourMode {
-        Icons()
+        IconsPreview()
     }
 }
