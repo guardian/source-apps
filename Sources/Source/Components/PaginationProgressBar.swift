@@ -1,5 +1,4 @@
 import SwiftUI
-import Source
 
 /// This component used to signpost progression through a paginated view.
 ///
@@ -8,7 +7,7 @@ public struct PaginationProgressBar: View {
 
     private let pageCount: Int
     private let indicatorWidth: CGFloat
-    @Binding private var selectedIndex: Int
+    @Binding private var selectedIndex: Int?
     private let primaryColor: Color
     private let secondaryColor: Color
 
@@ -22,7 +21,7 @@ public struct PaginationProgressBar: View {
     public init(
         pageCount: Int,
         indicatorWidth: CGFloat,
-        selectedIndex: Binding<Int>,
+        selectedIndex: Binding<Int?>,
         primaryColor: Color,
         secondaryColor: Color
     ) {
@@ -39,7 +38,7 @@ public struct PaginationProgressBar: View {
                 ZStack(alignment: .trailing) {
                     scrollingIndicator
                         .frame(maxWidth: .infinity, alignment: .center)
-                    PaginationButtons(iconColor: primaryColor, borderColor: secondaryColor, selectedIndex: $selectedIndex, canNavigateBack: $canNavigateBack, canNavigateForward: $canNavigateForward)
+                    PaginationButtons(iconColor: primaryColor, borderColor: secondaryColor, selectedIndex: $selectedIndex, pageCount: pageCount)
                         .frame(alignment: .trailing)
                 }
             } else {
@@ -69,7 +68,7 @@ public struct PaginationProgressBar: View {
 
 struct PaginationProgressBar_Previews_Container: PreviewProvider {
     struct Container: View {
-        @State var selectedIndex = 0
+        @State var selectedIndex: Int? = 0
         let elementArray = [0, 1, 2, 3, 4, 5, 6]
         var body: some View {
             VStack {
