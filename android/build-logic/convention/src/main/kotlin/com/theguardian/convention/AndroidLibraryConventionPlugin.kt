@@ -7,6 +7,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
+import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 
 /**
  * Configures the Android library modules.
@@ -31,7 +32,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             }
 
             extensions.configure<LibraryExtension> {
-                configureAndroidModule(this)
+                configureAndroidModule<KotlinAndroidProjectExtension>(this)
 
                 if (shouldSetupAndroidTests) {
                     configureAndroidTests(this)
