@@ -9,21 +9,21 @@ public struct IconButton: View {
     private let iconColor: Color
     private let borderColor: Color
     private let action: () -> ()
-    @Binding private var disabled: Bool
+    private var disabled: Bool
 
     public init(
         icon: Image,
         size: ButtonSize,
         iconColor: Color,
         borderColor: Color,
-        disabled: Binding<Bool> = .constant(false),
+        disabled: Bool = false,
         action: @escaping () -> Void
     ) {
         self.icon = icon
         self.size = size
         self.iconColor = iconColor
         self.borderColor = borderColor
-        self._disabled = disabled
+        self.disabled = disabled
         self.action = action
     }
 
@@ -35,8 +35,7 @@ public struct IconButton: View {
             icon
                 .resizable()
         }
-        .buttonStyle(IconButtonStyle(size: size, isDisabled: $disabled, borderColor: borderColor, iconColor: iconColor))
-
+        .buttonStyle(IconButtonStyle(size: size, isDisabled: disabled, borderColor: borderColor, iconColor: iconColor))
     }
 }
 
@@ -44,17 +43,17 @@ public struct IconButton: View {
 ///
 /// Custom disabled functionality has been used here, rather than the native to ensure the styling of the button in the disabled state is correctly reflected and that no touch events are passed through to the view behind.
 struct IconButtonStyle: ButtonStyle {
-    let size: ButtonSize
-    @Binding private var isDisabled: Bool
-    let borderColor: Color
-    let iconColor: Color
+    private let size: ButtonSize
+    private let isDisabled: Bool
+    private let borderColor: Color
+    private let iconColor: Color
 
     @Environment(\.colorScheme) private
     var colorScheme
 
-    init(size: ButtonSize, isDisabled: Binding<Bool> = .constant(false), borderColor: Color, iconColor: Color) {
+    init(size: ButtonSize, isDisabled: Bool = false, borderColor: Color, iconColor: Color) {
         self.size = size
-        self._isDisabled = isDisabled
+        self.isDisabled = isDisabled
         self.borderColor = borderColor
         self.iconColor = iconColor
     }
@@ -82,7 +81,7 @@ struct IconButtonStyle: ButtonStyle {
 }
 
 #Preview {
-    IconButton(icon: Image(.chevronLeft), size: .small, iconColor: .black, borderColor: .gray, disabled: .constant(false), action: {})
+    IconButton(icon: Image(.chevronLeft), size: .small, iconColor: .black, borderColor: .gray, disabled: false, action: {})
 }
 
 // Maps button size to layout values for icon.
