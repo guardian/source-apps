@@ -36,7 +36,6 @@ public struct IconButton: View {
                 .resizable()
         }
         .buttonStyle(IconButtonStyle(size: size, isDisabled: disabled, borderColor: borderColor, iconColor: iconColor))
-
     }
 }
 
@@ -44,10 +43,10 @@ public struct IconButton: View {
 ///
 /// Custom disabled functionality has been used here, rather than the native to ensure the styling of the button in the disabled state is correctly reflected and that no touch events are passed through to the view behind.
 struct IconButtonStyle: ButtonStyle {
-    let size: ButtonSize
-    private var isDisabled: Bool
-    let borderColor: Color
-    let iconColor: Color
+    private let size: ButtonSize
+    private let isDisabled: Bool
+    private let borderColor: Color
+    private let iconColor: Color
 
     @Environment(\.colorScheme) private
     var colorScheme

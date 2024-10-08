@@ -7,10 +7,10 @@ public struct PaginationProgressBar: View {
 
     private let pageCount: Int
     private let indicatorWidth: CGFloat
-    @Binding private var selectedIndex: Int?
     private let primaryColor: Color
     private let secondaryColor: Color
 
+    @Binding private var selectedIndex: Int?
     @Environment(\.horizontalSizeClass)
     private var sizeClass
 

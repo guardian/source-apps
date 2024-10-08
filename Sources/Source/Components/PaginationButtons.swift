@@ -6,7 +6,6 @@ public struct PaginationButtons: View {
     @Binding var selectedIndex: Int?
     let pageCount: Int
 
-
     public init(
         iconColor: Color,
         borderColor: Color,
