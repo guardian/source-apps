@@ -39,7 +39,7 @@ import com.gu.source.utils.isTabletDevice
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-private enum class ProgressDirection {
+enum class ProgressDirection {
     Previous,
     Next,
 }
@@ -54,7 +54,7 @@ private val DefaultUnSelectedIndicatorColour = AppColour(
     dark = Source.Palette.Neutral100.copy(alpha = 0.3f),
 )
 
-private val DefaultButtonColours = ButtonColours(
+val DefaultButtonColours = ButtonColours(
     border = AppColour(
         light = Source.Palette.Neutral7.copy(alpha = 0.2f),
         dark = Source.Palette.Neutral100.copy(alpha = 0.4f),
@@ -66,17 +66,17 @@ private val DefaultButtonColours = ButtonColours(
     ),
 )
 
-private val DefaultPageSlideAnimationSpec = spring<Float>(stiffness = Spring.StiffnessMediumLow)
+val DefaultPageSlideAnimationSpec = spring<Float>(stiffness = Spring.StiffnessMediumLow)
 
-private const val DisabledButtonAlphaLight = 0.2f
-private const val DisabledButtonAlphaDark = 0.4f
+const val DisabledButtonAlphaLight = 0.2f
+const val DisabledButtonAlphaDark = 0.4f
 
-private fun AppColour.setDisabledAlpha() = AppColour(
+fun AppColour.setDisabledAlpha() = AppColour(
     light = light.copy(alpha = DisabledButtonAlphaLight.coerceAtMost(light.alpha)),
     dark = dark.copy(alpha = DisabledButtonAlphaDark.coerceAtMost(light.alpha)),
 )
 
-private fun disabledModeButtonColours(enabledColours: ButtonColours = DefaultButtonColours) =
+fun disabledModeButtonColours(enabledColours: ButtonColours = DefaultButtonColours) =
     ButtonColours(
         border = enabledColours.border.setDisabledAlpha(),
         container = enabledColours.container.setDisabledAlpha(),
@@ -85,7 +85,7 @@ private fun disabledModeButtonColours(enabledColours: ButtonColours = DefaultBut
 
 // The progress buttons get a min touch size padding of 12.dp, so we need to things by half that to
 // get the correct offset and padding
-private val ProgressButtonTouchAdjustment = 6.dp
+val ProgressButtonTouchAdjustment = 6.dp
 
 /**
  * Applies the size and padding for the progress bar. Size is explicitly required because if this
@@ -141,9 +141,7 @@ fun PagerProgressBar(
     prevButtonContentDescription: String? = null,
     nextButtonContentDescription: String? = null,
     showProgressButtons: Boolean = isTabletDevice(),
-    pageSlideAnimationSpec: AnimationSpec<Float> = DefaultPageSlideAnimationSpec,
 ) {
-    val coroutineScope = rememberCoroutineScope()
 
     Box(
         modifier = modifier
@@ -158,26 +156,8 @@ fun PagerProgressBar(
         )
         if (showProgressButtons) {
             ProgressButtons(
-                buttonColours = buttonColours,
-                onClick = {
-                    coroutineScope.launch {
-                        val page = when (it) {
-                            ProgressDirection.Previous -> {
-                                (pagerState.currentPage - 1).coerceAtLeast(0)
-                            }
-
-                            ProgressDirection.Next -> {
-                                (pagerState.currentPage + 1).coerceAtMost(pagerState.pageCount - 1)
-                            }
-                        }
-                        pagerState.animateScrollToPage(
-                            page = page,
-                            animationSpec = pageSlideAnimationSpec,
-                        )
-                    }
-                },
-                isNextEnabled = pagerState.canScrollForward,
-                isPrevEnabled = pagerState.canScrollBackward,
+                pagerState = pagerState,
+                buttonColours = DefaultButtonColours,
                 prevButtonContentDescription = prevButtonContentDescription,
                 nextButtonContentDescription = nextButtonContentDescription,
                 modifier = Modifier
@@ -217,7 +197,6 @@ fun PagerProgressBar(
     prevButtonContentDescription: String? = null,
     nextButtonContentDescription: String? = null,
     showProgressButtons: Boolean = isTabletDevice(),
-    pageSlideAnimationSpec: AnimationSpec<Float> = DefaultPageSlideAnimationSpec,
 ) {
     PagerProgressBar(
         pagerState = pagerState,
@@ -228,54 +207,7 @@ fun PagerProgressBar(
         prevButtonContentDescription = prevButtonContentDescription,
         nextButtonContentDescription = nextButtonContentDescription,
         showProgressButtons = showProgressButtons,
-        pageSlideAnimationSpec = pageSlideAnimationSpec,
     )
-}
-
-@SuppressLint("DiscouragedApi")
-@Composable
-private fun ProgressButtons(
-    buttonColours: ButtonColours,
-    onClick: (progressDirection: ProgressDirection) -> Unit,
-    isNextEnabled: Boolean,
-    isPrevEnabled: Boolean,
-    prevButtonContentDescription: String?,
-    nextButtonContentDescription: String?,
-    modifier: Modifier = Modifier,
-    disabledButtonColours: ButtonColours? = null,
-) {
-    Row(
-        modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        SourceBaseIconButton(
-            size = SourceButton.Size.Small,
-            buttonColours = buttonColours,
-            disabledButtonColours = disabledButtonColours,
-            onClick = { onClick(ProgressDirection.Previous) },
-            enabled = isPrevEnabled,
-            modifier = Modifier.offset(x = ProgressButtonTouchAdjustment * 2),
-        ) {
-            Icon(
-                imageVector = Source.Icons.Base.ChevronLeft,
-                contentDescription = prevButtonContentDescription,
-                modifier = it,
-            )
-        }
-        SourceBaseIconButton(
-            size = SourceButton.Size.Small,
-            buttonColours = buttonColours,
-            disabledButtonColours = disabledButtonColours,
-            onClick = { onClick(ProgressDirection.Next) },
-            enabled = isNextEnabled,
-        ) {
-            Icon(
-                imageVector = Source.Icons.Base.ChevronRight,
-                contentDescription = nextButtonContentDescription,
-                modifier = it,
-            )
-        }
-    }
 }
 
 @Suppress("MagicNumber")
@@ -337,7 +269,6 @@ private fun AnimatedPreview() {
             PagerProgressBar(
                 pagerState = pagerState,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
-                pageSlideAnimationSpec = animationSpec,
             )
         }
     }
