@@ -8,7 +8,7 @@ java = "17"
 
 
 agp = "8.7.0"
-kotlin = "2.0.20"
+kotlin = "2.0.21"
 # Kotlinter version is tied closely to min & max Kotlin and Gradle versions. Update Kotlinter
 # when updating Kotlin. Check compatible versions here:
 # https://github.com/jeremymailen/kotlinter-gradle/blob/master/README.md#compatibility
