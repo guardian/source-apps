@@ -4,9 +4,11 @@ import android.annotation.SuppressLint
 import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Icon
@@ -112,12 +114,12 @@ fun handlePageTransition(
 fun ProgressButtonsPreview() {
     val pagerState = rememberPagerState(0) { 10 }
     AppColourMode {
-        Row( modifier = Modifier
-            .background(
+        Box(
+            modifier = Modifier.background(
                 AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
-            )
-            .width(600.dp)
+            ),
         ) {
+            HorizontalPager(state = pagerState) {}
             ProgressButtons(
                 pagerState = pagerState,
                 prevButtonContentDescription = "Previous",
