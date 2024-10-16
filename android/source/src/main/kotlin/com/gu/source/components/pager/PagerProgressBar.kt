@@ -2,8 +2,6 @@
 
 package com.gu.source.components.pager
 
-import android.annotation.SuppressLint
-import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -13,23 +11,18 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.components.buttons.ButtonColours
-import com.gu.source.components.buttons.SourceBaseIconButton
 import com.gu.source.components.buttons.SourceButton
 import com.gu.source.components.buttons.toColours
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.ChevronLeft
-import com.gu.source.icons.ChevronRight
 import com.gu.source.presets.palette.*
 import com.gu.source.presets.typography.Titlepiece70
 import com.gu.source.theme.LocalSourceTheme
@@ -37,7 +30,6 @@ import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.PreviewTabletBothMode
 import com.gu.source.utils.isTabletDevice
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 enum class ProgressDirection {
     Previous,
@@ -54,7 +46,7 @@ private val DefaultUnSelectedIndicatorColour = AppColour(
     dark = Source.Palette.Neutral100.copy(alpha = 0.3f),
 )
 
-val DefaultButtonColours = ButtonColours(
+internal val DefaultButtonColours = ButtonColours(
     border = AppColour(
         light = Source.Palette.Neutral7.copy(alpha = 0.2f),
         dark = Source.Palette.Neutral100.copy(alpha = 0.4f),
@@ -66,7 +58,7 @@ val DefaultButtonColours = ButtonColours(
     ),
 )
 
-val DefaultPageSlideAnimationSpec = spring<Float>(stiffness = Spring.StiffnessMediumLow)
+internal val DefaultPageSlideAnimationSpec = spring<Float>(stiffness = Spring.StiffnessMediumLow)
 
 const val DisabledButtonAlphaLight = 0.2f
 const val DisabledButtonAlphaDark = 0.4f

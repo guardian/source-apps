@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
@@ -26,10 +25,8 @@ import com.gu.source.icons.ChevronLeft
 import com.gu.source.icons.ChevronRight
 import com.gu.source.presets.palette.Neutral10
 import com.gu.source.presets.palette.Neutral100
-import com.gu.source.presets.palette.Neutral7
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.PreviewTabletBothMode
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @SuppressLint("DiscouragedApi")
@@ -54,12 +51,13 @@ fun ProgressButtons(
             buttonColours = buttonColours,
             disabledButtonColours = disabledButtonColours,
             onClick = {
-                handlePageTransition(
-                    coroutineScope,
-                    pagerState,
-                    ProgressDirection.Previous,
-                    pageSlideAnimationSpec
-                )
+                coroutineScope.launch {
+                    animateScrollToNext(
+                        pagerState,
+                        ProgressDirection.Previous,
+                        pageSlideAnimationSpec
+                    )
+                }
             },
             enabled = pagerState.canScrollBackward,
             modifier = Modifier.offset(x = ProgressButtonTouchAdjustment * 2),
@@ -75,12 +73,13 @@ fun ProgressButtons(
             buttonColours = buttonColours,
             disabledButtonColours = disabledButtonColours,
             onClick = {
-                handlePageTransition(
-                    coroutineScope,
-                    pagerState,
-                    ProgressDirection.Next,
-                    pageSlideAnimationSpec
-                )
+                coroutineScope.launch {
+                    animateScrollToNext(
+                        pagerState,
+                        ProgressDirection.Next,
+                        pageSlideAnimationSpec
+                    )
+                }
             },
             enabled = pagerState.canScrollForward,
         ) {
@@ -93,19 +92,16 @@ fun ProgressButtons(
     }
 }
 
-fun handlePageTransition(
-    coroutineScope: CoroutineScope,
+suspend fun animateScrollToNext(
     pagerState: PagerState,
     direction: ProgressDirection,
     pageSlideAnimationSpec: AnimationSpec<Float>
 ) {
-    coroutineScope.launch {
         val page = when (direction) {
             ProgressDirection.Previous -> (pagerState.currentPage - 1).coerceAtLeast(0)
             ProgressDirection.Next -> (pagerState.currentPage + 1).coerceAtMost(pagerState.pageCount - 1)
         }
         pagerState.animateScrollToPage(page, animationSpec = pageSlideAnimationSpec)
-    }
 }
 
 @Composable
