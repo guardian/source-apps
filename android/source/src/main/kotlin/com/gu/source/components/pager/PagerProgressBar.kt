@@ -134,7 +134,6 @@ fun PagerProgressBar(
     nextButtonContentDescription: String? = null,
     showProgressButtons: Boolean = isTabletDevice(),
 ) {
-
     Box(
         modifier = modifier
             .progressBarPadding()

@@ -55,7 +55,7 @@ internal fun ProgressButtons(
                     animateScrollToNext(
                         pagerState,
                         ProgressDirection.Previous,
-                        pageSlideAnimationSpec
+                        pageSlideAnimationSpec,
                     )
                 }
             },
@@ -77,7 +77,7 @@ internal fun ProgressButtons(
                     animateScrollToNext(
                         pagerState,
                         ProgressDirection.Next,
-                        pageSlideAnimationSpec
+                        pageSlideAnimationSpec,
                     )
                 }
             },
@@ -95,13 +95,15 @@ internal fun ProgressButtons(
 private suspend fun animateScrollToNext(
     pagerState: PagerState,
     direction: ProgressDirection,
-    pageSlideAnimationSpec: AnimationSpec<Float>
+    pageSlideAnimationSpec: AnimationSpec<Float>,
 ) {
-        val page = when (direction) {
-            ProgressDirection.Previous -> (pagerState.currentPage - 1).coerceAtLeast(0)
-            ProgressDirection.Next -> (pagerState.currentPage + 1).coerceAtMost(pagerState.pageCount - 1)
-        }
-        pagerState.animateScrollToPage(page, animationSpec = pageSlideAnimationSpec)
+    val page = when (direction) {
+        ProgressDirection.Previous -> (pagerState.currentPage - 1).coerceAtLeast(0)
+        ProgressDirection.Next -> (pagerState.currentPage + 1).coerceAtMost(
+            pagerState.pageCount - 1
+        )
+    }
+    pagerState.animateScrollToPage(page, animationSpec = pageSlideAnimationSpec)
 }
 
 @Composable
