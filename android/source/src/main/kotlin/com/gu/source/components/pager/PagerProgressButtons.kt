@@ -33,10 +33,10 @@ import kotlinx.coroutines.launch
  * Function to display progress buttons for a pager.
  *
  * @param pagerState The [PagerState] that this indicator should be bound to.
- * @param buttonColours The colours for the buttons.
  * @param prevButtonContentDescription The content description for the previous button.
  * @param nextButtonContentDescription The content description for the next button.
  * @param modifier The [Modifier] to be applied to the Row containing the buttons.
+ * @param buttonColours The colours for the buttons.
  * @param disabledButtonColours The colours for the buttons when they are disabled.
  * @param pageSlideAnimationSpec The animation specification for the page slide.
  */
