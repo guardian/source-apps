@@ -29,6 +29,17 @@ import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.PreviewTabletBothMode
 import kotlinx.coroutines.launch
 
+/**
+ * Function to display progress buttons for a pager.
+ *
+ * @param pagerState The [PagerState] that this indicator should be bound to.
+ * @param buttonColours The colours for the buttons.
+ * @param prevButtonContentDescription The content description for the previous button.
+ * @param nextButtonContentDescription The content description for the next button.
+ * @param modifier The [Modifier] to be applied to the Row containing the buttons.
+ * @param disabledButtonColours The colours for the buttons when they are disabled.
+ * @param pageSlideAnimationSpec The animation specification for the page slide.
+ */
 @SuppressLint("DiscouragedApi")
 @Composable
 internal fun ProgressButtons(
@@ -92,6 +103,13 @@ internal fun ProgressButtons(
     }
 }
 
+/**
+ * Function to animate the scroll to the next or previous page.
+ *
+ * @param pagerState The [PagerState] of the pager.
+ * @param direction The direction to scroll (previous or next).
+ * @param pageSlideAnimationSpec The animation specification for the page slide.
+ */
 private suspend fun animateScrollToNext(
     pagerState: PagerState,
     direction: ProgressDirection,
@@ -109,6 +127,7 @@ private suspend fun animateScrollToNext(
 @Composable
 @PreviewPhoneBothMode
 @PreviewTabletBothMode
+@Suppress("MagicNumber")
 private fun ProgressButtonsPreview() {
     val pagerState = rememberPagerState(0) { 10 }
     AppColourMode {

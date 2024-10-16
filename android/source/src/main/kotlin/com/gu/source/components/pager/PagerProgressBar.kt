@@ -118,7 +118,6 @@ private fun Modifier.progressBarPadding() = this
  * @param nextButtonContentDescription The content description for the next button.
  * @param showProgressButtons Whether to show the next/prev buttons. By default they are enabled on
  * tablet devices (`sw600dp`).
- * @param pageSlideAnimationSpec The animation spec to use when animating to the next/prev page.
  * This is only used when the user uses prev/next buttons to navigate between pages.
  */
 @Suppress("CognitiveComplexMethod")
@@ -174,7 +173,6 @@ fun PagerProgressBar(
  * @param nextButtonContentDescription The content description for the next button.
  * @param showProgressButtons Whether to show the next/prev buttons. By default they are enabled on
  * tablet devices (`sw600dp`).
- * @param pageSlideAnimationSpec The animation spec to use when animating to the next/prev page.
  * This is only used when the user uses prev/next buttons to navigate between pages.
  */
 @Suppress("CognitiveComplexMethod", "Unused")
