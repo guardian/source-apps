@@ -44,10 +44,10 @@ import kotlinx.coroutines.launch
 @Composable
 internal fun ProgressButtons(
     pagerState: PagerState,
-    buttonColours: ButtonColours = DefaultButtonColours,
     prevButtonContentDescription: String?,
     nextButtonContentDescription: String?,
     modifier: Modifier = Modifier,
+    buttonColours: ButtonColours = DefaultButtonColours,
     disabledButtonColours: ButtonColours? = disabledModeButtonColours(buttonColours),
     pageSlideAnimationSpec: AnimationSpec<Float> = DefaultPageSlideAnimationSpec,
 ) {
@@ -118,7 +118,7 @@ private suspend fun animateScrollToNext(
     val page = when (direction) {
         ProgressDirection.Previous -> (pagerState.currentPage - 1).coerceAtLeast(0)
         ProgressDirection.Next -> (pagerState.currentPage + 1).coerceAtMost(
-            pagerState.pageCount - 1
+            pagerState.pageCount - 1,
         )
     }
     pagerState.animateScrollToPage(page, animationSpec = pageSlideAnimationSpec)
@@ -128,7 +128,7 @@ private suspend fun animateScrollToNext(
 @PreviewPhoneBothMode
 @PreviewTabletBothMode
 @Suppress("MagicNumber")
-private fun ProgressButtonsPreview() {
+internal fun ProgressButtonsPreview() {
     val pagerState = rememberPagerState(0) { 10 }
     AppColourMode {
         Box(
