@@ -31,7 +31,7 @@ import com.gu.source.utils.PreviewTabletBothMode
 import com.gu.source.utils.isTabletDevice
 import kotlinx.coroutines.delay
 
-enum class ProgressDirection {
+internal enum class ProgressDirection {
     Previous,
     Next,
 }
@@ -60,15 +60,15 @@ internal val DefaultButtonColours = ButtonColours(
 
 internal val DefaultPageSlideAnimationSpec = spring<Float>(stiffness = Spring.StiffnessMediumLow)
 
-const val DisabledButtonAlphaLight = 0.2f
-const val DisabledButtonAlphaDark = 0.4f
+internal const val DisabledButtonAlphaLight = 0.2f
+internal const val DisabledButtonAlphaDark = 0.4f
 
-fun AppColour.setDisabledAlpha() = AppColour(
+internal fun AppColour.setDisabledAlpha() = AppColour(
     light = light.copy(alpha = DisabledButtonAlphaLight.coerceAtMost(light.alpha)),
     dark = dark.copy(alpha = DisabledButtonAlphaDark.coerceAtMost(light.alpha)),
 )
 
-fun disabledModeButtonColours(enabledColours: ButtonColours = DefaultButtonColours) =
+internal fun disabledModeButtonColours(enabledColours: ButtonColours = DefaultButtonColours) =
     ButtonColours(
         border = enabledColours.border.setDisabledAlpha(),
         container = enabledColours.container.setDisabledAlpha(),
@@ -77,7 +77,7 @@ fun disabledModeButtonColours(enabledColours: ButtonColours = DefaultButtonColou
 
 // The progress buttons get a min touch size padding of 12.dp, so we need to things by half that to
 // get the correct offset and padding
-val ProgressButtonTouchAdjustment = 6.dp
+internal val ProgressButtonTouchAdjustment = 6.dp
 
 /**
  * Applies the size and padding for the progress bar. Size is explicitly required because if this
