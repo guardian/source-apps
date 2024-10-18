@@ -43,7 +43,7 @@ public struct PaginationButtons: View {
                 size: .small,
                 iconColor: iconColor,
                 borderColor: borderColor,
-                disabled: canNavigateForward
+                disabled: !canNavigateForward
             ) {
                 withAnimation {
                     if let selectedIndex {
