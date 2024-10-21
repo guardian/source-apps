@@ -14,7 +14,7 @@ kotlin = "2.0.21"
 # https://github.com/jeremymailen/kotlinter-gradle/blob/master/README.md#compatibility
 kotlinter = "4.4.1"
 
-activity = "1.9.2"
+activity = "1.9.3"
 appcompat = "1.7.0"
 coil = "2.7.0"
 composeBom = "2024.09.03"
