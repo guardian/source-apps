@@ -1,10 +1,7 @@
-@file:OptIn(ExperimentalFoundationApi::class)
-
 package com.gu.source.components.pager
 
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
