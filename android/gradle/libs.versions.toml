@@ -1,6 +1,6 @@
 [versions]
 group = "com.gu.source"
-libraryVersion = "0.3.8"
+libraryVersion = "0.4.0"
 compilesdk = "34"
 minsdk = "26"
 targetsdk = "34"

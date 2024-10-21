@@ -45,6 +45,9 @@ Text(
     style = Source.Typography.TextEgyptianItalic14,
 )
 ```
+
+---
+
 ### Core palette colours
 
 Core palette colours are available for direct use in components through `Source.Palette`. [Preview all available colours here](source/src/main/kotlin/com/gu/source/presets/palette/palette.png).
@@ -57,6 +60,7 @@ Text(
 )
 ```
 
+---
 ### Buttons
 
 Four core button components are available - `SourceButton`, `SourceIconButton`, `PlainSourceButton` and `SourceBaseIconButton`.
@@ -145,11 +149,27 @@ SourceBaseIconButton(
 }
 ```
 
-### Pager progress indicators
+---
+### Pager progress components
 
-The `PagerProgressBar` component is used to denote progress as a user flips through the items in a `HorizontalPager`. It is typically used for image carousels.
+There are three pager progress components available:
+
+1. `PagerProgressIndicator` - a set of indicators to signify progress as a user
+progresses through the items in the pager
+2. `PagerProgressButtons` - buttons to allow user to go to next/previous page
+in a pager
+3. `PagerProgressBar` - a higher level component that combines the above two
+and has different phone and tablet behaviour.
+
+
+#### `PagerProgressBar`
+
+The `PagerProgressBar` component is used to signify progress as a user flips through the items in a `HorizontalPager`. It is typically used for image carousels.
 
 The progress bar is styled to match Source specifications. It is expected to be placed below the pager.
+
+On tablets, the bar also displays `PagerProgressButtons` to allow the user to go
+to next or previous pages.
 
 ##### Usage example
 
@@ -179,7 +199,7 @@ Column(
 
 #### Custom progress indicators
 
-A lower level component `PagerProgressIndicator` is also available. It provides a lot more options for customising appearance of the indicators.
+`PagerProgressIndicator` is a lower level component used to signify progress in the bar. It provides a lot more options for customising appearance of the indicators.
 
 ##### Usage example:
 
@@ -217,6 +237,11 @@ Column(modifier = Modifier.padding(8.dp)) {
     )
 }
 ```
+
+#### `PagerProgressButton`s
+
+A set of next & previous icon buttons to progress through the pages. The button
+enabled state depends on availability of a next/previous page.
 
 ----
 
