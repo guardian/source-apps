@@ -32,13 +32,18 @@ public struct PaginationProgressBar: View {
         self.secondaryColor = secondaryColor
     }
 
+    private var forwardDisabled: Bool {
+        guard let selectedIndex else { return true }
+        return selectedIndex >= pageCount - 1
+    }
+
     public var body: some View {
         Group {
             if sizeClass == .regular {
                 ZStack(alignment: .trailing) {
                     scrollingIndicator
                         .frame(maxWidth: .infinity, alignment: .center)
-                    PaginationButtons(iconColor: primaryColor, borderColor: secondaryColor, selectedIndex: $selectedIndex, pageCount: pageCount)
+                    PaginationButtons(iconColor: primaryColor, borderColor: secondaryColor, selectedIndex: $selectedIndex, canNavigateForward: forwardDisabled)
                         .frame(alignment: .trailing)
                 }
             } else {
