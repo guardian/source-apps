@@ -25,7 +25,7 @@ dokka = "1.9.20"
 inject = "1"
 kotlinx-collections-immutable = "0.3.8"
 lifecycleRuntimeKtx = "2.8.6"
-lint-gradle = "1.0.0-alpha01"
+lint-gradle = "1.0.0-alpha02"
 nexus-publish = "2.0.0"
 timber = "5.0.1"
 
