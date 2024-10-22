@@ -6,7 +6,7 @@ import SwiftUI
 public struct ScrollingPaginationIndicator: View {
 
     private let pageCount: Int
-    @Binding private var selectedIndex: Int?
+    @Binding private var selectedIndex: Int
     private let numberOfVisibleDots: Int
     private let spacing: CGFloat
     private let indicatorWidth: CGFloat
@@ -34,7 +34,7 @@ public struct ScrollingPaginationIndicator: View {
         numberOfVisibleDots: Int = 5,
         indicatorWidth: CGFloat,
         spacing: CGFloat = 4,
-        selectedIndex: Binding<Int?>,
+        selectedIndex: Binding<Int>,
         primaryColor: Color,
         secondaryColor: Color
     ) {
@@ -56,7 +56,7 @@ public struct ScrollingPaginationIndicator: View {
     /// - Parameter index: The index of the item for which the scale factor is to be calculated.
     /// - Returns: A `CGFloat` value representing the scale factor for the item at the given index.
     private func scale(for index: Int) -> CGFloat {
-        guard pageCount >= numberOfVisibleDots, let selectedIndex else { return 1.0 }
+        guard pageCount >= numberOfVisibleDots else { return 1.0 }
         let indexDifference = abs(index - selectedIndex)
         let scaleSpread = max((CGFloat(numberOfVisibleDots - 1) / 2 + 1), 1)
         let scaleFactor = CGFloat(indexDifference) / scaleSpread
@@ -90,7 +90,7 @@ public struct ScrollingPaginationIndicator: View {
 
 struct ScrollingPageIndicator_Previews_Container: PreviewProvider {
     struct Container: View {
-        @State var selectedIndex: Int? = 0
+        @State var selectedIndex: Int = 0
         let elementArray = [0, 1, 2, 3, 4, 5, 6, 7, 8]
         var body: some View {
             VStack {
