@@ -142,7 +142,7 @@ fun PagerProgressBar(
             modifier = Modifier.align(Alignment.Center),
         )
         if (showProgressButtons) {
-            ProgressButtons(
+            PagerProgressButtons(
                 pagerState = pagerState,
                 buttonColours = DefaultButtonColours,
                 prevButtonContentDescription = prevButtonContentDescription,

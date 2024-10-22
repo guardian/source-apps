@@ -11,7 +11,7 @@ class PagerProgressButtonsTest {
     @Test
     fun progressButtons() {
         paparazzi.snapshot {
-            ProgressButtonsPreview()
+            PagerProgressButtonsPreview()
         }
     }
 }
