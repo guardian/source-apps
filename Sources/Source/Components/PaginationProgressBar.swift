@@ -10,7 +10,7 @@ public struct PaginationProgressBar: View {
     private let primaryColor: Color
     private let secondaryColor: Color
 
-    @Binding private var selectedIndex: Int?
+    @Binding private var selectedIndex: Int
     @Environment(\.horizontalSizeClass)
     private var sizeClass
 
@@ -21,7 +21,7 @@ public struct PaginationProgressBar: View {
     public init(
         pageCount: Int,
         indicatorWidth: CGFloat,
-        selectedIndex: Binding<Int?>,
+        selectedIndex: Binding<Int>,
         primaryColor: Color,
         secondaryColor: Color
     ) {
@@ -33,7 +33,6 @@ public struct PaginationProgressBar: View {
     }
 
     private var forwardEnabled: Bool {
-        guard let selectedIndex else { return false }
         return selectedIndex < pageCount - 1
     }
 
@@ -73,7 +72,7 @@ public struct PaginationProgressBar: View {
 
 struct PaginationProgressBar_Previews_Container: PreviewProvider {
     struct Container: View {
-        @State var selectedIndex: Int? = 0
+        @State var selectedIndex: Int = 0
         let elementArray = [0, 1, 2, 3, 4, 5, 6]
         var body: some View {
             VStack {

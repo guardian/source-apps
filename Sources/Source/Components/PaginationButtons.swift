@@ -3,13 +3,13 @@ import SwiftUI
 public struct PaginationButtons: View {
     let iconColor: Color
     let borderColor: Color
-    @Binding var selectedIndex: Int?
+    @Binding var selectedIndex: Int
     let canNavigateForward: Bool
 
     public init(
         iconColor: Color,
         borderColor: Color,
-        selectedIndex: Binding<Int?>,
+        selectedIndex: Binding<Int>,
         canNavigateForward: Bool
     ) {
         self.iconColor = iconColor
@@ -19,7 +19,6 @@ public struct PaginationButtons: View {
     }
 
     private var backDisabled: Bool {
-        guard let selectedIndex else { return true }
         return selectedIndex == 0
     }
 
@@ -33,9 +32,7 @@ public struct PaginationButtons: View {
                 disabled: backDisabled
             ) {
                 withAnimation {
-                    if let selectedIndex {
-                        self.selectedIndex = selectedIndex - 1
-                    }
+                    self.selectedIndex = selectedIndex - 1
                 }
             }
             IconButton(
@@ -46,9 +43,7 @@ public struct PaginationButtons: View {
                 disabled: !canNavigateForward
             ) {
                 withAnimation {
-                    if let selectedIndex {
-                        self.selectedIndex = selectedIndex + 1
-                    }
+                    self.selectedIndex = selectedIndex + 1
                 }
             }
         }
