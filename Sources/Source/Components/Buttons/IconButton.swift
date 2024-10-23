@@ -67,7 +67,7 @@ struct IconButtonStyle: ButtonStyle {
             .frame(width: size.iconSize, height: size.iconSize)
             .foregroundStyle(iconColor)
             .opacity(isDisabled ? disabledOpacity : 1.0)
-            .padding(size.iconPadding)
+            .padding(size.padding)
             .background {
                 if configuration.isPressed, isDisabled == false {
                     Circle()
@@ -82,29 +82,4 @@ struct IconButtonStyle: ButtonStyle {
 
 #Preview {
     IconButton(icon: Image(.chevronLeft), size: .small, iconColor: .black, borderColor: .gray, disabled: false, action: {})
-}
-
-// Maps button size to layout values for icon.
-fileprivate extension ButtonSize {
-    var iconSize: CGFloat {
-        switch self {
-            case .xsmall:
-                return 20
-            case .small:
-                return 24
-            case .medium:
-                return 28
-        }
-    }
-
-    var iconPadding: CGFloat {
-        switch self {
-            case .xsmall:
-                return 2
-            case .small:
-                return 6
-            case .medium:
-                return 8
-        }
-    }
 }
