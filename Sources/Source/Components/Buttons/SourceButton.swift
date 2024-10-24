@@ -38,7 +38,7 @@ struct SourceButtonStyle: ButtonStyle {
     @Environment(\.buttonTheme) private var buttonTheme
 
     private var disabledOpacity: CGFloat {
-        return colorScheme == .dark ? 0.4 : 0.2
+        return colorScheme == .dark ? 0.6 : 0.4
     }
 
     func makeBody(configuration: Configuration) -> some View {
@@ -47,20 +47,20 @@ struct SourceButtonStyle: ButtonStyle {
             .frame(height: size.iconSize)
             .padding(size.padding)
             .font(GuardianFont(style: .textSansBold, size: 15))
-            .foregroundColor(buttonTheme.foregroundColor)
-            .opacity(isDisabled ? disabledOpacity : 1.0)
+            .foregroundColor(Color(uiColor: buttonTheme.foregroundColor))
             .background(
                 Group {
                     switch buttonTheme.buttonPriority {
                     case .primary, .secondary:
                         Capsule()
-                            .fill(buttonTheme.backgroundColor)
+                            .fill(Color(uiColor: buttonTheme.backgroundColor))
                     case .tertiary:
                         Capsule()
-                            .stroke(buttonTheme.foregroundColor, lineWidth: 1)
+                            .stroke(Color(uiColor: buttonTheme.foregroundColor), lineWidth: 1)
                     }
                 }
             )
+            .opacity(isDisabled ? disabledOpacity : 1.0)
             .opacity(configuration.isPressed ? 0.8 : 1)
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
