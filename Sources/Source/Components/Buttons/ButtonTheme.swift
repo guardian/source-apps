@@ -19,14 +19,14 @@ public struct ButtonTheme {
 public extension ButtonTheme {
     static let brandPrimary = ButtonTheme(
         buttonPriority: .primary,
-        foregroundColor: .dynamicColor(light: ColorPalette.neutral100, dark: ColorPalette.neutral86),
-        backgroundColor: .dynamicColor(light: ColorPalette.brand400, dark: ColorPalette.brand600)
+        foregroundColor: .dynamicColor(light: ColorPalette.neutral100, dark: ColorPalette.brand400),
+        backgroundColor: .dynamicColor(light: ColorPalette.brand400, dark: ColorPalette.neutral86)
     )
 
     static let brandSecondary = ButtonTheme(
         buttonPriority: .secondary,
-        foregroundColor: .dynamicColor(light: ColorPalette.brand100, dark: ColorPalette.brand100),
-        backgroundColor: .dynamicColor(light: ColorPalette.brand800, dark: ColorPalette.brand800)
+        foregroundColor: .dynamicColor(light: ColorPalette.brand100, dark: ColorPalette.neutral97),
+        backgroundColor: .dynamicColor(light: ColorPalette.brand800, dark: ColorPalette.brand600)
     )
 
     static let brandTertiary = ButtonTheme(
