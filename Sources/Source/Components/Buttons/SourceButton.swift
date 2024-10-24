@@ -4,10 +4,27 @@ import GuardianFonts
 /// A standard button from the design system. Use the `.buttonTheme()` modifier to apply a style.
 struct SourceButton: View {
     let label: String
-    let size: ButtonSize
+    let buttonSize: ButtonSize
+    let fontSize: CGFloat
     let hideLabel: Bool
     var disabled: Bool
     var action: () -> Void
+
+    public init(
+        label: String,
+        buttonSize: ButtonSize,
+        fontSize: CGFloat = 15,
+        hideLabel: Bool,
+        disabled: Bool,
+        action: @escaping () -> Void
+    ) {
+        self.label = label
+        self.buttonSize = buttonSize
+        self.fontSize = fontSize
+        self.hideLabel = hideLabel
+        self.disabled = disabled
+        self.action = action
+    }
 
     var body: some View {
         Button(action: action) {
@@ -20,7 +37,8 @@ struct SourceButton: View {
         .buttonStyle(
             SourceButtonStyle(
                 label: label,
-                size: size,
+                buttonSize: buttonSize,
+                fontSize: fontSize,
                 hideLabel: hideLabel,
                 isDisabled: disabled
             )
@@ -30,7 +48,8 @@ struct SourceButton: View {
 
 struct SourceButtonStyle: ButtonStyle {
     let label: String
-    let size: ButtonSize
+    let buttonSize: ButtonSize
+    let fontSize: CGFloat
     let hideLabel: Bool
     var isDisabled: Bool
 
@@ -44,8 +63,8 @@ struct SourceButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(maxWidth: .infinity)
-            .padding(size.buttonPadding)
-            .font(GuardianFont(style: .textSansBold, size: 15))
+            .padding(buttonSize.buttonPadding)
+            .font(GuardianFont(style: .textSansBold, size: fontSize))
             .foregroundColor(Color(uiColor: buttonTheme.foregroundColor))
             .background(
                 Group {
@@ -72,7 +91,7 @@ struct SourceButtonStyle: ButtonStyle {
             Section {
                 SourceButton(
                     label: "Sign in",
-                    size: .medium,
+                    buttonSize: .medium,
                     hideLabel: false,
                     disabled: false,
                     action: {}
@@ -81,7 +100,7 @@ struct SourceButtonStyle: ButtonStyle {
 
                 SourceButton(
                     label: "Sign in",
-                    size: .medium,
+                    buttonSize: .medium,
                     hideLabel: false,
                     disabled: false,
                     action: {}
@@ -90,7 +109,7 @@ struct SourceButtonStyle: ButtonStyle {
 
                 SourceButton(
                     label: "Sign in",
-                    size: .medium,
+                    buttonSize: .medium,
                     hideLabel: false,
                     disabled: false,
                     action: {}
@@ -103,7 +122,7 @@ struct SourceButtonStyle: ButtonStyle {
             Section {
                 SourceButton(
                     label: "Sign in",
-                    size: .small,
+                    buttonSize: .small,
                     hideLabel: false,
                     disabled: false,
                     action: {}
@@ -112,7 +131,7 @@ struct SourceButtonStyle: ButtonStyle {
 
                 SourceButton(
                     label: "Sign in",
-                    size: .small,
+                    buttonSize: .small,
                     hideLabel: false,
                     disabled: false,
                     action: {}
@@ -121,7 +140,7 @@ struct SourceButtonStyle: ButtonStyle {
 
                 SourceButton(
                     label: "Sign in",
-                    size: .small,
+                    buttonSize: .small,
                     hideLabel: false,
                     disabled: false,
                     action: {}
@@ -134,7 +153,7 @@ struct SourceButtonStyle: ButtonStyle {
             Section {
                 SourceButton(
                     label: "Sign in",
-                    size: .xsmall,
+                    buttonSize: .xsmall,
                     hideLabel: false,
                     disabled: false,
                     action: {}
@@ -143,7 +162,7 @@ struct SourceButtonStyle: ButtonStyle {
 
                 SourceButton(
                     label: "Sign in",
-                    size: .xsmall,
+                    buttonSize: .xsmall,
                     hideLabel: false,
                     disabled: false,
                     action: {}
@@ -152,7 +171,7 @@ struct SourceButtonStyle: ButtonStyle {
 
                 SourceButton(
                     label: "Sign in",
-                    size: .xsmall,
+                    buttonSize: .xsmall,
                     hideLabel: false,
                     disabled: false,
                     action: {}
@@ -165,7 +184,7 @@ struct SourceButtonStyle: ButtonStyle {
             Section {
                 SourceButton(
                     label: "Disabled primary",
-                    size: .medium,
+                    buttonSize: .medium,
                     hideLabel: false,
                     disabled: true,
                     action: {}
@@ -174,7 +193,7 @@ struct SourceButtonStyle: ButtonStyle {
 
                 SourceButton(
                     label: "Disabled secondary",
-                    size: .medium,
+                    buttonSize: .medium,
                     hideLabel: false,
                     disabled: true,
                     action: {}
@@ -183,7 +202,7 @@ struct SourceButtonStyle: ButtonStyle {
 
                 SourceButton(
                     label: "Disabled tertiary",
-                    size: .medium,
+                    buttonSize: .medium,
                     hideLabel: false,
                     disabled: true,
                     action: {}
