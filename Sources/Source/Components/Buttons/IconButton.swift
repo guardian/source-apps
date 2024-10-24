@@ -84,7 +84,7 @@ struct IconButtonStyle: ButtonStyle {
     IconButton(icon: Image(.chevronLeft), size: .small, iconColor: .black, borderColor: .gray, disabled: false, action: {})
 }
 
-// Maps button size to layout values for icon
+// Maps button size to layout values for icon.
 fileprivate extension ButtonSize {
     var iconSize: CGFloat {
         switch self {
@@ -100,7 +100,7 @@ fileprivate extension ButtonSize {
     var iconPadding: CGFloat {
         switch self {
             case .xsmall:
-                return 4
+                return 2
             case .small:
                 return 6
             case .medium:
