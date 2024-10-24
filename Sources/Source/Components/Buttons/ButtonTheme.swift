@@ -8,31 +8,31 @@ public struct ButtonTheme {
     /// The `buttonPriority` determines where to apply the `foregroundColor` and `backgroundColor`
     let buttonPriority: ButtonPriority
 
-    /// For `primary` and `secondary` button styles this will be the colour of the text.
-    /// For `tertiary` it will also be the colour of the border.
-    let foregroundColor: Color
+    /// For `primary` and `secondary` button styles this will be the colour of the text. For `tertiary`
+    /// it will also be the colour of the border.
+    let foregroundColor: UIColor
 
     /// This should always be set to `clear` for `tertiary` button styles
-    let backgroundColor: Color
+    let backgroundColor: UIColor
 }
 
 public extension ButtonTheme {
     static let brandPrimary = ButtonTheme(
         buttonPriority: .primary,
-        foregroundColor: Color(uiColor: ColorPalette.neutral100),
-        backgroundColor: Color(uiColor: ColorPalette.brand400)
+        foregroundColor: .dynamicColor(light: ColorPalette.neutral100, dark: ColorPalette.neutral86),
+        backgroundColor: .dynamicColor(light: ColorPalette.brand400, dark: ColorPalette.brand600)
     )
 
     static let brandSecondary = ButtonTheme(
         buttonPriority: .secondary,
-        foregroundColor: Color(uiColor: ColorPalette.brand100),
-        backgroundColor: Color(uiColor: ColorPalette.brand800)
+        foregroundColor: .dynamicColor(light: ColorPalette.brand100, dark: ColorPalette.brand100),
+        backgroundColor: .dynamicColor(light: ColorPalette.brand800, dark: ColorPalette.brand800)
     )
 
     static let brandTertiary = ButtonTheme(
         buttonPriority: .tertiary,
-        foregroundColor: Color(uiColor: ColorPalette.brand100),
-        backgroundColor: Color.clear
+        foregroundColor: .dynamicColor(light: ColorPalette.brand100, dark: ColorPalette.neutral86),
+        backgroundColor: UIColor(Color.clear)
     )
 }
 
