@@ -85,7 +85,7 @@ struct IconButtonStyle: ButtonStyle {
 }
 
 // Maps button size to layout values for icon
-extension ButtonSize {
+fileprivate extension ButtonSize {
     var iconSize: CGFloat {
         switch self {
             case .xsmall:
