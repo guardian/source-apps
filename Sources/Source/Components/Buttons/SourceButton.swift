@@ -44,8 +44,7 @@ struct SourceButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(maxWidth: .infinity)
-            .frame(height: size.iconSize)
-            .padding(size.padding)
+            .padding(size.buttonPadding)
             .font(GuardianFont(style: .textSansBold, size: 15))
             .foregroundColor(Color(uiColor: buttonTheme.foregroundColor))
             .background(
@@ -63,135 +62,138 @@ struct SourceButtonStyle: ButtonStyle {
             .opacity(isDisabled ? disabledOpacity : 1.0)
             .opacity(configuration.isPressed ? 0.8 : 1)
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
+            .lineLimit(1)
     }
 }
 
 #Preview {
-    VStack(alignment: .leading) {
-        Section {
-            SourceButton(
-                label: "Sign in",
-                size: .medium,
-                hideLabel: false,
-                disabled: false,
-                action: {}
-            )
-            .buttonTheme(.brandPrimary)
+    ScrollView {
+        VStack(alignment: .leading) {
+            Section {
+                SourceButton(
+                    label: "Sign in",
+                    size: .medium,
+                    hideLabel: false,
+                    disabled: false,
+                    action: {}
+                )
+                .buttonTheme(.brandPrimary)
 
-            SourceButton(
-                label: "Sign in",
-                size: .medium,
-                hideLabel: false,
-                disabled: false,
-                action: {}
-            )
-            .buttonTheme(.brandSecondary)
+                SourceButton(
+                    label: "Sign in",
+                    size: .medium,
+                    hideLabel: false,
+                    disabled: false,
+                    action: {}
+                )
+                .buttonTheme(.brandSecondary)
 
-            SourceButton(
-                label: "Sign in",
-                size: .medium,
-                hideLabel: false,
-                disabled: false,
-                action: {}
-            )
-            .buttonTheme(.brandTertiary)
-        } header: {
-            Text("Medium")
+                SourceButton(
+                    label: "Sign in",
+                    size: .medium,
+                    hideLabel: false,
+                    disabled: false,
+                    action: {}
+                )
+                .buttonTheme(.brandTertiary)
+            } header: {
+                Text("Medium")
+            }
+
+            Section {
+                SourceButton(
+                    label: "Sign in",
+                    size: .small,
+                    hideLabel: false,
+                    disabled: false,
+                    action: {}
+                )
+                .buttonTheme(.brandPrimary)
+
+                SourceButton(
+                    label: "Sign in",
+                    size: .small,
+                    hideLabel: false,
+                    disabled: false,
+                    action: {}
+                )
+                .buttonTheme(.brandSecondary)
+
+                SourceButton(
+                    label: "Sign in",
+                    size: .small,
+                    hideLabel: false,
+                    disabled: false,
+                    action: {}
+                )
+                .buttonTheme(.brandTertiary)
+            } header: {
+                Text("Small")
+            }
+
+            Section {
+                SourceButton(
+                    label: "Sign in",
+                    size: .xsmall,
+                    hideLabel: false,
+                    disabled: false,
+                    action: {}
+                )
+                .buttonTheme(.brandPrimary)
+
+                SourceButton(
+                    label: "Sign in",
+                    size: .xsmall,
+                    hideLabel: false,
+                    disabled: false,
+                    action: {}
+                )
+                .buttonTheme(.brandSecondary)
+
+                SourceButton(
+                    label: "Sign in",
+                    size: .xsmall,
+                    hideLabel: false,
+                    disabled: false,
+                    action: {}
+                )
+                .buttonTheme(.brandTertiary)
+            } header: {
+                Text("Xsmall")
+            }
+
+            Section {
+                SourceButton(
+                    label: "Disabled primary",
+                    size: .medium,
+                    hideLabel: false,
+                    disabled: true,
+                    action: {}
+                )
+                .buttonTheme(.brandPrimary)
+
+                SourceButton(
+                    label: "Disabled secondary",
+                    size: .medium,
+                    hideLabel: false,
+                    disabled: true,
+                    action: {}
+                )
+                .buttonTheme(.brandSecondary)
+
+                SourceButton(
+                    label: "Disabled tertiary",
+                    size: .medium,
+                    hideLabel: false,
+                    disabled: true,
+                    action: {}
+                )
+                .buttonTheme(.brandTertiary)
+            } header: {
+                Text("Disabled")
+            }
         }
-
-        Section {
-            SourceButton(
-                label: "Sign in",
-                size: .small,
-                hideLabel: false,
-                disabled: false,
-                action: {}
-            )
-            .buttonTheme(.brandPrimary)
-
-            SourceButton(
-                label: "Sign in",
-                size: .small,
-                hideLabel: false,
-                disabled: false,
-                action: {}
-            )
-            .buttonTheme(.brandSecondary)
-
-            SourceButton(
-                label: "Sign in",
-                size: .small,
-                hideLabel: false,
-                disabled: false,
-                action: {}
-            )
-            .buttonTheme(.brandTertiary)
-        } header: {
-            Text("Small")
-        }
-
-        Section {
-            SourceButton(
-                label: "Sign in",
-                size: .xsmall,
-                hideLabel: false,
-                disabled: false,
-                action: {}
-            )
-            .buttonTheme(.brandPrimary)
-
-            SourceButton(
-                label: "Sign in",
-                size: .xsmall,
-                hideLabel: false,
-                disabled: false,
-                action: {}
-            )
-            .buttonTheme(.brandSecondary)
-
-            SourceButton(
-                label: "Sign in",
-                size: .xsmall,
-                hideLabel: false,
-                disabled: false,
-                action: {}
-            )
-            .buttonTheme(.brandTertiary)
-        } header: {
-            Text("Xsmall")
-        }
-
-        Section {
-            SourceButton(
-                label: "Disabled primary",
-                size: .medium,
-                hideLabel: false,
-                disabled: true,
-                action: {}
-            )
-            .buttonTheme(.brandPrimary)
-
-            SourceButton(
-                label: "Disabled secondary",
-                size: .medium,
-                hideLabel: false,
-                disabled: true,
-                action: {}
-            )
-            .buttonTheme(.brandSecondary)
-
-            SourceButton(
-                label: "Disabled tertiary",
-                size: .medium,
-                hideLabel: false,
-                disabled: true,
-                action: {}
-            )
-            .buttonTheme(.brandTertiary)
-        } header: {
-            Text("Disabled")
-        }
+        .padding()
+        .previewFonts()
     }
-    .padding()
-    .previewFonts()
 }

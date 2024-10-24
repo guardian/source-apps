@@ -6,25 +6,14 @@ public enum ButtonSize {
 }
 
 extension ButtonSize {
-    var iconSize: CGFloat {
+    var buttonPadding: CGFloat {
         switch self {
             case .xsmall:
-                return 20
+                6
             case .small:
-                return 24
+                10
             case .medium:
-                return 28
-        }
-    }
-
-    var padding: CGFloat {
-        switch self {
-            case .xsmall:
-                return 4
-            case .small:
-                return 6
-            case .medium:
-                return 8
+                14
         }
     }
 }
