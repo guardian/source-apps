@@ -21,8 +21,8 @@ import com.gu.source.components.buttons.SourceBaseIconButton
 import com.gu.source.components.buttons.SourceButton
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.ChevronLeft
-import com.gu.source.icons.ChevronRight
+import com.gu.source.icons.ChevronLeftSingle
+import com.gu.source.icons.ChevronRightSingle
 import com.gu.source.presets.palette.Neutral10
 import com.gu.source.presets.palette.Neutral100
 import com.gu.source.utils.PreviewPhoneBothMode
@@ -74,7 +74,7 @@ fun PagerProgressButtons(
             modifier = Modifier.offset(x = ProgressButtonTouchAdjustment * 2),
         ) {
             Icon(
-                imageVector = Source.Icons.Base.ChevronLeft,
+                imageVector = Source.Icons.Base.ChevronLeftSingle,
                 contentDescription = prevButtonContentDescription,
                 modifier = it,
             )
@@ -95,7 +95,7 @@ fun PagerProgressButtons(
             enabled = pagerState.canScrollForward,
         ) {
             Icon(
-                imageVector = Source.Icons.Base.ChevronRight,
+                imageVector = Source.Icons.Base.ChevronRightSingle,
                 contentDescription = nextButtonContentDescription,
                 modifier = it,
             )
