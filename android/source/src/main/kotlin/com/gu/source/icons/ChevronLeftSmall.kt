@@ -18,9 +18,9 @@ import com.gu.source.Source
 
 /** Base small left chevron icon. */
 @Suppress("UnusedReceiverParameter")
-val Source.Icons.Base.ChevronLeft: ImageVector
+val Source.Icons.Base.ChevronLeftSmall: ImageVector
     get() = _icon ?: Builder(
-        name = "ChevronLeft",
+        name = "ChevronLeftSmall",
         defaultWidth = 24.0.dp,
         defaultHeight = 24.0.dp,
         viewportWidth = 24.0f,
@@ -56,7 +56,7 @@ private var _icon: ImageVector? = null
 @Composable
 private fun Preview() {
     Icon(
-        imageVector = Source.Icons.Base.ChevronLeft,
+        imageVector = Source.Icons.Base.ChevronLeftSmall,
         contentDescription = null,
     )
 }
