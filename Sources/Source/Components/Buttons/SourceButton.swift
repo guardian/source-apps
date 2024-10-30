@@ -1,60 +1,12 @@
 import SwiftUI
 import GuardianFonts
 
-/// A standard button from the design system. Use the `.buttonTheme()` modifier to apply a style.
-struct SourceButton: View {
-    let label: String
-    let buttonSize: ButtonSize
-    let fontSize: CGFloat
-    let hideLabel: Bool
-    var disabled: Bool
-    var action: () -> Void
-
-    public init(
-        label: String,
-        buttonSize: ButtonSize,
-        fontSize: CGFloat = 15,
-        hideLabel: Bool,
-        disabled: Bool,
-        action: @escaping () -> Void
-    ) {
-        self.label = label
-        self.buttonSize = buttonSize
-        self.fontSize = fontSize
-        self.hideLabel = hideLabel
-        self.disabled = disabled
-        self.action = action
-    }
-
-    var body: some View {
-        Button(action: action) {
-            HStack(spacing: 0) {
-                if hideLabel == false {
-                    Text(label)
-                }
-            }
-        }
-        .buttonStyle(
-            SourceButtonStyle(
-                label: label,
-                buttonSize: buttonSize,
-                fontSize: fontSize,
-                hideLabel: hideLabel,
-                isDisabled: disabled
-            )
-        )
-    }
-}
-
 struct SourceButtonStyle: ButtonStyle {
-    let label: String
     let buttonSize: ButtonSize
-    let fontSize: CGFloat
-    let hideLabel: Bool
-    var isDisabled: Bool
+    let buttonPriority: ButtonPriority
+    let buttonTheme: ButtonTheme
 
     @Environment(\.colorScheme) private var colorScheme
-    @Environment(\.buttonTheme) private var buttonTheme
 
     private var disabledOpacity: CGFloat {
         return colorScheme == .dark ? 0.6 : 0.4
@@ -63,153 +15,157 @@ struct SourceButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(maxWidth: .infinity)
-            .padding(buttonSize.buttonPadding)
-            .font(GuardianFont(style: .textSansBold, size: fontSize))
-            .foregroundColor(Color(uiColor: buttonTheme.foregroundColor))
-            .background(
-                Group {
-                    switch buttonTheme.buttonPriority {
-                    case .primary, .secondary:
-                        Capsule()
-                            .fill(Color(uiColor: buttonTheme.backgroundColor))
-                    case .tertiary:
-                        Capsule()
-                            .stroke(Color(uiColor: buttonTheme.foregroundColor), lineWidth: 1)
-                    }
-                }
-            )
-            .opacity(isDisabled ? disabledOpacity : 1.0)
+            .padding(.vertical, buttonSize.verticalPad)
+            .padding(.horizontal, buttonSize.horizontalPad)
+            .font(GuardianFont(style: .textSansBold, size: buttonSize.fontSize))
+            .foregroundColor(foregroundColor(for: buttonPriority))
+            .background(backgroundShape(for: buttonPriority))
             .opacity(configuration.isPressed ? 0.8 : 1)
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
             .lineLimit(1)
+    }
+
+    private func foregroundColor(for priority: ButtonPriority) -> Color {
+        switch priority {
+        case .primary:
+            return Color(uiColor: buttonTheme.foregroundColorPrimary)
+        case .secondary:
+            return Color(uiColor: buttonTheme.foregroundColorSecondary)
+        case .tertiary:
+            return Color(uiColor: buttonTheme.foregroundColorTertiary)
+        case .subdubed:
+            return Color(uiColor: buttonTheme.foregroundColorSubdued)
+        }
+    }
+
+    private func backgroundShape(for priority: ButtonPriority) -> some View {
+        Group {
+            switch priority {
+            case .primary:
+                Capsule()
+                    .fill(Color(uiColor: buttonTheme.backgroundColorPrimary))
+            case .secondary:
+                Capsule()
+                    .fill(Color(uiColor: buttonTheme.backgroundColorSecondary))
+            case .tertiary:
+                Capsule()
+                    .stroke(Color(uiColor: buttonTheme.foregroundColorTertiary))
+            case .subdubed:
+                EmptyView()
+
+            }
+        }
+    }
+}
+
+extension ButtonStyle where Self == SourceButtonStyle {
+    static func source(size: ButtonSize, priority: ButtonPriority, theme: ButtonTheme) -> SourceButtonStyle {
+        SourceButtonStyle(buttonSize: size, buttonPriority: priority, buttonTheme: theme)
     }
 }
 
 #Preview {
     ScrollView {
         VStack(alignment: .leading) {
+
             Section {
-                SourceButton(
-                    label: "Sign in",
-                    buttonSize: .medium,
-                    hideLabel: false,
-                    disabled: false,
-                    action: {}
-                )
-                .buttonTheme(.brandPrimary)
+                Button(action: {}) {
+                    Text("Primary")
+                }
+                .buttonStyle(.source(size: .large, priority: .tertiary, theme: .brand))
 
-                SourceButton(
-                    label: "Sign in",
-                    buttonSize: .medium,
-                    hideLabel: false,
-                    disabled: false,
-                    action: {}
-                )
-                .buttonTheme(.brandSecondary)
+                Button(action: {}) {
+                    Text("Secondary")
+                }
+                .buttonStyle(.source(size: .large, priority: .secondary, theme: .brand))
 
-                SourceButton(
-                    label: "Sign in",
-                    buttonSize: .medium,
-                    hideLabel: false,
-                    disabled: false,
-                    action: {}
-                )
-                .buttonTheme(.brandTertiary)
+                Button(action: {}) {
+                    Text("Tertiary")
+                }
+                .buttonStyle(.source(size: .large, priority: .tertiary, theme: .brand))
+
+                Button(action: {}) {
+                    Text("Subdued")
+                }
+                .buttonStyle(.source(size: .large, priority: .subdubed, theme: .brand))
+
+            } header: {
+                Text("Large")
+            }
+
+            Section {
+                Button(action: {}) {
+                    Text("Primary")
+                }
+                .buttonStyle(.source(size: .medium, priority: .tertiary, theme: .brand))
+
+                Button(action: {}) {
+                    Text("Secondary")
+                }
+                .buttonStyle(.source(size: .medium, priority: .secondary, theme: .brand))
+
+                Button(action: {}) {
+                    Text("Tertiary")
+                }
+                .buttonStyle(.source(size: .medium, priority: .tertiary, theme: .brand))
+
+                Button(action: {}) {
+                    Text("Subdued")
+                }
+                .buttonStyle(.source(size: .medium, priority: .subdubed, theme: .brand))
+
             } header: {
                 Text("Medium")
             }
 
             Section {
-                SourceButton(
-                    label: "Sign in",
-                    buttonSize: .small,
-                    hideLabel: false,
-                    disabled: false,
-                    action: {}
-                )
-                .buttonTheme(.brandPrimary)
+                Button(action: {}) {
+                    Text("Primary")
+                }
+                .buttonStyle(.source(size: .small, priority: .primary, theme: .brand))
 
-                SourceButton(
-                    label: "Sign in",
-                    buttonSize: .small,
-                    hideLabel: false,
-                    disabled: false,
-                    action: {}
-                )
-                .buttonTheme(.brandSecondary)
+                Button(action: {}) {
+                    Text("Secondary")
+                }
+                .buttonStyle(.source(size: .small, priority: .secondary, theme: .brand))
 
-                SourceButton(
-                    label: "Sign in",
-                    buttonSize: .small,
-                    hideLabel: false,
-                    disabled: false,
-                    action: {}
-                )
-                .buttonTheme(.brandTertiary)
+                Button(action: {}) {
+                    Text("Sign in")
+                }
+                .buttonStyle(.source(size: .small, priority: .tertiary, theme: .brand))
+
+                Button(action: {}) {
+                    Text("Subdued")
+                }
+                .buttonStyle(.source(size: .small, priority: .subdubed, theme: .brand))
+
             } header: {
                 Text("Small")
             }
 
             Section {
-                SourceButton(
-                    label: "Sign in",
-                    buttonSize: .xsmall,
-                    hideLabel: false,
-                    disabled: false,
-                    action: {}
-                )
-                .buttonTheme(.brandPrimary)
+                Button(action: {}) {
+                    Text("Primary")
+                }
+                .buttonStyle(.source(size: .xsmall, priority: .primary, theme: .brand))
 
-                SourceButton(
-                    label: "Sign in",
-                    buttonSize: .xsmall,
-                    hideLabel: false,
-                    disabled: false,
-                    action: {}
-                )
-                .buttonTheme(.brandSecondary)
+                Button(action: {}) {
+                    Text("Secondary")
+                }
+                .buttonStyle(.source(size: .xsmall, priority: .secondary, theme: .brand))
 
-                SourceButton(
-                    label: "Sign in",
-                    buttonSize: .xsmall,
-                    hideLabel: false,
-                    disabled: false,
-                    action: {}
-                )
-                .buttonTheme(.brandTertiary)
+                Button(action: {}) {
+                    Text("Tertiary")
+                }
+                .buttonStyle(.source(size: .xsmall, priority: .tertiary, theme: .brand))
+
+                Button(action: {}) {
+                    Text("Subdued")
+                }
+                .buttonStyle(.source(size: .xsmall, priority: .subdubed, theme: .brand))
+
             } header: {
                 Text("Xsmall")
-            }
-
-            Section {
-                SourceButton(
-                    label: "Disabled primary",
-                    buttonSize: .medium,
-                    hideLabel: false,
-                    disabled: true,
-                    action: {}
-                )
-                .buttonTheme(.brandPrimary)
-
-                SourceButton(
-                    label: "Disabled secondary",
-                    buttonSize: .medium,
-                    hideLabel: false,
-                    disabled: true,
-                    action: {}
-                )
-                .buttonTheme(.brandSecondary)
-
-                SourceButton(
-                    label: "Disabled tertiary",
-                    buttonSize: .medium,
-                    hideLabel: false,
-                    disabled: true,
-                    action: {}
-                )
-                .buttonTheme(.brandTertiary)
-            } header: {
-                Text("Disabled")
             }
         }
         .padding()
