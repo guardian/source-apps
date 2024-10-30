@@ -1,7 +1,7 @@
 import SwiftUI
 import GuardianFonts
 
-struct SourceButtonStyle: ButtonStyle {
+public struct SourceButtonStyle: ButtonStyle {
     let buttonSize: ButtonSize
     let buttonPriority: ButtonPriority
     let buttonTheme: ButtonTheme
@@ -12,7 +12,7 @@ struct SourceButtonStyle: ButtonStyle {
         return colorScheme == .dark ? 0.6 : 0.4
     }
 
-    func makeBody(configuration: Configuration) -> some View {
+    public func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(maxWidth: .infinity)
             .padding(.vertical, buttonSize.verticalPad)
@@ -58,7 +58,7 @@ struct SourceButtonStyle: ButtonStyle {
     }
 }
 
-extension ButtonStyle where Self == SourceButtonStyle {
+public extension ButtonStyle where Self == SourceButtonStyle {
     static func source(size: ButtonSize, priority: ButtonPriority, theme: ButtonTheme) -> SourceButtonStyle {
         SourceButtonStyle(buttonSize: size, buttonPriority: priority, buttonTheme: theme)
     }
