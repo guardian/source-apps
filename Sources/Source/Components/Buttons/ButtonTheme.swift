@@ -55,7 +55,6 @@ public struct ButtonTheme {
     }
 }
 
-
 public extension ButtonTheme {
 
     static let brand = ButtonTheme(
@@ -77,22 +76,3 @@ public extension ButtonTheme {
         )
     )
 }
-
-//extension View {
-//
-//    /// Applies  design system styling to `SourceButton`
-//    func buttonTheme(_ theme: ButtonTheme) -> some View {
-//        self.environment(\.buttonTheme, theme)
-//    }
-//}
-//
-//struct ButtonThemeKey: EnvironmentKey {
-//    static let defaultValue: ButtonTheme = .brand
-//}
-//
-//extension EnvironmentValues {
-//    var buttonTheme: ButtonTheme {
-//        get { self[ButtonThemeKey.self] }
-//        set { self[ButtonThemeKey.self] = newValue }
-//    }
-//}
