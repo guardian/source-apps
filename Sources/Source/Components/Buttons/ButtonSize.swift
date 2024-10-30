@@ -2,7 +2,6 @@
 import Foundation
 
 public enum ButtonSize {
-    // check with luke - maybe large dims should actually be medium, and no xsmall? or xxsmall? 
     case xsmall, small, medium, large
 }
 
