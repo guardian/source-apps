@@ -72,7 +72,7 @@ extension ButtonStyle where Self == SourceButtonStyle {
                 Button(action: {}) {
                     Text("Primary")
                 }
-                .buttonStyle(.source(size: .large, priority: .tertiary, theme: .brand))
+                .buttonStyle(.source(size: .large, priority: .primary, theme: .brand))
 
                 Button(action: {}) {
                     Text("Secondary")
@@ -97,7 +97,7 @@ extension ButtonStyle where Self == SourceButtonStyle {
                 Button(action: {}) {
                     Text("Primary")
                 }
-                .buttonStyle(.source(size: .medium, priority: .tertiary, theme: .brand))
+                .buttonStyle(.source(size: .medium, priority: .primary, theme: .brand))
 
                 Button(action: {}) {
                     Text("Secondary")
