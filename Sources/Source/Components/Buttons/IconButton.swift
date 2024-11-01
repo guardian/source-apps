@@ -94,8 +94,6 @@ fileprivate extension ButtonSize {
                 return 24
             case .medium:
                 return 28
-            case .large:
-                return 28
         }
     }
 
@@ -107,8 +105,6 @@ fileprivate extension ButtonSize {
                 return 6
             case .medium:
                 return 8
-            case .large:
-                return 10
         }
     }
 }

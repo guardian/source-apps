@@ -2,13 +2,12 @@
 import Foundation
 
 public enum ButtonSize {
-    case xsmall, small, medium, large
+    case xsmall, small, medium
 }
 
 extension ButtonSize {
     var fontSize: CGFloat {
         switch self {
-        case .large: 17
         case .medium: 17
         case .small: 17
         case .xsmall: 14
@@ -17,18 +16,16 @@ extension ButtonSize {
 
     var verticalPad: CGFloat {
         switch self {
-        case .large: 16
-        case .medium: 12
-        case .small: 8
+        case .medium: 16
+        case .small: 12
         case .xsmall: 6
         }
     }
 
     var horizontalPad: CGFloat {
         switch self {
-        case .large: 20
-        case .medium: 16
-        case .small: 12
+        case .medium: 20
+        case .small: 16
         case .xsmall: 12
         }
     }

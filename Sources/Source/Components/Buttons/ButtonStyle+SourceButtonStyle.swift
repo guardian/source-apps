@@ -72,31 +72,6 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                 Button(action: {}) {
                     Text("Primary")
                 }
-                .buttonStyle(.source(size: .large, priority: .primary, theme: .brand))
-
-                Button(action: {}) {
-                    Text("Secondary")
-                }
-                .buttonStyle(.source(size: .large, priority: .secondary, theme: .brand))
-
-                Button(action: {}) {
-                    Text("Tertiary")
-                }
-                .buttonStyle(.source(size: .large, priority: .tertiary, theme: .brand))
-
-                Button(action: {}) {
-                    Text("Subdued")
-                }
-                .buttonStyle(.source(size: .large, priority: .subdubed, theme: .brand))
-
-            } header: {
-                Text("Large")
-            }
-
-            Section {
-                Button(action: {}) {
-                    Text("Primary")
-                }
                 .buttonStyle(.source(size: .medium, priority: .primary, theme: .brand))
 
                 Button(action: {}) {
