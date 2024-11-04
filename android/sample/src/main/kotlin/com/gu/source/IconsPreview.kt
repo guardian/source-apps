@@ -10,6 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.components.buttons.SourceButton
@@ -23,11 +25,15 @@ import com.gu.source.presets.typography.HeadlineBold20
 import com.gu.source.presets.typography.TextSansBold15
 
 private val icons = listOf(
-    Source.Icons.Base.Check,
-    Source.Icons.Base.ChevronLeft,
-    Source.Icons.Base.ChevronRight,
+    Source.Icons.Base.ChevronLeftSmall,
+    Source.Icons.Base.ChevronRightSmall,
+    Source.Icons.Base.ChevronLeftSingle,
+    Source.Icons.Base.ChevronRightSingle,
+    Source.Icons.Base.ChevronLeftDouble,
+    Source.Icons.Base.ChevronRightDouble,
     Source.Icons.Base.Minus,
     Source.Icons.Base.Plus,
+    Source.Icons.Base.Check,
 )
 
 @Composable
@@ -55,23 +61,26 @@ internal fun IconsPreview(modifier: Modifier = Modifier) {
                 )
             }
             items(icons) { icon ->
-                Box(
+                Row(
                     modifier = Modifier
                         .height(50.dp)
                         .fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text(
-                        text = icon.name,
-                        modifier = Modifier
-                            .align(Alignment.Center),
-                        style = Source.Typography.TextSansBold15,
-                    )
                     SourceIconButton(
                         icon = icon,
                         priority = SourceButton.Priority.TertiaryOnWhite,
                         contentDescription = null,
                         onClick = {},
                         size = SourceButton.Size.XSmall,
+                    )
+                    Text(
+                        text = icon.name,
+                        modifier = Modifier.weight(1f),
+                        style = Source.Typography.TextSansBold15,
+                        textAlign = TextAlign.Center,
+                        overflow = TextOverflow.Ellipsis,
+                        maxLines = 1,
                     )
                 }
             }
