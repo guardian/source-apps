@@ -58,8 +58,12 @@ $dokka.location:com.gu.source.daynight/AppColour/hashCode/#/PointingToDeclaratio
 $dokka.location:com.gu.source.daynight/AppColour/light/#/PointingToDeclaration/-source for -android/com.gu.source.daynight/-app-colour/light.html
 $dokka.location:com.gu.source.icons////PointingToDeclaration/-source for -android/com.gu.source.icons/index.html
 $dokka.location:com.gu.source.icons//Check/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-check.html
-$dokka.location:com.gu.source.icons//ChevronLeft/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-chevron-left.html
-$dokka.location:com.gu.source.icons//ChevronRight/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-chevron-right.html
+$dokka.location:com.gu.source.icons//ChevronLeftDouble/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-chevron-left-double.html
+$dokka.location:com.gu.source.icons//ChevronLeftSingle/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-chevron-left-single.html
+$dokka.location:com.gu.source.icons//ChevronLeftSmall/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-chevron-left-small.html
+$dokka.location:com.gu.source.icons//ChevronRightDouble/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-chevron-right-double.html
+$dokka.location:com.gu.source.icons//ChevronRightSingle/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-chevron-right-single.html
+$dokka.location:com.gu.source.icons//ChevronRightSmall/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-chevron-right-small.html
 $dokka.location:com.gu.source.icons//Minus/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-minus.html
 $dokka.location:com.gu.source.icons//Plus/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-plus.html
 $dokka.location:com.gu.source.presets.palette////PointingToDeclaration/-source for -android/com.gu.source.presets.palette/index.html
