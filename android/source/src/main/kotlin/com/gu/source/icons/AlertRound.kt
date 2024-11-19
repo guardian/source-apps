@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
+import com.gu.source.presets.palette.Brand400
 
 val Source.Icons.Base.AlertRound: ImageVector
     get() = _alertRound ?: Builder(
@@ -23,7 +24,7 @@ val Source.Icons.Base.AlertRound: ImageVector
         viewportHeight = 24f
     ).apply {
         path(
-            fill = SolidColor(Color(0xFF052962)),
+            fill = SolidColor(Source.Palette.Brand400),
             fillAlpha = 1.0f,
             stroke = null,
             strokeAlpha = 1.0f,
