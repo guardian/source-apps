@@ -21,6 +21,17 @@ import com.gu.source.presets.typography.TextSans17
 import com.gu.source.theme.SourceCoreTheme
 import com.gu.source.utils.PreviewPhoneBothMode
 
+/**
+ * A composable function that displays text with clickable links.
+ *
+ * @param text The full text to be displayed.
+ * @param textColor The color of the text.
+ * @param linkText A list of substrings within the text that should be clickable links.
+ * @param textStyle The style to be applied to the text.
+ * @param modifier The modifier to be applied to the Text composable.
+ * @param linkTextDecoration The text decoration to be applied to the link text.
+ * @param linkTextCallbacks A list of callbacks to be invoked when the corresponding link is clicked.
+ */
 @Composable
 fun LinkText(
     text: String,
@@ -68,20 +79,6 @@ fun LinkText(
         style = textStyle,
         color = textColor,
     )
-
-    /*ClickableText(
-        modifier = modifier,
-        text = annotatedString,
-        onClick = { offset ->
-            linkText.forEachIndexed { index, link ->
-                val startIndex = text.indexOf(link)
-                val endIndex = startIndex + link.length
-                if (offset in startIndex until endIndex) {
-                    linkTextCallbacks[index]()
-                }
-            }
-        },
-    )*/
 }
 
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)

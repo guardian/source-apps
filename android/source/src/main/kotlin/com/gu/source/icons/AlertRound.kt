@@ -1,3 +1,5 @@
+@file:Suppress("MagicNumber")
+
 package com.gu.source.icons
 
 import androidx.compose.material3.Icon
@@ -14,6 +16,8 @@ import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.presets.palette.Brand400
 
+/** Base alert round icon. */
+@Suppress("UnusedReceiverParameter", "NamedArguments")
 val Source.Icons.Base.AlertRound: ImageVector
     get() = _alertRound ?: Builder(
         name = "AlertRound",

@@ -22,6 +22,9 @@ import com.gu.source.presets.typography.TextSans17
 import com.gu.source.theme.SourceCoreTheme
 import com.gu.source.utils.PreviewPhoneBothMode
 
+/**
+ * Object for property models for the [AlertBanner] component.
+ */
 object AlertBanner {
     internal object Style {
         internal val ContentPadding = PaddingValues(
@@ -39,6 +42,12 @@ object AlertBanner {
         val crossTextSpacing = 20.dp
     }
 
+    /**
+     * Enum for the message type of the [AlertBanner]. Informs users of how important an action is.
+     *
+     * The messages are named based on banner message type and backdrop colour.
+     */
+    @Suppress("UndocumentedPublicProperty", "StringLiteralDuplication")
     enum class Message {
         Neutral,
         Informative,
@@ -126,6 +135,16 @@ object AlertBanner {
     }
 }
 
+/**
+ * A composable function that displays an alert banner with optional clickable links.
+ *
+ * @param text The text to be displayed in the banner.
+ * @param message The type of message to be displayed (Neutral, Informative, Error).
+ * @param onCancelClick A callback to be invoked when the cancel icon is clicked.
+ * @param modifier The modifier to be applied to the banner.
+ * @param linkText A list of substrings within the text that should be clickable links.
+ * @param linkTextCallbacks A list of callbacks to be invoked when the corresponding link is clicked.
+ */
 @SuppressLint("DiscouragedApi")
 @Composable
 fun AlertBanner(
@@ -193,10 +212,9 @@ internal fun AlertBannerPreview() {
                             text = "You’re on the US Edition Go to UK edition",
                             linkText = listOf("UK edition"),
                             linkTextCallbacks = listOf(
-                                { println("UK edition clicked") },
+                                { },
                             ),
                             message = message,
-                            onClick = {},
                             onCancelClick = {},
                         )
                     }
