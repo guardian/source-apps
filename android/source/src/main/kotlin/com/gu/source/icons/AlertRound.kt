@@ -2,7 +2,6 @@ package com.gu.source.icons
 
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathFillType.Companion.EvenOdd
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.StrokeCap.Companion.Butt
@@ -18,10 +17,10 @@ import com.gu.source.presets.palette.Brand400
 val Source.Icons.Base.AlertRound: ImageVector
     get() = _alertRound ?: Builder(
         name = "AlertRound",
-        defaultWidth = 24.dp,
-        defaultHeight = 24.dp,
-        viewportWidth = 24f,
-        viewportHeight = 24f
+        defaultWidth = 24.0.dp,
+        defaultHeight = 24.0.dp,
+        viewportWidth = 24.0f,
+        viewportHeight = 24.0f,
     ).apply {
         path(
             fill = SolidColor(Source.Palette.Brand400),
@@ -32,7 +31,7 @@ val Source.Icons.Base.AlertRound: ImageVector
             strokeLineCap = Butt,
             strokeLineJoin = Miter,
             strokeLineMiter = 1.0f,
-            pathFillType = EvenOdd
+            pathFillType = EvenOdd,
         ) {
             moveTo(22f, 12f)
             curveTo(22f, 17.523f, 17.523f, 22f, 12f, 22f)

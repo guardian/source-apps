@@ -2,7 +2,6 @@ package com.gu.source.icons
 
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathFillType.Companion.EvenOdd
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.StrokeCap.Companion.Butt
@@ -21,7 +20,7 @@ val Source.Icons.Base.Cross: ImageVector
         defaultWidth = 24.dp,
         defaultHeight = 24.dp,
         viewportWidth = 24f,
-        viewportHeight = 24f
+        viewportHeight = 24f,
     ).apply {
         path(
             fill = SolidColor(Source.Palette.Brand400),
@@ -32,7 +31,7 @@ val Source.Icons.Base.Cross: ImageVector
             strokeLineCap = Butt,
             strokeLineJoin = Miter,
             strokeLineMiter = 1.0f,
-            pathFillType = EvenOdd
+            pathFillType = EvenOdd,
         ) {
             moveTo(12.015f, 14.042f)
             lineTo(20.707f, 22f)
