@@ -9,6 +9,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.components.banner.AlertBanner
@@ -20,6 +23,21 @@ import com.gu.source.presets.typography.TextSansBold17
 @Suppress("StringLiteralDuplication")
 @Composable
 internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
+    val text = "You’re on the US Edition Go to UK edition"
+    val link = "UK edition"
+    val annotatedString = buildAnnotatedString {
+        append(text)
+        val startIndex = text.indexOf(link)
+        val endIndex = startIndex + link.length
+        addStyle(
+            style = SpanStyle(
+                textDecoration = TextDecoration.Underline,
+            ),
+            start = startIndex,
+            end = endIndex,
+        )
+    }
+
     Surface(
         modifier = modifier,
         color = AppColour(
@@ -39,65 +57,84 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
 
             Text(text = "Alert Banner variants", style = Source.Typography.TextSansBold17)
             AlertBanner(
-                message = AlertBanner.Message.Neutral,
+                priority = AlertBanner.Priority.Neutral,
                 text = "Neutral alert banner",
-                onCancelClick = {
+                onCloseClick = {
                     Toast.makeText(context, "Neutral alert banner dismissed", Toast.LENGTH_SHORT)
                         .show()
                 },
-            )
-
-            AlertBanner(
-                message = AlertBanner.Message.Informative,
-                text = "Informative alert banner",
-                modifier = Modifier,
-                onCancelClick = {
+                onClick = {
                     Toast.makeText(
                         context,
-                        "Informative alert banner dismissed",
+                        "Neutral alert banner clicked",
                         Toast.LENGTH_SHORT,
                     ).show()
                 },
             )
 
             AlertBanner(
-                message = AlertBanner.Message.Error,
+                priority = AlertBanner.Priority.Informative,
+                text = "Informative alert banner",
+                modifier = Modifier,
+                onCloseClick = {
+                    Toast.makeText(
+                        context,
+                        "Informative alert banner dismissed",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+                },
+                onClick = {
+                    Toast.makeText(
+                        context,
+                        "Informative alert banner clicked",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+                },
+            )
+
+            AlertBanner(
+                priority = AlertBanner.Priority.Error,
                 text = "Error alert banner",
-                onCancelClick = {
+                onCloseClick = {
                     Toast.makeText(context, "Error alert banner dismissed", Toast.LENGTH_SHORT)
                         .show()
                 },
-            )
-
-            AlertBanner(
-                message = AlertBanner.Message.Neutral,
-                text = "You’re on the US Edition Go to UK edition",
-                linkText = listOf("UK edition"),
-                linkTextCallbacks = listOf {
+                onClick = {
                     Toast.makeText(
                         context,
-                        "UK edition clicked - ${AlertBanner.Message.Neutral.name}",
+                        "Error alert banner clicked",
                         Toast.LENGTH_SHORT,
                     ).show()
                 },
-                onCancelClick = {
+            )
+
+            AlertBanner(
+                priority = AlertBanner.Priority.Neutral,
+                annotatedText = annotatedString,
+                onClick = {
+                    Toast.makeText(
+                        context,
+                        "Neutral alert banner clicked",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+                },
+                onCloseClick = {
                     Toast.makeText(context, "Neutral alert banner dismissed", Toast.LENGTH_SHORT)
                         .show()
                 },
             )
 
             AlertBanner(
-                message = AlertBanner.Message.Informative,
-                text = "You’re on the US Edition Go to UK edition",
-                linkText = listOf("UK edition"),
-                linkTextCallbacks = listOf {
+                priority = AlertBanner.Priority.Informative,
+                annotatedText = annotatedString,
+                onClick = {
                     Toast.makeText(
                         context,
-                        "UK edition clicked - ${AlertBanner.Message.Informative.name}",
+                        "Informative alert banner clicked",
                         Toast.LENGTH_SHORT,
                     ).show()
                 },
-                onCancelClick = {
+                onCloseClick = {
                     Toast.makeText(
                         context,
                         "Informative alert banner dismissed",
@@ -107,17 +144,16 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
             )
 
             AlertBanner(
-                message = AlertBanner.Message.Error,
-                text = "You’re on the US Edition Go to UK edition",
-                linkText = listOf("UK edition"),
-                linkTextCallbacks = listOf {
+                priority = AlertBanner.Priority.Error,
+                annotatedText = annotatedString,
+                onClick = {
                     Toast.makeText(
                         context,
-                        "UK edition clicked - ${AlertBanner.Message.Error.name}",
+                        "Error alert banner clicked",
                         Toast.LENGTH_SHORT,
                     ).show()
                 },
-                onCancelClick = {
+                onCloseClick = {
                     Toast.makeText(
                         context,
                         "Error alert banner dismissed",
