@@ -80,7 +80,7 @@ object AlertBanner {
 
             Error -> Style.iconAlertRound
 
-            else -> null
+            Neutral -> null
         }
 
         internal fun getIconTint() = when (this) {
@@ -94,7 +94,7 @@ object AlertBanner {
                 dark = Source.Palette.Error500,
             )
 
-            else -> AppColour.Unspecified
+            Neutral -> AppColour.Unspecified
         }
 
         internal fun getTextColor() = when (this) {
@@ -139,9 +139,8 @@ object AlertBanner {
  * @param text The text to be displayed in the banner.
  * @param priority The type of message to be displayed (Neutral, Informative, Error).
  * @param onCloseClick A callback to be invoked when the cancel icon is clicked.
+ * @param onClick A callback to be invoked when the banner is clicked.
  * @param modifier The modifier to be applied to the banner.
- * @param linkText A list of substrings within the text that should be clickable links.
- * @param linkTextCallbacks A list of callbacks to be invoked when the corresponding link is clicked.
  */
 @SuppressLint("DiscouragedApi")
 @Composable
@@ -189,6 +188,15 @@ fun AlertBanner(
     }
 }
 
+/**
+ * A composable function that displays an alert banner with optional clickable links.
+ *
+ * @param annotatedText The text to be displayed in the banner having link in it.
+ * @param priority The type of message to be displayed (Neutral, Informative, Error).
+ * @param onCloseClick A callback to be invoked when the cancel icon is clicked.
+ * @param onClick A callback to be invoked when the banner is clicked.
+ * @param modifier The modifier to be applied to the banner.
+ */
 @SuppressLint("DiscouragedApi")
 @Composable
 fun AlertBanner(
