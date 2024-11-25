@@ -59,7 +59,7 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
             AlertBanner(
                 priority = AlertBanner.Priority.Neutral,
                 text = "Neutral alert banner",
-                onCloseClick = {
+                onDismiss = {
                     Toast.makeText(context, "Neutral alert banner dismissed", Toast.LENGTH_SHORT)
                         .show()
                 },
@@ -76,7 +76,7 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
                 priority = AlertBanner.Priority.Informative,
                 text = "Informative alert banner",
                 modifier = Modifier,
-                onCloseClick = {
+                onDismiss = {
                     Toast.makeText(
                         context,
                         "Informative alert banner dismissed",
@@ -95,7 +95,7 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
             AlertBanner(
                 priority = AlertBanner.Priority.Error,
                 text = "Error alert banner",
-                onCloseClick = {
+                onDismiss = {
                     Toast.makeText(context, "Error alert banner dismissed", Toast.LENGTH_SHORT)
                         .show()
                 },
