@@ -4,11 +4,22 @@ import android.annotation.SuppressLint
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.AnnotatedString
@@ -22,7 +33,16 @@ import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.AlertRound
 import com.gu.source.icons.Cross
 import com.gu.source.icons.InfoRound
-import com.gu.source.presets.palette.*
+import com.gu.source.presets.palette.Brand400
+import com.gu.source.presets.palette.Brand800
+import com.gu.source.presets.palette.Error400
+import com.gu.source.presets.palette.Error500
+import com.gu.source.presets.palette.Neutral0
+import com.gu.source.presets.palette.Neutral100
+import com.gu.source.presets.palette.Neutral20
+import com.gu.source.presets.palette.Neutral7
+import com.gu.source.presets.palette.News100
+import com.gu.source.presets.palette.News600
 import com.gu.source.presets.typography.TextSans17
 import com.gu.source.utils.PreviewPhoneBothMode
 
@@ -101,7 +121,7 @@ object AlertBanner {
 }
 
 /**
- * A composable function that displays an alert banner with optional clickable links.
+ * A banner component that displays an alert message with styling based on provided priority.
  *
  * @param text The text to be displayed in the banner.
  * @param priority The type of message to be displayed (Neutral, Informative, Error).
@@ -153,7 +173,11 @@ fun AlertBanner(
         Row(
             modifier = Modifier
                 .weight(1f)
-                .clickable { onClick() },
+                .clickable(
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = ripple(),
+                    onClick = onClick,
+                ),
         ) {
             priority.icon?.let {
                 Icon(
