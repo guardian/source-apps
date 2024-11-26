@@ -32,14 +32,15 @@ import com.gu.source.utils.PreviewPhoneBothMode
 object AlertBanner {
     internal object Style {
         internal val ContentPadding = PaddingValues(
-            vertical = 16.dp,
-            horizontal = 20.dp,
+            vertical = 20.dp,
+            horizontal = 16.dp,
         )
 
         val textStyle = Source.Typography.TextSans17
 
         val iconTextSpacing = 8.dp
         val crossTextSpacing = 20.dp
+        val crossIconSize = 24.dp
     }
 
     /**
@@ -177,7 +178,10 @@ fun AlertBanner(
             modifier = Modifier.width(AlertBanner.Style.crossTextSpacing),
         )
 
-        IconButton(onClick = onCloseClick) {
+        IconButton(
+            onClick = onCloseClick,
+            modifier = Modifier.size(AlertBanner.Style.crossIconSize),
+        ) {
             Icon(
                 imageVector = Source.Icons.Base.Cross,
                 tint = priority.contentColour.current,
