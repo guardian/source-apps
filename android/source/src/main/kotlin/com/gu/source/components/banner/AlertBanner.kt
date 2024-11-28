@@ -73,7 +73,7 @@ object AlertBanner {
         ),
 
         /** Represents an informative alert banner with a message. An info icon is displayed. */
-        Informative(
+        Info(
             backgroundColour = AppColour(
                 light = Source.Palette.Brand800,
                 dark = Source.Palette.Brand400,
@@ -209,7 +209,7 @@ fun AlertBanner(
 @PreviewPhoneBothMode
 @Composable
 internal fun AlertBannerWithTextPreview() {
-    val text = "You’re on the US Edition Go to UK edition"
+    val text = "You’re on the US Edition. Go to the UK edition."
     val annotatedText = buildAnnotatedString {
         val link = "UK edition"
         append(text)
