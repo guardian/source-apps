@@ -1,5 +1,16 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
+$dokka.location:com.gu.source.components.banner////PointingToDeclaration/-source for -android/com.gu.source.components.banner/index.html
+$dokka.location:com.gu.source.components.banner//AlertBanner/#androidx.compose.ui.text.AnnotatedString#com.gu.source.components.banner.AlertBanner.Priority#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier/PointingToDeclaration/-source for -android/com.gu.source.components.banner/-alert-banner.html
+$dokka.location:com.gu.source.components.banner//AlertBanner/#kotlin.String#com.gu.source.components.banner.AlertBanner.Priority#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier/PointingToDeclaration/-source for -android/com.gu.source.components.banner/-alert-banner.html
+$dokka.location:com.gu.source.components.banner/AlertBanner.Priority.Error///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.banner/-alert-banner/-priority/-error/index.html
+$dokka.location:com.gu.source.components.banner/AlertBanner.Priority.Info///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.banner/-alert-banner/-priority/-info/index.html
+$dokka.location:com.gu.source.components.banner/AlertBanner.Priority.Neutral///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.banner/-alert-banner/-priority/-neutral/index.html
+$dokka.location:com.gu.source.components.banner/AlertBanner.Priority///PointingToDeclaration/-source for -android/com.gu.source.components.banner/-alert-banner/-priority/index.html
+$dokka.location:com.gu.source.components.banner/AlertBanner.Priority/entries/#/PointingToDeclaration/-source for -android/com.gu.source.components.banner/-alert-banner/-priority/entries.html
+$dokka.location:com.gu.source.components.banner/AlertBanner.Priority/valueOf/#kotlin.String/PointingToDeclaration/-source for -android/com.gu.source.components.banner/-alert-banner/-priority/value-of.html
+$dokka.location:com.gu.source.components.banner/AlertBanner.Priority/values/#/PointingToDeclaration/-source for -android/com.gu.source.components.banner/-alert-banner/-priority/values.html
+$dokka.location:com.gu.source.components.banner/AlertBanner///PointingToDeclaration/-source for -android/com.gu.source.components.banner/-alert-banner/index.html
 $dokka.location:com.gu.source.components.buttons////PointingToDeclaration/-source for -android/com.gu.source.components.buttons/index.html
 $dokka.location:com.gu.source.components.buttons//PlainSourceButton/#kotlin.String#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#com.gu.source.components.buttons.ButtonColours#com.gu.source.components.buttons.ButtonColours?#com.gu.source.components.buttons.SourceButton.Size#com.gu.source.components.buttons.SourceButton.IconSide#kotlin.Function1[androidx.compose.ui.Modifier,kotlin.Unit]/PointingToDeclaration/-source for -android/com.gu.source.components.buttons/-plain-source-button.html
 $dokka.location:com.gu.source.components.buttons//PlainSourceContentButton/#com.gu.source.components.buttons.SourceButton.Size#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#com.gu.source.components.buttons.ButtonColours#com.gu.source.components.buttons.ButtonColours?#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-source for -android/com.gu.source.components.buttons/-plain-source-content-button.html
@@ -57,6 +68,7 @@ $dokka.location:com.gu.source.daynight/AppColour/equals/#kotlin.Any?/PointingToD
 $dokka.location:com.gu.source.daynight/AppColour/hashCode/#/PointingToDeclaration/-source for -android/com.gu.source.daynight/-app-colour/hash-code.html
 $dokka.location:com.gu.source.daynight/AppColour/light/#/PointingToDeclaration/-source for -android/com.gu.source.daynight/-app-colour/light.html
 $dokka.location:com.gu.source.icons////PointingToDeclaration/-source for -android/com.gu.source.icons/index.html
+$dokka.location:com.gu.source.icons//AlertRound/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-alert-round.html
 $dokka.location:com.gu.source.icons//Check/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-check.html
 $dokka.location:com.gu.source.icons//ChevronLeftDouble/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-chevron-left-double.html
 $dokka.location:com.gu.source.icons//ChevronLeftSingle/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-chevron-left-single.html
@@ -64,6 +76,8 @@ $dokka.location:com.gu.source.icons//ChevronLeftSmall/com.gu.source.Source.Icons
 $dokka.location:com.gu.source.icons//ChevronRightDouble/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-chevron-right-double.html
 $dokka.location:com.gu.source.icons//ChevronRightSingle/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-chevron-right-single.html
 $dokka.location:com.gu.source.icons//ChevronRightSmall/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-chevron-right-small.html
+$dokka.location:com.gu.source.icons//Cross/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-cross.html
+$dokka.location:com.gu.source.icons//InfoRound/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-info-round.html
 $dokka.location:com.gu.source.icons//Minus/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-minus.html
 $dokka.location:com.gu.source.icons//Plus/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.icons/-plus.html
 $dokka.location:com.gu.source.presets.palette////PointingToDeclaration/-source for -android/com.gu.source.presets.palette/index.html
@@ -292,6 +306,7 @@ $dokka.location:com.gu.source/Source.Theme/values/#/PointingToDeclaration/-sour
 $dokka.location:com.gu.source/Source.Typography///PointingToDeclaration/-source for -android/com.gu.source/-source/-typography/index.html
 $dokka.location:com.gu.source/Source///PointingToDeclaration/-source for -android/com.gu.source/-source/index.html
 com.gu.source
+com.gu.source.components.banner
 com.gu.source.components.buttons
 com.gu.source.components.pager
 com.gu.source.daynight
