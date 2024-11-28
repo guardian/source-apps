@@ -650,7 +650,6 @@ val Source.Typography.HeadlineSemiBold14: TextStyle
         fontSize = TextSize._14,
         lineHeight = LineHeight.Tight,
         fontWeight = FontWeight.W500,
-        fontStyle = FontStyle.Italic,
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
@@ -660,7 +659,6 @@ val Source.Typography.HeadlineSemiBold15: TextStyle
         fontSize = TextSize._15,
         lineHeight = LineHeight.Tight,
         fontWeight = FontWeight.W500,
-        fontStyle = FontStyle.Italic,
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
@@ -670,7 +668,6 @@ val Source.Typography.HeadlineSemiBold16: TextStyle
         fontSize = TextSize._16,
         lineHeight = LineHeight.Tight,
         fontWeight = FontWeight.W500,
-        fontStyle = FontStyle.Italic,
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
@@ -680,7 +677,6 @@ val Source.Typography.HeadlineSemiBold18: TextStyle
         fontSize = TextSize._18,
         lineHeight = LineHeight.Tight,
         fontWeight = FontWeight.W500,
-        fontStyle = FontStyle.Italic,
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
@@ -690,7 +686,6 @@ val Source.Typography.HeadlineSemiBold24: TextStyle
         fontSize = TextSize._24,
         lineHeight = LineHeight.Tight,
         fontWeight = FontWeight.W500,
-        fontStyle = FontStyle.Italic,
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
@@ -700,7 +695,6 @@ val Source.Typography.HeadlineSemiBold28: TextStyle
         fontSize = TextSize._28,
         lineHeight = LineHeight.Tight,
         fontWeight = FontWeight.W500,
-        fontStyle = FontStyle.Italic,
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
@@ -710,7 +704,6 @@ val Source.Typography.HeadlineSemiBold50: TextStyle
         fontSize = TextSize._50,
         lineHeight = LineHeight.Tight,
         fontWeight = FontWeight.W500,
-        fontStyle = FontStyle.Italic,
     )
 
 // endregion
