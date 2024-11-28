@@ -243,6 +243,26 @@ Column(modifier = Modifier.padding(8.dp)) {
 A set of next & previous icon buttons to progress through the pages. The button
 enabled state depends on availability of a next/previous page.
 
+### Alert banners
+
+The `AlertBanner` component is used to display alerts at the top of the screen. It supports three
+alert priorites - `Neutral`, `Info` and `Error`. The three alert priorities have different display
+styles corresponding to Source specifications.
+
+##### Usage example
+
+```kotlin
+AlertBanner(
+    text = "This is an alert banner",
+    priority = AlertBanner.Priority.Info,
+    onMessageClick = { /* Handle action */ },
+    onDismiss = { /* Handle dismiss */ },
+    modifier = Modifier.fillMaxWidth(),
+)
+```
+
+![Alert banner variants](docsAssets/alert-examples.png)
+
 ----
 
 ## Building and using directly
