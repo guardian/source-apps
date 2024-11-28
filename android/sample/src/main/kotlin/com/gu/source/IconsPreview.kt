@@ -34,6 +34,9 @@ private val icons = listOf(
     Source.Icons.Base.Minus,
     Source.Icons.Base.Plus,
     Source.Icons.Base.Check,
+    Source.Icons.Base.Cross,
+    Source.Icons.Base.AlertRound,
+    Source.Icons.Base.InfoRound,
 )
 
 @Composable
