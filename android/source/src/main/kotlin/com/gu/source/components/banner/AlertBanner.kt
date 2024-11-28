@@ -159,7 +159,7 @@ fun AlertBanner(
                 .weight(1f)
                 .clickable(
                     interactionSource = remember { MutableInteractionSource() },
-                    indication = ripple(),
+                    indication = ripple(color = priority.contentColour.current),
                     onClick = onMessageClick,
                 )
                 .padding(
