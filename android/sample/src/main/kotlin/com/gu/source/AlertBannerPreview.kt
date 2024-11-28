@@ -84,16 +84,12 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
     }
 }
 
-private fun showToast(
-    message: String,
-    context: Context,
-) {
+private fun showToast(message: String, context: Context) {
     Toast.makeText(
         context,
         message,
         Toast.LENGTH_SHORT,
     ).show()
-
 }
 
 @Preview
