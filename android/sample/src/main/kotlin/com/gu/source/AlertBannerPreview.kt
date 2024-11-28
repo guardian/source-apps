@@ -58,12 +58,12 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
             Text(text = "Alert Banner variants", style = Source.Typography.TextSansBold17)
             AlertBanner(
                 priority = AlertBanner.Priority.Neutral,
-                text = "Neutral alert banner",
+                messageText = "Neutral alert banner",
                 onDismiss = {
                     Toast.makeText(context, "Neutral alert banner dismissed", Toast.LENGTH_SHORT)
                         .show()
                 },
-                onClick = {
+                onMessageClick = {
                     Toast.makeText(
                         context,
                         "Neutral alert banner clicked",
@@ -74,7 +74,7 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
 
             AlertBanner(
                 priority = AlertBanner.Priority.Informative,
-                text = "Informative alert banner",
+                messageText = "Informative alert banner",
                 modifier = Modifier,
                 onDismiss = {
                     Toast.makeText(
@@ -83,7 +83,7 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
                         Toast.LENGTH_SHORT,
                     ).show()
                 },
-                onClick = {
+                onMessageClick = {
                     Toast.makeText(
                         context,
                         "Informative alert banner clicked",
@@ -94,12 +94,12 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
 
             AlertBanner(
                 priority = AlertBanner.Priority.Error,
-                text = "Error alert banner",
+                messageText = "Error alert banner",
                 onDismiss = {
                     Toast.makeText(context, "Error alert banner dismissed", Toast.LENGTH_SHORT)
                         .show()
                 },
-                onClick = {
+                onMessageClick = {
                     Toast.makeText(
                         context,
                         "Error alert banner clicked",
@@ -110,15 +110,15 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
 
             AlertBanner(
                 priority = AlertBanner.Priority.Neutral,
-                annotatedText = annotatedString,
-                onClick = {
+                messageText = annotatedString,
+                onMessageClick = {
                     Toast.makeText(
                         context,
                         "Neutral alert banner clicked",
                         Toast.LENGTH_SHORT,
                     ).show()
                 },
-                onCloseClick = {
+                onDismiss = {
                     Toast.makeText(context, "Neutral alert banner dismissed", Toast.LENGTH_SHORT)
                         .show()
                 },
@@ -126,15 +126,15 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
 
             AlertBanner(
                 priority = AlertBanner.Priority.Informative,
-                annotatedText = annotatedString,
-                onClick = {
+                messageText = annotatedString,
+                onMessageClick = {
                     Toast.makeText(
                         context,
                         "Informative alert banner clicked",
                         Toast.LENGTH_SHORT,
                     ).show()
                 },
-                onCloseClick = {
+                onDismiss = {
                     Toast.makeText(
                         context,
                         "Informative alert banner dismissed",
@@ -145,15 +145,15 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
 
             AlertBanner(
                 priority = AlertBanner.Priority.Error,
-                annotatedText = annotatedString,
-                onClick = {
+                messageText = annotatedString,
+                onMessageClick = {
                     Toast.makeText(
                         context,
                         "Error alert banner clicked",
                         Toast.LENGTH_SHORT,
                     ).show()
                 },
-                onCloseClick = {
+                onDismiss = {
                     Toast.makeText(
                         context,
                         "Error alert banner dismissed",

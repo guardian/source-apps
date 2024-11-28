@@ -5,15 +5,7 @@ import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -33,16 +25,7 @@ import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.AlertRound
 import com.gu.source.icons.Cross
 import com.gu.source.icons.InfoRound
-import com.gu.source.presets.palette.Brand400
-import com.gu.source.presets.palette.Brand800
-import com.gu.source.presets.palette.Error400
-import com.gu.source.presets.palette.Error500
-import com.gu.source.presets.palette.Neutral0
-import com.gu.source.presets.palette.Neutral100
-import com.gu.source.presets.palette.Neutral20
-import com.gu.source.presets.palette.Neutral7
-import com.gu.source.presets.palette.News100
-import com.gu.source.presets.palette.News600
+import com.gu.source.presets.palette.*
 import com.gu.source.presets.typography.TextSans17
 import com.gu.source.utils.PreviewPhoneBothMode
 
@@ -51,16 +34,18 @@ import com.gu.source.utils.PreviewPhoneBothMode
  */
 object AlertBanner {
     internal object Style {
-        internal val ContentPadding = PaddingValues(
-            vertical = 20.dp,
-            horizontal = 16.dp,
-        )
+        val ContentPaddingVertical = 20.dp
+        val ContentPaddingHorizontal = 16.dp
+
+        // Adjust by 10dp to account for min-touch size padding for IconButton. This aligns
+        // the close icon with the top of the text.
+        val CloseIconButtonPaddingVertical = ContentPaddingVertical - 10.dp
+
 
         val textStyle = Source.Typography.TextSans17
 
         val iconTextSpacing = 8.dp
-        val crossTextSpacing = 20.dp
-        val crossIconSize = 24.dp
+        val closeTextSpacing = 20.dp
     }
 
     /**
@@ -68,13 +53,13 @@ object AlertBanner {
      *
      * The messages are named based on banner message type and backdrop colour.
      */
-    @Suppress("UndocumentedPublicProperty", "StringLiteralDuplication")
     enum class Priority(
         internal val backgroundColour: AppColour,
         internal val iconTint: AppColour,
         internal val contentColour: AppColour,
         internal val icon: ImageVector?,
     ) {
+        /** Represents a plain alert banner with a message. No icon is displayed. */
         Neutral(
             backgroundColour = AppColour(
                 light = Source.Palette.Neutral7,
@@ -87,6 +72,8 @@ object AlertBanner {
             ),
             icon = null,
         ),
+
+        /** Represents an informative alert banner with a message. An info icon is displayed. */
         Informative(
             backgroundColour = AppColour(
                 light = Source.Palette.Brand800,
@@ -102,6 +89,8 @@ object AlertBanner {
             ),
             icon = Source.Icons.Base.InfoRound,
         ),
+
+        /** Represents an error alert banner with a message. An error icon is displayed. */
         Error(
             backgroundColour = AppColour(
                 light = Source.Palette.News600,
@@ -123,26 +112,26 @@ object AlertBanner {
 /**
  * A banner component that displays an alert message with styling based on provided priority.
  *
- * @param text The text to be displayed in the banner.
+ * @param messageText The text to be displayed in the banner.
  * @param priority The type of message to be displayed (Neutral, Informative, Error).
  * @param onDismiss A callback to be invoked when the cancel icon is clicked.
- * @param onClick A callback to be invoked when the banner is clicked.
+ * @param onMessageClick A callback to be invoked when the banner is clicked.
  * @param modifier The modifier to be applied to the banner.
  */
 @SuppressLint("DiscouragedApi")
 @Composable
 fun AlertBanner(
-    text: String,
+    messageText: String,
     priority: AlertBanner.Priority,
     onDismiss: () -> Unit,
-    onClick: () -> Unit,
+    onMessageClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     AlertBanner(
-        annotatedText = AnnotatedString(text),
+        messageText = AnnotatedString(messageText),
         priority = priority,
-        onCloseClick = onDismiss,
-        onClick = onClick,
+        onDismiss = onDismiss,
+        onMessageClick = onMessageClick,
         modifier = modifier,
     )
 }
@@ -150,33 +139,34 @@ fun AlertBanner(
 /**
  * A composable function that displays an alert banner with optional clickable links.
  *
- * @param annotatedText The text to be displayed in the banner having link in it.
+ * @param messageText The text to be displayed in the banner having link in it.
  * @param priority The type of message to be displayed (Neutral, Informative, Error).
- * @param onCloseClick A callback to be invoked when the cancel icon is clicked.
- * @param onClick A callback to be invoked when the banner is clicked.
+ * @param onDismiss A callback to be invoked when the cancel icon is clicked.
+ * @param onMessageClick A callback to be invoked when the banner is clicked.
  * @param modifier The modifier to be applied to the banner.
  */
 @SuppressLint("DiscouragedApi")
 @Composable
 fun AlertBanner(
-    annotatedText: AnnotatedString,
+    messageText: AnnotatedString,
     priority: AlertBanner.Priority,
-    onCloseClick: () -> Unit,
-    onClick: () -> Unit,
+    onDismiss: () -> Unit,
+    onMessageClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Row(
-        modifier = modifier
-            .background(priority.backgroundColour.current)
-            .padding(AlertBanner.Style.ContentPadding),
-    ) {
+    Row(modifier = modifier.background(priority.backgroundColour.current)) {
         Row(
             modifier = Modifier
                 .weight(1f)
                 .clickable(
                     interactionSource = remember { MutableInteractionSource() },
                     indication = ripple(),
-                    onClick = onClick,
+                    onClick = onMessageClick,
+                )
+                .padding(
+                    top = AlertBanner.Style.ContentPaddingVertical,
+                    bottom = AlertBanner.Style.ContentPaddingVertical,
+                    start = AlertBanner.Style.ContentPaddingHorizontal,
                 ),
         ) {
             priority.icon?.let {
@@ -186,25 +176,25 @@ fun AlertBanner(
                     contentDescription = null,
                 )
 
-                Spacer(
-                    modifier = Modifier.width(AlertBanner.Style.iconTextSpacing),
-                )
+                Spacer(modifier = Modifier.width(AlertBanner.Style.iconTextSpacing))
             }
 
             Text(
-                text = annotatedText,
+                text = messageText,
                 style = AlertBanner.Style.textStyle,
                 color = priority.contentColour.current,
             )
         }
 
-        Spacer(
-            modifier = Modifier.width(AlertBanner.Style.crossTextSpacing),
-        )
+        Spacer(modifier = Modifier.width(AlertBanner.Style.closeTextSpacing))
 
         IconButton(
-            onClick = onCloseClick,
-            modifier = Modifier.size(AlertBanner.Style.crossIconSize),
+            onClick = onDismiss,
+            modifier = Modifier.padding(
+                end = AlertBanner.Style.ContentPaddingHorizontal,
+                top = AlertBanner.Style.CloseIconButtonPaddingVertical,
+                bottom = AlertBanner.Style.CloseIconButtonPaddingVertical,
+            ),
         ) {
             Icon(
                 imageVector = Source.Icons.Base.Cross,
@@ -231,8 +221,8 @@ internal fun AlertBannerWithTextPreview() {
                 ) {
                     AlertBanner(
                         modifier = Modifier.fillMaxWidth(),
-                        text = "You’re on the US Edition Go to UK edition",
-                        onClick = { },
+                        messageText = "You’re on the US Edition Go to UK edition",
+                        onMessageClick = { },
                         priority = message,
                         onDismiss = {},
                     )
