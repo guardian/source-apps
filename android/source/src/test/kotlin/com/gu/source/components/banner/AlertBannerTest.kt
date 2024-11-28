@@ -16,16 +16,9 @@ class AlertBannerTest(
     val paparazzi = createComponentPaparazziRule(nightMode)
 
     @Test
-    fun alertBannerWithTextPreviewTest() {
+    fun base() {
         paparazzi.snapshot {
             AlertBannerWithTextPreview()
-        }
-    }
-
-    @Test
-    fun alertBannerWithAnnotatedStringPreviewTest() {
-        paparazzi.snapshot {
-            AlertBannerWithAnnotatedStringPreview()
         }
     }
 }

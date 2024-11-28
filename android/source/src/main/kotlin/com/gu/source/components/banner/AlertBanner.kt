@@ -209,65 +209,39 @@ fun AlertBanner(
 @PreviewPhoneBothMode
 @Composable
 internal fun AlertBannerWithTextPreview() {
-    AppColourMode {
-        Column(Modifier.background(Source.Palette.Neutral100)) {
-            AlertBanner.Priority.entries.forEach { message ->
-                Row(
-                    modifier = Modifier
-                        .background(message.backgroundColour.current)
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceAround,
-                ) {
-                    AlertBanner(
-                        modifier = Modifier.fillMaxWidth(),
-                        messageText = "You’re on the US Edition Go to UK edition",
-                        onMessageClick = { },
-                        priority = message,
-                        onDismiss = {},
-                    )
-                }
-            }
-        }
-    }
-}
-
-@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-@SuppressLint("DiscouragedApi")
-@PreviewPhoneBothMode
-@Composable
-internal fun AlertBannerWithAnnotatedStringPreview() {
     val text = "You’re on the US Edition Go to UK edition"
-    val link = "UK edition"
-    val annotatedString = buildAnnotatedString {
+    val annotatedText = buildAnnotatedString {
+        val link = "UK edition"
         append(text)
         val startIndex = text.indexOf(link)
         val endIndex = startIndex + link.length
         addStyle(
-            style = SpanStyle(
-                textDecoration = TextDecoration.Underline,
-            ),
+            style = SpanStyle(textDecoration = TextDecoration.Underline),
             start = startIndex,
             end = endIndex,
         )
     }
 
     AppColourMode {
-        Column(Modifier.background(Source.Palette.Neutral100)) {
+        Column {
             AlertBanner.Priority.entries.forEach { message ->
-                Row(
-                    modifier = Modifier
-                        .background(message.backgroundColour.current)
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceAround,
-                ) {
-                    AlertBanner(
-                        modifier = Modifier.fillMaxWidth(),
-                        annotatedText = annotatedString,
-                        onClick = { },
-                        priority = message,
-                        onCloseClick = {},
-                    )
-                }
+                AlertBanner(
+                    messageText = text,
+                    priority = message,
+                    onMessageClick = { },
+                    onDismiss = {},
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
+
+            AlertBanner.Priority.entries.forEach { message ->
+                AlertBanner(
+                    messageText = annotatedText,
+                    priority = message,
+                    onMessageClick = { },
+                    onDismiss = {},
+                    modifier = Modifier.fillMaxWidth(),
+                )
             }
         }
     }
