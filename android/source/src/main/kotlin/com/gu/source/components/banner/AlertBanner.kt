@@ -41,7 +41,6 @@ object AlertBanner {
         // the close icon with the top of the text.
         val CloseIconButtonPaddingVertical = ContentPaddingVertical - 10.dp
 
-
         val textStyle = Source.Typography.TextSans17
 
         val iconTextSpacing = 8.dp
@@ -114,8 +113,8 @@ object AlertBanner {
  *
  * @param messageText The text to be displayed in the banner.
  * @param priority The type of message to be displayed (Neutral, Informative, Error).
- * @param onDismiss A callback to be invoked when the cancel icon is clicked.
  * @param onMessageClick A callback to be invoked when the banner is clicked.
+ * @param onDismiss A callback to be invoked when the cancel icon is clicked.
  * @param modifier The modifier to be applied to the banner.
  */
 @SuppressLint("DiscouragedApi")
@@ -123,15 +122,15 @@ object AlertBanner {
 fun AlertBanner(
     messageText: String,
     priority: AlertBanner.Priority,
-    onDismiss: () -> Unit,
     onMessageClick: () -> Unit,
+    onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     AlertBanner(
         messageText = AnnotatedString(messageText),
         priority = priority,
-        onDismiss = onDismiss,
         onMessageClick = onMessageClick,
+        onDismiss = onDismiss,
         modifier = modifier,
     )
 }
@@ -141,8 +140,8 @@ fun AlertBanner(
  *
  * @param messageText The text to be displayed in the banner having link in it.
  * @param priority The type of message to be displayed (Neutral, Informative, Error).
- * @param onDismiss A callback to be invoked when the cancel icon is clicked.
  * @param onMessageClick A callback to be invoked when the banner is clicked.
+ * @param onDismiss A callback to be invoked when the cancel icon is clicked.
  * @param modifier The modifier to be applied to the banner.
  */
 @SuppressLint("DiscouragedApi")
@@ -150,8 +149,8 @@ fun AlertBanner(
 fun AlertBanner(
     messageText: AnnotatedString,
     priority: AlertBanner.Priority,
-    onDismiss: () -> Unit,
     onMessageClick: () -> Unit,
+    onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Row(modifier = modifier.background(priority.backgroundColour.current)) {

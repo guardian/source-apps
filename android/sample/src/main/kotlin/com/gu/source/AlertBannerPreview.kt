@@ -57,12 +57,8 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
 
             Text(text = "Alert Banner variants", style = Source.Typography.TextSansBold17)
             AlertBanner(
-                priority = AlertBanner.Priority.Neutral,
                 messageText = "Neutral alert banner",
-                onDismiss = {
-                    Toast.makeText(context, "Neutral alert banner dismissed", Toast.LENGTH_SHORT)
-                        .show()
-                },
+                priority = AlertBanner.Priority.Neutral,
                 onMessageClick = {
                     Toast.makeText(
                         context,
@@ -70,19 +66,15 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
                         Toast.LENGTH_SHORT,
                     ).show()
                 },
+                onDismiss = {
+                    Toast.makeText(context, "Neutral alert banner dismissed", Toast.LENGTH_SHORT)
+                        .show()
+                },
             )
 
             AlertBanner(
-                priority = AlertBanner.Priority.Informative,
                 messageText = "Informative alert banner",
-                modifier = Modifier,
-                onDismiss = {
-                    Toast.makeText(
-                        context,
-                        "Informative alert banner dismissed",
-                        Toast.LENGTH_SHORT,
-                    ).show()
-                },
+                priority = AlertBanner.Priority.Informative,
                 onMessageClick = {
                     Toast.makeText(
                         context,
@@ -90,15 +82,19 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
                         Toast.LENGTH_SHORT,
                     ).show()
                 },
+                onDismiss = {
+                    Toast.makeText(
+                        context,
+                        "Informative alert banner dismissed",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+                },
+                modifier = Modifier,
             )
 
             AlertBanner(
-                priority = AlertBanner.Priority.Error,
                 messageText = "Error alert banner",
-                onDismiss = {
-                    Toast.makeText(context, "Error alert banner dismissed", Toast.LENGTH_SHORT)
-                        .show()
-                },
+                priority = AlertBanner.Priority.Error,
                 onMessageClick = {
                     Toast.makeText(
                         context,
@@ -106,11 +102,15 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
                         Toast.LENGTH_SHORT,
                     ).show()
                 },
+                onDismiss = {
+                    Toast.makeText(context, "Error alert banner dismissed", Toast.LENGTH_SHORT)
+                        .show()
+                },
             )
 
             AlertBanner(
-                priority = AlertBanner.Priority.Neutral,
                 messageText = annotatedString,
+                priority = AlertBanner.Priority.Neutral,
                 onMessageClick = {
                     Toast.makeText(
                         context,
@@ -125,8 +125,8 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
             )
 
             AlertBanner(
-                priority = AlertBanner.Priority.Informative,
                 messageText = annotatedString,
+                priority = AlertBanner.Priority.Informative,
                 onMessageClick = {
                     Toast.makeText(
                         context,
@@ -144,8 +144,8 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
             )
 
             AlertBanner(
-                priority = AlertBanner.Priority.Error,
                 messageText = annotatedString,
+                priority = AlertBanner.Priority.Error,
                 onMessageClick = {
                     Toast.makeText(
                         context,
