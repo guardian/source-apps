@@ -26,7 +26,7 @@ jobs:
       - name: Log snapshot for user validation
         id: validate
         run: cat
-          /home/runner/work/source-apps/source-apps/android/dependency-graph-reports/update_dependency_graph_for_gradle-dependency-graph.json
+          /home/runner/work/source-apps/source-apps/dependency-graph-reports/update_dependency_graph_for_gradle-dependency-graph.json
           | jq
     permissions:
       contents: write
