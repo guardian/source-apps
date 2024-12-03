@@ -31,7 +31,7 @@ class DetektPlugin : Plugin<Project> {
             }
 
             // enable reports
-            tasks.withType(Detekt::class.java) {
+            tasks.withType(Detekt::class.java).configureEach {
                 jvmTarget = JavaVersion.VERSION_17.toString()
                 reports {
                     xml.required.set(false)
