@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - Gradle-dependency-graph-83a3bf35b4a569ce
   workflow_dispatch: 
 jobs:
   dependency-graph:
@@ -20,8 +21,6 @@ jobs:
       - name: Submit dependencies
         id: submit
         uses: gradle/actions/dependency-submission@d156388eb19639ec20ade50009f3d199ce1e2808 # v4.1.0
-        with:
-          build-root-directory: android
       - name: Log snapshot for user validation
         id: validate
         run: cat
