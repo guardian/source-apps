@@ -9,6 +9,10 @@ kotlin {
     jvmToolchain(libs.versions.java.get().toInt())
 }
 
+lint {
+    baseline = file("gradle-lint-baseline.xml")
+}
+
 dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
