@@ -4,34 +4,12 @@
     <issue
         id="GradleProjectIsolation"
         message="Avoid using method getRootProject"
-        errorLine1="                    target.rootProject.layout.buildDirectory.file(&quot;reports/detekt/merge.sarif&quot;)"
-        errorLine2="                           ~~~~~~~~~~~">
+        errorLine1="            val rootProject = target.rootProject"
+        errorLine2="                                     ~~~~~~~~~~~">
         <location
             file="src/main/kotlin/com/theguardian/convention/DetektPlugin.kt"
-            line="25"
-            column="28"/>
-    </issue>
-
-    <issue
-        id="GradleProjectIsolation"
-        message="Avoid using method getRootProject"
-        errorLine1="                basePath = rootProject.projectDir.absolutePath"
-        errorLine2="                           ~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/com/theguardian/convention/DetektPlugin.kt"
-            line="62"
-            column="28"/>
-    </issue>
-
-    <issue
-        id="WithTypeWithoutConfigureEach"
-        message="Avoid passing a closure to withType, use withType().configureEach instead"
-        errorLine1="            tasks.withType(Detekt::class.java) {"
-        errorLine2="                  ~~~~~~~~">
-        <location
-            file="src/main/kotlin/com/theguardian/convention/DetektPlugin.kt"
-            line="36"
-            column="19"/>
+            line="23"
+            column="38"/>
     </issue>
 
 </issues>
