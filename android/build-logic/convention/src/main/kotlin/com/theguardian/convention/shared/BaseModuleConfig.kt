@@ -1,17 +1,15 @@
 package com.theguardian.convention.shared
 
 import com.android.build.api.dsl.CommonExtension
-import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
-import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.getByType
-import org.gradle.kotlin.dsl.provideDelegate
-import org.gradle.kotlin.dsl.withType
+import org.gradle.kotlin.dsl.*
 import org.gradle.plugin.use.PluginDependency
 import org.jetbrains.dokka.gradle.DokkaTask
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinTopLevelExtension
 
 /**
  * The Version Catalog.
@@ -24,24 +22,16 @@ internal fun VersionCatalog.plugin(alias: String): PluginDependency = findPlugin
 /**
  * Sets up core config for all Android modules - application and library.
  */
-internal fun Project.configureAndroidModule(
+internal inline fun <reified T : KotlinTopLevelExtension> Project.configureAndroidModule(
     extension: CommonExtension<*, *, *, *, *, *>,
 ) {
-    val javaVersion = JavaVersion.toVersion(
-        libs.findVersion("java").get().toString().toInt(),
-    )
-
     extension.apply {
         defaultConfig {
             minSdk = libs.findVersion("minsdk").get().toString().toInt()
             compileSdk = libs.findVersion("compilesdk").get().toString().toInt()
         }
-        compileOptions {
-            sourceCompatibility = javaVersion
-            targetCompatibility = javaVersion
-        }
 
-        addBaseDependencies()
+        addBaseDependencies<T>()
 
         dependencies {
             add("implementation", libs.findLibrary("other-timber").get())
@@ -52,21 +42,27 @@ internal fun Project.configureAndroidModule(
 /**
  * Adds the base dependencies that every module needs.
  */
-internal fun Project.addBaseDependencies() {
+internal inline fun <reified T : KotlinTopLevelExtension> Project.addBaseDependencies() {
     dependencies {
         add("implementation", libs.findLibrary("kotlin-stdlib").get())
         add("implementation", libs.findLibrary("javax-inject").get())
     }
-    setupKotlinCompilerOptions()
+    setupKotlinCompilerOptions<T>()
 }
 
-private fun Project.setupKotlinCompilerOptions() {
-    tasks.withType<KotlinCompile>().configureEach {
-        kotlinOptions {
-            jvmTarget = libs.findVersion("java").get().toString()
+private inline fun <reified T : KotlinTopLevelExtension> Project.setupKotlinCompilerOptions() =
+    configure<T> {
+        when (this) {
+            is KotlinAndroidProjectExtension -> compilerOptions
+            is KotlinJvmProjectExtension -> compilerOptions
+            else -> error("Unsupported project extension $this ${T::class}")
+        }.apply {
+            jvmToolchain(libs.findVersion("java").get().toString().toInt())
             val warningsAsErrors: String? by project
             allWarningsAsErrors = warningsAsErrors.toBoolean()
-            freeCompilerArgs = freeCompilerArgs + listOf(
+            freeCompilerArgs.addAll(
+                // Suggested by Braze SDK integration guide, for further information:
+                // https://kotlinlang.org/docs/java-to-kotlin-interop.html#default-methods-in-interfaces
                 "-Xjvm-default=all",
                 "-opt-in=kotlin.RequiresOptIn",
                 // Enable experimental coroutines APIs, including Flow
@@ -76,7 +72,6 @@ private fun Project.setupKotlinCompilerOptions() {
             )
         }
     }
-}
 
 internal fun Project.dokkaConfig() {
     tasks.withType<DokkaTask>().configureEach {

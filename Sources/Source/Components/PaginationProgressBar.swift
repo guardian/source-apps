@@ -1,5 +1,4 @@
 import SwiftUI
-import Source
 
 /// This component used to signpost progression through a paginated view.
 ///
@@ -8,10 +7,10 @@ public struct PaginationProgressBar: View {
 
     private let pageCount: Int
     private let indicatorWidth: CGFloat
-    @Binding private var selectedIndex: Int
     private let primaryColor: Color
     private let secondaryColor: Color
 
+    @Binding private var selectedIndex: Int
     @Environment(\.horizontalSizeClass)
     private var sizeClass
 
@@ -33,13 +32,17 @@ public struct PaginationProgressBar: View {
         self.secondaryColor = secondaryColor
     }
 
+    private var forwardEnabled: Bool {
+        return selectedIndex < pageCount - 1
+    }
+
     public var body: some View {
         Group {
             if sizeClass == .regular {
                 ZStack(alignment: .trailing) {
                     scrollingIndicator
                         .frame(maxWidth: .infinity, alignment: .center)
-                    progressButtons
+                    PaginationButtons(iconColor: primaryColor, borderColor: secondaryColor, selectedIndex: $selectedIndex, canNavigateForward: forwardEnabled)
                         .frame(alignment: .trailing)
                 }
             } else {
@@ -61,33 +64,6 @@ public struct PaginationProgressBar: View {
         )
     }
 
-    private var progressButtons: some View {
-        HStack {
-            IconButton(
-                icon: Image(.chevronLeft),
-                size: .small,
-                iconColor: primaryColor,
-                borderColor: secondaryColor,
-                disabled: $canNavigateBack
-            ) {
-                withAnimation {
-                    selectedIndex -= 1
-                }
-            }
-            IconButton(
-                icon: Image(.chevronRight),
-                size: .small,
-                iconColor: primaryColor,
-                borderColor: secondaryColor,
-                disabled: $canNavigateForward
-            ) {
-                withAnimation {
-                    selectedIndex += 1
-                }
-            }
-        }
-    }
-
     private func updateButtonDisabledState() {
         canNavigateBack = selectedIndex == 0
         canNavigateForward = selectedIndex == pageCount - 1
@@ -96,7 +72,7 @@ public struct PaginationProgressBar: View {
 
 struct PaginationProgressBar_Previews_Container: PreviewProvider {
     struct Container: View {
-        @State var selectedIndex = 0
+        @State var selectedIndex: Int = 0
         let elementArray = [0, 1, 2, 3, 4, 5, 6]
         var body: some View {
             VStack {
