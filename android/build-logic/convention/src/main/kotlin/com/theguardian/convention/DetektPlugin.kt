@@ -20,8 +20,12 @@ class DetektPlugin : Plugin<Project> {
                 apply(libs.plugin("detekt").pluginId)
             }
 
+            val rootProject = target.rootProject
+
             tasks.register("reportMerge", ReportMergeTask::class.java) {
-                output.set(rootProject.layout.buildDirectory.file("reports/detekt/merge.sarif"))
+                output.set(
+                    rootProject.layout.buildDirectory.file("reports/detekt/merge.sarif")
+                )
             }
 
             val reportMerge = tasks.named("reportMerge", ReportMergeTask::class.java)
@@ -31,7 +35,7 @@ class DetektPlugin : Plugin<Project> {
             }
 
             // enable reports
-            tasks.withType(Detekt::class.java) {
+            tasks.withType(Detekt::class.java). configureEach {
                 jvmTarget = JavaVersion.VERSION_17.toString()
                 reports {
                     xml.required.set(false)
