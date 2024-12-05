@@ -21,7 +21,9 @@ class DetektPlugin : Plugin<Project> {
             }
 
             tasks.register("reportMerge", ReportMergeTask::class.java) {
-                output.set(rootProject.layout.buildDirectory.file("reports/detekt/merge.sarif"))
+                output.set(
+                    target.rootProject.layout.buildDirectory.file("reports/detekt/merge.sarif")
+                )
             }
 
             val reportMerge = tasks.named("reportMerge", ReportMergeTask::class.java)
