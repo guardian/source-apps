@@ -28,6 +28,8 @@ lint-gradle = "1.0.0-alpha02"
 nexus-publish = "2.0.0"
 timber = "5.0.1"
 
+gradle-binary-compatibility = "0.16.3"
+
 junit = "4.13.2"
 espressoCore = "3.6.1"
 androidx-junit = "1.2.1"
@@ -95,6 +97,7 @@ kgp = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+gradle-binaryCompatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "gradle-binary-compatibility" }
 
 nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexus-publish" }
 
