@@ -1,19 +1,16 @@
 package com.gu.source.components.chips
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Badge
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
@@ -53,7 +50,6 @@ import kotlinx.coroutines.delay
 fun SourceBaseChip(
     height: Dp,
     style: SourceChip.Style,
-    rippleColour: Color,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     allowsMultiSelection: Boolean = false,
@@ -67,18 +63,17 @@ fun SourceBaseChip(
         Row(
             modifier = Modifier
                 // Padding to allow Badge to overflow a bit
-                .padding(1.dp)
+                .padding(top = 2.dp)
                 .heightIn(min = height)
-                .background(color = style.fillColour, shape = style.shape)
+                .background(color = style.fillColour.current, shape = style.shape)
                 .border(border = style.border, shape = style.shape)
                 .clickable(
                     interactionSource = remember { MutableInteractionSource() },
-                    indication = ripple(color = rippleColour),
+                    indication = ripple(color = style.rippleColour.current),
                     onClickLabel = onClickLabel,
                     role = if (allowsMultiSelection) Role.Checkbox else Role.Button,
                     onClick = onClick,
-                )
-                .padding(8.dp),
+                ),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             iconBefore?.invoke()
@@ -103,7 +98,7 @@ internal fun SourceBaseChipPreview() {
 
     LaunchedEffect(Unit) {
         while (true) {
-            delay(1000)
+            delay(timeMillis = 1000)
             showText = !showText
         }
     }
@@ -112,15 +107,7 @@ internal fun SourceBaseChipPreview() {
         Box(modifier = it.background(Source.Palette.Neutral46)) {
             SourceBaseChip(
                 height = SourceChip.Size.Medium.height,
-                style = SourceChip.Style(
-                    fillColour = AppColour(
-                        light = Source.Palette.Neutral93,
-                        dark = Source.Palette.Neutral10,
-                    ).current,
-                    border = BorderStroke(0.dp, Color.Transparent),
-                    shape = RoundedCornerShape(8.dp),
-                ),
-                rippleColour = textColor.current,
+                style = SourceChip.Style.Default,
                 onClick = { },
                 iconBefore = {
                     Icon(
