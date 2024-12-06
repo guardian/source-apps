@@ -16,6 +16,7 @@ plugins {
     alias(libs.plugins.nexus.publish)
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.dokka) apply false
+    alias(libs.plugins.gradle.binaryCompatibility)
 }
 
 group = libs.versions.group.get()
