@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Badge
@@ -28,7 +27,6 @@ import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.Check
 import com.gu.source.icons.Plus
 import com.gu.source.presets.palette.Neutral10
-import com.gu.source.presets.palette.Neutral46
 import com.gu.source.presets.palette.Neutral93
 import com.gu.source.presets.typography.TextSansBold14
 import com.gu.source.utils.PreviewPhoneBothMode
@@ -239,13 +237,11 @@ fun SourceChip(
 @OptIn(ExperimentalLayoutApi::class)
 @PreviewPhoneBothMode
 @Composable
-private fun Preview() {
+internal fun SourceChipPreview(modifier: Modifier = Modifier) {
     val previewText = "Label"
     AppColourMode {
         Column(
-            modifier = Modifier
-                .background(Source.Palette.Neutral46)
-                .padding(horizontal = 8.dp, vertical = 4.dp),
+            modifier = modifier.padding(horizontal = 8.dp, vertical = 4.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             SourceChip.Size.entries.forEach {
