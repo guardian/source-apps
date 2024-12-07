@@ -8,6 +8,7 @@ import com.google.testing.junit.testparameterinjector.TestParameter
 import com.google.testing.junit.testparameterinjector.TestParameterInjector
 import com.gu.source.daynight.AppColour
 import com.gu.source.utils.paparazzi.BaseDeviceConfig
+import com.gu.source.utils.paparazzi.FontScale
 import com.gu.source.utils.paparazzi.createComponentPaparazziRule
 import org.junit.Rule
 import org.junit.Test
@@ -16,11 +17,14 @@ import org.junit.runner.RunWith
 @RunWith(TestParameterInjector::class)
 class SourceChipTest(
     @TestParameter private val nightMode: NightMode,
-    @TestParameter private val baseDeviceConfig: BaseDeviceConfig,
+    @TestParameter private val fontScale: FontScale,
 ) {
     @get:Rule
     val paparazzi = createComponentPaparazziRule(
-        deviceConfig = baseDeviceConfig.deviceConfig.copy(nightMode = nightMode),
+        deviceConfig = BaseDeviceConfig.Phone.deviceConfig.copy(
+            fontScale = fontScale.value,
+            nightMode = nightMode,
+        ),
     )
 
     @Test
