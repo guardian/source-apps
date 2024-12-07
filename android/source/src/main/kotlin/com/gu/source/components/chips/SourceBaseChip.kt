@@ -2,10 +2,7 @@ package com.gu.source.components.chips
 
 import android.annotation.SuppressLint
 import androidx.annotation.Discouraged
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Badge
@@ -14,6 +11,8 @@ import androidx.compose.material3.ripple
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
@@ -34,6 +33,26 @@ import com.gu.source.utils.PreviewPhoneBothMode
 import kotlinx.coroutines.delay
 
 /**
+ * Object defining the styling information for the base chip.
+ */
+object SourceBaseChip {
+    /**
+     * Data model for styling of the base chip.
+     *
+     * @property fillColour The fill colour of the chip.
+     * @property border The border stroke of the chip.
+     * @property shape The shape of the chip.
+     * @property rippleColour The colour of the ripple effect when the chip is clicked.
+     */
+    data class Style(
+        val fillColour: Color,
+        val border: BorderStroke,
+        val shape: Shape,
+        val rippleColour: Color,
+    )
+}
+
+/**
  * Composable function to render a customizable chip component with optional badge..
  *
  * @param height Height of the chip container in Dp.
@@ -50,7 +69,7 @@ import kotlinx.coroutines.delay
 @Composable
 fun SourceBaseChip(
     height: Dp,
-    style: SourceChip.Style,
+    style: SourceBaseChip.Style,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     allowsMultiSelection: Boolean = false,
@@ -64,11 +83,11 @@ fun SourceBaseChip(
                 // Padding to allow Badge to overflow a bit
                 .padding(top = 2.dp)
                 .heightIn(min = height)
-                .background(color = style.fillColour.current, shape = style.shape)
+                .background(color = style.fillColour, shape = style.shape)
                 .border(border = style.border, shape = style.shape)
                 .clickable(
                     interactionSource = remember { MutableInteractionSource() },
-                    indication = ripple(color = style.rippleColour.current),
+                    indication = ripple(color = style.rippleColour),
                     onClickLabel = onClickLabel,
                     role = if (allowsMultiSelection) Role.Checkbox else Role.Button,
                     onClick = onClick,
@@ -105,7 +124,7 @@ private fun SourceBaseChipPreview() {
         Box(modifier = it.background(Source.Palette.Neutral46)) {
             SourceBaseChip(
                 height = SourceChip.Size.Medium.height,
-                style = SourceChip.Style.Default,
+                style = SourceChip.Style.Default.toSourceBaseChipStyle(false),
                 onClick = { },
                 badge = {
                     Badge(containerColor = Source.Palette.Sport400)
