@@ -6,6 +6,10 @@ plugins {
     alias(libs.plugins.guardian.detekt)
 }
 
+detekt {
+    baseline = file("detekt-baseline-detekt.xml")
+}
+
 android {
     namespace = libs.versions.group.get()
 
