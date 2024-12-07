@@ -1,7 +1,6 @@
 package com.gu.source.components
 
 import androidx.compose.animation.*
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -13,7 +12,6 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
 
 /**
  * Text component that appears/hides with an horizontal expansion animation effect.
@@ -62,7 +60,7 @@ fun ExpandingText(
  * @param color The color of the text.
  * @param style The [TextStyle] to apply to the text.
  * @param isVisible Controls the visibility of the text.
- * @param modifier A [Modifier] to apply to the [Text] composable.
+ * @param modifier A [Modifier] to apply to the inner [Text] composable.
  * @param maxLines Maximum number of lines for the text.
  * @param overflow Defines how the text should handle overflow when the text is too long.
  */
@@ -90,7 +88,6 @@ fun ExpandingText(
     }
 
     AnimatedVisibility(
-        modifier = modifier,
         visible = isVisible,
         enter = slideInHorizontally(initialOffsetX = { -measuredText.size.width }) +
             expandHorizontally(expandFrom = Alignment.End) +
@@ -98,8 +95,8 @@ fun ExpandingText(
         exit = slideOutHorizontally() + shrinkHorizontally() + fadeOut(),
     ) {
         Text(
-            modifier = Modifier.padding(horizontal = 8.dp),
             text = text,
+            modifier = modifier,
             color = color,
             style = style,
             maxLines = maxLines,
