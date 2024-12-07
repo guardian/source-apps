@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>CognitiveComplexMethod:SourceChip.kt$@SuppressLint("DiscouragedApi") @OptIn(ExperimentalLayoutApi::class) @PreviewPhoneBothMode @Composable internal fun SourceChipPreview(modifier: Modifier = Modifier)</ID>
+  </CurrentIssues>
+</SmellBaseline>

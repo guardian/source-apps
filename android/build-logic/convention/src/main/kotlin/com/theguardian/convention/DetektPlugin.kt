@@ -62,6 +62,7 @@ class DetektPlugin : Plugin<Project> {
                 parallel = true
 
                 basePath = rootProject.projectDir.absolutePath
+                ignoredBuildTypes = listOf("release")
 
                 if (!target.isJvmModule()) {
                     // By default only main and test sources are included. I've added androidTest too
