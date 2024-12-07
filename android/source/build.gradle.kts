@@ -85,7 +85,7 @@ publishing {
         // Use as `./gradlew :source:publishReleasePublicationToGusourceRepository`
         maven {
             name = "gusource"
-            url = uri("${project.buildDir}/gusource")
+            url = uri("${project.layout.buildDirectory.asFile.get().path}/gusource")
         }
     }
 }
