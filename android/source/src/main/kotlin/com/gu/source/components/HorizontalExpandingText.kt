@@ -3,14 +3,11 @@ package com.gu.source.components
 import androidx.compose.animation.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextOverflow
 
 /**
@@ -23,26 +20,23 @@ import androidx.compose.ui.text.style.TextOverflow
  * @param text The text to display.
  * @param colour The color of the text.
  * @param style The [TextStyle] to apply to the text.
- * @param isVisible Controls the visibility of the text.
  * @param modifier A [Modifier] to apply to the [Text] composable.
  * @param maxLines Maximum number of lines for the text.
  * @param overflow Defines how the text should handle overflow when the text is too long.
  */
 @Composable
-fun ExpandingText(
+fun HorizontalExpandingText(
     text: String,
     colour: Color,
     style: TextStyle,
-    isVisible: Boolean,
     modifier: Modifier = Modifier,
     maxLines: Int = 1,
     overflow: TextOverflow = TextOverflow.Clip,
 ) {
-    ExpandingText(
+    HorizontalExpandingText(
         text = AnnotatedString(text),
         color = colour,
         style = style,
-        isVisible = isVisible,
         modifier = modifier,
         maxLines = maxLines,
         overflow = overflow,
@@ -59,43 +53,31 @@ fun ExpandingText(
  * @param text The text to display.
  * @param color The color of the text.
  * @param style The [TextStyle] to apply to the text.
- * @param isVisible Controls the visibility of the text.
  * @param modifier A [Modifier] to apply to the inner [Text] composable.
  * @param maxLines Maximum number of lines for the text.
  * @param overflow Defines how the text should handle overflow when the text is too long.
  */
 @Composable
-fun ExpandingText(
+fun HorizontalExpandingText(
     text: AnnotatedString,
     color: Color,
     style: TextStyle,
-    isVisible: Boolean,
     modifier: Modifier = Modifier,
     maxLines: Int = 1,
     overflow: TextOverflow = TextOverflow.Clip,
 ) {
-    val textMeasurer = rememberTextMeasurer()
-    val density = LocalDensity.current
-    val measuredText = remember(text, style, maxLines, overflow) {
-        textMeasurer.measure(
-            text = text,
-            style = style,
-            maxLines = maxLines,
-            overflow = overflow,
-            softWrap = false,
-            density = density,
-        )
-    }
-
-    AnimatedVisibility(
-        visible = isVisible,
-        enter = slideInHorizontally(initialOffsetX = { -measuredText.size.width }) +
-            expandHorizontally(expandFrom = Alignment.End) +
-            fadeIn(initialAlpha = 0.3f),
-        exit = slideOutHorizontally() + shrinkHorizontally() + fadeOut(),
+    AnimatedContent(
+        targetState = text,
+        transitionSpec = {
+            slideInHorizontally() +
+                expandHorizontally(expandFrom = Alignment.End) +
+                fadeIn(initialAlpha = 0.3f) togetherWith
+                slideOutHorizontally() + shrinkHorizontally() + fadeOut()
+        },
+        label = "Expanding Text",
     ) {
         Text(
-            text = text,
+            text = it,
             modifier = modifier,
             color = color,
             style = style,

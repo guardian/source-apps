@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.gu.source.R
 import com.gu.source.Source
-import com.gu.source.components.ExpandingText
+import com.gu.source.components.HorizontalExpandingText
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.Check
@@ -92,12 +92,12 @@ private fun SourceBaseChipPreview() {
         light = Source.Palette.Neutral10,
         dark = Source.Palette.Neutral93,
     )
-    var showText by remember { mutableStateOf(true) }
+    var text by remember { mutableStateOf("Chip Title") }
 
     LaunchedEffect(Unit) {
         while (true) {
             delay(timeMillis = 1000)
-            showText = !showText
+            text = if (text.isEmpty()) "Chip Title" else ""
         }
     }
 
@@ -118,13 +118,12 @@ private fun SourceBaseChipPreview() {
                     modifier = it.size(24.dp),
                 )
                 Spacer(modifier = Modifier.width(8.dp))
-                ExpandingText(
-                    text = "Chip Title",
+                HorizontalExpandingText(
+                    text = text,
                     style = Source.Typography.TextSansBold14,
                     colour = textColor.current,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
-                    isVisible = showText,
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Icon(
