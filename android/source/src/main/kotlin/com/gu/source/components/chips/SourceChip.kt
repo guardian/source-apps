@@ -93,39 +93,6 @@ object SourceChip {
             )
         }
     }
-
-    /** Represents an icon or image displayed before or after the chip's text. */
-    sealed class Indicator {
-        /**
-         * The content to display. The provided modifier _must_ be set on the content.
-         * The modifier is used to apply the correct size to the icon/image.
-         */
-        abstract val content: @Composable RowScope.(Modifier) -> Unit
-        internal abstract val height: Dp
-
-        /**
-         * Represents an [Icon] displayed before/after the chip's text. Icon will be tinted with
-         * the [SourceChip.Style.contentColour] if `tint` is not explicitly specified on the icon.
-         */
-        data class Icon(
-            override val content: @Composable RowScope.(Modifier) -> Unit,
-        ) : Indicator() {
-            override val height: Dp = 18.dp
-        }
-
-        /** Represents an [Image] displayed before/after the chip's text. */
-        data class Image(
-            override val content: @Composable RowScope.(Modifier) -> Unit,
-        ) : Indicator() {
-            override val height: Dp = 24.dp
-        }
-
-        /** Represents no image or icon displayed before/after the chip's text. */
-        data object None : Indicator() {
-            override val content: @Composable RowScope.(Modifier) -> Unit = {}
-            override val height: Dp = 0.dp
-        }
-    }
 }
 
 /**
@@ -148,6 +115,7 @@ object SourceChip {
  * @param badge Optional content to display a badge over the chip. Usually a [Badge]. Badge colour
  * is passed to the [badge] slot.
  */
+@SuppressLint("DiscouragedApi")
 @Composable
 fun SourceChip(
     text: String,
@@ -157,8 +125,8 @@ fun SourceChip(
     style: SourceChip.Style = SourceChip.Style.Default,
     allowsMultiSelection: Boolean = false,
     onClickLabel: String? = null,
-    indicatorBefore: SourceChip.Indicator = SourceChip.Indicator.None,
-    indicatorAfter: SourceChip.Indicator = SourceChip.Indicator.None,
+    indicatorBefore: ChipIndicator = ChipIndicator.None,
+    indicatorAfter: ChipIndicator = ChipIndicator.None,
     badge: @Composable ((Color) -> Unit)? = null,
 ) {
     SourceBaseChip(
@@ -185,12 +153,13 @@ fun SourceChip(
             Spacer(
                 modifier = Modifier.width(
                     when (indicatorBefore) {
-                        SourceChip.Indicator.None -> 4.dp
-                        is SourceChip.Indicator.Icon -> 4.dp
-                        is SourceChip.Indicator.Image -> 8.dp
+                        ChipIndicator.None -> 4.dp
+                        is ChipIndicator.Icon -> 4.dp
+                        is ChipIndicator.Image -> 8.dp
                     },
                 ),
             )
+            // TODO: 07/12/2024 Implement expanding text version.
             Text(
                 text = text,
                 style = style.textStyle,
@@ -200,7 +169,7 @@ fun SourceChip(
             )
             Spacer(
                 modifier = Modifier.width(
-                    if (indicatorAfter is SourceChip.Indicator.None) 4.dp else 8.dp,
+                    if (indicatorAfter is ChipIndicator.None) 4.dp else 8.dp,
                 ),
             )
             indicatorAfter.content(this, Modifier.height(indicatorAfter.height))
@@ -237,8 +206,8 @@ fun SourceChip(
     style: SourceChip.Style = SourceChip.Style.Default,
     allowsMultiSelection: Boolean = false,
     onClickLabel: String? = null,
-    indicatorBefore: SourceChip.Indicator = SourceChip.Indicator.None,
-    indicatorAfter: SourceChip.Indicator = SourceChip.Indicator.None,
+    indicatorBefore: ChipIndicator = ChipIndicator.None,
+    indicatorAfter: ChipIndicator = ChipIndicator.None,
 ) {
     SourceChip(
         text = text,
@@ -286,7 +255,7 @@ private fun Preview() {
                         size = it,
                         onClick = {},
                         badge = {},
-                        indicatorBefore = SourceChip.Indicator.Icon {
+                        indicatorBefore = ChipIndicator.Icon.Component {
                             Icon(
                                 imageVector = Source.Icons.Base.Plus,
                                 contentDescription = null,
@@ -300,7 +269,7 @@ private fun Preview() {
                         size = it,
                         onClick = {},
                         badge = {},
-                        indicatorBefore = SourceChip.Indicator.Image {
+                        indicatorBefore = ChipIndicator.Image.Component {
                             Image(
                                 painter = painterResource(R.drawable.marina_hyde),
                                 contentDescription = null,
@@ -314,20 +283,14 @@ private fun Preview() {
                         size = it,
                         onClick = {},
                         badge = {},
-                        indicatorBefore = SourceChip.Indicator.Image {
-                            Image(
-                                painter = painterResource(R.drawable.marina_hyde),
-                                contentDescription = null,
-                                modifier = it,
-                            )
-                        },
-                        indicatorAfter = SourceChip.Indicator.Icon {
-                            Icon(
-                                imageVector = Source.Icons.Base.Check,
-                                contentDescription = null,
-                                modifier = it,
-                            )
-                        },
+                        indicatorBefore = ChipIndicator.Image.Painter(
+                            painter = painterResource(R.drawable.marina_hyde),
+                            contentDescription = null,
+                        ),
+                        indicatorAfter = ChipIndicator.Icon.Vector(
+                            imageVector = Source.Icons.Base.Check,
+                            contentDescription = null,
+                        ),
                     )
 
                     SourceChip(
@@ -338,13 +301,10 @@ private fun Preview() {
                         style = SourceChip.Style.Default.copy(
                             badgeColour = AppColour.Unspecified,
                         ),
-                        indicatorAfter = SourceChip.Indicator.Icon {
-                            Icon(
-                                imageVector = Source.Icons.Base.Check,
-                                contentDescription = null,
-                                modifier = it,
-                            )
-                        },
+                        indicatorAfter = ChipIndicator.Icon.Vector(
+                            imageVector = Source.Icons.Base.Check,
+                            contentDescription = null,
+                        ),
                     )
                 }
             }
