@@ -39,7 +39,9 @@ import com.gu.source.utils.PreviewPhoneBothMode
 object SourceChip {
     /** Supported `SourceChip` sizes. */
     @Suppress("UndocumentedPublicProperty")
-    enum class Size(internal val height: Dp) {
+    enum class Size(
+        internal val height: Dp,
+    ) {
         Small(32.dp),
         Medium(40.dp),
     }
@@ -113,7 +115,7 @@ object SourceChip {
 
         /** Represents an [Image] displayed before/after the chip's text. */
         data class Image(
-            override val content: @Composable RowScope.(Modifier) -> Unit
+            override val content: @Composable RowScope.(Modifier) -> Unit,
         ) : Indicator() {
             override val height: Dp = 24.dp
         }
@@ -271,8 +273,7 @@ private fun Preview() {
                         .padding(horizontal = 8.dp, vertical = 4.dp),
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
-
-                    ) {
+                ) {
                     SourceChip(
                         text = previewText,
                         size = it,
