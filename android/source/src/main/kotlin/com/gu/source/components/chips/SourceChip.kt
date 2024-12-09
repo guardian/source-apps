@@ -192,7 +192,6 @@ fun SourceChip(
             style.contentColourUnselected.current
         }
         CompositionLocalProvider(LocalContentColor provides contentColour) {
-
             Spacer(modifier = Modifier.width(12.dp))
             indicatorBefore.content(this, Modifier.height(indicatorBefore.height))
 
@@ -385,7 +384,7 @@ internal fun SourceChipPreview(modifier: Modifier = Modifier) {
             Text(
                 text = "Collapsed icon-only",
                 style = Source.Typography.TextSansBold14,
-                modifier = Modifier.padding(top = 8.dp)
+                modifier = Modifier.padding(top = 8.dp),
             )
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 listOf(false, true).forEach { isSelected ->
