@@ -1,4 +1,4 @@
-package com.gu.source
+package com.gu.source.previews
 
 import android.content.Context
 import android.widget.Toast
@@ -16,6 +16,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.gu.source.Source
 import com.gu.source.components.banner.AlertBanner
 import com.gu.source.daynight.AppColour
 import com.gu.source.presets.palette.Neutral0
