@@ -10,8 +10,6 @@
 
 [Android library details and usage notes are here.](/android/README.md).
 
-[API documentation is here.](https://guardian.github.io/source-apps/android/docs/index.html).
-
 # iOS Usage 
 
 ## Adding the Swift Package To Xcode
