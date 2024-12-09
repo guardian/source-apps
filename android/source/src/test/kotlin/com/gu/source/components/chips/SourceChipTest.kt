@@ -7,6 +7,7 @@ import com.android.resources.NightMode
 import com.google.testing.junit.testparameterinjector.TestParameter
 import com.google.testing.junit.testparameterinjector.TestParameterInjector
 import com.gu.source.daynight.AppColour
+import com.gu.source.daynight.AppColourMode
 import com.gu.source.utils.paparazzi.BaseDeviceConfig
 import com.gu.source.utils.paparazzi.FontScale
 import com.gu.source.utils.paparazzi.createComponentPaparazziRule
@@ -30,11 +31,13 @@ class SourceChipTest(
     @Test
     fun base() {
         paparazzi.snapshot {
-            SourceChipPreview(
-                modifier = Modifier.background(
-                    AppColour(Color.White, Color.Black).current,
-                ),
-            )
+            AppColourMode {
+                SourceChipPreview(
+                    modifier = Modifier.background(
+                        AppColour(Color.White, Color.Black).current,
+                    ),
+                )
+            }
         }
     }
 }

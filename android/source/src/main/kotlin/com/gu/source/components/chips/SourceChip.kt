@@ -6,10 +6,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Badge
-import androidx.compose.material3.Icon
-import androidx.compose.material3.LocalContentColor
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -286,23 +283,25 @@ fun SourceChip(
 @PreviewPhoneBothMode
 @Composable
 internal fun SourceChipPreview(modifier: Modifier = Modifier) {
-    val previewText = "Label"
     AppColourMode {
+        val previewText = "Label"
+        val labelColour = AppColour(light = Color.Black, dark = Color.White)
         Column(
             modifier = modifier.padding(horizontal = 8.dp, vertical = 4.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            SourceChip.Size.entries.forEachIndexed { index, size ->
+            SourceChip.Size.entries.forEach { size ->
                 Text(
                     text = size.name,
                     style = Source.Typography.TextSansBold14,
-                    modifier = Modifier.padding(top = if (index > 0) 8.dp else 0.dp),
+                    color = labelColour.current,
                 )
 
                 listOf(false, true).forEach { isSelected ->
                     Text(
                         text = if (isSelected) "Selected" else "Unselected",
                         style = Source.Typography.TextSans14,
+                        color = labelColour.current,
                     )
 
                     FlowRow(
@@ -379,13 +378,15 @@ internal fun SourceChipPreview(modifier: Modifier = Modifier) {
                         )
                     }
                 }
+                HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
             }
 
             Text(
                 text = "Collapsed icon-only",
                 style = Source.Typography.TextSansBold14,
-                modifier = Modifier.padding(top = 8.dp),
+                color = labelColour.current,
             )
+
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 listOf(false, true).forEach { isSelected ->
                     var text by remember { mutableStateOf("") }
