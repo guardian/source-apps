@@ -7,10 +7,21 @@
 
 ## Add the library dependency
 
-Add the dependency to `build.gradle.kts` for the consuming module:
+Add the dependency to `build.gradle.kts` for the consuming module.
+
+In `build.gradle.kts`:
 
 ```kotlin
 implementation("com.gu.source:source-android:<version>")
+```
+
+In version catalog:
+```toml
+[versions]
+source = "<version>"
+
+[libraries]
+source = { module = "com.gu.source:source-android", version.ref = "source" }
 ```
 
 <!-- Alternatively, add it to your app's core design module as an `api` dependency. It will be transitively available to all other modules:
