@@ -30,6 +30,8 @@ The design presets are available name spaced under the `com.gu.Source` object, e
 
 [API documentation is here.](https://guardian.github.io/source-apps/android/docs/index.html).
 
+---
+
 ### Typography presets
 
 Typography presets include `fontFamily`, `fontSize`, `lineHeight`, `fontWeight`, `fontStyle` in a single token. [All typography tokens with their previews are listed here](source/src/main/kotlin/com/gu/source/presets/typography/README.md)
@@ -61,98 +63,31 @@ Text(
 ```
 
 ---
+
 ### Buttons
 
 Four core button components are available - `SourceButton`, `SourceIconButton`, `PlainSourceButton` and `SourceBaseIconButton`.
 
-#### Themed buttons
-
-
-The first two source buttons have preset style and size variants corresponding to Source specifications. Both _Core_ and _Reader Revenue_ themes are provided. The latter two use Source defined sizing but can be used for custom colour schemes.
+[See here for details on buttons][buttons].
 
 | Core theme | Reader revenue theme |
 | --- | --- |
 | ![Core themed text only buttons](https://github.com/user-attachments/assets/e69393fb-675b-4f0e-9f52-62a28736bcfc) | ![Reader revenue themed text only buttons](https://github.com/user-attachments/assets/7ca3d409-252e-45e1-964f-efd03b1ebe39) |
 
-##### Usage examples
+---
 
-Using `SourceButton`:
-```kotlin
-SourceButton(
-    text = "Sign in",
-    priority = SourceButton.Priority.PrimaryOnWhite,
-    onClick = {},
-    size = SourceButton.Size.Small,
-)
-```
+### Chips
 
-Using `SourceIconButton` with a Material Icon:
-```kotlin
-SourceIconButton(
-    icon = Icons.Default.Person,
-    priority = SourceButton.Priority.SecondaryOnBlue,
-    contentDescription = null,
-    onClick = {},
-    size = SourceButton.Size.Medium,
-)
-```
+Chip components are typically used for filter, tags, or actions in a concise 
+format.
 
-Using `SourceIconButton` with a drawable resource:
-```kotlin
-SourceIconButton(
-    painter = painterResource(R.drawable.ic_person),
-    priority = SourceButton.Priority.SecondaryOnBlue,
-    contentDescription = null,
-    onClick = {},
-)
-```
-
-#### Base buttons
-
-The plain and base buttons are intended for when custom colour schemes are needed. These do not use preconfigured `priority` or `theme`. They expect to be directly be provided with `ButtonColours`. (`PlainSourceButton` is available from version `0.2.1`, `SourceBaseIconButton` is available from `0.3.0`)
-
-##### Usage examples
-
-```kotlin
-PlainSourceButton(
-    text = "Culture themed",
-    onClick = {},
-    modifier = Modifier.align(CenterHorizontally),
-    buttonColours = ButtonColours(
-        border = AppColour(
-            light = Source.Palette.Culture200,
-            dark = Source.Palette.Culture800,
-        ),
-        container = AppColour(
-            light = Source.Palette.Culture800,
-            dark = Source.Palette.Culture200,
-        ),
-        content = AppColour(
-            light = Source.Palette.Culture200,
-            dark = Source.Palette.Culture800,
-        ),
-    ),
-)
-```
-
-```kotlin
-SourceBaseIconButton(
-    buttonColours = buttonColours,
-    size = SourceButton.Size.Small,
-    onClick = { },
-) {
-    Icon(
-        imageVector = Source.Icons.Base.ChevronRight,
-        contentDescription = null,
-        modifier = it,
-    )
-}
-```
+[See here for full details of the Chips component.][chips]
 
 ---
+
 ### Pager progress components
 
-There are three pager progress components available:
+Three pager progress components are available:
 
 1. `PagerProgressIndicator` - a set of indicators to signify progress as a user
 progresses through the items in the pager
@@ -161,87 +96,12 @@ in a pager
 3. `PagerProgressBar` - a higher level component that combines the above two
 and has different phone and tablet behaviour.
 
+[See here for more details on pager progress components.][pager]
 
-#### `PagerProgressBar`
-
-The `PagerProgressBar` component is used to signify progress as a user flips through the items in a `HorizontalPager`. It is typically used for image carousels.
-
-The progress bar is styled to match Source specifications. It is expected to be placed below the pager.
-
-On tablets, the bar also displays `PagerProgressButtons` to allow the user to go
-to next or previous pages.
-
-##### Usage example
 
 ![Progress bar for tablets](https://github.com/user-attachments/assets/ec1c2520-8c2c-42c0-9a8c-631054e77a67)
 
-
-```kotlin
-Column(
-    modifier = modifier .widthIn(max = 695.dp),
-) {
-    HorizontalPager(
-        state = pagerState,
-        modifier = Modifier
-            .aspectRatio(695 / 544f)
-            .clip(RoundedCornerShape(16.dp)),
-    ) { page ->
-        SampleImage(
-            randomKey = page,
-            modifier = Modifier.fillMaxWidth(),
-        )
-    }
-    
-    // Place the bar below the pager
-    PagerProgressBar(pagerState = pagerState)
-}
-```
-
-#### Custom progress indicators
-
-`PagerProgressIndicator` is a lower level component used to signify progress in the bar. It provides a lot more options for customising appearance of the indicators.
-
-##### Usage example:
-
-![Custom indicator styling](https://github.com/user-attachments/assets/2d08a04d-a146-4ab0-a61c-5b8a89502cd1)
-
-
-```kotlin
-Column(modifier = Modifier.padding(8.dp)) {
-    HorizontalPager(state = pagerState) {
-        Box(
-            modifier = Modifier
-                .size(400.dp)
-                .background(Source.Palette.Neutral86, RoundedCornerShape(8.dp)),
-        ) {
-            Text(
-                text = (it + 1).toString(),
-                style = Source.Typography.Titlepiece70,
-                modifier = Modifier.align(Alignment.Center),
-                color = Source.Palette.Neutral46,
-            )
-        }
-    }
-    
-    // Place indicator below the pager, style it and set alignment explicitly
-    PagerProgressIndicator(
-        pagerState = pagerState,
-        selectedIndicatorColour = Source.Palette.Sport500,
-        unSelectedIndicatorColour = Source.Palette.Sport500.copy(alpha = 0.3F),
-        indicatorShape = CutCornerShape(8.dp),
-        maxIndicatorCount = 7,
-        numberOfItemsToScale = 5,
-        modifier = Modifier
-            .padding(top = 8.dp)
-            .align(Alignment.CenterHorizontally),
-    )
-}
-```
-
-#### `PagerProgressButton`s
-
-A set of next & previous icon buttons to progress through the pages. The button
-enabled state depends on availability of a next/previous page.
+---
 
 ### Alert banners
 
@@ -306,3 +166,8 @@ AlertBanner(
 ### Other notes
 
 1. We use the `com.gu` package name and group id so we can use the Guardian's Sonatype infra for signing and publishing the library. See [this comment](https://github.com/guardian/source-android/pull/10/files?w=1#r1567071142) for reference. 
+
+
+[buttons]: ./source/src/main/kotlin/com/gu/source/components/buttons/README.md
+[pager]: ./source/src/main/kotlin/com/gu/source/components/pager/README.md
+[chips]: ./source/src/main/kotlin/com/gu/source/components/chips/README.md

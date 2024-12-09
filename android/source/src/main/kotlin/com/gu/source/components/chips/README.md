@@ -5,7 +5,7 @@
 A chip is a small, compact UI element used to display information, typically representing 
 user inputs, tags, choices, filters, or actions in a concise format.
 
-Source designs & documentation in [Figma](https://www.figma.com/design/kSmjgtoTWiG8N7HXxFoGEE/%E2%97%90-Apps-library?node-id=6286-1728).
+Source designs & documentation in [Figma][1].
 
 * Chips support two sizes - `Small` and `Medium`.
 * Chips support a label, and an icon or image before or after the label.
@@ -14,7 +14,7 @@ Source designs & documentation in [Figma](https://www.figma.com/design/kSmjgtoTW
 
 ### Usage
 
-The `SourceChip` component implements the chip design. See full [API documentation here](https://guardian.github.io/source-apps/android/docs/-source%20for%20-android/com.gu.source.components.chips/-source-chip.html.
+The `SourceChip` component implements the chip design. See full [API documentation here][2].
 
 Basic chip with no icons, no badge, multi-select disabled:
 ```kotlin
@@ -53,7 +53,7 @@ this when the button appears inline with a row of `SourceChip` components.
 
 ### Usage
 
-`SourceChipSupportingButton` implements the chip supporting button design. See full [API documentation here](https://guardian.github.io/source-apps/android/docs/-source%20for%20-android/com.gu.source.components.chips/-source-chip.html.
+`SourceChipSupportingButton` implements the chip supporting button design. See full [API documentation here][3].
 
 Basic chip supporting button with no icons:
 ```kotlin
@@ -81,3 +81,7 @@ SourceChipSupportingButton(
 | Light|Dark|
 |---|---|
 |![Light](https://github.com/user-attachments/assets/f59696b2-4402-4682-ac2e-791d43721e85)|![Dark](https://github.com/user-attachments/assets/95420000-11d3-486c-80f4-675dd6f5bfc2)|
+
+[1]: https://www.figma.com/design/kSmjgtoTWiG8N7HXxFoGEE/%E2%97%90-Apps-library?node-id=6286-1728
+[2]: https://guardian.github.io/source-apps/android/docs/-source%20for%20-android/com.gu.source.components.chips/-source-chip.html
+[3]: https://guardian.github.io/source-apps/android/docs/-source%20for%20-android/com.gu.source.components.chips/-source-chip.html
