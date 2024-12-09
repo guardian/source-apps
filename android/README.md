@@ -28,7 +28,7 @@ The library provides design presets and components.
 
 The design presets are available name spaced under the `com.gu.Source` object, e.g. `Source.Typography.HeadlineBold15`.
 
-[API documentation is here.](https://guardian.github.io/source-apps/android/docs/index.html).
+**[Full API documentation is available here.](https://guardian.github.io/source-apps/android/docs/index.html)**
 
 ---
 
@@ -68,7 +68,7 @@ Text(
 
 Four core button components are available - `SourceButton`, `SourceIconButton`, `PlainSourceButton` and `SourceBaseIconButton`.
 
-[See here for details on buttons][buttons].
+[See here for full details of the button components.][buttons]
 
 | Core theme | Reader revenue theme |
 | --- | --- |
@@ -81,7 +81,7 @@ Four core button components are available - `SourceButton`, `SourceIconButton`, 
 Chip components are typically used for filter, tags, or actions in a concise 
 format.
 
-[See here for full details of the Chips component.][chips]
+[See here for full details of the chip components.][chips]
 
 ---
 
