@@ -3,6 +3,7 @@ package com.theguardian.convention
 import com.theguardian.convention.shared.addBaseDependencies
 import com.theguardian.convention.shared.libs
 import com.theguardian.convention.shared.plugin
+import com.theguardian.convention.shared.setupDetekt
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
@@ -22,6 +23,8 @@ class KotlinLibraryConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.jvm")
                 apply(libs.plugin("kotlinter").pluginId)
             }
+
+            setupDetekt()
 
             addBaseDependencies<KotlinJvmProjectExtension>()
         }
