@@ -179,6 +179,149 @@ object SourceChip {
 }
 
 /**
+ * Single-selection variant of the [SourceChip] component. This chip is designed to be used in a row
+ * of chips where only one chip can be selected at a time.
+ *
+ * @param text The text displayed inside the chip.
+ * @param isSelected Whether the chip is selected.
+ * @param size The size of the chip. See [SourceChip.Size] for available options.
+ * @param showBadge Whether to display a badge on the chip. If true, the badge will be displayed
+ * with the colour defined in [style].
+ * @param onClick Callback triggered when the chip is clicked.
+ * @param modifier Modifier to adjust the chip layout or appearance.
+ * @param style The style of the chip, including content colour, background colour, border, and
+ * more. See [SourceChip.Style]. Defaults to [SourceChip.Style.Default].
+ * @param onClickLabel Optional label for the onClick action.
+ * @param indicatorBefore Optional content to display an icon/image before the title.
+ */
+@Composable
+fun SourceChip(
+    text: String,
+    isSelected: Boolean,
+    size: SourceChip.Size,
+    showBadge: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    style: SourceChip.Style = SourceChip.Style.Default,
+    onClickLabel: String? = null,
+    indicatorBefore: ChipIndicator = ChipIndicator.None,
+) {
+    SourceChip(
+        text = text,
+        isSelected = isSelected,
+        size = size,
+        showBadge = showBadge,
+        onClick = onClick,
+        modifier = modifier,
+        style = style,
+        onClickLabel = onClickLabel,
+        indicatorBefore = indicatorBefore,
+        indicatorAfter = ChipIndicator.None,
+    )
+}
+
+/**
+ * Multi-select version of the [SourceChip] component. This chip is designed to be used in a row of
+ * chips where multiple chips can be selected at once. When [isSelected] is true, a check icon will
+ * be displayed after the title.
+ *
+ * @param text The text displayed inside the chip.
+ * @param isSelected Whether the chip is selected.
+ * @param size The size of the chip. See [SourceChip.Size] for available options.
+ * @param showBadge Whether to display a badge on the chip. If true, the badge will be displayed
+ * with the colour defined in [style].
+ * @param onClick Callback triggered when the chip is clicked.
+ * @param modifier Modifier to adjust the chip layout or appearance.
+ * @param style The style of the chip, including content colour, background colour, border, and
+ * more. See [SourceChip.Style]. Defaults to [SourceChip.Style.Default].
+ * @param onClickLabel Optional label for the onClick action.
+ * @param indicatorBefore Optional content to display an icon/image before the title.
+ */
+@Composable
+fun SourceMultiSelectChip(
+    text: String,
+    isSelected: Boolean,
+    size: SourceChip.Size,
+    showBadge: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    style: SourceChip.Style = SourceChip.Style.Default,
+    onClickLabel: String? = null,
+    indicatorBefore: ChipIndicator = ChipIndicator.None,
+) {
+    SourceChip(
+        text = text,
+        isSelected = isSelected,
+        size = size,
+        showBadge = showBadge,
+        onClick = onClick,
+        modifier = modifier,
+        style = style,
+        allowsMultiSelection = true,
+        onClickLabel = onClickLabel,
+        indicatorBefore = indicatorBefore,
+        indicatorAfter = if (isSelected) {
+            ChipIndicator.Icon.Vector(imageVector = Source.Icons.Base.Check)
+        } else {
+            ChipIndicator.None
+        },
+    )
+}
+
+/**
+ * Displays a chip component with the given text and a badge.
+ *
+ * This variant displays the default badge in a colour defined by the [style].
+ *
+ * @param text The text displayed inside the chip.
+ * @param isSelected Whether the chip is selected.
+ * @param size The size of the chip. See [SourceChip.Size] for available options.
+ * @param showBadge Whether to display a badge on the chip. If true, the badge will be displayed
+ * with the colour defined in [style].
+ * @param onClick Callback triggered when the chip is clicked.
+ * @param modifier Modifier to adjust the chip layout or appearance.
+ * @param style The style of the chip, including content colour, background colour, border, and
+ * more. See [SourceChip.Style]. Defaults to [SourceChip.Style.Default].
+ * @param allowsMultiSelection Optional - whether the chip allows multiple selections. This is used
+ * to set correct semantic role for the chip - checkbox if true, button if false.
+ * @param onClickLabel Optional label for the onClick action.
+ * @param indicatorBefore Optional content to display an icon/image before the title.
+ * @param indicatorAfter Optional content to display an icon/image after the title.
+ */
+@Composable
+fun SourceChip(
+    text: String,
+    isSelected: Boolean,
+    size: SourceChip.Size,
+    showBadge: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    style: SourceChip.Style = SourceChip.Style.Default,
+    allowsMultiSelection: Boolean = false,
+    onClickLabel: String? = null,
+    indicatorBefore: ChipIndicator = ChipIndicator.None,
+    indicatorAfter: ChipIndicator = ChipIndicator.None,
+) {
+    SourceChip(
+        text = text,
+        isSelected = isSelected,
+        size = size,
+        style = style,
+        onClick = onClick,
+        modifier = modifier,
+        allowsMultiSelection = allowsMultiSelection,
+        onClickLabel = onClickLabel,
+        indicatorBefore = indicatorBefore,
+        indicatorAfter = indicatorAfter,
+        badge = if (showBadge) {
+            { Badge(containerColor = it) }
+        } else {
+            null
+        },
+    )
+}
+
+/**
  * Displays a chip component with the given text.
  *
  * This variant displays the badge using the [badge] slot. [SourceChip.Style.badgeColour] is passed
@@ -277,59 +420,6 @@ fun SourceChip(
 }
 
 /**
- * Displays a chip component with the given text and a badge.
- *
- * This variant displays the default badge in a colour defined by the [style].
- *
- * @param text The text displayed inside the chip.
- * @param isSelected Whether the chip is selected.
- * @param size The size of the chip. See [SourceChip.Size] for available options.
- * @param showBadge Whether to display a badge on the chip. If true, the badge will be displayed
- * with the colour defined in [style].
- * @param onClick Callback triggered when the chip is clicked.
- * @param modifier Modifier to adjust the chip layout or appearance.
- * @param style The style of the chip, including content colour, background colour, border, and
- * more. See [SourceChip.Style]. Defaults to [SourceChip.Style.Default].
- * @param allowsMultiSelection Optional - whether the chip allows multiple selections. This is used
- * to set correct semantic role for the chip - checkbox if true, button if false.
- * @param onClickLabel Optional label for the onClick action.
- * @param indicatorBefore Optional content to display an icon/image before the title.
- * @param indicatorAfter Optional content to display an icon/image after the title.
- */
-@Composable
-fun SourceChip(
-    text: String,
-    isSelected: Boolean,
-    size: SourceChip.Size,
-    showBadge: Boolean,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-    style: SourceChip.Style = SourceChip.Style.Default,
-    allowsMultiSelection: Boolean = false,
-    onClickLabel: String? = null,
-    indicatorBefore: ChipIndicator = ChipIndicator.None,
-    indicatorAfter: ChipIndicator = ChipIndicator.None,
-) {
-    SourceChip(
-        text = text,
-        isSelected = isSelected,
-        size = size,
-        style = style,
-        onClick = onClick,
-        modifier = modifier,
-        allowsMultiSelection = allowsMultiSelection,
-        onClickLabel = onClickLabel,
-        indicatorBefore = indicatorBefore,
-        indicatorAfter = indicatorAfter,
-        badge = if (showBadge) {
-            { Badge(containerColor = it) }
-        } else {
-            null
-        },
-    )
-}
-
-/**
  * Displays a [SourceChip] component that acts as a button. This button is designed to be used
  * inline with a row of chips.
  *
@@ -364,7 +454,7 @@ fun SourceChipSupportingButton(
     )
 }
 
-@SuppressLint("DiscouragedApi")
+@Suppress("CognitiveComplexMethod")
 @OptIn(ExperimentalLayoutApi::class)
 @PreviewPhoneBothMode
 @Composable

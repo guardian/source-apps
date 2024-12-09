@@ -2,6 +2,6 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
-    <ID>CognitiveComplexMethod:SourceChip.kt$@SuppressLint("DiscouragedApi") @OptIn(ExperimentalLayoutApi::class) @PreviewPhoneBothMode @Composable internal fun SourceChipPreview(modifier: Modifier = Modifier)</ID>
+    <ID>CognitiveComplexMethod:SourceChip.kt$@OptIn(ExperimentalLayoutApi::class) @PreviewPhoneBothMode @Composable internal fun SourceChipPreview(modifier: Modifier = Modifier)</ID>
   </CurrentIssues>
 </SmellBaseline>
