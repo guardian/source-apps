@@ -28,6 +28,7 @@ import com.gu.source.presets.palette.Neutral10
 import com.gu.source.presets.palette.Neutral93
 import com.gu.source.presets.typography.TextSans14
 import com.gu.source.presets.typography.TextSansBold14
+import com.gu.source.presets.typography.TextSansBold17
 import com.gu.source.utils.PreviewPhoneBothMode
 import kotlinx.coroutines.delay
 
@@ -293,7 +294,7 @@ internal fun SourceChipPreview(modifier: Modifier = Modifier) {
             SourceChip.Size.entries.forEach { size ->
                 Text(
                     text = size.name,
-                    style = Source.Typography.TextSansBold14,
+                    style = Source.Typography.TextSansBold17,
                     color = labelColour.current,
                 )
 
@@ -302,6 +303,7 @@ internal fun SourceChipPreview(modifier: Modifier = Modifier) {
                         text = if (isSelected) "Selected" else "Unselected",
                         style = Source.Typography.TextSans14,
                         color = labelColour.current,
+                        modifier = Modifier.padding(top = 8.dp)
                     )
 
                     FlowRow(
@@ -383,7 +385,7 @@ internal fun SourceChipPreview(modifier: Modifier = Modifier) {
 
             Text(
                 text = "Collapsed icon-only",
-                style = Source.Typography.TextSansBold14,
+                style = Source.Typography.TextSansBold17,
                 color = labelColour.current,
             )
 
