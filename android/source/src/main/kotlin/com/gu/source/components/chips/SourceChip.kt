@@ -336,9 +336,9 @@ fun SourceChip(
  * The sizing and style of the button is same as the chips.
  *
  * @param text The text displayed inside the button.
+ * @param size The size of the button. See [SourceChip.Size] for available options.
  * @param onClick Callback triggered when the button is clicked.
  * @param modifier Modifier to adjust the button layout or appearance.
- * @param size The size of the button. See [SourceChip.Size] for available options.
  * @param style The style of the button, including text colour, background colour, border, and more.
  * Defaults to [SourceChip.Style.SupportingButton].
  * @param indicatorBefore Optional content to display an icon/image before the title.
@@ -346,9 +346,9 @@ fun SourceChip(
 @Composable
 fun SourceChipSupportingButton(
     text: String,
+    size: SourceChip.Size,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    size: SourceChip.Size = SourceChip.Size.Medium,
     style: SourceChip.Style = SourceChip.Style.SupportingButton,
     indicatorBefore: ChipIndicator = ChipIndicator.None,
 ) {
@@ -507,6 +507,7 @@ internal fun SourceChipPreview(modifier: Modifier = Modifier) {
 
             SourceChipSupportingButton(
                 text = "Follow",
+                size = SourceChip.Size.Medium,
                 onClick = {},
                 indicatorBefore = ChipIndicator.Icon.Vector(
                     imageVector = Source.Icons.Base.Plus,

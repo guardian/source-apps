@@ -162,6 +162,7 @@ internal fun ChipsPreview(modifier: Modifier = Modifier) {
 
         SourceChipSupportingButton(
             text = "Follow",
+            size = SourceChip.Size.Medium,
             onClick = {},
             indicatorBefore = ChipIndicator.Icon.Vector(
                 imageVector = Source.Icons.Base.Plus,
