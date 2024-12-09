@@ -108,4 +108,3 @@ guardian-test-android = { id = "com.theguardian.test.android", version.ref = "gu
 guardian-library-kotlin = { id = "com.theguardian.library.kotlin", version.ref = "guardian-convention-plugins" }
 guardian-compose-library = { id = "com.theguardian.compose.library", version.ref = "guardian-convention-plugins" }
 guardian-compose-application = { id = "com.theguardian.compose.application", version.ref = "guardian-convention-plugins" }
-guardian-detekt = { id = "com.theguardian.detekt", version.ref = "guardian-convention-plugins" }

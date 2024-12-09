@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.guardian.application)
     alias(libs.plugins.guardian.compose.application)
-    alias(libs.plugins.guardian.detekt)
 }
 
 android {

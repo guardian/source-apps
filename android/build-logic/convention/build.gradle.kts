@@ -50,11 +50,6 @@ gradlePlugin {
             implementationClass = "com.theguardian.convention.ComposeApplicationConventionPlugin"
             version = "1"
         }
-        register("guardianDetektPlugin") {
-            id = "com.theguardian.detekt"
-            implementationClass = "com.theguardian.convention.DetektPlugin"
-            version = "1"
-        }
         register("androidTestPlugin") {
             id = "com.theguardian.test.android"
             implementationClass = "com.theguardian.convention.AndroidTestConventionPlugin"
