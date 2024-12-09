@@ -4,10 +4,28 @@ import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Badge
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
@@ -25,6 +43,8 @@ import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.Check
 import com.gu.source.icons.Plus
 import com.gu.source.presets.palette.Neutral10
+import com.gu.source.presets.palette.Neutral38
+import com.gu.source.presets.palette.Neutral86
 import com.gu.source.presets.palette.Neutral93
 import com.gu.source.presets.typography.TextSans14
 import com.gu.source.presets.typography.TextSansBold14
@@ -72,8 +92,8 @@ object SourceChip {
         val fillColourSelected: AppColour,
         val textStyle: TextStyle = Source.Typography.TextSansBold14,
         val borderColourUnselected: AppColour = AppColour.Unspecified,
-        val borderColourSelected: AppColour = AppColour.Unspecified,
-        val borderWidth: Dp = 0.dp,
+        val borderColourSelected: AppColour = borderColourUnselected,
+        val borderWidth: Dp = Dp.Unspecified,
         val shape: Shape = Shape,
         val badgeColour: AppColour = DefaultBadgeColour,
     ) {
@@ -125,6 +145,35 @@ object SourceChip {
                     dark = Source.Palette.Neutral93,
                 ),
             )
+
+            /**
+             * `SourceChip.Style` for the [SourceChipSupportingButton] component.
+             *
+             * Displays a border, has no fill colour, and does not support displaying a badge.
+             */
+            val SupportingButton = Style(
+                contentColourUnselected = AppColour(
+                    light = Source.Palette.Neutral10,
+                    dark = Source.Palette.Neutral93,
+                ),
+                contentColourSelected = AppColour(
+                    light = Source.Palette.Neutral10,
+                    dark = Source.Palette.Neutral93,
+                ),
+                fillColourUnselected = AppColour.Transparent,
+                fillColourSelected = AppColour.Transparent,
+                borderColourUnselected = AppColour(
+                    light = Source.Palette.Neutral86,
+                    dark = Source.Palette.Neutral38,
+                ),
+                borderColourSelected = AppColour(
+                    light = Source.Palette.Neutral86,
+                    dark = Source.Palette.Neutral38,
+                ),
+                borderWidth = 1.dp,
+                shape = Shape,
+                badgeColour = AppColour.Transparent,
+            )
         }
     }
 }
@@ -141,7 +190,7 @@ object SourceChip {
  * @param onClick Callback triggered when the chip is clicked.
  * @param modifier Modifier to adjust the chip layout or appearance.
  * @param style The style of the chip, including content colour, background colour, border, and
- * more. See [SourceChip.Style].
+ * more. See [SourceChip.Style]. Defaults to [SourceChip.Style.Default].
  * @param allowsMultiSelection Optional - whether the chip allows multiple selections. This is used
  * to set correct semantic role for the chip - checkbox if true, button if false.
  * @param onClickLabel Optional label for the onClick action.
@@ -234,12 +283,13 @@ fun SourceChip(
  *
  * @param text The text displayed inside the chip.
  * @param isSelected Whether the chip is selected.
- * @param size The size of the chip.
+ * @param size The size of the chip. See [SourceChip.Size] for available options.
  * @param showBadge Whether to display a badge on the chip. If true, the badge will be displayed
  * with the colour defined in [style].
  * @param onClick Callback triggered when the chip is clicked.
  * @param modifier Modifier to adjust the chip layout or appearance.
- * @param style The style of the chip, including text colour, background colour, border, and more.
+ * @param style The style of the chip, including content colour, background colour, border, and
+ * more. See [SourceChip.Style]. Defaults to [SourceChip.Style.Default].
  * @param allowsMultiSelection Optional - whether the chip allows multiple selections. This is used
  * to set correct semantic role for the chip - checkbox if true, button if false.
  * @param onClickLabel Optional label for the onClick action.
@@ -279,6 +329,41 @@ fun SourceChip(
     )
 }
 
+/**
+ * Displays a [SourceChip] component that acts as a button. This button is designed to be used
+ * inline with a row of chips.
+ *
+ * The sizing and style of the button is same as the chips.
+ *
+ * @param text The text displayed inside the button.
+ * @param onClick Callback triggered when the button is clicked.
+ * @param modifier Modifier to adjust the button layout or appearance.
+ * @param size The size of the button. See [SourceChip.Size] for available options.
+ * @param style The style of the button, including text colour, background colour, border, and more.
+ * Defaults to [SourceChip.Style.SupportingButton].
+ * @param indicatorBefore Optional content to display an icon/image before the title.
+ */
+@Composable
+fun SourceChipSupportingButton(
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    size: SourceChip.Size = SourceChip.Size.Medium,
+    style: SourceChip.Style = SourceChip.Style.SupportingButton,
+    indicatorBefore: ChipIndicator = ChipIndicator.None,
+) {
+    SourceChip(
+        text = text,
+        isSelected = false,
+        size = size,
+        style = style,
+        onClick = onClick,
+        modifier = modifier,
+        indicatorBefore = indicatorBefore,
+        indicatorAfter = ChipIndicator.None,
+    )
+}
+
 @SuppressLint("DiscouragedApi")
 @OptIn(ExperimentalLayoutApi::class)
 @PreviewPhoneBothMode
@@ -303,7 +388,7 @@ internal fun SourceChipPreview(modifier: Modifier = Modifier) {
                         text = if (isSelected) "Selected" else "Unselected",
                         style = Source.Typography.TextSans14,
                         color = labelColour.current,
-                        modifier = Modifier.padding(top = 8.dp)
+                        modifier = Modifier.padding(top = 8.dp),
                     )
 
                     FlowRow(
@@ -411,6 +496,22 @@ internal fun SourceChipPreview(modifier: Modifier = Modifier) {
                     )
                 }
             }
+
+            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+
+            Text(
+                text = "Supporting chip",
+                style = Source.Typography.TextSansBold17,
+                color = labelColour.current,
+            )
+
+            SourceChipSupportingButton(
+                text = "Follow",
+                onClick = {},
+                indicatorBefore = ChipIndicator.Icon.Vector(
+                    imageVector = Source.Icons.Base.Plus,
+                ),
+            )
         }
     }
 }
