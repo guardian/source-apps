@@ -4,11 +4,6 @@ plugins {
     alias(libs.plugins.guardian.library.android)
     alias(libs.plugins.guardian.compose.library)
 }
-}
-
-detekt {
-    baseline = file("detekt-baseline-detekt.xml")
-}
 
 android {
     namespace = libs.versions.group.get()
@@ -89,7 +84,7 @@ publishing {
         // Use as `./gradlew :source:publishReleasePublicationToGusourceRepository`
         maven {
             name = "gusource"
-            url = uri("${project.layout.buildDirectory.asFile.get().path}/gusource")
+            url = uri("${project.buildDir}/gusource")
         }
     }
 }
