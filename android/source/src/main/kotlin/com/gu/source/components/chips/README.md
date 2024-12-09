@@ -16,17 +16,17 @@ Source designs & documentation in [Figma][1].
 
 The `SourceChip` component implements the chip design. See full [API documentation here][2].
 
-Basic chip with no icons, no badge, multi-select disabled:
+Small chip with no icons, no badge, multi-select disabled:
 ```kotlin
 SourceChip(
     text = "Label",
     isSelected = false,
-    size = SourceChip.Size.Medium,
+    size = SourceChip.Size.Small,
     onClick = {},
 )
 ```
 
-Basic chip with a leading icon, a default badge, and multi-select disabled:
+Medium chip with a leading icon, a default badge, and multi-select disabled:
 ```kotlin
 SourceChip(
     text = "Label",
@@ -41,7 +41,20 @@ SourceChip(
 )
 ```
 
-Another variant allows passing in a custom composable for the badge.
+Multi-select chip with a badge and a leading image:
+```kotlin
+SourceMultiSelectChip(
+    text = "Label",
+    isSelected = true,
+    size = SourceChip.Size.Medium,
+    showBadge = true,
+    onClick = {},
+    indicatorBefore = ChipIndicator.Image.Painter(
+        painter = painterResource(R.drawable.marina_hyde),
+        contentDescription = null,
+    ),
+)
+```
 
 ## Chip supporting button
 
