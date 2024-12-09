@@ -1,4 +1,4 @@
-package com.gu.source
+package com.gu.source.previews
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
