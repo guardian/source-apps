@@ -204,7 +204,7 @@ fun SourceChip(
     modifier: Modifier = Modifier,
     style: SourceChip.Style = SourceChip.Style.Default,
     onClickLabel: String? = null,
-    iconOrImage: ChipIndicator = ChipIndicator.None,
+    iconOrImage: ChipDecoration = ChipDecoration.None,
 ) {
     SourceChipInternal(
         text = text,
@@ -215,8 +215,8 @@ fun SourceChip(
         modifier = modifier,
         allowsMultiSelection = false,
         onClickLabel = onClickLabel,
-        indicatorBefore = iconOrImage,
-        indicatorAfter = ChipIndicator.None,
+        decorationBeforeText = iconOrImage,
+        decorationAfterText = ChipDecoration.None,
         badge = if (showBadge) {
             { Badge(containerColor = it) }
         } else {
@@ -252,7 +252,7 @@ fun SourceMultiSelectChip(
     modifier: Modifier = Modifier,
     style: SourceChip.Style = SourceChip.Style.Default,
     onClickLabel: String? = null,
-    iconOrImage: ChipIndicator = ChipIndicator.None,
+    iconOrImage: ChipDecoration = ChipDecoration.None,
 ) {
     SourceChipInternal(
         text = text,
@@ -263,9 +263,9 @@ fun SourceMultiSelectChip(
         modifier = modifier,
         allowsMultiSelection = true,
         onClickLabel = onClickLabel,
-        indicatorBefore = iconOrImage,
-        indicatorAfter = if (isSelected) {
-            ChipIndicator.Icon.Component {
+        decorationBeforeText = iconOrImage,
+        decorationAfterText = if (isSelected) {
+            ChipDecoration.Icon.Component {
                 Icon(
                     imageVector = Source.Icons.Base.Check,
                     contentDescription = null,
@@ -273,7 +273,7 @@ fun SourceMultiSelectChip(
                 )
             }
         } else {
-            ChipIndicator.None
+            ChipDecoration.None
         },
         badge = if (showBadge) {
             { Badge(containerColor = it) }
@@ -284,8 +284,8 @@ fun SourceMultiSelectChip(
 }
 
 private data class Spacing(
-    val beforeLeadingIndicator: Dp,
-    val betweenLeadingIndicatorAndText: Dp,
+    val beforeLeadingDecoration: Dp,
+    val betweenLeadingDecorationAndText: Dp,
     val betweenTextAndCheckmark: Dp,
     val afterCheckmark: Dp,
 )
@@ -315,11 +315,11 @@ private data class Spacing(
  */
 private fun getSpacing(
     size: SourceChip.Size,
-    leadingIndicator: ChipIndicator,
-    hasTrailIndicator: Boolean,
+    leadingDecoration: ChipDecoration,
+    hasTrailDecoration: Boolean,
     hasText: Boolean,
 ): Spacing {
-    val beforeLeadingIndicator = if (leadingIndicator is ChipIndicator.None) {
+    val beforeLeadingDecoration = if (leadingDecoration is ChipDecoration.None) {
         // Label only
         16.dp
     } else if (!hasText) {
@@ -333,18 +333,18 @@ private fun getSpacing(
         }
     }
 
-    val betweenLeadingIndicatorAndText = when (leadingIndicator) {
-        is ChipIndicator.Icon -> {
+    val betweenLeadingDecorationAndText = when (leadingDecoration) {
+        is ChipDecoration.Icon -> {
             if (hasText) 4.dp else 0.dp
         }
 
-        is ChipIndicator.Image -> if (hasText) 8.dp else 0.dp
-        ChipIndicator.None -> 0.dp
+        is ChipDecoration.Image -> if (hasText) 8.dp else 0.dp
+        ChipDecoration.None -> 0.dp
     }
 
-    val betweenTextAndCheckmark = if (hasTrailIndicator) 8.dp else 0.dp
+    val betweenTextAndCheckmark = if (hasTrailDecoration) 8.dp else 0.dp
 
-    val afterCheckmark = if (hasTrailIndicator) {
+    val afterCheckmark = if (hasTrailDecoration) {
         8.dp
     } else if (hasText) {
         // Label only without check
@@ -355,8 +355,8 @@ private fun getSpacing(
     }
 
     return Spacing(
-        beforeLeadingIndicator = beforeLeadingIndicator,
-        betweenLeadingIndicatorAndText = betweenLeadingIndicatorAndText,
+        beforeLeadingDecoration = beforeLeadingDecoration,
+        betweenLeadingDecorationAndText = betweenLeadingDecorationAndText,
         betweenTextAndCheckmark = betweenTextAndCheckmark,
         afterCheckmark = afterCheckmark,
     )
@@ -378,8 +378,8 @@ private fun getSpacing(
  * @param allowsMultiSelection Optional - whether the chip allows multiple selections. This is used
  * to set correct semantic role for the chip - checkbox if true, button if false.
  * @param onClickLabel Optional label for the onClick action.
- * @param indicatorBefore Optional content to display an icon/image before the title.
- * @param indicatorAfter Optional content to display an icon/image after the title.
+ * @param decorationBeforeText Optional content to display an icon/image before the title.
+ * @param decorationAfterText Optional content to display an icon/image after the title.
  * @param badge Optional content to display a badge over the chip. Usually a [Badge]. Badge colour
  * is passed to the [badge] slot.
  */
@@ -395,8 +395,8 @@ internal fun SourceChipInternal(
     style: SourceChip.Style = SourceChip.Style.Default,
     allowsMultiSelection: Boolean = false,
     onClickLabel: String? = null,
-    indicatorBefore: ChipIndicator = ChipIndicator.None,
-    indicatorAfter: ChipIndicator = ChipIndicator.None,
+    decorationBeforeText: ChipDecoration = ChipDecoration.None,
+    decorationAfterText: ChipDecoration = ChipDecoration.None,
     badge: @Composable ((Color) -> Unit)? = null,
 ) {
     SourceBaseChip(
@@ -425,17 +425,17 @@ internal fun SourceChipInternal(
 
         val spacing = getSpacing(
             size = size,
-            leadingIndicator = indicatorBefore,
-            hasTrailIndicator = indicatorAfter !is ChipIndicator.None,
+            leadingDecoration = decorationBeforeText,
+            hasTrailDecoration = decorationAfterText !is ChipDecoration.None,
             hasText = text.isNotBlank(),
         )
 
         CompositionLocalProvider(LocalContentColor provides contentColour) {
-            Spacer(modifier = Modifier.width(spacing.beforeLeadingIndicator))
+            Spacer(modifier = Modifier.width(spacing.beforeLeadingDecoration))
 
-            indicatorBefore.content(this, Modifier.height(indicatorBefore.height))
+            decorationBeforeText.content(this, Modifier.height(decorationBeforeText.height))
 
-            Spacer(modifier = Modifier.width(spacing.betweenLeadingIndicatorAndText))
+            Spacer(modifier = Modifier.width(spacing.betweenLeadingDecorationAndText))
 
             HorizontalExpandingText(
                 text = text,
@@ -447,7 +447,7 @@ internal fun SourceChipInternal(
 
             Spacer(modifier = Modifier.width(spacing.betweenTextAndCheckmark))
 
-            indicatorAfter.content(this, Modifier)
+            decorationAfterText.content(this, Modifier)
 
             Spacer(modifier = Modifier.width(spacing.afterCheckmark))
         }
@@ -475,7 +475,7 @@ fun SourceChipSupportingButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     style: SourceChip.Style = SourceChip.Style.SupportingButton,
-    iconOrImage: ChipIndicator = ChipIndicator.None,
+    iconOrImage: ChipDecoration = ChipDecoration.None,
 ) {
     SourceChipInternal(
         text = text,
@@ -484,8 +484,8 @@ fun SourceChipSupportingButton(
         style = style,
         onClick = onClick,
         modifier = modifier,
-        indicatorBefore = iconOrImage,
-        indicatorAfter = ChipIndicator.None,
+        decorationBeforeText = iconOrImage,
+        decorationAfterText = ChipDecoration.None,
     )
 }
 
@@ -534,7 +534,7 @@ internal fun SourceChipPreview(modifier: Modifier = Modifier) {
                             size = size,
                             onClick = {},
                             showBadge = false,
-                            iconOrImage = ChipIndicator.Icon.Component {
+                            iconOrImage = ChipDecoration.Icon.Component {
                                 Icon(
                                     imageVector = Source.Icons.Base.Plus,
                                     contentDescription = null,
@@ -549,7 +549,7 @@ internal fun SourceChipPreview(modifier: Modifier = Modifier) {
                             size = size,
                             onClick = {},
                             showBadge = false,
-                            iconOrImage = ChipIndicator.Image.Painter(
+                            iconOrImage = ChipDecoration.Image.Painter(
                                 painter = painterResource(R.drawable.marina_hyde),
                                 contentDescription = null,
                             ),
@@ -561,7 +561,7 @@ internal fun SourceChipPreview(modifier: Modifier = Modifier) {
                             size = size,
                             onClick = {},
                             showBadge = false,
-                            iconOrImage = ChipIndicator.Image.Painter(
+                            iconOrImage = ChipDecoration.Image.Painter(
                                 painter = painterResource(R.drawable.marina_hyde),
                                 contentDescription = null,
                             ),
@@ -576,7 +576,7 @@ internal fun SourceChipPreview(modifier: Modifier = Modifier) {
                             style = SourceChip.Style.Default.copy(
                                 badgeColour = AppColour.Unspecified,
                             ),
-                            iconOrImage = ChipIndicator.Icon.Vector(
+                            iconOrImage = ChipDecoration.Icon.Vector(
                                 imageVector = Source.Icons.Base.Plus,
                             ),
                         )
@@ -618,7 +618,7 @@ internal fun SourceChipPreview(modifier: Modifier = Modifier) {
                         size = SourceChip.Size.Medium,
                         onClick = {},
                         style = SourceChip.Style.Default,
-                        iconOrImage = ChipIndicator.Icon.Painter(
+                        iconOrImage = ChipDecoration.Icon.Painter(
                             painter = painterResource(R.drawable.ic_list),
                         ),
                     )
@@ -637,7 +637,7 @@ internal fun SourceChipPreview(modifier: Modifier = Modifier) {
                 text = "Follow",
                 size = SourceChip.Size.Medium,
                 onClick = {},
-                iconOrImage = ChipIndicator.Icon.Vector(
+                iconOrImage = ChipDecoration.Icon.Vector(
                     imageVector = Source.Icons.Base.Plus,
                 ),
             )

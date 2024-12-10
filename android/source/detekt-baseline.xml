@@ -2,6 +2,6 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
-    <ID>CognitiveComplexMethod:SourceChip.kt$private fun getSpacing( size: SourceChip.Size, leadingIndicator: ChipIndicator, hasTrailIndicator: Boolean, hasText: Boolean, ): Spacing</ID>
+    <ID>CognitiveComplexMethod:SourceChip.kt$private fun getSpacing( size: SourceChip.Size, leadingDecoration: ChipDecoration, hasTrailDecoration: Boolean, hasText: Boolean, ): Spacing</ID>
   </CurrentIssues>
 </SmellBaseline>

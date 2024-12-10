@@ -18,8 +18,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.gu.source.R
 import com.gu.source.Source
-import com.gu.source.components.chips.ChipIndicator.Icon
-import com.gu.source.components.chips.ChipIndicator.Image
+import com.gu.source.components.chips.ChipDecoration.Icon
+import com.gu.source.components.chips.ChipDecoration.Image
 import com.gu.source.icons.Check
 
 /**
@@ -28,16 +28,16 @@ import com.gu.source.icons.Check
  * [Icon]s are `18.dp` tall and the [Image]s are `24.dp` tall.
  *
  * The icon or image will be tinted with the [SourceChip.Style.contentColour]. To override the
- * tinting, use [ChipIndicator.Icon.Component] or [ChipIndicator.Image.Component] and provide a
+ * tinting, use [ChipDecoration.Icon.Component] or [ChipDecoration.Image.Component] and provide a
  * custom composable function with the desired colour.
  *
- * For icons, prefer to use [ChipIndicator.Icon.Vector] with a [Source.Icons] vector where possible.
- * Alternatively use [ChipIndicator.Icon.Painter] with a drawable resource ID.
+ * For icons, prefer to use [ChipDecoration.Icon.Vector] with a [Source.Icons] vector where possible.
+ * Alternatively use [ChipDecoration.Icon.Painter] with a drawable resource ID.
  *
- * For images, prefer to use [ChipIndicator.Image.Painter] for static images. For images fetched
- * from the network, use [ChipIndicator.Image.Component] with a custom composable function.
+ * For images, prefer to use [ChipDecoration.Image.Painter] for static images. For images fetched
+ * from the network, use [ChipDecoration.Image.Component] with a custom composable function.
  */
-sealed class ChipIndicator {
+sealed class ChipDecoration {
     /**
      * The content to display. The provided modifier _must_ be set on the content.
      * The modifier is used to apply the correct size to the icon/image.
@@ -51,7 +51,7 @@ sealed class ChipIndicator {
      * Represents an [Icon] displayed before/after the chip's text. Icons are `18.dp` tall and will
      * be tinted with the [SourceChip.Style.contentColour].
      */
-    sealed class Icon : ChipIndicator() {
+    sealed class Icon : ChipDecoration() {
         override val height: Dp = 18.dp
 
         /**
@@ -111,7 +111,7 @@ sealed class ChipIndicator {
     /**
      * Represents an [Image] displayed before/after the chip's text. Images are `24.dp` tall.
      */
-    sealed class Image : ChipIndicator() {
+    sealed class Image : ChipDecoration() {
         override val height: Dp = 24.dp
 
         /**
@@ -168,7 +168,7 @@ sealed class ChipIndicator {
     }
 
     /** Represents no image or icon displayed before/after the chip's text. */
-    data object None : ChipIndicator() {
+    data object None : ChipDecoration() {
         override val content: @Composable RowScope.(Modifier) -> Unit = {}
         override val height: Dp = 0.dp
     }

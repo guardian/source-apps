@@ -11,7 +11,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.gu.source.R
 import com.gu.source.Source
-import com.gu.source.components.chips.ChipIndicator
+import com.gu.source.components.chips.ChipDecoration
 import com.gu.source.components.chips.SourceChip
 import com.gu.source.components.chips.SourceChipSupportingButton
 import com.gu.source.components.chips.SourceMultiSelectChip
@@ -63,7 +63,7 @@ internal fun ChipsPreview(modifier: Modifier = Modifier) {
                         size = size,
                         onClick = {},
                         showBadge = false,
-                        iconOrImage = ChipIndicator.Icon.Component {
+                        iconOrImage = ChipDecoration.Icon.Component {
                             Icon(
                                 imageVector = Source.Icons.Base.Plus,
                                 contentDescription = null,
@@ -78,7 +78,7 @@ internal fun ChipsPreview(modifier: Modifier = Modifier) {
                         size = size,
                         onClick = {},
                         showBadge = false,
-                        iconOrImage = ChipIndicator.Image.Painter(
+                        iconOrImage = ChipDecoration.Image.Painter(
                             painter = painterResource(R.drawable.marina_hyde),
                             contentDescription = null,
                         ),
@@ -90,7 +90,7 @@ internal fun ChipsPreview(modifier: Modifier = Modifier) {
                         size = size,
                         onClick = {},
                         showBadge = false,
-                        iconOrImage = ChipIndicator.Image.Painter(
+                        iconOrImage = ChipDecoration.Image.Painter(
                             painter = painterResource(R.drawable.marina_hyde),
                             contentDescription = null,
                         ),
@@ -105,7 +105,7 @@ internal fun ChipsPreview(modifier: Modifier = Modifier) {
                         style = SourceChip.Style.Default.copy(
                             badgeColour = AppColour.Unspecified,
                         ),
-                        iconOrImage = ChipIndicator.Icon.Vector(
+                        iconOrImage = ChipDecoration.Icon.Vector(
                             imageVector = Source.Icons.Base.Plus,
                         ),
                     )
@@ -147,7 +147,7 @@ internal fun ChipsPreview(modifier: Modifier = Modifier) {
                     size = SourceChip.Size.Medium,
                     onClick = {},
                     style = SourceChip.Style.Default,
-                    iconOrImage = ChipIndicator.Icon.Painter(
+                    iconOrImage = ChipDecoration.Icon.Painter(
                         painter = painterResource(R.drawable.ic_list),
                     ),
                 )
@@ -166,7 +166,7 @@ internal fun ChipsPreview(modifier: Modifier = Modifier) {
             text = "Follow",
             size = SourceChip.Size.Medium,
             onClick = {},
-            iconOrImage = ChipIndicator.Icon.Vector(
+            iconOrImage = ChipDecoration.Icon.Vector(
                 imageVector = Source.Icons.Base.Plus,
             ),
         )
