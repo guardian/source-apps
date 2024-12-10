@@ -35,7 +35,7 @@ android {
 }
 
 detekt {
-    baseline = file("detekt-baseline-debug.xml")
+    baseline = file("detekt-baseline.xml")
 }
 
 dependencies {

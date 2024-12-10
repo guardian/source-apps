@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>CognitiveComplexMethod:SourceChip.kt$private fun getSpacing( size: SourceChip.Size, leadingDecoration: ChipDecoration, hasTrailDecoration: Boolean, hasText: Boolean, ): Spacing</ID>
+  </CurrentIssues>
+</SmellBaseline>
