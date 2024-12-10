@@ -297,6 +297,8 @@ private data class Spacing(
  * 1. horizontal padding for label only chips is 16.dp on both sizes
  * 2. horizontal padding for icon only chips is 12.dp on both sizes
  *
+ * **At start:**
+ *
  * | Spacing | Size | With Icon | With Image | Label only | Only Icon |
  * |---|---|---|---|---|---|
  * | Before icon/image | Small | 8 | 8 | 16 | 12 |
@@ -304,13 +306,14 @@ private data class Spacing(
  * | Between icon/image and text | Small | 4 | 8 | 0 | 0 |
  * | Between icon/image and text | Medium | 4 | 8 | 0 | 0 |
  *
+ * **At end:**
  *
- * | Spacing | Size | With check icon | Label only | Label with check | Only Icon |
- * |---|---|---|---|---|---|
- * | Between text and check icon | Small | 8 | 0 | 8 | 0 |
- * | Between text and check icon | Medium | 8 | 0 | 8 | 0 |
- * | After check icon | Small | 8 | 16 | 8 | 12 |
- * | After check icon | Medium | 8 | 16 | 8 | 12 |
+ * | Spacing | Size | With check icon | Label only | Only Icon |
+ * |---|---|---|---|---|
+ * | Between text and check icon | Small | 8 | 0 | 0 |
+ * | Between text and check icon | Medium | 8 | 0 | 0 |
+ * | After check icon | Small | 8 | 16 | 12 |
+ * | After check icon | Medium | 8 | 16 | 12 |
  *
  */
 private fun getSpacing(
