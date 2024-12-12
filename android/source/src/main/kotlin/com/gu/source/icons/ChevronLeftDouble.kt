@@ -16,18 +16,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 
-/** Base small left chevron icon. */
+/** Base double left chevron icon. */
 @Suppress("UnusedReceiverParameter")
-val Source.Icons.Base.ChevronLeft: ImageVector
+val Source.Icons.Base.ChevronLeftDouble: ImageVector
     get() = _icon ?: Builder(
-        name = "Check",
+        name = "ChevronLeftDouble",
         defaultWidth = 24.0.dp,
         defaultHeight = 24.0.dp,
         viewportWidth = 24.0f,
         viewportHeight = 24.0f,
     ).apply {
         path(
-            fill = SolidColor(Color(0xFFffffff)),
+            fill = SolidColor(Color(0xFF052962)),
             stroke = null,
             strokeLineWidth = 0.0f,
             strokeLineCap = Butt,
@@ -35,14 +35,23 @@ val Source.Icons.Base.ChevronLeft: ImageVector
             strokeLineMiter = 4.0f,
             pathFillType = EvenOdd,
         ) {
-            moveTo(15f, 18.03f)
-            lineTo(10.075f, 12.015f)
-            lineTo(14.995f, 6.03004f)
-            lineTo(14.115f, 5.14504f)
-            lineTo(7.57495f, 11.685f)
-            lineTo(7.57495f, 12.375f)
-            lineTo(14.115f, 18.915f)
-            lineTo(15f, 18.03f)
+            moveTo(11.2585f, 2.0f)
+            lineTo(12.2109f, 2.9774f)
+            lineTo(4.8425f, 12.0f)
+            lineTo(12.2109f, 21.0226f)
+            lineTo(11.2585f, 22.0f)
+            lineTo(1.7598f, 12.5013f)
+            verticalLineTo(11.4987f)
+            lineTo(11.2585f, 2.0f)
+            close()
+            moveTo(21.2836f, 2.0f)
+            lineTo(22.236f, 2.9774f)
+            lineTo(14.8675f, 12.0f)
+            lineTo(22.236f, 21.0226f)
+            lineTo(21.2836f, 22.0f)
+            lineTo(11.7848f, 12.5013f)
+            verticalLineTo(11.4987f)
+            lineTo(21.2836f, 2.0f)
             close()
         }
     }
@@ -56,7 +65,7 @@ private var _icon: ImageVector? = null
 @Composable
 private fun Preview() {
     Icon(
-        imageVector = Source.Icons.Base.ChevronLeft,
+        imageVector = Source.Icons.Base.ChevronLeftDouble,
         contentDescription = null,
     )
 }

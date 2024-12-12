@@ -37,10 +37,10 @@ nexusPublishing {
 
 allprojects {
     // Exclude generated files from linter
-    tasks.withType<org.jmailen.gradle.kotlinter.tasks.LintTask> {
+    tasks.withType<org.jmailen.gradle.kotlinter.tasks.LintTask>().configureEach {
         source = this.source.minus(fileTree("src/build/generated")).asFileTree
     }
-    tasks.withType<FormatTask> {
+    tasks.withType<FormatTask>().configureEach {
         source = this.source.minus(fileTree("src/build/generated")).asFileTree
     }
 }

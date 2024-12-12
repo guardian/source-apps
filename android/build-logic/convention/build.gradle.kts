@@ -5,10 +5,12 @@ plugins {
 
 group = "com.theguardian.buildlogic"
 
-java {
-    val javaVersion = JavaVersion.toVersion(libs.versions.java.get().toInt())
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
+kotlin {
+    jvmToolchain(libs.versions.java.get().toInt())
+}
+
+lint {
+    baseline = file("gradle-lint-baseline.xml")
 }
 
 dependencies {

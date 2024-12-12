@@ -20,6 +20,13 @@ import androidx.compose.ui.tooling.preview.Preview
     showBackground = true,
 )
 @Preview(
+    name = "Samsung S20 (narrow device)",
+    device = "spec:width=945px,height=2400px",
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+    backgroundColor = 0xFFFFFFFF,
+    showBackground = true,
+)
+@Preview(
     name = "Scaled font",
     device = Devices.PIXEL_7,
     uiMode = Configuration.UI_MODE_NIGHT_NO,

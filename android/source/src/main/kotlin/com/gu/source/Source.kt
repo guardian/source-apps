@@ -26,6 +26,8 @@ object Source {
     /**
      * App core colour palette.
      *
+     * ![Full colour palette](presets/palette/palette.png)
+     *
      * [Palette colour definitions](https://theguardian.design/2a1e5182b/p/71fb50-colour/b/399c59)).
      */
     object Palette
@@ -38,6 +40,7 @@ object Source {
     }
 
     /** Source colour themes used by components. */
+    @Suppress("UndocumentedPublicProperty")
     enum class Theme {
         Core,
         ReaderRevenue,

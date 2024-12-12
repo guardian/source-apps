@@ -51,7 +51,7 @@ publishing {
                 licenses {
                     license {
                         name.set("Apache License, Version 2.0")
-                        url.set("https://github.com/guardian/source-apps/tree/main?tab=Apache-2.0-1-ov-file#readme")
+                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
                     }
                 }
                 developers {

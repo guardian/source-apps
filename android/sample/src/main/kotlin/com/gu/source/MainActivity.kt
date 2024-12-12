@@ -41,6 +41,8 @@ private enum class SheetContentType {
     Palette,
     PagerProgressBar,
     Buttons,
+    CoreIcons,
+    AlertBanner,
 }
 
 @SuppressLint("DiscouragedApi")
@@ -60,6 +62,8 @@ private fun Greeting(modifier: Modifier = Modifier) {
                 SheetContentType.Palette -> Palette(sheetModifier)
                 SheetContentType.PagerProgressBar -> ImagePagerWithProgressIndicator(sheetModifier)
                 SheetContentType.Buttons -> ButtonPreview(sheetModifier)
+                SheetContentType.CoreIcons -> IconsPreview(sheetModifier)
+                SheetContentType.AlertBanner -> AlertBannerPreview(sheetModifier)
             }
         },
         scaffoldState = scaffoldState,
@@ -132,6 +136,28 @@ private fun Greeting(modifier: Modifier = Modifier) {
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = {
                     sheetContentType = SheetContentType.Buttons
+                    coroutineScope.launch {
+                        scaffoldState.bottomSheetState.expand()
+                    }
+                },
+            )
+
+            SourceButton(
+                text = "Open icons preview",
+                priority = SourceButton.Priority.TertiaryOnWhite,
+                onClick = {
+                    sheetContentType = SheetContentType.CoreIcons
+                    coroutineScope.launch {
+                        scaffoldState.bottomSheetState.expand()
+                    }
+                },
+            )
+
+            SourceButton(
+                text = "Open Alert banner preview",
+                priority = SourceButton.Priority.TertiaryOnWhite,
+                onClick = {
+                    sheetContentType = SheetContentType.AlertBanner
                     coroutineScope.launch {
                         scaffoldState.bottomSheetState.expand()
                     }

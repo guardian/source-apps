@@ -16,18 +16,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 
-/** Base small right chevron icon. */
+/** Base single right chevron icon. */
 @Suppress("UnusedReceiverParameter")
-val Source.Icons.Base.ChevronRight: ImageVector
+val Source.Icons.Base.ChevronRightSingle: ImageVector
     get() = _icon ?: Builder(
-        name = "Check",
+        name = "ChevronRightSingle",
         defaultWidth = 24.0.dp,
         defaultHeight = 24.0.dp,
         viewportWidth = 24.0f,
         viewportHeight = 24.0f,
     ).apply {
         path(
-            fill = SolidColor(Color(0xFFffffff)),
+            fill = SolidColor(Color(0xFF052962)),
             stroke = null,
             strokeLineWidth = 0.0f,
             strokeLineCap = Butt,
@@ -35,14 +35,14 @@ val Source.Icons.Base.ChevronRight: ImageVector
             strokeLineMiter = 4.0f,
             pathFillType = EvenOdd,
         ) {
-            moveTo(9.00005f, 5.96996f)
-            lineTo(13.925f, 11.985f)
-            lineTo(9.00505f, 17.97f)
-            lineTo(9.88505f, 18.855f)
-            lineTo(16.425f, 12.315f)
-            lineTo(16.425f, 11.625f)
-            lineTo(9.88505f, 5.08496f)
-            lineTo(9.00005f, 5.96996f)
+            moveTo(8.2317f, 1.0f)
+            lineTo(7.25f, 1.9565f)
+            lineTo(15.6321f, 12.0f)
+            lineTo(7.25f, 22.0435f)
+            lineTo(8.2317f, 23.0f)
+            lineTo(18.7031f, 12.5286f)
+            verticalLineTo(11.4714f)
+            lineTo(8.2317f, 1.0f)
             close()
         }
     }
@@ -56,7 +56,7 @@ private var _icon: ImageVector? = null
 @Composable
 private fun Preview() {
     Icon(
-        imageVector = Source.Icons.Base.ChevronRight,
+        imageVector = Source.Icons.Base.ChevronRightSingle,
         contentDescription = null,
     )
 }

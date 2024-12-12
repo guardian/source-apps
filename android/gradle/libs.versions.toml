@@ -1,31 +1,30 @@
 [versions]
 group = "com.gu.source"
-libraryVersion = "0.3.4"
-compilesdk = "34"
+libraryVersion = "0.5.0"
+compilesdk = "35"
 minsdk = "26"
 targetsdk = "34"
 java = "17"
 
-
-agp = "8.5.2"
-kotlin = "2.0.10"
+agp = "8.7.3"
+kotlin = "2.0.21"
 # Kotlinter version is tied closely to min & max Kotlin and Gradle versions. Update Kotlinter
 # when updating Kotlin. Check compatible versions here:
 # https://github.com/jeremymailen/kotlinter-gradle/blob/master/README.md#compatibility
-kotlinter = "4.4.1"
+kotlinter = "4.5.0"
 
-activity = "1.9.1"
+activity = "1.9.3"
 appcompat = "1.7.0"
 coil = "2.7.0"
-composeBom = "2024.06.00"
-composeLint = "0.4.10"
-coreKtx = "1.13.1"
-detekt = "1.23.6"
+composeBom = "2024.11.00"
+composeLint = "0.4.19"
+coreKtx = "1.15.0"
+detekt = "1.23.7"
 dokka = "1.9.20"
 inject = "1"
-kotlinx-collections-immutable = "0.3.7"
-lifecycleRuntimeKtx = "2.8.4"
-lint-gradle = "1.0.0-alpha01"
+kotlinx-collections-immutable = "0.3.8"
+lifecycleRuntimeKtx = "2.8.7"
+lint-gradle = "1.0.0-alpha02"
 nexus-publish = "2.0.0"
 timber = "5.0.1"
 
@@ -34,9 +33,9 @@ espressoCore = "3.6.1"
 androidx-junit = "1.2.1"
 androidx-test-core = "1.6.1"
 androidx-test-rules = "1.6.1"
-androidx-test-runner = "1.6.1"
-testparameterinjector = "1.16"
-paparazzi = "1.3.4"
+androidx-test-runner = "1.6.2"
+testparameterinjector = "1.18"
+paparazzi = "1.3.5"
 
 # Convention plugin versions
 guardian-convention-plugins = "1"
