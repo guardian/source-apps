@@ -2,7 +2,6 @@
 
 List of typography tokens and their previews are below. The tokens are namespaced under `Source.Typography`, e.g. `Source.Typography.TextSans14`
 
-
 | Grey boxes represent the drawn area for the text with vertical clipping enabled |
 |---|
 |![headlineBold](https://github.com/user-attachments/assets/4922b064-ee81-408d-9b43-3130d95c1fa0)|
