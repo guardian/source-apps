@@ -21,6 +21,7 @@ import com.gu.source.presets.palette.Neutral10
 import com.gu.source.presets.palette.Neutral100
 import com.gu.source.presets.palette.Neutral97
 import com.gu.source.presets.typography.HeadlineMedium20
+import com.gu.source.previews.*
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.plus
 import kotlinx.coroutines.launch
@@ -43,6 +44,7 @@ private enum class SheetContentType {
     Buttons,
     CoreIcons,
     AlertBanner,
+    Chips,
 }
 
 @SuppressLint("DiscouragedApi")
@@ -64,6 +66,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
                 SheetContentType.Buttons -> ButtonPreview(sheetModifier)
                 SheetContentType.CoreIcons -> IconsPreview(sheetModifier)
                 SheetContentType.AlertBanner -> AlertBannerPreview(sheetModifier)
+                SheetContentType.Chips -> ChipsPreview(sheetModifier)
             }
         },
         scaffoldState = scaffoldState,
@@ -158,6 +161,17 @@ private fun Greeting(modifier: Modifier = Modifier) {
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = {
                     sheetContentType = SheetContentType.AlertBanner
+                    coroutineScope.launch {
+                        scaffoldState.bottomSheetState.expand()
+                    }
+                },
+            )
+
+            SourceButton(
+                text = "Open chips preview",
+                priority = SourceButton.Priority.TertiaryOnWhite,
+                onClick = {
+                    sheetContentType = SheetContentType.Chips
                     coroutineScope.launch {
                         scaffoldState.bottomSheetState.expand()
                     }

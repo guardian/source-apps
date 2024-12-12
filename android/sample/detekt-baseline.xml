@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>CognitiveComplexMethod:ChipsPreview.kt$@OptIn(ExperimentalLayoutApi::class) @Composable internal fun ChipsPreview(modifier: Modifier = Modifier)</ID>
+    <ID>UndocumentedPublicClass:MainActivity.kt$MainActivity : ComponentActivity</ID>
+  </CurrentIssues>
+</SmellBaseline>
