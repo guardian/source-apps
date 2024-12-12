@@ -1,8 +1,5 @@
-@file:OptIn(ExperimentalFoundationApi::class)
+package com.gu.source.previews
 
-package com.gu.source
-
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
@@ -13,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import com.gu.source.Source
 import com.gu.source.components.pager.PagerProgressBar
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode

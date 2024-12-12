@@ -1,10 +1,7 @@
 package com.theguardian.convention
 
 import com.android.build.api.dsl.ApplicationExtension
-import com.theguardian.convention.shared.configureAndroidModule
-import com.theguardian.convention.shared.configureAndroidTests
-import com.theguardian.convention.shared.libs
-import com.theguardian.convention.shared.plugin
+import com.theguardian.convention.shared.*
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -28,6 +25,8 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 apply(libs.plugin("kgp").pluginId)
                 apply(libs.plugin("kotlinter").pluginId)
             }
+
+            setupDetekt()
 
             extensions.configure<ApplicationExtension> {
                 defaultConfig {

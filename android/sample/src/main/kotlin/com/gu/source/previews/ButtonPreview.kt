@@ -1,4 +1,4 @@
-package com.gu.source
+package com.gu.source.previews
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
@@ -7,6 +7,7 @@ import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.gu.source.Source
 import com.gu.source.components.buttons.ButtonColours
 import com.gu.source.components.buttons.PlainSourceButton
 import com.gu.source.components.buttons.SourceButton

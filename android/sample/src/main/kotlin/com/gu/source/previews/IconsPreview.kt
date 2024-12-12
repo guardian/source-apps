@@ -1,4 +1,4 @@
-package com.gu.source
+package com.gu.source.previews
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -14,6 +14,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.gu.source.Source
 import com.gu.source.components.buttons.SourceButton
 import com.gu.source.components.buttons.SourceIconButton
 import com.gu.source.daynight.AppColour

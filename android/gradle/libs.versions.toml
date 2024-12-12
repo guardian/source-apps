@@ -1,6 +1,6 @@
 [versions]
 group = "com.gu.source"
-libraryVersion = "0.5.0"
+libraryVersion = "0.6.0"
 compilesdk = "35"
 minsdk = "26"
 targetsdk = "34"
@@ -27,6 +27,8 @@ lifecycleRuntimeKtx = "2.8.7"
 lint-gradle = "1.0.0-alpha02"
 nexus-publish = "2.0.0"
 timber = "5.0.1"
+
+gradle-binary-compatibility = "0.16.3"
 
 junit = "4.13.2"
 espressoCore = "3.6.1"
@@ -95,6 +97,7 @@ kgp = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+gradle-binaryCompatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "gradle-binary-compatibility" }
 
 nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexus-publish" }
 
@@ -105,4 +108,3 @@ guardian-test-android = { id = "com.theguardian.test.android", version.ref = "gu
 guardian-library-kotlin = { id = "com.theguardian.library.kotlin", version.ref = "guardian-convention-plugins" }
 guardian-compose-library = { id = "com.theguardian.compose.library", version.ref = "guardian-convention-plugins" }
 guardian-compose-application = { id = "com.theguardian.compose.application", version.ref = "guardian-convention-plugins" }
-guardian-detekt = { id = "com.theguardian.detekt", version.ref = "guardian-convention-plugins" }
