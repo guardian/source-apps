@@ -38,6 +38,7 @@ private val icons = listOf(
     Source.Icons.Base.Cross,
     Source.Icons.Base.AlertRound,
     Source.Icons.Base.InfoRound,
+    Source.Icons.Base.Ellipsis,
 )
 
 @Composable
