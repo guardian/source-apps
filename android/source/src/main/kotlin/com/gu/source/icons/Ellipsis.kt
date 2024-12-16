@@ -1,8 +1,9 @@
+@file:Suppress("MagicNumber")
+
 package com.gu.source.icons
 
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathFillType
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -12,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.presets.palette.Brand400
 
+/** Base ellipsis icon. */
 @Suppress("UnusedReceiverParameter", "NamedArguments")
 val Source.Icons.Base.Ellipsis: ImageVector
     get() = _ellipsis ?: ImageVector.Builder(
