@@ -333,6 +333,10 @@ internal fun HeadlineSemiBoldPreview() {
             style = Source.Typography.HeadlineSemiBold16,
         )
         TextPreview(
+            text = "HeadlineSemiBold17",
+            style = Source.Typography.HeadlineSemiBold17,
+        )
+        TextPreview(
             text = "HeadlineSemiBold18",
             style = Source.Typography.HeadlineSemiBold18,
         )
