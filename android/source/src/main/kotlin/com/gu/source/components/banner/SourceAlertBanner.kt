@@ -30,9 +30,9 @@ import com.gu.source.presets.typography.TextSans17
 import com.gu.source.utils.PreviewPhoneBothMode
 
 /**
- * Object for property models for the [AlertBanner] component.
+ * Object for property models for the [SourceAlertBanner] component.
  */
-object AlertBanner {
+object SourceAlertBanner {
     internal object Style {
         val ContentPaddingVertical = 20.dp
         val ContentPaddingHorizontal = 16.dp
@@ -48,7 +48,7 @@ object AlertBanner {
     }
 
     /**
-     * Enum for the message type of the [AlertBanner]. Informs users of how important an action is.
+     * Enum for the message type of the [SourceAlertBanner]. Informs users of how important an action is.
      *
      * The messages are named based on banner message type and backdrop colour.
      */
@@ -119,14 +119,14 @@ object AlertBanner {
  */
 @SuppressLint("DiscouragedApi")
 @Composable
-fun AlertBanner(
+fun SourceAlertBanner(
     messageText: String,
-    priority: AlertBanner.Priority,
+    priority: SourceAlertBanner.Priority,
     onMessageClick: () -> Unit,
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    AlertBanner(
+    SourceAlertBanner(
         messageText = AnnotatedString(messageText),
         priority = priority,
         onMessageClick = onMessageClick,
@@ -146,9 +146,9 @@ fun AlertBanner(
  */
 @SuppressLint("DiscouragedApi")
 @Composable
-fun AlertBanner(
+fun SourceAlertBanner(
     messageText: AnnotatedString,
-    priority: AlertBanner.Priority,
+    priority: SourceAlertBanner.Priority,
     onMessageClick: () -> Unit,
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
@@ -163,9 +163,9 @@ fun AlertBanner(
                     onClick = onMessageClick,
                 )
                 .padding(
-                    top = AlertBanner.Style.ContentPaddingVertical,
-                    bottom = AlertBanner.Style.ContentPaddingVertical,
-                    start = AlertBanner.Style.ContentPaddingHorizontal,
+                    top = SourceAlertBanner.Style.ContentPaddingVertical,
+                    bottom = SourceAlertBanner.Style.ContentPaddingVertical,
+                    start = SourceAlertBanner.Style.ContentPaddingHorizontal,
                 ),
         ) {
             priority.icon?.let {
@@ -175,24 +175,24 @@ fun AlertBanner(
                     contentDescription = null,
                 )
 
-                Spacer(modifier = Modifier.width(AlertBanner.Style.iconTextSpacing))
+                Spacer(modifier = Modifier.width(SourceAlertBanner.Style.iconTextSpacing))
             }
 
             Text(
                 text = messageText,
-                style = AlertBanner.Style.textStyle,
+                style = SourceAlertBanner.Style.textStyle,
                 color = priority.contentColour.current,
             )
         }
 
-        Spacer(modifier = Modifier.width(AlertBanner.Style.closeTextSpacing))
+        Spacer(modifier = Modifier.width(SourceAlertBanner.Style.closeTextSpacing))
 
         IconButton(
             onClick = onDismiss,
             modifier = Modifier.padding(
-                end = AlertBanner.Style.ContentPaddingHorizontal,
-                top = AlertBanner.Style.CloseIconButtonPaddingVertical,
-                bottom = AlertBanner.Style.CloseIconButtonPaddingVertical,
+                end = SourceAlertBanner.Style.ContentPaddingHorizontal,
+                top = SourceAlertBanner.Style.CloseIconButtonPaddingVertical,
+                bottom = SourceAlertBanner.Style.CloseIconButtonPaddingVertical,
             ),
         ) {
             Icon(
@@ -208,7 +208,7 @@ fun AlertBanner(
 @SuppressLint("DiscouragedApi")
 @PreviewPhoneBothMode
 @Composable
-internal fun AlertBannerWithTextPreview() {
+internal fun SourceAlertBannerPreview() {
     val text = "You’re on the US Edition. Go to the UK edition."
     val annotatedText = buildAnnotatedString {
         val link = "UK edition"
@@ -224,8 +224,8 @@ internal fun AlertBannerWithTextPreview() {
 
     AppColourMode {
         Column {
-            AlertBanner.Priority.entries.forEach { message ->
-                AlertBanner(
+            SourceAlertBanner.Priority.entries.forEach { message ->
+                SourceAlertBanner(
                     messageText = text,
                     priority = message,
                     onMessageClick = { },
@@ -234,8 +234,8 @@ internal fun AlertBannerWithTextPreview() {
                 )
             }
 
-            AlertBanner.Priority.entries.forEach { message ->
-                AlertBanner(
+            SourceAlertBanner.Priority.entries.forEach { message ->
+                SourceAlertBanner(
                     messageText = annotatedText,
                     priority = message,
                     onMessageClick = { },
