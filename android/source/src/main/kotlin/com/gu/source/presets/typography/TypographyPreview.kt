@@ -333,8 +333,20 @@ internal fun HeadlineSemiBoldPreview() {
             style = Source.Typography.HeadlineSemiBold16,
         )
         TextPreview(
+            text = "HeadlineSemiBold17",
+            style = Source.Typography.HeadlineSemiBold17,
+        )
+        TextPreview(
             text = "HeadlineSemiBold18",
             style = Source.Typography.HeadlineSemiBold18,
+        )
+        TextPreview(
+            text = "HeadlineSemiBold20",
+            style = Source.Typography.HeadlineSemiBold20,
+        )
+        TextPreview(
+            text = "HeadlineSemiBold22",
+            style = Source.Typography.HeadlineSemiBold22,
         )
         TextPreview(
             text = "HeadlineSemiBold24",
@@ -343,6 +355,14 @@ internal fun HeadlineSemiBoldPreview() {
         TextPreview(
             text = "HeadlineSemiBold28",
             style = Source.Typography.HeadlineSemiBold28,
+        )
+        TextPreview(
+            text = "HeadlineSemiBold34",
+            style = Source.Typography.HeadlineSemiBold34,
+        )
+        TextPreview(
+            text = "HeadlineSemiBold42",
+            style = Source.Typography.HeadlineSemiBold42,
         )
         TextPreview(
             text = "HeadlineSemiBold50",
