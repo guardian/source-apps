@@ -9,7 +9,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(TestParameterInjector::class)
-class AlertBannerTest(
+class SourceAlertBannerTest(
     @TestParameter private val nightMode: NightMode,
 ) {
     @get:Rule
@@ -18,7 +18,7 @@ class AlertBannerTest(
     @Test
     fun base() {
         paparazzi.snapshot {
-            AlertBannerWithTextPreview()
+            SourceAlertBannerPreview()
         }
     }
 }
