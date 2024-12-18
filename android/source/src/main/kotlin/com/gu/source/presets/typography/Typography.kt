@@ -680,6 +680,24 @@ val Source.Typography.HeadlineSemiBold18: TextStyle
     )
 
 /** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineSemiBold20: TextStyle
+    get() = BaseTextStyle + TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_semibold),
+        fontSize = TextSize._20,
+        lineHeight = LineHeight.Tight,
+        fontWeight = FontWeight.W500,
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineSemiBold22: TextStyle
+    get() = BaseTextStyle + TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_semibold),
+        fontSize = TextSize._22,
+        lineHeight = LineHeight.Tight,
+        fontWeight = FontWeight.W500,
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
 val Source.Typography.HeadlineSemiBold24: TextStyle
     get() = BaseTextStyle + TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_semibold),
@@ -693,6 +711,24 @@ val Source.Typography.HeadlineSemiBold28: TextStyle
     get() = BaseTextStyle + TextStyle(
         fontFamily = fontFamilyResource(R.font.ghguardianheadline_semibold),
         fontSize = TextSize._28,
+        lineHeight = LineHeight.Tight,
+        fontWeight = FontWeight.W500,
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineSemiBold34: TextStyle
+    get() = BaseTextStyle + TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_semibold),
+        fontSize = TextSize._34,
+        lineHeight = LineHeight.Tight,
+        fontWeight = FontWeight.W500,
+    )
+
+/** Use for headlines, headings and any short form text like pull quotes, bylines and titles. */
+val Source.Typography.HeadlineSemiBold42: TextStyle
+    get() = BaseTextStyle + TextStyle(
+        fontFamily = fontFamilyResource(R.font.ghguardianheadline_semibold),
+        fontSize = TextSize._42,
         lineHeight = LineHeight.Tight,
         fontWeight = FontWeight.W500,
     )
