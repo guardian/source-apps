@@ -51,7 +51,7 @@ jobs:
       - name: Build and commit docs
         run: |
           cd android
-          ./gradlew :source:dokkaHtml --no-configuration-cache --rerun-tasks
+          ./gradlew :source:dokkaGeneratePublicationHtml --no-configuration-cache --rerun-tasks --no-build-cache
           git config --global user.name "GuardianAndroid"
           git config --global user.email "guardian.android@gmail.com"
           git fetch origin gh-pages
