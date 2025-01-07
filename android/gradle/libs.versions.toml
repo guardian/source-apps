@@ -29,7 +29,7 @@ nexus-publish = "2.0.0"
 timber = "5.0.1"
 
 gradle-binary-compatibility = "0.17.0"
-metalava = "0.3.5"
+metalava = "0.4.0-alpha03"
 
 junit = "4.13.2"
 espressoCore = "3.6.1"

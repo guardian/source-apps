@@ -14,6 +14,7 @@ detekt {
 metalava {
     javaSourceLevel.set(JavaVersion.toVersion(libs.versions.java.get()))
     filename.set("api/$name-api.txt")
+    apiCompatAnnotations.set(listOf("androidx.compose.runtime.Composable"))
 }
 
 android {

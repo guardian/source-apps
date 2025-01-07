@@ -18,8 +18,6 @@ package com.gu.source {
   }
 
   public enum Source.Theme {
-    method public static com.gu.source.Source.Theme valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
-    method public static com.gu.source.Source.Theme[] values();
     enum_constant public static final com.gu.source.Source.Theme Core;
     enum_constant public static final com.gu.source.Source.Theme ReaderRevenue;
   }
@@ -46,8 +44,6 @@ package com.gu.source.components.banner {
   }
 
   public enum SourceAlertBanner.Priority {
-    method public static com.gu.source.components.banner.SourceAlertBanner.Priority valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
-    method public static com.gu.source.components.banner.SourceAlertBanner.Priority[] values();
     enum_constant public static final com.gu.source.components.banner.SourceAlertBanner.Priority Error;
     enum_constant public static final com.gu.source.components.banner.SourceAlertBanner.Priority Info;
     enum_constant public static final com.gu.source.components.banner.SourceAlertBanner.Priority Neutral;
@@ -56,13 +52,6 @@ package com.gu.source.components.banner {
   public final class SourceAlertBannerKt {
     method @androidx.compose.runtime.Composable public static void SourceAlertBanner(androidx.compose.ui.text.AnnotatedString messageText, com.gu.source.components.banner.SourceAlertBanner.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onMessageClick, kotlin.jvm.functions.Function0<kotlin.Unit> onDismiss, optional androidx.compose.ui.Modifier modifier);
     method @androidx.compose.runtime.Composable public static void SourceAlertBanner(String messageText, com.gu.source.components.banner.SourceAlertBanner.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onMessageClick, kotlin.jvm.functions.Function0<kotlin.Unit> onDismiss, optional androidx.compose.ui.Modifier modifier);
-  }
-
-  public final class SourceAlertBannerTest {
-    ctor public SourceAlertBannerTest(error.NonExistentClass nightMode);
-    method public void base();
-    method public error.NonExistentClass! getPaparazzi();
-    property public final error.NonExistentClass! paparazzi;
   }
 
 }
@@ -89,27 +78,16 @@ package com.gu.source.components.buttons {
     method @Discouraged(message="Preferably use `PlainSourceButton`." + " It provides correct styling & size for text and icons." + " This variant is for supporting custom button designs only.") @androidx.compose.runtime.Composable public static void PlainSourceContentButton(com.gu.source.components.buttons.SourceButton.Size size, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, kotlin.jvm.functions.Function0<kotlin.Unit> content);
   }
 
-  public final class PlainSourceButtonTest {
-    ctor public PlainSourceButtonTest(error.NonExistentClass nightMode);
-    method public error.NonExistentClass! getPaparazzi();
-    method public void plainSourceButton();
-    property public final error.NonExistentClass! paparazzi;
-  }
-
   public final class SourceButton {
     field public static final com.gu.source.components.buttons.SourceButton INSTANCE;
   }
 
   public enum SourceButton.IconSide {
-    method public static com.gu.source.components.buttons.SourceButton.IconSide valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
-    method public static com.gu.source.components.buttons.SourceButton.IconSide[] values();
     enum_constant public static final com.gu.source.components.buttons.SourceButton.IconSide Left;
     enum_constant public static final com.gu.source.components.buttons.SourceButton.IconSide Right;
   }
 
   public enum SourceButton.Priority {
-    method public static com.gu.source.components.buttons.SourceButton.Priority valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
-    method public static com.gu.source.components.buttons.SourceButton.Priority[] values();
     enum_constant public static final com.gu.source.components.buttons.SourceButton.Priority PrimaryOnBlue;
     enum_constant public static final com.gu.source.components.buttons.SourceButton.Priority PrimaryOnWhite;
     enum_constant public static final com.gu.source.components.buttons.SourceButton.Priority SecondaryOnBlue;
@@ -119,8 +97,6 @@ package com.gu.source.components.buttons {
   }
 
   public enum SourceButton.Size {
-    method public static com.gu.source.components.buttons.SourceButton.Size valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
-    method public static com.gu.source.components.buttons.SourceButton.Size[] values();
     enum_constant public static final com.gu.source.components.buttons.SourceButton.Size Medium;
     enum_constant public static final com.gu.source.components.buttons.SourceButton.Size Small;
     enum_constant public static final com.gu.source.components.buttons.SourceButton.Size XSmall;
@@ -131,32 +107,11 @@ package com.gu.source.components.buttons {
     method @Discouraged(message="Preferably use `SourceButton`." + " It provides correct styling & size for text and icons." + " This variant is for supporting custom button designs only.") @androidx.compose.runtime.Composable public static void SourceContentButton(com.gu.source.components.buttons.SourceButton.Size size, com.gu.source.components.buttons.SourceButton.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.Source.Theme? theme, kotlin.jvm.functions.Function0<kotlin.Unit> content);
   }
 
-  public final class SourceButtonTest {
-    ctor public SourceButtonTest(error.NonExistentClass nightMode);
-    method public void coreIconAfter();
-    method public void coreIconBefore();
-    method public void coreTextOnly();
-    method public error.NonExistentClass! getPaparazzi();
-    method public void readerRevenueIconAfter();
-    method public void readerRevenueIconBefore();
-    method public void readerRevenueTextOnly();
-    property public final error.NonExistentClass! paparazzi;
-  }
-
   public final class SourceIconButtonKt {
     method @androidx.compose.runtime.Composable public static void SourceBaseIconButton(com.gu.source.components.buttons.SourceButton.Size size, com.gu.source.components.buttons.ButtonColours buttonColours, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> icon);
     method @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.ImageBitmap icon, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
     method @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.painter.Painter painter, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
     method @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.vector.ImageVector icon, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
-  }
-
-  public final class SourceIconButtonTest {
-    ctor public SourceIconButtonTest(error.NonExistentClass nightMode);
-    method public void core();
-    method public error.NonExistentClass! getPaparazzi();
-    method public void readerRevenue();
-    method public void sourceBaseIconButton();
-    property public final error.NonExistentClass! paparazzi;
   }
 
 }
@@ -286,8 +241,6 @@ package com.gu.source.components.chips {
   }
 
   public enum SourceChip.Size {
-    method public static com.gu.source.components.chips.SourceChip.Size valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
-    method public static com.gu.source.components.chips.SourceChip.Size[] values();
     enum_constant public static final com.gu.source.components.chips.SourceChip.Size Medium;
     enum_constant public static final com.gu.source.components.chips.SourceChip.Size Small;
   }
@@ -341,13 +294,6 @@ package com.gu.source.components.chips {
     method @androidx.compose.runtime.Composable public static void SourceMultiSelectChip(String text, boolean isSelected, com.gu.source.components.chips.SourceChip.Size size, boolean showBadge, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.chips.SourceChip.Style style, optional String? onClickLabel, optional com.gu.source.components.chips.ChipDecoration iconOrImage);
   }
 
-  public final class SourceChipTest {
-    ctor public SourceChipTest(error.NonExistentClass nightMode, com.gu.source.utils.paparazzi.FontScale fontScale);
-    method public void base();
-    method public error.NonExistentClass! getPaparazzi();
-    property public final error.NonExistentClass! paparazzi;
-  }
-
 }
 
 package com.gu.source.components.pager {
@@ -357,33 +303,12 @@ package com.gu.source.components.pager {
     method @androidx.compose.runtime.Composable public static void PagerProgressBar(androidx.compose.foundation.pager.PagerState pagerState, com.gu.source.components.buttons.SourceButton.Priority buttonPriority, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.daynight.AppColour selectedIndicatorColour, optional com.gu.source.daynight.AppColour unSelectedIndicatorColour, optional String? prevButtonContentDescription, optional String? nextButtonContentDescription, optional boolean showProgressButtons);
   }
 
-  public final class PagerProgressBarTest {
-    ctor public PagerProgressBarTest(com.gu.source.utils.paparazzi.BaseDeviceConfig baseDeviceConfig, error.NonExistentClass nightMode);
-    method public error.NonExistentClass! getPaparazzi();
-    method public void pagerProgressBar();
-    property public final error.NonExistentClass! paparazzi;
-  }
-
   public final class PagerProgressButtonsKt {
     method @androidx.compose.runtime.Composable public static void PagerProgressButtons(androidx.compose.foundation.pager.PagerState pagerState, String? prevButtonContentDescription, String? nextButtonContentDescription, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional androidx.compose.animation.core.AnimationSpec<java.lang.Float> pageSlideAnimationSpec);
   }
 
-  public final class PagerProgressButtonsTest {
-    ctor public PagerProgressButtonsTest();
-    method public error.NonExistentClass! getPaparazzi();
-    method public void progressButtons();
-    property public final error.NonExistentClass! paparazzi;
-  }
-
   public final class PagerProgressIndicatorKt {
     method @androidx.compose.runtime.Composable public static void PagerProgressIndicator(androidx.compose.foundation.pager.PagerState pagerState, long selectedIndicatorColour, long unSelectedIndicatorColour, optional androidx.compose.ui.Modifier modifier, optional int maxIndicatorCount, optional float indicatorSpacing, optional androidx.compose.ui.graphics.Shape indicatorShape, optional float selectedItemSize, optional float unselectedItemScaleFactor, optional int numberOfItemsToScale, optional androidx.compose.ui.Alignment.Vertical itemsVerticalAlignment);
-  }
-
-  public final class PagerProgressIndicatorTest {
-    ctor public PagerProgressIndicatorTest();
-    method public error.NonExistentClass! getPaparazzi();
-    method public void progressIndicatorStates();
-    property public final error.NonExistentClass! paparazzi;
   }
 
 }
@@ -686,24 +611,6 @@ package com.gu.source.presets.typography {
     method public static androidx.compose.ui.text.TextStyle getTitlepiece70(com.gu.source.Source.Typography);
   }
 
-  public final class TypographyPreviewTest {
-    ctor public TypographyPreviewTest();
-    method public error.NonExistentClass! getPaparazzi();
-    method public void headlineBold();
-    method public void headlineLight();
-    method public void headlineLightItalic();
-    method public void headlineMedium();
-    method public void headlineMediumItalic();
-    method public void headlineSemiBold();
-    method public void textArticle();
-    method public void textEgyptian();
-    method public void textSans();
-    method public void textSansBold();
-    method public void textSansItalic();
-    method public void titlepiece();
-    property public final error.NonExistentClass! paparazzi;
-  }
-
 }
 
 package com.gu.source.theme {
@@ -746,34 +653,6 @@ package com.gu.source.utils {
 
   public final class SizeKt {
     method @androidx.compose.runtime.Composable public static boolean isTabletDevice();
-  }
-
-}
-
-package com.gu.source.utils.paparazzi {
-
-  public enum BaseDeviceConfig {
-    method public final error.NonExistentClass! getDeviceConfig();
-    method public static com.gu.source.utils.paparazzi.BaseDeviceConfig valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
-    method public static com.gu.source.utils.paparazzi.BaseDeviceConfig[] values();
-    property public final error.NonExistentClass! deviceConfig;
-    enum_constant public static final com.gu.source.utils.paparazzi.BaseDeviceConfig Phone;
-    enum_constant public static final com.gu.source.utils.paparazzi.BaseDeviceConfig Tablet;
-  }
-
-  public enum FontScale {
-    method public final float getValue();
-    method public static com.gu.source.utils.paparazzi.FontScale valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
-    method public static com.gu.source.utils.paparazzi.FontScale[] values();
-    property public final float value;
-    enum_constant public static final com.gu.source.utils.paparazzi.FontScale ExtraLarge;
-    enum_constant public static final com.gu.source.utils.paparazzi.FontScale Normal;
-  }
-
-  public final class PaparazziRulesKt {
-    method public static error.NonExistentClass! createComponentPaparazziRule(optional error.NonExistentClass deviceConfig);
-    method public static error.NonExistentClass! createComponentPaparazziRule(error.NonExistentClass nightMode);
-    method public static error.NonExistentClass! createScreenPaparazziRule(error.NonExistentClass deviceConfig);
   }
 
 }
