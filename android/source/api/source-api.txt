@@ -1,0 +1,780 @@
+// Signature format: 4.0
+package com.gu.source {
+
+  public final class Source {
+    field public static final com.gu.source.Source INSTANCE;
+  }
+
+  @Discouraged(message="These are not ready for production use.") public static final class Source.Icons {
+    field public static final com.gu.source.Source.Icons INSTANCE;
+  }
+
+  public static final class Source.Icons.Base {
+    field public static final com.gu.source.Source.Icons.Base INSTANCE;
+  }
+
+  public static final class Source.Palette {
+    field public static final com.gu.source.Source.Palette INSTANCE;
+  }
+
+  public enum Source.Theme {
+    method public static com.gu.source.Source.Theme valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
+    method public static com.gu.source.Source.Theme[] values();
+    enum_constant public static final com.gu.source.Source.Theme Core;
+    enum_constant public static final com.gu.source.Source.Theme ReaderRevenue;
+  }
+
+  public static final class Source.Typography {
+    field public static final com.gu.source.Source.Typography INSTANCE;
+  }
+
+}
+
+package com.gu.source.components {
+
+  public final class HorizontalExpandingTextKt {
+    method @androidx.compose.runtime.Composable public static void HorizontalExpandingText(androidx.compose.ui.text.AnnotatedString text, long color, androidx.compose.ui.text.TextStyle style, optional androidx.compose.ui.Modifier modifier, optional int maxLines, optional int overflow);
+    method @androidx.compose.runtime.Composable public static void HorizontalExpandingText(String text, long colour, androidx.compose.ui.text.TextStyle style, optional androidx.compose.ui.Modifier modifier, optional int maxLines, optional int overflow);
+  }
+
+}
+
+package com.gu.source.components.banner {
+
+  public final class SourceAlertBanner {
+    field public static final com.gu.source.components.banner.SourceAlertBanner INSTANCE;
+  }
+
+  public enum SourceAlertBanner.Priority {
+    method public static com.gu.source.components.banner.SourceAlertBanner.Priority valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
+    method public static com.gu.source.components.banner.SourceAlertBanner.Priority[] values();
+    enum_constant public static final com.gu.source.components.banner.SourceAlertBanner.Priority Error;
+    enum_constant public static final com.gu.source.components.banner.SourceAlertBanner.Priority Info;
+    enum_constant public static final com.gu.source.components.banner.SourceAlertBanner.Priority Neutral;
+  }
+
+  public final class SourceAlertBannerKt {
+    method @androidx.compose.runtime.Composable public static void SourceAlertBanner(androidx.compose.ui.text.AnnotatedString messageText, com.gu.source.components.banner.SourceAlertBanner.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onMessageClick, kotlin.jvm.functions.Function0<kotlin.Unit> onDismiss, optional androidx.compose.ui.Modifier modifier);
+    method @androidx.compose.runtime.Composable public static void SourceAlertBanner(String messageText, com.gu.source.components.banner.SourceAlertBanner.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onMessageClick, kotlin.jvm.functions.Function0<kotlin.Unit> onDismiss, optional androidx.compose.ui.Modifier modifier);
+  }
+
+  public final class SourceAlertBannerTest {
+    ctor public SourceAlertBannerTest(error.NonExistentClass nightMode);
+    method public void base();
+    method public error.NonExistentClass! getPaparazzi();
+    property public final error.NonExistentClass! paparazzi;
+  }
+
+}
+
+package com.gu.source.components.buttons {
+
+  public final class ButtonColours {
+    ctor public ButtonColours(com.gu.source.daynight.AppColour border, com.gu.source.daynight.AppColour container, com.gu.source.daynight.AppColour content);
+    ctor public ButtonColours(long border, long container, long content);
+    method public com.gu.source.daynight.AppColour component1();
+    method public com.gu.source.daynight.AppColour component2();
+    method public com.gu.source.daynight.AppColour component3();
+    method public com.gu.source.components.buttons.ButtonColours copy(com.gu.source.daynight.AppColour border, com.gu.source.daynight.AppColour container, com.gu.source.daynight.AppColour content);
+    method public com.gu.source.daynight.AppColour getBorder();
+    method public com.gu.source.daynight.AppColour getContainer();
+    method public com.gu.source.daynight.AppColour getContent();
+    property public final com.gu.source.daynight.AppColour border;
+    property public final com.gu.source.daynight.AppColour container;
+    property public final com.gu.source.daynight.AppColour content;
+  }
+
+  public final class PlainSourceButtonKt {
+    method @androidx.compose.runtime.Composable public static void PlainSourceButton(String text, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.components.buttons.SourceButton.IconSide iconSide, optional kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> icon);
+    method @Discouraged(message="Preferably use `PlainSourceButton`." + " It provides correct styling & size for text and icons." + " This variant is for supporting custom button designs only.") @androidx.compose.runtime.Composable public static void PlainSourceContentButton(com.gu.source.components.buttons.SourceButton.Size size, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, kotlin.jvm.functions.Function0<kotlin.Unit> content);
+  }
+
+  public final class PlainSourceButtonTest {
+    ctor public PlainSourceButtonTest(error.NonExistentClass nightMode);
+    method public error.NonExistentClass! getPaparazzi();
+    method public void plainSourceButton();
+    property public final error.NonExistentClass! paparazzi;
+  }
+
+  public final class SourceButton {
+    field public static final com.gu.source.components.buttons.SourceButton INSTANCE;
+  }
+
+  public enum SourceButton.IconSide {
+    method public static com.gu.source.components.buttons.SourceButton.IconSide valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
+    method public static com.gu.source.components.buttons.SourceButton.IconSide[] values();
+    enum_constant public static final com.gu.source.components.buttons.SourceButton.IconSide Left;
+    enum_constant public static final com.gu.source.components.buttons.SourceButton.IconSide Right;
+  }
+
+  public enum SourceButton.Priority {
+    method public static com.gu.source.components.buttons.SourceButton.Priority valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
+    method public static com.gu.source.components.buttons.SourceButton.Priority[] values();
+    enum_constant public static final com.gu.source.components.buttons.SourceButton.Priority PrimaryOnBlue;
+    enum_constant public static final com.gu.source.components.buttons.SourceButton.Priority PrimaryOnWhite;
+    enum_constant public static final com.gu.source.components.buttons.SourceButton.Priority SecondaryOnBlue;
+    enum_constant public static final com.gu.source.components.buttons.SourceButton.Priority SecondaryOnWhite;
+    enum_constant public static final com.gu.source.components.buttons.SourceButton.Priority TertiaryOnBlue;
+    enum_constant public static final com.gu.source.components.buttons.SourceButton.Priority TertiaryOnWhite;
+  }
+
+  public enum SourceButton.Size {
+    method public static com.gu.source.components.buttons.SourceButton.Size valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
+    method public static com.gu.source.components.buttons.SourceButton.Size[] values();
+    enum_constant public static final com.gu.source.components.buttons.SourceButton.Size Medium;
+    enum_constant public static final com.gu.source.components.buttons.SourceButton.Size Small;
+    enum_constant public static final com.gu.source.components.buttons.SourceButton.Size XSmall;
+  }
+
+  public final class SourceButtonKt {
+    method @androidx.compose.runtime.Composable public static void SourceButton(String text, com.gu.source.components.buttons.SourceButton.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme, optional com.gu.source.components.buttons.SourceButton.IconSide iconSide, optional kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> icon);
+    method @Discouraged(message="Preferably use `SourceButton`." + " It provides correct styling & size for text and icons." + " This variant is for supporting custom button designs only.") @androidx.compose.runtime.Composable public static void SourceContentButton(com.gu.source.components.buttons.SourceButton.Size size, com.gu.source.components.buttons.SourceButton.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.Source.Theme? theme, kotlin.jvm.functions.Function0<kotlin.Unit> content);
+  }
+
+  public final class SourceButtonTest {
+    ctor public SourceButtonTest(error.NonExistentClass nightMode);
+    method public void coreIconAfter();
+    method public void coreIconBefore();
+    method public void coreTextOnly();
+    method public error.NonExistentClass! getPaparazzi();
+    method public void readerRevenueIconAfter();
+    method public void readerRevenueIconBefore();
+    method public void readerRevenueTextOnly();
+    property public final error.NonExistentClass! paparazzi;
+  }
+
+  public final class SourceIconButtonKt {
+    method @androidx.compose.runtime.Composable public static void SourceBaseIconButton(com.gu.source.components.buttons.SourceButton.Size size, com.gu.source.components.buttons.ButtonColours buttonColours, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> icon);
+    method @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.ImageBitmap icon, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
+    method @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.painter.Painter painter, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
+    method @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.vector.ImageVector icon, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
+  }
+
+  public final class SourceIconButtonTest {
+    ctor public SourceIconButtonTest(error.NonExistentClass nightMode);
+    method public void core();
+    method public error.NonExistentClass! getPaparazzi();
+    method public void readerRevenue();
+    method public void sourceBaseIconButton();
+    property public final error.NonExistentClass! paparazzi;
+  }
+
+}
+
+package com.gu.source.components.chips {
+
+  public abstract sealed class ChipDecoration {
+    method public abstract kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
+    method public abstract float getHeight();
+    property public abstract kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
+    property public abstract float height;
+  }
+
+  public abstract static sealed class ChipDecoration.Icon extends com.gu.source.components.chips.ChipDecoration {
+    method public float getHeight();
+    property public float height;
+  }
+
+  public static final class ChipDecoration.Icon.Component extends com.gu.source.components.chips.ChipDecoration.Icon {
+    ctor public ChipDecoration.Icon.Component(kotlin.jvm.functions.Function2<? super androidx.compose.foundation.layout.RowScope,? super androidx.compose.ui.Modifier,kotlin.Unit> content);
+    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> component1();
+    method public com.gu.source.components.chips.ChipDecoration.Icon.Component copy(kotlin.jvm.functions.Function2<? super androidx.compose.foundation.layout.RowScope,? super androidx.compose.ui.Modifier,kotlin.Unit> content);
+    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
+    property public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
+  }
+
+  public static final class ChipDecoration.Icon.Painter extends com.gu.source.components.chips.ChipDecoration.Icon {
+    ctor public ChipDecoration.Icon.Painter(androidx.compose.ui.graphics.painter.Painter painter, optional String? contentDescription);
+    method public androidx.compose.ui.graphics.painter.Painter component1();
+    method public String? component2();
+    method public com.gu.source.components.chips.ChipDecoration.Icon.Painter copy(androidx.compose.ui.graphics.painter.Painter painter, String? contentDescription);
+    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
+    method public String? getContentDescription();
+    method public androidx.compose.ui.graphics.painter.Painter getPainter();
+    property public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
+    property public final String? contentDescription;
+    property public final androidx.compose.ui.graphics.painter.Painter painter;
+  }
+
+  public static final class ChipDecoration.Icon.Vector extends com.gu.source.components.chips.ChipDecoration.Icon {
+    ctor public ChipDecoration.Icon.Vector(androidx.compose.ui.graphics.vector.ImageVector imageVector, optional String? contentDescription);
+    method public androidx.compose.ui.graphics.vector.ImageVector component1();
+    method public String? component2();
+    method public com.gu.source.components.chips.ChipDecoration.Icon.Vector copy(androidx.compose.ui.graphics.vector.ImageVector imageVector, String? contentDescription);
+    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
+    method public String? getContentDescription();
+    method public androidx.compose.ui.graphics.vector.ImageVector getImageVector();
+    property public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
+    property public final String? contentDescription;
+    property public final androidx.compose.ui.graphics.vector.ImageVector imageVector;
+  }
+
+  public abstract static sealed class ChipDecoration.Image extends com.gu.source.components.chips.ChipDecoration {
+    method public float getHeight();
+    property public float height;
+  }
+
+  public static final class ChipDecoration.Image.Component extends com.gu.source.components.chips.ChipDecoration.Image {
+    ctor public ChipDecoration.Image.Component(kotlin.jvm.functions.Function2<? super androidx.compose.foundation.layout.RowScope,? super androidx.compose.ui.Modifier,kotlin.Unit> content);
+    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> component1();
+    method public com.gu.source.components.chips.ChipDecoration.Image.Component copy(kotlin.jvm.functions.Function2<? super androidx.compose.foundation.layout.RowScope,? super androidx.compose.ui.Modifier,kotlin.Unit> content);
+    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
+    property public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
+  }
+
+  public static final class ChipDecoration.Image.Painter extends com.gu.source.components.chips.ChipDecoration.Image {
+    ctor public ChipDecoration.Image.Painter(androidx.compose.ui.graphics.painter.Painter painter, optional String? contentDescription);
+    method public androidx.compose.ui.graphics.painter.Painter component1();
+    method public String? component2();
+    method public com.gu.source.components.chips.ChipDecoration.Image.Painter copy(androidx.compose.ui.graphics.painter.Painter painter, String? contentDescription);
+    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
+    method public String? getContentDescription();
+    method public androidx.compose.ui.graphics.painter.Painter getPainter();
+    property public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
+    property public final String? contentDescription;
+    property public final androidx.compose.ui.graphics.painter.Painter painter;
+  }
+
+  public static final class ChipDecoration.Image.Vector extends com.gu.source.components.chips.ChipDecoration.Image {
+    ctor public ChipDecoration.Image.Vector(androidx.compose.ui.graphics.vector.ImageVector imageVector, optional String? contentDescription);
+    method public androidx.compose.ui.graphics.vector.ImageVector component1();
+    method public String? component2();
+    method public com.gu.source.components.chips.ChipDecoration.Image.Vector copy(androidx.compose.ui.graphics.vector.ImageVector imageVector, String? contentDescription);
+    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
+    method public String? getContentDescription();
+    method public androidx.compose.ui.graphics.vector.ImageVector getImageVector();
+    property public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
+    property public final String? contentDescription;
+    property public final androidx.compose.ui.graphics.vector.ImageVector imageVector;
+  }
+
+  public static final class ChipDecoration.None extends com.gu.source.components.chips.ChipDecoration {
+    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
+    method public float getHeight();
+    property public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
+    property public float height;
+    field public static final com.gu.source.components.chips.ChipDecoration.None INSTANCE;
+  }
+
+  public final class SourceBaseChip {
+    field public static final com.gu.source.components.chips.SourceBaseChip INSTANCE;
+  }
+
+  public static final class SourceBaseChip.Style {
+    ctor public SourceBaseChip.Style(long fillColour, androidx.compose.foundation.BorderStroke border, androidx.compose.ui.graphics.Shape shape, long rippleColour);
+    method public long component1-0d7_KjU();
+    method public androidx.compose.foundation.BorderStroke component2();
+    method public androidx.compose.ui.graphics.Shape component3();
+    method public long component4-0d7_KjU();
+    method public com.gu.source.components.chips.SourceBaseChip.Style copy-Usj1iBs(long fillColour, androidx.compose.foundation.BorderStroke border, androidx.compose.ui.graphics.Shape shape, long rippleColour);
+    method public androidx.compose.foundation.BorderStroke getBorder();
+    method public long getFillColour();
+    method public long getRippleColour();
+    method public androidx.compose.ui.graphics.Shape getShape();
+    property public final androidx.compose.foundation.BorderStroke border;
+    property public final long fillColour;
+    property public final long rippleColour;
+    property public final androidx.compose.ui.graphics.Shape shape;
+  }
+
+  public final class SourceBaseChipKt {
+    method @Discouraged(message="Use SourceChip instead") @androidx.compose.runtime.Composable public static void SourceBaseChip(float height, com.gu.source.components.chips.SourceBaseChip.Style style, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean allowsMultiSelection, optional String? onClickLabel, optional kotlin.jvm.functions.Function0<kotlin.Unit>? badge, kotlin.jvm.functions.Function1<? super androidx.compose.foundation.layout.RowScope,kotlin.Unit> content);
+  }
+
+  public final class SourceChip {
+    field public static final com.gu.source.components.chips.SourceChip INSTANCE;
+  }
+
+  public enum SourceChip.Size {
+    method public static com.gu.source.components.chips.SourceChip.Size valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
+    method public static com.gu.source.components.chips.SourceChip.Size[] values();
+    enum_constant public static final com.gu.source.components.chips.SourceChip.Size Medium;
+    enum_constant public static final com.gu.source.components.chips.SourceChip.Size Small;
+  }
+
+  public static final class SourceChip.Style {
+    ctor public SourceChip.Style(com.gu.source.daynight.AppColour contentColourUnselected, com.gu.source.daynight.AppColour contentColourSelected, com.gu.source.daynight.AppColour fillColourUnselected, com.gu.source.daynight.AppColour fillColourSelected, optional androidx.compose.ui.text.TextStyle textStyle, optional com.gu.source.daynight.AppColour borderColourUnselected, optional com.gu.source.daynight.AppColour borderColourSelected, optional float borderWidth, optional androidx.compose.ui.graphics.Shape shape, optional com.gu.source.daynight.AppColour badgeColour);
+    method public com.gu.source.daynight.AppColour component1();
+    method public com.gu.source.daynight.AppColour component10();
+    method public com.gu.source.daynight.AppColour component2();
+    method public com.gu.source.daynight.AppColour component3();
+    method public com.gu.source.daynight.AppColour component4();
+    method public androidx.compose.ui.text.TextStyle component5();
+    method public com.gu.source.daynight.AppColour component6();
+    method public com.gu.source.daynight.AppColour component7();
+    method public float component8-D9Ej5fM();
+    method public androidx.compose.ui.graphics.Shape component9();
+    method public com.gu.source.components.chips.SourceChip.Style copy-1sJa4KU(com.gu.source.daynight.AppColour contentColourUnselected, com.gu.source.daynight.AppColour contentColourSelected, com.gu.source.daynight.AppColour fillColourUnselected, com.gu.source.daynight.AppColour fillColourSelected, androidx.compose.ui.text.TextStyle textStyle, com.gu.source.daynight.AppColour borderColourUnselected, com.gu.source.daynight.AppColour borderColourSelected, float borderWidth, androidx.compose.ui.graphics.Shape shape, com.gu.source.daynight.AppColour badgeColour);
+    method public com.gu.source.daynight.AppColour getBadgeColour();
+    method public com.gu.source.daynight.AppColour getBorderColourSelected();
+    method public com.gu.source.daynight.AppColour getBorderColourUnselected();
+    method public float getBorderWidth();
+    method public com.gu.source.daynight.AppColour getContentColourSelected();
+    method public com.gu.source.daynight.AppColour getContentColourUnselected();
+    method public com.gu.source.daynight.AppColour getFillColourSelected();
+    method public com.gu.source.daynight.AppColour getFillColourUnselected();
+    method public androidx.compose.ui.graphics.Shape getShape();
+    method public androidx.compose.ui.text.TextStyle getTextStyle();
+    property public final com.gu.source.daynight.AppColour badgeColour;
+    property public final com.gu.source.daynight.AppColour borderColourSelected;
+    property public final com.gu.source.daynight.AppColour borderColourUnselected;
+    property public final float borderWidth;
+    property public final com.gu.source.daynight.AppColour contentColourSelected;
+    property public final com.gu.source.daynight.AppColour contentColourUnselected;
+    property public final com.gu.source.daynight.AppColour fillColourSelected;
+    property public final com.gu.source.daynight.AppColour fillColourUnselected;
+    property public final androidx.compose.ui.graphics.Shape shape;
+    property public final androidx.compose.ui.text.TextStyle textStyle;
+    field public static final com.gu.source.components.chips.SourceChip.Style.Companion Companion;
+  }
+
+  public static final class SourceChip.Style.Companion {
+    method public com.gu.source.components.chips.SourceChip.Style getDefault();
+    method public com.gu.source.components.chips.SourceChip.Style getSupportingButton();
+    property public final com.gu.source.components.chips.SourceChip.Style Default;
+    property public final com.gu.source.components.chips.SourceChip.Style SupportingButton;
+  }
+
+  public final class SourceChipKt {
+    method @androidx.compose.runtime.Composable public static void SourceChip(String text, boolean isSelected, com.gu.source.components.chips.SourceChip.Size size, boolean showBadge, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.chips.SourceChip.Style style, optional String? onClickLabel, optional com.gu.source.components.chips.ChipDecoration iconOrImage);
+    method @androidx.compose.runtime.Composable public static void SourceChipSupportingButton(String text, com.gu.source.components.chips.SourceChip.Size size, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.chips.SourceChip.Style style, optional com.gu.source.components.chips.ChipDecoration iconOrImage);
+    method @androidx.compose.runtime.Composable public static void SourceMultiSelectChip(String text, boolean isSelected, com.gu.source.components.chips.SourceChip.Size size, boolean showBadge, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.chips.SourceChip.Style style, optional String? onClickLabel, optional com.gu.source.components.chips.ChipDecoration iconOrImage);
+  }
+
+  public final class SourceChipTest {
+    ctor public SourceChipTest(error.NonExistentClass nightMode, com.gu.source.utils.paparazzi.FontScale fontScale);
+    method public void base();
+    method public error.NonExistentClass! getPaparazzi();
+    property public final error.NonExistentClass! paparazzi;
+  }
+
+}
+
+package com.gu.source.components.pager {
+
+  public final class PagerProgressBarKt {
+    method @androidx.compose.runtime.Composable public static void PagerProgressBar(androidx.compose.foundation.pager.PagerState pagerState, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional com.gu.source.daynight.AppColour selectedIndicatorColour, optional com.gu.source.daynight.AppColour unSelectedIndicatorColour, optional String? prevButtonContentDescription, optional String? nextButtonContentDescription, optional boolean showProgressButtons);
+    method @androidx.compose.runtime.Composable public static void PagerProgressBar(androidx.compose.foundation.pager.PagerState pagerState, com.gu.source.components.buttons.SourceButton.Priority buttonPriority, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.daynight.AppColour selectedIndicatorColour, optional com.gu.source.daynight.AppColour unSelectedIndicatorColour, optional String? prevButtonContentDescription, optional String? nextButtonContentDescription, optional boolean showProgressButtons);
+  }
+
+  public final class PagerProgressBarTest {
+    ctor public PagerProgressBarTest(com.gu.source.utils.paparazzi.BaseDeviceConfig baseDeviceConfig, error.NonExistentClass nightMode);
+    method public error.NonExistentClass! getPaparazzi();
+    method public void pagerProgressBar();
+    property public final error.NonExistentClass! paparazzi;
+  }
+
+  public final class PagerProgressButtonsKt {
+    method @androidx.compose.runtime.Composable public static void PagerProgressButtons(androidx.compose.foundation.pager.PagerState pagerState, String? prevButtonContentDescription, String? nextButtonContentDescription, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional androidx.compose.animation.core.AnimationSpec<java.lang.Float> pageSlideAnimationSpec);
+  }
+
+  public final class PagerProgressButtonsTest {
+    ctor public PagerProgressButtonsTest();
+    method public error.NonExistentClass! getPaparazzi();
+    method public void progressButtons();
+    property public final error.NonExistentClass! paparazzi;
+  }
+
+  public final class PagerProgressIndicatorKt {
+    method @androidx.compose.runtime.Composable public static void PagerProgressIndicator(androidx.compose.foundation.pager.PagerState pagerState, long selectedIndicatorColour, long unSelectedIndicatorColour, optional androidx.compose.ui.Modifier modifier, optional int maxIndicatorCount, optional float indicatorSpacing, optional androidx.compose.ui.graphics.Shape indicatorShape, optional float selectedItemSize, optional float unselectedItemScaleFactor, optional int numberOfItemsToScale, optional androidx.compose.ui.Alignment.Vertical itemsVerticalAlignment);
+  }
+
+  public final class PagerProgressIndicatorTest {
+    ctor public PagerProgressIndicatorTest();
+    method public error.NonExistentClass! getPaparazzi();
+    method public void progressIndicatorStates();
+    property public final error.NonExistentClass! paparazzi;
+  }
+
+}
+
+package com.gu.source.daynight {
+
+  public class AppColour {
+    ctor public AppColour(long light, optional long dark);
+    method @androidx.compose.runtime.Composable public final long getCurrent();
+    property @androidx.compose.runtime.Composable public final long current;
+  }
+
+  public static final class AppColour.Transparent extends com.gu.source.daynight.AppColour {
+    field public static final com.gu.source.daynight.AppColour.Transparent INSTANCE;
+  }
+
+  public static final class AppColour.Unspecified extends com.gu.source.daynight.AppColour {
+    field public static final com.gu.source.daynight.AppColour.Unspecified INSTANCE;
+  }
+
+  public final class AppColourModeKt {
+    method @androidx.compose.runtime.Composable public static void AppColourMode(optional androidx.compose.ui.Modifier modifier, kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> content);
+    method public static androidx.compose.runtime.ProvidableCompositionLocal<java.lang.Boolean> getLocalIsDarkModeActive();
+    property public static final androidx.compose.runtime.ProvidableCompositionLocal<java.lang.Boolean> LocalIsDarkModeActive;
+  }
+
+}
+
+package com.gu.source.icons {
+
+  public final class AlertRoundKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getAlertRound(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class CheckKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getCheck(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ChevronLeftDoubleKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronLeftDouble(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ChevronLeftSingleKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronLeftSingle(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ChevronLeftSmallKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronLeftSmall(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ChevronRightDoubleKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronRightDouble(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ChevronRightSingleKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronRightSingle(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ChevronRightSmallKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronRightSmall(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class CrossKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getCross(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class EllipsisKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getEllipsis(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class InfoRoundKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getInfoRound(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class MinusKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getMinus(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class PlusKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getPlus(com.gu.source.Source.Icons.Base);
+  }
+
+}
+
+package com.gu.source.presets.palette {
+
+  public final class PaletteKt {
+    method public static long getBrand100(com.gu.source.Source.Palette);
+    method public static long getBrand300(com.gu.source.Source.Palette);
+    method public static long getBrand400(com.gu.source.Source.Palette);
+    method public static long getBrand500(com.gu.source.Source.Palette);
+    method public static long getBrand600(com.gu.source.Source.Palette);
+    method public static long getBrand800(com.gu.source.Source.Palette);
+    method public static long getBrandAlt200(com.gu.source.Source.Palette);
+    method public static long getBrandAlt300(com.gu.source.Source.Palette);
+    method public static long getBrandAlt400(com.gu.source.Source.Palette);
+    method public static long getCulture100(com.gu.source.Source.Palette);
+    method public static long getCulture200(com.gu.source.Source.Palette);
+    method public static long getCulture300(com.gu.source.Source.Palette);
+    method public static long getCulture400(com.gu.source.Source.Palette);
+    method public static long getCulture450(com.gu.source.Source.Palette);
+    method public static long getCulture50(com.gu.source.Source.Palette);
+    method public static long getCulture500(com.gu.source.Source.Palette);
+    method public static long getCulture600(com.gu.source.Source.Palette);
+    method public static long getCulture700(com.gu.source.Source.Palette);
+    method public static long getCulture800(com.gu.source.Source.Palette);
+    method public static long getError400(com.gu.source.Source.Palette);
+    method public static long getError500(com.gu.source.Source.Palette);
+    method public static long getLabs200(com.gu.source.Source.Palette);
+    method public static long getLabs300(com.gu.source.Source.Palette);
+    method public static long getLabs400(com.gu.source.Source.Palette);
+    method public static long getLifestyle100(com.gu.source.Source.Palette);
+    method public static long getLifestyle200(com.gu.source.Source.Palette);
+    method public static long getLifestyle300(com.gu.source.Source.Palette);
+    method public static long getLifestyle400(com.gu.source.Source.Palette);
+    method public static long getLifestyle450(com.gu.source.Source.Palette);
+    method public static long getLifestyle500(com.gu.source.Source.Palette);
+    method public static long getLifestyle600(com.gu.source.Source.Palette);
+    method public static long getLifestyle800(com.gu.source.Source.Palette);
+    method public static long getNeutral0(com.gu.source.Source.Palette);
+    method public static long getNeutral10(com.gu.source.Source.Palette);
+    method public static long getNeutral100(com.gu.source.Source.Palette);
+    method public static long getNeutral20(com.gu.source.Source.Palette);
+    method public static long getNeutral38(com.gu.source.Source.Palette);
+    method public static long getNeutral46(com.gu.source.Source.Palette);
+    method public static long getNeutral60(com.gu.source.Source.Palette);
+    method public static long getNeutral7(com.gu.source.Source.Palette);
+    method public static long getNeutral73(com.gu.source.Source.Palette);
+    method public static long getNeutral86(com.gu.source.Source.Palette);
+    method public static long getNeutral93(com.gu.source.Source.Palette);
+    method public static long getNeutral97(com.gu.source.Source.Palette);
+    method public static long getNews100(com.gu.source.Source.Palette);
+    method public static long getNews200(com.gu.source.Source.Palette);
+    method public static long getNews300(com.gu.source.Source.Palette);
+    method public static long getNews400(com.gu.source.Source.Palette);
+    method public static long getNews500(com.gu.source.Source.Palette);
+    method public static long getNews550(com.gu.source.Source.Palette);
+    method public static long getNews600(com.gu.source.Source.Palette);
+    method public static long getNews800(com.gu.source.Source.Palette);
+    method public static long getOpinion100(com.gu.source.Source.Palette);
+    method public static long getOpinion200(com.gu.source.Source.Palette);
+    method @Deprecated public static long getOpinion300(com.gu.source.Source.Palette);
+    method public static long getOpinion400(com.gu.source.Source.Palette);
+    method public static long getOpinion450(com.gu.source.Source.Palette);
+    method public static long getOpinion500(com.gu.source.Source.Palette);
+    method public static long getOpinion550(com.gu.source.Source.Palette);
+    method public static long getOpinion600(com.gu.source.Source.Palette);
+    method public static long getOpinion800(com.gu.source.Source.Palette);
+    method public static long getSpecialReport100(com.gu.source.Source.Palette);
+    method public static long getSpecialReport200(com.gu.source.Source.Palette);
+    method public static long getSpecialReport300(com.gu.source.Source.Palette);
+    method public static long getSpecialReport400(com.gu.source.Source.Palette);
+    method public static long getSpecialReport450(com.gu.source.Source.Palette);
+    method public static long getSpecialReport500(com.gu.source.Source.Palette);
+    method public static long getSpecialReport700(com.gu.source.Source.Palette);
+    method public static long getSpecialReport800(com.gu.source.Source.Palette);
+    method public static long getSpecialReportAlt100(com.gu.source.Source.Palette);
+    method public static long getSpecialReportAlt200(com.gu.source.Source.Palette);
+    method public static long getSpecialReportAlt300(com.gu.source.Source.Palette);
+    method public static long getSpecialReportAlt700(com.gu.source.Source.Palette);
+    method public static long getSpecialReportAlt800(com.gu.source.Source.Palette);
+    method public static long getSport100(com.gu.source.Source.Palette);
+    method public static long getSport200(com.gu.source.Source.Palette);
+    method public static long getSport300(com.gu.source.Source.Palette);
+    method public static long getSport400(com.gu.source.Source.Palette);
+    method public static long getSport500(com.gu.source.Source.Palette);
+    method public static long getSport600(com.gu.source.Source.Palette);
+    method public static long getSport800(com.gu.source.Source.Palette);
+    method public static long getSuccess300(com.gu.source.Source.Palette);
+    method public static long getSuccess400(com.gu.source.Source.Palette);
+    method public static long getSuccess500(com.gu.source.Source.Palette);
+  }
+
+}
+
+package com.gu.source.presets.typography {
+
+  public final class TypographyKt {
+    method public static androidx.compose.ui.text.TextStyle getHeadlineBold14(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineBold15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineBold16(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineBold17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineBold18(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineBold20(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineBold22(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineBold24(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineBold28(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineBold34(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineBold42(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineBold50(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLight14(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLight15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLight16(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLight17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLight18(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLight20(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLight22(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLight24(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLight28(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLight34(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLight42(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLight50(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic14(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic16(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic18(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic20(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic22(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic24(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic28(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic34(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic42(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic50(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium14(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium16(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium18(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium20(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium22(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium24(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium28(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium34(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium42(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium50(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic14(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic16(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic18(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic20(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic22(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic24(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic28(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic34(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic42(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic50(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold14(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold16(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold18(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold20(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold22(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold24(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold28(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold34(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold42(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold50(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextArticle15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextArticle17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextArticleBold15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextArticleBold17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextArticleBoldItalic15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextArticleBoldItalic17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextArticleItalic15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextArticleItalic17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextEgyptian14(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextEgyptian15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextEgyptian17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextEgyptianBold14(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextEgyptianBold15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextEgyptianBold17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextEgyptianBoldItalic14(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextEgyptianBoldItalic15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextEgyptianBoldItalic17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextEgyptianItalic14(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextEgyptianItalic15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextEgyptianItalic17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSans11(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSans12(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSans14(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSans15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSans17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSans20(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSans24(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSans28(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSans34(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansBold11(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansBold12(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansBold14(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansBold15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansBold17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansBold20(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansBold24(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansBold28(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansBold34(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansItalic11(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansItalic12(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansItalic14(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansItalic15(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansItalic17(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansItalic20(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansItalic24(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansItalic28(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTextSansItalic34(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTitlepiece42(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTitlepiece50(com.gu.source.Source.Typography);
+    method public static androidx.compose.ui.text.TextStyle getTitlepiece70(com.gu.source.Source.Typography);
+  }
+
+  public final class TypographyPreviewTest {
+    ctor public TypographyPreviewTest();
+    method public error.NonExistentClass! getPaparazzi();
+    method public void headlineBold();
+    method public void headlineLight();
+    method public void headlineLightItalic();
+    method public void headlineMedium();
+    method public void headlineMediumItalic();
+    method public void headlineSemiBold();
+    method public void textArticle();
+    method public void textEgyptian();
+    method public void textSans();
+    method public void textSansBold();
+    method public void textSansItalic();
+    method public void titlepiece();
+    property public final error.NonExistentClass! paparazzi;
+  }
+
+}
+
+package com.gu.source.theme {
+
+  public final class ThemeKt {
+    method @androidx.compose.runtime.Composable public static void ReaderRevenueTheme(optional androidx.compose.ui.Modifier modifier, kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> content);
+    method @androidx.compose.runtime.Composable public static void SourceCoreTheme(optional androidx.compose.ui.Modifier modifier, kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> content);
+    method public static androidx.compose.runtime.ProvidableCompositionLocal<com.gu.source.Source.Theme> getLocalSourceTheme();
+    property public static final androidx.compose.runtime.ProvidableCompositionLocal<com.gu.source.Source.Theme> LocalSourceTheme;
+  }
+
+}
+
+package com.gu.source.utils {
+
+  public final class DensityExtensionsKt {
+    method @androidx.compose.runtime.Composable public static float dpToPx(float);
+    method @androidx.compose.runtime.Composable public static float dpToPx(int);
+    method @androidx.compose.runtime.Stable public static operator long plus(long, long other);
+    method @androidx.compose.runtime.Composable public static float pxToDp(float);
+    method @androidx.compose.runtime.Composable public static float pxToDp(int);
+    method @androidx.compose.runtime.Composable public static long pxToSp(float);
+    method @androidx.compose.runtime.Composable public static long pxToSp(int);
+    method @androidx.compose.runtime.Composable public static float toDp(long);
+    method @androidx.compose.runtime.Composable public static float toPx(float);
+    method @androidx.compose.runtime.Composable public static float toPx(long);
+    method @androidx.compose.runtime.Composable public static long toSp(float);
+  }
+
+  public final class PaddingValuesExtensionsKt {
+    method public static androidx.compose.foundation.layout.PaddingValues copy(androidx.compose.foundation.layout.PaddingValues, optional float top, optional float start, optional float end, optional float bottom);
+    method public static infix operator androidx.compose.foundation.layout.PaddingValues plus(androidx.compose.foundation.layout.PaddingValues, androidx.compose.foundation.layout.PaddingValues other);
+  }
+
+  @androidx.compose.ui.tooling.preview.Preview(name="Day mode", device=androidx.compose.ui.tooling.preview.Devices.PIXEL_7, uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Night mode", device=androidx.compose.ui.tooling.preview.Devices.PIXEL_7, uiMode=android.content.res.Configuration.UI_MODE_NIGHT_YES, backgroundColor=4278190080L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Samsung S20 (narrow device)", device="spec:width=945px,height=2400px", uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Scaled font", device=androidx.compose.ui.tooling.preview.Devices.PIXEL_7, uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true, fontScale=1.5f) public @interface PreviewPhoneBothMode {
+  }
+
+  @androidx.compose.ui.tooling.preview.Preview(name="Day mode", device="spec:parent=pixel_tablet,orientation=portrait", uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Night mode", device="spec:parent=pixel_tablet,orientation=portrait", uiMode=android.content.res.Configuration.UI_MODE_NIGHT_YES, backgroundColor=4278190080L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Scaled font", device="spec:parent=pixel_tablet,orientation=portrait", uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true, fontScale=1.5f) public @interface PreviewTabletBothMode {
+  }
+
+  public final class SizeKt {
+    method @androidx.compose.runtime.Composable public static boolean isTabletDevice();
+  }
+
+}
+
+package com.gu.source.utils.paparazzi {
+
+  public enum BaseDeviceConfig {
+    method public final error.NonExistentClass! getDeviceConfig();
+    method public static com.gu.source.utils.paparazzi.BaseDeviceConfig valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
+    method public static com.gu.source.utils.paparazzi.BaseDeviceConfig[] values();
+    property public final error.NonExistentClass! deviceConfig;
+    enum_constant public static final com.gu.source.utils.paparazzi.BaseDeviceConfig Phone;
+    enum_constant public static final com.gu.source.utils.paparazzi.BaseDeviceConfig Tablet;
+  }
+
+  public enum FontScale {
+    method public final float getValue();
+    method public static com.gu.source.utils.paparazzi.FontScale valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
+    method public static com.gu.source.utils.paparazzi.FontScale[] values();
+    property public final float value;
+    enum_constant public static final com.gu.source.utils.paparazzi.FontScale ExtraLarge;
+    enum_constant public static final com.gu.source.utils.paparazzi.FontScale Normal;
+  }
+
+  public final class PaparazziRulesKt {
+    method public static error.NonExistentClass! createComponentPaparazziRule(optional error.NonExistentClass deviceConfig);
+    method public static error.NonExistentClass! createComponentPaparazziRule(error.NonExistentClass nightMode);
+    method public static error.NonExistentClass! createScreenPaparazziRule(error.NonExistentClass deviceConfig);
+  }
+
+}
+
