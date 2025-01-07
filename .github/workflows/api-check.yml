@@ -1,0 +1,56 @@
+name: Api compatibility check
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    name: Check for Android changes
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      android: ${{ steps.filter.outputs.android }}
+    steps:
+    - uses: actions/checkout@v4
+    - uses: dorny/paths-filter@v3
+      id: filter
+      with:
+        filters: |
+          android:
+            - 'android/**'
+            - '.github/**'          
+
+  screenshots:
+    name: Check API compatibility
+    needs: changes
+    if: ${{ needs.changes.outputs.android == 'true' }}
+    runs-on: ubuntu-latest
+    permissions: write-all
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: wrapper
+      
+      - name: Check compatibility
+        id: compatibility-check
+        run: |
+          cd android
+          ./gradlew :source:metalavaCheckCompatibilityRelease --continue --quiet

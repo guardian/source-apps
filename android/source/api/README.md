@@ -11,6 +11,9 @@
 * Run `./gradlew :source:metalavaCheckCompatibilityRelease` to compare the current API with the 
 baseline.
 
+The [API Check action](../../../.github/workflows/api-check.yml) checks compatibility on PRs and 
+`main`. It is not a mandatory check at the moment.
+
 ## Automatically updating App versions (In progress)
 
 The API baseline and checks will be used to automatically update the app baseline using this simple 
