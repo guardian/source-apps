@@ -29,6 +29,7 @@ nexus-publish = "2.0.0"
 timber = "5.0.1"
 
 gradle-binary-compatibility = "0.17.0"
+metalava = "0.3.5"
 
 junit = "4.13.2"
 espressoCore = "3.6.1"
@@ -98,6 +99,7 @@ kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 gradle-binaryCompatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "gradle-binary-compatibility" }
+metalava = { id = "me.tylerbwong.gradle.metalava", version.ref = "metalava"}
 
 nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexus-publish" }
 
