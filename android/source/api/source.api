@@ -31,23 +31,28 @@ public final class com/gu/source/Source$Typography {
 	public static final field INSTANCE Lcom/gu/source/Source$Typography;
 }
 
-public final class com/gu/source/components/banner/AlertBanner {
+public final class com/gu/source/components/HorizontalExpandingTextKt {
+	public static final fun HorizontalExpandingText-nRSjOco (Landroidx/compose/ui/text/AnnotatedString;JLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/Modifier;IILandroidx/compose/runtime/Composer;II)V
+	public static final fun HorizontalExpandingText-nRSjOco (Ljava/lang/String;JLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/Modifier;IILandroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/gu/source/components/banner/SourceAlertBanner {
 	public static final field $stable I
-	public static final field INSTANCE Lcom/gu/source/components/banner/AlertBanner;
+	public static final field INSTANCE Lcom/gu/source/components/banner/SourceAlertBanner;
 }
 
-public final class com/gu/source/components/banner/AlertBanner$Priority : java/lang/Enum {
-	public static final field Error Lcom/gu/source/components/banner/AlertBanner$Priority;
-	public static final field Info Lcom/gu/source/components/banner/AlertBanner$Priority;
-	public static final field Neutral Lcom/gu/source/components/banner/AlertBanner$Priority;
+public final class com/gu/source/components/banner/SourceAlertBanner$Priority : java/lang/Enum {
+	public static final field Error Lcom/gu/source/components/banner/SourceAlertBanner$Priority;
+	public static final field Info Lcom/gu/source/components/banner/SourceAlertBanner$Priority;
+	public static final field Neutral Lcom/gu/source/components/banner/SourceAlertBanner$Priority;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
-	public static fun valueOf (Ljava/lang/String;)Lcom/gu/source/components/banner/AlertBanner$Priority;
-	public static fun values ()[Lcom/gu/source/components/banner/AlertBanner$Priority;
+	public static fun valueOf (Ljava/lang/String;)Lcom/gu/source/components/banner/SourceAlertBanner$Priority;
+	public static fun values ()[Lcom/gu/source/components/banner/SourceAlertBanner$Priority;
 }
 
-public final class com/gu/source/components/banner/AlertBannerKt {
-	public static final fun AlertBanner (Landroidx/compose/ui/text/AnnotatedString;Lcom/gu/source/components/banner/AlertBanner$Priority;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
-	public static final fun AlertBanner (Ljava/lang/String;Lcom/gu/source/components/banner/AlertBanner$Priority;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+public final class com/gu/source/components/banner/SourceAlertBannerKt {
+	public static final fun SourceAlertBanner (Landroidx/compose/ui/text/AnnotatedString;Lcom/gu/source/components/banner/SourceAlertBanner$Priority;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+	public static final fun SourceAlertBanner (Ljava/lang/String;Lcom/gu/source/components/banner/SourceAlertBanner$Priority;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class com/gu/source/components/buttons/ButtonColours {
@@ -187,6 +192,234 @@ public final class com/gu/source/components/buttons/SourceIconButtonKt {
 	public static final fun SourceIconButton (Landroidx/compose/ui/graphics/vector/ImageVector;Lcom/gu/source/components/buttons/SourceButton$Priority;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZLcom/gu/source/components/buttons/SourceButton$Size;Lcom/gu/source/Source$Theme;Landroidx/compose/runtime/Composer;II)V
 }
 
+public abstract class com/gu/source/components/chips/ChipDecoration {
+	public static final field $stable I
+	public abstract fun getContent ()Lkotlin/jvm/functions/Function4;
+	public abstract fun getHeight-D9Ej5fM ()F
+}
+
+public abstract class com/gu/source/components/chips/ChipDecoration$Icon : com/gu/source/components/chips/ChipDecoration {
+	public static final field $stable I
+	public fun getHeight-D9Ej5fM ()F
+}
+
+public final class com/gu/source/components/chips/ChipDecoration$Icon$Component : com/gu/source/components/chips/ChipDecoration$Icon {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function4;)V
+	public final fun component1 ()Lkotlin/jvm/functions/Function4;
+	public final fun copy (Lkotlin/jvm/functions/Function4;)Lcom/gu/source/components/chips/ChipDecoration$Icon$Component;
+	public static synthetic fun copy$default (Lcom/gu/source/components/chips/ChipDecoration$Icon$Component;Lkotlin/jvm/functions/Function4;ILjava/lang/Object;)Lcom/gu/source/components/chips/ChipDecoration$Icon$Component;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContent ()Lkotlin/jvm/functions/Function4;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/ChipDecoration$Icon$Painter : com/gu/source/components/chips/ChipDecoration$Icon {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/painter/Painter;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;)Lcom/gu/source/components/chips/ChipDecoration$Icon$Painter;
+	public static synthetic fun copy$default (Lcom/gu/source/components/chips/ChipDecoration$Icon$Painter;Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;ILjava/lang/Object;)Lcom/gu/source/components/chips/ChipDecoration$Icon$Painter;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContent ()Lkotlin/jvm/functions/Function4;
+	public final fun getContentDescription ()Ljava/lang/String;
+	public final fun getPainter ()Landroidx/compose/ui/graphics/painter/Painter;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/ChipDecoration$Icon$Vector : com/gu/source/components/chips/ChipDecoration$Icon {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;)Lcom/gu/source/components/chips/ChipDecoration$Icon$Vector;
+	public static synthetic fun copy$default (Lcom/gu/source/components/chips/ChipDecoration$Icon$Vector;Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;ILjava/lang/Object;)Lcom/gu/source/components/chips/ChipDecoration$Icon$Vector;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContent ()Lkotlin/jvm/functions/Function4;
+	public final fun getContentDescription ()Ljava/lang/String;
+	public final fun getImageVector ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class com/gu/source/components/chips/ChipDecoration$Image : com/gu/source/components/chips/ChipDecoration {
+	public static final field $stable I
+	public fun getHeight-D9Ej5fM ()F
+}
+
+public final class com/gu/source/components/chips/ChipDecoration$Image$Component : com/gu/source/components/chips/ChipDecoration$Image {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function4;)V
+	public final fun component1 ()Lkotlin/jvm/functions/Function4;
+	public final fun copy (Lkotlin/jvm/functions/Function4;)Lcom/gu/source/components/chips/ChipDecoration$Image$Component;
+	public static synthetic fun copy$default (Lcom/gu/source/components/chips/ChipDecoration$Image$Component;Lkotlin/jvm/functions/Function4;ILjava/lang/Object;)Lcom/gu/source/components/chips/ChipDecoration$Image$Component;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContent ()Lkotlin/jvm/functions/Function4;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/ChipDecoration$Image$Painter : com/gu/source/components/chips/ChipDecoration$Image {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/painter/Painter;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;)Lcom/gu/source/components/chips/ChipDecoration$Image$Painter;
+	public static synthetic fun copy$default (Lcom/gu/source/components/chips/ChipDecoration$Image$Painter;Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;ILjava/lang/Object;)Lcom/gu/source/components/chips/ChipDecoration$Image$Painter;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContent ()Lkotlin/jvm/functions/Function4;
+	public final fun getContentDescription ()Ljava/lang/String;
+	public final fun getPainter ()Landroidx/compose/ui/graphics/painter/Painter;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/ChipDecoration$Image$Vector : com/gu/source/components/chips/ChipDecoration$Image {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;)Lcom/gu/source/components/chips/ChipDecoration$Image$Vector;
+	public static synthetic fun copy$default (Lcom/gu/source/components/chips/ChipDecoration$Image$Vector;Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;ILjava/lang/Object;)Lcom/gu/source/components/chips/ChipDecoration$Image$Vector;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContent ()Lkotlin/jvm/functions/Function4;
+	public final fun getContentDescription ()Ljava/lang/String;
+	public final fun getImageVector ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/ChipDecoration$None : com/gu/source/components/chips/ChipDecoration {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/gu/source/components/chips/ChipDecoration$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContent ()Lkotlin/jvm/functions/Function4;
+	public fun getHeight-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/ComposableSingletons$ChipDecorationKt {
+	public static final field INSTANCE Lcom/gu/source/components/chips/ComposableSingletons$ChipDecorationKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function4;
+	public static field lambda-2 Lkotlin/jvm/functions/Function4;
+	public static field lambda-3 Lkotlin/jvm/functions/Function4;
+	public fun <init> ()V
+	public final fun getLambda-1$source_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda-2$source_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda-3$source_release ()Lkotlin/jvm/functions/Function4;
+}
+
+public final class com/gu/source/components/chips/ComposableSingletons$SourceBaseChipKt {
+	public static final field INSTANCE Lcom/gu/source/components/chips/ComposableSingletons$SourceBaseChipKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function2;
+	public fun <init> ()V
+	public final fun getLambda-1$source_release ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/gu/source/components/chips/ComposableSingletons$SourceChipKt {
+	public static final field INSTANCE Lcom/gu/source/components/chips/ComposableSingletons$SourceChipKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function3;
+	public static field lambda-2 Lkotlin/jvm/functions/Function4;
+	public static field lambda-3 Lkotlin/jvm/functions/Function3;
+	public static field lambda-4 Lkotlin/jvm/functions/Function4;
+	public fun <init> ()V
+	public final fun getLambda-1$source_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-2$source_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda-3$source_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-4$source_release ()Lkotlin/jvm/functions/Function4;
+}
+
+public final class com/gu/source/components/chips/SourceBaseChip {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/gu/source/components/chips/SourceBaseChip;
+}
+
+public final class com/gu/source/components/chips/SourceBaseChip$Style {
+	public static final field $stable I
+	public synthetic fun <init> (JLandroidx/compose/foundation/BorderStroke;Landroidx/compose/ui/graphics/Shape;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component2 ()Landroidx/compose/foundation/BorderStroke;
+	public final fun component3 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component4-0d7_KjU ()J
+	public final fun copy-Usj1iBs (JLandroidx/compose/foundation/BorderStroke;Landroidx/compose/ui/graphics/Shape;J)Lcom/gu/source/components/chips/SourceBaseChip$Style;
+	public static synthetic fun copy-Usj1iBs$default (Lcom/gu/source/components/chips/SourceBaseChip$Style;JLandroidx/compose/foundation/BorderStroke;Landroidx/compose/ui/graphics/Shape;JILjava/lang/Object;)Lcom/gu/source/components/chips/SourceBaseChip$Style;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorder ()Landroidx/compose/foundation/BorderStroke;
+	public final fun getFillColour-0d7_KjU ()J
+	public final fun getRippleColour-0d7_KjU ()J
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/SourceBaseChipKt {
+	public static final fun SourceBaseChip-gSuKmCU (FLcom/gu/source/components/chips/SourceBaseChip$Style;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZLjava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/gu/source/components/chips/SourceChip {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/gu/source/components/chips/SourceChip;
+}
+
+public final class com/gu/source/components/chips/SourceChip$Size : java/lang/Enum {
+	public static final field Medium Lcom/gu/source/components/chips/SourceChip$Size;
+	public static final field Small Lcom/gu/source/components/chips/SourceChip$Size;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/gu/source/components/chips/SourceChip$Size;
+	public static fun values ()[Lcom/gu/source/components/chips/SourceChip$Size;
+}
+
+public final class com/gu/source/components/chips/SourceChip$Style {
+	public static final field $stable I
+	public static final field Companion Lcom/gu/source/components/chips/SourceChip$Style$Companion;
+	public synthetic fun <init> (Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Landroidx/compose/ui/text/TextStyle;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;FLandroidx/compose/ui/graphics/Shape;Lcom/gu/source/daynight/AppColour;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Landroidx/compose/ui/text/TextStyle;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;FLandroidx/compose/ui/graphics/Shape;Lcom/gu/source/daynight/AppColour;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/gu/source/daynight/AppColour;
+	public final fun component10 ()Lcom/gu/source/daynight/AppColour;
+	public final fun component2 ()Lcom/gu/source/daynight/AppColour;
+	public final fun component3 ()Lcom/gu/source/daynight/AppColour;
+	public final fun component4 ()Lcom/gu/source/daynight/AppColour;
+	public final fun component5 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component6 ()Lcom/gu/source/daynight/AppColour;
+	public final fun component7 ()Lcom/gu/source/daynight/AppColour;
+	public final fun component8-D9Ej5fM ()F
+	public final fun component9 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun copy-1sJa4KU (Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Landroidx/compose/ui/text/TextStyle;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;FLandroidx/compose/ui/graphics/Shape;Lcom/gu/source/daynight/AppColour;)Lcom/gu/source/components/chips/SourceChip$Style;
+	public static synthetic fun copy-1sJa4KU$default (Lcom/gu/source/components/chips/SourceChip$Style;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Landroidx/compose/ui/text/TextStyle;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;FLandroidx/compose/ui/graphics/Shape;Lcom/gu/source/daynight/AppColour;ILjava/lang/Object;)Lcom/gu/source/components/chips/SourceChip$Style;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBadgeColour ()Lcom/gu/source/daynight/AppColour;
+	public final fun getBorderColourSelected ()Lcom/gu/source/daynight/AppColour;
+	public final fun getBorderColourUnselected ()Lcom/gu/source/daynight/AppColour;
+	public final fun getBorderWidth-D9Ej5fM ()F
+	public final fun getContentColourSelected ()Lcom/gu/source/daynight/AppColour;
+	public final fun getContentColourUnselected ()Lcom/gu/source/daynight/AppColour;
+	public final fun getFillColourSelected ()Lcom/gu/source/daynight/AppColour;
+	public final fun getFillColourUnselected ()Lcom/gu/source/daynight/AppColour;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/SourceChip$Style$Companion {
+	public final fun getDefault ()Lcom/gu/source/components/chips/SourceChip$Style;
+	public final fun getSupportingButton ()Lcom/gu/source/components/chips/SourceChip$Style;
+}
+
+public final class com/gu/source/components/chips/SourceChipKt {
+	public static final fun SourceChip (Ljava/lang/String;ZLcom/gu/source/components/chips/SourceChip$Size;ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/gu/source/components/chips/SourceChip$Style;Ljava/lang/String;Lcom/gu/source/components/chips/ChipDecoration;Landroidx/compose/runtime/Composer;II)V
+	public static final fun SourceChipSupportingButton (Ljava/lang/String;Lcom/gu/source/components/chips/SourceChip$Size;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/gu/source/components/chips/SourceChip$Style;Lcom/gu/source/components/chips/ChipDecoration;Landroidx/compose/runtime/Composer;II)V
+	public static final fun SourceMultiSelectChip (Ljava/lang/String;ZLcom/gu/source/components/chips/SourceChip$Size;ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/gu/source/components/chips/SourceChip$Style;Ljava/lang/String;Lcom/gu/source/components/chips/ChipDecoration;Landroidx/compose/runtime/Composer;II)V
+}
+
 public final class com/gu/source/components/pager/ComposableSingletons$PagerProgressBarKt {
 	public static final field INSTANCE Lcom/gu/source/components/pager/ComposableSingletons$PagerProgressBarKt;
 	public static field lambda-1 Lkotlin/jvm/functions/Function3;
@@ -293,6 +526,10 @@ public final class com/gu/source/icons/ChevronRightSmallKt {
 
 public final class com/gu/source/icons/CrossKt {
 	public static final fun getCross (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/EllipsisKt {
+	public static final fun getEllipsis (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
 public final class com/gu/source/icons/InfoRoundKt {
@@ -458,9 +695,14 @@ public final class com/gu/source/presets/typography/TypographyKt {
 	public static final fun getHeadlineSemiBold14 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getHeadlineSemiBold15 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getHeadlineSemiBold16 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
+	public static final fun getHeadlineSemiBold17 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getHeadlineSemiBold18 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
+	public static final fun getHeadlineSemiBold20 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
+	public static final fun getHeadlineSemiBold22 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getHeadlineSemiBold24 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getHeadlineSemiBold28 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
+	public static final fun getHeadlineSemiBold34 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
+	public static final fun getHeadlineSemiBold42 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getHeadlineSemiBold50 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getTextArticle15 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getTextArticle17 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
@@ -518,6 +760,20 @@ public final class com/gu/source/theme/ThemeKt {
 	public static final fun ReaderRevenueTheme (Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun SourceCoreTheme (Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun getLocalSourceTheme ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/gu/source/utils/DensityExtensionsKt {
+	public static final fun dpToPx (FLandroidx/compose/runtime/Composer;I)F
+	public static final fun dpToPx (ILandroidx/compose/runtime/Composer;I)F
+	public static final fun plus-NB67dxo (JJ)J
+	public static final fun pxToDp (FLandroidx/compose/runtime/Composer;I)F
+	public static final fun pxToDp (ILandroidx/compose/runtime/Composer;I)F
+	public static final fun pxToSp (FLandroidx/compose/runtime/Composer;I)J
+	public static final fun pxToSp (ILandroidx/compose/runtime/Composer;I)J
+	public static final fun toDp-o2QH7mI (JLandroidx/compose/runtime/Composer;I)F
+	public static final fun toPx-8Feqmps (FLandroidx/compose/runtime/Composer;I)F
+	public static final fun toPx-o2QH7mI (JLandroidx/compose/runtime/Composer;I)F
+	public static final fun toSp-8Feqmps (FLandroidx/compose/runtime/Composer;I)J
 }
 
 public final class com/gu/source/utils/PaddingValuesExtensionsKt {
