@@ -17,6 +17,7 @@ plugins {
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.dokka) apply false
     alias(libs.plugins.gradle.binaryCompatibility)
+    alias(libs.plugins.metalava) apply false
 }
 
 group = libs.versions.group.get()
