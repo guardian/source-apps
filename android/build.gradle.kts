@@ -3,6 +3,8 @@ import org.jmailen.gradle.kotlinter.tasks.FormatTask
 buildscript {
     dependencies {
         classpath(libs.other.composeLint)
+        // This is temporarily required till detekt catches up with the latest Kotlin version
+        classpath(libs.kotlin.compiler.embeddable)
     }
 }
 
