@@ -111,7 +111,7 @@ public enum Typography {
 
     public static let textEgyp14 = GuardianFont(style: .textEgyptianRegular, size: 14, lineHeight: 14 * LineHeight.regular)
     public static let textEgyp15 = GuardianFont(style: .textEgyptianRegular, size: 15, lineHeight: 15 * LineHeight.regular)
-    public static let textEgyp17 = GuardianFont(style: .textEgyptianBold, size: 17, lineHeight: 17 * LineHeight.regular)
+    public static let textEgyp17 = GuardianFont(style: .textEgyptianRegular, size: 17, lineHeight: 17 * LineHeight.regular)
     public static let textEgypBld14 = GuardianFont(style: .textEgyptianBold, size: 14, lineHeight: 14 * LineHeight.regular)
     public static let textEgypBld15 = GuardianFont(style: .textEgyptianBold, size: 15, lineHeight: 15 * LineHeight.regular)
     public static let textEgypBld17 = GuardianFont(style: .textEgyptianBold, size: 17, lineHeight: 17 * LineHeight.regular)
