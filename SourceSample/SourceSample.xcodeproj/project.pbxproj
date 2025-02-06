@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5A35248D2C370373004E1874 /* SourceSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35248C2C370373004E1874 /* SourceSampleApp.swift */; };
-		5A3524912C370374004E1874 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A3524902C370374004E1874 /* Assets.xcassets */; };
 		5A3524942C370375004E1874 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A3524932C370375004E1874 /* Preview Assets.xcassets */; };
 		5A35249D2C3703C4004E1874 /* Source in Frameworks */ = {isa = PBXBuildFile; productRef = 5A35249C2C3703C4004E1874 /* Source */; };
 		5A3524A12C372B35004E1874 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3524A02C372B35004E1874 /* UIColor+Hex.swift */; };
@@ -24,7 +23,6 @@
 /* Begin PBXFileReference section */
 		5A3524892C370373004E1874 /* SourceSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SourceSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A35248C2C370373004E1874 /* SourceSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSampleApp.swift; sourceTree = "<group>"; };
-		5A3524902C370374004E1874 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A3524932C370375004E1874 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5A35249A2C3703AF004E1874 /* source-apps */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "source-apps"; path = ..; sourceTree = "<group>"; };
 		5A3524A02C372B35004E1874 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 				5A3524B52C3807A5004E1874 /* Color */,
 				5A35248C2C370373004E1874 /* SourceSampleApp.swift */,
 				5A3524AF2C380189004E1874 /* NavigationRootView.swift */,
-				5A3524902C370374004E1874 /* Assets.xcassets */,
 				5A3524922C370375004E1874 /* Preview Content */,
 				5A3524A02C372B35004E1874 /* UIColor+Hex.swift */,
 				5A3524AD2C37FE9B004E1874 /* NSColor+Hex.swift */,
@@ -172,7 +169,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A3524942C370375004E1874 /* Preview Assets.xcassets in Resources */,
-				5A3524912C370374004E1874 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

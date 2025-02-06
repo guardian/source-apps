@@ -81,7 +81,7 @@ struct IconButtonStyle: ButtonStyle {
 }
 
 #Preview {
-    IconButton(icon: Image(.chevronLeft), size: .small, iconColor: .black, borderColor: .gray, disabled: false, action: {})
+    IconButton(icon: Image(.chevronLeftSingle), size: .small, iconColor: .black, borderColor: .gray, disabled: false, action: {})
 }
 
 // Maps button size to layout values for icon.
