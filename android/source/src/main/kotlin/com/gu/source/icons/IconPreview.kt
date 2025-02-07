@@ -21,7 +21,7 @@ import com.gu.source.Source
 import com.gu.source.presets.palette.Neutral38
 
 @VisibleForTesting
-@Preview(device = "spec:width=1280dp,height=800dp,dpi=240,orientation=portrait")
+@Preview(device = "spec:width=1280dp,height=800dp,dpi=240")
 @Composable
 internal fun IconPreview() {
     LazyVerticalGrid(
