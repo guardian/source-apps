@@ -27,6 +27,7 @@ class AndroidTestConventionPlugin : Plugin<Project> {
             }
 
             setupDetekt()
+            setupKotlinter()
 
             extensions.configure<TestExtension> {
                 configureAndroidModule<KotlinAndroidProjectExtension>(this)
