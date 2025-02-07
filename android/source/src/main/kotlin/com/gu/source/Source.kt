@@ -1,6 +1,5 @@
 package com.gu.source
 
-import androidx.annotation.Discouraged
 import com.gu.source.Source.Palette
 import com.gu.source.Source.Typography
 
@@ -33,7 +32,6 @@ object Source {
     object Palette
 
     /** Source provided raw icons. */
-    @Discouraged("These are not ready for production use.")
     object Icons {
         /** Base icons without any decoration around them. */
         object Base
