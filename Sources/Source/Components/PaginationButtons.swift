@@ -25,7 +25,7 @@ public struct PaginationButtons: View {
     public var body: some View {
         HStack {
             IconButton(
-                icon: Image(.chevronLeft),
+                icon: Image(.chevronLeftSingle),
                 size: .small,
                 iconColor: iconColor,
                 borderColor: borderColor,
@@ -36,7 +36,7 @@ public struct PaginationButtons: View {
                 }
             }
             IconButton(
-                icon: Image(.chevronRight),
+                icon: Image(.chevronRightSingle),
                 size: .small,
                 iconColor: iconColor,
                 borderColor: borderColor,
