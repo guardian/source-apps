@@ -111,7 +111,7 @@ object SourceAlertBanner {
 /**
  * A banner component that displays an alert message with styling based on provided priority.
  *
- * @see <img src="../../../../../../../../../docAssets/alert-example.png">
+ * @see <img src="/docAssets/alert-example.png">
  *
  * @param messageText The text to be displayed in the banner.
  * @param priority The type of message to be displayed (Neutral, Informative, Error).
@@ -140,7 +140,7 @@ fun SourceAlertBanner(
 /**
  * A composable function that displays an alert banner with optional clickable links.
  *
- * @see <img src="../../../../../../../../../docAssets/alert-example.png">
+ * @see <img src="/docAssets/alert-example.png">
  *
  * @param messageText The text to be displayed in the banner having link in it.
  * @param priority The type of message to be displayed (Neutral, Informative, Error).
