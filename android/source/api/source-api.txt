@@ -5,7 +5,7 @@ package com.gu.source {
     field public static final com.gu.source.Source INSTANCE;
   }
 
-  @Discouraged(message="These are not ready for production use.") public static final class Source.Icons {
+  public static final class Source.Icons {
     field public static final com.gu.source.Source.Icons INSTANCE;
   }
 
@@ -339,12 +339,104 @@ package com.gu.source.daynight {
 
 package com.gu.source.icons {
 
+  public final class AlertPhoneKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getAlertPhone(com.gu.source.Source.Icons.Base);
+  }
+
   public final class AlertRoundKt {
     method public static androidx.compose.ui.graphics.vector.ImageVector getAlertRound(com.gu.source.Source.Icons.Base);
   }
 
-  public final class CheckKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getCheck(com.gu.source.Source.Icons.Base);
+  public final class AppleBrandKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getAppleBrand(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ArrowContractKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowContract(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ArrowDownStraightKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowDownStraight(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ArrowExpandKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowExpand(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ArrowLeftStraightKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowLeftStraight(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ArrowOutdentKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowOutdent(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ArrowPopOutKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowPopOut(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ArrowRightStraightKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowRightStraight(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ArrowScrollKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowScroll(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ArrowUpAndDownSmallKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowUpAndDownSmall(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ArrowUpStraightKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowUpStraight(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ArrowUpStraightSmallKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowUpStraightSmall(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class AsteriskKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getAsterisk(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class AudioKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getAudio(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class AudioMuteKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getAudioMute(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class BookmarkCrossKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getBookmarkCross(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class BookmarkFilledKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getBookmarkFilled(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class BookmarkRoundFilledKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getBookmarkRoundFilled(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class CalendarKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getCalendar(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class CameraKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getCamera(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class CheckmarkKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getCheckmark(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ChevronDownDoubleKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronDownDouble(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ChevronDownSingleKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronDownSingle(com.gu.source.Source.Icons.Base);
   }
 
   public final class ChevronLeftDoubleKt {
@@ -371,24 +463,336 @@ package com.gu.source.icons {
     method public static androidx.compose.ui.graphics.vector.ImageVector getChevronRightSmall(com.gu.source.Source.Icons.Base);
   }
 
+  public final class ChevronUpDoubleKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronUpDouble(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ChevronUpSingleKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronUpSingle(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ClockBaselineSmallKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getClockBaselineSmall(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ClockFilledKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getClockFilled(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ClockOutlinedKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getClockOutlined(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class CreditCardKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getCreditCard(com.gu.source.Source.Icons.Base);
+  }
+
   public final class CrossKt {
     method public static androidx.compose.ui.graphics.vector.ImageVector getCross(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class CrosswordsKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getCrosswords(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class DirectDebitKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getDirectDebit(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class DocumentKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getDocument(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class DownloadKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getDownload(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class DragHandleKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getDragHandle(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class EditKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getEdit(com.gu.source.Source.Icons.Base);
   }
 
   public final class EllipsisKt {
     method public static androidx.compose.ui.graphics.vector.ImageVector getEllipsis(com.gu.source.Source.Icons.Base);
   }
 
+  public final class EnvelopeKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getEnvelope(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ExclamationKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getExclamation(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ExternalKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getExternal(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class EyeKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getEye(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class EyeStrikeKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getEyeStrike(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class FacebookBrandKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getFacebookBrand(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class FacebookKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getFacebook(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class FacebookMessengerKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getFacebookMessenger(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class FilterAndroidAppSmallKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getFilterAndroidAppSmall(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class FilterKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getFilter(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class GiftKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getGift(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class GpsKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getGps(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class HandPointedKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getHandPointed(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class HeadphonesRoundFilledKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getHeadphonesRoundFilled(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class HomeHouseFilledKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getHomeHouseFilled(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class HouseCrossKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getHouseCross(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class HousePlusKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getHousePlus(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class HouseSettingKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getHouseSetting(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class IndentKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getIndent(com.gu.source.Source.Icons.Base);
+  }
+
   public final class InfoRoundKt {
     method public static androidx.compose.ui.graphics.vector.ImageVector getInfoRound(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class Ingredient1Kt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getIngredient1(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class LinkedInKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getLinkedIn(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ListKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getList(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class LocationMarkerKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getLocationMarker(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class MagnifyingGlassKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getMagnifyingGlass(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class MagnifyingGlassMinusKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getMagnifyingGlassMinus(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class MagnifyingGlassPlusKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getMagnifyingGlassPlus(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class MagnifyingGlassSadFaceKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getMagnifyingGlassSadFace(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class MediaControlsBackKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsBack(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class MediaControlsForwardKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsForward(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class MediaControlsPauseKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsPause(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class MediaControlsPlayKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsPlay(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class MediaControlsStopKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsStop(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class MenuKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getMenu(com.gu.source.Source.Icons.Base);
   }
 
   public final class MinusKt {
     method public static androidx.compose.ui.graphics.vector.ImageVector getMinus(com.gu.source.Source.Icons.Base);
   }
 
+  public final class MoonKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getMoon(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class NewsletterKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getNewsletter(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class NewspaperArchiveKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getNewspaperArchive(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class NotificationsOffKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getNotificationsOff(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class NotificationsOnKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getNotificationsOn(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class PadlockKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getPadlock(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class PartyOfThreeKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getPartyOfThree(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class PayPalBrandKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getPayPalBrand(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class PersonCrossKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getPersonCross(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class PersonKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getPerson(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class PersonPlusKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getPersonPlus(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class PersonTickKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getPersonTick(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class PhoneKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getPhone(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class PinterestKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getPinterest(com.gu.source.Source.Icons.Base);
+  }
+
   public final class PlusKt {
     method public static androidx.compose.ui.graphics.vector.ImageVector getPlus(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class QuoteKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getQuote(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ReloadKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getReload(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class SettingsKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getSettings(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ShareCalloutKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getShareCallout(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ShareRoundFilledKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getShareRoundFilled(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class ShareWebKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getShareWeb(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class SpeechBubbleCrossKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getSpeechBubbleCross(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class SpeechBubbleKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getSpeechBubble(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class SpeechBubblePlusKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getSpeechBubblePlus(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class StarKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getStar(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class TextLargeKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getTextLarge(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class TextSizeKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getTextSize(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class TextSizeRoundFilledKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getTextSizeRoundFilled(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class TextSmallKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getTextSmall(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class TickRoundKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getTickRound(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class TransparentArrowLeftStraightRoundKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getTransparentArrowLeftStraightRound(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class UploadKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getUpload(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class VideoKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getVideo(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class WhatsAppKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getWhatsApp(com.gu.source.Source.Icons.Base);
   }
 
 }
