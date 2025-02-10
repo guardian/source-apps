@@ -39,7 +39,7 @@ import com.gu.source.components.HorizontalExpandingText
 import com.gu.source.components.chips.SourceChip.CheckIconHeight
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.Check
+import com.gu.source.icons.Checkmark
 import com.gu.source.icons.Plus
 import com.gu.source.presets.palette.Neutral10
 import com.gu.source.presets.palette.Neutral38
@@ -267,7 +267,7 @@ fun SourceMultiSelectChip(
         decorationAfterText = if (isSelected) {
             ChipDecoration.Icon.Component {
                 Icon(
-                    imageVector = Source.Icons.Base.Check,
+                    imageVector = Source.Icons.Base.Checkmark,
                     contentDescription = null,
                     modifier = Modifier.height(CheckIconHeight),
                 )

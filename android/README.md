@@ -43,7 +43,9 @@ The design presets are available name spaced under the `com.gu.Source` object, e
 
 ---
 
-### Typography presets
+## Presets
+
+### Typography
 
 Typography presets include `fontFamily`, `fontSize`, `lineHeight`, `fontWeight`, `fontStyle` in a single token. [All typography tokens with their previews are listed here](source/src/main/kotlin/com/gu/source/presets/typography/README.md)
 
@@ -61,7 +63,7 @@ Text(
 
 ---
 
-### Core palette colours
+### Palette colours
 
 Core palette colours are available for direct use in components through `Source.Palette`. [Preview all available colours here](source/src/main/kotlin/com/gu/source/presets/palette/palette.png).
 
@@ -74,6 +76,23 @@ Text(
 ```
 
 ---
+
+### Icons
+
+Icons are available as `ImageVector` objects under the `Source.Icons.Base` namespace. The library provides a set of icons that can be used directly in components.
+
+[See here for all available icons.][icons]
+
+```kotlin
+Icon(
+    imageVector = Source.Icons.Base.Checkmark,
+    contentDescription = null,
+)
+```
+
+---
+
+## Components
 
 ### Buttons
 
@@ -182,3 +201,4 @@ AlertBanner(
 [buttons]: ./source/src/main/kotlin/com/gu/source/components/buttons/README.md
 [pager]: ./source/src/main/kotlin/com/gu/source/components/pager/README.md
 [chips]: ./source/src/main/kotlin/com/gu/source/components/chips/README.md
+[icons]: ./source/src/main/kotlin/com/gu/source/icons/README.md

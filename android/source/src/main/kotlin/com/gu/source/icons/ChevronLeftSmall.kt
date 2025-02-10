@@ -16,8 +16,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 
-/** Base small left chevron icon. */
-@Suppress("UnusedReceiverParameter")
 val Source.Icons.Base.ChevronLeftSmall: ImageVector
     get() = _icon ?: Builder(
         name = "ChevronLeftSmall",

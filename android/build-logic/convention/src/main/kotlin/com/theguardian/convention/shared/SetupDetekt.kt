@@ -44,6 +44,8 @@ fun Project.setupDetekt() {
                 "**/generated/*",
                 "**/build.gradle.kts",
                 "**/settings.gradle.kts",
+                // Icons are generated so we don't run detekt on them
+                "**/com/gu/source/icons/*",
             )
 
             finalizedBy(reportMerge)

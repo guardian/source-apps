@@ -20,7 +20,7 @@ import com.gu.source.R
 import com.gu.source.Source
 import com.gu.source.components.chips.ChipDecoration.Icon
 import com.gu.source.components.chips.ChipDecoration.Image
-import com.gu.source.icons.Check
+import com.gu.source.icons.Checkmark
 
 /**
  * Represents an icon or image displayed before or after a [SourceChip]'s text.
@@ -187,17 +187,17 @@ private fun Preview() {
     ) {
         CompositionLocalProvider(LocalContentColor provides Color.White) {
             listOf(
-                Icon.Vector(imageVector = Source.Icons.Base.Check),
+                Icon.Vector(imageVector = Source.Icons.Base.Checkmark),
                 Icon.Painter(painter = painterResource(id = R.drawable.ic_list)),
                 Icon.Component {
                     Icon(
-                        imageVector = Source.Icons.Base.Check,
+                        imageVector = Source.Icons.Base.Checkmark,
                         contentDescription = "Check",
                         modifier = Modifier.size(18.dp),
                     )
                 },
 
-                Image.Vector(imageVector = Source.Icons.Base.Check),
+                Image.Vector(imageVector = Source.Icons.Base.Checkmark),
                 Image.Painter(painter = painterResource(id = R.drawable.marina_hyde)),
                 Image.Component {
                     Image(
