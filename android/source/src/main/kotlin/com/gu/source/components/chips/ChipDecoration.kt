@@ -20,7 +20,7 @@ import com.gu.source.R
 import com.gu.source.Source
 import com.gu.source.components.chips.ChipDecoration.Icon
 import com.gu.source.components.chips.ChipDecoration.Image
-import com.gu.source.icons.Checkmark
+import com.gu.source.icons.base.Checkmark
 
 /**
  * Represents an icon or image displayed before or after a [SourceChip]'s text.
