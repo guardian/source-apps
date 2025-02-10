@@ -1,4 +1,4 @@
-package com.gu.source.icons
+package com.gu.source.icons.base
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor

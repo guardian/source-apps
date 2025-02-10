@@ -1,60 +1,39 @@
-@file:Suppress("MagicNumber")
+package com.gu.source.icons.base
 
-package com.gu.source.icons
-
-import androidx.compose.material3.Icon
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.PathFillType.Companion.EvenOdd
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.graphics.StrokeCap.Companion.Butt
-import androidx.compose.ui.graphics.StrokeJoin.Companion.Miter
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.graphics.vector.ImageVector.Builder
 import androidx.compose.ui.graphics.vector.path
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 
 val Source.Icons.Base.ChevronRightSmall: ImageVector
-    get() = _icon ?: Builder(
-        name = "ChevronRightSmall",
-        defaultWidth = 24.0.dp,
-        defaultHeight = 24.0.dp,
-        viewportWidth = 24.0f,
-        viewportHeight = 24.0f,
-    ).apply {
-        path(
-            fill = SolidColor(Color(0xFFffffff)),
-            stroke = null,
-            strokeLineWidth = 0.0f,
-            strokeLineCap = Butt,
-            strokeLineJoin = Miter,
-            strokeLineMiter = 4.0f,
-            pathFillType = EvenOdd,
-        ) {
-            moveTo(9.00005f, 5.96996f)
-            lineTo(13.925f, 11.985f)
-            lineTo(9.00505f, 17.97f)
-            lineTo(9.88505f, 18.855f)
-            lineTo(16.425f, 12.315f)
-            lineTo(16.425f, 11.625f)
-            lineTo(9.88505f, 5.08496f)
-            lineTo(9.00005f, 5.96996f)
-            close()
+    get() {
+        if (_ChevronRightSmall != null) {
+            return _ChevronRightSmall!!
         }
+        _ChevronRightSmall = ImageVector.Builder(
+            name = "ChevronRightSmall",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).apply {
+            path(fill = SolidColor(Color(0xFF052962))) {
+                moveTo(8.6f, 5.9f)
+                lineTo(13.607f, 12.015f)
+                lineTo(8.605f, 18.1f)
+                lineTo(9.5f, 19f)
+                lineTo(16.149f, 12.351f)
+                verticalLineTo(11.649f)
+                lineTo(9.5f, 5f)
+                lineTo(8.6f, 5.9f)
+                close()
+            }
+        }.build()
+
+        return _ChevronRightSmall!!
     }
-        .build()
-        .also { _icon = it }
 
-@Suppress("TopLevelPropertyNaming", "ktlint:standard:backing-property-naming")
-private var _icon: ImageVector? = null
-
-@Preview
-@Composable
-private fun Preview() {
-    Icon(
-        imageVector = Source.Icons.Base.ChevronRightSmall,
-        contentDescription = null,
-    )
-}
+@Suppress("ObjectPropertyName")
+private var _ChevronRightSmall: ImageVector? = null
