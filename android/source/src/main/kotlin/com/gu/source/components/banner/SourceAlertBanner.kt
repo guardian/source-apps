@@ -22,9 +22,9 @@ import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.AlertRound
-import com.gu.source.icons.Cross
-import com.gu.source.icons.InfoRound
+import com.gu.source.icons.base.AlertRound
+import com.gu.source.icons.base.Cross
+import com.gu.source.icons.base.InfoRound
 import com.gu.source.presets.palette.*
 import com.gu.source.presets.typography.TextSans17
 import com.gu.source.utils.PreviewPhoneBothMode

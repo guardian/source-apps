@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.Checkmark
+import com.gu.source.icons.base.Checkmark
 import com.gu.source.presets.palette.*
 import com.gu.source.theme.LocalSourceTheme
 import com.gu.source.theme.ReaderRevenueTheme
