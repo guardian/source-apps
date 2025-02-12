@@ -83,7 +83,6 @@ public enum SourceIcon: CaseIterable {
     case houseSetting
     case indent
     case infoRound
-    case ingredient
     case linkedIn
     case list
     case locationMarker
@@ -132,6 +131,77 @@ public enum SourceIcon: CaseIterable {
     case upload
     case video
     case whatsApp
+    case addToBasket
+    case alarmClockFilled
+    case alarmClockOutlined
+    case alarmClockSounded
+    case allRecipes
+    case bin
+    case bookOutlined
+    case bookmarkOutlined
+    case bookmarkRoundOutlined
+    case cameraRoundOutlined
+    case cameraSmall
+    case chef
+    case chevronDownSingleSmall
+    case chevronDownSingleXSmall
+    case chevronLeftSmall
+    case chevronRightSmall
+    case chevronUpAndDownSmall
+    case chevronUpSingleSmall
+    case crossRoundFilled
+    case crossRoundOutlined
+    case crossSmall
+    case crossedOutCloud
+    case cuisine
+    case diets
+    case filterAndroidApp
+    case filterIOSAppSmall
+    case filterIOSApp
+    case filterOutlinedWeb
+    case folderFilled
+    case folder
+    case globe
+    case googleBrand
+    case headphonesFilled
+    case headphonesOutlined
+    case headphonesRoundOutlined
+    case homeHouseOutlined
+    case homeSquareFilled
+    case homeSquareOutlined
+    case ingredient1
+    case ingredient2
+    case ingredient3
+    case knifeAndFork
+    case mealTypes
+    case messageRound
+    case message
+    case newsletterOutlined
+    case noteFilled
+    case noteOutlined
+    case notificationsOffRound
+    case notificationsOnRound
+    case padlockLocked
+    case padlockUnlocked
+    case partyPopperFilled
+    case partyPopperOutlined
+    case personRoundFilled
+    case personRoundOutlined
+    case pinned
+    case plusOnRound
+    case shareAppSmall
+    case shareApp
+    case shareRoundOutline
+    case shoppingBasket
+    case shoppingList
+    case signalBrand
+    case sort
+    case starOutline
+    case telegramBrand
+    case textSizeRoundOutline
+    case timer
+    case twitter
+    case whatsAppBrand
 }
 
 extension SourceIcon {
@@ -204,7 +274,7 @@ extension SourceIcon {
         case .houseSetting: "house-setting"
         case .indent: "indent"
         case .infoRound: "info-round"
-        case .ingredient: "ingredient"
+        case .ingredient1: "ingredient-1"
         case .linkedIn: "linked-in"
         case .list: "list"
         case .locationMarker: "location-marker"
@@ -253,6 +323,76 @@ extension SourceIcon {
         case .upload: "upload"
         case .video: "video"
         case .whatsApp: "whats-app"
+        case .addToBasket: "add-to-basket"
+        case .alarmClockFilled: "alarm-clock-filled"
+        case .alarmClockOutlined: "alarm-clock-outlined"
+        case .alarmClockSounded: "alarm-clock-sounded"
+        case .allRecipes: "all-recipes"
+        case .bin: "bin"
+        case .bookOutlined: "book-outlined"
+        case .bookmarkOutlined: "bookmark-outlined"
+        case .bookmarkRoundOutlined: "bookmark-round-outlined"
+        case .cameraRoundOutlined: "camera-round-outlined"
+        case .cameraSmall: "camera-small"
+        case .chef: "chef"
+        case .chevronDownSingleSmall: "chevron-down-single-small"
+        case .chevronDownSingleXSmall: "chevron-down-single-xsmall"
+        case .chevronLeftSmall: "chevron-left-small"
+        case .chevronRightSmall: "chevron-right-small"
+        case .chevronUpAndDownSmall: "chevron-up-and-down-small"
+        case .chevronUpSingleSmall: "chevron-up-single-small"
+        case .crossRoundFilled: "cross-round-filled"
+        case .crossRoundOutlined: "cross-round-outlined"
+        case .crossSmall: "cross-small"
+        case .crossedOutCloud: "crossed-out-cloud"
+        case .cuisine: "cuisine"
+        case .diets: "diets"
+        case .filterAndroidApp: "filter-android-app"
+        case .filterIOSAppSmall: "filter-ios-app-small"
+        case .filterIOSApp: "filter-ios-app"
+        case .filterOutlinedWeb: "filter-outlined-web"
+        case .folderFilled: "folder-filled"
+        case .folder: "folder"
+        case .globe: "globe"
+        case .googleBrand: "google-brand"
+        case .headphonesFilled: "headphones-filled"
+        case .headphonesOutlined: "headphones-outlined"
+        case .headphonesRoundOutlined: "headphones-round-outlined"
+        case .homeHouseOutlined: "home-house-outlined"
+        case .homeSquareFilled: "home-square-filled"
+        case .homeSquareOutlined: "home-square-outlined"
+        case .ingredient2: "ingredient-2"
+        case .ingredient3: "ingredient-3"
+        case .knifeAndFork: "knife-and-fork"
+        case .mealTypes: "meal-types"
+        case .messageRound: "message-round"
+        case .message: "message"
+        case .newsletterOutlined: "newsletter-outlined"
+        case .noteFilled: "note-filled"
+        case .noteOutlined: "note-outlined"
+        case .notificationsOffRound: "notifications-off-round"
+        case .notificationsOnRound: "notifications-on-round"
+        case .padlockLocked: "padlock-locked"
+        case .padlockUnlocked: "padlock-unlocked"
+        case .partyPopperFilled: "party-popper-filled"
+        case .partyPopperOutlined: "party-popper-outlined"
+        case .personRoundFilled: "person-round-filled"
+        case .personRoundOutlined: "person-round-outlined"
+        case .pinned: "pinned"
+        case .plusOnRound: "plus-on-round"
+        case .shareAppSmall: "share-app-small"
+        case .shareApp: "share-app"
+        case .shareRoundOutline: "share-round-outline"
+        case .shoppingBasket: "shopping-basket"
+        case .shoppingList: "shopping-list"
+        case .signalBrand: "signal-brand"
+        case .sort: "sort"
+        case .starOutline: "star-outline"
+        case .telegramBrand: "telegram-brand"
+        case .textSizeRoundOutline: "text-size-round-outline"
+        case .timer: "timer"
+        case .twitter: "twitter"
+        case .whatsAppBrand: "whats-app-brand"
         }
     }
 }

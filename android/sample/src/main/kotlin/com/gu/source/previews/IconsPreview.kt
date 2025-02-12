@@ -5,11 +5,13 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -24,6 +26,7 @@ import com.gu.source.icons.base.*
 import com.gu.source.presets.palette.Neutral0
 import com.gu.source.presets.palette.Neutral100
 import com.gu.source.presets.typography.HeadlineBold20
+import com.gu.source.presets.typography.TextSans15
 import com.gu.source.presets.typography.TextSansBold15
 
 private val icons = listOf(
@@ -239,17 +242,17 @@ internal fun IconsPreview(modifier: Modifier = Modifier) {
                         .height(50.dp)
                         .fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    SourceIconButton(
-                        icon = icon,
-                        priority = SourceButton.Priority.TertiaryOnWhite,
+                    Icon(
+                        imageVector = icon,
                         contentDescription = null,
-                        onClick = {},
-                        size = SourceButton.Size.XSmall,
+                        tint = Color.Unspecified,
+                        modifier = Modifier.height(24.dp),
                     )
                     Text(
                         text = icon.name,
-                        style = Source.Typography.TextSansBold15,
+                        style = Source.Typography.TextSans15,
                         textAlign = TextAlign.Center,
                         overflow = TextOverflow.Ellipsis,
                         maxLines = 1,
