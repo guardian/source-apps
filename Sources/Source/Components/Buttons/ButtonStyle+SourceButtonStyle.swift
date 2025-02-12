@@ -1,3 +1,4 @@
+#if os(iOS)
 import SwiftUI
 import GuardianFonts
 
@@ -147,3 +148,4 @@ public extension ButtonStyle where Self == SourceButtonStyle {
         .previewFonts()
     }
 }
+#endif
