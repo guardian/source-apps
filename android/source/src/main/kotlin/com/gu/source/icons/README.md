@@ -23,7 +23,7 @@ SourceIconButton(
 
 ## Preview of all icons
 
-![All available icons](https://github.com/user-attachments/assets/2d0c6f58-ca3c-49a9-876e-7892ce627b31)
+![All available icons](https://github.com/user-attachments/assets/0faabd87-e675-416c-b629-8d0e2f050eb4)
 
 ## List of available icons
 
