@@ -39,6 +39,7 @@ internal fun IconPreview() {
                 Icon(
                     imageVector = icon,
                     contentDescription = icon.name,
+                    tint = Color.Unspecified,
                 )
 
                 Text(
