@@ -31,23 +31,28 @@ public final class com/gu/source/Source$Typography {
 	public static final field INSTANCE Lcom/gu/source/Source$Typography;
 }
 
-public final class com/gu/source/components/banner/AlertBanner {
+public final class com/gu/source/components/HorizontalExpandingTextKt {
+	public static final fun HorizontalExpandingText-nRSjOco (Landroidx/compose/ui/text/AnnotatedString;JLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/Modifier;IILandroidx/compose/runtime/Composer;II)V
+	public static final fun HorizontalExpandingText-nRSjOco (Ljava/lang/String;JLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/Modifier;IILandroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/gu/source/components/banner/SourceAlertBanner {
 	public static final field $stable I
-	public static final field INSTANCE Lcom/gu/source/components/banner/AlertBanner;
+	public static final field INSTANCE Lcom/gu/source/components/banner/SourceAlertBanner;
 }
 
-public final class com/gu/source/components/banner/AlertBanner$Priority : java/lang/Enum {
-	public static final field Error Lcom/gu/source/components/banner/AlertBanner$Priority;
-	public static final field Info Lcom/gu/source/components/banner/AlertBanner$Priority;
-	public static final field Neutral Lcom/gu/source/components/banner/AlertBanner$Priority;
+public final class com/gu/source/components/banner/SourceAlertBanner$Priority : java/lang/Enum {
+	public static final field Error Lcom/gu/source/components/banner/SourceAlertBanner$Priority;
+	public static final field Info Lcom/gu/source/components/banner/SourceAlertBanner$Priority;
+	public static final field Neutral Lcom/gu/source/components/banner/SourceAlertBanner$Priority;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
-	public static fun valueOf (Ljava/lang/String;)Lcom/gu/source/components/banner/AlertBanner$Priority;
-	public static fun values ()[Lcom/gu/source/components/banner/AlertBanner$Priority;
+	public static fun valueOf (Ljava/lang/String;)Lcom/gu/source/components/banner/SourceAlertBanner$Priority;
+	public static fun values ()[Lcom/gu/source/components/banner/SourceAlertBanner$Priority;
 }
 
-public final class com/gu/source/components/banner/AlertBannerKt {
-	public static final fun AlertBanner (Landroidx/compose/ui/text/AnnotatedString;Lcom/gu/source/components/banner/AlertBanner$Priority;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
-	public static final fun AlertBanner (Ljava/lang/String;Lcom/gu/source/components/banner/AlertBanner$Priority;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+public final class com/gu/source/components/banner/SourceAlertBannerKt {
+	public static final fun SourceAlertBanner (Landroidx/compose/ui/text/AnnotatedString;Lcom/gu/source/components/banner/SourceAlertBanner$Priority;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+	public static final fun SourceAlertBanner (Ljava/lang/String;Lcom/gu/source/components/banner/SourceAlertBanner$Priority;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class com/gu/source/components/buttons/ButtonColours {
@@ -69,8 +74,6 @@ public final class com/gu/source/components/buttons/ButtonColours {
 
 public final class com/gu/source/components/buttons/ComposableSingletons$PlainSourceButtonKt {
 	public static final field INSTANCE Lcom/gu/source/components/buttons/ComposableSingletons$PlainSourceButtonKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function3;
-	public static field lambda-2 Lkotlin/jvm/functions/Function3;
 	public fun <init> ()V
 	public final fun getLambda-1$source_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-2$source_release ()Lkotlin/jvm/functions/Function3;
@@ -78,23 +81,6 @@ public final class com/gu/source/components/buttons/ComposableSingletons$PlainSo
 
 public final class com/gu/source/components/buttons/ComposableSingletons$SourceButtonKt {
 	public static final field INSTANCE Lcom/gu/source/components/buttons/ComposableSingletons$SourceButtonKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function3;
-	public static field lambda-10 Lkotlin/jvm/functions/Function3;
-	public static field lambda-11 Lkotlin/jvm/functions/Function3;
-	public static field lambda-12 Lkotlin/jvm/functions/Function3;
-	public static field lambda-13 Lkotlin/jvm/functions/Function3;
-	public static field lambda-14 Lkotlin/jvm/functions/Function3;
-	public static field lambda-15 Lkotlin/jvm/functions/Function3;
-	public static field lambda-16 Lkotlin/jvm/functions/Function3;
-	public static field lambda-17 Lkotlin/jvm/functions/Function3;
-	public static field lambda-2 Lkotlin/jvm/functions/Function3;
-	public static field lambda-3 Lkotlin/jvm/functions/Function3;
-	public static field lambda-4 Lkotlin/jvm/functions/Function3;
-	public static field lambda-5 Lkotlin/jvm/functions/Function3;
-	public static field lambda-6 Lkotlin/jvm/functions/Function3;
-	public static field lambda-7 Lkotlin/jvm/functions/Function3;
-	public static field lambda-8 Lkotlin/jvm/functions/Function3;
-	public static field lambda-9 Lkotlin/jvm/functions/Function3;
 	public fun <init> ()V
 	public final fun getLambda-1$source_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-10$source_release ()Lkotlin/jvm/functions/Function3;
@@ -117,14 +103,6 @@ public final class com/gu/source/components/buttons/ComposableSingletons$SourceB
 
 public final class com/gu/source/components/buttons/ComposableSingletons$SourceIconButtonKt {
 	public static final field INSTANCE Lcom/gu/source/components/buttons/ComposableSingletons$SourceIconButtonKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function3;
-	public static field lambda-2 Lkotlin/jvm/functions/Function3;
-	public static field lambda-3 Lkotlin/jvm/functions/Function3;
-	public static field lambda-4 Lkotlin/jvm/functions/Function3;
-	public static field lambda-5 Lkotlin/jvm/functions/Function3;
-	public static field lambda-6 Lkotlin/jvm/functions/Function3;
-	public static field lambda-7 Lkotlin/jvm/functions/Function3;
-	public static field lambda-8 Lkotlin/jvm/functions/Function3;
 	public fun <init> ()V
 	public final fun getLambda-1$source_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-2$source_release ()Lkotlin/jvm/functions/Function3;
@@ -187,12 +165,228 @@ public final class com/gu/source/components/buttons/SourceIconButtonKt {
 	public static final fun SourceIconButton (Landroidx/compose/ui/graphics/vector/ImageVector;Lcom/gu/source/components/buttons/SourceButton$Priority;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZLcom/gu/source/components/buttons/SourceButton$Size;Lcom/gu/source/Source$Theme;Landroidx/compose/runtime/Composer;II)V
 }
 
+public abstract class com/gu/source/components/chips/ChipDecoration {
+	public static final field $stable I
+	public abstract fun getContent ()Lkotlin/jvm/functions/Function4;
+	public abstract fun getHeight-D9Ej5fM ()F
+}
+
+public abstract class com/gu/source/components/chips/ChipDecoration$Icon : com/gu/source/components/chips/ChipDecoration {
+	public static final field $stable I
+	public fun getHeight-D9Ej5fM ()F
+}
+
+public final class com/gu/source/components/chips/ChipDecoration$Icon$Component : com/gu/source/components/chips/ChipDecoration$Icon {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function4;)V
+	public final fun component1 ()Lkotlin/jvm/functions/Function4;
+	public final fun copy (Lkotlin/jvm/functions/Function4;)Lcom/gu/source/components/chips/ChipDecoration$Icon$Component;
+	public static synthetic fun copy$default (Lcom/gu/source/components/chips/ChipDecoration$Icon$Component;Lkotlin/jvm/functions/Function4;ILjava/lang/Object;)Lcom/gu/source/components/chips/ChipDecoration$Icon$Component;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContent ()Lkotlin/jvm/functions/Function4;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/ChipDecoration$Icon$Painter : com/gu/source/components/chips/ChipDecoration$Icon {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/painter/Painter;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;)Lcom/gu/source/components/chips/ChipDecoration$Icon$Painter;
+	public static synthetic fun copy$default (Lcom/gu/source/components/chips/ChipDecoration$Icon$Painter;Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;ILjava/lang/Object;)Lcom/gu/source/components/chips/ChipDecoration$Icon$Painter;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContent ()Lkotlin/jvm/functions/Function4;
+	public final fun getContentDescription ()Ljava/lang/String;
+	public final fun getPainter ()Landroidx/compose/ui/graphics/painter/Painter;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/ChipDecoration$Icon$Vector : com/gu/source/components/chips/ChipDecoration$Icon {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;)Lcom/gu/source/components/chips/ChipDecoration$Icon$Vector;
+	public static synthetic fun copy$default (Lcom/gu/source/components/chips/ChipDecoration$Icon$Vector;Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;ILjava/lang/Object;)Lcom/gu/source/components/chips/ChipDecoration$Icon$Vector;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContent ()Lkotlin/jvm/functions/Function4;
+	public final fun getContentDescription ()Ljava/lang/String;
+	public final fun getImageVector ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class com/gu/source/components/chips/ChipDecoration$Image : com/gu/source/components/chips/ChipDecoration {
+	public static final field $stable I
+	public fun getHeight-D9Ej5fM ()F
+}
+
+public final class com/gu/source/components/chips/ChipDecoration$Image$Component : com/gu/source/components/chips/ChipDecoration$Image {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function4;)V
+	public final fun component1 ()Lkotlin/jvm/functions/Function4;
+	public final fun copy (Lkotlin/jvm/functions/Function4;)Lcom/gu/source/components/chips/ChipDecoration$Image$Component;
+	public static synthetic fun copy$default (Lcom/gu/source/components/chips/ChipDecoration$Image$Component;Lkotlin/jvm/functions/Function4;ILjava/lang/Object;)Lcom/gu/source/components/chips/ChipDecoration$Image$Component;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContent ()Lkotlin/jvm/functions/Function4;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/ChipDecoration$Image$Painter : com/gu/source/components/chips/ChipDecoration$Image {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/painter/Painter;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;)Lcom/gu/source/components/chips/ChipDecoration$Image$Painter;
+	public static synthetic fun copy$default (Lcom/gu/source/components/chips/ChipDecoration$Image$Painter;Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;ILjava/lang/Object;)Lcom/gu/source/components/chips/ChipDecoration$Image$Painter;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContent ()Lkotlin/jvm/functions/Function4;
+	public final fun getContentDescription ()Ljava/lang/String;
+	public final fun getPainter ()Landroidx/compose/ui/graphics/painter/Painter;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/ChipDecoration$Image$Vector : com/gu/source/components/chips/ChipDecoration$Image {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;)Lcom/gu/source/components/chips/ChipDecoration$Image$Vector;
+	public static synthetic fun copy$default (Lcom/gu/source/components/chips/ChipDecoration$Image$Vector;Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;ILjava/lang/Object;)Lcom/gu/source/components/chips/ChipDecoration$Image$Vector;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContent ()Lkotlin/jvm/functions/Function4;
+	public final fun getContentDescription ()Ljava/lang/String;
+	public final fun getImageVector ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/ChipDecoration$None : com/gu/source/components/chips/ChipDecoration {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/gu/source/components/chips/ChipDecoration$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContent ()Lkotlin/jvm/functions/Function4;
+	public fun getHeight-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/ComposableSingletons$ChipDecorationKt {
+	public static final field INSTANCE Lcom/gu/source/components/chips/ComposableSingletons$ChipDecorationKt;
+	public fun <init> ()V
+	public final fun getLambda-1$source_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda-2$source_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda-3$source_release ()Lkotlin/jvm/functions/Function4;
+}
+
+public final class com/gu/source/components/chips/ComposableSingletons$SourceBaseChipKt {
+	public static final field INSTANCE Lcom/gu/source/components/chips/ComposableSingletons$SourceBaseChipKt;
+	public fun <init> ()V
+	public final fun getLambda-1$source_release ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/gu/source/components/chips/ComposableSingletons$SourceChipKt {
+	public static final field INSTANCE Lcom/gu/source/components/chips/ComposableSingletons$SourceChipKt;
+	public fun <init> ()V
+	public final fun getLambda-1$source_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-2$source_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda-3$source_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-4$source_release ()Lkotlin/jvm/functions/Function4;
+}
+
+public final class com/gu/source/components/chips/SourceBaseChip {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/gu/source/components/chips/SourceBaseChip;
+}
+
+public final class com/gu/source/components/chips/SourceBaseChip$Style {
+	public static final field $stable I
+	public synthetic fun <init> (JLandroidx/compose/foundation/BorderStroke;Landroidx/compose/ui/graphics/Shape;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component2 ()Landroidx/compose/foundation/BorderStroke;
+	public final fun component3 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component4-0d7_KjU ()J
+	public final fun copy-Usj1iBs (JLandroidx/compose/foundation/BorderStroke;Landroidx/compose/ui/graphics/Shape;J)Lcom/gu/source/components/chips/SourceBaseChip$Style;
+	public static synthetic fun copy-Usj1iBs$default (Lcom/gu/source/components/chips/SourceBaseChip$Style;JLandroidx/compose/foundation/BorderStroke;Landroidx/compose/ui/graphics/Shape;JILjava/lang/Object;)Lcom/gu/source/components/chips/SourceBaseChip$Style;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorder ()Landroidx/compose/foundation/BorderStroke;
+	public final fun getFillColour-0d7_KjU ()J
+	public final fun getRippleColour-0d7_KjU ()J
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/SourceBaseChipKt {
+	public static final fun SourceBaseChip-gSuKmCU (FLcom/gu/source/components/chips/SourceBaseChip$Style;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZLjava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/gu/source/components/chips/SourceChip {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/gu/source/components/chips/SourceChip;
+}
+
+public final class com/gu/source/components/chips/SourceChip$Size : java/lang/Enum {
+	public static final field Medium Lcom/gu/source/components/chips/SourceChip$Size;
+	public static final field Small Lcom/gu/source/components/chips/SourceChip$Size;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/gu/source/components/chips/SourceChip$Size;
+	public static fun values ()[Lcom/gu/source/components/chips/SourceChip$Size;
+}
+
+public final class com/gu/source/components/chips/SourceChip$Style {
+	public static final field $stable I
+	public static final field Companion Lcom/gu/source/components/chips/SourceChip$Style$Companion;
+	public synthetic fun <init> (Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Landroidx/compose/ui/text/TextStyle;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;FLandroidx/compose/ui/graphics/Shape;Lcom/gu/source/daynight/AppColour;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Landroidx/compose/ui/text/TextStyle;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;FLandroidx/compose/ui/graphics/Shape;Lcom/gu/source/daynight/AppColour;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/gu/source/daynight/AppColour;
+	public final fun component10 ()Lcom/gu/source/daynight/AppColour;
+	public final fun component2 ()Lcom/gu/source/daynight/AppColour;
+	public final fun component3 ()Lcom/gu/source/daynight/AppColour;
+	public final fun component4 ()Lcom/gu/source/daynight/AppColour;
+	public final fun component5 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component6 ()Lcom/gu/source/daynight/AppColour;
+	public final fun component7 ()Lcom/gu/source/daynight/AppColour;
+	public final fun component8-D9Ej5fM ()F
+	public final fun component9 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun copy-1sJa4KU (Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Landroidx/compose/ui/text/TextStyle;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;FLandroidx/compose/ui/graphics/Shape;Lcom/gu/source/daynight/AppColour;)Lcom/gu/source/components/chips/SourceChip$Style;
+	public static synthetic fun copy-1sJa4KU$default (Lcom/gu/source/components/chips/SourceChip$Style;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;Landroidx/compose/ui/text/TextStyle;Lcom/gu/source/daynight/AppColour;Lcom/gu/source/daynight/AppColour;FLandroidx/compose/ui/graphics/Shape;Lcom/gu/source/daynight/AppColour;ILjava/lang/Object;)Lcom/gu/source/components/chips/SourceChip$Style;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBadgeColour ()Lcom/gu/source/daynight/AppColour;
+	public final fun getBorderColourSelected ()Lcom/gu/source/daynight/AppColour;
+	public final fun getBorderColourUnselected ()Lcom/gu/source/daynight/AppColour;
+	public final fun getBorderWidth-D9Ej5fM ()F
+	public final fun getContentColourSelected ()Lcom/gu/source/daynight/AppColour;
+	public final fun getContentColourUnselected ()Lcom/gu/source/daynight/AppColour;
+	public final fun getFillColourSelected ()Lcom/gu/source/daynight/AppColour;
+	public final fun getFillColourUnselected ()Lcom/gu/source/daynight/AppColour;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gu/source/components/chips/SourceChip$Style$Companion {
+	public final fun getDefault ()Lcom/gu/source/components/chips/SourceChip$Style;
+	public final fun getSupportingButton ()Lcom/gu/source/components/chips/SourceChip$Style;
+}
+
+public final class com/gu/source/components/chips/SourceChipKt {
+	public static final fun SourceChip (Ljava/lang/String;ZLcom/gu/source/components/chips/SourceChip$Size;ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/gu/source/components/chips/SourceChip$Style;Ljava/lang/String;Lcom/gu/source/components/chips/ChipDecoration;Landroidx/compose/runtime/Composer;II)V
+	public static final fun SourceChipSupportingButton (Ljava/lang/String;Lcom/gu/source/components/chips/SourceChip$Size;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/gu/source/components/chips/SourceChip$Style;Lcom/gu/source/components/chips/ChipDecoration;Landroidx/compose/runtime/Composer;II)V
+	public static final fun SourceMultiSelectChip (Ljava/lang/String;ZLcom/gu/source/components/chips/SourceChip$Size;ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/gu/source/components/chips/SourceChip$Style;Ljava/lang/String;Lcom/gu/source/components/chips/ChipDecoration;Landroidx/compose/runtime/Composer;II)V
+}
+
 public final class com/gu/source/components/pager/ComposableSingletons$PagerProgressBarKt {
 	public static final field INSTANCE Lcom/gu/source/components/pager/ComposableSingletons$PagerProgressBarKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function3;
-	public static field lambda-2 Lkotlin/jvm/functions/Function4;
-	public static field lambda-3 Lkotlin/jvm/functions/Function4;
-	public static field lambda-4 Lkotlin/jvm/functions/Function3;
 	public fun <init> ()V
 	public final fun getLambda-1$source_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-2$source_release ()Lkotlin/jvm/functions/Function4;
@@ -202,14 +396,12 @@ public final class com/gu/source/components/pager/ComposableSingletons$PagerProg
 
 public final class com/gu/source/components/pager/ComposableSingletons$PagerProgressButtonsKt {
 	public static final field INSTANCE Lcom/gu/source/components/pager/ComposableSingletons$PagerProgressButtonsKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function4;
 	public fun <init> ()V
 	public final fun getLambda-1$source_release ()Lkotlin/jvm/functions/Function4;
 }
 
 public final class com/gu/source/components/pager/ComposableSingletons$PagerProgressIndicatorKt {
 	public static final field INSTANCE Lcom/gu/source/components/pager/ComposableSingletons$PagerProgressIndicatorKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function4;
 	public fun <init> ()V
 	public final fun getLambda-1$source_release ()Lkotlin/jvm/functions/Function4;
 }
@@ -259,52 +451,748 @@ public final class com/gu/source/daynight/AppColourModeKt {
 	public static final fun getLocalIsDarkModeActive ()Landroidx/compose/runtime/ProvidableCompositionLocal;
 }
 
-public final class com/gu/source/icons/AlertRoundKt {
+public final class com/gu/source/icons/base/AddToBasketKt {
+	public static final fun getAddToBasket (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/AlarmClockFilledKt {
+	public static final fun getAlarmClockFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/AlarmClockOutlinedKt {
+	public static final fun getAlarmClockOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/AlarmClockSoundedKt {
+	public static final fun getAlarmClockSounded (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/AlertPhoneKt {
+	public static final fun getAlertPhone (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/AlertRoundKt {
 	public static final fun getAlertRound (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
-public final class com/gu/source/icons/CheckKt {
-	public static final fun getCheck (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+public final class com/gu/source/icons/base/AlertTriangleKt {
+	public static final fun getAlertTriangle (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
-public final class com/gu/source/icons/ChevronLeftDoubleKt {
+public final class com/gu/source/icons/base/AllRecipesKt {
+	public static final fun getAllRecipes (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/AppleBrandKt {
+	public static final fun getAppleBrand (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ArrowContractKt {
+	public static final fun getArrowContract (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ArrowDownStraightKt {
+	public static final fun getArrowDownStraight (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ArrowExpandKt {
+	public static final fun getArrowExpand (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ArrowLeftStraightKt {
+	public static final fun getArrowLeftStraight (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ArrowOutdentKt {
+	public static final fun getArrowOutdent (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ArrowPopOutKt {
+	public static final fun getArrowPopOut (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ArrowRightStraightKt {
+	public static final fun getArrowRightStraight (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ArrowScrollKt {
+	public static final fun getArrowScroll (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ArrowUpAndDownSmallKt {
+	public static final fun getArrowUpAndDownSmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ArrowUpStraightKt {
+	public static final fun getArrowUpStraight (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ArrowUpStraightSmallKt {
+	public static final fun getArrowUpStraightSmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/AsteriskKt {
+	public static final fun getAsterisk (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/AudioKt {
+	public static final fun getAudio (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/AudioMuteKt {
+	public static final fun getAudioMute (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/BinKt {
+	public static final fun getBin (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/BookOutlinedKt {
+	public static final fun getBookOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/BookmarkCrossKt {
+	public static final fun getBookmarkCross (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/BookmarkFilledKt {
+	public static final fun getBookmarkFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/BookmarkOutlinedKt {
+	public static final fun getBookmarkOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/BookmarkRoundFilledKt {
+	public static final fun getBookmarkRoundFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/BookmarkRoundOutlinedKt {
+	public static final fun getBookmarkRoundOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/CalendarKt {
+	public static final fun getCalendar (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/CameraKt {
+	public static final fun getCamera (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/CameraRoundOutlinedKt {
+	public static final fun getCameraRoundOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/CameraSmallKt {
+	public static final fun getCameraSmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/CheckmarkKt {
+	public static final fun getCheckmark (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ChefKt {
+	public static final fun getChef (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ChevronDownDoubleKt {
+	public static final fun getChevronDownDouble (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ChevronDownSingleKt {
+	public static final fun getChevronDownSingle (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ChevronDownSingleSmallKt {
+	public static final fun getChevronDownSingleSmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ChevronDownSingleXsmallKt {
+	public static final fun getChevronDownSingleXsmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ChevronLeftDoubleKt {
 	public static final fun getChevronLeftDouble (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
-public final class com/gu/source/icons/ChevronLeftSingleKt {
+public final class com/gu/source/icons/base/ChevronLeftSingleKt {
 	public static final fun getChevronLeftSingle (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
-public final class com/gu/source/icons/ChevronLeftSmallKt {
+public final class com/gu/source/icons/base/ChevronLeftSmallKt {
 	public static final fun getChevronLeftSmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
-public final class com/gu/source/icons/ChevronRightDoubleKt {
+public final class com/gu/source/icons/base/ChevronRightDoubleKt {
 	public static final fun getChevronRightDouble (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
-public final class com/gu/source/icons/ChevronRightSingleKt {
+public final class com/gu/source/icons/base/ChevronRightSingleKt {
 	public static final fun getChevronRightSingle (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
-public final class com/gu/source/icons/ChevronRightSmallKt {
+public final class com/gu/source/icons/base/ChevronRightSmallKt {
 	public static final fun getChevronRightSmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
-public final class com/gu/source/icons/CrossKt {
+public final class com/gu/source/icons/base/ChevronUpAndDownSmallKt {
+	public static final fun getChevronUpAndDownSmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ChevronUpDoubleKt {
+	public static final fun getChevronUpDouble (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ChevronUpSingleKt {
+	public static final fun getChevronUpSingle (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ChevronUpSingleSmallKt {
+	public static final fun getChevronUpSingleSmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ClockBaselineSmallKt {
+	public static final fun getClockBaselineSmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ClockFilledKt {
+	public static final fun getClockFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ClockOutlinedKt {
+	public static final fun getClockOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/CreditCardKt {
+	public static final fun getCreditCard (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/CrossKt {
 	public static final fun getCross (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
-public final class com/gu/source/icons/InfoRoundKt {
+public final class com/gu/source/icons/base/CrossRoundFilledKt {
+	public static final fun getCrossRoundFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/CrossRoundOutlinedKt {
+	public static final fun getCrossRoundOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/CrossSmallKt {
+	public static final fun getCrossSmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/CrossedOutCloudKt {
+	public static final fun getCrossedOutCloud (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/CrosswordsKt {
+	public static final fun getCrosswords (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/CuisineKt {
+	public static final fun getCuisine (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/DietsKt {
+	public static final fun getDiets (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/DirectDebitKt {
+	public static final fun getDirectDebit (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/DirectDebitWideKt {
+	public static final fun getDirectDebitWide (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/DiscoverKt {
+	public static final fun getDiscover (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/DocumentKt {
+	public static final fun getDocument (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/DownloadKt {
+	public static final fun getDownload (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/DragHandleKt {
+	public static final fun getDragHandle (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/EditKt {
+	public static final fun getEdit (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/EllipsisKt {
+	public static final fun getEllipsis (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/EnvelopeKt {
+	public static final fun getEnvelope (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ExclamationKt {
+	public static final fun getExclamation (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ExternalKt {
+	public static final fun getExternal (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/EyeKt {
+	public static final fun getEye (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/EyeStrikeKt {
+	public static final fun getEyeStrike (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/FacebookBrandKt {
+	public static final fun getFacebookBrand (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/FacebookKt {
+	public static final fun getFacebook (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/FacebookMessengerKt {
+	public static final fun getFacebookMessenger (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/FilterAndroidAppKt {
+	public static final fun getFilterAndroidApp (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/FilterAndroidAppSmallKt {
+	public static final fun getFilterAndroidAppSmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/FilterIosAppKt {
+	public static final fun getFilterIosApp (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/FilterIosAppSmallKt {
+	public static final fun getFilterIosAppSmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/FilterKt {
+	public static final fun getFilter (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/FilterOutlinedWebKt {
+	public static final fun getFilterOutlinedWeb (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/FolderFilledKt {
+	public static final fun getFolderFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/FolderKt {
+	public static final fun getFolder (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/GiftKt {
+	public static final fun getGift (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/GlobeKt {
+	public static final fun getGlobe (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/GoogleBrandKt {
+	public static final fun getGoogleBrand (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/GpsKt {
+	public static final fun getGps (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/HandPointedKt {
+	public static final fun getHandPointed (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/HeadphonesFilledKt {
+	public static final fun getHeadphonesFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/HeadphonesOutlinedKt {
+	public static final fun getHeadphonesOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/HeadphonesRoundFilledKt {
+	public static final fun getHeadphonesRoundFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/HeadphonesRoundOutlinedKt {
+	public static final fun getHeadphonesRoundOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/HomeHouseFilledKt {
+	public static final fun getHomeHouseFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/HomeHouseOutlinedKt {
+	public static final fun getHomeHouseOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/HomeSquareFilledKt {
+	public static final fun getHomeSquareFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/HomeSquareOutlinedKt {
+	public static final fun getHomeSquareOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/HouseCrossKt {
+	public static final fun getHouseCross (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/HousePlusKt {
+	public static final fun getHousePlus (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/HouseSettingKt {
+	public static final fun getHouseSetting (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/IndentKt {
+	public static final fun getIndent (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/InfoRoundKt {
 	public static final fun getInfoRound (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
-public final class com/gu/source/icons/MinusKt {
+public final class com/gu/source/icons/base/Ingredient1Kt {
+	public static final fun getIngredient1 (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/Ingredient2Kt {
+	public static final fun getIngredient2 (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/Ingredient3Kt {
+	public static final fun getIngredient3 (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/KnifeAndForkKt {
+	public static final fun getKnifeAndFork (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/LinkedInKt {
+	public static final fun getLinkedIn (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ListKt {
+	public static final fun getList (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/LocationMarkerKt {
+	public static final fun getLocationMarker (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/MagnifyingGlassKt {
+	public static final fun getMagnifyingGlass (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/MagnifyingGlassMinusKt {
+	public static final fun getMagnifyingGlassMinus (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/MagnifyingGlassPlusKt {
+	public static final fun getMagnifyingGlassPlus (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/MagnifyingGlassSadFaceKt {
+	public static final fun getMagnifyingGlassSadFace (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/MealTypesKt {
+	public static final fun getMealTypes (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/MediaControlsBackKt {
+	public static final fun getMediaControlsBack (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/MediaControlsForwardKt {
+	public static final fun getMediaControlsForward (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/MediaControlsPauseKt {
+	public static final fun getMediaControlsPause (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/MediaControlsPlayKt {
+	public static final fun getMediaControlsPlay (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/MediaControlsStopKt {
+	public static final fun getMediaControlsStop (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/MenuKt {
+	public static final fun getMenu (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/MessageKt {
+	public static final fun getMessage (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/MessageRoundKt {
+	public static final fun getMessageRound (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/MinusKt {
 	public static final fun getMinus (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
-public final class com/gu/source/icons/PlusKt {
+public final class com/gu/source/icons/base/MoonKt {
+	public static final fun getMoon (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/NewsletterKt {
+	public static final fun getNewsletter (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/NewsletterOutlinedKt {
+	public static final fun getNewsletterOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/NewspaperArchiveKt {
+	public static final fun getNewspaperArchive (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/NoteFilledKt {
+	public static final fun getNoteFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/NoteOutlinedKt {
+	public static final fun getNoteOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/NotificationsOffKt {
+	public static final fun getNotificationsOff (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/NotificationsOffRoundKt {
+	public static final fun getNotificationsOffRound (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/NotificationsOnKt {
+	public static final fun getNotificationsOn (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/NotificationsOnRoundKt {
+	public static final fun getNotificationsOnRound (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PadlockKt {
+	public static final fun getPadlock (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PadlockLockedKt {
+	public static final fun getPadlockLocked (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PadlockUnlockedKt {
+	public static final fun getPadlockUnlocked (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PartyOfThreeKt {
+	public static final fun getPartyOfThree (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PartyPopperFilledKt {
+	public static final fun getPartyPopperFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PartyPopperOutlinedKt {
+	public static final fun getPartyPopperOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PayPalBrandKt {
+	public static final fun getPayPalBrand (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PersonCrossKt {
+	public static final fun getPersonCross (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PersonKt {
+	public static final fun getPerson (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PersonPlusKt {
+	public static final fun getPersonPlus (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PersonRoundFilledKt {
+	public static final fun getPersonRoundFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PersonRoundOutlinedKt {
+	public static final fun getPersonRoundOutlined (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PersonTickKt {
+	public static final fun getPersonTick (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PhoneKt {
+	public static final fun getPhone (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PinnedKt {
+	public static final fun getPinned (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PinterestKt {
+	public static final fun getPinterest (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PlusKt {
 	public static final fun getPlus (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/PlusOnRoundKt {
+	public static final fun getPlusOnRound (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/QuoteKt {
+	public static final fun getQuote (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ReloadKt {
+	public static final fun getReload (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/SettingsKt {
+	public static final fun getSettings (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ShareAppKt {
+	public static final fun getShareApp (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ShareAppSmallKt {
+	public static final fun getShareAppSmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ShareCalloutKt {
+	public static final fun getShareCallout (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ShareRoundFilledKt {
+	public static final fun getShareRoundFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ShareRoundOutlineKt {
+	public static final fun getShareRoundOutline (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ShareWebKt {
+	public static final fun getShareWeb (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ShoppingBasketKt {
+	public static final fun getShoppingBasket (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/ShoppingListKt {
+	public static final fun getShoppingList (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/SignalBrandKt {
+	public static final fun getSignalBrand (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/SortKt {
+	public static final fun getSort (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/SpeechBubbleCrossKt {
+	public static final fun getSpeechBubbleCross (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/SpeechBubbleKt {
+	public static final fun getSpeechBubble (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/SpeechBubblePlusKt {
+	public static final fun getSpeechBubblePlus (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/StarKt {
+	public static final fun getStar (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/StarOutlineKt {
+	public static final fun getStarOutline (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/TelegramBrandKt {
+	public static final fun getTelegramBrand (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/TextLargeKt {
+	public static final fun getTextLarge (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/TextSizeKt {
+	public static final fun getTextSize (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/TextSizeRoundFilledKt {
+	public static final fun getTextSizeRoundFilled (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/TextSizeRoundOutlineKt {
+	public static final fun getTextSizeRoundOutline (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/TextSmallKt {
+	public static final fun getTextSmall (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/TickRoundKt {
+	public static final fun getTickRound (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/TimerKt {
+	public static final fun getTimer (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/TransparentArrowLeftStraightRoundKt {
+	public static final fun getTransparentArrowLeftStraightRound (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/TwitterKt {
+	public static final fun getTwitter (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/UploadKt {
+	public static final fun getUpload (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/VideoKt {
+	public static final fun getVideo (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/WhatsAppBrandKt {
+	public static final fun getWhatsAppBrand (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/WhatsAppKt {
+	public static final fun getWhatsApp (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/gu/source/icons/base/WhiteArrowLeftStraightRoundKt {
+	public static final fun getWhiteArrowLeftStraightRound (Lcom/gu/source/Source$Icons$Base;)Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
 public final class com/gu/source/presets/palette/PaletteKt {
@@ -458,9 +1346,14 @@ public final class com/gu/source/presets/typography/TypographyKt {
 	public static final fun getHeadlineSemiBold14 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getHeadlineSemiBold15 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getHeadlineSemiBold16 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
+	public static final fun getHeadlineSemiBold17 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getHeadlineSemiBold18 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
+	public static final fun getHeadlineSemiBold20 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
+	public static final fun getHeadlineSemiBold22 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getHeadlineSemiBold24 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getHeadlineSemiBold28 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
+	public static final fun getHeadlineSemiBold34 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
+	public static final fun getHeadlineSemiBold42 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getHeadlineSemiBold50 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getTextArticle15 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
 	public static final fun getTextArticle17 (Lcom/gu/source/Source$Typography;)Landroidx/compose/ui/text/TextStyle;
@@ -518,6 +1411,20 @@ public final class com/gu/source/theme/ThemeKt {
 	public static final fun ReaderRevenueTheme (Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun SourceCoreTheme (Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun getLocalSourceTheme ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/gu/source/utils/DensityExtensionsKt {
+	public static final fun dpToPx (FLandroidx/compose/runtime/Composer;I)F
+	public static final fun dpToPx (ILandroidx/compose/runtime/Composer;I)F
+	public static final fun plus-NB67dxo (JJ)J
+	public static final fun pxToDp (FLandroidx/compose/runtime/Composer;I)F
+	public static final fun pxToDp (ILandroidx/compose/runtime/Composer;I)F
+	public static final fun pxToSp (FLandroidx/compose/runtime/Composer;I)J
+	public static final fun pxToSp (ILandroidx/compose/runtime/Composer;I)J
+	public static final fun toDp-o2QH7mI (JLandroidx/compose/runtime/Composer;I)F
+	public static final fun toPx-8Feqmps (FLandroidx/compose/runtime/Composer;I)F
+	public static final fun toPx-o2QH7mI (JLandroidx/compose/runtime/Composer;I)F
+	public static final fun toSp-8Feqmps (FLandroidx/compose/runtime/Composer;I)J
 }
 
 public final class com/gu/source/utils/PaddingValuesExtensionsKt {

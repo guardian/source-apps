@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.sp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.Check
+import com.gu.source.icons.base.Checkmark
 import com.gu.source.presets.palette.Brand400
 import com.gu.source.presets.palette.Neutral100
 import com.gu.source.presets.palette.Neutral38
@@ -269,7 +269,7 @@ internal fun CoreButtonIconBeforePreview() {
                                 iconSide = SourceButton.IconSide.Left,
                                 icon = {
                                     Icon(
-                                        imageVector = Source.Icons.Base.Check,
+                                        imageVector = Source.Icons.Base.Checkmark,
                                         contentDescription = null,
                                         modifier = it,
                                     )
@@ -309,7 +309,7 @@ internal fun RrButtonIconBeforePreview() {
                                     iconSide = SourceButton.IconSide.Left,
                                     icon = {
                                         Icon(
-                                            imageVector = Source.Icons.Base.Check,
+                                            imageVector = Source.Icons.Base.Checkmark,
                                             contentDescription = null,
                                             modifier = it,
                                         )
@@ -408,7 +408,7 @@ internal fun CoreButtonIconAfterPreview() {
                                 iconSide = SourceButton.IconSide.Right,
                                 icon = {
                                     Icon(
-                                        imageVector = Source.Icons.Base.Check,
+                                        imageVector = Source.Icons.Base.Checkmark,
                                         contentDescription = null,
                                         modifier = it,
                                     )
@@ -447,7 +447,7 @@ internal fun RrButtonIconAfterPreview() {
                                     iconSide = SourceButton.IconSide.Right,
                                     icon = {
                                         Icon(
-                                            imageVector = Source.Icons.Base.Check,
+                                            imageVector = Source.Icons.Base.Checkmark,
                                             contentDescription = null,
                                             modifier = it,
                                         )

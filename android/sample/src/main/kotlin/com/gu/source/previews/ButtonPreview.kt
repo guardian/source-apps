@@ -13,7 +13,7 @@ import com.gu.source.components.buttons.PlainSourceButton
 import com.gu.source.components.buttons.SourceButton
 import com.gu.source.components.buttons.SourceIconButton
 import com.gu.source.daynight.AppColour
-import com.gu.source.icons.Check
+import com.gu.source.icons.base.Checkmark
 import com.gu.source.presets.palette.Culture200
 import com.gu.source.presets.palette.Culture800
 import com.gu.source.presets.typography.TextSansBold17
@@ -32,7 +32,7 @@ internal fun ButtonPreview(modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.SpaceAround,
         ) {
             SourceIconButton(
-                icon = Source.Icons.Base.Check,
+                icon = Source.Icons.Base.Checkmark,
                 priority = SourceButton.Priority.PrimaryOnWhite,
                 contentDescription = null,
                 onClick = {},
@@ -45,7 +45,7 @@ internal fun ButtonPreview(modifier: Modifier = Modifier) {
                 size = SourceButton.Size.XSmall,
             )
             SourceIconButton(
-                icon = Source.Icons.Base.Check,
+                icon = Source.Icons.Base.Checkmark,
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 contentDescription = null,
                 onClick = {},
@@ -59,7 +59,7 @@ internal fun ButtonPreview(modifier: Modifier = Modifier) {
                 horizontalArrangement = Arrangement.SpaceAround,
             ) {
                 SourceIconButton(
-                    icon = Source.Icons.Base.Check,
+                    icon = Source.Icons.Base.Checkmark,
                     priority = SourceButton.Priority.PrimaryOnWhite,
                     contentDescription = null,
                     onClick = {},
@@ -72,7 +72,7 @@ internal fun ButtonPreview(modifier: Modifier = Modifier) {
                     size = SourceButton.Size.Small,
                 )
                 SourceIconButton(
-                    icon = Source.Icons.Base.Check,
+                    icon = Source.Icons.Base.Checkmark,
                     priority = SourceButton.Priority.TertiaryOnWhite,
                     contentDescription = null,
                     onClick = {},
@@ -86,7 +86,7 @@ internal fun ButtonPreview(modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.SpaceAround,
         ) {
             SourceIconButton(
-                icon = Source.Icons.Base.Check,
+                icon = Source.Icons.Base.Checkmark,
                 priority = SourceButton.Priority.PrimaryOnWhite,
                 contentDescription = null,
                 onClick = {},
@@ -101,7 +101,7 @@ internal fun ButtonPreview(modifier: Modifier = Modifier) {
                 enabled = false,
             )
             SourceIconButton(
-                icon = Source.Icons.Base.Check,
+                icon = Source.Icons.Base.Checkmark,
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 contentDescription = null,
                 onClick = {},

@@ -27,6 +27,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             }
 
             setupDetekt()
+            setupKotlinter()
 
             extensions.configure<ApplicationExtension> {
                 defaultConfig {

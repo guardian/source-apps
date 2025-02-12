@@ -3,6 +3,8 @@ import org.jmailen.gradle.kotlinter.tasks.FormatTask
 buildscript {
     dependencies {
         classpath(libs.other.composeLint)
+        // This is temporarily required till detekt catches up with the latest Kotlin version
+        classpath(libs.kotlin.compiler.embeddable)
     }
 }
 
@@ -17,6 +19,7 @@ plugins {
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.dokka) apply false
     alias(libs.plugins.gradle.binaryCompatibility)
+    alias(libs.plugins.metalava) apply false
 }
 
 group = libs.versions.group.get()

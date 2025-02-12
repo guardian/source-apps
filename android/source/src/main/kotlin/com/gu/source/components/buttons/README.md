@@ -28,10 +28,10 @@ SourceButton(
 )
 ```
 
-Using `SourceIconButton` with a Material Icon:
+Using `SourceIconButton` with a Source Icon:
 ```kotlin
 SourceIconButton(
-    icon = Icons.Default.Person,
+    icon = Source.Icons.Base.Checkmark,
     priority = SourceButton.Priority.SecondaryOnBlue,
     contentDescription = null,
     onClick = {},

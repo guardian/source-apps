@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.Check
+import com.gu.source.icons.base.Checkmark
 import com.gu.source.presets.palette.*
 import com.gu.source.theme.LocalSourceTheme
 import com.gu.source.theme.ReaderRevenueTheme
@@ -262,7 +262,7 @@ internal fun CoreIconButtonPreview() {
                     ) {
                         SourceButton.Size.entries.forEach { size ->
                             SourceIconButton(
-                                icon = Source.Icons.Base.Check,
+                                icon = Source.Icons.Base.Checkmark,
                                 priority = priority,
                                 contentDescription = null,
                                 onClick = {},
@@ -293,7 +293,7 @@ internal fun RrIconButtonPreview() {
                         ) {
                             SourceButton.Size.entries.forEach { size ->
                                 SourceIconButton(
-                                    icon = Source.Icons.Base.Check,
+                                    icon = Source.Icons.Base.Checkmark,
                                     priority = priority,
                                     contentDescription = null,
                                     onClick = {},
@@ -341,7 +341,7 @@ internal fun SourceBaseIconButtonPreview() {
                         enabled = it % 2 == 0,
                     ) { modifier ->
                         Icon(
-                            imageVector = Source.Icons.Base.Check,
+                            imageVector = Source.Icons.Base.Checkmark,
                             contentDescription = null,
                             modifier = modifier,
                         )
@@ -379,7 +379,7 @@ internal fun SourceBaseIconButtonPreview() {
                         enabled = it % 2 == 0,
                     ) { modifier ->
                         Icon(
-                            imageVector = Source.Icons.Base.Check,
+                            imageVector = Source.Icons.Base.Checkmark,
                             contentDescription = null,
                             modifier = modifier,
                         )

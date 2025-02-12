@@ -32,6 +32,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             }
 
             setupDetekt()
+            setupKotlinter()
 
             extensions.configure<LibraryExtension> {
                 configureAndroidModule<KotlinAndroidProjectExtension>(this)

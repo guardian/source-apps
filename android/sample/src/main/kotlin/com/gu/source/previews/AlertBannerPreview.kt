@@ -17,7 +17,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
-import com.gu.source.components.banner.AlertBanner
+import com.gu.source.components.banner.SourceAlertBanner
 import com.gu.source.daynight.AppColour
 import com.gu.source.presets.palette.Neutral0
 import com.gu.source.presets.palette.Neutral100
@@ -62,8 +62,8 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
                 )
             }
 
-            AlertBanner.Priority.entries.forEach { message ->
-                AlertBanner(
+            SourceAlertBanner.Priority.entries.forEach { message ->
+                SourceAlertBanner(
                     messageText = messageText,
                     priority = message,
                     onMessageClick = { showToast("${message.name} clicked", context) },
@@ -72,8 +72,8 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
                 )
             }
 
-            AlertBanner.Priority.entries.forEach { message ->
-                AlertBanner(
+            SourceAlertBanner.Priority.entries.forEach { message ->
+                SourceAlertBanner(
                     messageText = annotatedText,
                     priority = message,
                     onMessageClick = { showToast("${message.name} clicked", context) },

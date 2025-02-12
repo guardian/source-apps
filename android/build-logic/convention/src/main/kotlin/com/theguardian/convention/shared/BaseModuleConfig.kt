@@ -6,10 +6,11 @@ import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.*
 import org.gradle.plugin.use.PluginDependency
-import org.jetbrains.dokka.gradle.DokkaTask
+import org.jetbrains.dokka.gradle.DokkaExtension
+import org.jetbrains.dokka.gradle.engine.plugins.DokkaHtmlPluginParameters
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
-import org.jetbrains.kotlin.gradle.dsl.KotlinTopLevelExtension
 
 /**
  * The Version Catalog.
@@ -22,7 +23,7 @@ internal fun VersionCatalog.plugin(alias: String): PluginDependency = findPlugin
 /**
  * Sets up core config for all Android modules - application and library.
  */
-internal inline fun <reified T : KotlinTopLevelExtension> Project.configureAndroidModule(
+internal inline fun <reified T : KotlinBaseExtension> Project.configureAndroidModule(
     extension: CommonExtension<*, *, *, *, *, *>,
 ) {
     extension.apply {
@@ -42,7 +43,7 @@ internal inline fun <reified T : KotlinTopLevelExtension> Project.configureAndro
 /**
  * Adds the base dependencies that every module needs.
  */
-internal inline fun <reified T : KotlinTopLevelExtension> Project.addBaseDependencies() {
+internal inline fun <reified T : KotlinBaseExtension> Project.addBaseDependencies() {
     dependencies {
         add("implementation", libs.findLibrary("kotlin-stdlib").get())
         add("implementation", libs.findLibrary("javax-inject").get())
@@ -50,7 +51,7 @@ internal inline fun <reified T : KotlinTopLevelExtension> Project.addBaseDepende
     setupKotlinCompilerOptions<T>()
 }
 
-private inline fun <reified T : KotlinTopLevelExtension> Project.setupKotlinCompilerOptions() =
+private inline fun <reified T : KotlinBaseExtension> Project.setupKotlinCompilerOptions() =
     configure<T> {
         when (this) {
             is KotlinAndroidProjectExtension -> compilerOptions
@@ -74,24 +75,20 @@ private inline fun <reified T : KotlinTopLevelExtension> Project.setupKotlinComp
     }
 
 internal fun Project.dokkaConfig() {
-    tasks.withType<DokkaTask>().configureEach {
+    extensions.configure<DokkaExtension> {
 
         moduleName.set("Source for Android")
         moduleVersion.set("v." + libs.findVersion("libraryVersion").get().toString())
-        // outputDirectory.set(layout.buildDirectory.dir("../docs"))
+
+        dokkaPublications.named("html").configure {
+            enabled = true
+            // outputDirectory.set(layout.buildDirectory.dir("../docs"))
+        }
 
         // Config for HTML files
-        val dokkaBaseConfiguration = """
-        {
-          "customAssets": ["${file("../docsAssets/source-logo.png")}"],
-          "customStyleSheets": ["${file("../docsAssets/logo-styles.css")}"]
+        pluginsConfiguration.named<DokkaHtmlPluginParameters>("html").configure {
+            customStyleSheets.from("${file("../docsAssets/logo-styles.css")}")
+            customAssets.from("${file("../docsAssets/source-logo.png")}")
         }
-        """
-        pluginsMapConfiguration.set(
-            mapOf(
-                // fully qualified plugin name to json configuration
-                "org.jetbrains.dokka.base.DokkaBase" to dokkaBaseConfiguration,
-            ),
-        )
     }
 }

@@ -81,7 +81,6 @@ internal val ProgressButtonTouchAdjustment = 6.dp
  * is used inside a lazy column, then intrinsic size can't be measured. Padding is used to position
  * the items correctly vertically.
  */
-@Suppress("ktlint:compose:modifier-composable-check")
 @Composable
 private fun Modifier.progressBarPadding() = this
     .then(
