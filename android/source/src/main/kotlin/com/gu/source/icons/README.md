@@ -3,6 +3,8 @@
 Only the `Base` set of icons are available at the moment. `CircleOutlined` and `CircleFilled` icons 
 will be available in the future.
 
+API Documentation: [`Source.Icons.Base`][api-doc]
+
 ## Usage
 
 Access icons using `Source.Icons.Base` namespace.
@@ -211,3 +213,5 @@ SourceIconButton(
 1. `WhatsApp`
 1. `WhatsAppBrand`
 1. `WhiteArrowLeftStraightRound`
+
+[api-doc]: https://guardian.github.io/source-apps/android/docs/-source%20for%20-android/com.gu.source.icons.base/index.html

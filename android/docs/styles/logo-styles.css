@@ -1,0 +1,11 @@
+:root {
+    --dokka-logo-image-url: url('../images/source-logo.png');
+    --dokka-logo-height: 158px;
+    --dokka-logo-width: 50px;
+}
+
+/* logo custom rules styles */
+.library-name--link::before {
+    background-position: left;
+    width: 172px;
+}
