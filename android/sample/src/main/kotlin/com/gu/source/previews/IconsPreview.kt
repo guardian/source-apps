@@ -17,17 +17,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
-import com.gu.source.components.buttons.SourceButton
-import com.gu.source.components.buttons.SourceIconButton
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.*
 import com.gu.source.icons.base.*
 import com.gu.source.presets.palette.Neutral0
 import com.gu.source.presets.palette.Neutral100
 import com.gu.source.presets.typography.HeadlineBold20
 import com.gu.source.presets.typography.TextSans15
-import com.gu.source.presets.typography.TextSansBold15
 
 private val icons = listOf(
     Source.Icons.Base.AddToBasket,
@@ -227,7 +223,7 @@ internal fun IconsPreview(modifier: Modifier = Modifier) {
     ) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
-            contentPadding = PaddingValues(vertical = 8.dp),
+            contentPadding = PaddingValues(all = 8.dp),
         ) {
             item(span = { GridItemSpan(2) }) {
                 Text(
