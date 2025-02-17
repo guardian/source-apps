@@ -14,14 +14,13 @@ public struct SourceButtonStyle: ButtonStyle {
 
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .frame(maxWidth: .infinity)
+            .font(GuardianFont(style: .textSansBold, size: buttonSize.fontSize))
+            .scaleEffect(configuration.isPressed ? 0.95 : 1)
+            .foregroundColor(foregroundColor(for: buttonPriority))
             .padding(.vertical, buttonSize.verticalPad)
             .padding(.horizontal, buttonSize.horizontalPad)
-            .font(GuardianFont(style: .textSansBold, size: buttonSize.fontSize))
-            .foregroundColor(foregroundColor(for: buttonPriority))
             .background(backgroundShape(for: buttonPriority))
             .opacity(configuration.isPressed ? 0.8 : 1)
-            .scaleEffect(configuration.isPressed ? 0.95 : 1)
             .lineLimit(1)
     }
 
