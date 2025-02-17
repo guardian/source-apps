@@ -49,7 +49,7 @@ public struct SourceButtonStyle: ButtonStyle {
             case .tertiary:
                 Capsule()
                     .stroke(Color(uiColor: buttonTheme.foregroundColorTertiary))
-            case .subdubed:
+            case .subdued:
                 EmptyView()
 
             }
