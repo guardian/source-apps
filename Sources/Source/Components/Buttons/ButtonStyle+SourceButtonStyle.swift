@@ -14,14 +14,13 @@ public struct SourceButtonStyle: ButtonStyle {
 
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .frame(maxWidth: .infinity)
+            .font(GuardianFont(style: .textSansBold, size: buttonSize.fontSize))
+            .scaleEffect(configuration.isPressed ? 0.95 : 1)
+            .foregroundColor(foregroundColor(for: buttonPriority))
             .padding(.vertical, buttonSize.verticalPad)
             .padding(.horizontal, buttonSize.horizontalPad)
-            .font(GuardianFont(style: .textSansBold, size: buttonSize.fontSize))
-            .foregroundColor(foregroundColor(for: buttonPriority))
             .background(backgroundShape(for: buttonPriority))
             .opacity(configuration.isPressed ? 0.8 : 1)
-            .scaleEffect(configuration.isPressed ? 0.95 : 1)
             .lineLimit(1)
     }
 
@@ -33,7 +32,7 @@ public struct SourceButtonStyle: ButtonStyle {
             return Color(uiColor: buttonTheme.foregroundColorSecondary)
         case .tertiary:
             return Color(uiColor: buttonTheme.foregroundColorTertiary)
-        case .subdubed:
+        case .subdued:
             return Color(uiColor: buttonTheme.foregroundColorSubdued)
         }
     }
@@ -87,7 +86,7 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                 Button(action: {}) {
                     Text("Subdued")
                 }
-                .buttonStyle(.source(size: .medium, priority: .subdubed, theme: .brand))
+                .buttonStyle(.source(size: .medium, priority: .subdued, theme: .brand))
 
             } header: {
                 Text("Medium")
@@ -112,7 +111,7 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                 Button(action: {}) {
                     Text("Subdued")
                 }
-                .buttonStyle(.source(size: .small, priority: .subdubed, theme: .brand))
+                .buttonStyle(.source(size: .small, priority: .subdued, theme: .brand))
 
             } header: {
                 Text("Small")
@@ -137,7 +136,7 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                 Button(action: {}) {
                     Text("Subdued")
                 }
-                .buttonStyle(.source(size: .xsmall, priority: .subdubed, theme: .brand))
+                .buttonStyle(.source(size: .xsmall, priority: .subdued, theme: .brand))
 
             } header: {
                 Text("Xsmall")

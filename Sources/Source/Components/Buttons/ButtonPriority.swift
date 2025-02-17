@@ -15,5 +15,5 @@ public enum ButtonPriority {
     case tertiary
 
     /// Use only in a group with a primary button for low priority actions.
-    case subdubed
+    case subdued
 }
