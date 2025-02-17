@@ -32,7 +32,7 @@ public struct SourceButtonStyle: ButtonStyle {
             return Color(uiColor: buttonTheme.foregroundColorSecondary)
         case .tertiary:
             return Color(uiColor: buttonTheme.foregroundColorTertiary)
-        case .subdubed:
+        case .subdued:
             return Color(uiColor: buttonTheme.foregroundColorSubdued)
         }
     }
@@ -86,7 +86,7 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                 Button(action: {}) {
                     Text("Subdued")
                 }
-                .buttonStyle(.source(size: .medium, priority: .subdubed, theme: .brand))
+                .buttonStyle(.source(size: .medium, priority: .subdued, theme: .brand))
 
             } header: {
                 Text("Medium")
@@ -111,7 +111,7 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                 Button(action: {}) {
                     Text("Subdued")
                 }
-                .buttonStyle(.source(size: .small, priority: .subdubed, theme: .brand))
+                .buttonStyle(.source(size: .small, priority: .subdued, theme: .brand))
 
             } header: {
                 Text("Small")
@@ -136,7 +136,7 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                 Button(action: {}) {
                     Text("Subdued")
                 }
-                .buttonStyle(.source(size: .xsmall, priority: .subdubed, theme: .brand))
+                .buttonStyle(.source(size: .xsmall, priority: .subdued, theme: .brand))
 
             } header: {
                 Text("Xsmall")
