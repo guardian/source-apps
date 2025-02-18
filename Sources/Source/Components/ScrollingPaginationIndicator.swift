@@ -1,3 +1,4 @@
+#if os(iOS)
 import SwiftUI
 
 /// A scrolling page indicator, inspired by Instagram's paging indicator.
@@ -133,3 +134,4 @@ fileprivate extension Int {
         return self - 1
     }
 }
+#endif
