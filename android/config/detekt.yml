@@ -85,6 +85,7 @@ comments:
     searchInInnerObject: true
     searchInInnerInterface: true
     searchInProtectedClass: false
+    ignoreDefaultCompanionObject: true
     ignoreAnnotated:
       - 'Module'
   UndocumentedPublicFunction:
