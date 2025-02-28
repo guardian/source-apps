@@ -54,13 +54,13 @@ jobs:
       - name: Check licenses
         id: license-check
         run: |
+          cd android
           ./gradlew licensee
 
       - name: Run tests
         id: screenshot-tests
         if: ${{ steps.license-check.outcome == 'success' }}
         run: |
-          cd android
           ./gradlew verifyPaparazziDebug --continue --quiet
 
       - name: Create companion branch and comment content
