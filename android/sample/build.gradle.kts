@@ -1,6 +1,15 @@
 plugins {
     alias(libs.plugins.guardian.application)
     alias(libs.plugins.guardian.compose.application)
+    alias(libs.plugins.licensee)
+}
+
+licensee {
+    allow("Apache-2.0")
+    allow("MIT")
+    allowUrl("https://jsoup.org/license") {
+        because("JSoup copy of MIT license")
+    }
 }
 
 android {

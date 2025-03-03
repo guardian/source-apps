@@ -20,6 +20,7 @@ plugins {
     alias(libs.plugins.dokka) apply false
     alias(libs.plugins.gradle.binaryCompatibility)
     alias(libs.plugins.metalava) apply false
+    alias(libs.plugins.licensee) apply false
 }
 
 group = libs.versions.group.get()
