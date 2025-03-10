@@ -51,8 +51,15 @@ jobs:
         with:
           gradle-version: wrapper
       
+      - name: Check licenses
+        id: license-check
+        run: |
+          cd android
+          ./gradlew licensee
+
       - name: Run tests
         id: screenshot-tests
+        if: ${{ steps.license-check.outcome == 'success' }}
         run: |
           cd android
           ./gradlew verifyPaparazziDebug --continue --quiet
@@ -60,7 +67,7 @@ jobs:
       - name: Create companion branch and comment content
         id: create-companion-branch
         # Don't run on merge queue branches
-        if: ${{ !startsWith(github.ref, 'refs/heads/gh-readonly-queue/') && failure() }}
+        if: ${{ !startsWith(github.ref, 'refs/heads/gh-readonly-queue/') && failure() && steps.license-check.outcome == 'success' }}
         shell: bash
         env:
           PR_NUMBER: ${{ github.event.number }}
@@ -111,7 +118,7 @@ jobs:
         uses: peter-evans/find-comment@v3
         id: find-comment
         # Don't run on merge queue branches
-        if: ${{ always() && !startsWith(github.ref, 'refs/heads/gh-readonly-queue/') && github.ref != 'refs/heads/main' }}
+        if: ${{ always() && !startsWith(github.ref, 'refs/heads/gh-readonly-queue/') && github.ref != 'refs/heads/main' && steps.license-check.outcome == 'success' }}
         with:
           issue-number: ${{ github.event.number }}
           comment-author: 'github-actions[bot]'
@@ -120,7 +127,7 @@ jobs:
       - name: Add or update comment on PR
         uses: peter-evans/create-or-update-comment@v4
         # Don't run on merge queue branches, only run if screenshot tests failed and companion branch created
-        if: ${{ failure() && !startsWith(github.ref, 'refs/heads/gh-readonly-queue/')  && github.ref != 'refs/heads/main' && steps.screenshot-tests.outcome != 'success' && steps.create-companion-branch.outcome == 'success' }}
+        if: ${{ failure() && !startsWith(github.ref, 'refs/heads/gh-readonly-queue/')  && github.ref != 'refs/heads/main' && steps.screenshot-tests.outcome != 'success' && steps.create-companion-branch.outcome == 'success'}}
         with:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}
           issue-number: ${{ github.event.number }}
@@ -155,4 +162,3 @@ jobs:
               git push origin --delete "$branch"
             fi
           done
-
