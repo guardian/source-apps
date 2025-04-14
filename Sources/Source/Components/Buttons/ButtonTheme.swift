@@ -1,5 +1,5 @@
 //
-
+#if os(iOS)
 import Foundation
 import SwiftUI
 
@@ -76,3 +76,4 @@ public extension ButtonTheme {
         )
     )
 }
+#endif
