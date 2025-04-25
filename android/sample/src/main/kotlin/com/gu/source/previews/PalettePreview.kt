@@ -84,6 +84,7 @@ private val colours = mapOf(
         Colour("News500", Source.Palette.News500),
         Colour("News550", Source.Palette.News550),
         Colour("News600", Source.Palette.News600),
+        Colour("News700", Source.Palette.News700),
         Colour("News800", Source.Palette.News800),
     ),
     "Opinion" to listOf(
@@ -104,6 +105,7 @@ private val colours = mapOf(
         Colour("Sport400", Source.Palette.Sport400),
         Colour("Sport500", Source.Palette.Sport500),
         Colour("Sport600", Source.Palette.Sport600),
+        Colour("Sport700", Source.Palette.Sport700),
         Colour("Sport800", Source.Palette.Sport800),
     ),
     "Culture" to listOf(
