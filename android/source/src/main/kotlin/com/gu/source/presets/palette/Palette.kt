@@ -81,6 +81,8 @@ val Source.Palette.News550: Color
     get() = Color(color = 0xffff9081)
 val Source.Palette.News600: Color
     get() = Color(color = 0xffffbac8)
+val Source.Palette.News700: Color
+    get() = Color(color = 0xffffd8d1)
 val Source.Palette.News800: Color
     get() = Color(color = 0xfffff4f2)
 
@@ -117,6 +119,8 @@ val Source.Palette.Sport500: Color
     get() = Color(color = 0xff00b2ff)
 val Source.Palette.Sport600: Color
     get() = Color(color = 0xff90dcff)
+val Source.Palette.Sport700: Color
+    get() = Color(color = 0xffd8f1ff)
 val Source.Palette.Sport800: Color
     get() = Color(color = 0xfff1f8fc)
 
