@@ -104,6 +104,8 @@ val Source.Palette.Opinion550: Color
     get() = Color(color = 0xffff9941)
 val Source.Palette.Opinion600: Color
     get() = Color(color = 0xfff9b376)
+val Source.Palette.Opinion700: Color
+    get() = Color(color = 0xffffe7d4)
 val Source.Palette.Opinion800: Color
     get() = Color(color = 0xfffef9f5)
 

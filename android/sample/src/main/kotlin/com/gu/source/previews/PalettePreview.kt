@@ -96,6 +96,7 @@ private val colours = mapOf(
         Colour("Opinion500", Source.Palette.Opinion500),
         Colour("Opinion550", Source.Palette.Opinion550),
         Colour("Opinion600", Source.Palette.Opinion600),
+        Colour("Opinion700", Source.Palette.Opinion700),
         Colour("Opinion800", Source.Palette.Opinion800),
     ),
     "Sport" to listOf(
