@@ -1,5 +1,5 @@
 import SwiftUI
-
+#if os(iOS)
 /// This component used to signpost progression through a paginated view.
 ///
 /// On tablet, buttons are provided to allow users to navigate through the pages.
@@ -99,3 +99,4 @@ struct PaginationProgressBar_Previews_Container: PreviewProvider {
         Container()
     }
 }
+#endif
