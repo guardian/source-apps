@@ -7,6 +7,12 @@ public struct SubNavigationItemColorPalette {
     public let textColor: Color
     public let selectedTextColor: Color
 
+    public init(selectedBackgroundColor: Color, textColor: Color, selectedTextColor: Color) {
+        self.selectedBackgroundColor = selectedBackgroundColor
+        self.textColor = textColor
+        self.selectedTextColor = selectedTextColor
+    }
+
     public static var defaultPalette: SubNavigationItemColorPalette {
         SubNavigationItemColorPalette(
             selectedBackgroundColor: Color(

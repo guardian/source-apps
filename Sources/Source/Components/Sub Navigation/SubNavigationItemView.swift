@@ -11,6 +11,18 @@ public struct SubNavigationItemView: View {
     let isSelected: Bool
     let namespace: Namespace.ID
 
+    public init(
+        title: String,
+        palette: SubNavigationItemColorPalette = .defaultPalette,
+        isSelected: Bool,
+        namespace: Namespace.ID
+    ) {
+        self.title = title
+        self.palette = palette
+        self.isSelected = isSelected
+        self.namespace = namespace
+    }
+
     public var body: some View {
         VStack(alignment: .center) {
             Text(title)
