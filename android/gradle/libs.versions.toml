@@ -1,13 +1,13 @@
 [versions]
 group = "com.gu.source"
-libraryVersion = "0.8.3"
+libraryVersion = "0.8.4"
 compilesdk = "35"
 minsdk = "26"
 targetsdk = "34"
 java = "17"
 
 agp = "8.9.2"
-kotlin = "2.1.10"
+kotlin = "2.1.20"
 # Kotlinter version is tied closely to min & max Kotlin and Gradle versions. Update Kotlinter
 # when updating Kotlin. Check compatible versions here:
 # https://github.com/jeremymailen/kotlinter-gradle/blob/master/README.md#compatibility
