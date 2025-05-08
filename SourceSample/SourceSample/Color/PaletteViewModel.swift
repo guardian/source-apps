@@ -33,6 +33,7 @@ struct PaletteViewModel {
             ColorSwatch(color: ColorPalette.opinion500, description: "500"),
             ColorSwatch(color: ColorPalette.opinion550, description: "550"),
             ColorSwatch(color: ColorPalette.opinion600, description: "600"),
+            ColorSwatch(color: ColorPalette.opinion700, description: "700"),
             ColorSwatch(color: ColorPalette.opinion800, description: "800")
         ]),
         ColorSection(name: "Sport", colors: [

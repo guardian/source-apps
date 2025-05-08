@@ -82,6 +82,7 @@ public enum ColorPalette {
     public static let opinion500 = UIColor(resource: .opinion500)
     public static let opinion550 = UIColor(resource: .opinion550)
     public static let opinion600 = UIColor(resource: .opinion600)
+    public static let opinion700 = UIColor(resource: .opinion700)
     public static let opinion800 = UIColor(resource: .opinion800)
 
     // MARK: Special Report
