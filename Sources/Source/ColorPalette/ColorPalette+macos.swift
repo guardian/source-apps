@@ -79,6 +79,7 @@ public enum ColorPalette {
     public static let news500 = NSColor(resource: .news500)
     public static let news550 = NSColor(resource: .news550)
     public static let news600 = NSColor(resource: .news600)
+    public static let news700 = NSColor(resource: .news700)
     public static let news800 = NSColor(resource: .news800)
 
     // MARK: Opinion
@@ -89,6 +90,7 @@ public enum ColorPalette {
     public static let opinion500 = NSColor(resource: .opinion500)
     public static let opinion550 = NSColor(resource: .opinion550)
     public static let opinion600 = NSColor(resource: .opinion600)
+    public static let opinion700 = NSColor(resource: .opinion700)
     public static let opinion800 = NSColor(resource: .opinion800)
 
     // MARK: Special Report
@@ -115,6 +117,7 @@ public enum ColorPalette {
     public static let sport400 = NSColor(resource: .sport400)
     public static let sport500 = NSColor(resource: .sport500)
     public static let sport600 = NSColor(resource: .sport600)
+    public static let sport700 = NSColor(resource: .sport700)
     public static let sport800 = NSColor(resource: .sport800)
 
     // MARK: Success

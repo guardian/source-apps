@@ -23,6 +23,7 @@ struct PaletteViewModel {
             ColorSwatch(color: ColorPalette.news500, description: "500"),
             ColorSwatch(color: ColorPalette.news550, description: "550"),
             ColorSwatch(color: ColorPalette.news600, description: "600"),
+            ColorSwatch(color: ColorPalette.news700, description: "700"),
             ColorSwatch(color: ColorPalette.news800, description: "800")
         ]),
         ColorSection(name: "Opinion", colors: [
@@ -33,6 +34,7 @@ struct PaletteViewModel {
             ColorSwatch(color: ColorPalette.opinion500, description: "500"),
             ColorSwatch(color: ColorPalette.opinion550, description: "550"),
             ColorSwatch(color: ColorPalette.opinion600, description: "600"),
+            ColorSwatch(color: ColorPalette.opinion700, description: "700"),
             ColorSwatch(color: ColorPalette.opinion800, description: "800")
         ]),
         ColorSection(name: "Sport", colors: [
@@ -42,6 +44,7 @@ struct PaletteViewModel {
             ColorSwatch(color: ColorPalette.sport400, description: "400"),
             ColorSwatch(color: ColorPalette.sport500, description: "500"),
             ColorSwatch(color: ColorPalette.sport600, description: "600"),
+            ColorSwatch(color: ColorPalette.sport700, description: "700"),
             ColorSwatch(color: ColorPalette.sport800, description: "800")
         ]),
         ColorSection(name: "Culture", colors: [
