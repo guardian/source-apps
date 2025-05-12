@@ -44,6 +44,4 @@ updates:
     labels:
       - "Dependency Update"
       - "Android"
-    reviewers:
-      - "guardian/android-developers"
     open-pull-requests-limit: 1
