@@ -24,7 +24,6 @@ dokka = "2.0.0"
 inject = "1"
 kotlinx-collections-immutable = "0.3.8"
 licensee = "1.13.0"
-lifecycleRuntimeKtx = "2.9.0"
 lint-gradle = "1.0.0-alpha04"
 nexus-publish = "2.0.0"
 timber = "5.0.1"
@@ -53,7 +52,6 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 androidx-compose-material3-windowSize = { group = "androidx.compose.material3", name = "material3-window-size-class" }
 androidx-compose-uiTest = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-lint-gradle = { module = "androidx.lint:lint-gradle", version.ref = "lint-gradle" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
