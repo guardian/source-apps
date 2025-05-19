@@ -14,8 +14,6 @@ updates:
     labels:
       - "Dependency Update"
       - "Android"
-    reviewers:
-      - "guardian/android-developers"
     groups:
       # Request that all kotlin specific dependencies are grouped together
       kotlin:
