@@ -162,7 +162,7 @@ val Source.Palette.Lifestyle500: Color
 val Source.Palette.Lifestyle600: Color
     get() = Color(color = 0xfffec8d3)
 val Source.Palette.Lifestyle800: Color
-    get() = Color(color = 0xfffeeef7)
+    get() = Color(color = 0xfffef1f8)
 
 val Source.Palette.SpecialReport100: Color
     get() = Color(color = 0xff222527)
