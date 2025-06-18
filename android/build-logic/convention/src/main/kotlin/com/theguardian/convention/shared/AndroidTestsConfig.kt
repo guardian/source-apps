@@ -44,7 +44,7 @@ private fun CommonExtension<*, *, *, *, *, *>.configureGradleManagedDevices() {
                     // Use device profiles you typically see in Android Studio.
                     device = "Pixel 8"
                     // Use only API levels 27 and higher.
-                    apiLevel = 33
+                    apiLevel = 36
                     // To include Google services, use the "google"/"google-atd" variants
                     // "aosp-atd"/"google-atd"/"aosp"/"google"
                     systemImageSource = "aosp-atd"
