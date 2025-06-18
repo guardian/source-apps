@@ -18,11 +18,11 @@ val Source.Icons.Base.NewspaperArchive: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(5.423f, 4f)
                 lineTo(3.944f, 5.479f)

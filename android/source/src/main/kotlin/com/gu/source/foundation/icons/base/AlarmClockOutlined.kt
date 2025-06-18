@@ -18,11 +18,11 @@ val Source.Icons.Base.AlarmClockOutlined: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(3.7f, 4.904f)
                 curveTo(2.902f, 3.856f, 3.107f, 2.366f, 4.156f, 1.568f)

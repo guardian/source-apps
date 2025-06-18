@@ -18,7 +18,7 @@ val Source.Icons.Base.AddToBasket: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(fill = SolidColor(Color(0xFF052962))) {
                 moveTo(11.425f, 18.031f)
@@ -38,7 +38,7 @@ val Source.Icons.Base.AddToBasket: ImageVector
             }
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(11.31f, 3.578f)
                 lineTo(10.776f, 3.753f)

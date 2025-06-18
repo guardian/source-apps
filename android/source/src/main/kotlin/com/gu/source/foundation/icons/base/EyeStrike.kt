@@ -18,11 +18,11 @@ val Source.Icons.Base.EyeStrike: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(14.215f, 5.698f)
                 curveTo(13.466f, 5.447f, 12.719f, 5.299f, 12f, 5.299f)

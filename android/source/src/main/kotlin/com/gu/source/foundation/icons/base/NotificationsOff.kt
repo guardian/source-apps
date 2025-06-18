@@ -18,11 +18,11 @@ val Source.Icons.Base.NotificationsOff: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(1.672f, 11.924f)
                 curveTo(1.672f, 14.58f, 2.607f, 17.014f, 4.107f, 18.981f)

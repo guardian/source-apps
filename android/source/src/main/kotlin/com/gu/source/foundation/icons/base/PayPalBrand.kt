@@ -17,7 +17,7 @@ val Source.Icons.Base.PayPalBrand: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(fill = SolidColor(Color(0xFFA7B4C8))) {
                 moveTo(18.108f, 7.573f)

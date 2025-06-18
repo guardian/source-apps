@@ -18,11 +18,11 @@ val Source.Icons.Base.ShareWeb: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(19f, 16f)
                 curveTo(20.675f, 16f, 22f, 17.35f, 22f, 19f)

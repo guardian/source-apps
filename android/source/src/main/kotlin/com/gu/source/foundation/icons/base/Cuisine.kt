@@ -18,7 +18,7 @@ val Source.Icons.Base.Cuisine: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(fill = SolidColor(Color(0xFF052962))) {
                 moveTo(16.944f, 9.242f)
@@ -30,7 +30,7 @@ val Source.Icons.Base.Cuisine: ImageVector
             }
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(6.206f, 18.961f)
                 curveTo(7.347f, 17.929f, 8.757f, 17.195f, 10.316f, 16.881f)

@@ -18,11 +18,11 @@ val Source.Icons.Base.DirectDebitWide: ImageVector
             defaultWidth = 48.dp,
             defaultHeight = 24.dp,
             viewportWidth = 48f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(22.64f, 7.676f)
                 horizontalLineTo(25.026f)

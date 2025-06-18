@@ -21,8 +21,8 @@ import com.gu.source.components.buttons.SourceBaseIconButton
 import com.gu.source.components.buttons.SourceButton
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.base.ChevronLeftSingle
-import com.gu.source.icons.base.ChevronRightSingle
+import com.gu.source.foundation.icons.base.ChevronLeftSingle
+import com.gu.source.foundation.icons.base.ChevronRightSingle
 import com.gu.source.foundation.palette.Neutral10
 import com.gu.source.foundation.palette.Neutral100
 import com.gu.source.utils.PreviewPhoneBothMode

@@ -18,11 +18,11 @@ val Source.Icons.Base.Twitter: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(24f, 6.1f)
                 curveTo(23.125f, 6.475f, 22.35f, 6.7f, 21.375f, 6.825f)

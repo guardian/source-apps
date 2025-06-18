@@ -18,11 +18,11 @@ val Source.Icons.Base.MealTypes: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(15.359f, 11.426f)
                 curveTo(14.786f, 11.426f, 14.24f, 11.548f, 13.747f, 11.769f)
@@ -43,7 +43,7 @@ val Source.Icons.Base.MealTypes: ImageVector
             }
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(12.016f, 3.75f)
                 curveTo(10.811f, 3.75f, 9.668f, 4.007f, 8.638f, 4.469f)

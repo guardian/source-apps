@@ -18,11 +18,11 @@ val Source.Icons.Base.ClockOutlined: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(2f, 12f)
                 curveTo(2f, 17.51f, 6.49f, 22f, 12f, 22f)

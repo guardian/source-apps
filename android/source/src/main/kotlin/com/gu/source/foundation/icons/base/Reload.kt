@@ -18,11 +18,11 @@ val Source.Icons.Base.Reload: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(12.019f, 22f)
                 curveTo(15.436f, 22f, 18.465f, 20.269f, 20.242f, 17.649f)

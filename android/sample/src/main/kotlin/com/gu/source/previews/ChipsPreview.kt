@@ -1,10 +1,20 @@
 package com.gu.source.previews
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -16,7 +26,7 @@ import com.gu.source.components.chips.SourceChip
 import com.gu.source.components.chips.SourceChipSupportingButton
 import com.gu.source.components.chips.SourceMultiSelectChip
 import com.gu.source.daynight.AppColour
-import com.gu.source.icons.base.Plus
+import com.gu.source.foundation.icons.base.Plus
 import com.gu.source.foundation.typography.TextSans14
 import com.gu.source.foundation.typography.TextSansBold17
 import kotlinx.coroutines.delay

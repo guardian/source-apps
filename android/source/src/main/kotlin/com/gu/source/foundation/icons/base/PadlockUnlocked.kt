@@ -18,11 +18,11 @@ val Source.Icons.Base.PadlockUnlocked: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(9.5f, 7.903f)
                 curveTo(9.5f, 6.653f, 10.527f, 5.625f, 11.813f, 5.625f)

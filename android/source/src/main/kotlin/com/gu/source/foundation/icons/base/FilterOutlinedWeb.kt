@@ -18,11 +18,11 @@ val Source.Icons.Base.FilterOutlinedWeb: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(21.167f, 12.057f)
                 curveTo(21.167f, 17.12f, 17.063f, 21.224f, 12f, 21.224f)

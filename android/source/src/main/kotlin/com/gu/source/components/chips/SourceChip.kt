@@ -39,8 +39,8 @@ import com.gu.source.components.HorizontalExpandingText
 import com.gu.source.components.chips.SourceChip.CheckIconHeight
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.base.Checkmark
-import com.gu.source.icons.base.Plus
+import com.gu.source.foundation.icons.base.Checkmark
+import com.gu.source.foundation.icons.base.Plus
 import com.gu.source.foundation.palette.Neutral10
 import com.gu.source.foundation.palette.Neutral38
 import com.gu.source.foundation.palette.Neutral86
@@ -57,9 +57,7 @@ import kotlinx.coroutines.delay
 object SourceChip {
     /** Supported `SourceChip` sizes. */
     @Suppress("UndocumentedPublicProperty")
-    enum class Size(
-        internal val height: Dp,
-    ) {
+    enum class Size(internal val height: Dp) {
         Small(32.dp),
         Medium(40.dp),
     }

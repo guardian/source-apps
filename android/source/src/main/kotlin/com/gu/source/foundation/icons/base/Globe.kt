@@ -18,11 +18,11 @@ val Source.Icons.Base.Globe: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(20f, 12f)
                 curveTo(20f, 12.715f, 19.906f, 13.408f, 19.73f, 14.068f)

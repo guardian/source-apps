@@ -9,9 +9,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(TestParameterInjector::class)
-class SourceAlertBannerTest(
-    @TestParameter private val nightMode: NightMode,
-) {
+class SourceAlertBannerTest(@TestParameter private val nightMode: NightMode) {
     @get:Rule
     val paparazzi = createComponentPaparazziRule(nightMode)
 

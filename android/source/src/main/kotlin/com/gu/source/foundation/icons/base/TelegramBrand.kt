@@ -19,17 +19,17 @@ val Source.Icons.Base.TelegramBrand: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = Brush.linearGradient(
                     colorStops = arrayOf(
                         0f to Color(0xFF2AABEE),
-                        1f to Color(0xFF229ED9)
+                        1f to Color(0xFF229ED9),
                     ),
                     start = Offset(11.874f, 1.812f),
-                    end = Offset(11.874f, 21.938f)
-                )
+                    end = Offset(11.874f, 21.938f),
+                ),
             ) {
                 moveTo(12f, 22f)
                 curveTo(17.523f, 22f, 22f, 17.523f, 22f, 12f)

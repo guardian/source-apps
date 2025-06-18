@@ -18,11 +18,11 @@ val Source.Icons.Base.MagnifyingGlassSadFace: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(9.273f, 2f)
                 curveTo(10.273f, 2f, 11.227f, 2.182f, 12.114f, 2.568f)

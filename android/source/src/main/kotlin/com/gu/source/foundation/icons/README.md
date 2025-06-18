@@ -214,4 +214,4 @@ SourceIconButton(
 1. `WhatsAppBrand`
 1. `WhiteArrowLeftStraightRound`
 
-[api-doc]: https://guardian.github.io/source-apps/android/docs/-source%20for%20-android/com.gu.source.icons.base/index.html
+[api-doc]: https://guardian.github.io/source-apps/android/docs/-source%20for%20-android/com.gu.source.foundation.icons.base/index.html

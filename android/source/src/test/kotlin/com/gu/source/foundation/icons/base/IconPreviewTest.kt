@@ -1,6 +1,5 @@
-package com.gu.source.icons
+package com.gu.source.foundation.icons.base
 
-import com.gu.source.icons.base.IconPreview
 import com.gu.source.utils.paparazzi.BaseDeviceConfig
 import com.gu.source.utils.paparazzi.createScreenPaparazziRule
 import org.junit.Rule

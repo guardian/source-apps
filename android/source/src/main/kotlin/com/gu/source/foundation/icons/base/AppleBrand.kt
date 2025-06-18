@@ -17,7 +17,7 @@ val Source.Icons.Base.AppleBrand: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(fill = SolidColor(Color(0xFF000000))) {
                 moveTo(12.379f, 5.615f)

@@ -17,7 +17,7 @@ val Source.Icons.Base.HomeSquareFilled: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(fill = SolidColor(Color(0xFF052962))) {
                 moveTo(10.25f, 2.875f)

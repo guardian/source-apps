@@ -18,11 +18,11 @@ val Source.Icons.Base.Moon: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(8.035f, 0f)
                 curveTo(6.767f, 0.547f, 5.549f, 1.318f, 4.48f, 2.312f)

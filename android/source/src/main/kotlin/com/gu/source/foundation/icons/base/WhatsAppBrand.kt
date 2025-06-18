@@ -20,7 +20,7 @@ val Source.Icons.Base.WhatsAppBrand: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             group(
                 clipPathData = PathData {
@@ -30,7 +30,7 @@ val Source.Icons.Base.WhatsAppBrand: ImageVector
                     horizontalLineTo(2f)
                     verticalLineTo(2f)
                     close()
-                }
+                },
             ) {
             }
             group(
@@ -41,7 +41,7 @@ val Source.Icons.Base.WhatsAppBrand: ImageVector
                     horizontalLineTo(22f)
                     verticalLineTo(2f)
                     close()
-                }
+                },
             ) {
                 path(fill = SolidColor(Color(0xFF2EDB2A))) {
                     moveTo(12f, 20.889f)
@@ -65,7 +65,7 @@ val Source.Icons.Base.WhatsAppBrand: ImageVector
                 }
                 path(
                     fill = SolidColor(Color(0xFFFFFFFF)),
-                    pathFillType = PathFillType.EvenOdd
+                    pathFillType = PathFillType.EvenOdd,
                 ) {
                     moveTo(19.086f, 4.906f)
                     curveTo(17.206f, 3.033f, 14.706f, 2.002f, 12.042f, 2f)

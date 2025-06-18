@@ -548,7 +548,11 @@ internal fun TitlepiecePreview() {
 }
 
 @Composable
-private fun TextPreview(text: String, style: TextStyle, modifier: Modifier = Modifier) {
+private fun TextPreview(
+    text: String,
+    style: TextStyle,
+    modifier: Modifier = Modifier,
+) {
     Text(
         text = text,
         style = style,

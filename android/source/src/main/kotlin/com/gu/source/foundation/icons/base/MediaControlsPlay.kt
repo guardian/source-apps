@@ -20,7 +20,7 @@ val Source.Icons.Base.MediaControlsPlay: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             group(
                 clipPathData = PathData {
@@ -29,11 +29,11 @@ val Source.Icons.Base.MediaControlsPlay: ImageVector
                     verticalLineToRelative(14f)
                     horizontalLineToRelative(-11.2f)
                     close()
-                }
+                },
             ) {
                 path(
                     fill = SolidColor(Color(0xFF052962)),
-                    pathFillType = PathFillType.EvenOdd
+                    pathFillType = PathFillType.EvenOdd,
                 ) {
                     moveTo(19.2f, 12.39f)
                     verticalLineTo(11.67f)

@@ -18,11 +18,11 @@ val Source.Icons.Base.FacebookMessenger: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFF052962)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(8.848f, 20.061f)
                 curveTo(9.848f, 20.364f, 10.909f, 20.515f, 12f, 20.515f)

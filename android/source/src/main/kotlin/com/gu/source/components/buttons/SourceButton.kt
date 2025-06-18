@@ -4,7 +4,13 @@ import android.annotation.SuppressLint
 import androidx.annotation.Discouraged
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,18 +23,18 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
+import com.gu.source.components.theme.LocalSourceTheme
+import com.gu.source.components.theme.ReaderRevenueTheme
+import com.gu.source.components.theme.SourceCoreTheme
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.base.Checkmark
+import com.gu.source.foundation.icons.base.Checkmark
 import com.gu.source.foundation.palette.Brand400
 import com.gu.source.foundation.palette.Neutral100
 import com.gu.source.foundation.palette.Neutral38
 import com.gu.source.foundation.palette.Neutral7
 import com.gu.source.foundation.typography.TextSansBold14
 import com.gu.source.foundation.typography.TextSansBold17
-import com.gu.source.components.theme.LocalSourceTheme
-import com.gu.source.components.theme.ReaderRevenueTheme
-import com.gu.source.components.theme.SourceCoreTheme
 import com.gu.source.utils.PreviewPhoneBothMode
 
 /**

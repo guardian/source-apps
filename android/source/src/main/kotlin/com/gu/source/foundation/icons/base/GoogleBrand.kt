@@ -18,11 +18,11 @@ val Source.Icons.Base.GoogleBrand: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFFD7282A)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(3.545f, 7.648f)
                 curveTo(3.94f, 6.778f, 4.499f, 6.019f, 5.155f, 5.332f)
@@ -39,7 +39,7 @@ val Source.Icons.Base.GoogleBrand: ImageVector
             }
             path(
                 fill = SolidColor(Color(0xFF45AC43)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(12.143f, 21.691f)
                 curveTo(9.984f, 21.689f, 7.962f, 20.996f, 6.104f, 19.529f)
@@ -59,7 +59,7 @@ val Source.Icons.Base.GoogleBrand: ImageVector
             }
             path(
                 fill = SolidColor(Color(0xFF5D7FBE)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(18.615f, 19.337f)
                 curveTo(18.434f, 19.197f, 18.254f, 19.056f, 18.074f, 18.916f)
@@ -87,7 +87,7 @@ val Source.Icons.Base.GoogleBrand: ImageVector
             }
             path(
                 fill = SolidColor(Color(0xFFF4C300)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(6.703f, 13.872f)
                 curveTo(5.648f, 14.691f, 4.592f, 15.511f, 3.537f, 16.33f)
