@@ -39,7 +39,7 @@ internal fun Project.configureAndroidTests(
 private fun CommonExtension<*, *, *, *, *, *>.configureGradleManagedDevices() {
     testOptions {
         managedDevices {
-            devices {
+            allDevices {
                 maybeCreate("ciDevice", ManagedVirtualDevice::class.java).apply {
                     // Use device profiles you typically see in Android Studio.
                     device = "Pixel 8"
