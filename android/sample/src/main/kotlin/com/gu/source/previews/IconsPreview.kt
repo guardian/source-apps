@@ -20,10 +20,10 @@ import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.base.*
-import com.gu.source.presets.palette.Neutral0
-import com.gu.source.presets.palette.Neutral100
-import com.gu.source.presets.typography.HeadlineBold20
-import com.gu.source.presets.typography.TextSans15
+import com.gu.source.foundation.palette.Neutral0
+import com.gu.source.foundation.palette.Neutral100
+import com.gu.source.foundation.typography.HeadlineBold20
+import com.gu.source.foundation.typography.TextSans15
 
 private val icons = listOf(
     Source.Icons.Base.AddToBasket,

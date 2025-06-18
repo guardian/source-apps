@@ -6,6 +6,15 @@ import com.gu.source.Source.Theme.Core
 import com.gu.source.Source.Theme.ReaderRevenue
 import com.gu.source.components.buttons.SourceButton.Priority.*
 import com.gu.source.daynight.AppColour
+import com.gu.source.foundation.palette.Brand400
+import com.gu.source.foundation.palette.Brand600
+import com.gu.source.foundation.palette.Brand800
+import com.gu.source.foundation.palette.BrandAlt200
+import com.gu.source.foundation.palette.BrandAlt400
+import com.gu.source.foundation.palette.Neutral100
+import com.gu.source.foundation.palette.Neutral86
+import com.gu.source.foundation.palette.Neutral97
+import com.gu.source.foundation.palette.SpecialReport400
 import com.gu.source.presets.palette.*
 
 /**

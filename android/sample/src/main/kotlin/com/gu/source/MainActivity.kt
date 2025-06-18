@@ -16,11 +16,11 @@ import androidx.compose.ui.unit.dp
 import com.gu.source.components.buttons.SourceButton
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.presets.palette.Brand400
-import com.gu.source.presets.palette.Neutral10
-import com.gu.source.presets.palette.Neutral100
-import com.gu.source.presets.palette.Neutral97
-import com.gu.source.presets.typography.HeadlineMedium20
+import com.gu.source.foundation.palette.Brand400
+import com.gu.source.foundation.palette.Neutral10
+import com.gu.source.foundation.palette.Neutral100
+import com.gu.source.foundation.palette.Neutral97
+import com.gu.source.foundation.typography.HeadlineMedium20
 import com.gu.source.previews.*
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.plus

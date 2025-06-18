@@ -20,10 +20,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
 import androidx.compose.ui.util.lerp
 import com.gu.source.Source
-import com.gu.source.presets.palette.Labs400
-import com.gu.source.presets.palette.Neutral73
-import com.gu.source.presets.palette.News550
-import com.gu.source.presets.palette.Sport500
+import com.gu.source.foundation.palette.Labs400
+import com.gu.source.foundation.palette.Neutral73
+import com.gu.source.foundation.palette.News550
+import com.gu.source.foundation.palette.Sport500
 import kotlinx.coroutines.delay
 import kotlin.math.absoluteValue
 

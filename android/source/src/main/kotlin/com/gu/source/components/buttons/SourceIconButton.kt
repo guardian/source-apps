@@ -19,11 +19,18 @@ import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
+import com.gu.source.foundation.palette.Culture200
+import com.gu.source.foundation.palette.Culture600
+import com.gu.source.foundation.palette.Neutral100
+import com.gu.source.foundation.palette.Neutral38
+import com.gu.source.foundation.palette.Neutral7
+import com.gu.source.foundation.palette.Sport200
+import com.gu.source.foundation.palette.Sport600
 import com.gu.source.icons.base.Checkmark
 import com.gu.source.presets.palette.*
-import com.gu.source.theme.LocalSourceTheme
-import com.gu.source.theme.ReaderRevenueTheme
-import com.gu.source.theme.SourceCoreTheme
+import com.gu.source.components.theme.LocalSourceTheme
+import com.gu.source.components.theme.ReaderRevenueTheme
+import com.gu.source.components.theme.SourceCoreTheme
 import com.gu.source.utils.PreviewPhoneBothMode
 
 private const val ReaderRevenueSecondaryThemeErrorMessage =

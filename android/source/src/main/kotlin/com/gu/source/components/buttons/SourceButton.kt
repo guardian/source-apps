@@ -20,15 +20,15 @@ import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.icons.base.Checkmark
-import com.gu.source.presets.palette.Brand400
-import com.gu.source.presets.palette.Neutral100
-import com.gu.source.presets.palette.Neutral38
-import com.gu.source.presets.palette.Neutral7
-import com.gu.source.presets.typography.TextSansBold14
-import com.gu.source.presets.typography.TextSansBold17
-import com.gu.source.theme.LocalSourceTheme
-import com.gu.source.theme.ReaderRevenueTheme
-import com.gu.source.theme.SourceCoreTheme
+import com.gu.source.foundation.palette.Brand400
+import com.gu.source.foundation.palette.Neutral100
+import com.gu.source.foundation.palette.Neutral38
+import com.gu.source.foundation.palette.Neutral7
+import com.gu.source.foundation.typography.TextSansBold14
+import com.gu.source.foundation.typography.TextSansBold17
+import com.gu.source.components.theme.LocalSourceTheme
+import com.gu.source.components.theme.ReaderRevenueTheme
+import com.gu.source.components.theme.SourceCoreTheme
 import com.gu.source.utils.PreviewPhoneBothMode
 
 /**

@@ -14,10 +14,10 @@ import com.gu.source.components.buttons.SourceButton
 import com.gu.source.components.buttons.SourceIconButton
 import com.gu.source.daynight.AppColour
 import com.gu.source.icons.base.Checkmark
-import com.gu.source.presets.palette.Culture200
-import com.gu.source.presets.palette.Culture800
-import com.gu.source.presets.typography.TextSansBold17
-import com.gu.source.theme.ReaderRevenueTheme
+import com.gu.source.foundation.palette.Culture200
+import com.gu.source.foundation.palette.Culture800
+import com.gu.source.foundation.typography.TextSansBold17
+import com.gu.source.components.theme.ReaderRevenueTheme
 
 @Composable
 internal fun ButtonPreview(modifier: Modifier = Modifier) {
