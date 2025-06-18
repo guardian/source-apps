@@ -313,6 +313,17 @@ package com.gu.source.components.pager {
 
 }
 
+package com.gu.source.components.theme {
+
+  public final class ThemeKt {
+    method @androidx.compose.runtime.Composable public static void ReaderRevenueTheme(optional androidx.compose.ui.Modifier modifier, kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> content);
+    method @androidx.compose.runtime.Composable public static void SourceCoreTheme(optional androidx.compose.ui.Modifier modifier, kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> content);
+    method public static androidx.compose.runtime.ProvidableCompositionLocal<com.gu.source.Source.Theme> getLocalSourceTheme();
+    property public static final androidx.compose.runtime.ProvidableCompositionLocal<com.gu.source.Source.Theme> LocalSourceTheme;
+  }
+
+}
+
 package com.gu.source.daynight {
 
   public class AppColour {
@@ -337,7 +348,7 @@ package com.gu.source.daynight {
 
 }
 
-package com.gu.source.icons.base {
+package com.gu.source.foundation.icons.base {
 
   public final class AddToBasketKt {
     method public static androidx.compose.ui.graphics.vector.ImageVector getAddToBasket(com.gu.source.Source.Icons.Base);
@@ -1085,7 +1096,7 @@ package com.gu.source.icons.base {
 
 }
 
-package com.gu.source.presets.palette {
+package com.gu.source.foundation.palette {
 
   public final class PaletteKt {
     method public static long getBrand100(com.gu.source.Source.Palette);
@@ -1139,6 +1150,7 @@ package com.gu.source.presets.palette {
     method public static long getNews500(com.gu.source.Source.Palette);
     method public static long getNews550(com.gu.source.Source.Palette);
     method public static long getNews600(com.gu.source.Source.Palette);
+    method public static long getNews700(com.gu.source.Source.Palette);
     method public static long getNews800(com.gu.source.Source.Palette);
     method public static long getOpinion100(com.gu.source.Source.Palette);
     method public static long getOpinion200(com.gu.source.Source.Palette);
@@ -1148,6 +1160,7 @@ package com.gu.source.presets.palette {
     method public static long getOpinion500(com.gu.source.Source.Palette);
     method public static long getOpinion550(com.gu.source.Source.Palette);
     method public static long getOpinion600(com.gu.source.Source.Palette);
+    method public static long getOpinion700(com.gu.source.Source.Palette);
     method public static long getOpinion800(com.gu.source.Source.Palette);
     method public static long getSpecialReport100(com.gu.source.Source.Palette);
     method public static long getSpecialReport200(com.gu.source.Source.Palette);
@@ -1168,6 +1181,7 @@ package com.gu.source.presets.palette {
     method public static long getSport400(com.gu.source.Source.Palette);
     method public static long getSport500(com.gu.source.Source.Palette);
     method public static long getSport600(com.gu.source.Source.Palette);
+    method public static long getSport700(com.gu.source.Source.Palette);
     method public static long getSport800(com.gu.source.Source.Palette);
     method public static long getSuccess300(com.gu.source.Source.Palette);
     method public static long getSuccess400(com.gu.source.Source.Palette);
@@ -1176,7 +1190,7 @@ package com.gu.source.presets.palette {
 
 }
 
-package com.gu.source.presets.typography {
+package com.gu.source.foundation.typography {
 
   public final class TypographyKt {
     method public static androidx.compose.ui.text.TextStyle getHeadlineBold14(com.gu.source.Source.Typography);
@@ -1301,17 +1315,6 @@ package com.gu.source.presets.typography {
     method public static androidx.compose.ui.text.TextStyle getTitlepiece42(com.gu.source.Source.Typography);
     method public static androidx.compose.ui.text.TextStyle getTitlepiece50(com.gu.source.Source.Typography);
     method public static androidx.compose.ui.text.TextStyle getTitlepiece70(com.gu.source.Source.Typography);
-  }
-
-}
-
-package com.gu.source.theme {
-
-  public final class ThemeKt {
-    method @androidx.compose.runtime.Composable public static void ReaderRevenueTheme(optional androidx.compose.ui.Modifier modifier, kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> content);
-    method @androidx.compose.runtime.Composable public static void SourceCoreTheme(optional androidx.compose.ui.Modifier modifier, kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> content);
-    method public static androidx.compose.runtime.ProvidableCompositionLocal<com.gu.source.Source.Theme> getLocalSourceTheme();
-    property public static final androidx.compose.runtime.ProvidableCompositionLocal<com.gu.source.Source.Theme> LocalSourceTheme;
   }
 
 }
