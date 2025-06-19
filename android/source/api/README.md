@@ -1,11 +1,6 @@
 # API compatibility checks
 
-## Using Gradle compatibility checker
-
-* Run `./gradlew :source:apiDump` to update the baseline.
-* Run `./gradlew :source:apiCheck` to compare the current API with the baseline.
-
-## Using Metalava (preferred)
+## Using Metalava
 
 * Run `./gradlew :source:metalavaGenerateSignatureRelease` to update the baseline.
 * Run `./gradlew :source:metalavaCheckCompatibilityRelease` to compare the current API with the 
