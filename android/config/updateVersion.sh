@@ -1,6 +1,12 @@
 #!/usr/bin/env sh
 
-set -e
+ORIGINAL_DIR=$(pwd)
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+ANDROID_CONFIG_DIR="$(cd "$SCRIPT_DIR" && pwd)"
+
+if [ "$ORIGINAL_DIR" != "$ANDROID_CONFIG_DIR" ]; then
+  cd "$ANDROID_CONFIG_DIR"
+fi
 
 # 1. Read version from "version.txt" file in the root of the project (android/)
 VERSION_FILE="../version.txt"
@@ -20,12 +26,10 @@ EOF
 cp "$API_FILE" "$TMP_API_FILE"
 
 # 3. Run `./gradlew :source:metalavaCheckCompatibilityRelease` from android/
-set +e
 cd ..
 ./gradlew :source:metalavaCheckCompatibilityRelease
 RESULT=$?
 cd config
-set -e
 
 if [ $RESULT -ne 0 ]; then
   # 4. If the command fails,
@@ -68,3 +72,5 @@ git push
 
 # Cleanup
 rm -f /tmp/source-api.txt
+
+cd "$ORIGINAL_DIR"
