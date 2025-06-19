@@ -20,10 +20,12 @@ EOF
 cp "$API_FILE" "$TMP_API_FILE"
 
 # 3. Run `./gradlew :source:metalavaCheckCompatibilityRelease` from android/
+set +e
 cd ..
 ./gradlew :source:metalavaCheckCompatibilityRelease
 RESULT=$?
 cd config
+set -e
 
 if [ $RESULT -ne 0 ]; then
   # 4. If the command fails,
