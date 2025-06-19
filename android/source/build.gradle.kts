@@ -52,7 +52,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = libs.versions.group.get()
             artifactId = "source-android"
-            version = libs.versions.libraryVersion.get()
+            version = rootProject.file(libs.versions.versionFileName.get()).readText().trim()
 
             pom {
                 name.set("Source Android")

@@ -23,7 +23,7 @@ plugins {
 }
 
 group = libs.versions.group.get()
-version = libs.versions.libraryVersion.get()
+version = rootProject.file(libs.versions.versionFileName.get()).readText().trim()
 
 nexusPublishing {
     repositories {
@@ -51,3 +51,5 @@ allprojects {
         source = this.source.minus(fileTree("src/build/generated")).asFileTree
     }
 }
+
+fun Project.getVersionNumber() = rootProject.file("version.txt").readText().trim()
