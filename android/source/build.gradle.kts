@@ -71,6 +71,7 @@ publishing {
                         name.set("Aditya Bhaskar")
                         email.set("aditya.bhaskar@guardian.co.uk")
                         url.set("https://github.com/ab-gnm")
+                        // TODO: 19/06/2025 Could we fill this list from github contributors list?
                     }
                 }
                 organization {
