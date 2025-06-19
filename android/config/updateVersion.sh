@@ -11,7 +11,7 @@ fi
 # 1. Read version from "version.txt" file in the root of the project (android/)
 VERSION_FILE="../version.txt"
 API_FILE="../source/api/source-api.txt"
-TMP_API_FILE="/tmp/source-api.txt"
+TMP_API_FILE=$(mktemp)
 
 if [ ! -f "$VERSION_FILE" ]; then
   echo "0.0.1" > "$VERSION_FILE"
@@ -71,6 +71,6 @@ git commit -m "chore: update version to $(cat version.txt)"
 git push
 
 # Cleanup
-rm -f /tmp/source-api.txt
+rm -f "$TMP_API_FILE"
 
 cd "$ORIGINAL_DIR"
