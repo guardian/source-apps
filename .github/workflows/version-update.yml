@@ -1,0 +1,36 @@
+name: Version Update
+
+on:
+  workflow_call:
+    inputs:
+      android-config-dir:
+        description: 'Path to android/config directory'
+        required: false
+        default: android/config
+        type: string
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Make updateVersion.sh executable
+        run: chmod +x ${{ inputs.android-config-dir }}/updateVersion.sh
+
+      - name: Run updateVersion.sh
+        run: ${{ inputs.android-config-dir }}/updateVersion.sh ${{ inputs.android-config-dir }}
+
+      - name: Commit version and API changes
+        run: |
+          git add version.txt source/api/source-api.txt
+          git commit -m "chore: update version to $(cat version.txt)" || echo "No changes to commit"
+
+      - name: Push changes
+        run: git push

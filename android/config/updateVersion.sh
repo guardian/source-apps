@@ -62,15 +62,6 @@ else
   echo "$MAJOR.$MINOR.$PATCH" > "$VERSION_FILE"
 fi
 
-# 6. Commit version.txt and source/api/source-api.txt
-cd ..
-git add version.txt source/api/source-api.txt
-git commit -m "chore: update version to $(cat version.txt)"
-
-# 7. Push changes to the remote repository
-git push
-
 # Cleanup
 rm -f "$TMP_API_FILE"
-
 cd "$ORIGINAL_DIR"
