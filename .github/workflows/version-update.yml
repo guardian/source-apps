@@ -126,7 +126,6 @@ jobs:
             # ./gradlew :source:metalavaGenerateSignatureRelease
           else
             # Generate new API signature and compare with the previous one
-            cd ..
             ./gradlew :source:metalavaGenerateSignatureRelease
             if ! cmp -s "$API_FILE" "$TMP_API_FILE"; then
               # If API file has changed, increment minor version and reset patch
