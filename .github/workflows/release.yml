@@ -20,6 +20,10 @@ jobs:
       SOURCE-DIR: 'android'
       API-FILE: 'source/api/source-api.txt'
       VERSION-FILE: 'version.txt'
+    secrets:
+      SONATYPE_TOKEN: ${{ secrets.AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN }}
+      PGP_PRIVATE_KEY: ${{ secrets.AUTOMATED_MAVEN_RELEASE_PGP_SECRET }}
+      GITHUB_APP_PRIVATE_KEY: ${{ secrets.AUTOMATED_MAVEN_RELEASE_GITHUB_APP_PRIVATE_KEY }}
 
 #  release:
 #    if: github.repository == 'guardian/source-apps'

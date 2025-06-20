@@ -18,8 +18,95 @@ on:
         required: false
         default: 'version.txt'
         type: string
+      GITHUB_APP_ID:
+        description:
+          "App ID for a GitHub App that is allowed to push directly to the default branch. Eg, App ID on:
+          https://github.com/organizations/guardian/settings/apps/gu-scala-library-release"
+        default: '807361' # Only for use by the Guardian!
+        required: false # ...but if you're not the Guardian, you'll want to set this explicitly
+        type: string
+    secrets:
+      SONATYPE_TOKEN:
+        description: 'Sonatype authentication token, colon-separated (username:password) - https://central.sonatype.org/publish/generate-token/'
+        required: true
+      PGP_PRIVATE_KEY:
+        description:
+          "A passphrase-less PGP private key used to sign artifacts, commits, & tags.
+          Should be in normal plaintext (ASCII-armored) format, starting 'BEGIN PGP PUBLIC KEY BLOCK', with no additional BASE64-encoding.
+          The passphrase can be removed from an existing key using 'gpg --edit-key <key-id> passwd' : https://unix.stackexchange.com/a/550538/46453"
+        required: true
+      GITHUB_APP_PRIVATE_KEY:
+        description:
+          "See https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps#generating-private-keys
+          Should be in normal plaintext format, starting '-----BEGIN RSA PRIVATE KEY-----'"
+        required: true
+    outputs:
+      RELEASE_VERSION:
+        description: "The un-prefixed version number of the release, eg '3.0.1'"
+        value: ${{ jobs.push-release-commit.outputs.release_version }}
+      RELEASE_TYPE:
+        description: "Either 'FULL_MAIN_BRANCH' or 'PREVIEW_FEATURE_BRANCH' - whether this is a full release or a pre-release"
+        value: ${{ jobs.init.outputs.release_type }}
+
+env:
+  LOCAL_ARTIFACTS_STAGING_PATH: /tmp/artifact_staging
+  COMMITTER_NAME: "@${{github.actor}} using gha-gradle-library-release-workflow"
+  RUN_ATTEMPT_UID: ${{ github.run_id }}-${{ github.run_attempt }}
+  TEMPORARY_BRANCH: release-workflow/temporary/${{ github.run_id }}
+  GITHUB_REPO_URL: ${{ github.server_url }}/${{ github.repository }}
 
 jobs:
+  init:
+    name: 🔒 Init
+    runs-on: ubuntu-latest
+    outputs:
+      key_fingerprint: ${{ steps.read-identifiers.outputs.key_fingerprint }}
+      key_email: ${{ steps.read-identifiers.outputs.key_email }}
+      release_type: ${{ steps.generate-version-suffix.outputs.release_type }}
+      version_suffix: ${{ steps.generate-version-suffix.outputs.version_suffix }}
+    steps:
+      - uses: actions/setup-java@v4
+        with:
+          distribution: corretto
+          java-version: 17
+          gpg-private-key: ${{ secrets.PGP_PRIVATE_KEY }}
+      - name: Read Identifiers from Signing Key
+        id: read-identifiers
+        run: |
+          key_fingerprint_and_email=$(gpg2 --list-secret-keys --list-options show-only-fpr-mbox)
+          key_fingerprint=$(echo $key_fingerprint_and_email | awk '{print $1}')
+          key_email=$(echo $key_fingerprint_and_email | awk '{print $2}')
+          echo "key_fingerprint=$key_fingerprint"
+          
+          cat << EndOfFile >> $GITHUB_OUTPUT
+          key_fingerprint=$key_fingerprint
+          key_email=$key_email
+          EndOfFile
+          if ! [[ "$key_fingerprint" =~ ^[[:xdigit:]]{8,}$ ]]; then
+            echo "::error title=Missing PGP key::Has PGP_PRIVATE_KEY been set correctly? https://github.com/guardian/gha-gradle-library-release-workflow/blob/main/docs/credentials/supplying-credentials.md"
+            exit 1
+          fi
+      - name: Check for default branch
+        id: generate-version-suffix
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          default_branch=$(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name ${{ github.repository }})
+          
+          if [[ "$default_branch" = $GITHUB_REF_NAME ]]; then
+            release_type="FULL_MAIN_BRANCH"
+            version_suffix=""
+          else
+            release_type="PREVIEW_FEATURE_BRANCH"
+            version_suffix="-PREVIEW.${GITHUB_REF_NAME//[^[:alnum:]-]/}.$(date +%Y-%m-%dT%H%M).${GITHUB_SHA:0:8}"
+          fi
+          echo "current branch: $GITHUB_REF_NAME, release_type: $release_type, version_suffix: $version_suffix"
+          cat << EndOfFile >> $GITHUB_OUTPUT
+          release_type=$release_type
+          version_suffix=$version_suffix
+          EndOfFile
+
+
   update-version:
     runs-on: ubuntu-latest
     steps:
@@ -143,3 +230,24 @@ jobs:
           echo "Updated version to $MAJOR.$MINOR.$PATCH"
 
           rm -f "$TMP_API_FILE"
+
+      - name: Create tagged commit
+        run: |
+          echo $GITHUB_WORKSPACE
+          cd `mktemp -d`
+          git clone --bare $GITHUB_WORKSPACE repo-with-unsigned-version-update-commits.git
+          rm -Rf $GITHUB_WORKSPACE/*
+          mv repo-with-unsigned-version-update-commits.git $GITHUB_WORKSPACE/
+          ls -lR $GITHUB_WORKSPACE
+
+      - name: Job summary
+        run: |
+          cat << EndOfFile >> $GITHUB_STEP_SUMMARY
+          # Release $(git describe --tags --abbrev=0)
+          Library built with Java ${{ steps.establish_java_for_library_build.outputs.library_build_major_java_version }}.
+          EndOfFile
+
+      - uses: actions/cache/save@v4
+        with:
+          path: repo-with-unsigned-version-update-commits.git
+          key: repo-with-unsigned-version-update-commits-${{ env.RUN_ATTEMPT_UID }}
