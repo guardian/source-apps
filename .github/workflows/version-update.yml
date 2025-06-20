@@ -3,7 +3,7 @@ name: Version Update
 on:
   workflow_call:
     inputs:
-      android-config-dir:
+      script-dir:
         description: 'Path to android/config directory'
         required: false
         default: android/config
@@ -16,16 +16,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+# TODO: Read Java version from .tools-version
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: wrapper
+
       - name: Set up Git user
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Make updateVersion.sh executable
-        run: chmod +x ${{ inputs.android-config-dir }}/updateVersion.sh
+        run: chmod +x .github/ci-scripts/updateVersion.sh
 
       - name: Run updateVersion.sh
-        run: ${{ inputs.android-config-dir }}/updateVersion.sh ${{ inputs.android-config-dir }}
+        run: .github/ci-scripts/updateVersion.sh ${{ inputs.script-dir }}
 
       - name: Commit version and API changes
         run: |

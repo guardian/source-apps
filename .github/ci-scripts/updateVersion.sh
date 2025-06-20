@@ -1,11 +1,22 @@
 #!/usr/bin/env sh
 
-ORIGINAL_DIR=$(pwd)
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-ANDROID_CONFIG_DIR="$(cd "$SCRIPT_DIR" && pwd)"
+# Usage:
+#   ./updateVersion.sh [script_directory]
+# If no directory is provided, the script assumes android/config relative to the repo root.
+# This script updates the version in version.txt based on API compatibility checks and changes.
 
-if [ "$ORIGINAL_DIR" != "$ANDROID_CONFIG_DIR" ]; then
-  cd "$ANDROID_CONFIG_DIR"
+ORIGINAL_DIR=$(pwd)
+if [ -n "$1" ]; then
+  # Use provided script directory
+  SCRIPT_DIR="$(cd "$1" && pwd)"
+else
+  # Default to script relative to script location
+  SCRIPT_DIR="$(cd "$(dirname "$0")/../../android/config" && pwd)"
+fi
+
+# Ensure we are in the script directory for relative paths to work
+if [ "$ORIGINAL_DIR" != "$SCRIPT_DIR" ]; then
+  cd "$SCRIPT_DIR"
 fi
 
 # 1. Read version from "version.txt" file in the root of the project (android/)
@@ -62,6 +73,6 @@ else
   echo "$MAJOR.$MINOR.$PATCH" > "$VERSION_FILE"
 fi
 
-# Cleanup
+# Clean up temporary file and return to original directory
 rm -f "$TMP_API_FILE"
 cd "$ORIGINAL_DIR"
