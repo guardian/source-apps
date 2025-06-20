@@ -276,6 +276,9 @@ jobs:
       version_file_path: ${{ steps.create-commit.outputs.version_file_path }}
       version_file_release_sha: ${{ steps.create-commit.outputs.version_file_release_sha }}
       version_file_post_release_content: ${{ steps.create-commit.outputs.version_file_post_release_content }}
+      api_file_path: ${{ steps.create-commit.outputs.api_file_path }}
+      api_file_release_sha: ${{ steps.create-commit.outputs.api_file_release_sha }}
+      api_file_post_release_content: ${{ steps.create-commit.outputs.api_file_post_release_content }}
     steps:
       - name: Generate app token
         id: generate-github-app-token
@@ -310,17 +313,29 @@ jobs:
           KEY_EMAIL: ${{ needs.init.outputs.key_email }}
           GH_TOKEN: ${{ steps.generate-github-app-token.outputs.token }}
           GH_REPO: ${{ github.repository }}
-          # TODO: Update script to use source directory if provided
         run: |
           echo "GITHUB_REF_NAME=$GITHUB_REF_NAME"
           echo "GITHUB_REF=$GITHUB_REF"
   
+          BASE_PATH=$(pwd)
+
           cd repo-with-unsigned-version-update-commits.git
           RELEASE_TAG=$(git describe --tags --abbrev=0)
+
+          INCOMING_REPO_PATH="$(pwd)"
   
           cd ../repo
+
+          SOURCE_DIR="${{ inputs.SOURCE_DIR }}"
+          if [ -n "$SOURCE_DIR" ]; then
+            if [ ! -d "$SOURCE_DIR" ]; then
+              echo "::error title=Source directory not found::$SOURCE_DIR does not exist."
+              exit 1
+            fi
+            cd "$SOURCE_DIR"
+          fi
   
-          git remote add unsigned ../repo-with-unsigned-version-update-commits.git
+          git remote add unsigned $INCOMING_REPO_PATH
           git fetch unsigned
   
           RELEASE_VERSION=${RELEASE_TAG#"v"}
@@ -332,13 +347,19 @@ jobs:
             RELEASE_NOTES_URL=$( gh pr view $GITHUB_REF_NAME --json url -q .url )
           fi
   
-          VERSION_FILE_PATH=$(git diff-tree --no-commit-id --name-only -r $RELEASE_TAG | grep version.sbt)
+          VERSION_FILE_PATH=$(git diff-tree --no-commit-id --name-only -r $RELEASE_TAG | grep ${ inputs.VERSION_FILE })
           VERSION_FILE_INITIAL_SHA=$( git rev-parse $GITHUB_REF:$VERSION_FILE_PATH )
           VERSION_FILE_RELEASE_SHA=$( git rev-parse $RELEASE_TAG:$VERSION_FILE_PATH )
           VERSION_FILE_RELEASE_CONTENT=$( git cat-file blob $RELEASE_TAG:$VERSION_FILE_PATH | base64 -w0)
           VERSION_FILE_POST_RELEASE_CONTENT=$( git cat-file blob unsigned/$GITHUB_REF_NAME:$VERSION_FILE_PATH | base64 -w0)
+
+          API_FILE_PATH=$(git diff-tree --no-commit-id --name-only -r $RELEASE_TAG | grep ${ inputs.API_FILE })
+          API_FILE_INITIAL_SHA=$( git rev-parse $GITHUB_REF:$API_FILE_PATH )
+          API_FILE_RELEASE_SHA=$( git rev-parse $RELEASE_TAG:$API_FILE_PATH )
+          API_FILE_RELEASE_CONTENT=$( git cat-file blob $RELEASE_TAG:$API_FILE_PATH | base64 -w0)
+          API_FILE_POST_RELEASE_CONTENT=$( git cat-file blob unsigned/$GITHUB_REF_NAME:$API_FILE_PATH | base64 -w0)
   
-          cd ..
+          cd $BASE_PATH
   
           cat << EndOfFile > commit-message.txt
           $RELEASE_TAG published by ${{github.actor}}
@@ -360,6 +381,17 @@ jobs:
             --field message="@commit-message.txt" \
             --field sha="$VERSION_FILE_INITIAL_SHA" \
             --field content="$VERSION_FILE_RELEASE_CONTENT" --jq '.commit.sha')
+            
+          # Also update the API file in the same commit
+          release_commit_id_2=$(gh api --method PUT /repos/:owner/:repo/contents/$API_FILE_PATH \
+            --field branch="$TEMPORARY_BRANCH" \
+            --field message="@commit-message.txt" \
+            --field sha="$API_FILE_INITIAL_SHA" \
+            --field content="$API_FILE_RELEASE_CONTENT" --jq '.commit.sha')
+          
+          # TODO: Confirm the commit IDs are the same
+          echo "RELEASE_COMMIT_ID=$release_commit_id"
+          echo "RELEASE_COMMIT_ID_2=$release_commit_id_2"
 
           cat << EndOfFile >> $GITHUB_OUTPUT
           release_tag=$RELEASE_TAG
@@ -369,4 +401,21 @@ jobs:
           version_file_path=$VERSION_FILE_PATH
           version_file_release_sha=$VERSION_FILE_RELEASE_SHA
           version_file_post_release_content=$VERSION_FILE_POST_RELEASE_CONTENT
+          api_file_path=$API_FILE_PATH
+          api_file_release_sha=$API_FILE_RELEASE_SHA
+          api_file_post_release_content=$API_FILE_POST_RELEASE_CONTENT
+          EndOfFile
+          
+          # Temporarily put everything in step summary for debugging
+          cat << EndOfFile >> $GITHUB_STEP_SUMMARY
+          release_tag=$RELEASE_TAG
+          release_notes_url=$RELEASE_NOTES_URL
+          release_version=$RELEASE_VERSION
+          release_commit_id=$release_commit_id
+          version_file_path=$VERSION_FILE_PATH
+          version_file_release_sha=$VERSION_FILE_RELEASE_SHA
+          version_file_post_release_content=$VERSION_FILE_POST_RELEASE_CONTENT
+          api_file_path=$API_FILE_PATH
+          api_file_release_sha=$API_FILE_RELEASE_SHA
+          api_file_post_release_content=$API_FILE_POST_RELEASE_CONTENT
           EndOfFile
