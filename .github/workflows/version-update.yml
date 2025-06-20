@@ -3,6 +3,10 @@ name: Version Update
 on:
   workflow_call:
     inputs:
+      MODULES:
+        description: 'Comma-separated list of module names to build (e.g. "core,utils,api").'
+        required: true
+        type: string
       SOURCE_DIR:
         description: 'Path to source directory. For monorepos, this is the path to the library source directory. Leave empty for the root directory.'
         required: false
@@ -389,7 +393,6 @@ jobs:
             --field sha="$API_FILE_INITIAL_SHA" \
             --field content="$API_FILE_RELEASE_CONTENT" --jq '.commit.sha')
           
-          # TODO: Confirm the commit IDs are the same
           echo "VERSION_COMMIT_ID=$version_commit_id"
           echo "API_COMMIT_ID_=$api_commit_id"
 
@@ -448,16 +451,13 @@ jobs:
       # TODO: Get a list of modules to build and publish
       - name: Generate artifacts
         run: |
-          cat << EndOfFile > sbt-commands.txt
-          set ThisBuild / homepage := Some(url("$GITHUB_REPO_URL"))
-          set ThisBuild / scmInfo  := Some(ScmInfo(url("$GITHUB_REPO_URL"), "$GITHUB_REPO_URL"))
-          set ThisBuild / developers := List(Developer("$GITHUB_REPOSITORY_OWNER", "$GITHUB_REPOSITORY_OWNER", "${{ needs.init.outputs.key_email }}", url("${{ github.server_url }}/$GITHUB_REPOSITORY_OWNER")))
-          set ThisBuild / publishTo := Some(Resolver.file("foobar", file("$LOCAL_ARTIFACTS_STAGING_PATH")))
-          set ThisBuild / releaseNotesURL := Some(url("${{ needs.push-release-commit.outputs.release_notes_url }}"))
-          EndOfFile
-          cat sbt-commands.txt
-
-          sbt ";< sbt-commands.txt; +publish"
+          MODULES="${{ inputs.MODULES }}"
+          if [ -n "$MODULES" ]; then
+            IFS=',' read -ra MOD_ARRAY <<< "$MODULES"
+            for mod in "${MOD_ARRAY[@]}"; do
+              ./gradlew -Dmaven.repo.local=$LOCAL_ARTIFACTS_STAGING_PATH :$mod:publishToMavenLocal
+            done
+          fi
 
       - name: Record SHA-256 hashes of artifacts
         id: record-hashes
