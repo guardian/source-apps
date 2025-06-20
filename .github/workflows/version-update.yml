@@ -3,17 +3,17 @@ name: Version Update
 on:
   workflow_call:
     inputs:
-      source-dir:
+      SOURCE-DIR:
         description: 'Path to source directory. For monorepos, this is the path to the library source directory. Leave empty for the root directory.'
         required: false
         default: ''
         type: string
-      api-file:
+      API-FILE:
         description: 'Path to API file relative to the source directory.'
         required: false
         default: 'api/api.txt'
         type: string
-      version-file:
+      VERSION-FILE:
         description: 'Path to version file relative to the source directory.'
         required: false
         default: 'version.txt'
@@ -29,7 +29,7 @@ jobs:
       - name: Establish library build Java version
         id: establish_java_for_library_build
         run: |
-          SOURCE_DIR="${{ inputs.source-dir }}"
+          SOURCE_DIR="${{ inputs.SOURCE-DIR }}"
           if [ -n "$SOURCE_DIR" ]; then
             if [ ! -d "$SOURCE_DIR" ]; then
               echo "::error title=Source directory not found::$SOURCE_DIR does not exist."
@@ -78,7 +78,7 @@ jobs:
           set -e
 
           # Check and switch to source directory if provided and exists
-          SOURCE_DIR="${{ inputs.source-dir }}"
+          SOURCE_DIR="${{ inputs.SOURCE-DIR }}"
           if [ -n "$SOURCE_DIR" ]; then
             if [ ! -d "$SOURCE_DIR" ]; then
               echo "::error title=Source directory not found::$SOURCE_DIR does not exist."
@@ -87,8 +87,8 @@ jobs:
             cd "$SOURCE_DIR"
           fi
 
-          VERSION_FILE="${{ inputs.version-file }}"
-          API_FILE="${{ inputs.api-file }}"
+          VERSION_FILE="${{ inputs.VERSION-FILE }}"
+          API_FILE="${{ inputs.API-FILE }}"
           TMP_API_FILE=$(mktemp)
 
           # If the version file does not exist, create it with a default version
@@ -143,11 +143,3 @@ jobs:
           echo "Updated version to $MAJOR.$MINOR.$PATCH"
 
           rm -f "$TMP_API_FILE"
-
-#      - name: Commit version and API changes
-#        run: |
-#          git add ${{ inputs.version-file }} ${{ inputs.api-file }}
-#          git commit -m "chore: update version to $(cat ${{ inputs.version-file }})" || echo "No changes to commit"
-#
-#      - name: Push changes
-#        run: git push
