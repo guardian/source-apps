@@ -157,84 +157,87 @@ jobs:
 
       - name: Set up Git user
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "${{ needs.init.outputs.key_email }}"
+          git config user.name "$COMMITTER_NAME"
 
-#      - name: Update version and API files
-#        run: |
-#          set -e
-#
-#          # Check and switch to source directory if provided and exists
-#          SOURCE_DIR="${{ inputs.SOURCE-DIR }}"
-#          if [ -n "$SOURCE_DIR" ]; then
-#            if [ ! -d "$SOURCE_DIR" ]; then
-#              echo "::error title=Source directory not found::$SOURCE_DIR does not exist."
-#              exit 1
-#            fi
-#            cd "$SOURCE_DIR"
-#          fi
-#
-#          VERSION_FILE="${{ inputs.VERSION-FILE }}"
-#          API_FILE="${{ inputs.API-FILE }}"
-#          TMP_API_FILE=$(mktemp)
-#
-#          # If the version file does not exist, create it with a default version
-#          if [ ! -f "$VERSION_FILE" ]; then
-#            echo "0.0.1" > "$VERSION_FILE"
-#          fi
-#
-#          # Read major, minor, and patch version from the version file
-#          VERSION=$(cat "$VERSION_FILE" | tr -d ' \n\r')
-#          IFS='.' read -r MAJOR MINOR PATCH <<EOF
-#          $VERSION
-#          EOF
-#
-#          # Validate version format
-#          if ! [[ "$MAJOR" =~ ^[0-9]+$ && "$MINOR" =~ ^[0-9]+$ && "$PATCH" =~ ^[0-9]+$ ]]; then
-#            echo "::error title=Invalid version format::Version file '$VERSION_FILE' must contain a valid semantic version (e.g., 1.0.0)."
-#            exit 1
-#          fi
-#
-#          # Create a temporary copy of the API file for comparison
-#          cp "$API_FILE" "$TMP_API_FILE"
-#
-#          # Check API compatibility
-#          set +e
-#          ./gradlew :source:metalavaCheckCompatibilityRelease
-#          RESULT=$?
-#          set -e
-#
-#          if [ $RESULT -ne 0 ]; then
-#            # If compatibility check fails, increment major version and reset minor and patch
-#            MAJOR=$((MAJOR + 1))
-#            MINOR=0
-#            PATCH=0
-#            # # Generate new API signature
-#            # ./gradlew :source:metalavaGenerateSignatureRelease
-#          else
-#            # Generate new API signature and compare with the previous one
-#            ./gradlew :source:metalavaGenerateSignatureRelease
-#            if ! cmp -s "$API_FILE" "$TMP_API_FILE"; then
-#              # If API file has changed, increment minor version and reset patch
-#              MINOR=$((MINOR + 1))
-#              PATCH=0
-#            else
-#              # If API file has not changed, increment patch version
-#              PATCH=$((PATCH + 1))
-#            fi
-#          fi
-#
-#          # Update version file with the new version
-#          echo "$MAJOR.$MINOR.$PATCH" > "$VERSION_FILE"
-#
-#          echo "Updated version to $MAJOR.$MINOR.$PATCH"
-#
-#          rm -f "$TMP_API_FILE"
-#
-      - name: Create tagged commit
+      - name: Update version and API files
         run: |
-          pwd
-          echo $GITHUB_WORKSPACE
+          set -e
+
+          # Check and switch to source directory if provided and exists
+          SOURCE_DIR="${{ inputs.SOURCE-DIR }}"
+          if [ -n "$SOURCE_DIR" ]; then
+            if [ ! -d "$SOURCE_DIR" ]; then
+              echo "::error title=Source directory not found::$SOURCE_DIR does not exist."
+              exit 1
+            fi
+            cd "$SOURCE_DIR"
+          fi
+
+          VERSION_FILE="${{ inputs.VERSION-FILE }}"
+          API_FILE="${{ inputs.API-FILE }}"
+          TMP_API_FILE=$(mktemp)
+
+          # If the version file does not exist, create it with a default version
+          if [ ! -f "$VERSION_FILE" ]; then
+            echo "0.0.1" > "$VERSION_FILE"
+          fi
+
+          # Read major, minor, and patch version from the version file
+          VERSION=$(cat "$VERSION_FILE" | tr -d ' \n\r')
+          IFS='.' read -r MAJOR MINOR PATCH <<EOF
+          $VERSION
+          EOF
+
+          # Validate version format
+          if ! [[ "$MAJOR" =~ ^[0-9]+$ && "$MINOR" =~ ^[0-9]+$ && "$PATCH" =~ ^[0-9]+$ ]]; then
+            echo "::error title=Invalid version format::Version file '$VERSION_FILE' must contain a valid semantic version (e.g., 1.0.0)."
+            exit 1
+          fi
+
+          # Create a temporary copy of the API file for comparison
+          cp "$API_FILE" "$TMP_API_FILE"
+
+          # Check API compatibility
+          set +e
+          ./gradlew :source:metalavaCheckCompatibilityRelease
+          RESULT=$?
+          set -e
+
+          if [ $RESULT -ne 0 ]; then
+            # If compatibility check fails, increment major version and reset minor and patch
+            MAJOR=$((MAJOR + 1))
+            MINOR=0
+            PATCH=0
+            # Generate new API signature
+            ./gradlew :source:metalavaGenerateSignatureRelease
+          else
+            # Generate new API signature and compare with the previous one
+            ./gradlew :source:metalavaGenerateSignatureRelease
+            if ! cmp -s "$API_FILE" "$TMP_API_FILE"; then
+              # If API file has changed, increment minor version and reset patch
+              MINOR=$((MINOR + 1))
+              PATCH=0
+            else
+              # If API file has not changed, increment patch version
+              PATCH=$((PATCH + 1))
+            fi
+          fi
+
+          # Update version file with the new version
+          echo "$MAJOR.$MINOR.$PATCH" > "$VERSION_FILE"
+
+          echo "Updated version to $MAJOR.$MINOR.$PATCH"
+          
+          # Commit the updated version and API files, then tag the commit with the new version number
+          git add "$VERSION_FILE" "$API_FILE"
+          git commit -m "chore: update version to $MAJOR.$MINOR.$PATCH"
+          git tag "v$MAJOR.$MINOR.$PATCH"
+
+          rm -f "$TMP_API_FILE"
+
+      - name: Create bare repo with unsigned version update commits
+        run: |
           cd `mktemp -d`
           git clone --bare $GITHUB_WORKSPACE repo-with-unsigned-version-update-commits.git
           rm -Rf $GITHUB_WORKSPACE/*
