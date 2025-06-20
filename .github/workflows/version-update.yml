@@ -451,6 +451,15 @@ jobs:
       # TODO: Get a list of modules to build and publish
       - name: Generate artifacts
         run: |
+          SOURCE_DIR="${{ inputs.SOURCE_DIR }}"
+          if [ -n "$SOURCE_DIR" ]; then
+            if [ ! -d "$SOURCE_DIR" ]; then
+              echo "::error title=Source directory not found::$SOURCE_DIR does not exist."
+              exit 1
+            fi
+            cd "$SOURCE_DIR"
+          fi
+          
           MODULES="${{ inputs.MODULES }}"
           if [ -n "$MODULES" ]; then
             IFS=',' read -ra MOD_ARRAY <<< "$MODULES"
