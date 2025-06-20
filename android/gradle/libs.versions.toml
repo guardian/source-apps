@@ -4,6 +4,8 @@ versionFileName = "version.txt"
 compilesdk = "35"
 minsdk = "26"
 targetsdk = "34"
+# When updating the java version, also update it in .tool-versions so github actions pick
+# it up
 java = "17"
 
 agp = "8.10.1"
