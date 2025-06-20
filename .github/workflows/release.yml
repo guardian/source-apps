@@ -16,6 +16,10 @@ jobs:
     if: github.repository == 'guardian/source-apps'
 #    permissions: { contents: write, pull-requests: write }
     uses: ./.github/workflows/version-update.yml
+    with:
+      source-dir: 'android'
+      api-file: 'source/api/source-api.txt'
+      version-file: 'version.txt'
 
 #  release:
 #    if: github.repository == 'guardian/source-apps'
