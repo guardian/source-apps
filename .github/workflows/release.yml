@@ -12,9 +12,9 @@ on:
 
 jobs:
   version:
-    name: Calculate version
+    name: Release with version update
     if: github.repository == 'guardian/source-apps'
-#    permissions: { contents: write, pull-requests: write }
+    permissions: { contents: write, pull-requests: write }
     uses: ./.github/workflows/version-update.yml
     with:
       SOURCE_DIR: 'android'
