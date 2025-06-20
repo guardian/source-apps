@@ -145,10 +145,10 @@ jobs:
 
           rm -f "$TMP_API_FILE"
 
-      - name: Commit version and API changes
-        run: |
-          git add ${{ inputs.version-file }} ${{ inputs.api-file }}
-          git commit -m "chore: update version to $(cat ${{ inputs.version-file }})" || echo "No changes to commit"
-
-      - name: Push changes
-        run: git push
+#      - name: Commit version and API changes
+#        run: |
+#          git add ${{ inputs.version-file }} ${{ inputs.api-file }}
+#          git commit -m "chore: update version to $(cat ${{ inputs.version-file }})" || echo "No changes to commit"
+#
+#      - name: Push changes
+#        run: git push
