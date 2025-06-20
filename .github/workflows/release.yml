@@ -46,6 +46,9 @@ jobs:
         with:
           gradle-version: wrapper
 
+      - name: Calculate version
+        uses: ./.github/workflows/version-update.yml
+
 #      - name: Release
 #        env:
 #          AUTOMATED_MAVEN_RELEASE_PGP_SECRET: ${{ secrets.AUTOMATED_MAVEN_RELEASE_PGP_SECRET }}
