@@ -1139,7 +1139,6 @@ package com.gu.source.presets.palette {
     method public static long getNews500(com.gu.source.Source.Palette);
     method public static long getNews550(com.gu.source.Source.Palette);
     method public static long getNews600(com.gu.source.Source.Palette);
-    method public static long getNews700(com.gu.source.Source.Palette);
     method public static long getNews800(com.gu.source.Source.Palette);
     method public static long getOpinion100(com.gu.source.Source.Palette);
     method public static long getOpinion200(com.gu.source.Source.Palette);
@@ -1149,7 +1148,6 @@ package com.gu.source.presets.palette {
     method public static long getOpinion500(com.gu.source.Source.Palette);
     method public static long getOpinion550(com.gu.source.Source.Palette);
     method public static long getOpinion600(com.gu.source.Source.Palette);
-    method public static long getOpinion700(com.gu.source.Source.Palette);
     method public static long getOpinion800(com.gu.source.Source.Palette);
     method public static long getSpecialReport100(com.gu.source.Source.Palette);
     method public static long getSpecialReport200(com.gu.source.Source.Palette);
@@ -1170,7 +1168,6 @@ package com.gu.source.presets.palette {
     method public static long getSport400(com.gu.source.Source.Palette);
     method public static long getSport500(com.gu.source.Source.Palette);
     method public static long getSport600(com.gu.source.Source.Palette);
-    method public static long getSport700(com.gu.source.Source.Palette);
     method public static long getSport800(com.gu.source.Source.Palette);
     method public static long getSuccess300(com.gu.source.Source.Palette);
     method public static long getSuccess400(com.gu.source.Source.Palette);
@@ -1351,4 +1348,3 @@ package com.gu.source.utils {
   }
 
 }
-
