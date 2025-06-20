@@ -17,7 +17,7 @@ jobs:
     permissions: { contents: write, pull-requests: write }
     uses: ./.github/workflows/version-update.yml
     with:
-      MODULE: 'source'
+      MODULES: 'source'
       SOURCE_DIR: 'android'
       API_FILE: 'source/api/source-api.txt'
       VERSION_FILE: 'version.txt'
