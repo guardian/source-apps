@@ -3,10 +3,20 @@ name: Version Update
 on:
   workflow_call:
     inputs:
-      script-dir:
-        description: 'Path to android/config directory'
+      source-dir:
+        description: 'Path to source directory. For monorepos, this is the path to the library source directory. Leave empty for the root directory.'
         required: false
-        default: android/config
+        default: ''
+        type: string
+      api-file:
+        description: 'Path to API file relative to the source directory.'
+        required: false
+        default: 'api/api.txt'
+        type: string
+      version-file:
+        description: 'Path to version file relative to the source directory.'
+        required: false
+        default: 'version.txt'
         type: string
 
 jobs:
@@ -19,10 +29,22 @@ jobs:
       - name: Establish library build Java version
         id: establish_java_for_library_build
         run: |
+          SOURCE_DIR="${{ inputs.source-dir }}"
+          if [ -n "$SOURCE_DIR" ]; then
+            if [ ! -d "$SOURCE_DIR" ]; then
+              echo "::error title=Source directory not found::$SOURCE_DIR does not exist."
+              exit 1
+            fi
+            cd "$SOURCE_DIR"
+          fi
+          
+          # Check if .tool-versions file exists
           if [ ! -f .tool-versions ]; then
             echo "::error title=Missing .tool-versions file::gha-gradle-library-release-workflow requires an asdf-format .tool-versions file to establish the Java version for the build."
             exit 1
           fi
+          
+          # Check if the file contains a Java version
           LIBRARY_BUILD_MAJOR_JAVA_VERSION=$( grep -Eo 'java [[:alnum:]-]+-[[:digit:]]+' .tool-versions | rev | cut -d'-' -f1 | rev )
           echo "Using Java $LIBRARY_BUILD_MAJOR_JAVA_VERSION"
           if [ -z "${LIBRARY_BUILD_MAJOR_JAVA_VERSION}" ]; then
@@ -30,6 +52,7 @@ jobs:
             exit 1
           fi
           
+          # Set the output variable for the Java version
           cat << EndOfFile >> $GITHUB_OUTPUT
           library_build_major_java_version=$LIBRARY_BUILD_MAJOR_JAVA_VERSION
           EndOfFile
@@ -50,16 +73,82 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Make updateVersion.sh executable
-        run: chmod +x .github/ci-scripts/updateVersion.sh
+      - name: Update version and API files
+        run: |
+          set -e
 
-      - name: Run updateVersion.sh
-        run: .github/ci-scripts/updateVersion.sh ${{ inputs.script-dir }}
+          # Check and switch to source directory if provided and exists
+          SOURCE_DIR="${{ inputs.source-dir }}"
+          if [ -n "$SOURCE_DIR" ]; then
+            if [ ! -d "$SOURCE_DIR" ]; then
+              echo "::error title=Source directory not found::$SOURCE_DIR does not exist."
+              exit 1
+            fi
+            cd "$SOURCE_DIR"
+          fi
+
+          VERSION_FILE="${{ inputs.version-file }}"
+          API_FILE="${{ inputs.api-file }}"
+          TMP_API_FILE=$(mktemp)
+
+          # If the version file does not exist, create it with a default version
+          if [ ! -f "$VERSION_FILE" ]; then
+            echo "0.0.1" > "$VERSION_FILE"
+          fi
+          
+          # Read major, minor, and patch version from the version file
+          VERSION=$(cat "$VERSION_FILE" | tr -d ' \n\r')
+          IFS='.' read -r MAJOR MINOR PATCH <<EOF
+          $VERSION
+          EOF
+          
+          # Validate version format
+          if ! [[ "$MAJOR" =~ ^[0-9]+$ && "$MINOR" =~ ^[0-9]+$ && "$PATCH" =~ ^[0-9]+$ ]]; then
+            echo "::error title=Invalid version format::Version file '$VERSION_FILE' must contain a valid semantic version (e.g., 1.0.0)."
+            exit 1
+          fi
+          
+          # Create a temporary copy of the API file for comparison
+          cp "$API_FILE" "$TMP_API_FILE"
+          
+          # Check API compatibility
+          set +e
+          ./gradlew :source:metalavaCheckCompatibilityRelease
+          RESULT=$?
+          set -e
+
+          if [ $RESULT -ne 0 ]; then
+            # If compatibility check fails, increment major version and reset minor and patch
+            MAJOR=$((MAJOR + 1))
+            MINOR=0
+            PATCH=0
+            # # Generate new API signature
+            # ./gradlew :source:metalavaGenerateSignatureRelease
+          else
+            # Generate new API signature and compare with the previous one
+            cd ..
+            ./gradlew :source:metalavaGenerateSignatureRelease
+            if ! cmp -s "$API_FILE" "$TMP_API_FILE"; then
+              # If API file has changed, increment minor version and reset patch
+              MINOR=$((MINOR + 1))
+              PATCH=0
+            else
+              # If API file has not changed, increment patch version
+              PATCH=$((PATCH + 1))
+            fi
+          fi
+
+          # Update version file with the new version
+          echo "$MAJOR.$MINOR.$PATCH" > "$VERSION_FILE"
+          
+          echo "Updated version to $MAJOR.$MINOR.$PATCH"
+
+          rm -f "$TMP_API_FILE"
 
       - name: Commit version and API changes
         run: |
-          git add version.txt source/api/source-api.txt
-          git commit -m "chore: update version to $(cat version.txt)" || echo "No changes to commit"
+          git add ${{ inputs.version-file }} ${{ inputs.api-file }}
+          git commit -m "chore: update version to $(cat ${{ inputs.version-file }})" || echo "No changes to commit"
 
       - name: Push changes
         run: git push
