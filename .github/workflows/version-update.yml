@@ -228,17 +228,17 @@ jobs:
             fi
           fi
           
-          # TODO: Add version_suffix to version and file
 
           # Update version file with the new version
           echo "$MAJOR.$MINOR.$PATCH" > "$VERSION_FILE"
 
           echo "Updated version to $MAJOR.$MINOR.$PATCH"
           
-          # Commit the updated version and API files, then tag the commit with the new version number
+          # Commit the updated version and API files
           git add "$VERSION_FILE" "$API_FILE"
           git commit -m "chore: update version to $MAJOR.$MINOR.$PATCH"
-          git tag "v$MAJOR.$MINOR.$PATCH"
+          # Add version_suffix to the version and tag the commit with the new version number
+          git tag "v$MAJOR.$MINOR.$PATCH-${{ needs.init.outputs.version_suffix }}"
 
           rm -f "$TMP_API_FILE"
 
