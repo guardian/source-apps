@@ -17,9 +17,9 @@ jobs:
 #    permissions: { contents: write, pull-requests: write }
     uses: ./.github/workflows/version-update.yml
     with:
-      SOURCE-DIR: 'android'
-      API-FILE: 'source/api/source-api.txt'
-      VERSION-FILE: 'version.txt'
+      SOURCE_DIR: 'android'
+      API_FILE: 'source/api/source-api.txt'
+      VERSION_FILE: 'version.txt'
     secrets:
       SONATYPE_TOKEN: ${{ secrets.AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN }}
       PGP_PRIVATE_KEY: ${{ secrets.AUTOMATED_MAVEN_RELEASE_PGP_SECRET }}
