@@ -109,6 +109,9 @@ jobs:
 
   update-version:
     runs-on: ubuntu-latest
+    needs: init
+    outputs:
+      library_build_major_java_version: ${{ steps.establish_java_for_library_build.outputs.library_build_major_java_version }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
