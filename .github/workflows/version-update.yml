@@ -505,7 +505,7 @@ jobs:
         with:
           path: repo
           ref: ${{ needs.push-release-commit.outputs.release_commit_id }}
-          fetch-depth: 1 # For tag-signing, we only need the release commit - branch operations done with GitHub API
+          fetch-depth: 2 # For tag-signing, we only need the release commit - branch operations done with GitHub API
           token: ${{ steps.generate-github-app-token.outputs.token }}
           persist-credentials: true # Allow us to push as the GitHub App, and bypass branch ruleset
 
