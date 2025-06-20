@@ -3,17 +3,17 @@ name: Version Update
 on:
   workflow_call:
     inputs:
-      SOURCE-DIR:
+      SOURCE_DIR:
         description: 'Path to source directory. For monorepos, this is the path to the library source directory. Leave empty for the root directory.'
         required: false
         default: ''
         type: string
-      API-FILE:
+      API_FILE:
         description: 'Path to API file relative to the source directory.'
         required: false
         default: 'api/api.txt'
         type: string
-      VERSION-FILE:
+      VERSION_FILE:
         description: 'Path to version file relative to the source directory.'
         required: false
         default: 'version.txt'
@@ -107,8 +107,8 @@ jobs:
           EndOfFile
 
 
-  update-version:
-    name: 🤸🏽 Update Version
+  generate-version-update-commits:
+    name: 🤸🏽 Generate version update commits
     runs-on: ubuntu-latest
     needs: init
     outputs:
@@ -120,7 +120,7 @@ jobs:
       - name: Establish library build Java version
         id: establish_java_for_library_build
         run: |
-          SOURCE_DIR="${{ inputs.SOURCE-DIR }}"
+          SOURCE_DIR="${{ inputs.SOURCE_DIR }}"
           if [ -n "$SOURCE_DIR" ]; then
             if [ ! -d "$SOURCE_DIR" ]; then
               echo "::error title=Source directory not found::$SOURCE_DIR does not exist."
@@ -169,7 +169,7 @@ jobs:
           set -e
 
           # Check and switch to source directory if provided and exists
-          SOURCE_DIR="${{ inputs.SOURCE-DIR }}"
+          SOURCE_DIR="${{ inputs.SOURCE_DIR }}"
           if [ -n "$SOURCE_DIR" ]; then
             if [ ! -d "$SOURCE_DIR" ]; then
               echo "::error title=Source directory not found::$SOURCE_DIR does not exist."
@@ -178,8 +178,8 @@ jobs:
             cd "$SOURCE_DIR"
           fi
 
-          VERSION_FILE="${{ inputs.VERSION-FILE }}"
-          API_FILE="${{ inputs.API-FILE }}"
+          VERSION_FILE="${{ inputs.VERSION_FILE }}"
+          API_FILE="${{ inputs.API_FILE }}"
           TMP_API_FILE=$(mktemp)
 
           # If the version file does not exist, create it with a default version
@@ -277,24 +277,32 @@ jobs:
       version_file_release_sha: ${{ steps.create-commit.outputs.version_file_release_sha }}
       version_file_post_release_content: ${{ steps.create-commit.outputs.version_file_post_release_content }}
     steps:
-      - id: generate-github-app-token
+      - name: Generate app token
+        id: generate-github-app-token
         uses: actions/create-github-app-token@v2
         with:
           app-id: ${{ inputs.GITHUB_APP_ID }}
           private-key: ${{ secrets.GITHUB_APP_PRIVATE_KEY }} }
-      - uses: actions/checkout@v4
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           path: repo
-      - uses: actions/cache/restore@v4
+
+      - name: Restore cache with unsigned version update commits
+        uses: actions/cache/restore@v4
         with:
           path: repo-with-unsigned-version-update-commits.git
           key: repo-with-unsigned-version-update-commits-${{ env.RUN_ATTEMPT_UID }}
           fail-on-cache-miss: true
-      - uses: actions/setup-java@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
         with:
           distribution: corretto
           java-version: 17
           gpg-private-key: ${{ secrets.PGP_PRIVATE_KEY }}
+
       - name: Create commit
         id: create-commit
         env:
