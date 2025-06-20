@@ -455,7 +455,7 @@ jobs:
           if [ -n "$MODULES" ]; then
             IFS=',' read -ra MOD_ARRAY <<< "$MODULES"
             for mod in "${MOD_ARRAY[@]}"; do
-              ./gradlew -Dmaven.repo.local=$LOCAL_ARTIFACTS_STAGING_PATH :$mod:publishToMavenLocal
+              ./gradlew -Dmaven.repo.local=$LOCAL_ARTIFACTS_STAGING_PATH :$mod:publishReleasePublicationToMavenLocal
             done
           fi
 
