@@ -527,7 +527,12 @@ jobs:
       - name: Sign artifacts
         run: |
           echo "KEY_FINGERPRINT=$KEY_FINGERPRINT"
-          find $LOCAL_ARTIFACTS_STAGING_PATH -type f -exec gpg -a --local-user "$KEY_FINGERPRINT" --detach-sign {} \;
+          find $LOCAL_ARTIFACTS_STAGING_PATH -type f -exec sh -c '
+            echo "Signing file: $1"
+            gpg --version
+            gpg --list-keys "$KEY_FINGERPRINT"
+            gpg -a --local-user "$KEY_FINGERPRINT" --detach-sign "$1"
+          ' sh {} \;
 
           # Print out the staging directory to confirm contents and signatures
           # find $LOCAL_ARTIFACTS_STAGING_PATH -maxdepth 3 -ls
