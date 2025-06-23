@@ -410,21 +410,6 @@ jobs:
           api_file_post_release_content=$API_FILE_POST_RELEASE_CONTENT
           EndOfFile
           
-          # Temporarily put everything in step summary for debugging
-          cat << EndOfFile >> $GITHUB_STEP_SUMMARY
-          release_tag=$RELEASE_TAG
-          release_notes_url=$RELEASE_NOTES_URL
-          release_version=$RELEASE_VERSION
-          version_commit_id=$version_commit_id
-          version_file_path=$VERSION_FILE_PATH
-          version_file_release_sha=$VERSION_FILE_RELEASE_SHA
-          version_file_post_release_content=$VERSION_FILE_POST_RELEASE_CONTENT
-          api_commit_id=$api_commit_id
-          api_file_path=$API_FILE_PATH
-          api_file_release_sha=$API_FILE_RELEASE_SHA
-          api_file_post_release_content=$API_FILE_POST_RELEASE_CONTENT
-          EndOfFile
-
   create-artifacts:
     name: ⚙️ Create artifacts
     needs: [init, generate-version-update-commits, push-release-commit]
@@ -587,3 +572,127 @@ jobs:
         with:
           path: ${{ env.LOCAL_ARTIFACTS_STAGING_PATH }}
           key: signed-${{ env.RUN_ATTEMPT_UID }}
+
+  sonatype-release:
+    name: 🔒 Sonatype Release
+    needs: [push-release-commit, sign]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/cache/restore@v4
+        with:
+          path: ${{ env.LOCAL_ARTIFACTS_STAGING_PATH }}
+          key: signed-${{ env.RUN_ATTEMPT_UID }}
+          fail-on-cache-miss: true
+
+      - name: Create tiny sbt project to perform Sonatype upload
+        env:
+          SONATYPE_TOKEN: ${{ secrets.SONATYPE_TOKEN }}
+        run: |
+          cat << EndOfFile > build.sbt
+          Global / stagingDirectory := new File("$LOCAL_ARTIFACTS_STAGING_PATH")
+          version := "${{ needs.push-release-commit.outputs.release_version }}"
+          sonaDeploymentName := "${{ github.repository }} $GITHUB_REF_NAME ${{ needs.push-release-commit.outputs.release_version }} $RUN_ATTEMPT_UID"
+          credentials += Credentials("Sonatype Central Portal", "central.sonatype.com", userName = "${SONATYPE_TOKEN%%:*}", passwd = "${SONATYPE_TOKEN#*:}")
+          EndOfFile
+  
+          mkdir project
+          echo 'sbt.version = 1.11.1' > project/build.properties
+  
+          ls -lR .
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: corretto
+          java-version: 21
+          cache: sbt # the issue described in https://github.com/actions/setup-java/pull/564 doesn't affect this step (no version.sbt)
+
+      - uses: sbt/setup-sbt@v1.1.9
+
+      - name: Release
+        run: |
+          sbt "sonaRelease"
+  
+         # github-release:
+         #   name: 🔒 Update GitHub
+         #   needs:  [init, push-release-commit, sign]
+         #   runs-on: ubuntu-latest
+         #   permissions:
+         #     contents: write
+         #     pull-requests: write
+         #   env:
+         #     RELEASE_TAG: ${{ needs.push-release-commit.outputs.release_tag }}
+         #     RELEASE_VERSION: ${{ needs.push-release-commit.outputs.release_version }}
+         #     RELEASE_NOTES_URL: ${{ needs.push-release-commit.outputs.release_notes_url }}
+         #     GH_REPO: ${{ github.repository }}
+         #   steps:
+         #     - id: generate-github-app-token
+         #       uses: actions/create-github-app-token@v2
+         #       with:
+         #         app-id: ${{ inputs.GITHUB_APP_ID }}
+         #         private-key: ${{ secrets.GITHUB_APP_PRIVATE_KEY }} }
+         #     - name: Clean-up temporary branch that was retaining the now-tagged release commit
+         #       env:
+         #         GH_TOKEN: ${{ steps.generate-github-app-token.outputs.token }}
+         #       run: |
+         #         gh api --method DELETE /repos/:owner/:repo/git/refs/heads/$TEMPORARY_BRANCH
+         #     - name: Common values
+         #       run: |
+         #         GITHUB_ACTIONS_PATH="$GITHUB_REPO_URL/actions"
+         #         GITHUB_WORKFLOW_FILE="release.yml" # Could be derived from $GITHUB_WORKFLOW_REF
+         #         GITHUB_WORKFLOW_URL="$GITHUB_ACTIONS_PATH/workflows/$GITHUB_WORKFLOW_FILE"
+         
+         #         cat << EndOfFile >> $GITHUB_ENV
+         #         GITHUB_WORKFLOW_FILE=$GITHUB_WORKFLOW_FILE
+         #         GITHUB_WORKFLOW_LINK=[GitHub UI]($GITHUB_WORKFLOW_URL)
+         #         GITHUB_WORKFLOW_RUN_LINK=[#${{ github.run_number }}]($GITHUB_ACTIONS_PATH/runs/${{ github.run_id }})
+         #         EndOfFile
+         #     - name: Create Github Release and update version.sbt post-release
+         #       if: needs.init.outputs.release_type == 'FULL_MAIN_BRANCH'
+         #       env:
+         #         GH_TOKEN: ${{ steps.generate-github-app-token.outputs.token }}
+         #       run: |
+         #         gh release create $RELEASE_TAG --verify-tag --generate-notes --notes "Release run: $GITHUB_WORKFLOW_RUN_LINK"
+         #         echo "GitHub Release notes: [$RELEASE_TAG]($RELEASE_NOTES_URL)" >> $GITHUB_STEP_SUMMARY
+         
+         #         cat << EndOfFile > commit-message.txt
+         #         Post-release of $RELEASE_TAG by @${{github.actor}}: set snapshot version
+         
+         #         Setting snapshot version after @${{github.actor}} published $RELEASE_NOTES_URL
+         #         EndOfFile
+         
+         #         gh api --method PUT /repos/:owner/:repo/contents/${{ needs.push-release-commit.outputs.version_file_path }} \
+         #           --field message="@commit-message.txt" \
+         #           --field sha="${{ needs.push-release-commit.outputs.version_file_release_sha }}" \
+         #           --field content="${{ needs.push-release-commit.outputs.version_file_post_release_content }}"
+         #     - name: Update PR with comment
+         #       if: needs.init.outputs.release_type == 'PREVIEW_FEATURE_BRANCH'
+         #       env:
+         #         GH_TOKEN: ${{ steps.generate-github-app-token.outputs.token }}
+         #       run: |
+         #         cat << EndOfFile > comment_body.txt
+         #         @${{github.actor}} has published a preview version of this PR with release workflow run $GITHUB_WORKFLOW_RUN_LINK, based on commit ${{ github.sha }}:
+         
+         #         $RELEASE_VERSION
+         
+         #         <details>
+         #         <summary>Want to make another preview release?</summary>
+         
+         #         Click 'Run workflow' in the $GITHUB_WORKFLOW_LINK, specifying the $GITHUB_REF_NAME branch, or use the [GitHub CLI](https://cli.github.com/) command:
+         
+         #         gh workflow run $GITHUB_WORKFLOW_FILE --ref $GITHUB_REF_NAME
+         
+         #         </details>
+         
+         #         <details>
+         #         <summary>Want to make a full release after this PR is merged?</summary>
+         
+         #         Click 'Run workflow' in the $GITHUB_WORKFLOW_LINK, leaving the branch as the default, or use the [GitHub CLI](https://cli.github.com/) command:
+         
+         #         gh workflow run $GITHUB_WORKFLOW_FILE
+         
+         #         </details>
+         #         EndOfFile
+         
+         #         cat comment_body.txt
+
+  #         gh pr comment ${{ github.ref_name }} --body-file comment_body.txt >> $GITHUB_STEP_SUMMARY
