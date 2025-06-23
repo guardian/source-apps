@@ -615,7 +615,7 @@ jobs:
           ls -lR .
 
           # Print out the staging directory to confirm contents
-          find $LOCAL_ARTIFACTS_STAGING_PATH -maxdepth 3 -ls
+          ls -lR $LOCAL_ARTIFACTS_STAGING_PATH
 
       - uses: actions/setup-java@v4
         with:
