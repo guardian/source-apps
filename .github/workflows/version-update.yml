@@ -590,9 +590,6 @@ jobs:
         env:
           SONATYPE_TOKEN: ${{ secrets.SONATYPE_TOKEN }}
         run: |
-          # Print out the staging directory to confirm contents
-          find $LOCAL_ARTIFACTS_STAGING_PATH -maxdepth 2 -ls
-          
           cat << EndOfFile > build.sbt
           Global / stagingDirectory := new File("$LOCAL_ARTIFACTS_STAGING_PATH")
           version := "${{ needs.push-release-commit.outputs.release_version }}"
@@ -600,14 +597,13 @@ jobs:
           credentials += Credentials("Sonatype Central Portal", "central.sonatype.com", userName = "${SONATYPE_TOKEN%%:*}", passwd = "${SONATYPE_TOKEN#*:}")
           EndOfFile
           
-          # Print out the build.sbt file to confirm contents
-          echo "build.sbt is..."
-          cat build.sbt
-  
           mkdir project
           echo 'sbt.version = 1.11.1' > project/build.properties
   
           ls -lR .
+
+          # Print out the staging directory to confirm contents
+          find $LOCAL_ARTIFACTS_STAGING_PATH -maxdepth 3 -ls
 
       - uses: actions/setup-java@v4
         with:
@@ -619,7 +615,7 @@ jobs:
 
       - name: Release
         run: |
-          sbt "sonaRelease"
+          sbt "sonaRelease" --batch
   
          # github-release:
          #   name: 🔒 Update GitHub
