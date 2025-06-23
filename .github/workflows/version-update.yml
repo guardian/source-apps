@@ -614,9 +614,6 @@ jobs:
 
           ls -lR .
 
-          # Print out the staging directory to confirm contents
-          ls -lR $LOCAL_ARTIFACTS_STAGING_PATH
-
       - uses: actions/setup-java@v4
         with:
           distribution: corretto
@@ -627,6 +624,9 @@ jobs:
 
       - name: Release
         run: |
+          # Print out the staging directory to confirm contents
+          ls -lR $LOCAL_ARTIFACTS_STAGING_PATH
+
           sbt "sonaRelease" --batch
 
          # github-release:
