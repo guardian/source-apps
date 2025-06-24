@@ -627,7 +627,7 @@ jobs:
           # Print out the staging directory to confirm contents
           ls -lR $LOCAL_ARTIFACTS_STAGING_PATH
 
-          sbt "sonaRelease" --batch
+          sbt "sonaRelease"
 
          # github-release:
          #   name: 🔒 Update GitHub
