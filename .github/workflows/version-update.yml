@@ -627,6 +627,10 @@ jobs:
           # Print out the staging directory to confirm contents
           ls -lR $LOCAL_ARTIFACTS_STAGING_PATH
 
+          sbt "show sonaBundle"
+          ls -la /home/runner/work/source-apps/source-apps/target/sona-bundle/bundle.zip
+          unzip -l /home/runner/work/source-apps/source-apps/target/sona-bundle/bundle.zip
+          
           sbt "sonaRelease" --debug
 
          # github-release:
