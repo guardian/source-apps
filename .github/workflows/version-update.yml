@@ -230,6 +230,7 @@ jobs:
             set -e
           
             if [ $RESULT -ne 0 ]; then
+              ./gradlew ":${MOD}:metalavaGenerateSignatureRelease"
               BUMP="major"
             else
               ./gradlew ":${MOD}:metalavaGenerateSignatureRelease"
@@ -246,6 +247,9 @@ jobs:
             elif [ "$BUMP" = "minor" ] && [ "$HIGHEST_BUMP" = "patch" ]; then
               HIGHEST_BUMP="minor"
             fi
+          
+            # Add this module's API file to the commit
+            git add "$MOD_API_FILE"
           
             rm -f "$TMP_API_FILE"
           done
@@ -267,8 +271,8 @@ jobs:
 
           echo "Updated version to $MAJOR.$MINOR.$PATCH"
           
-          # Commit the updated version and API files
-          git add "$VERSION_FILE" "$API_FILE"
+          # Commit the updated version
+          git add "$VERSION_FILE"
           git commit -m "chore: update version to $MAJOR.$MINOR.$PATCH"
           # Add version_suffix to the version and tag the commit with the new version number
           git tag "v$MAJOR.$MINOR.$PATCH${{ needs.init.outputs.version_suffix }}"
