@@ -481,7 +481,7 @@ jobs:
             IFS=',' read -ra MOD_ARRAY <<< "$MODULES"
 
             for mod in "${MOD_ARRAY[@]}"; do
-              MOD = $(echo "${mod}" | xargs)
+              MOD=$(echo "${mod}" | xargs)
               ./gradlew ":${MOD}:publishReleasePublicationToCustomRepository" -Prepo.local=$LOCAL_ARTIFACTS_STAGING_PATH
             done
           fi
