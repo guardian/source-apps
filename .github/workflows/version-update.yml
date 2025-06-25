@@ -454,6 +454,9 @@ jobs:
               ./gradlew :source:publishReleasePublicationToGusourceRepository -Prepo.local=$LOCAL_ARTIFACTS_STAGING_PATH
             done
           fi
+          
+          # Delete maven-metadata.xml files to avoid publishing them
+          find $LOCAL_ARTIFACTS_STAGING_PATH -type f -name 'maven-metadata.xml*' -delete
 
       - name: Record SHA-256 hashes of artifacts
         id: record-hashes
