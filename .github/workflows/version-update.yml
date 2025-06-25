@@ -541,20 +541,8 @@ jobs:
 
       - name: Sign artifacts
         run: |
-          # Print out the staging directory before signing
-          echo "Current directory is ${pwd}"
-          echo "Signing artifacts in $LOCAL_ARTIFACTS_STAGING_PATH"
-          echo "Contents of staging directory before signing:"
-          ls -lR $LOCAL_ARTIFACTS_STAGING_PATH
-
           echo "KEY_FINGERPRINT=$KEY_FINGERPRINT"
           find $LOCAL_ARTIFACTS_STAGING_PATH -type f -exec gpg -a --local-user "$KEY_FINGERPRINT" --detach-sign {} \;
-
-          # Print out the staging directory to confirm contents and signatures
-          echo "Contents of staging directory after signing:"
-          ls -lR $LOCAL_ARTIFACTS_STAGING_PATH
-          echo "Contents of working directory after signing:"
-          ls -al
 
       - name: "Full Main-Branch release: Add release commit (from temporary release branch) to default branch"
         if: needs.init.outputs.release_type == 'FULL_MAIN_BRANCH'
@@ -639,9 +627,6 @@ jobs:
 
       - name: Release
         run: |
-          # Print out the staging directory to confirm contents
-          ls -lR $LOCAL_ARTIFACTS_STAGING_PATH
-
           sbt "sonaRelease"
 
 
