@@ -458,8 +458,14 @@ jobs:
           MODULES="${{ inputs.MODULES }}"
           if [ -n "$MODULES" ]; then
             IFS=',' read -ra MOD_ARRAY <<< "$MODULES"
+
+            # for i in "${!MOD_ARRAY[@]}"; do
+            #   MOD_ARRAY[$i]=$(echo "${MOD_ARRAY[$i]}" | xargs)
+            # done
+
             for mod in "${MOD_ARRAY[@]}"; do
-              ./gradlew :source:publishReleasePublicationToGusourceRepository -Prepo.local=$LOCAL_ARTIFACTS_STAGING_PATH
+              MOD = $(echo "${mod}" | xargs)
+              ./gradlew :${MOD}:publishReleasePublicationToGusourceRepository -Prepo.local=$LOCAL_ARTIFACTS_STAGING_PATH
             done
           fi
           
