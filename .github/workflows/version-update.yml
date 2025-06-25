@@ -482,7 +482,7 @@ jobs:
 
             for mod in "${MOD_ARRAY[@]}"; do
               MOD = $(echo "${mod}" | xargs)
-              ./gradlew ":${MOD}:publishReleasePublicationToGusourceRepository" -Prepo.local=$LOCAL_ARTIFACTS_STAGING_PATH
+              ./gradlew ":${MOD}:publishReleasePublicationToCustomRepository" -Prepo.local=$LOCAL_ARTIFACTS_STAGING_PATH
             done
           fi
           

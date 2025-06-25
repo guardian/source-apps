@@ -94,13 +94,13 @@ publishing {
 
     repositories {
         // Adds a task for publishing locally to the build directory.
-        // Use as `./gradlew :source:publishReleasePublicationToGusourceRepository`
+        // Use as `./gradlew :source:publishReleasePublicationToCustomRepository`
         // Use with -Prepo.local=$LOCAL_ARTIFACTS_STAGING_PATH to output to a custom path.
         maven {
-            name = "gusource"
+            name = "custom"
             url = uri(
                 (project.findProperty("repo.local") as? String)
-                    ?: "${project.layout.buildDirectory.asFile.get().path}/gusource"
+                    ?: "${project.layout.buildDirectory.asFile.get().path}/custom"
             )
         }
     }
