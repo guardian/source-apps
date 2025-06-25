@@ -218,7 +218,9 @@ jobs:
           
             TMP_API_FILE=$(mktemp)
             pwd
-            cat "$MOD_API_FILE"
+            echo $API_FILE
+            echo $MOD
+            echo $MOD_API_FILE
             cp "$MOD_API_FILE" "$TMP_API_FILE"
           
             # Check API compatibility
