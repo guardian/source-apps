@@ -416,6 +416,8 @@ jobs:
     name: ⚙️ Create artifacts
     needs: [init, generate-version-update-commits, push-release-commit]
     runs-on: ubuntu-latest
+    env:
+      RELEASE_VERSION: ${{ needs.push-release-commit.outputs.release_version }}
     outputs:
       ARTIFACT_SHA256SUMS: ${{ steps.record-hashes.outputs.ARTIFACT_SHA256SUMS }}
     steps:
