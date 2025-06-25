@@ -639,7 +639,7 @@ jobs:
 
   github-release:
     name: 🔒 Update GitHub
-    needs:  [init, push-release-commit, sign]
+    needs:  [init, push-release-commit, sign, sonatype-release]
     runs-on: ubuntu-latest
     permissions:
       contents: write
