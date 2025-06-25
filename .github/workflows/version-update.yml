@@ -182,8 +182,6 @@ jobs:
             cd "$SOURCE_DIR"
           fi
 
-          pwd
-
           VERSION_FILE="${{ inputs.VERSION_FILE }}"
           API_FILE="${{ inputs.API_FILE }}"
           TMP_API_FILE=$(mktemp)
@@ -211,16 +209,11 @@ jobs:
           
           HIGHEST_BUMP="patch"
           
-          pwd
           for mod in "${MOD_ARRAY[@]}"; do
             MOD=$(echo "${mod}" | xargs)
             MOD_API_FILE="${MOD}/${API_FILE}"
           
             TMP_API_FILE=$(mktemp)
-            pwd
-            echo $API_FILE
-            echo $MOD
-            echo $MOD_API_FILE
             cp "$MOD_API_FILE" "$TMP_API_FILE"
           
             # Check API compatibility
@@ -310,7 +303,6 @@ jobs:
       release_notes_url: ${{ steps.create-commit.outputs.release_notes_url }}
       release_version: ${{ steps.create-commit.outputs.release_version }}
       release_commit_id: ${{ steps.create-commit.outputs.release_commit_id }}
-      version_commit_id: ${{ steps.create-commit.outputs.version_commit_id }}
       version_file_path: ${{ steps.create-commit.outputs.version_file_path }}
       version_file_release_sha: ${{ steps.create-commit.outputs.version_file_release_sha }}
       version_file_post_release_content: ${{ steps.create-commit.outputs.version_file_post_release_content }}
@@ -391,6 +383,7 @@ jobs:
           VERSION_FILE_RELEASE_CONTENT=$( git cat-file blob $RELEASE_TAG:$VERSION_FILE_PATH | base64 -w0)
           VERSION_FILE_POST_RELEASE_CONTENT=$( git cat-file blob unsigned/$GITHUB_REF_NAME:$VERSION_FILE_PATH | base64 -w0)
 
+          # TODO: Do this for each module in MODULES
           API_FILE_PATH=$(git diff-tree --no-commit-id --name-only -r $RELEASE_TAG | grep ${{ inputs.API_FILE }})
           API_FILE_INITIAL_SHA=$( git rev-parse $GITHUB_REF:$API_FILE_PATH )
           API_FILE_RELEASE_SHA=$( git rev-parse $RELEASE_TAG:$API_FILE_PATH )
@@ -413,7 +406,8 @@ jobs:
   
           # Create temporary branch to push the release commit- required for PREVIEW releases
           gh api --method POST /repos/:owner/:repo/git/refs -f ref="refs/heads/$TEMPORARY_BRANCH" -f sha="$GITHUB_SHA"
-  
+          
+          # TODO: Do this for each module in MODULES
           # Update the API file
           api_commit_id=$(gh api --method PUT /repos/:owner/:repo/contents/$API_FILE_PATH \
             --field branch="$TEMPORARY_BRANCH" \
@@ -428,19 +422,14 @@ jobs:
             --field sha="$VERSION_FILE_INITIAL_SHA" \
             --field content="$VERSION_FILE_RELEASE_CONTENT" --jq '.commit.sha')
             
-          echo "VERSION_COMMIT_ID=$version_commit_id"
-          echo "API_COMMIT_ID_=$api_commit_id"
-
           cat << EndOfFile >> $GITHUB_OUTPUT
           release_tag=$RELEASE_TAG
           release_notes_url=$RELEASE_NOTES_URL
           release_version=$RELEASE_VERSION
           release_commit_id=$version_commit_id
-          version_commit_id=$version_commit_id
           version_file_path=$VERSION_FILE_PATH
           version_file_release_sha=$VERSION_FILE_RELEASE_SHA
           version_file_post_release_content=$VERSION_FILE_POST_RELEASE_CONTENT
-          api_commit_id=$api_commit_id
           api_file_path=$API_FILE_PATH
           api_file_release_sha=$API_FILE_RELEASE_SHA
           api_file_post_release_content=$API_FILE_POST_RELEASE_CONTENT
