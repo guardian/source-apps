@@ -182,6 +182,8 @@ jobs:
             cd "$SOURCE_DIR"
           fi
 
+          pwd
+
           VERSION_FILE="${{ inputs.VERSION_FILE }}"
           API_FILE="${{ inputs.API_FILE }}"
           TMP_API_FILE=$(mktemp)
@@ -209,11 +211,14 @@ jobs:
           
           HIGHEST_BUMP="patch"
           
+          pwd
           for mod in "${MOD_ARRAY[@]}"; do
             MOD=$(echo "${mod}" | xargs)
             MOD_API_FILE="${MOD}/${API_FILE}"
           
             TMP_API_FILE=$(mktemp)
+            pwd
+            cat "$MOD_API_FILE"
             cp "$MOD_API_FILE" "$TMP_API_FILE"
           
             # Check API compatibility
