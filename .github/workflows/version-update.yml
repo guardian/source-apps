@@ -3,17 +3,17 @@ name: Version Update
 on:
   workflow_call:
     inputs:
-      MODULES:
-        description: 'Comma-separated list of module names to build (e.g. "core,utils,api").'
-        required: true
-        type: string
       SOURCE_DIR:
         description: 'Path to source directory. For monorepos, this is the path to the library source directory. Leave empty for the root directory.'
         required: false
         default: ''
         type: string
+      MODULES:
+        description: 'Comma-separated list of module names to build (e.g. "core,utils,api").'
+        required: true
+        type: string
       API_FILE:
-        description: 'Path to API file relative to the source directory.'
+        description: 'Path to API file relative to the module directory.'
         required: false
         default: 'api/api.txt'
         type: string
