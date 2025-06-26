@@ -306,9 +306,8 @@ jobs:
       version_file_path: ${{ steps.create-commit.outputs.version_file_path }}
       version_file_release_sha: ${{ steps.create-commit.outputs.version_file_release_sha }}
       version_file_post_release_content: ${{ steps.create-commit.outputs.version_file_post_release_content }}
-      api_file_path: ${{ steps.create-commit.outputs.api_file_path }}
-      api_file_release_sha: ${{ steps.create-commit.outputs.api_file_release_sha }}
-      api_file_post_release_content: ${{ steps.create-commit.outputs.api_file_post_release_content }}
+      api_files: ${{ steps.create-commit.outputs.api_files }}
+
     steps:
       - name: Generate app token
         id: generate-github-app-token
@@ -383,13 +382,37 @@ jobs:
           VERSION_FILE_RELEASE_CONTENT=$( git cat-file blob $RELEASE_TAG:$VERSION_FILE_PATH | base64 -w0)
           VERSION_FILE_POST_RELEASE_CONTENT=$( git cat-file blob unsigned/$GITHUB_REF_NAME:$VERSION_FILE_PATH | base64 -w0)
 
-          # TODO: Do this for each module in MODULES
-          API_FILE_PATH=$(git diff-tree --no-commit-id --name-only -r $RELEASE_TAG | grep ${{ inputs.API_FILE }})
-          API_FILE_INITIAL_SHA=$( git rev-parse $GITHUB_REF:$API_FILE_PATH )
-          API_FILE_RELEASE_SHA=$( git rev-parse $RELEASE_TAG:$API_FILE_PATH )
-          API_FILE_RELEASE_CONTENT=$( git cat-file blob $RELEASE_TAG:$API_FILE_PATH | base64 -w0)
-          API_FILE_POST_RELEASE_CONTENT=$( git cat-file blob unsigned/$GITHUB_REF_NAME:$API_FILE_PATH | base64 -w0)
+          # Create temporary branch to push the release commit- required for PREVIEW releases
+          gh api --method POST /repos/:owner/:repo/git/refs -f ref="refs/heads/$TEMPORARY_BRANCH" -f sha="$GITHUB_SHA"
+          
+          # Parse modules and iterate over them, committing API files and collecting their details
+          # in a json object for later use
+          MODULES="${{ inputs.MODULES }}"
+          IFS=',' read -ra MOD_ARRAY <<< "$MODULES"
+          
+          API_FILES_JSON="["
+          
+          for mod in "${MOD_ARRAY[@]}"; do
+            MOD=$(echo "${mod}" | xargs)
+            API_FILE_PATH=$(git diff-tree --no-commit-id --name-only -r $RELEASE_TAG | grep "${MOD}/${{ inputs.API_FILE }}")
+            API_FILE_INITIAL_SHA=$(git rev-parse $GITHUB_REF:"$API_FILE_PATH")
+            API_FILE_RELEASE_SHA=$(git rev-parse $RELEASE_TAG:"$API_FILE_PATH")
+            API_FILE_RELEASE_CONTENT=$(git cat-file blob $RELEASE_TAG:"$API_FILE_PATH" | base64 -w0)
+            API_FILE_POST_RELEASE_CONTENT=$(git cat-file blob unsigned/$GITHUB_REF_NAME:"$API_FILE_PATH" | base64 -w0)
+          
+            # Commit the API file changes for module
+            api_commit_id=$(gh api --method PUT /repos/:owner/:repo/contents/$API_FILE_PATH \
+              --field branch="$TEMPORARY_BRANCH" \
+              --field message="Update public API file for module $MOD for $RELEASE_TAG" \
+              --field sha="$API_FILE_INITIAL_SHA" \
+              --field content="$API_FILE_RELEASE_CONTENT" --jq '.commit.sha')
   
+            API_FILES_JSON="${API_FILES_JSON}{\"module\":\"$MOD\",\"api_file_path\":\"$API_FILE_PATH\",\"api_file_release_sha\":\"$API_FILE_RELEASE_SHA\",\"api_file_post_release_content\":\"$API_FILE_POST_RELEASE_CONTENT\"},"
+          done
+          
+          # Remove trailing comma and close JSON array
+          API_FILES_JSON="${API_FILES_JSON%,}]"
+          
           cd $BASE_PATH
   
           cat << EndOfFile > commit-message.txt
@@ -404,24 +427,14 @@ jobs:
           Release-Notes: $RELEASE_NOTES_URL
           EndOfFile
   
-          # Create temporary branch to push the release commit- required for PREVIEW releases
-          gh api --method POST /repos/:owner/:repo/git/refs -f ref="refs/heads/$TEMPORARY_BRANCH" -f sha="$GITHUB_SHA"
-          
-          # TODO: Do this for each module in MODULES
-          # Update the API file
-          api_commit_id=$(gh api --method PUT /repos/:owner/:repo/contents/$API_FILE_PATH \
-            --field branch="$TEMPORARY_BRANCH" \
-            --field message="Update public API file for $RELEASE_TAG" \
-            --field sha="$API_FILE_INITIAL_SHA" \
-            --field content="$API_FILE_RELEASE_CONTENT" --jq '.commit.sha')
-          
-          # Update the version file
+          # Commit the version file
           version_commit_id=$(gh api --method PUT /repos/:owner/:repo/contents/$VERSION_FILE_PATH \
             --field branch="$TEMPORARY_BRANCH" \
             --field message="@commit-message.txt" \
             --field sha="$VERSION_FILE_INITIAL_SHA" \
             --field content="$VERSION_FILE_RELEASE_CONTENT" --jq '.commit.sha')
-            
+          
+          # Set output  
           cat << EndOfFile >> $GITHUB_OUTPUT
           release_tag=$RELEASE_TAG
           release_notes_url=$RELEASE_NOTES_URL
@@ -430,9 +443,7 @@ jobs:
           version_file_path=$VERSION_FILE_PATH
           version_file_release_sha=$VERSION_FILE_RELEASE_SHA
           version_file_post_release_content=$VERSION_FILE_POST_RELEASE_CONTENT
-          api_file_path=$API_FILE_PATH
-          api_file_release_sha=$API_FILE_RELEASE_SHA
-          api_file_post_release_content=$API_FILE_POST_RELEASE_CONTENT
+          api_files=$API_FILES_JSON
           EndOfFile
           
   create-artifacts:
@@ -692,19 +703,27 @@ jobs:
           gh release create $RELEASE_TAG --verify-tag --generate-notes --notes "Release run: $GITHUB_WORKFLOW_RUN_LINK"
           echo "GitHub Release notes: [$RELEASE_TAG]($RELEASE_NOTES_URL)" >> $GITHUB_STEP_SUMMARY
           
-          # First update the API file
-          gh api --method PUT /repos/:owner/:repo/contents/${{ needs.push-release-commit.outputs.api_file_path }} \
-            --field message="Update public API file for $RELEASE_TAG" \
-            --field sha="${{ needs.push-release-commit.outputs.api_file_release_sha }}" \
-            --field content="${{ needs.push-release-commit.outputs.api_file_post_release_content }}"
-
+          # Commit API files for each module
+          API_FILES_JSON='${{ needs.push-release-commit.outputs.api_files }}'
+          echo "$API_FILES_JSON" | jq -c '.[]' | while read -r api_file; do
+            MOD=$(echo "$api_file" | jq -r '.module')
+            API_FILE_PATH=$(echo "$api_file" | jq -r '.api_file_path')
+            API_FILE_RELEASE_SHA=$(echo "$api_file" | jq -r '.api_file_release_sha')
+            API_FILE_POST_RELEASE_CONTENT=$(echo "$api_file" | jq -r '.api_file_post_release_content')
+            gh api --method PUT /repos/:owner/:repo/contents/$API_FILE_PATH \
+              --field message="Update public API file for $MOD for $RELEASE_TAG" \
+              --field sha="$API_FILE_RELEASE_SHA" \
+              --field content="$API_FILE_POST_RELEASE_CONTENT"
+          done
+          
+          
+          # Then commit the version file
           cat << EndOfFile > commit-message.txt
           Post-release of $RELEASE_TAG by @${{github.actor}}: set version
           
           Setting snapshot version after @${{github.actor}} published $RELEASE_NOTES_URL
           EndOfFile
           
-          # Then update the version file
           gh api --method PUT /repos/:owner/:repo/contents/${{ needs.push-release-commit.outputs.version_file_path }} \
             --field message="@commit-message.txt" \
             --field sha="${{ needs.push-release-commit.outputs.version_file_release_sha }}" \
