@@ -2,13 +2,12 @@ name: Release to Maven Central
 
 on:
   workflow_dispatch:
-  # For testing only
-  push:
-    branches:
-      - ab/release/versioning
-# Do not use `release` as a trigger till we go to automated releases on PR merges.
-# Using release can have unintended consequences due to creation and editint of
-# release notes and tags all triggering the workflow.
+# Uncomment to enable automatic releases on pushes to the main branch.
+#  push:
+#      branches:
+#        - main
+#      paths:
+#        - 'android/**'
 
 jobs:
   version:
@@ -25,52 +24,3 @@ jobs:
       SONATYPE_TOKEN: ${{ secrets.AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN }}
       PGP_PRIVATE_KEY: ${{ secrets.AUTOMATED_MAVEN_RELEASE_PGP_SECRET }}
       GITHUB_APP_PRIVATE_KEY: ${{ secrets.AUTOMATED_MAVEN_RELEASE_GITHUB_APP_PRIVATE_KEY }}
-
-#  release:
-#    if: github.repository == 'guardian/source-apps'
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v4
-#
-#      - name: Establish library build Java version
-#        id: establish_java_for_library_build
-#        run: |
-#          # Check if .tool-versions file exists
-#          if [ ! -f .tool-versions ]; then
-#            echo "::error title=Missing .tool-versions file::gha-gradle-library-release-workflow requires an asdf-format .tool-versions file to establish the Java version for the build."
-#            exit 1
-#          fi
-#
-#          # Check if the file contains a Java version
-#          LIBRARY_BUILD_MAJOR_JAVA_VERSION=$( grep -Eo 'java [[:alnum:]-]+-[[:digit:]]+' .tool-versions | rev | cut -d'-' -f1 | rev )
-#          echo "Using Java $LIBRARY_BUILD_MAJOR_JAVA_VERSION"
-#          if [ -z "${LIBRARY_BUILD_MAJOR_JAVA_VERSION}" ]; then
-#            echo "::error title=Missing Java version in .tool-versions file::Could not establish the library's required Java version - the '.tool-versions' file should have a line like 'java corretto-21.0.3.9.1'."
-#            exit 1
-#          fi
-#
-#          # Set the output variable for the Java version
-#          cat << EndOfFile >> $GITHUB_OUTPUT
-#          library_build_major_java_version=$LIBRARY_BUILD_MAJOR_JAVA_VERSION
-#          EndOfFile
-#
-#      - name: Set up JDK 17
-#        uses: actions/setup-java@v4
-#        with:
-#          java-version: ${{ steps.establish_java_for_library_build.outputs.library_build_major_java_version }}
-#          distribution: 'temurin'
-#
-#      - name: Setup Gradle
-#        uses: gradle/actions/setup-gradle@v3
-#        with:
-#          gradle-version: wrapper
-#
-#
-#      - name: Release
-#        env:
-#          AUTOMATED_MAVEN_RELEASE_PGP_SECRET: ${{ secrets.AUTOMATED_MAVEN_RELEASE_PGP_SECRET }}
-#          AUTOMATED_MAVEN_RELEASE_GITHUB_APP_PRIVATE_KEY: ${{ secrets.AUTOMATED_MAVEN_RELEASE_GITHUB_APP_PRIVATE_KEY }}
-#          AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN: ${{ secrets.AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN }}
-#        run: |
-#          cd android
-#          ./gradlew :source:publishToSonatype closeAndReleaseSonatypeStagingRepository
