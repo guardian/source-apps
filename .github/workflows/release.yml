@@ -12,7 +12,7 @@ on:
 
 jobs:
   version:
-    name: Release with version update
+    name: Release
     if: github.repository == 'guardian/source-apps'
     permissions: { contents: write, pull-requests: write }
     uses: guardian/gha-gradle-library-release-workflow/.github/workflows/reusable-release.yml@ab/update-to-support-gradle-and-monorepo-configs
