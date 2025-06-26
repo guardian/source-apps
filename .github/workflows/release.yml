@@ -15,7 +15,7 @@ jobs:
     name: Release with version update
     if: github.repository == 'guardian/source-apps'
     permissions: { contents: write, pull-requests: write }
-    uses: ./.github/workflows/version-update.yml
+    uses: guardian/gha-gradle-library-release-workflow/.github/workflows/reusable-release.yml@ab/update-to-support-gradle-and-monorepo-configs
     with:
       SOURCE_DIR: 'android'
       MODULES: 'source'
