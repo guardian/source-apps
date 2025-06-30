@@ -19,19 +19,26 @@ struct ColorView: View {
             Color.init(uiColor: color.color)
             #else
             Color.init(nsColor: color.color)
-                .transformEffect(isHovering ? CGAffineTransform(translationX: 0, y: -10) : .identity)
                 .overlay {
                     if isHovering, let hex = color.hexString {
                         Text(hex)
-                            .foregroundStyle(Color.init(nsColor: color.color.contrastingTextColor))
-                            .textSelection(.enabled)
-                            .copyable([hex])
+                            .foregroundStyle(
+                                Color(nsColor: color.color.contrastingTextColor)
+                            )
+                            .monospaced()
                     }
                 }
                 .onHover(perform: { hovering in
                     isHovering = hovering
 
                 })
+                .scaleEffect(isHovering ? 0.8 : 1)
+                .onTapGesture {
+                    guard let hexString = color.hexString, !hexString.isEmpty else { return }
+
+                    NSPasteboard.general.clearContents()
+                    NSPasteboard.general.setString(hexString, forType: .string)
+                }
             #endif
             Text(color.description)
         }
