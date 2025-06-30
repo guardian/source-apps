@@ -22,6 +22,7 @@ struct TypographyView: View {
                             Spacer()
                             Text(font.fontDescriptor)
                                 .monospaced()
+                                .foregroundStyle(.secondary)
                         }
                         .padding()
                         .onTapGesture {
@@ -31,7 +32,7 @@ struct TypographyView: View {
                     }
                 } header: {
                     Text(section.name)
-                        .font(Typography.headlineBld20)
+                        .font(Typography.headlineBld18)
                         .padding(.bottom, 8)
                 }
             }

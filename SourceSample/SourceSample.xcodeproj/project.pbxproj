@@ -23,6 +23,7 @@
 		D4D0B0112E12BB0F002FE8E0 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0B0102E12BB0C002FE8E0 /* IconView.swift */; };
 		D4D0B0132E12BCD9002FE8E0 /* IconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0B0122E12BCD9002FE8E0 /* IconModel.swift */; };
 		D4D0B0152E12C450002FE8E0 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4D0B0142E12C450002FE8E0 /* Media.xcassets */; };
+		D4D0B0192E12EB32002FE8E0 /* ButtonExamplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0B0182E12EB32002FE8E0 /* ButtonExamplesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		D4D0B0122E12BCD9002FE8E0 /* IconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconModel.swift; sourceTree = "<group>"; };
 		D4D0B0142E12C450002FE8E0 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		D4D0B0162E12D7F8002FE8E0 /* Sourcy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sourcy.entitlements; sourceTree = "<group>"; };
+		D4D0B0182E12EB32002FE8E0 /* ButtonExamplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExamplesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		5A35248B2C370373004E1874 /* SourceSample */ = {
 			isa = PBXGroup;
 			children = (
+				D4D0B0172E12EB2B002FE8E0 /* Buttons */,
 				D4D0B00F2E12BA49002FE8E0 /* Icons */,
 				D4D0B0082E12B5B4002FE8E0 /* Typography */,
 				5A3524B52C3807A5004E1874 /* Color */,
@@ -135,6 +138,14 @@
 				D4D0B0122E12BCD9002FE8E0 /* IconModel.swift */,
 			);
 			path = Icons;
+			sourceTree = "<group>";
+		};
+		D4D0B0172E12EB2B002FE8E0 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				D4D0B0182E12EB32002FE8E0 /* ButtonExamplesView.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +227,7 @@
 				5A3524AE2C37FE9B004E1874 /* NSColor+Hex.swift in Sources */,
 				D4D0B0112E12BB0F002FE8E0 /* IconView.swift in Sources */,
 				D4D0B0132E12BCD9002FE8E0 /* IconModel.swift in Sources */,
+				D4D0B0192E12EB32002FE8E0 /* ButtonExamplesView.swift in Sources */,
 				5A3524B82C3807A5004E1874 /* ColorView.swift in Sources */,
 				D4D0B00A2E12B5CC002FE8E0 /* TypographyView.swift in Sources */,
 				5A3524B72C3807A5004E1874 /* ColorSwatchView.swift in Sources */,

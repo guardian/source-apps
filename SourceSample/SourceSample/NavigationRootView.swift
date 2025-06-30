@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NavigationRootView: View {
     enum ViewType: String, CaseIterable, Identifiable {
-        case colours, fonts, icons
+        case colours, fonts, icons, buttons
         var id: Self { self }
 
         var title: String {
@@ -17,6 +17,7 @@ struct NavigationRootView: View {
             case .colours: return "Colours"
             case .fonts: return "Typography"
             case .icons: return "Icons"
+            case .buttons: return "Buttons"
             }
         }
     }
@@ -55,6 +56,8 @@ struct ContentDetailView: View {
             TypographyView()
         case .icons:
             IconView()
+        case .buttons:
+            ButtonExamplesView()
         }
     }
 }

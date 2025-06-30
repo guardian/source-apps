@@ -1,4 +1,5 @@
-#if os(iOS)
+//
+
 import SwiftUI
 import GuardianFonts
 
@@ -28,13 +29,13 @@ public struct SourceButtonStyle: ButtonStyle {
     private func foregroundColor(for priority: ButtonPriority) -> Color {
         switch priority {
         case .primary:
-            return Color(uiColor: buttonTheme.foregroundColorPrimary)
+            return Color(buttonTheme.foregroundColorPrimary)
         case .secondary:
-            return Color(uiColor: buttonTheme.foregroundColorSecondary)
+            return Color(buttonTheme.foregroundColorSecondary)
         case .tertiary:
-            return Color(uiColor: buttonTheme.foregroundColorTertiary)
+            return Color(buttonTheme.foregroundColorTertiary)
         case .subdued:
-            return Color(uiColor: buttonTheme.foregroundColorSubdued)
+            return Color(buttonTheme.foregroundColorSubdued)
         }
     }
 
@@ -43,13 +44,13 @@ public struct SourceButtonStyle: ButtonStyle {
             switch priority {
             case .primary:
                 Capsule()
-                    .fill(Color(uiColor: buttonTheme.backgroundColorPrimary))
+                    .fill(Color(buttonTheme.backgroundColorPrimary))
             case .secondary:
                 Capsule()
-                    .fill(Color(uiColor: buttonTheme.backgroundColorSecondary))
+                    .fill(Color(buttonTheme.backgroundColorSecondary))
             case .tertiary:
                 Capsule()
-                    .stroke(Color(uiColor: buttonTheme.foregroundColorTertiary))
+                    .stroke(Color(buttonTheme.foregroundColorTertiary))
             case .subdued:
                 EmptyView()
 
@@ -147,4 +148,3 @@ public extension ButtonStyle where Self == SourceButtonStyle {
         .previewFonts()
     }
 }
-#endif

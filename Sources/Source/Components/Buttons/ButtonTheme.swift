@@ -1,5 +1,5 @@
 //
-#if os(iOS)
+
 import Foundation
 import SwiftUI
 
@@ -9,23 +9,23 @@ import SwiftUI
 public struct ButtonTheme {
 
     /// The foreground color for the Primary button style.
-    let foregroundColorPrimary: UIColor
+    let foregroundColorPrimary: PlatformColor
 
     /// The background color for the Primary button style.
-    let backgroundColorPrimary: UIColor
+    let backgroundColorPrimary: PlatformColor
 
     /// The foreground color for the Secondary button style.
-    let foregroundColorSecondary: UIColor
+    let foregroundColorSecondary: PlatformColor
 
     /// The background color for the Secondary button style.
-    let backgroundColorSecondary: UIColor
+    let backgroundColorSecondary: PlatformColor
 
     /// The foreground color for the Tertiary button style. This will also be the border color. By default, this
     /// is derived from `backgroundColorPrimary`.
-    let foregroundColorTertiary: UIColor
+    let foregroundColorTertiary: PlatformColor
 
     /// The foreground color for the Subdued button style. By default, this is derived from `backgroundColorPrimary`.
-    let foregroundColorSubdued: UIColor
+    let foregroundColorSubdued: PlatformColor
 
     /// Initializes a new instance of `ButtonTheme`.
     ///
@@ -39,12 +39,12 @@ public struct ButtonTheme {
     ///   - foregroundColorSubdued: The foreground color for the Subdued button style, derived
     ///   from `backgroundColorPrimary` if not specified.
     public init(
-        foregroundColorPrimary: UIColor,
-        backgroundColorPrimary: UIColor,
-        foregroundColorSecondary: UIColor,
-        backgroundColorSecondary: UIColor,
-        foregroundColorTertiary: UIColor? = nil,
-        foregroundColorSubdued: UIColor? = nil
+        foregroundColorPrimary: PlatformColor,
+        backgroundColorPrimary: PlatformColor,
+        foregroundColorSecondary: PlatformColor,
+        backgroundColorSecondary: PlatformColor,
+        foregroundColorTertiary: PlatformColor? = nil,
+        foregroundColorSubdued: PlatformColor? = nil
     ) {
         self.foregroundColorPrimary = foregroundColorPrimary
         self.backgroundColorPrimary = backgroundColorPrimary
@@ -76,4 +76,3 @@ public extension ButtonTheme {
         )
     )
 }
-#endif

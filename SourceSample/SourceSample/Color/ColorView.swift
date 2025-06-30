@@ -26,13 +26,14 @@ struct ColorView: View {
                                 Color(nsColor: color.color.contrastingTextColor)
                             )
                             .monospaced()
+                            .foregroundStyle(.secondary)
                     }
                 }
                 .onHover(perform: { hovering in
                     isHovering = hovering
 
                 })
-                .scaleEffect(isHovering ? 0.8 : 1)
+                .scaleEffect(isHovering ? 0.9 : 1)
                 .onTapGesture {
                     guard let hexString = color.hexString, !hexString.isEmpty else { return }
 

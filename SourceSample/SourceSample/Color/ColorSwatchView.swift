@@ -25,7 +25,7 @@ struct ColorSwatchView: View {
                     .font(Typography.textSans14)
                 } header: {
                     Text(section.name)
-                        .font(Typography.headlineBld20)
+                        .font(Typography.headlineBld18)
                         .padding(.bottom, 8)
                 }
             }

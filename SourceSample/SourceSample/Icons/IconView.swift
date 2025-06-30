@@ -24,7 +24,9 @@ struct IconView: View {
                             Spacer()
                             Text(icon.iconDescriptor)
                                 .monospaced()
+                                .foregroundStyle(.secondary)
                         }
+                        .padding()
                         .onTapGesture {
                             NSPasteboard.general.clearContents()
                             NSPasteboard.general.setString(icon.iconDescriptor, forType: .string)
@@ -32,7 +34,7 @@ struct IconView: View {
                     }
                 } header: {
                     Text(section.name)
-                        .font(Typography.headlineBld20)
+                        .font(Typography.headlineBld18)
                         .padding(.bottom, 8)
                 }
             }

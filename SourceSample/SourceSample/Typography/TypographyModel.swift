@@ -23,6 +23,26 @@ struct TypographyData {
 struct TypographyModel {
     let sections = [
         TypographySection(
+            name: "Guardian Titlepiece",
+            fonts: [
+                TypographyData(
+                    name: "Titlepiece 70",
+                    fontDescriptor: "Typography.titlepiece70",
+                    font: Typography.titlepiece70
+                ),
+                TypographyData(
+                    name: "Titlepiece 50",
+                    fontDescriptor: "Typography.titlepiece50",
+                    font: Typography.titlepiece50
+                ),
+                TypographyData(
+                    name: "Titlepiece 42",
+                    fontDescriptor: "Typography.titlepiece42",
+                    font: Typography.titlepiece42
+                )
+            ]
+        ),
+        TypographySection(
             name: "Guardian Headline",
             fonts: [
                 TypographyData(
@@ -184,26 +204,6 @@ struct TypographyModel {
                     name: "Text Sans 11",
                     fontDescriptor: "Typography.textSans11",
                     font: Typography.textSans11
-                )
-            ]
-        ),
-        TypographySection(
-            name: "Guardian Titlepiece",
-            fonts: [
-                TypographyData(
-                    name: "Titlepiece 70",
-                    fontDescriptor: "Typography.titlepiece70",
-                    font: Typography.titlepiece70
-                ),
-                TypographyData(
-                    name: "Titlepiece 50",
-                    fontDescriptor: "Typography.titlepiece50",
-                    font: Typography.titlepiece50
-                ),
-                TypographyData(
-                    name: "Titlepiece 42",
-                    fontDescriptor: "Typography.titlepiece42",
-                    font: Typography.titlepiece42
                 )
             ]
         )
