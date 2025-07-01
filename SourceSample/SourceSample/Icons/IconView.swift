@@ -14,17 +14,36 @@ struct IconView: View {
     var body: some View {
         List {
             ForEach(model.sections, id:\.name) { section in
-                Section {
+                Section(section.name) {
                     ForEach(section.icons, id:\.name) { icon in
-                        HStack {
-                            Image(source: icon.icon)
-                                .imageScale(.large)
-                            Text(icon.name)
-                                .bold()
-                            Spacer()
-                            Text(icon.iconDescriptor)
-                                .monospaced()
-                                .foregroundStyle(.secondary)
+                        ViewThatFits {
+                            HStack {
+                                Image(source: icon.icon)
+                                    .imageScale(.large)
+                                Text(icon.name)
+                                    .bold()
+                                Spacer()
+                                Text(icon.iconDescriptor)
+                                    .monospaced()
+                                    .foregroundStyle(.secondary)
+                            }
+
+
+                            HStack {
+                                Image(source: icon.icon)
+                                    .imageScale(.large)
+                                Text(icon.name)
+                                    .bold()
+                                Spacer()
+                            }
+
+
+                            VStack(alignment: .leading) {
+                                Image(source: icon.icon)
+                                    .imageScale(.large)
+                                Text(icon.name)
+                                    .bold()
+                            }
                         }
                         .padding()
                         .onTapGesture {
@@ -32,10 +51,6 @@ struct IconView: View {
                             NSPasteboard.general.setString(icon.iconDescriptor, forType: .string)
                         }
                     }
-                } header: {
-                    Text(section.name)
-                        .font(Typography.headlineBld18)
-                        .padding(.bottom, 8)
                 }
             }
         }

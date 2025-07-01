@@ -14,15 +14,24 @@ struct TypographyView: View {
     var body: some View {
         List {
             ForEach(model.sections, id: \.name) { section in
-                Section {
+                Section(section.name) {
                     ForEach(section.fonts, id: \.name) { font in
-                        HStack {
-                            Text(font.name)
-                                .font(font.font)
-                            Spacer()
-                            Text(font.fontDescriptor)
-                                .monospaced()
-                                .foregroundStyle(.secondary)
+                        ViewThatFits {
+                            HStack {
+                                Text(font.name)
+                                    .font(font.font)
+                                Spacer()
+                                Text(font.fontDescriptor)
+                                    .monospaced()
+                                    .foregroundStyle(.secondary)
+                            }
+
+
+                            HStack {
+                                Text(font.name)
+                                    .font(font.font)
+                                Spacer()
+                            }
                         }
                         .padding()
                         .onTapGesture {
@@ -30,10 +39,6 @@ struct TypographyView: View {
                             NSPasteboard.general.setString(font.fontDescriptor, forType: .string)
                         }
                     }
-                } header: {
-                    Text(section.name)
-                        .font(Typography.headlineBld18)
-                        .padding(.bottom, 8)
                 }
             }
         }

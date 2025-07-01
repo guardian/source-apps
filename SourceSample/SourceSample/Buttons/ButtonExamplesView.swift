@@ -15,7 +15,7 @@ struct ButtonExamplesView: View {
         List {
 
             // MARK: - Standard Text Buttons
-           Section {
+           Section("Standard Buttons") {
                 // Primary buttons
                 HStack(spacing: 12) {
                     Button("Primary Medium") { }
@@ -139,13 +139,10 @@ struct ButtonExamplesView: View {
                         )
                 }
                 .padding()
-           } header: {
-               Text("Standard Buttons")
-                   .font(Typography.headlineBld18)
            }
 
             // MARK: - Icon Only Buttons
-            Section {
+            Section("Icon Only Buttons") {
                 HStack(spacing: 16) {
                     Text("Medium")
                     IconButton(
@@ -246,13 +243,10 @@ struct ButtonExamplesView: View {
                     ) {}
                 }
                 .padding()
-            } header: {
-                Text("Icon Only Buttons")
-                    .font(Typography.headlineBld18)
             }
 
             // MARK: - Custom Buttons with Text + Icons
-            Section {
+            Section("Custom Text + Icon Buttons") {
                 HStack(spacing: 16) {
                     // Custom button with icon and text
                     CustomIconTextButton(
@@ -327,9 +321,6 @@ struct ButtonExamplesView: View {
                     ) {}
                 }
                 .padding()
-            } header: {
-                Text("Custom Text + Icon Buttons")
-                    .font(Typography.headlineBld18)
             }
         }
         .navigationTitle("Button Examples")

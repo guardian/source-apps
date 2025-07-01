@@ -15,25 +15,26 @@ struct ColorSwatchView: View {
     var body: some View {
         List {
             ForEach(viewModel.sections, id: \.name) { section in
-                Section {
-                    HStack(spacing: 0) {
-                        ForEach(section.colors, id: \.color) { color in
-                            ColorView(color: color)
-                        }
-                    }
-                    .frame(height: 75)
-                    .font(Typography.textSans14)
-                } header: {
-                    Text(section.name)
-                        .font(Typography.headlineBld18)
-                        .padding(.bottom, 8)
+                Section(section.name) {
+                    ColorSectionView(colors: section.colors)
                 }
             }
         }
     }
 }
 
+struct ColorSectionView: View {
+    let colors: [ColorSwatch]
+    var body: some View {
+        HStack(spacing: 0) {
+            ForEach(colors, id: \.color) { color in
+                ColorView(color: color)
+            }
+        }
+        .font(Typography.textSans14)
+    }
+}
+
 #Preview {
     ColorSwatchView()
-        .previewFonts()
 }

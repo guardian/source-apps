@@ -69,7 +69,7 @@ public extension ButtonStyle where Self == SourceButtonStyle {
     ScrollView {
         VStack(alignment: .leading) {
 
-            Section {
+            Section("Medium") {
                 Button(action: {}) {
                     Text("Primary")
                 }
@@ -90,11 +90,9 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                 }
                 .buttonStyle(.source(size: .medium, priority: .subdued, theme: .brand))
 
-            } header: {
-                Text("Medium")
             }
 
-            Section {
+            Section("Small") {
                 Button(action: {}) {
                     Text("Primary")
                 }
@@ -115,11 +113,9 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                 }
                 .buttonStyle(.source(size: .small, priority: .subdued, theme: .brand))
 
-            } header: {
-                Text("Small")
             }
 
-            Section {
+            Section("XSmall") {
                 Button(action: {}) {
                     Text("Primary")
                 }
@@ -140,8 +136,6 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                 }
                 .buttonStyle(.source(size: .xsmall, priority: .subdued, theme: .brand))
 
-            } header: {
-                Text("Xsmall")
             }
         }
         .padding()
