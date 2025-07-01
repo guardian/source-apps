@@ -260,27 +260,21 @@ struct ButtonExamplesView: View {
                         icon: .audio,
                         priority: .primary,
                         size: .medium
-                    ) {
-                        print("Add to basket tapped")
-                    }
+                    ) {}
 
                     CustomIconTextButton(
                         title: "Share Article",
                         icon: .shareWeb,
                         priority: .secondary,
                         size: .medium
-                    ) {
-                        print("Share tapped")
-                    }
+                    ) {}
 
                     CustomIconTextButton(
                         title: "Download",
                         icon: .download,
                         priority: .tertiary,
                         size: .medium
-                    ) {
-                        print("Download tapped")
-                    }
+                    ) {}
                 }
                 .padding()
 
