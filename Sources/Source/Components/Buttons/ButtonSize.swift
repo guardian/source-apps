@@ -2,7 +2,7 @@
 
 import Foundation
 
-public enum ButtonSize {
+public enum ButtonSize: CaseIterable {
     case xsmall, small, medium
 }
 

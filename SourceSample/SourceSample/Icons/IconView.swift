@@ -47,13 +47,18 @@ struct IconView: View {
                         }
                         .padding()
                         .onTapGesture {
+#if os(iOS)
+                            UIPasteboard.general.setObjects([icon.iconDescriptor])
+#else
                             NSPasteboard.general.clearContents()
                             NSPasteboard.general.setString(icon.iconDescriptor, forType: .string)
+#endif
                         }
                     }
                 }
             }
         }
+        .navigationTitle("Source Icons")
     }
 }
 

@@ -20,6 +20,7 @@ struct ColorSwatchView: View {
                 }
             }
         }
+        .navigationTitle("Source Colours")
     }
 }
 

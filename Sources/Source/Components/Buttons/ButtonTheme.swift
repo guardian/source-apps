@@ -9,23 +9,23 @@ import SwiftUI
 public struct ButtonTheme {
 
     /// The foreground color for the Primary button style.
-    let foregroundColorPrimary: PlatformColor
+    public let foregroundColorPrimary: PlatformColor
 
     /// The background color for the Primary button style.
-    let backgroundColorPrimary: PlatformColor
+    public let backgroundColorPrimary: PlatformColor
 
     /// The foreground color for the Secondary button style.
-    let foregroundColorSecondary: PlatformColor
+    public let foregroundColorSecondary: PlatformColor
 
     /// The background color for the Secondary button style.
-    let backgroundColorSecondary: PlatformColor
+    public let backgroundColorSecondary: PlatformColor
 
     /// The foreground color for the Tertiary button style. This will also be the border color. By default, this
     /// is derived from `backgroundColorPrimary`.
-    let foregroundColorTertiary: PlatformColor
+    public let foregroundColorTertiary: PlatformColor
 
     /// The foreground color for the Subdued button style. By default, this is derived from `backgroundColorPrimary`.
-    let foregroundColorSubdued: PlatformColor
+    public let foregroundColorSubdued: PlatformColor
 
     /// Initializes a new instance of `ButtonTheme`.
     ///

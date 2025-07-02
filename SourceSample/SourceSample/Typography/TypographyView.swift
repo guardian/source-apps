@@ -35,13 +35,18 @@ struct TypographyView: View {
                         }
                         .padding()
                         .onTapGesture {
+#if os(iOS)
+                            UIPasteboard.general.setObjects([font.fontDescriptor])
+#else
                             NSPasteboard.general.clearContents()
                             NSPasteboard.general.setString(font.fontDescriptor, forType: .string)
+#endif
                         }
                     }
                 }
             }
         }
+        .navigationTitle("Source Typography")
     }
 }
 

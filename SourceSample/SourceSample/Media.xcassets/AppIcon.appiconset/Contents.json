@@ -1,6 +1,12 @@
 {
   "images" : [
     {
+      "filename" : "SourcyIconiOS.jpg",
+      "idiom" : "universal",
+      "platform" : "ios",
+      "size" : "1024x1024"
+    },
+    {
       "filename" : "SourcyIcon16.png",
       "idiom" : "mac",
       "scale" : "1x",

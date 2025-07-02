@@ -35,8 +35,12 @@ struct ColorView: View {
         }
         .onTapGesture {
             guard let hexString = color.hexString, !hexString.isEmpty else { return }
+            #if os(iOS)
+            UIPasteboard.general.setObjects([hexString])
+            #else
             NSPasteboard.general.clearContents()
             NSPasteboard.general.setString(hexString, forType: .string)
+            #endif
         }
     }
 }
