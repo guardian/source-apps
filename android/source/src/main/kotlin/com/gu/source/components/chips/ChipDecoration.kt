@@ -20,7 +20,7 @@ import com.gu.source.R
 import com.gu.source.Source
 import com.gu.source.components.chips.ChipDecoration.Icon
 import com.gu.source.components.chips.ChipDecoration.Image
-import com.gu.source.icons.base.Checkmark
+import com.gu.source.foundation.icons.base.Checkmark
 
 /**
  * Represents an icon or image displayed before or after a [SourceChip]'s text.
@@ -103,9 +103,8 @@ sealed class ChipDecoration {
          * @property content The composable function to display the icon. The provided modifier
          * _must_ be set on the content.
          */
-        data class Component(
-            override val content: @Composable RowScope.(Modifier) -> Unit,
-        ) : Icon()
+        data class Component(override val content: @Composable RowScope.(Modifier) -> Unit) :
+            Icon()
     }
 
     /**
@@ -162,9 +161,8 @@ sealed class ChipDecoration {
          * @property content The composable function to display the image. The provided modifier
          * _must_ be set on the content.
          */
-        data class Component(
-            override val content: @Composable RowScope.(Modifier) -> Unit,
-        ) : Image()
+        data class Component(override val content: @Composable RowScope.(Modifier) -> Unit) :
+            Image()
     }
 
     /** Represents no image or icon displayed before/after the chip's text. */

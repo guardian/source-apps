@@ -30,8 +30,8 @@ jobs:
             - 'android/**'
             - '.github/**'          
 
-  screenshots:
-    name: Screenshot tests
+  test:
+    name: test and lint
     needs: changes
     if: ${{ needs.changes.outputs.android == 'true' }}
     runs-on: ubuntu-latest
@@ -50,16 +50,35 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: wrapper
-      
+
       - name: Check licenses
         id: license-check
         run: |
           cd android
           ./gradlew licensee
 
-      - name: Run tests
+      - name: Run ktlint
+        run: |
+          cd android
+          ./gradlew lint lintKotlin :build-logic:convention:lint --continue
+
+      - name: Run detekt
+        if: success() || failure()
+        run: |
+          cd android
+          ./gradlew detektDebug --continue
+
+      - name: Upload SARIF report for code scanning report
+        uses: github/codeql-action/upload-sarif@v3
+        if: success() || failure()
+        with:
+          sarif_file: android/build/reports/detekt/merge.sarif
+          # Used to differentiate multiple results for one commit
+          category: detekt
+
+      - name: Run screenshot tests
         id: screenshot-tests
-        if: ${{ steps.license-check.outcome == 'success' }}
+        if: success() || failure()
         run: |
           cd android
           ./gradlew verifyPaparazziDebug --continue --quiet
@@ -67,7 +86,7 @@ jobs:
       - name: Create companion branch and comment content
         id: create-companion-branch
         # Don't run on merge queue branches
-        if: ${{ !startsWith(github.ref, 'refs/heads/gh-readonly-queue/') && failure() && steps.license-check.outcome == 'success' }}
+        if: ${{ !startsWith(github.ref, 'refs/heads/gh-readonly-queue/') && steps.screenshot-tests.outcome != 'success' }}
         shell: bash
         env:
           PR_NUMBER: ${{ github.event.number }}
@@ -127,7 +146,7 @@ jobs:
       - name: Add or update comment on PR
         uses: peter-evans/create-or-update-comment@v4
         # Don't run on merge queue branches, only run if screenshot tests failed and companion branch created
-        if: ${{ failure() && !startsWith(github.ref, 'refs/heads/gh-readonly-queue/')  && github.ref != 'refs/heads/main' && steps.screenshot-tests.outcome != 'success' && steps.create-companion-branch.outcome == 'success'}}
+        if: ${{ !startsWith(github.ref, 'refs/heads/gh-readonly-queue/')  && github.ref != 'refs/heads/main' && steps.screenshot-tests.outcome != 'success' && steps.create-companion-branch.outcome == 'success'}}
         with:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}
           issue-number: ${{ github.event.number }}
@@ -137,7 +156,7 @@ jobs:
       - name: Resolve comment on PR
         uses: peter-evans/create-or-update-comment@v4
         # Don't run on merge queue branches, only run if screenshot tests passed and comment exists
-        if: ${{ success() && !startsWith(github.ref, 'refs/heads/gh-readonly-queue/')  && github.ref != 'refs/heads/main' && success() && steps.find-comment.outputs.comment-id != '' }}
+        if: ${{ !startsWith(github.ref, 'refs/heads/gh-readonly-queue/')  && github.ref != 'refs/heads/main' && steps.screenshot-tests.outcome == 'success'  && steps.find-comment.outputs.comment-id != '' }}
         with:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}
           issue-number: ${{ github.event.number }}
@@ -147,7 +166,7 @@ jobs:
           edit-mode: replace
 
       - name: Cleanup outdated companion branches
-        if: ${{ always() }}
+        if: always()
         run: |
           # Find outdated companion branches with last commit date
           git branch -r --format="%(refname:lstrip=3)" | grep companion/ | while read -r branch; do

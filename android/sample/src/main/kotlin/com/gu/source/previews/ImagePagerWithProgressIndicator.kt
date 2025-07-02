@@ -14,8 +14,8 @@ import com.gu.source.Source
 import com.gu.source.components.pager.PagerProgressBar
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.presets.palette.Neutral10
-import com.gu.source.presets.palette.Neutral100
+import com.gu.source.foundation.palette.Neutral10
+import com.gu.source.foundation.palette.Neutral100
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.PreviewTabletBothMode
 

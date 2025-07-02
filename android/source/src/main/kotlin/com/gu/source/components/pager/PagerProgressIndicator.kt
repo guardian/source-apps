@@ -25,11 +25,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
-import com.gu.source.presets.palette.Neutral46
-import com.gu.source.presets.palette.Neutral73
-import com.gu.source.presets.palette.Neutral86
-import com.gu.source.presets.palette.Sport500
-import com.gu.source.presets.typography.Titlepiece70
+import com.gu.source.foundation.palette.Neutral46
+import com.gu.source.foundation.palette.Neutral73
+import com.gu.source.foundation.palette.Neutral86
+import com.gu.source.foundation.palette.Sport500
+import com.gu.source.foundation.typography.Titlepiece70
 import kotlinx.coroutines.delay
 
 private const val DefaultUnselectedItemScaling = 0.375F

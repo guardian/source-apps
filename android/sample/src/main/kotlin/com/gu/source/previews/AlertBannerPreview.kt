@@ -19,9 +19,9 @@ import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.components.banner.SourceAlertBanner
 import com.gu.source.daynight.AppColour
-import com.gu.source.presets.palette.Neutral0
-import com.gu.source.presets.palette.Neutral100
-import com.gu.source.presets.typography.TextSansBold17
+import com.gu.source.foundation.palette.Neutral0
+import com.gu.source.foundation.palette.Neutral100
+import com.gu.source.foundation.typography.TextSansBold17
 
 @Suppress("StringLiteralDuplication")
 @Composable
