@@ -4,7 +4,6 @@ import SwiftUI
 /// View for the selectable options with a SubNavigationView. Tapping one should call SubNavigationItems
 /// didTapOptions func to update the SubNavigationView
 
-#if os(iOS)
 public struct SubNavigationItemView: View {
     let title: String
     let palette: SubNavigationItemColorPalette
@@ -47,4 +46,3 @@ public struct SubNavigationItemView: View {
         .animation(.snappy, value: isSelected)
     }
 }
-#endif

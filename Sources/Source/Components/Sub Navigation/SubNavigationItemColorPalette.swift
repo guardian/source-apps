@@ -1,5 +1,5 @@
 //
-#if os(iOS)
+
 import SwiftUI
 
 public struct SubNavigationItemColorPalette {
@@ -36,4 +36,3 @@ public struct SubNavigationItemColorPalette {
         )
     }
 }
-#endif

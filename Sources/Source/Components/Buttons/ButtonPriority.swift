@@ -3,7 +3,7 @@
 import Foundation
 
 /// Use priority to inform users of how important an action is.
-public enum ButtonPriority {
+public enum ButtonPriority: CaseIterable {
     
     /// Use as the main call to action on a page. The fewer you use, the stronger they look.
     case primary
