@@ -18,7 +18,7 @@ android {
     defaultConfig {
         applicationId = "com.gu.source.sample"
         versionCode = 1
-        versionName = libs.versions.libraryVersion.get()
+        versionName = rootProject.file(libs.versions.versionFileName.get()).readText().trim()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

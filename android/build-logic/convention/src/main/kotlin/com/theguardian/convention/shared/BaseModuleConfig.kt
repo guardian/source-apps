@@ -76,9 +76,10 @@ private inline fun <reified T : KotlinBaseExtension> Project.setupKotlinCompiler
 
 internal fun Project.dokkaConfig() {
     extensions.configure<DokkaExtension> {
-
+        val versionFileName = libs.findVersion("versionFileName").get().toString()
+        val version = rootProject.file(versionFileName).readText().trim()
         moduleName.set("Source for Android")
-        moduleVersion.set("v." + libs.findVersion("libraryVersion").get().toString())
+        moduleVersion.set("v.$version")
 
         dokkaPublications.named("html").configure {
             enabled = true

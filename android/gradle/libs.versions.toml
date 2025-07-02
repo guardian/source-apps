@@ -1,9 +1,11 @@
 [versions]
 group = "com.gu.source"
-libraryVersion = "0.8.6"
+versionFileName = "version.txt"
 compilesdk = "35"
 minsdk = "26"
 targetsdk = "34"
+# When updating the java version, also update it in .tool-versions so github actions pick
+# it up
 java = "17"
 
 agp = "8.10.1"
@@ -25,10 +27,8 @@ inject = "1"
 kotlinx-collections-immutable = "0.4.0"
 licensee = "1.13.0"
 lint-gradle = "1.0.0-alpha05"
-nexus-publish = "2.0.0"
 timber = "5.0.1"
 
-gradle-binary-compatibility = "0.17.0"
 metalava = "0.4.0-alpha03"
 
 junit = "4.13.2"
@@ -102,10 +102,7 @@ kgp = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
-gradle-binaryCompatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "gradle-binary-compatibility" }
 metalava = { id = "me.tylerbwong.gradle.metalava", version.ref = "metalava"}
-
-nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexus-publish" }
 
 # Guardian's convention plugins
 guardian-application = { id = "com.theguardian.application", version.ref = "guardian-convention-plugins" }

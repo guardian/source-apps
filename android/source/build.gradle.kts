@@ -1,6 +1,5 @@
 plugins {
     `maven-publish`
-    signing
     alias(libs.plugins.guardian.library.android)
     alias(libs.plugins.guardian.compose.library)
     alias(libs.plugins.metalava)
@@ -52,7 +51,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = libs.versions.group.get()
             artifactId = "source-android"
-            version = libs.versions.libraryVersion.get()
+            version = rootProject.file(libs.versions.versionFileName.get()).readText().trim()
 
             pom {
                 name.set("Source Android")
@@ -71,6 +70,7 @@ publishing {
                         name.set("Aditya Bhaskar")
                         email.set("aditya.bhaskar@guardian.co.uk")
                         url.set("https://github.com/ab-gnm")
+                        // TODO: 19/06/2025 Could we fill this list from github contributors list?
                     }
                 }
                 organization {
@@ -93,19 +93,14 @@ publishing {
 
     repositories {
         // Adds a task for publishing locally to the build directory.
-        // Use as `./gradlew :source:publishReleasePublicationToGusourceRepository`
+        // Use as `./gradlew :source:publishReleasePublicationToCustomRepository`
+        // Use with -Prepo.local=$LOCAL_ARTIFACTS_STAGING_PATH to output to a custom path.
         maven {
-            name = "gusource"
-            url = uri("${project.layout.buildDirectory.asFile.get().path}/gusource")
+            name = "custom"
+            url = uri(
+                (project.findProperty("repo.local") as? String)
+                    ?: "${project.layout.buildDirectory.asFile.get().path}/custom"
+            )
         }
     }
-}
-
-signing {
-    useInMemoryPgpKeys(
-        System.getenv("AUTOMATED_MAVEN_RELEASE_PGP_SECRET") ?: "",
-        // We use a passwordless key so the an empty string is used as password here.
-        "",
-    )
-    sign(publishing.publications)
 }
