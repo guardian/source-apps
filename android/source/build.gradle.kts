@@ -66,11 +66,10 @@ publishing {
                 }
                 developers {
                     developer {
-                        id.set("ab-gnm")
-                        name.set("Aditya Bhaskar")
-                        email.set("aditya.bhaskar@guardian.co.uk")
-                        url.set("https://github.com/ab-gnm")
-                        // TODO: 19/06/2025 Could we fill this list from github contributors list?
+                        id.set("guardian/android-developers")
+                        name.set("Guardian Android Team")
+                        email.set("android@guardian.co.uk")
+                        url.set("https://github.com/guardian/source-apps/tree/main/android")
                     }
                 }
                 organization {
