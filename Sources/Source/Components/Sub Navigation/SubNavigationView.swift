@@ -1,14 +1,17 @@
 //
 import SwiftUI
 
-#if os(iOS)
 public struct SubNavigationView: View {
 
     let items: [SubNavigationItem]
     let backgroundColor: Color
     let dividerColor: Color
 
+#if os(iOS)
     private let horizontalPadding: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 184 : 16
+#else
+    private let horizontalPadding: CGFloat = 16
+#endif
 
     @Namespace var namespace
     @State private var currentItem: SubNavigationItem
@@ -129,4 +132,3 @@ public struct SubNavigationView: View {
         )
     )
 }
-#endif

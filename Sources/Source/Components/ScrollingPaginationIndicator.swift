@@ -1,4 +1,3 @@
-#if os(iOS)
 import SwiftUI
 
 /// A scrolling page indicator, inspired by Instagram's paging indicator.
@@ -80,7 +79,7 @@ public struct ScrollingPaginationIndicator: View {
             }
             .disabled(true) // The scroll view is only used for the scroll effect and shouldn't be interactable
             .frame(width: scrollViewWidth)
-            .onChange(of: selectedIndex) { newValue in
+            .onChange(of: selectedIndex, initial: true) { oldValue, newValue  in
                 withAnimation {
                     scrollViewProxy.scrollTo(newValue, anchor: .center)
                 }
@@ -101,17 +100,15 @@ struct ScrollingPageIndicator_Previews_Container: PreviewProvider {
                             .font(.largeTitle)
                     }
                 }
+                #if os(iOS)
                 .tabViewStyle(.page(indexDisplayMode: .never))
+                #endif
                 ScrollingPaginationIndicator(
                     pageCount: elementArray.count,
                     indicatorWidth: 16,
                     selectedIndex: $selectedIndex,
-                    primaryColor: Color(
-                        uiColor: ColorPalette.neutral0
-                    ),
-                    secondaryColor: Color(
-                        uiColor: ColorPalette.neutral73
-                    )
+                    primaryColor: Color(ColorPalette.neutral0),
+                    secondaryColor: Color(ColorPalette.neutral73)
                 )
                 .padding()
             }
@@ -134,4 +131,3 @@ fileprivate extension Int {
         return self - 1
     }
 }
-#endif
