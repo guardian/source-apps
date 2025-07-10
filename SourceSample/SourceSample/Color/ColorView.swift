@@ -20,9 +20,7 @@ struct ColorView: View {
                 Text(color.description)
                     .bold()
                 if let hex = color.hexString {
-                    Text(hex)
-                        .monospaced()
-                        .foregroundStyle(.secondary)
+                    CopyableLabel(hex)
                 }
             }
 
@@ -32,15 +30,6 @@ struct ColorView: View {
                 Text(color.description)
                     .bold()
             }
-        }
-        .onTapGesture {
-            guard let hexString = color.hexString, !hexString.isEmpty else { return }
-            #if os(iOS)
-            UIPasteboard.general.setObjects([hexString])
-            #else
-            NSPasteboard.general.clearContents()
-            NSPasteboard.general.setString(hexString, forType: .string)
-            #endif
         }
     }
 }

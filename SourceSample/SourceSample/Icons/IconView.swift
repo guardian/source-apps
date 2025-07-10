@@ -23,9 +23,7 @@ struct IconView: View {
                                 Text(icon.name)
                                     .bold()
                                 Spacer()
-                                Text(icon.iconDescriptor)
-                                    .monospaced()
-                                    .foregroundStyle(.secondary)
+                                CopyableLabel(icon.iconDescriptor)
                             }
 
 
@@ -46,14 +44,6 @@ struct IconView: View {
                             }
                         }
                         .padding()
-                        .onTapGesture {
-#if os(iOS)
-                            UIPasteboard.general.setObjects([icon.iconDescriptor])
-#else
-                            NSPasteboard.general.clearContents()
-                            NSPasteboard.general.setString(icon.iconDescriptor, forType: .string)
-#endif
-                        }
                     }
                 }
             }

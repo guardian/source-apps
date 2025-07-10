@@ -21,9 +21,7 @@ struct TypographyView: View {
                                 Text(font.name)
                                     .font(font.font)
                                 Spacer()
-                                Text(font.fontDescriptor)
-                                    .monospaced()
-                                    .foregroundStyle(.secondary)
+                                CopyableLabel(font.fontDescriptor)
                             }
 
 
@@ -34,14 +32,6 @@ struct TypographyView: View {
                             }
                         }
                         .padding()
-                        .onTapGesture {
-#if os(iOS)
-                            UIPasteboard.general.setObjects([font.fontDescriptor])
-#else
-                            NSPasteboard.general.clearContents()
-                            NSPasteboard.general.setString(font.fontDescriptor, forType: .string)
-#endif
-                        }
                     }
                 }
             }
