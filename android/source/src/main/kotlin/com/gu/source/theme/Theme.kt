@@ -10,7 +10,7 @@ import com.gu.source.daynight.AppColourMode
 /**
  * Default value for is dark mode active when a composable is not wrapped in local [AppColourMode].
  */
-internal val LocalSourceTheme = compositionLocalOf { Source.Theme.Core }
+val LocalSourceTheme = compositionLocalOf { Source.Theme.Core }
 
 /**
  * Wrapper composable that sets [Source.Theme.Core] as the active theme for its children.
