@@ -1,17 +1,15 @@
 //
 import SwiftUI
 
+#if os(iOS)
 public struct SubNavigationView: View {
+
+    @Environment(\.horizontalSizeClass)
+    private var horizontalSizeClass
 
     let items: [SubNavigationItem]
     let backgroundColor: Color
     let dividerColor: Color
-
-#if os(iOS)
-    private let horizontalPadding: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 184 : 16
-#else
-    private let horizontalPadding: CGFloat = 16
-#endif
 
     @Namespace var namespace
     @State private var currentItem: SubNavigationItem
@@ -44,6 +42,8 @@ public struct SubNavigationView: View {
     }
 
     public var body: some View {
+        let horizontalPadding: CGFloat = UIDevice.current.userInterfaceIdiom == .pad &&
+            horizontalSizeClass == .regular ? 184 : 16
         VStack(spacing: 0) {
             selectedItemContent
             VStack {
@@ -132,3 +132,4 @@ public struct SubNavigationView: View {
         )
     )
 }
+#endif
