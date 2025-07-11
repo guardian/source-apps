@@ -13,30 +13,29 @@ struct ColorSwatchView: View {
     let viewModel = PaletteViewModel()
 
     var body: some View {
-        ScrollView {
-        VStack(alignment: .leading) {
+        List {
             ForEach(viewModel.sections, id: \.name) { section in
-                Section {
-                    HStack(spacing: 0) {
-                        ForEach(section.colors, id: \.color) { color in
-                            ColorView(color: color)
-                        }
-                    }
-                    .frame(height: 75)
-                    .font(Typography.textSans14)
-                } header: {
-                    Text(section.name)
-                        .font(Typography.headlineBld28)
-                        .padding(.bottom, 8)
+                Section(section.name) {
+                    ColorSectionView(colors: section.colors)
                 }
             }
         }
-        .padding()
+        .navigationTitle("Source Colours")
+    }
+}
+
+struct ColorSectionView: View {
+    let colors: [ColorSwatch]
+    var body: some View {
+        HStack(spacing: 0) {
+            ForEach(colors, id: \.color) { color in
+                ColorView(color: color)
+            }
         }
+        .font(Typography.textSans14)
     }
 }
 
 #Preview {
     ColorSwatchView()
-        .previewFonts()
 }
