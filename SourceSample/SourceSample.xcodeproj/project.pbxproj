@@ -20,6 +20,7 @@
 		5A3524B82C3807A5004E1874 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3524B42C3807A5004E1874 /* ColorView.swift */; };
 		D41E91752E21348300E598BA /* ChipBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41E91742E21347E00E598BA /* ChipBuilderView.swift */; };
 		D41E91772E2155DA00E598BA /* ImagePickerSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41E91762E2155DA00E598BA /* ImagePickerSection.swift */; };
+		D41E91792E215D2A00E598BA /* PaletteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41E91782E215D2A00E598BA /* PaletteEditor.swift */; };
 		D4CD3F0C2E1FFCE40059E346 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD3F0B2E1FFCDE0059E346 /* CopyableLabel.swift */; };
 		D4D0B00A2E12B5CC002FE8E0 /* TypographyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0B0092E12B5C1002FE8E0 /* TypographyView.swift */; };
 		D4D0B00C2E12B5EA002FE8E0 /* TypographyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0B00B2E12B5E3002FE8E0 /* TypographyModel.swift */; };
@@ -47,6 +48,7 @@
 		5A3524B42C3807A5004E1874 /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		D41E91742E21347E00E598BA /* ChipBuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipBuilderView.swift; sourceTree = "<group>"; };
 		D41E91762E2155DA00E598BA /* ImagePickerSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerSection.swift; sourceTree = "<group>"; };
+		D41E91782E215D2A00E598BA /* PaletteEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteEditor.swift; sourceTree = "<group>"; };
 		D4CD3F0B2E1FFCDE0059E346 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		D4D0B0092E12B5C1002FE8E0 /* TypographyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyView.swift; sourceTree = "<group>"; };
 		D4D0B00B2E12B5E3002FE8E0 /* TypographyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyModel.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				D41E91742E21347E00E598BA /* ChipBuilderView.swift */,
+				D41E91782E215D2A00E598BA /* PaletteEditor.swift */,
 			);
 			path = Chips;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			files = (
 				D4D0B0B72E1404DF002FE8E0 /* ButtonBuilderView.swift in Sources */,
 				5A3524AE2C37FE9B004E1874 /* NSColor+Hex.swift in Sources */,
+				D41E91792E215D2A00E598BA /* PaletteEditor.swift in Sources */,
 				D4D0B0112E12BB0F002FE8E0 /* IconView.swift in Sources */,
 				D4D0B0132E12BCD9002FE8E0 /* IconModel.swift in Sources */,
 				D4D0B0192E12EB32002FE8E0 /* ButtonExamplesView.swift in Sources */,

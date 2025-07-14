@@ -61,7 +61,7 @@ struct ChipBuilderView: View {
                         image: {
                             mainImage?
                                 .resizable()
-                                .scaledToFit()
+                                .scaledToFill()
                         },
                         isSelected: true,
                         shouldShowBadge: shouldShowBadge,
@@ -69,33 +69,43 @@ struct ChipBuilderView: View {
                         selectedPalette: selectedPalette,
                         borderedPalette: borderedPalette
                     ) {}
-                    Text("Selected")
-                        .monospaced()
-                        .foregroundStyle(.secondary)
+
+                    if style == .borderless {
+                        Text("Selected")
+                            .monospaced()
+                            .foregroundStyle(.secondary)
+                    }
                 }
-                VStack {
-                    CompactChipView(
-                        size: size,
-                        style: style,
-                        title: title,
-                        leadingIcon: leadingImage,
-                        trailingIcon: trailingImage,
-                        hasImage: selectedImage != nil,
-                        image: {
-                            mainImage?
-                                .resizable()
-                                .scaledToFit()
-                        },
-                        isSelected: false,
-                        shouldShowBadge: shouldShowBadge,
-                        unselectedPalette: unselectedPalette,
-                        selectedPalette: selectedPalette,
-                        borderedPalette: borderedPalette
-                    ) {}
-                    Text("Unselected")
-                        .monospaced()
-                        .foregroundStyle(.secondary)
+                if style == .borderless {
+                    VStack {
+                        CompactChipView(
+                            size: size,
+                            style: style,
+                            title: title,
+                            leadingIcon: leadingImage,
+                            trailingIcon: trailingImage,
+                            hasImage: selectedImage != nil,
+                            image: {
+                                mainImage?
+                                    .resizable()
+                                    .scaledToFill()
+                            },
+                            isSelected: false,
+                            shouldShowBadge: shouldShowBadge,
+                            unselectedPalette: unselectedPalette,
+                            selectedPalette: selectedPalette,
+                            borderedPalette: borderedPalette
+                        ) {}
+                        Text("Unselected")
+                            .monospaced()
+                            .foregroundStyle(.secondary)
+                    }
                 }
+            }
+            .padding()
+            .background {
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(.background)
             }
             .frame(
                 maxWidth: .infinity,
@@ -142,8 +152,23 @@ struct ChipBuilderView: View {
                 }
 
                 GroupBox("Chip Palette") {
-                    VStack(alignment: .leading) {
-                        // Your palette configuration here
+                    HStack(alignment: .top) {
+                        if style == .borderless {
+                            PaletteEditor(
+                                title: "Selected",
+                                palette: $selectedPalette
+                            )
+
+                            PaletteEditor(
+                                title: "Unselected",
+                                palette: $unselectedPalette
+                            )
+                        } else {
+                            PaletteEditor(
+                                title: "Bordered",
+                                palette: $borderedPalette
+                            )
+                        }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()

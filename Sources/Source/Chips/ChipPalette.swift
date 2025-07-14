@@ -4,10 +4,22 @@ import SwiftUI
 
 /// Color palette for the chip views
 public struct ChipPalette {
-    let title: Color
-    let background: Color
-    let badge: Color
-    let borderColor: Color
+    public var title: Color
+    public var background: Color
+    public var badge: Color
+    public var borderColor: Color
+
+    public init(
+        title: Color,
+        background: Color,
+        badge: Color,
+        borderColor: Color
+    ) {
+        self.title = title
+        self.background = background
+        self.badge = badge
+        self.borderColor = borderColor
+    }
 }
 
 /// Default palettes for the chip views

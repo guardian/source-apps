@@ -28,7 +28,7 @@ extension Color: Codable {
         try collection.encode(toHex)
     }
 
-    var toHex: String? {
+    public var toHex: String? {
         toHex()
     }
 
