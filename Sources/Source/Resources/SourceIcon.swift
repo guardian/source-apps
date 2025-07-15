@@ -205,7 +205,7 @@ public enum SourceIcon: CaseIterable {
 }
 
 extension SourceIcon {
-    var imageName: String {
+    public var imageName: String {
         switch self {
         case .alertTriangle: "alert-triangle"
         case .directDebitWide: "direct-debit-wide"
