@@ -14,7 +14,7 @@ jobs:
     name: Release
     if: github.repository == 'guardian/source-apps'
     permissions: { contents: write, pull-requests: write }
-    uses: guardian/gha-gradle-library-release-workflow/.github/workflows/reusable-release.yml@83992ea863cb35004270806d8ac429ef9bc37352
+    uses: guardian/gha-gradle-library-release-workflow/.github/workflows/reusable-release.yml@b2bf9c33e58792d68d3338767d2f648758b6af1d
     with:
       SOURCE_DIR: 'android'
       MODULES: 'source'
@@ -23,4 +23,4 @@ jobs:
     secrets:
       SONATYPE_TOKEN: ${{ secrets.AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN }}
       PGP_PRIVATE_KEY: ${{ secrets.AUTOMATED_MAVEN_RELEASE_PGP_SECRET }}
-      GITHUB_APP_PRIVATE_KEY: ${{ secrets.AUTOMATED_MAVEN_RELEASE_GITHUB_APP_PRIVATE_KEY }}
+      GITHUB_APP_PRIVATE_KEY: ${{ secrets.AUTOMATED_MAVEN_GRADLE_RELEASE_GITHUB_APP_PRIVATE_KEY }}
