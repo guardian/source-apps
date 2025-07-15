@@ -75,6 +75,9 @@ public enum ColorPalette {
     public static let news700 = PlatformColor(resource: .news700)
     public static let news800 = PlatformColor(resource: .news800)
 
+    // MARK: Notification Blue
+    public static let notificationBlue400 = PlatformColor(resource: .notificationBlue400)
+
     // MARK: Opinion
     public static let opinion100 = PlatformColor(resource: .opinion100)
     public static let opinion200 = PlatformColor(resource: .opinion200)
