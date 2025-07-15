@@ -75,6 +75,7 @@ import com.gu.source.foundation.palette.News550
 import com.gu.source.foundation.palette.News600
 import com.gu.source.foundation.palette.News700
 import com.gu.source.foundation.palette.News800
+import com.gu.source.foundation.palette.NotificationBlue400
 import com.gu.source.foundation.palette.Opinion100
 import com.gu.source.foundation.palette.Opinion200
 import com.gu.source.foundation.palette.Opinion300
@@ -238,6 +239,9 @@ private val colours = mapOf(
         Colour("Labs200", Source.Palette.Labs200),
         Colour("Labs300", Source.Palette.Labs300),
         Colour("Labs400", Source.Palette.Labs400),
+    ),
+    "NotificationBlue" to listOf(
+        Colour("NotificationBlue400", Source.Palette.NotificationBlue400),
     ),
 )
 

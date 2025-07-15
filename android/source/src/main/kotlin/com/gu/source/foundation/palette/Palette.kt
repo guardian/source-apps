@@ -198,3 +198,6 @@ val Source.Palette.Labs300: Color
     get() = Color(color = 0xff65a897)
 val Source.Palette.Labs400: Color
     get() = Color(color = 0xff69d1ca)
+
+val Source.Palette.NotificationBlue400: Color
+    get() = Color(color = 0xff0190f7)
