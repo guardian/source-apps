@@ -1,7 +1,6 @@
 //
 import SwiftUI
 
-#if os(iOS)
 /// Config struct to style a SubNavigationItemView
 public struct SubNavigationItem {
     public let title: String
@@ -27,4 +26,3 @@ extension SubNavigationItem: Equatable {
         lhs.title == rhs.title
     }
 }
-#endif
