@@ -3,7 +3,13 @@ package com.gu.source.components.buttons
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Icon
@@ -17,13 +23,19 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
+import com.gu.source.components.theme.LocalSourceTheme
+import com.gu.source.components.theme.ReaderRevenueTheme
+import com.gu.source.components.theme.SourceCoreTheme
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.base.Checkmark
-import com.gu.source.presets.palette.*
-import com.gu.source.theme.LocalSourceTheme
-import com.gu.source.theme.ReaderRevenueTheme
-import com.gu.source.theme.SourceCoreTheme
+import com.gu.source.foundation.icons.base.Checkmark
+import com.gu.source.foundation.palette.Culture200
+import com.gu.source.foundation.palette.Culture600
+import com.gu.source.foundation.palette.Neutral100
+import com.gu.source.foundation.palette.Neutral38
+import com.gu.source.foundation.palette.Neutral7
+import com.gu.source.foundation.palette.Sport200
+import com.gu.source.foundation.palette.Sport600
 import com.gu.source.utils.PreviewPhoneBothMode
 
 private const val ReaderRevenueSecondaryThemeErrorMessage =

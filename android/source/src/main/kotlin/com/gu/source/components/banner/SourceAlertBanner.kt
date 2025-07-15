@@ -5,7 +5,12 @@ import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -22,11 +27,20 @@ import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.base.AlertRound
-import com.gu.source.icons.base.Cross
-import com.gu.source.icons.base.InfoRound
-import com.gu.source.presets.palette.*
-import com.gu.source.presets.typography.TextSans17
+import com.gu.source.foundation.icons.base.AlertRound
+import com.gu.source.foundation.icons.base.Cross
+import com.gu.source.foundation.icons.base.InfoRound
+import com.gu.source.foundation.palette.Brand400
+import com.gu.source.foundation.palette.Brand800
+import com.gu.source.foundation.palette.Error400
+import com.gu.source.foundation.palette.Error500
+import com.gu.source.foundation.palette.Neutral0
+import com.gu.source.foundation.palette.Neutral100
+import com.gu.source.foundation.palette.Neutral20
+import com.gu.source.foundation.palette.Neutral7
+import com.gu.source.foundation.palette.News100
+import com.gu.source.foundation.palette.News600
+import com.gu.source.foundation.typography.TextSans17
 import com.gu.source.utils.PreviewPhoneBothMode
 
 /**
