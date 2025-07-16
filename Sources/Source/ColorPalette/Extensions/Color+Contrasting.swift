@@ -14,7 +14,7 @@ public extension Color {
         uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
 
         // Calculate the brightness based on the relative luminance of each color
-        let brightness = (red * 0.299 + green * 0.587 + blue * 0.114) / 1
+        let brightness = red * 0.299 + green * 0.587 + blue * 0.114
 
         return brightness > 0.5 ? Color.black : Color.white
     }
