@@ -125,4 +125,8 @@
     <color name="labs_300">#65a897</color>
     <color name="labs_400">#69d1ca</color>
     <!-- endregion -->
+    
+    <!-- region Notifications -->
+    <color name="notification_blue_400">#0190f7</color>
+    <!-- endregion -->
 </resources>
