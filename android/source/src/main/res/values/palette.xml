@@ -52,6 +52,7 @@
     <color name="news_500">#ff5943</color>
     <color name="news_550">#ff9081</color>
     <color name="news_600">#ffbac8</color>
+    <color name="news_700">#ffd8d1</color>
     <color name="news_800">#fff4f2</color>
     <!-- endregion -->
     
@@ -64,6 +65,7 @@
     <color name="opinion_500">#ff7f0f</color>
     <color name="opinion_550">#ff9941</color>
     <color name="opinion_600">#f9b376</color>
+    <color name="opinion_700">#ffe7d4</color>
     <color name="opinion_800">#fef9f5</color>
     <!-- endregion -->
     
@@ -74,6 +76,7 @@
     <color name="sport_400">#0077b6</color>
     <color name="sport_500">#00b2ff</color>
     <color name="sport_600">#90dcff</color>
+    <color name="sport_700">#d8f1ff</color>
     <color name="sport_800">#f1f8fc</color>
     <!-- endregion -->
     
