@@ -15,7 +15,7 @@ with the `main` branch as the target. This action will:
 ## Preview releases
 
 To create a preview release, run the [Release action](https://github.com/guardian/source-apps/actions/workflows/release.yml)
-with your working branch as the target. This action will:
+with <u>your working branch</u> as the target. This action will:
 
 - Publish the library to the `mavenCentral` repository with a preview version number
 - Add a comment to your PR with the preview version number and a link to the workflow run
