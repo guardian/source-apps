@@ -80,51 +80,7 @@ struct IconButtonBuilderView: View {
             GroupBox {
                 GroupBox("Button Config") {
                     VStack(alignment: .leading) {
-                        LabeledContent("Icon") {
-                            HStack {
-                                Button {
-                                    showingIconPicker.toggle()
-                                } label: {
-                                    Label {
-                                        Text(icon?.imageName ?? "none")
-                                    } icon: {
-                                        if let icon {
-                                            Image(source: icon)
-                                                .resizable()
-                                                .scaledToFit()
-                                        } else {
-                                            Image(systemName: "circle.slash")
-                                        }
-                                    }
-
-                                }
-#if os(macOS)
-                                .buttonStyle(.accessoryBar)
-#else
-#endif
-                                Button {
-                                    icon = nil
-                                } label: {
-                                    Image(systemName: "xmark.circle.fill")
-                                }
-#if os(macOS)
-                                .buttonStyle(.accessoryBar)
-#else
-#endif
-                                .padding(.leading)
-                            }
-                            .popover(isPresented: $showingIconPicker) {
-                                ScrollView {
-                                    IconPickerView(selection: $icon)
-                                }
-#if os(macOS)
-                                .frame(
-                                    width: 440,
-                                    height: 400
-                                )
-#endif
-                            }
-                        }
+                        IconPicker("Icon", selection: $icon)
                         Picker("Size", selection: $size) {
                             ForEach(ButtonSize.allCases, id: \.self) {  size in
                                 Text(size.displayName)
@@ -188,51 +144,8 @@ struct StandardButtonBuilderView: View {
                 GroupBox("Button Config") {
                     VStack(alignment: .leading) {
                         TextField("Title", text: $title)
-                        LabeledContent("Icon") {
-                            HStack {
-                                Button {
-                                    showingIconPicker.toggle()
-                                } label: {
-                                    Label {
-                                        Text(icon?.imageName ?? "none")
-                                    } icon: {
-                                        if let icon {
-                                            Image(source: icon)
-                                                .resizable()
-                                                .scaledToFit()
-                                        } else {
-                                            Image(systemName: "circle.slash")
-                                        }
-                                    }
-
-                                }
-#if os(macOS)
-                                .buttonStyle(.accessoryBar)
-#else
-#endif
-                                Button {
-                                    icon = nil
-                                } label: {
-                                    Image(systemName: "xmark.circle.fill")
-                                }
-#if os(macOS)
-                                .buttonStyle(.accessoryBar)
-#else
-#endif
-                                .padding(.leading)
-                            }
-                            .popover(isPresented: $showingIconPicker) {
-                                ScrollView {
-                                    IconPickerView(selection: $icon)
-                                }
-#if os(macOS)
-                                .frame(
-                                    width: 450,
-                                    height: 400
-                                )
-#endif
-                            }
-                        }
+                            .textFieldStyle(.roundedBorder)
+                        IconPicker("Icon", selection: $icon)
                         Picker("Size", selection: $size) {
                             ForEach(ButtonSize.allCases, id: \.self) {  size in
                                 Text(size.displayName)

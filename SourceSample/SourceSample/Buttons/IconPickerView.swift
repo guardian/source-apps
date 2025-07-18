@@ -8,6 +8,42 @@
 import SwiftUI
 import Source
 
+struct IconPicker: View {
+    let text: String
+    @Binding var selection: SourceIcon?
+    init(_ text: String, selection: Binding<SourceIcon?>) {
+        self.text = text
+        self._selection = selection
+    }
+
+    @State private var showingIconPicker = false
+    var body: some View {
+        LabeledContent(text) {
+            HStack {
+                Image(source: selection ?? .cross)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 18)
+                Text(selection?.imageName ?? "None")
+            }
+            .onTapGesture {
+                showingIconPicker.toggle()
+            }
+            .popover(isPresented: $showingIconPicker) {
+                ScrollView {
+                    IconPickerView(selection: $selection)
+                }
+#if os(macOS)
+                .frame(
+                    width: 440,
+                    height: 400
+                )
+#endif
+            }
+        }
+    }
+}
+
 struct IconPickerView: View {
     @Binding var selection: SourceIcon?
     let model = IconModel()
@@ -87,6 +123,14 @@ struct IconPickerItemView: View {
     @Previewable @State var icon: SourceIcon? = .alertTriangle
     ScrollView {
         IconPickerView(selection: $icon)
+    }
+    .frame(width: 500)
+}
+
+#Preview {
+    @Previewable @State var icon: SourceIcon? = .alertTriangle
+    ScrollView {
+        IconPicker("Icon", selection: $icon)
     }
     .frame(width: 500)
 }

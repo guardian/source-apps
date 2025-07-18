@@ -18,6 +18,9 @@
 		5A3524B62C3807A5004E1874 /* ColorSwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3524B22C3807A5004E1874 /* ColorSwatch.swift */; };
 		5A3524B72C3807A5004E1874 /* ColorSwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3524B32C3807A5004E1874 /* ColorSwatchView.swift */; };
 		5A3524B82C3807A5004E1874 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3524B42C3807A5004E1874 /* ColorView.swift */; };
+		D41E91752E21348300E598BA /* ChipBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41E91742E21347E00E598BA /* ChipBuilderView.swift */; };
+		D41E91772E2155DA00E598BA /* ImagePickerSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41E91762E2155DA00E598BA /* ImagePickerSection.swift */; };
+		D41E91792E215D2A00E598BA /* PaletteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41E91782E215D2A00E598BA /* PaletteEditor.swift */; };
 		D4CD3F0C2E1FFCE40059E346 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD3F0B2E1FFCDE0059E346 /* CopyableLabel.swift */; };
 		D4D0B00A2E12B5CC002FE8E0 /* TypographyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0B0092E12B5C1002FE8E0 /* TypographyView.swift */; };
 		D4D0B00C2E12B5EA002FE8E0 /* TypographyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0B00B2E12B5E3002FE8E0 /* TypographyModel.swift */; };
@@ -43,6 +46,9 @@
 		5A3524B22C3807A5004E1874 /* ColorSwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSwatch.swift; sourceTree = "<group>"; };
 		5A3524B32C3807A5004E1874 /* ColorSwatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSwatchView.swift; sourceTree = "<group>"; };
 		5A3524B42C3807A5004E1874 /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		D41E91742E21347E00E598BA /* ChipBuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipBuilderView.swift; sourceTree = "<group>"; };
+		D41E91762E2155DA00E598BA /* ImagePickerSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerSection.swift; sourceTree = "<group>"; };
+		D41E91782E215D2A00E598BA /* PaletteEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteEditor.swift; sourceTree = "<group>"; };
 		D4CD3F0B2E1FFCDE0059E346 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		D4D0B0092E12B5C1002FE8E0 /* TypographyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyView.swift; sourceTree = "<group>"; };
 		D4D0B00B2E12B5E3002FE8E0 /* TypographyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyModel.swift; sourceTree = "<group>"; };
@@ -93,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				D4D0B0B82E1406CA002FE8E0 /* DisplayExtention.swift */,
+				D41E91732E21347600E598BA /* Chips */,
 				D4D0B0172E12EB2B002FE8E0 /* Buttons */,
 				D4D0B00F2E12BA49002FE8E0 /* Icons */,
 				D4D0B0082E12B5B4002FE8E0 /* Typography */,
@@ -103,6 +110,7 @@
 				5A3524A02C372B35004E1874 /* UIColor+Hex.swift */,
 				5A3524AD2C37FE9B004E1874 /* NSColor+Hex.swift */,
 				D4CD3F0B2E1FFCDE0059E346 /* CopyableLabel.swift */,
+				D41E91762E2155DA00E598BA /* ImagePickerSection.swift */,
 				D4D0B0142E12C450002FE8E0 /* Media.xcassets */,
 			);
 			path = SourceSample;
@@ -132,6 +140,15 @@
 				5A3524A62C37556F004E1874 /* PaletteViewModel.swift */,
 			);
 			path = Color;
+			sourceTree = "<group>";
+		};
+		D41E91732E21347600E598BA /* Chips */ = {
+			isa = PBXGroup;
+			children = (
+				D41E91742E21347E00E598BA /* ChipBuilderView.swift */,
+				D41E91782E215D2A00E598BA /* PaletteEditor.swift */,
+			);
+			path = Chips;
 			sourceTree = "<group>";
 		};
 		D4D0B0082E12B5B4002FE8E0 /* Typography */ = {
@@ -241,6 +258,7 @@
 			files = (
 				D4D0B0B72E1404DF002FE8E0 /* ButtonBuilderView.swift in Sources */,
 				5A3524AE2C37FE9B004E1874 /* NSColor+Hex.swift in Sources */,
+				D41E91792E215D2A00E598BA /* PaletteEditor.swift in Sources */,
 				D4D0B0112E12BB0F002FE8E0 /* IconView.swift in Sources */,
 				D4D0B0132E12BCD9002FE8E0 /* IconModel.swift in Sources */,
 				D4D0B0192E12EB32002FE8E0 /* ButtonExamplesView.swift in Sources */,
@@ -251,10 +269,12 @@
 				5A3524B02C380189004E1874 /* NavigationRootView.swift in Sources */,
 				5A3524A12C372B35004E1874 /* UIColor+Hex.swift in Sources */,
 				D4CD3F0C2E1FFCE40059E346 /* CopyableLabel.swift in Sources */,
+				D41E91752E21348300E598BA /* ChipBuilderView.swift in Sources */,
 				D4D0B0BD2E140F1E002FE8E0 /* IconPickerView.swift in Sources */,
 				D4D0B0B92E1406CA002FE8E0 /* DisplayExtention.swift in Sources */,
 				D4D0B00C2E12B5EA002FE8E0 /* TypographyModel.swift in Sources */,
 				5A3524A72C37556F004E1874 /* PaletteViewModel.swift in Sources */,
+				D41E91772E2155DA00E598BA /* ImagePickerSection.swift in Sources */,
 				5A35248D2C370373004E1874 /* SourceSampleApp.swift in Sources */,
 				5A3524B62C3807A5004E1874 /* ColorSwatch.swift in Sources */,
 			);
