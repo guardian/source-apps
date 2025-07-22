@@ -243,4 +243,6 @@ private val icons = listOf(
     Source.Icons.Base.WhatsApp,
     Source.Icons.Base.WhatsAppBrand,
     Source.Icons.Base.WhiteArrowLeftStraightRound,
+    Source.Icons.Base.Trophy,
+    Source.Icons.Base.GuessPuzzles,
 )
