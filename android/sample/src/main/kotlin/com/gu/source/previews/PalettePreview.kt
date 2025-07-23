@@ -43,9 +43,13 @@ import com.gu.source.foundation.palette.Culture700
 import com.gu.source.foundation.palette.Culture800
 import com.gu.source.foundation.palette.Error400
 import com.gu.source.foundation.palette.Error500
+import com.gu.source.foundation.palette.Labs100
 import com.gu.source.foundation.palette.Labs200
 import com.gu.source.foundation.palette.Labs300
 import com.gu.source.foundation.palette.Labs400
+import com.gu.source.foundation.palette.Labs500
+import com.gu.source.foundation.palette.Labs600
+import com.gu.source.foundation.palette.Labs700
 import com.gu.source.foundation.palette.Lifestyle100
 import com.gu.source.foundation.palette.Lifestyle200
 import com.gu.source.foundation.palette.Lifestyle300
@@ -236,14 +240,20 @@ private val colours = mapOf(
         Colour("SpecialReportAlt800", Source.Palette.SpecialReportAlt800),
     ),
     "Labs" to listOf(
+        Colour("Labs100", Source.Palette.Labs100),
         Colour("Labs200", Source.Palette.Labs200),
         Colour("Labs300", Source.Palette.Labs300),
         Colour("Labs400", Source.Palette.Labs400),
+        Colour("Labs500", Source.Palette.Labs500),
+        Colour("Labs600", Source.Palette.Labs600),
+        Colour("Labs700", Source.Palette.Labs700),
     ),
     "NotificationBlue" to listOf(
         Colour("NotificationBlue400", Source.Palette.NotificationBlue400),
     ),
 )
+
+private const val GRID_COUNT = 4
 
 @Composable
 internal fun Palette(modifier: Modifier = Modifier) {
@@ -259,7 +269,7 @@ internal fun Palette(modifier: Modifier = Modifier) {
         ).current,
     ) {
         LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
+            columns = GridCells.Fixed(GRID_COUNT),
             contentPadding = PaddingValues(vertical = 8.dp),
         ) {
             item {
@@ -269,8 +279,8 @@ internal fun Palette(modifier: Modifier = Modifier) {
                     modifier = Modifier.padding(8.dp),
                 )
             }
-            colours.keys.forEachIndexed { paletteIndex, palette ->
-                item(span = { GridItemSpan(2) }) {
+            colours.keys.forEachIndexed { _, palette ->
+                item(span = { GridItemSpan(GRID_COUNT) }) {
                     Column {
                         Spacer(modifier = Modifier.height(8.dp))
                         HorizontalDivider()
@@ -317,7 +327,7 @@ internal fun Palette(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(device = "spec:width=1080px,height=8340px,dpi=440")
+@Preview(device = "spec:width=2160px,height=8340px,dpi=440")
 @Composable
 private fun Preview() {
     AppColourMode {

@@ -114,6 +114,7 @@ import com.gu.source.foundation.icons.base.Gift
 import com.gu.source.foundation.icons.base.Globe
 import com.gu.source.foundation.icons.base.GoogleBrand
 import com.gu.source.foundation.icons.base.Gps
+import com.gu.source.foundation.icons.base.GuessPuzzles
 import com.gu.source.foundation.icons.base.HandPointed
 import com.gu.source.foundation.icons.base.HeadphonesFilled
 import com.gu.source.foundation.icons.base.HeadphonesOutlined
@@ -204,6 +205,7 @@ import com.gu.source.foundation.icons.base.TextSmall
 import com.gu.source.foundation.icons.base.TickRound
 import com.gu.source.foundation.icons.base.Timer
 import com.gu.source.foundation.icons.base.TransparentArrowLeftStraightRound
+import com.gu.source.foundation.icons.base.Trophy
 import com.gu.source.foundation.icons.base.Twitter
 import com.gu.source.foundation.icons.base.Upload
 import com.gu.source.foundation.icons.base.Video
@@ -402,7 +404,10 @@ private val icons = listOf(
     Source.Icons.Base.WhatsApp,
     Source.Icons.Base.WhatsAppBrand,
     Source.Icons.Base.WhiteArrowLeftStraightRound,
+    Source.Icons.Base.Trophy,
+    Source.Icons.Base.GuessPuzzles,
 )
+private const val GRID_COUNT = 4
 
 @Composable
 internal fun IconsPreview(modifier: Modifier = Modifier) {
@@ -412,10 +417,10 @@ internal fun IconsPreview(modifier: Modifier = Modifier) {
         contentColor = AppColour(Source.Palette.Neutral0, Source.Palette.Neutral100).current,
     ) {
         LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
+            columns = GridCells.Fixed(GRID_COUNT),
             contentPadding = PaddingValues(all = 8.dp),
         ) {
-            item(span = { GridItemSpan(2) }) {
+            item(span = { GridItemSpan(GRID_COUNT) }) {
                 Text(
                     text = "Icons",
                     style = Source.Typography.HeadlineBold20,
@@ -449,7 +454,7 @@ internal fun IconsPreview(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(device = "spec:width=1080px,height=8340px,dpi=440")
+@Preview(device = "spec:width=2160px,height=8340px,dpi=440")
 @Composable
 private fun Preview() {
     AppColourMode {

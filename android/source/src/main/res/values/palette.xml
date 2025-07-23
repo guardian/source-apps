@@ -124,9 +124,13 @@
     <!-- endregion -->
     
     <!-- region Labs -->
+    <color name="labs_100">#09615b</color>
     <color name="labs_200">#0c7a73</color>
     <color name="labs_300">#65a897</color>
     <color name="labs_400">#69d1ca</color>
+    <color name="labs_500">#a8e3df</color>
+    <color name="labs_600">#dcf4f3</color>
+    <color name="labs_700">#f3fbfb</color>
     <!-- endregion -->
     
     <!-- region Notifications -->
