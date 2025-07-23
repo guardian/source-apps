@@ -253,6 +253,8 @@ private val colours = mapOf(
     ),
 )
 
+private const val GRID_COUNT = 4
+
 @Composable
 internal fun Palette(modifier: Modifier = Modifier) {
     Surface(
@@ -267,7 +269,7 @@ internal fun Palette(modifier: Modifier = Modifier) {
         ).current,
     ) {
         LazyVerticalGrid(
-            columns = GridCells.Fixed(4),
+            columns = GridCells.Fixed(GRID_COUNT),
             contentPadding = PaddingValues(vertical = 8.dp),
         ) {
             item {
@@ -278,7 +280,7 @@ internal fun Palette(modifier: Modifier = Modifier) {
                 )
             }
             colours.keys.forEachIndexed { _, palette ->
-                item(span = { GridItemSpan(4) }) {
+                item(span = { GridItemSpan(GRID_COUNT) }) {
                     Column {
                         Spacer(modifier = Modifier.height(8.dp))
                         HorizontalDivider()

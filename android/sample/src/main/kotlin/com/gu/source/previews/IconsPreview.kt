@@ -407,6 +407,7 @@ private val icons = listOf(
     Source.Icons.Base.Trophy,
     Source.Icons.Base.GuessPuzzles,
 )
+private const val GRID_COUNT = 4
 
 @Composable
 internal fun IconsPreview(modifier: Modifier = Modifier) {
@@ -416,10 +417,10 @@ internal fun IconsPreview(modifier: Modifier = Modifier) {
         contentColor = AppColour(Source.Palette.Neutral0, Source.Palette.Neutral100).current,
     ) {
         LazyVerticalGrid(
-            columns = GridCells.Fixed(4),
+            columns = GridCells.Fixed(GRID_COUNT),
             contentPadding = PaddingValues(all = 8.dp),
         ) {
-            item(span = { GridItemSpan(4) }) {
+            item(span = { GridItemSpan(GRID_COUNT) }) {
                 Text(
                     text = "Icons",
                     style = Source.Typography.HeadlineBold20,

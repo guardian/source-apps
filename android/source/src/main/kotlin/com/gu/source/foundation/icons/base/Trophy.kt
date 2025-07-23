@@ -17,7 +17,7 @@ val Source.Icons.Base.Trophy: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(fill = SolidColor(Color(0xFF1F2F60))) {
                 moveTo(4.39f, 21.24f)
