@@ -235,6 +235,7 @@ $dokka.location:com.gu.source.foundation.icons.base//Gift/com.gu.source.Source.I
 $dokka.location:com.gu.source.foundation.icons.base//Globe/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.foundation.icons.base/-globe.html
 $dokka.location:com.gu.source.foundation.icons.base//GoogleBrand/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.foundation.icons.base/-google-brand.html
 $dokka.location:com.gu.source.foundation.icons.base//Gps/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.foundation.icons.base/-gps.html
+$dokka.location:com.gu.source.foundation.icons.base//GuessPuzzles/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.foundation.icons.base/-guess-puzzles.html
 $dokka.location:com.gu.source.foundation.icons.base//HandPointed/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.foundation.icons.base/-hand-pointed.html
 $dokka.location:com.gu.source.foundation.icons.base//HeadphonesFilled/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.foundation.icons.base/-headphones-filled.html
 $dokka.location:com.gu.source.foundation.icons.base//HeadphonesOutlined/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.foundation.icons.base/-headphones-outlined.html
@@ -325,6 +326,7 @@ $dokka.location:com.gu.source.foundation.icons.base//TextSmall/com.gu.source.Sou
 $dokka.location:com.gu.source.foundation.icons.base//TickRound/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.foundation.icons.base/-tick-round.html
 $dokka.location:com.gu.source.foundation.icons.base//Timer/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.foundation.icons.base/-timer.html
 $dokka.location:com.gu.source.foundation.icons.base//TransparentArrowLeftStraightRound/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.foundation.icons.base/-transparent-arrow-left-straight-round.html
+$dokka.location:com.gu.source.foundation.icons.base//Trophy/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.foundation.icons.base/-trophy.html
 $dokka.location:com.gu.source.foundation.icons.base//Twitter/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.foundation.icons.base/-twitter.html
 $dokka.location:com.gu.source.foundation.icons.base//Upload/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.foundation.icons.base/-upload.html
 $dokka.location:com.gu.source.foundation.icons.base//Video/com.gu.source.Source.Icons.Base#/PointingToDeclaration/-source for -android/com.gu.source.foundation.icons.base/-video.html
@@ -353,9 +355,13 @@ $dokka.location:com.gu.source.foundation.palette//Culture700/com.gu.source.Sourc
 $dokka.location:com.gu.source.foundation.palette//Culture800/com.gu.source.Source.Palette#/PointingToDeclaration/-source for -android/com.gu.source.foundation.palette/-culture800.html
 $dokka.location:com.gu.source.foundation.palette//Error400/com.gu.source.Source.Palette#/PointingToDeclaration/-source for -android/com.gu.source.foundation.palette/-error400.html
 $dokka.location:com.gu.source.foundation.palette//Error500/com.gu.source.Source.Palette#/PointingToDeclaration/-source for -android/com.gu.source.foundation.palette/-error500.html
+$dokka.location:com.gu.source.foundation.palette//Labs100/com.gu.source.Source.Palette#/PointingToDeclaration/-source for -android/com.gu.source.foundation.palette/-labs100.html
 $dokka.location:com.gu.source.foundation.palette//Labs200/com.gu.source.Source.Palette#/PointingToDeclaration/-source for -android/com.gu.source.foundation.palette/-labs200.html
 $dokka.location:com.gu.source.foundation.palette//Labs300/com.gu.source.Source.Palette#/PointingToDeclaration/-source for -android/com.gu.source.foundation.palette/-labs300.html
 $dokka.location:com.gu.source.foundation.palette//Labs400/com.gu.source.Source.Palette#/PointingToDeclaration/-source for -android/com.gu.source.foundation.palette/-labs400.html
+$dokka.location:com.gu.source.foundation.palette//Labs500/com.gu.source.Source.Palette#/PointingToDeclaration/-source for -android/com.gu.source.foundation.palette/-labs500.html
+$dokka.location:com.gu.source.foundation.palette//Labs600/com.gu.source.Source.Palette#/PointingToDeclaration/-source for -android/com.gu.source.foundation.palette/-labs600.html
+$dokka.location:com.gu.source.foundation.palette//Labs700/com.gu.source.Source.Palette#/PointingToDeclaration/-source for -android/com.gu.source.foundation.palette/-labs700.html
 $dokka.location:com.gu.source.foundation.palette//Lifestyle100/com.gu.source.Source.Palette#/PointingToDeclaration/-source for -android/com.gu.source.foundation.palette/-lifestyle100.html
 $dokka.location:com.gu.source.foundation.palette//Lifestyle200/com.gu.source.Source.Palette#/PointingToDeclaration/-source for -android/com.gu.source.foundation.palette/-lifestyle200.html
 $dokka.location:com.gu.source.foundation.palette//Lifestyle300/com.gu.source.Source.Palette#/PointingToDeclaration/-source for -android/com.gu.source.foundation.palette/-lifestyle300.html
