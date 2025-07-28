@@ -114,9 +114,13 @@ struct PaletteViewModel {
             ColorSwatch(color: ColorPalette.specialReportAlt800, description: "800")
         ]),
         ColorSection(name: "Labs", colors: [
+            ColorSwatch(color: ColorPalette.labs100, description: "100"),
             ColorSwatch(color: ColorPalette.labs200, description: "200"),
             ColorSwatch(color: ColorPalette.labs300, description: "300"),
-            ColorSwatch(color: ColorPalette.labs400, description: "400")
+            ColorSwatch(color: ColorPalette.labs400, description: "400"),
+            ColorSwatch(color: ColorPalette.labs500, description: "500"),
+            ColorSwatch(color: ColorPalette.labs600, description: "600"),
+            ColorSwatch(color: ColorPalette.labs700, description: "700")
         ]),
         ColorSection(name: "Error", colors: [
             ColorSwatch(color: ColorPalette.error400, description: "400"),

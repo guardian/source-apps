@@ -36,9 +36,13 @@ public enum ColorPalette {
     public static let error500 = PlatformColor(resource: .error500)
 
     // MARK: Labs
+    public static let labs100 = PlatformColor(resource: .labs100)
     public static let labs200 = PlatformColor(resource: .labs200)
     public static let labs300 = PlatformColor(resource: .labs300)
     public static let labs400 = PlatformColor(resource: .labs400)
+    public static let labs500 = PlatformColor(resource: .labs500)
+    public static let labs600 = PlatformColor(resource: .labs600)
+    public static let labs700 = PlatformColor(resource: .labs700)
 
     // MARK: Lifestyle
     public static let lifestyle100 = PlatformColor(resource: .lifestyle100)
