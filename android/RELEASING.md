@@ -4,7 +4,7 @@ This document describes the process of releasing a new version of the library.
 
 ## Production release
 
-To create a production release, run the [Release action](../../../.github/workflows/release.yml)
+To create a production release, run the [Release action](https://github.com/guardian/source-apps/actions/workflows/release.yml)
 with the `main` branch as the target. This action will:
 
 - Update the version number in the `version.txt` file
@@ -14,8 +14,8 @@ with the `main` branch as the target. This action will:
 
 ## Preview releases
 
-To create a preview release, run the [Preview Release action](../../../.github/workflows/preview-release.yml)
-with your working branch as the target. This action will:
+To create a preview release, run the [Release action](https://github.com/guardian/source-apps/actions/workflows/release.yml)
+with <u>your working branch</u> as the target. This action will:
 
 - Publish the library to the `mavenCentral` repository with a preview version number
 - Add a comment to your PR with the preview version number and a link to the workflow run
