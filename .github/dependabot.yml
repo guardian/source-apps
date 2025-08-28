@@ -35,7 +35,7 @@ updates:
           - "com.android.tools.lint:lint-tests"
 
   - package-ecosystem: github-actions
-    directory: /android/
+    directory: /
     schedule:
       interval: weekly
       day: sunday
