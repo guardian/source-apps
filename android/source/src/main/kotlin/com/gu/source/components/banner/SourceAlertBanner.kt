@@ -266,6 +266,7 @@ internal fun SourceAlertBannerPreview() {
                     onMessageClick = { },
                     onDismiss = {},
                     modifier = Modifier.fillMaxWidth(),
+                    showDismiss = false,
                 )
             }
         }
