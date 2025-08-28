@@ -132,6 +132,7 @@ object SourceAlertBanner {
  * @param onMessageClick A callback to be invoked when the banner is clicked.
  * @param onDismiss A callback to be invoked when the cancel icon is clicked.
  * @param modifier The modifier to be applied to the banner.
+ * @param showDismiss Whether to show the dismiss icon.
  */
 @SuppressLint("DiscouragedApi")
 @Composable
@@ -141,6 +142,7 @@ fun SourceAlertBanner(
     onMessageClick: () -> Unit,
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
+    showDismiss: Boolean = true,
 ) {
     SourceAlertBanner(
         messageText = AnnotatedString(messageText),
@@ -148,6 +150,7 @@ fun SourceAlertBanner(
         onMessageClick = onMessageClick,
         onDismiss = onDismiss,
         modifier = modifier,
+        showDismiss = showDismiss,
     )
 }
 
@@ -161,6 +164,7 @@ fun SourceAlertBanner(
  * @param onMessageClick A callback to be invoked when the banner is clicked.
  * @param onDismiss A callback to be invoked when the cancel icon is clicked.
  * @param modifier The modifier to be applied to the banner.
+ * @param showDismiss Whether to show the dismiss icon.
  */
 @SuppressLint("DiscouragedApi")
 @Composable
@@ -170,6 +174,7 @@ fun SourceAlertBanner(
     onMessageClick: () -> Unit,
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
+    showDismiss: Boolean = true,
 ) {
     Row(modifier = modifier.background(priority.backgroundColour.current)) {
         Row(
@@ -205,19 +210,21 @@ fun SourceAlertBanner(
 
         Spacer(modifier = Modifier.width(SourceAlertBanner.Style.closeTextSpacing))
 
-        IconButton(
-            onClick = onDismiss,
-            modifier = Modifier.padding(
-                end = SourceAlertBanner.Style.ContentPaddingHorizontal,
-                top = SourceAlertBanner.Style.CloseIconButtonPaddingVertical,
-                bottom = SourceAlertBanner.Style.CloseIconButtonPaddingVertical,
-            ),
-        ) {
-            Icon(
-                imageVector = Source.Icons.Base.Cross,
-                tint = priority.contentColour.current,
-                contentDescription = null,
-            )
+        if (showDismiss) {
+            IconButton(
+                onClick = onDismiss,
+                modifier = Modifier.padding(
+                    end = SourceAlertBanner.Style.ContentPaddingHorizontal,
+                    top = SourceAlertBanner.Style.CloseIconButtonPaddingVertical,
+                    bottom = SourceAlertBanner.Style.CloseIconButtonPaddingVertical,
+                ),
+            ) {
+                Icon(
+                    imageVector = Source.Icons.Base.Cross,
+                    tint = priority.contentColour.current,
+                    contentDescription = null,
+                )
+            }
         }
     }
 }
