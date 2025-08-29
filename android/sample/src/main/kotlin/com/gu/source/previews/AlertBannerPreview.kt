@@ -79,6 +79,7 @@ internal fun AlertBannerPreview(modifier: Modifier = Modifier) {
                     onMessageClick = { showToast("${message.name} clicked", context) },
                     onDismiss = { showToast("${message.name} dismissed", context) },
                     modifier = Modifier.fillMaxWidth(),
+                    showDismiss = false,
                 )
             }
         }
