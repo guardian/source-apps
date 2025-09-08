@@ -2,7 +2,11 @@ package com.gu.source.foundation.icons.base
 
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -58,6 +62,7 @@ internal fun IconPreview() {
 
 private val icons = listOf(
     Source.Icons.Base.AddToBasket,
+    Source.Icons.Base.AiIndicator,
     Source.Icons.Base.AlarmClockFilled,
     Source.Icons.Base.AlarmClockOutlined,
     Source.Icons.Base.AlarmClockSounded,

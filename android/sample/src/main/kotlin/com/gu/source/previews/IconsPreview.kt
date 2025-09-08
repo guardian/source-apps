@@ -25,6 +25,7 @@ import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.icons.base.AddToBasket
+import com.gu.source.foundation.icons.base.AiIndicator
 import com.gu.source.foundation.icons.base.AlarmClockFilled
 import com.gu.source.foundation.icons.base.AlarmClockOutlined
 import com.gu.source.foundation.icons.base.AlarmClockSounded
@@ -219,6 +220,7 @@ import com.gu.source.foundation.typography.TextSans15
 
 private val icons = listOf(
     Source.Icons.Base.AddToBasket,
+    Source.Icons.Base.AiIndicator,
     Source.Icons.Base.AlarmClockFilled,
     Source.Icons.Base.AlarmClockOutlined,
     Source.Icons.Base.AlarmClockSounded,
