@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/guardian/fonts.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "c521d10c0328770a96bf0ff6a0299a463b875d05"
+        "branch" : "fonts+process",
+        "revision" : "7a8e1d5c8163040cbb67bae981bd8993dd326241"
       }
     }
   ],
