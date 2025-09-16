@@ -1,7 +1,7 @@
 [versions]
 group = "com.gu.source"
 versionFileName = "version.txt"
-compilesdk = "35"
+compilesdk = "36"
 minsdk = "26"
 targetsdk = "34"
 # When updating the java version, also update it in .tool-versions so github actions pick
