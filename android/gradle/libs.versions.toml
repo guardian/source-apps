@@ -1,7 +1,7 @@
 [versions]
 group = "com.gu.source"
 versionFileName = "version.txt"
-compilesdk = "35"
+compilesdk = "36"
 minsdk = "26"
 targetsdk = "34"
 # When updating the java version, also update it in .tool-versions so github actions pick
@@ -15,7 +15,7 @@ kotlin = "2.1.21"
 # https://github.com/jeremymailen/kotlinter-gradle/blob/master/README.md#compatibility
 kotlinter = "5.0.1"
 
-activity = "1.10.1"
+activity = "1.11.0"
 appcompat = "1.7.1"
 coil = "2.7.0"
 composeBom = "2025.09.00"
@@ -38,7 +38,7 @@ androidx-test-core = "1.7.0"
 androidx-test-rules = "1.7.0"
 androidx-test-runner = "1.7.0"
 testparameterinjector = "1.19"
-paparazzi = "1.3.5"
+paparazzi = "2.0.0-alpha02"
 
 # Convention plugin versions
 guardian-convention-plugins = "1"
