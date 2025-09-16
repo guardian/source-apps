@@ -50,22 +50,24 @@ public struct SubNavigationView: View {
                 dividerView()
                 HStack {
                     ForEach(items, id: \.title) { item in
-                        Button {
-                        } label: {
-                            SubNavigationItemView(
-                                title: item.title,
-                                palette: item.palette,
-                                isSelected: item == currentItem,
-                                namespace: namespace
+                        if item.isHidden == false {
+                            Button {
+                            } label: {
+                                SubNavigationItemView(
+                                    title: item.title,
+                                    palette: item.palette,
+                                    isSelected: item == currentItem,
+                                    namespace: namespace
+                                )
+                            }
+                            .buttonStyle(.plain)
+                            .simultaneousGesture(
+                                TapGesture().onEnded { _ in
+                                    item.didSelectItem?(currentItem, item)
+                                    currentItem = item
+                                }
                             )
                         }
-                        .buttonStyle(.plain)
-                        .simultaneousGesture(
-                            TapGesture().onEnded { _ in
-                                item.didSelectItem?(currentItem, item)
-                                currentItem = item
-                            }
-                        )
                     }
                 }
                 .padding(.horizontal, horizontalPadding)
@@ -122,6 +124,7 @@ public struct SubNavigationView: View {
         ),
         SubNavigationItem(
             title: "Test 4",
+            isHidden: false,
             content: {
                 Text("Test 4")
                     .frame(
