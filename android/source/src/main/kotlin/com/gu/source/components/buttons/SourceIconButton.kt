@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
@@ -110,8 +109,7 @@ fun SourceBaseIconButton(
 /**
  * Source icon-only button.
  *
- * @param icon The icon to display in the button. Use an icon from [Source.Icons] or Material
- * [Icons].
+ * @param icon The icon to display in the button. Use an icon from [Source.Icons].
  * @param priority The priority of the button. Informs users of how important an action is.
  * @param contentDescription The content description for the button.
  * @param onClick The action to perform when the button is clicked.
