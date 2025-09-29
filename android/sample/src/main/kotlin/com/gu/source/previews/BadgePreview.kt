@@ -22,7 +22,7 @@ internal fun BadgePreview(modifier: Modifier = Modifier) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceEvenly,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             ) {
                 SourceBadgeSizes.entries.forEach { size ->
                     SourceBadge(

@@ -17,6 +17,7 @@ import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.palette.Brand400
+import com.gu.source.foundation.palette.Neutral0
 import com.gu.source.foundation.palette.Neutral100
 import com.gu.source.foundation.palette.Neutral20
 import com.gu.source.foundation.palette.Neutral86
@@ -102,7 +103,14 @@ fun SourceBadge(
 @Composable
 internal fun SourceBadgePreview() {
     AppColourMode {
-        Column {
+        Column(
+            modifier = Modifier.background(
+                AppColour(
+                    light = Source.Palette.Neutral100,
+                    dark = Source.Palette.Neutral0,
+                ).current,
+            ),
+        ) {
             SourceBadgeStyle.entries.forEach { type ->
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     SourceBadgeSizes.entries.forEach { size ->
