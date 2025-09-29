@@ -5,10 +5,6 @@ plugins {
     alias(libs.plugins.metalava)
 }
 
-detekt {
-    baseline = file("detekt-baseline.xml")
-}
-
 // Generates API signature files for use in API compatibility checks, and for automatic versioning.
 metalava {
     javaSourceLevel.set(JavaVersion.toVersion(libs.versions.java.get()))
