@@ -1,17 +1,20 @@
 package com.gu.source.components.badge
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
@@ -75,6 +78,9 @@ enum class SourceBadgeStyle(
  * @param size The size of the badge, see [SourceBadgeSizes].
  * @param style The style of the badge, see [SourceBadgeStyle].
  * @param modifier Optional [Modifier] for this badge.
+ * @param maxLines Optional - Maximum number of lines to display. Default is 1.
+ * @param textOverflow Optional - Overflow behaviour of the text. Default is
+ * [TextOverflow.Ellipsis].
  */
 @Composable
 fun SourceBadge(
@@ -82,6 +88,8 @@ fun SourceBadge(
     size: SourceBadgeSizes,
     style: SourceBadgeStyle,
     modifier: Modifier = Modifier,
+    maxLines: Int = 1,
+    textOverflow: TextOverflow = TextOverflow.Ellipsis,
 ) {
     Box(
         modifier = modifier
@@ -95,6 +103,8 @@ fun SourceBadge(
             text = text,
             color = style.textColour.current,
             style = size.textStyle,
+            maxLines = maxLines,
+            overflow = textOverflow,
         )
     }
 }
@@ -123,6 +133,29 @@ internal fun SourceBadgePreview() {
                     }
                 }
             }
+        }
+    }
+}
+
+@PreviewPhoneBothMode
+@Composable
+internal fun SourceBadgeLongPreview() {
+    AppColourMode {
+        Column(
+            modifier = Modifier.widthIn(max = 100.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            SourceBadge(
+                text = "New but very long",
+                size = SourceBadgeSizes.Small,
+                style = SourceBadgeStyle.LightBlue,
+            )
+            SourceBadge(
+                text = "New but very long",
+                size = SourceBadgeSizes.Small,
+                style = SourceBadgeStyle.LightBlue,
+                maxLines = 2,
+            )
         }
     }
 }

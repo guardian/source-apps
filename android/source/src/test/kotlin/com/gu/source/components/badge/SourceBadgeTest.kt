@@ -19,4 +19,11 @@ internal class SourceBadgeTest(@TestParameter private val nightMode: NightMode) 
             SourceBadgePreview()
         }
     }
+
+    @Test
+    fun longBadge() {
+        paparazzi.snapshot {
+            SourceBadgeLongPreview()
+        }
+    }
 }
