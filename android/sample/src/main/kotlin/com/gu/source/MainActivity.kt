@@ -5,12 +5,24 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberBottomSheetScaffoldState
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.gu.source.components.buttons.SourceButton
@@ -21,7 +33,13 @@ import com.gu.source.foundation.palette.Neutral10
 import com.gu.source.foundation.palette.Neutral100
 import com.gu.source.foundation.palette.Neutral97
 import com.gu.source.foundation.typography.HeadlineMedium20
-import com.gu.source.previews.*
+import com.gu.source.previews.AlertBannerPreview
+import com.gu.source.previews.BadgePreview
+import com.gu.source.previews.ButtonPreview
+import com.gu.source.previews.ChipsPreview
+import com.gu.source.previews.IconsPreview
+import com.gu.source.previews.ImagePagerWithProgressIndicator
+import com.gu.source.previews.Palette
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.plus
 import kotlinx.coroutines.launch
@@ -45,6 +63,7 @@ private enum class SheetContentType {
     CoreIcons,
     AlertBanner,
     Chips,
+    Badges,
 }
 
 @SuppressLint("DiscouragedApi")
@@ -67,6 +86,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
                 SheetContentType.CoreIcons -> IconsPreview(sheetModifier)
                 SheetContentType.AlertBanner -> AlertBannerPreview(sheetModifier)
                 SheetContentType.Chips -> ChipsPreview(sheetModifier)
+                SheetContentType.Badges -> BadgePreview(sheetModifier)
             }
         },
         scaffoldState = scaffoldState,
@@ -172,6 +192,17 @@ private fun Greeting(modifier: Modifier = Modifier) {
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = {
                     sheetContentType = SheetContentType.Chips
+                    coroutineScope.launch {
+                        scaffoldState.bottomSheetState.expand()
+                    }
+                },
+            )
+
+            SourceButton(
+                text = "Open badges preview",
+                priority = SourceButton.Priority.TertiaryOnWhite,
+                onClick = {
+                    sheetContentType = SheetContentType.Badges
                     coroutineScope.launch {
                         scaffoldState.bottomSheetState.expand()
                     }
