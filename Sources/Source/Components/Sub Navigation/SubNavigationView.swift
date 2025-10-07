@@ -57,6 +57,7 @@ public struct SubNavigationView: View {
                                     title: item.title,
                                     palette: item.palette,
                                     isSelected: item == currentItem,
+                                    isNew: item.isNew,
                                     namespace: namespace
                                 )
                             }
@@ -114,6 +115,7 @@ public struct SubNavigationView: View {
         ),
         SubNavigationItem(
             title: "Test 3",
+            isNew: true,
             content: {
                 Text("Test 3")
                     .frame(
@@ -123,8 +125,8 @@ public struct SubNavigationView: View {
             }
         ),
         SubNavigationItem(
-            title: "Test 4",
-            isHidden: false,
+            title: "Test 4 (Hidden)",
+            isHidden: true,
             content: {
                 Text("Test 4")
                     .frame(
