@@ -5,11 +5,11 @@ import SwiftUI
 /// didTapOptions func to update the SubNavigationView
 
 public struct SubNavigationItemView: View {
-    let title: String
-    let palette: SubNavigationItemColorPalette
-    let isSelected: Bool
-    let isNew: Bool
-    let namespace: Namespace.ID
+    public let title: String
+    public let palette: SubNavigationItemColorPalette
+    public let isSelected: Bool
+    public let isNew: Bool
+    public let namespace: Namespace.ID
 
     public init(
         title: String,

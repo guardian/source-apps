@@ -3,12 +3,12 @@
 import SwiftUI
 import GuardianFonts
 
-struct Badge: View {
-    let text: String
-    let foregroundColor: Color
-    let backgroundColor: Color
+public struct Badge: View {
+    public let text: String
+    public let foregroundColor: Color
+    public let backgroundColor: Color
 
-    init(
+    public init(
         text: String,
         foregroundColor: Color,
         backgroundColor: Color
@@ -21,7 +21,7 @@ struct Badge: View {
     @Environment(\.controlSize)
     private var controlSize
 
-    var body: some View {
+    public var body: some View {
         Text(text)
             .font(badgeFont)
             .padding(.horizontal, badgePadding)

@@ -7,11 +7,11 @@ public struct SubNavigationView: View {
     @Environment(\.horizontalSizeClass)
     private var horizontalSizeClass
 
-    let items: [SubNavigationItem]
-    let backgroundColor: Color
-    let dividerColor: Color
+    public let items: [SubNavigationItem]
+    public let backgroundColor: Color
+    public let dividerColor: Color
 
-    @Namespace var namespace
+    @Namespace private var namespace
     @State private var currentItem: SubNavigationItem
 
     var selectedItemContent: AnyView? {
@@ -136,5 +136,6 @@ public struct SubNavigationView: View {
             }
         )
     )
+    .previewFonts()
 }
 #endif
