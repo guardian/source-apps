@@ -6,7 +6,7 @@ minsdk = "26"
 targetsdk = "34"
 # When updating the java version, also update it in .tool-versions so github actions pick
 # it up
-java = "17"
+java = "21"
 
 agp = "8.13.0"
 kotlin = "2.2.20"
@@ -25,7 +25,7 @@ detekt = "1.23.8"
 dokka = "2.0.0"
 inject = "1"
 kotlinx-collections-immutable = "0.4.0"
-licensee = "1.13.0"
+licensee = "1.14.0"
 lint-gradle = "1.0.0-alpha05"
 timber = "5.0.1"
 
