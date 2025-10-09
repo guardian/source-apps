@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-java@ead9eaa3cfe0b0fc2fa749519ae09c3d4f4080b0 # v5
         with:
           distribution: temurin
-          java-version: 17
+          java-version: 21
       - name: Submit dependencies
         id: submit
         uses: gradle/actions/dependency-submission@83c124bfb09badf85ddfbf01158b5592c1a78c4a # v4.1.0
