@@ -37,6 +37,26 @@ package com.gu.source.components {
 
 }
 
+package com.gu.source.components.badge {
+
+  public final class SourceBadgeKt {
+    method @androidx.compose.runtime.Composable public static void SourceBadge(String text, com.gu.source.components.badge.SourceBadgeSizes size, com.gu.source.components.badge.SourceBadgeStyle style, optional androidx.compose.ui.Modifier modifier, optional int maxLines, optional int textOverflow);
+  }
+
+  public enum SourceBadgeSizes {
+    enum_constant public static final com.gu.source.components.badge.SourceBadgeSizes Large;
+    enum_constant public static final com.gu.source.components.badge.SourceBadgeSizes Small;
+  }
+
+  public enum SourceBadgeStyle {
+    enum_constant public static final com.gu.source.components.badge.SourceBadgeStyle DarkBlue;
+    enum_constant public static final com.gu.source.components.badge.SourceBadgeStyle Gray;
+    enum_constant public static final com.gu.source.components.badge.SourceBadgeStyle LightBlue;
+    enum_constant public static final com.gu.source.components.badge.SourceBadgeStyle Red;
+  }
+
+}
+
 package com.gu.source.components.banner {
 
   public final class SourceAlertBanner {
@@ -50,8 +70,8 @@ package com.gu.source.components.banner {
   }
 
   public final class SourceAlertBannerKt {
-    method @androidx.compose.runtime.Composable public static void SourceAlertBanner(androidx.compose.ui.text.AnnotatedString messageText, com.gu.source.components.banner.SourceAlertBanner.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onMessageClick, kotlin.jvm.functions.Function0<kotlin.Unit> onDismiss, optional androidx.compose.ui.Modifier modifier);
-    method @androidx.compose.runtime.Composable public static void SourceAlertBanner(String messageText, com.gu.source.components.banner.SourceAlertBanner.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onMessageClick, kotlin.jvm.functions.Function0<kotlin.Unit> onDismiss, optional androidx.compose.ui.Modifier modifier);
+    method @androidx.compose.runtime.Composable public static void SourceAlertBanner(androidx.compose.ui.text.AnnotatedString messageText, com.gu.source.components.banner.SourceAlertBanner.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onMessageClick, kotlin.jvm.functions.Function0<kotlin.Unit> onDismiss, optional androidx.compose.ui.Modifier modifier, optional boolean showDismiss);
+    method @androidx.compose.runtime.Composable public static void SourceAlertBanner(String messageText, com.gu.source.components.banner.SourceAlertBanner.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onMessageClick, kotlin.jvm.functions.Function0<kotlin.Unit> onDismiss, optional androidx.compose.ui.Modifier modifier, optional boolean showDismiss);
   }
 
 }
@@ -75,7 +95,7 @@ package com.gu.source.components.buttons {
 
   public final class PlainSourceButtonKt {
     method @androidx.compose.runtime.Composable public static void PlainSourceButton(String text, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.components.buttons.SourceButton.IconSide iconSide, optional kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> icon);
-    method @Discouraged(message="Preferably use `PlainSourceButton`." + " It provides correct styling & size for text and icons." + " This variant is for supporting custom button designs only.") @androidx.compose.runtime.Composable public static void PlainSourceContentButton(com.gu.source.components.buttons.SourceButton.Size size, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, kotlin.jvm.functions.Function0<kotlin.Unit> content);
+    method @Discouraged(message="Preferably use `PlainSourceButton`." + " It provides correct styling & size for text and icons." + " This variant is for supporting custom button designs only.") @androidx.compose.runtime.Composable public static void PlainSourceContentButton(com.gu.source.components.buttons.SourceButton.Size size, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional androidx.compose.ui.unit.Dp? overridePaddingStart, optional androidx.compose.ui.unit.Dp? overridePaddingEnd, kotlin.jvm.functions.Function0<kotlin.Unit> content);
   }
 
   public final class SourceButton {
@@ -352,6 +372,10 @@ package com.gu.source.foundation.icons.base {
 
   public final class AddToBasketKt {
     method public static androidx.compose.ui.graphics.vector.ImageVector getAddToBasket(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class AiIndicatorKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getAiIndicator(com.gu.source.Source.Icons.Base);
   }
 
   public final class AlarmClockFilledKt {
@@ -708,6 +732,10 @@ package com.gu.source.foundation.icons.base {
 
   public final class GpsKt {
     method public static androidx.compose.ui.graphics.vector.ImageVector getGps(com.gu.source.Source.Icons.Base);
+  }
+
+  public final class GuessPuzzlesKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getGuessPuzzles(com.gu.source.Source.Icons.Base);
   }
 
   public final class HandPointedKt {
@@ -1070,6 +1098,10 @@ package com.gu.source.foundation.icons.base {
     method public static androidx.compose.ui.graphics.vector.ImageVector getTransparentArrowLeftStraightRound(com.gu.source.Source.Icons.Base);
   }
 
+  public final class TrophyKt {
+    method public static androidx.compose.ui.graphics.vector.ImageVector getTrophy(com.gu.source.Source.Icons.Base);
+  }
+
   public final class TwitterKt {
     method public static androidx.compose.ui.graphics.vector.ImageVector getTwitter(com.gu.source.Source.Icons.Base);
   }
@@ -1120,9 +1152,13 @@ package com.gu.source.foundation.palette {
     method public static long getCulture800(com.gu.source.Source.Palette);
     method public static long getError400(com.gu.source.Source.Palette);
     method public static long getError500(com.gu.source.Source.Palette);
+    method public static long getLabs100(com.gu.source.Source.Palette);
     method public static long getLabs200(com.gu.source.Source.Palette);
     method public static long getLabs300(com.gu.source.Source.Palette);
     method public static long getLabs400(com.gu.source.Source.Palette);
+    method public static long getLabs500(com.gu.source.Source.Palette);
+    method public static long getLabs600(com.gu.source.Source.Palette);
+    method public static long getLabs700(com.gu.source.Source.Palette);
     method public static long getLifestyle100(com.gu.source.Source.Palette);
     method public static long getLifestyle200(com.gu.source.Source.Palette);
     method public static long getLifestyle300(com.gu.source.Source.Palette);
@@ -1152,6 +1188,7 @@ package com.gu.source.foundation.palette {
     method public static long getNews600(com.gu.source.Source.Palette);
     method public static long getNews700(com.gu.source.Source.Palette);
     method public static long getNews800(com.gu.source.Source.Palette);
+    method public static long getNotificationBlue400(com.gu.source.Source.Palette);
     method public static long getOpinion100(com.gu.source.Source.Palette);
     method public static long getOpinion200(com.gu.source.Source.Palette);
     method @Deprecated public static long getOpinion300(com.gu.source.Source.Palette);
