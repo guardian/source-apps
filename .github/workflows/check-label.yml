@@ -11,6 +11,8 @@ jobs:
   check-labels:
     name: Check Required Labels
     runs-on: ubuntu-latest
+    # Skip the entire job if the PR author is dependabot
+    if: github.actor != 'dependabot[bot]'
     steps:
       - name: Check for required labels
         id: check
