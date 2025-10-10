@@ -37,13 +37,31 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            github.rest.issues.createComment({
+            // Check for existing reminder comments
+            const comments = await github.rest.issues.listComments({
               issue_number: context.issue.number,
               owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '⚠️ **Label Required** ⚠️\n\nPlease add one of the following labels to this PR: `fix`, `maintenance`, `feature`, or `experiment`.'
+              repo: context.repo.repo
             });
-            core.fail('Missing required label');
+            
+            const reminderText = '⚠️ **Label Required** ⚠️';
+            const hasReminderComment = comments.data.some(comment => 
+              comment.body.includes(reminderText)
+            );
+            
+            // Only comment if no reminder exists
+            if (!hasReminderComment) {
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: '⚠️ **Label Required** ⚠️\n\nPlease add one of the following labels to this PR: `fix`, `maintenance`, `feature`, or `experiment`.'
+              });
+              console.log('Added label reminder comment');
+            } else {
+              console.log('Reminder comment already exists');
+            }
+            core.setFailed('Missing required label');
 
       - name: Remove comment if label is present
         if: steps.check.outputs.missing_label == 'false'
