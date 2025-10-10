@@ -2,10 +2,9 @@ name: Check PR Labels
 
 on:
   pull_request:
-    types: [opened, labeled, unlabeled, synchronize]
+    types: [opened, labeled, unlabeled]
 
 permissions:
-#  contents: read
   pull-requests: write
 
 jobs:
