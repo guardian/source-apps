@@ -14,7 +14,7 @@ jobs:
     name: Release
     if: github.repository == 'guardian/source-apps'
     permissions: { contents: write, pull-requests: write }
-    uses: guardian/gha-gradle-library-release-workflow/.github/workflows/reusable-release.yml@b2bf9c33e58792d68d3338767d2f648758b6af1d
+    uses: guardian/gha-gradle-library-release-workflow/.github/workflows/reusable-release.yml@ab/commit-new-api-file
     with:
       SOURCE_DIR: 'android'
       MODULES: 'source'
