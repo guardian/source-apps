@@ -21,7 +21,7 @@ jobs:
             const hasRequiredLabel = prLabels.some(label => requiredLabels.includes(label));
             
             if (!hasRequiredLabel) {
-              core.setFailed(`This PR requires at least one of these labels: ${requiredLabels.join(', ')}`);
+              console.log(`This PR requires at least one of these labels: ${requiredLabels.join(', ')}`);
               core.setOutput('missing_label', 'true');
             } else {
               console.log(`PR has one of the required labels: ${prLabels.filter(label => requiredLabels.includes(label)).join(', ')}`);
@@ -40,6 +40,7 @@ jobs:
               repo: context.repo.repo,
               body: '⚠️ **Label Required** ⚠️\n\nPlease add one of the following labels to this PR: `fix`, `maintenance`, `feature`, or `experiment`.'
             });
+            core.fail('Missing required label');
 
       - name: Remove comment if label is present
         if: steps.check.outputs.missing_label == 'false'
