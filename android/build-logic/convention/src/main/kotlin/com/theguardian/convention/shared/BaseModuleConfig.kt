@@ -1,10 +1,16 @@
 package com.theguardian.convention.shared
 
 import com.android.build.api.dsl.CommonExtension
+import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
-import org.gradle.kotlin.dsl.*
+import org.gradle.kotlin.dsl.assign
+import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.dependencies
+import org.gradle.kotlin.dsl.getByType
+import org.gradle.kotlin.dsl.named
+import org.gradle.kotlin.dsl.provideDelegate
 import org.gradle.plugin.use.PluginDependency
 import org.jetbrains.dokka.gradle.DokkaExtension
 import org.jetbrains.dokka.gradle.engine.plugins.DokkaHtmlPluginParameters
@@ -34,6 +40,13 @@ internal inline fun <reified T : KotlinBaseExtension> Project.configureAndroidMo
 
         addBaseDependencies<T>()
 
+        val javaVersion = JavaVersion.toVersion(
+            libs.findVersion("java").get().toString().toInt(),
+        )
+        compileOptions {
+            sourceCompatibility = javaVersion
+            targetCompatibility = javaVersion
+        }
         dependencies {
             add("implementation", libs.findLibrary("other-timber").get())
         }
@@ -62,14 +75,13 @@ private inline fun <reified T : KotlinBaseExtension> Project.setupKotlinCompiler
             val warningsAsErrors: String? by project
             allWarningsAsErrors = warningsAsErrors.toBoolean()
             freeCompilerArgs.addAll(
-                // Suggested by Braze SDK integration guide, for further information:
-                // https://kotlinlang.org/docs/java-to-kotlin-interop.html#default-methods-in-interfaces
                 "-Xjvm-default=all",
                 "-opt-in=kotlin.RequiresOptIn",
                 // Enable experimental coroutines APIs, including Flow
                 "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
                 "-opt-in=kotlinx.coroutines.FlowPreview",
                 "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+                "-Xcontext-receivers"
             )
         }
     }
