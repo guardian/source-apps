@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,33 +17,45 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.foundation.palette.Brand400
+import com.gu.source.foundation.palette.Labs200
+import com.gu.source.foundation.palette.Labs700
+import com.gu.source.foundation.palette.Lifestyle300
+import com.gu.source.foundation.palette.Lifestyle400
+import com.gu.source.foundation.palette.Lifestyle800
 import com.gu.source.foundation.palette.Neutral0
 import com.gu.source.foundation.palette.Neutral100
-import com.gu.source.foundation.palette.Neutral20
-import com.gu.source.foundation.palette.Neutral86
 import com.gu.source.foundation.palette.Neutral97
+import com.gu.source.foundation.palette.News300
 import com.gu.source.foundation.palette.News400
+import com.gu.source.foundation.palette.News800
+import com.gu.source.foundation.palette.Sport300
 import com.gu.source.foundation.palette.Sport400
+import com.gu.source.foundation.palette.Sport800
 import com.gu.source.foundation.typography.TextSansBold12
 import com.gu.source.foundation.typography.TextSansBold15
 import com.gu.source.utils.PreviewPhoneBothMode
+import com.gu.source.utils.toDp
 
 /** Supported sizes for the [SourceBadge]. */
 enum class SourceBadgeSizes(
+    internal val height: TextUnit,
     internal val padding: PaddingValues,
     internal val textStyle: TextStyle,
 ) {
     Small(
+        height = 16.sp,
         padding = PaddingValues(horizontal = 4.dp),
         textStyle = Source.Typography.TextSansBold12,
     ),
     Large(
-        padding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
+        height = 24.sp,
+        padding = PaddingValues(horizontal = 8.dp),
         textStyle = Source.Typography.TextSansBold15,
     ),
 }
@@ -51,21 +65,21 @@ enum class SourceBadgeStyle(
     internal val fillColour: AppColour,
     internal val textColour: AppColour,
 ) {
-    Gray(
-        fillColour = AppColour(Source.Palette.Neutral86),
-        textColour = AppColour(Source.Palette.Neutral20),
+    Info(
+        fillColour = AppColour(Source.Palette.Sport400, Source.Palette.Sport800),
+        textColour = AppColour(Source.Palette.Neutral97, Source.Palette.Sport300),
     ),
-    LightBlue(
-        fillColour = AppColour(Source.Palette.Sport400),
-        textColour = AppColour(Source.Palette.Neutral97),
+    Error(
+        fillColour = AppColour(Source.Palette.News400, Source.Palette.News800),
+        textColour = AppColour(Source.Palette.Neutral97, Source.Palette.News300),
     ),
-    DarkBlue(
-        fillColour = AppColour(Source.Palette.Brand400),
-        textColour = AppColour(Source.Palette.Neutral100),
+    Lifestyle(
+        fillColour = AppColour(Source.Palette.Lifestyle400, Source.Palette.Lifestyle800),
+        textColour = AppColour(Source.Palette.Neutral97, Source.Palette.Lifestyle300),
     ),
-    Red(
-        fillColour = AppColour(Source.Palette.News400),
-        textColour = AppColour(Source.Palette.Neutral100),
+    Success(
+        fillColour = AppColour(Source.Palette.Labs200, Source.Palette.Labs700),
+        textColour = AppColour(Source.Palette.Neutral97, Source.Palette.Labs200),
     ),
 }
 
@@ -97,7 +111,9 @@ fun SourceBadge(
                 color = style.fillColour.current,
                 shape = RoundedCornerShape(4.dp),
             )
+            .height(size.height.toDp())
             .padding(size.padding),
+        contentAlignment = Alignment.Center,
     ) {
         Text(
             text = text,
@@ -105,6 +121,7 @@ fun SourceBadge(
             style = size.textStyle,
             maxLines = maxLines,
             overflow = textOverflow,
+            modifier = Modifier.offset(y = (-0.5).dp),
         )
     }
 }
@@ -148,12 +165,12 @@ internal fun SourceBadgeLongPreview() {
             SourceBadge(
                 text = "New but very long",
                 size = SourceBadgeSizes.Small,
-                style = SourceBadgeStyle.LightBlue,
+                style = SourceBadgeStyle.Info,
             )
             SourceBadge(
                 text = "New but very long",
                 size = SourceBadgeSizes.Small,
-                style = SourceBadgeStyle.LightBlue,
+                style = SourceBadgeStyle.Info,
                 maxLines = 2,
             )
         }
