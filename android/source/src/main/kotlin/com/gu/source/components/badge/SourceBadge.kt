@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -111,6 +112,7 @@ fun SourceBadge(
             style = size.textStyle,
             maxLines = maxLines,
             overflow = textOverflow,
+            modifier = Modifier.offset(y = (-0.5).dp)
         )
     }
 }
