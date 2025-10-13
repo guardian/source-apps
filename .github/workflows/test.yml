@@ -64,9 +64,17 @@ jobs:
         id: license-check
         run: |
           cd android
-          ./gradlew licensee
+          ./gradlew assembleDebug --continue
+
+      - name: Check licenses
+        id: license-check
+        if: success() || failure()
+        run: |
+          cd android
+          ./gradlew licensee --continue
 
       - name: Run ktlint
+        if: success() || failure()
         run: |
           cd android
           ./gradlew lint lintKotlin :build-logic:convention:lint --continue
