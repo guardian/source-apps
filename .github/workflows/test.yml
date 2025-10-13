@@ -60,8 +60,8 @@ jobs:
         with:
           gradle-version: wrapper
 
-      - name: Check licenses
-        id: license-check
+      - name: Build app and library
+        id: build-debug
         run: |
           cd android
           ./gradlew assembleDebug --continue
