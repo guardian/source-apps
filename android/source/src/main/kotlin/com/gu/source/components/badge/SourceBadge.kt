@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
@@ -16,7 +17,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
@@ -37,18 +40,22 @@ import com.gu.source.foundation.palette.Sport800
 import com.gu.source.foundation.typography.TextSansBold12
 import com.gu.source.foundation.typography.TextSansBold15
 import com.gu.source.utils.PreviewPhoneBothMode
+import com.gu.source.utils.toDp
 
 /** Supported sizes for the [SourceBadge]. */
 enum class SourceBadgeSizes(
+    internal val height: TextUnit,
     internal val padding: PaddingValues,
     internal val textStyle: TextStyle,
 ) {
     Small(
+        height = 16.sp,
         padding = PaddingValues(horizontal = 4.dp),
         textStyle = Source.Typography.TextSansBold12,
     ),
     Large(
-        padding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
+        height = 24.sp,
+        padding = PaddingValues(horizontal = 8.dp),
         textStyle = Source.Typography.TextSansBold15,
     ),
 }
@@ -104,7 +111,9 @@ fun SourceBadge(
                 color = style.fillColour.current,
                 shape = RoundedCornerShape(4.dp),
             )
+            .height(size.height.toDp())
             .padding(size.padding),
+        contentAlignment = Alignment.Center,
     ) {
         Text(
             text = text,
