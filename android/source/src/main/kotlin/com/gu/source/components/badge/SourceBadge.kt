@@ -121,7 +121,7 @@ fun SourceBadge(
             style = size.textStyle,
             maxLines = maxLines,
             overflow = textOverflow,
-            modifier = Modifier.offset(y = (-0.5).dp)
+            modifier = Modifier.offset(y = (-0.5).dp),
         )
     }
 }
