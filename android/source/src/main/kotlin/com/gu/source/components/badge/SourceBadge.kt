@@ -19,14 +19,20 @@ import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.foundation.palette.Brand400
+import com.gu.source.foundation.palette.Labs200
+import com.gu.source.foundation.palette.Labs700
+import com.gu.source.foundation.palette.Lifestyle300
+import com.gu.source.foundation.palette.Lifestyle400
+import com.gu.source.foundation.palette.Lifestyle800
 import com.gu.source.foundation.palette.Neutral0
 import com.gu.source.foundation.palette.Neutral100
-import com.gu.source.foundation.palette.Neutral20
-import com.gu.source.foundation.palette.Neutral86
 import com.gu.source.foundation.palette.Neutral97
+import com.gu.source.foundation.palette.News300
 import com.gu.source.foundation.palette.News400
+import com.gu.source.foundation.palette.News800
+import com.gu.source.foundation.palette.Sport300
 import com.gu.source.foundation.palette.Sport400
+import com.gu.source.foundation.palette.Sport800
 import com.gu.source.foundation.typography.TextSansBold12
 import com.gu.source.foundation.typography.TextSansBold15
 import com.gu.source.utils.PreviewPhoneBothMode
@@ -51,21 +57,21 @@ enum class SourceBadgeStyle(
     internal val fillColour: AppColour,
     internal val textColour: AppColour,
 ) {
-    Gray(
-        fillColour = AppColour(Source.Palette.Neutral86),
-        textColour = AppColour(Source.Palette.Neutral20),
+    Info(
+        fillColour = AppColour(Source.Palette.Sport400, Source.Palette.Sport800),
+        textColour = AppColour(Source.Palette.Neutral97, Source.Palette.Sport300),
     ),
-    LightBlue(
-        fillColour = AppColour(Source.Palette.Sport400),
-        textColour = AppColour(Source.Palette.Neutral97),
+    Error(
+        fillColour = AppColour(Source.Palette.News400, Source.Palette.News800),
+        textColour = AppColour(Source.Palette.Neutral97, Source.Palette.News300),
     ),
-    DarkBlue(
-        fillColour = AppColour(Source.Palette.Brand400),
-        textColour = AppColour(Source.Palette.Neutral100),
+    Lifestyle(
+        fillColour = AppColour(Source.Palette.Lifestyle400, Source.Palette.Lifestyle800),
+        textColour = AppColour(Source.Palette.Neutral97, Source.Palette.Lifestyle300),
     ),
-    Red(
-        fillColour = AppColour(Source.Palette.News400),
-        textColour = AppColour(Source.Palette.Neutral100),
+    Success(
+        fillColour = AppColour(Source.Palette.Labs200, Source.Palette.Labs700),
+        textColour = AppColour(Source.Palette.Neutral97, Source.Palette.Labs200),
     ),
 }
 
@@ -148,12 +154,12 @@ internal fun SourceBadgeLongPreview() {
             SourceBadge(
                 text = "New but very long",
                 size = SourceBadgeSizes.Small,
-                style = SourceBadgeStyle.LightBlue,
+                style = SourceBadgeStyle.Info,
             )
             SourceBadge(
                 text = "New but very long",
                 size = SourceBadgeSizes.Small,
-                style = SourceBadgeStyle.LightBlue,
+                style = SourceBadgeStyle.Info,
                 maxLines = 2,
             )
         }
