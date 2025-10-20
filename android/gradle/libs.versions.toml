@@ -6,10 +6,10 @@ minsdk = "26"
 targetsdk = "34"
 # When updating the java version, also update it in .tool-versions so github actions pick
 # it up
-java = "17"
+java = "21"
 
 agp = "8.13.0"
-kotlin = "2.1.21"
+kotlin = "2.2.10"
 # Kotlinter version is tied closely to min & max Kotlin and Gradle versions. Update Kotlinter
 # when updating Kotlin. Check compatible versions here:
 # https://github.com/jeremymailen/kotlinter-gradle/blob/master/README.md#compatibility
