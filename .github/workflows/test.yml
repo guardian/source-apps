@@ -49,10 +49,10 @@ jobs:
         with:
           token: ${{ steps.app-token.outputs.token }}
 
-      - name: Set up JDK 17
+      - name: Set up JDK 21
         uses: actions/setup-java@v5
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'temurin'
 
       - name: Setup Gradle
@@ -60,13 +60,21 @@ jobs:
         with:
           gradle-version: wrapper
 
-      - name: Check licenses
-        id: license-check
+      - name: Build app and library
+        id: build-debug
         run: |
           cd android
-          ./gradlew licensee
+          ./gradlew assembleDebug --continue
+
+      - name: Check licenses
+        id: license-check
+        if: success() || failure()
+        run: |
+          cd android
+          ./gradlew licensee --continue
 
       - name: Run ktlint
+        if: success() || failure()
         run: |
           cd android
           ./gradlew lint lintKotlin :build-logic:convention:lint --continue
