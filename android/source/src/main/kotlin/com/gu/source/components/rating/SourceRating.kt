@@ -117,9 +117,7 @@ private const val MAX_STARS = 5
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PreviewPhoneBothMode
 @Composable
-internal fun SourceRatingPreview(
-    modifier: Modifier = Modifier,
-) {
+internal fun SourceRatingPreview(modifier: Modifier = Modifier) {
     AppColourMode {
         val labelColour = AppColour(
             Source.Palette.Neutral10,
@@ -130,103 +128,75 @@ internal fun SourceRatingPreview(
             modifier = modifier.padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            // DefaultCards style
-            Text(
-                text = "Default Cards (18px circle, 12px star, 1px spacing)",
-                style = Source.Typography.TextSansBold17,
-                color = labelColour.current,
+            RatingStylePreview(
+                title = "Default Cards (18px circle, 12px star, 1px spacing)",
+                style = RatingStyle.DefaultCards,
+                labelColour = labelColour,
             )
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                for (rating in MIN_RATING..MAX_STARS) {
-                    Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                        Text(
-                            text = "Rating $rating:",
-                            style = Source.Typography.TextSans14,
-                            color = labelColour.current,
-                            modifier = Modifier.width(80.dp),
-                        )
-                        SourceRating(
-                            rating = rating,
-                            style = RatingStyle.DefaultCards,
-                        )
-                    }
-                }
-            }
 
             HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
 
-            // FeatureCards style
-            Text(
-                text = "Feature Cards (22px circle, 14px star, 2px spacing)",
-                style = Source.Typography.TextSansBold17,
-                color = labelColour.current,
+            RatingStylePreview(
+                title = "Feature Cards (22px circle, 14px star, 2px spacing)",
+                style = RatingStyle.FeatureCards,
+                labelColour = labelColour,
             )
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                for (rating in MIN_RATING..MAX_STARS) {
-                    Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                        Text(
-                            text = "Rating $rating:",
-                            style = Source.Typography.TextSans14,
-                            color = labelColour.current,
-                            modifier = Modifier.width(80.dp),
-                        )
-                        SourceRating(
-                            rating = rating,
-                            style = RatingStyle.FeatureCards,
-                        )
-                    }
-                }
-            }
 
             HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
 
-            // DefaultArticle style
-            Text(
-                text = "Default Article (28px circle, 18px star, 2px spacing)",
-                style = Source.Typography.TextSansBold17,
-                color = labelColour.current,
+            RatingStylePreview(
+                title = "Default Article (28px circle, 18px star, 2px spacing)",
+                style = RatingStyle.DefaultArticle,
+                labelColour = labelColour,
             )
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                for (rating in MIN_RATING..MAX_STARS) {
-                    Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                        Text(
-                            text = "Rating $rating:",
-                            style = Source.Typography.TextSans14,
-                            color = labelColour.current,
-                            modifier = Modifier.width(80.dp),
-                        )
-                        SourceRating(
-                            rating = rating,
-                            style = RatingStyle.DefaultArticle,
-                        )
-                    }
-                }
-            }
 
             HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
 
-            // ImmersiveArticle style
-            Text(
-                text = "Immersive Article (28px circle, 18px star, 2px spacing)",
-                style = Source.Typography.TextSansBold17,
-                color = labelColour.current,
+            RatingStylePreview(
+                title = "Immersive Article (28px circle, 18px star, 2px spacing)",
+                style = RatingStyle.ImmersiveArticle,
+                labelColour = labelColour,
             )
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                for (rating in MIN_RATING..MAX_STARS) {
-                    Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                        Text(
-                            text = "Rating $rating:",
-                            style = Source.Typography.TextSans14,
-                            color = labelColour.current,
-                            modifier = Modifier.width(80.dp),
-                        )
-                        SourceRating(
-                            rating = rating,
-                            style = RatingStyle.ImmersiveArticle,
-                        )
-                    }
-                }
+        }
+    }
+}
+
+@Composable
+private fun RatingStylePreview(
+    title: String,
+    style: RatingStyle,
+    labelColour: AppColour,
+) {
+    Column {
+        Text(
+            text = title,
+            style = Source.Typography.TextSansBold17,
+            color = labelColour.current,
+        )
+        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            for (rating in MIN_RATING..MAX_STARS) {
+                RatingRow(rating = rating, style = style, labelColour = labelColour)
             }
         }
+    }
+}
+
+@Composable
+private fun RatingRow(
+    rating: Int,
+    style: RatingStyle,
+    labelColour: AppColour,
+) {
+    Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+        Text(
+            text = "Rating $rating:",
+            style = Source.Typography.TextSans14,
+            color = labelColour.current,
+            modifier = Modifier.width(80.dp),
+        )
+        SourceRating(
+            rating = rating,
+            style = style,
+        )
     }
 }
