@@ -1,20 +1,34 @@
 package com.gu.source.components.rating
 
+import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.gu.source.R
+import com.gu.source.Source
 import com.gu.source.daynight.AppColour
+import com.gu.source.daynight.AppColourMode
+import com.gu.source.foundation.palette.Neutral10
+import com.gu.source.foundation.palette.Neutral93
+import com.gu.source.foundation.typography.TextSans14
+import com.gu.source.foundation.typography.TextSansBold17
+import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.pxToDp
 
 /**
@@ -96,3 +110,123 @@ private fun CircularStar(
 
 private const val MIN_RATING = 1
 private const val MAX_STARS = 5
+
+/**
+ * Preview composable showing all rating variations.
+ */
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+@PreviewPhoneBothMode
+@Composable
+internal fun SourceRatingPreview(
+    modifier: Modifier = Modifier,
+) {
+    AppColourMode {
+        val labelColour = AppColour(
+            Source.Palette.Neutral10,
+            Source.Palette.Neutral93,
+        )
+
+        Column(
+            modifier = modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            // DefaultCards style
+            Text(
+                text = "Default Cards (18px circle, 12px star, 1px spacing)",
+                style = Source.Typography.TextSansBold17,
+                color = labelColour.current,
+            )
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                for (rating in MIN_RATING..MAX_STARS) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                        Text(
+                            text = "Rating $rating:",
+                            style = Source.Typography.TextSans14,
+                            color = labelColour.current,
+                            modifier = Modifier.width(80.dp),
+                        )
+                        SourceRating(
+                            rating = rating,
+                            style = RatingStyle.DefaultCards,
+                        )
+                    }
+                }
+            }
+
+            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+
+            // FeatureCards style
+            Text(
+                text = "Feature Cards (22px circle, 14px star, 2px spacing)",
+                style = Source.Typography.TextSansBold17,
+                color = labelColour.current,
+            )
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                for (rating in MIN_RATING..MAX_STARS) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                        Text(
+                            text = "Rating $rating:",
+                            style = Source.Typography.TextSans14,
+                            color = labelColour.current,
+                            modifier = Modifier.width(80.dp),
+                        )
+                        SourceRating(
+                            rating = rating,
+                            style = RatingStyle.FeatureCards,
+                        )
+                    }
+                }
+            }
+
+            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+
+            // DefaultArticle style
+            Text(
+                text = "Default Article (28px circle, 18px star, 2px spacing)",
+                style = Source.Typography.TextSansBold17,
+                color = labelColour.current,
+            )
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                for (rating in MIN_RATING..MAX_STARS) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                        Text(
+                            text = "Rating $rating:",
+                            style = Source.Typography.TextSans14,
+                            color = labelColour.current,
+                            modifier = Modifier.width(80.dp),
+                        )
+                        SourceRating(
+                            rating = rating,
+                            style = RatingStyle.DefaultArticle,
+                        )
+                    }
+                }
+            }
+
+            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+
+            // ImmersiveArticle style
+            Text(
+                text = "Immersive Article (28px circle, 18px star, 2px spacing)",
+                style = Source.Typography.TextSansBold17,
+                color = labelColour.current,
+            )
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                for (rating in MIN_RATING..MAX_STARS) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                        Text(
+                            text = "Rating $rating:",
+                            style = Source.Typography.TextSans14,
+                            color = labelColour.current,
+                            modifier = Modifier.width(80.dp),
+                        )
+                        SourceRating(
+                            rating = rating,
+                            style = RatingStyle.ImmersiveArticle,
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
