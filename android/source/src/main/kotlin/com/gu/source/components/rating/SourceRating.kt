@@ -1,7 +1,6 @@
 package com.gu.source.components.rating
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,12 +11,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.sp
 import com.gu.source.R
+import com.gu.source.daynight.AppColour
+import com.gu.source.utils.pxToDp
 
 /**
  * A reusable star rating component that displays circular stars with ratings.
@@ -32,10 +30,13 @@ fun SourceRating(
     style: RatingStyle,
     modifier: Modifier = Modifier,
 ) {
+    require(rating in MIN_RATING..MAX_STARS) {
+        "Rating must be between $MIN_RATING and $MAX_STARS, but was $rating"
+    }
+
     Row(modifier = modifier) {
-        val circleSize = with(LocalDensity.current) { style.circleSize.pixels.sp.toDp() }
-        val starIconSize = with(LocalDensity.current) { style.starIconSize.pixels.sp.toDp() }
-        val isDarkTheme = isSystemInDarkTheme()
+        val circleSize = style.circleSize.pixels.pxToDp()
+        val starIconSize = style.starIconSize.pixels.pxToDp()
 
         repeat(MAX_STARS) { index ->
             val starNumber = index + 1
@@ -48,7 +49,7 @@ fun SourceRating(
             CircularStar(
                 isFilled = isFilled,
                 backgroundColor = if (isFilled) {
-                    if (isDarkTheme) style.darkFilledCircleColor else style.lightFilledCircleColor
+                    style.filledCircleColor
                 } else {
                     style.emptyCircleColor
                 },
@@ -63,8 +64,8 @@ fun SourceRating(
 @Composable
 private fun CircularStar(
     isFilled: Boolean,
-    backgroundColor: Color,
-    starColor: Color,
+    backgroundColor: AppColour,
+    starColor: AppColour,
     circleSize: Dp,
     starIconSize: Dp,
     modifier: Modifier = Modifier,
@@ -73,7 +74,7 @@ private fun CircularStar(
         modifier = modifier
             .size(circleSize)
             .background(
-                color = backgroundColor,
+                color = backgroundColor.current,
                 shape = CircleShape,
             ),
         contentAlignment = Alignment.Center,
@@ -88,9 +89,10 @@ private fun CircularStar(
                 },
             ),
             contentDescription = if (isFilled) "Filled Star" else "Outlined Star",
-            tint = starColor,
+            tint = starColor.current,
         )
     }
 }
 
+private const val MIN_RATING = 1
 private const val MAX_STARS = 5
