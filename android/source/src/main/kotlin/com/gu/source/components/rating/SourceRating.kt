@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,7 +25,6 @@ import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.palette.Neutral10
 import com.gu.source.foundation.palette.Neutral93
-import com.gu.source.foundation.typography.TextSans14
 import com.gu.source.foundation.typography.TextSansBold17
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.pxToDp
@@ -126,34 +124,28 @@ internal fun SourceRatingPreview(modifier: Modifier = Modifier) {
 
         Column(
             modifier = modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(24.dp),
         ) {
             RatingStylePreview(
-                title = "Default Cards (18px circle, 12px star, 1px spacing)",
+                title = "Default Cards",
                 style = RatingStyle.DefaultCards,
                 labelColour = labelColour,
             )
 
-            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
-
             RatingStylePreview(
-                title = "Feature Cards (22px circle, 14px star, 2px spacing)",
+                title = "Feature Cards",
                 style = RatingStyle.FeatureCards,
                 labelColour = labelColour,
             )
 
-            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
-
             RatingStylePreview(
-                title = "Default Article (28px circle, 18px star, 2px spacing)",
+                title = "Default Article",
                 style = RatingStyle.DefaultArticle,
                 labelColour = labelColour,
             )
 
-            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
-
             RatingStylePreview(
-                title = "Immersive Article (28px circle, 18px star, 2px spacing)",
+                title = "Immersive Article",
                 style = RatingStyle.ImmersiveArticle,
                 labelColour = labelColour,
             )
@@ -167,7 +159,7 @@ private fun RatingStylePreview(
     style: RatingStyle,
     labelColour: AppColour,
 ) {
-    Column {
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         Text(
             text = title,
             style = Source.Typography.TextSansBold17,
@@ -175,28 +167,11 @@ private fun RatingStylePreview(
         )
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             for (rating in MIN_RATING..MAX_STARS) {
-                RatingRow(rating = rating, style = style, labelColour = labelColour)
+                SourceRating(
+                    rating = rating,
+                    style = style,
+                )
             }
         }
-    }
-}
-
-@Composable
-private fun RatingRow(
-    rating: Int,
-    style: RatingStyle,
-    labelColour: AppColour,
-) {
-    Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-        Text(
-            text = "Rating $rating:",
-            style = Source.Typography.TextSans14,
-            color = labelColour.current,
-            modifier = Modifier.width(80.dp),
-        )
-        SourceRating(
-            rating = rating,
-            style = style,
-        )
     }
 }
