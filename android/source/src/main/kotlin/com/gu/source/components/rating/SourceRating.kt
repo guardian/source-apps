@@ -16,13 +16,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.gu.source.R
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
+import com.gu.source.foundation.icons.base.Star
+import com.gu.source.foundation.icons.base.StarOutline
 import com.gu.source.foundation.palette.Neutral10
 import com.gu.source.foundation.palette.Neutral93
 import com.gu.source.foundation.typography.TextSansBold17
@@ -93,13 +93,11 @@ private fun CircularStar(
     ) {
         Icon(
             modifier = Modifier.size(starIconSize),
-            painter = painterResource(
-                if (isFilled) {
-                    R.drawable.ic_vector_star_filled
-                } else {
-                    R.drawable.ic_vector_star_outlined
-                },
-            ),
+            imageVector = if (isFilled) {
+                Source.Icons.Base.Star
+            } else {
+                Source.Icons.Base.StarOutline
+            },
             contentDescription = if (isFilled) "Filled Star" else "Outlined Star",
             tint = starColor.current,
         )
