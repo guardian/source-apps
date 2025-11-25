@@ -8,6 +8,7 @@ import com.theguardian.convention.shared.dokkaConfig
 import com.theguardian.convention.shared.libs
 import com.theguardian.convention.shared.plugin
 import com.theguardian.convention.shared.setupDetekt
+import com.theguardian.convention.shared.setupKotlinter
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -33,11 +34,11 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 apply(libs.plugin("agp-library").pluginId)
                 apply(libs.plugin("kgp").pluginId)
                 apply(libs.plugin("dokka").pluginId)
-//                apply(libs.plugin("kotlinter").pluginId)
+                apply(libs.plugin("kotlinter").pluginId)
             }
 
             setupDetekt()
-//            setupKotlinter()
+            setupKotlinter()
 
             extensions.configure<LibraryExtension> {
                 configureAndroidModule<KotlinAndroidProjectExtension>(this)

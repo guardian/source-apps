@@ -13,7 +13,7 @@ kotlin = "2.2.21"
 # Kotlinter version is tied closely to min & max Kotlin and Gradle versions. Update Kotlinter
 # when updating Kotlin. Check compatible versions here:
 # https://github.com/jeremymailen/kotlinter-gradle/blob/master/README.md#compatibility
-#kotlinter = "5.0.1"
+kotlinter = "5.0.1"
 
 activity = "1.12.0"
 appcompat = "1.7.1"
@@ -78,7 +78,7 @@ google-testParameterInjector = { group = "com.google.testparameterinjector", nam
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 detekt-gradlePlugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
-#kotlinter-gradlePlugin = { module = "org.jmailen.kotlinter:org.jmailen.kotlinter.gradle.plugin", version.ref = "kotlinter" }
+kotlinter-gradlePlugin = { module = "org.jmailen.kotlinter:org.jmailen.kotlinter.gradle.plugin", version.ref = "kotlinter" }
 composeCompiler-gradlePlugin = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
 dokka-gradlePlugin = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
 
@@ -96,7 +96,7 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 licensee = { id = "app.cash.licensee", version.ref = "licensee" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kgp = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-#kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
+kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 metalava = { id = "me.tylerbwong.gradle.metalava", version.ref = "metalava"}
