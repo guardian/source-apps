@@ -32,7 +32,7 @@ import com.gu.source.utils.pxToDp
 /**
  * A reusable star rating component that displays circular stars with ratings.
  *
- * @param rating The rating value (1-5)
+ * @param rating The rating value (0-5)
  * @param style The visual style configuration
  * @param modifier Modifier for styling
  */
@@ -106,7 +106,7 @@ private fun CircularStar(
     }
 }
 
-private const val MIN_RATING = 1
+private const val MIN_RATING = 0
 private const val MAX_STARS = 5
 
 /**

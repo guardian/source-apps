@@ -40,6 +40,7 @@ import com.gu.source.previews.ChipsPreview
 import com.gu.source.previews.IconsPreview
 import com.gu.source.previews.ImagePagerWithProgressIndicator
 import com.gu.source.previews.Palette
+import com.gu.source.previews.RatingPreview
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.plus
 import kotlinx.coroutines.launch
@@ -64,6 +65,7 @@ private enum class SheetContentType {
     AlertBanner,
     Chips,
     Badges,
+    Rating,
 }
 
 @SuppressLint("DiscouragedApi")
@@ -87,6 +89,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
                 SheetContentType.AlertBanner -> AlertBannerPreview(sheetModifier)
                 SheetContentType.Chips -> ChipsPreview(sheetModifier)
                 SheetContentType.Badges -> BadgePreview(sheetModifier)
+                SheetContentType.Rating -> RatingPreview(sheetModifier)
             }
         },
         scaffoldState = scaffoldState,
@@ -203,6 +206,17 @@ private fun Greeting(modifier: Modifier = Modifier) {
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = {
                     sheetContentType = SheetContentType.Badges
+                    coroutineScope.launch {
+                        scaffoldState.bottomSheetState.expand()
+                    }
+                },
+            )
+
+            SourceButton(
+                text = "Open rating preview",
+                priority = SourceButton.Priority.TertiaryOnWhite,
+                onClick = {
+                    sheetContentType = SheetContentType.Rating
                     coroutineScope.launch {
                         scaffoldState.bottomSheetState.expand()
                     }
