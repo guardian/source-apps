@@ -1,11 +1,5 @@
 import org.jmailen.gradle.kotlinter.tasks.FormatTask
 
-//buildscript {
-//    dependencies {
-//        classpath(libs.other.composeLint)
-//    }
-//}
-
 plugins {
     alias(libs.plugins.agp.application) apply false
     alias(libs.plugins.kgp) apply false
