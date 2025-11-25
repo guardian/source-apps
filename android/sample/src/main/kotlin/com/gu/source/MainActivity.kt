@@ -65,7 +65,7 @@ private enum class SheetContentType {
     AlertBanner,
     Chips,
     Badges,
-    Rating,
+    Ratings,
 }
 
 @SuppressLint("DiscouragedApi")
@@ -89,7 +89,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
                 SheetContentType.AlertBanner -> AlertBannerPreview(sheetModifier)
                 SheetContentType.Chips -> ChipsPreview(sheetModifier)
                 SheetContentType.Badges -> BadgePreview(sheetModifier)
-                SheetContentType.Rating -> RatingPreview(sheetModifier)
+                SheetContentType.Ratings -> RatingPreview(sheetModifier)
             }
         },
         scaffoldState = scaffoldState,
@@ -213,10 +213,10 @@ private fun Greeting(modifier: Modifier = Modifier) {
             )
 
             SourceButton(
-                text = "Open rating preview",
+                text = "Open ratings preview",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = {
-                    sheetContentType = SheetContentType.Rating
+                    sheetContentType = SheetContentType.Ratings
                     coroutineScope.launch {
                         scaffoldState.bottomSheetState.expand()
                     }

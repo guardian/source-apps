@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -59,8 +58,8 @@ internal fun RatingPreview(modifier: Modifier = Modifier) {
                             color = labelColour.current,
                         )
 
-                        // Show all ratings vertically
-                        for (rating in MIN_RATING..MAX_RATING) {
+                        // Show all ratings vertically from max to min
+                        for (rating in MAX_RATING downTo MIN_RATING) {
                             SourceRating(
                                 rating = rating,
                                 style = style,
@@ -69,8 +68,6 @@ internal fun RatingPreview(modifier: Modifier = Modifier) {
                     }
                 }
             }
-
-            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
         }
     }
 }

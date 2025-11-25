@@ -35,7 +35,7 @@ sealed interface RatingStyle {
 
     /**
      * Default card style with proper theme-aware colors.
-     * Uses 18px circle background with 12px star icon and 1px spacing.
+     * Uses 18dp circle background with 12dp star icon and 1dp spacing.
      */
     data object DefaultCards : RatingStyle {
         override val filledCircleColor: AppColour = AppColour(
@@ -54,7 +54,7 @@ sealed interface RatingStyle {
 
     /**
      * Feature card style with proper theme-aware colors.
-     * Uses 22px circle background with 14px star icon and 2px spacing.
+     * Uses 22dp circle background with 14dp star icon and 2dp spacing.
      */
     data object FeatureCards : RatingStyle {
         override val filledCircleColor: AppColour = AppColour(
@@ -73,7 +73,7 @@ sealed interface RatingStyle {
 
     /**
      * Default article style with proper theme-aware colors.
-     * Uses 28px circle background with 18px star icon and 2px spacing.
+     * Uses 28dp circle background with 18dp star icon and 2dp spacing.
      */
     data object DefaultArticle : RatingStyle {
         override val filledCircleColor: AppColour = AppColour(
@@ -92,7 +92,7 @@ sealed interface RatingStyle {
 
     /**
      * Immersive article style with proper theme-aware colors.
-     * Uses 28px circle background with 18px star icon and 2px spacing.
+     * Uses 28dp circle background with 18dp star icon and 2dp spacing.
      */
     data object ImmersiveArticle : RatingStyle {
         override val filledCircleColor: AppColour = AppColour(

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -27,7 +28,6 @@ import com.gu.source.foundation.palette.Neutral10
 import com.gu.source.foundation.palette.Neutral93
 import com.gu.source.foundation.typography.TextSansBold17
 import com.gu.source.utils.PreviewPhoneBothMode
-import com.gu.source.utils.pxToDp
 
 /**
  * A reusable star rating component that displays circular stars with ratings.
@@ -47,9 +47,6 @@ fun SourceRating(
     }
 
     Row(modifier = modifier) {
-        val circleSize = style.circleSize.pixels.pxToDp()
-        val starIconSize = style.starIconSize.pixels.pxToDp()
-
         repeat(MAX_STARS) { index ->
             val starNumber = index + 1
             val isFilled = starNumber <= rating
@@ -66,8 +63,8 @@ fun SourceRating(
                     style.emptyCircleColor
                 },
                 starColor = style.starIconColor,
-                circleSize = circleSize,
-                starIconSize = starIconSize,
+                circleSize = style.circleSize.dp,
+                starIconSize = style.starIconSize.dp,
             )
         }
     }
@@ -122,53 +119,42 @@ internal fun SourceRatingPreview(modifier: Modifier = Modifier) {
 
         Column(
             modifier = modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(24.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            RatingStylePreview(
-                title = "Default Cards",
-                style = RatingStyle.DefaultCards,
-                labelColour = labelColour,
+            // Show rating styles in pairs (two per row)
+            val styles = listOf(
+                "Default Cards" to RatingStyle.DefaultCards,
+                "Feature Cards" to RatingStyle.FeatureCards,
+                "Default Article" to RatingStyle.DefaultArticle,
+                "Immersive Article" to RatingStyle.ImmersiveArticle,
             )
 
-            RatingStylePreview(
-                title = "Feature Cards",
-                style = RatingStyle.FeatureCards,
-                labelColour = labelColour,
-            )
+            styles.chunked(2).forEach { stylePair ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                ) {
+                    stylePair.forEach { (styleName, style) ->
+                        Column(
+                            modifier = Modifier.weight(1f),
+                            verticalArrangement = Arrangement.spacedBy(8.dp),
+                        ) {
+                            Text(
+                                text = styleName,
+                                style = Source.Typography.TextSansBold17,
+                                color = labelColour.current,
+                            )
 
-            RatingStylePreview(
-                title = "Default Article",
-                style = RatingStyle.DefaultArticle,
-                labelColour = labelColour,
-            )
-
-            RatingStylePreview(
-                title = "Immersive Article",
-                style = RatingStyle.ImmersiveArticle,
-                labelColour = labelColour,
-            )
-        }
-    }
-}
-
-@Composable
-private fun RatingStylePreview(
-    title: String,
-    style: RatingStyle,
-    labelColour: AppColour,
-) {
-    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Text(
-            text = title,
-            style = Source.Typography.TextSansBold17,
-            color = labelColour.current,
-        )
-        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            for (rating in MIN_RATING..MAX_STARS) {
-                SourceRating(
-                    rating = rating,
-                    style = style,
-                )
+                            // Show all ratings vertically from max to min
+                            for (rating in MAX_STARS downTo MIN_RATING) {
+                                SourceRating(
+                                    rating = rating,
+                                    style = style,
+                                )
+                            }
+                        }
+                    }
+                }
             }
         }
     }
