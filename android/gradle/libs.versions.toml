@@ -6,10 +6,10 @@ minsdk = "26"
 targetsdk = "34"
 # When updating the java version, also update it in .tool-versions so github actions pick
 # it up
-java = "17"
+java = "21"
 
 agp = "8.13.1"
-kotlin = "2.1.21"
+kotlin = "2.2.21"
 # Kotlinter version is tied closely to min & max Kotlin and Gradle versions. Update Kotlinter
 # when updating Kotlin. Check compatible versions here:
 # https://github.com/jeremymailen/kotlinter-gradle/blob/master/README.md#compatibility
@@ -19,7 +19,7 @@ activity = "1.12.0"
 appcompat = "1.7.1"
 coil = "2.7.0"
 composeBom = "2025.11.01"
-composeLint = "0.4.24"
+ktlint-compose = "0.4.28"
 coreKtx = "1.17.0"
 detekt = "1.23.8"
 dokka = "2.1.0"
@@ -84,7 +84,7 @@ dokka-gradlePlugin = { module = "org.jetbrains.dokka:dokka-gradle-plugin", versi
 
 # These rules are now maintained independently by Nacho Lopez who originally created them at
 # Twitter: https://github.com/mrmans0n/compose-rules
-other-composeLint = { group = "io.nlopez.compose.rules", name = "ktlint", version.ref = "composeLint" }
+ktlint-compose = { group = "io.nlopez.compose.rules", name = "ktlint", version.ref = "ktlint-compose" }
 
 [plugins]
 

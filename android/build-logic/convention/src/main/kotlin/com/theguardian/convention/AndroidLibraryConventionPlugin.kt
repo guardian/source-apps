@@ -2,7 +2,13 @@ package com.theguardian.convention
 
 import com.android.build.api.variant.LibraryAndroidComponentsExtension
 import com.android.build.gradle.LibraryExtension
-import com.theguardian.convention.shared.*
+import com.theguardian.convention.shared.configureAndroidModule
+import com.theguardian.convention.shared.configureAndroidTests
+import com.theguardian.convention.shared.dokkaConfig
+import com.theguardian.convention.shared.libs
+import com.theguardian.convention.shared.plugin
+import com.theguardian.convention.shared.setupDetekt
+import com.theguardian.convention.shared.setupKtlint
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -28,11 +34,10 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 apply(libs.plugin("agp-library").pluginId)
                 apply(libs.plugin("kgp").pluginId)
                 apply(libs.plugin("dokka").pluginId)
-                apply(libs.plugin("kotlinter").pluginId)
             }
 
             setupDetekt()
-            setupKotlinter()
+            setupKtlint()
 
             extensions.configure<LibraryExtension> {
                 configureAndroidModule<KotlinAndroidProjectExtension>(this)
