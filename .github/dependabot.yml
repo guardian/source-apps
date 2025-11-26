@@ -33,6 +33,11 @@ updates:
           - "com.android.tools.lint:lint-api"
           - "com.android.tools.lint:lint-checks"
           - "com.android.tools.lint:lint-tests"
+    cooldown:
+      default-days: 5
+      semver-major-days: 14
+      semver-minor-days: 7
+      semver-patch-days: 3
 
   - package-ecosystem: github-actions
     directory: /
