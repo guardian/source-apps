@@ -4,31 +4,23 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 /**
- * Model enum used to specify desired star size for ratings.
- * These values correspond to exact design specifications.
+ * Rating size specification with circle size, star icon size and spacing.
+ * These values correspond to exact design specifications from Figma.
  */
 enum class RatingSize(
-    /** The size value in dp. */
-    val dp: Dp,
+    /** The circle background size in dp. */
+    val circleSize: Dp,
+    /** The star icon size in dp. */
+    val starIconSize: Dp,
+    /** The spacing between stars in dp. */
+    val spacing: Dp,
 ) {
-    /** 12dp star icons - used inside small circles. */
-    XSmall(SIZE_XSMALL),
+    /** 18dp circles with 12dp star icons and 1dp gap - for Fronts context. */
+    Small(circleSize = 18.dp, starIconSize = 12.dp, spacing = 1.dp),
 
-    /** 14dp star icons - used inside medium circles. */
-    Small(SIZE_SMALL),
+    /** 22dp circles with 14dp star icons and 2dp gap - for Fronts context. */
+    Medium(circleSize = 22.dp, starIconSize = 14.dp, spacing = 2.dp),
 
-    /** 18dp circles/stars - used for smaller card contexts. */
-    Medium(SIZE_MEDIUM),
-
-    /** 22dp circles/stars - used for larger card contexts. */
-    Large(SIZE_LARGE),
-
-    /** 28dp circles and 18dp star icons - used for article contexts. */
-    XLarge(SIZE_XLARGE),
+    /** 28dp circles with 18dp star icons and 2dp gap - for Articles context. */
+    Large(circleSize = 28.dp, starIconSize = 18.dp, spacing = 2.dp),
 }
-
-private val SIZE_XSMALL = 12.dp
-private val SIZE_SMALL = 14.dp
-private val SIZE_MEDIUM = 18.dp
-private val SIZE_LARGE = 22.dp
-private val SIZE_XLARGE = 28.dp

@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -17,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
@@ -25,6 +27,8 @@ import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.icons.base.Star
 import com.gu.source.foundation.icons.base.StarOutline
 import com.gu.source.foundation.palette.Neutral10
+import com.gu.source.foundation.palette.Neutral60
+import com.gu.source.foundation.palette.Neutral86
 import com.gu.source.foundation.palette.Neutral93
 import com.gu.source.foundation.typography.TextSansBold17
 import com.gu.source.utils.PreviewPhoneBothMode
@@ -33,12 +37,14 @@ import com.gu.source.utils.PreviewPhoneBothMode
  * A reusable star rating component that displays circular stars with ratings.
  *
  * @param rating The rating value (0-5)
- * @param style The visual style configuration
+ * @param size The size configuration for stars and spacing
+ * @param style The color style configuration (defaults to DefaultCards style)
  * @param modifier Modifier for styling
  */
 @Composable
 fun SourceRating(
     rating: Int,
+    size: RatingSize,
     style: RatingStyle,
     modifier: Modifier = Modifier,
 ) {
@@ -52,19 +58,19 @@ fun SourceRating(
             val isFilled = starNumber <= rating
 
             if (index > 0) {
-                Spacer(modifier = Modifier.width(style.starSpacing))
+                Spacer(modifier = Modifier.width(size.spacing))
             }
 
             CircularStar(
                 isFilled = isFilled,
                 backgroundColor = if (isFilled) {
-                    style.filledCircleColor
+                    style.filledStarColor
                 } else {
-                    style.emptyCircleColor
+                    style.emptyStarColor
                 },
                 starColor = style.starIconColor,
-                circleSize = style.circleSize.dp,
-                starIconSize = style.starIconSize.dp,
+                circleSize = size.circleSize,
+                starIconSize = size.starIconSize,
             )
         }
     }
@@ -116,12 +122,118 @@ internal fun SourceRatingPreview(modifier: Modifier = Modifier) {
             Source.Palette.Neutral10,
             Source.Palette.Neutral93,
         )
+        val subtitleColour = AppColour(
+            Source.Palette.Neutral60,
+            Source.Palette.Neutral86,
+        )
 
         Column(
             modifier = modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
-            // Show rating styles in pairs (two per row)
+            // Show sizing and spacing
+            Text(
+                text = "Sizing & spacing",
+                style = Source.Typography.TextSansBold17,
+                color = labelColour.current,
+            )
+
+            Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                // Fronts section
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(
+                        text = "Fronts",
+                        style = Source.Typography.TextSansBold17,
+                        color = labelColour.current,
+                    )
+
+                    // Small - 18dp | 12dp star
+                    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Text(
+                            text = "18dp | 12dp star",
+                            style = Source.Typography.TextSansBold17,
+                            color = subtitleColour.current,
+                        )
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            SourceRating(
+                                rating = 5,
+                                size = RatingSize.Small,
+                                style = RatingStyle.DefaultCards,
+                            )
+                            Spacer(modifier = Modifier.width(16.dp))
+                            Text(
+                                text = "→ 1dp gap",
+                                style = Source.Typography.TextSansBold17,
+                                color = AppColour(Color.Blue, Color.Cyan).current,
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(4.dp))
+
+                    // Medium - 22dp | 14dp star
+                    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Text(
+                            text = "22dp | 14dp star",
+                            style = Source.Typography.TextSansBold17,
+                            color = subtitleColour.current,
+                        )
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            SourceRating(
+                                rating = 5,
+                                size = RatingSize.Medium,
+                                style = RatingStyle.DefaultCards,
+                            )
+                            Spacer(modifier = Modifier.width(16.dp))
+                            Text(
+                                text = "→ 2dp gap",
+                                style = Source.Typography.TextSansBold17,
+                                color = AppColour(Color.Blue, Color.Cyan).current,
+                            )
+                        }
+                    }
+                }
+
+                // Articles section
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(
+                        text = "Articles",
+                        style = Source.Typography.TextSansBold17,
+                        color = labelColour.current,
+                    )
+
+                    // Large - 28dp | 18dp star
+                    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Text(
+                            text = "28dp | 18dp star",
+                            style = Source.Typography.TextSansBold17,
+                            color = subtitleColour.current,
+                        )
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            SourceRating(
+                                rating = 5,
+                                size = RatingSize.Large,
+                                style = RatingStyle.DefaultArticle,
+                            )
+                            Spacer(modifier = Modifier.width(16.dp))
+                            Text(
+                                text = "→ 2dp gap",
+                                style = Source.Typography.TextSansBold17,
+                                color = AppColour(Color.Blue, Color.Cyan).current,
+                            )
+                        }
+                    }
+                }
+            }
+
+            // Show style variations
+            Text(
+                text = "Color Styles",
+                style = Source.Typography.TextSansBold17,
+                color = labelColour.current,
+            )
+
+            // Show all four styles in a 2x2 grid
             val styles = listOf(
                 "Default Cards" to RatingStyle.DefaultCards,
                 "Feature Cards" to RatingStyle.FeatureCards,
@@ -137,18 +249,17 @@ internal fun SourceRatingPreview(modifier: Modifier = Modifier) {
                     stylePair.forEach { (styleName, style) ->
                         Column(
                             modifier = Modifier.weight(1f),
-                            verticalArrangement = Arrangement.spacedBy(8.dp),
+                            verticalArrangement = Arrangement.spacedBy(4.dp),
                         ) {
                             Text(
                                 text = styleName,
                                 style = Source.Typography.TextSansBold17,
                                 color = labelColour.current,
                             )
-
-                            // Show all ratings vertically from max to min
                             for (rating in MAX_STARS downTo MIN_RATING) {
                                 SourceRating(
                                     rating = rating,
+                                    size = RatingSize.Medium,
                                     style = style,
                                 )
                             }
