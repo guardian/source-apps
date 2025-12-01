@@ -37,7 +37,7 @@ androidx-junit = "1.3.0"
 androidx-test-core = "1.7.0"
 androidx-test-rules = "1.7.0"
 androidx-test-runner = "1.7.0"
-testparameterinjector = "1.19"
+testparameterinjector = "1.20"
 paparazzi = "2.0.0-alpha02"
 
 # Convention plugin versions
