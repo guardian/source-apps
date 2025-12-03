@@ -141,6 +141,38 @@ $dokka.location:com.gu.source.components.pager//PagerProgressBar/#androidx.compo
 $dokka.location:com.gu.source.components.pager//PagerProgressBar/#androidx.compose.foundation.pager.PagerState#com.gu.source.components.buttons.SourceButton.Priority#androidx.compose.ui.Modifier#com.gu.source.daynight.AppColour#com.gu.source.daynight.AppColour#kotlin.String?#kotlin.String?#kotlin.Boolean/PointingToDeclaration/-source for -android/com.gu.source.components.pager/-pager-progress-bar.html
 $dokka.location:com.gu.source.components.pager//PagerProgressButtons/#androidx.compose.foundation.pager.PagerState#kotlin.String?#kotlin.String?#androidx.compose.ui.Modifier#com.gu.source.components.buttons.ButtonColours#com.gu.source.components.buttons.ButtonColours?#androidx.compose.animation.core.AnimationSpec[kotlin.Float]/PointingToDeclaration/-source for -android/com.gu.source.components.pager/-pager-progress-buttons.html
 $dokka.location:com.gu.source.components.pager//PagerProgressIndicator/#androidx.compose.foundation.pager.PagerState#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#androidx.compose.ui.Modifier#kotlin.Int#androidx.compose.ui.unit.Dp#androidx.compose.ui.graphics.Shape#androidx.compose.ui.unit.Dp#kotlin.Float#kotlin.Int#androidx.compose.ui.Alignment.Vertical/PointingToDeclaration/-source for -android/com.gu.source.components.pager/-pager-progress-indicator.html
+$dokka.location:com.gu.source.components.rating////PointingToDeclaration/-source for -android/com.gu.source.components.rating/index.html
+$dokka.location:com.gu.source.components.rating//SourceRating/#kotlin.Int#com.gu.source.components.rating.RatingSize#com.gu.source.components.rating.RatingStyle#androidx.compose.ui.Modifier/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-source-rating.html
+$dokka.location:com.gu.source.components.rating/RatingSize.Large///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.rating/-rating-size/-large/index.html
+$dokka.location:com.gu.source.components.rating/RatingSize.Medium///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.rating/-rating-size/-medium/index.html
+$dokka.location:com.gu.source.components.rating/RatingSize.Small///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.rating/-rating-size/-small/index.html
+$dokka.location:com.gu.source.components.rating/RatingSize///PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-size/index.html
+$dokka.location:com.gu.source.components.rating/RatingSize/circleSize/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-size/circle-size.html
+$dokka.location:com.gu.source.components.rating/RatingSize/entries/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-size/entries.html
+$dokka.location:com.gu.source.components.rating/RatingSize/spacing/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-size/spacing.html
+$dokka.location:com.gu.source.components.rating/RatingSize/starIconSize/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-size/star-icon-size.html
+$dokka.location:com.gu.source.components.rating/RatingSize/valueOf/#kotlin.String/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-size/value-of.html
+$dokka.location:com.gu.source.components.rating/RatingSize/values/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-size/values.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.DefaultArticle///PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-default-article/index.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.DefaultArticle/emptyStarColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-default-article/empty-star-color.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.DefaultArticle/filledStarColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-default-article/filled-star-color.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.DefaultArticle/starIconColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-default-article/star-icon-color.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.DefaultCards///PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-default-cards/index.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.DefaultCards/emptyStarColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-default-cards/empty-star-color.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.DefaultCards/filledStarColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-default-cards/filled-star-color.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.DefaultCards/starIconColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-default-cards/star-icon-color.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.FeatureCards///PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-feature-cards/index.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.FeatureCards/emptyStarColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-feature-cards/empty-star-color.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.FeatureCards/filledStarColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-feature-cards/filled-star-color.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.FeatureCards/starIconColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-feature-cards/star-icon-color.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.ImmersiveArticle///PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-immersive-article/index.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.ImmersiveArticle/emptyStarColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-immersive-article/empty-star-color.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.ImmersiveArticle/filledStarColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-immersive-article/filled-star-color.html
+$dokka.location:com.gu.source.components.rating/RatingStyle.ImmersiveArticle/starIconColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/-immersive-article/star-icon-color.html
+$dokka.location:com.gu.source.components.rating/RatingStyle///PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/index.html
+$dokka.location:com.gu.source.components.rating/RatingStyle/emptyStarColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/empty-star-color.html
+$dokka.location:com.gu.source.components.rating/RatingStyle/filledStarColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/filled-star-color.html
+$dokka.location:com.gu.source.components.rating/RatingStyle/starIconColor/#/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-rating-style/star-icon-color.html
 $dokka.location:com.gu.source.components.theme////PointingToDeclaration/-source for -android/com.gu.source.components.theme/index.html
 $dokka.location:com.gu.source.components.theme//LocalSourceTheme/#/PointingToDeclaration/-source for -android/com.gu.source.components.theme/-local-source-theme.html
 $dokka.location:com.gu.source.components.theme//ReaderRevenueTheme/#androidx.compose.ui.Modifier#kotlin.Function1[androidx.compose.ui.Modifier,kotlin.Unit]/PointingToDeclaration/-source for -android/com.gu.source.components.theme/-reader-revenue-theme.html
@@ -602,6 +634,7 @@ com.gu.source.components.banner
 com.gu.source.components.buttons
 com.gu.source.components.chips
 com.gu.source.components.pager
+com.gu.source.components.rating
 com.gu.source.components.theme
 com.gu.source.daynight
 com.gu.source.foundation.icons.base
