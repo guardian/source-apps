@@ -1,7 +1,12 @@
 package com.theguardian.convention
 
 import com.android.build.gradle.TestExtension
-import com.theguardian.convention.shared.*
+import com.theguardian.convention.shared.configureAndroidModule
+import com.theguardian.convention.shared.configureAndroidTests
+import com.theguardian.convention.shared.libs
+import com.theguardian.convention.shared.plugin
+import com.theguardian.convention.shared.setupDetekt
+import com.theguardian.convention.shared.setupKtlint
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -23,11 +28,10 @@ class AndroidTestConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply(libs.plugin("agp-test").pluginId)
                 apply(libs.plugin("kgp").pluginId)
-                apply(libs.plugin("kotlinter").pluginId)
             }
 
             setupDetekt()
-            setupKotlinter()
+            setupKtlint()
 
             extensions.configure<TestExtension> {
                 configureAndroidModule<KotlinAndroidProjectExtension>(this)
