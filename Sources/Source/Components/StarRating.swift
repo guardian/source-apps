@@ -1,9 +1,5 @@
 import SwiftUI
 
-public enum ComponentSize: Comparable {
-    case xsmall, small, medium, large, xlarge
-}
-
 struct StarRatingView: View {
     internal init(rating: Int,
                   size: ComponentSize,
