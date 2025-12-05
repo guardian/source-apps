@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct StarRatingView: View {
-    internal init(rating: Int,
+public struct StarRatingView: View {
+    public init(rating: Int,
                   size: ComponentSize,
                   filledBackgroundColor: Color,
                   emptyBackgroundColor: Color,
@@ -31,7 +31,7 @@ struct StarRatingView: View {
         }
     }
 
-    var body: some View {
+    public var body: some View {
         #if DEBUG
         // swiftlint:disable:next redundant_discardable_let
         let _ = Self._printChanges()

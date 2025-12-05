@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -63,6 +63,10 @@
 		D4D0B0BC2E140F1B002FE8E0 /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5AAE47AD2EE1EF1100431518 /* Components */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Components; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		5A3524862C370373004E1874 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -98,6 +102,7 @@
 		5A35248B2C370373004E1874 /* SourceSample */ = {
 			isa = PBXGroup;
 			children = (
+				5AAE47AD2EE1EF1100431518 /* Components */,
 				D4D0B0B82E1406CA002FE8E0 /* DisplayExtention.swift */,
 				D41E91732E21347600E598BA /* Chips */,
 				D4D0B0172E12EB2B002FE8E0 /* Buttons */,
@@ -194,6 +199,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5AAE47AD2EE1EF1100431518 /* Components */,
 			);
 			name = Sourcy;
 			packageProductDependencies = (
