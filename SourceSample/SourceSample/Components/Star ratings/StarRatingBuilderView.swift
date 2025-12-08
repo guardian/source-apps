@@ -19,6 +19,7 @@ struct StarRatingBuilderView: View {
                 themePicker
             }
         }
+        .frame(maxWidth: 400)
         .padding()
     }
 
