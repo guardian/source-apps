@@ -67,7 +67,6 @@ public struct StarRatingView: View {
                 }
             }
         }
-        .padding(2)
         .foregroundStyle(foregroundColor)
         .accessibilityAddTraits(.isStaticText)
         .accessibilityElement(children: .combine)
