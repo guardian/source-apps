@@ -7,14 +7,15 @@ struct StarRatingBuilderView: View {
     @State private var rating: Int = 0
     @State private var size: ComponentSize = .small
     var body: some View {
-        HStack {
-            VStack {
+        VStack {
+            StarRating(rating: rating, size: size)
+                .frame(width: 200)
+            GroupBox {
                 ratingPicker
                 sizePicker
             }
-            StarRating(rating: rating, size: size)
-                .frame(width: 200)
         }
+        .padding()
     }
 
     var ratingPicker: some View {
