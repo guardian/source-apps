@@ -1,23 +1,45 @@
 import SwiftUI
 
 public struct StarRatingView: View {
+    public enum Theme {
+        case `default`, feature
+
+        public var description: String {
+            switch self {
+            case .default:
+                return "Default"
+            case .feature:
+                return "Feature"
+            }
+        }
+    }
     public init(rating: Int,
                   size: ComponentSize,
-                  filledBackgroundColor: Color,
-                  emptyBackgroundColor: Color,
-                  foregroundColor: Color) {
+                theme: Theme) {
         self.rating = rating
         self.size = size
-        self.filledBackgroundColor = filledBackgroundColor
-        self.emptyBackgroundColor = emptyBackgroundColor
-        self.foregroundColor = foregroundColor
+        self.theme = theme
     }
 
     let rating: Int
     let size: ComponentSize
-    let filledBackgroundColor: Color
-    let emptyBackgroundColor: Color
-    let foregroundColor: Color
+    let theme: Theme
+
+    private var filledBackgroundColor: Color {
+        .dynamicColor(light: Color(ColorPalette.brandAlt400), dark: Color(ColorPalette.brandAlt200))
+    }
+    private var emptyBackgroundColor: Color {
+        switch theme {
+        case .default:
+            return .dynamicColor(light: Color(ColorPalette.neutral86), dark: Color(ColorPalette.neutral60))
+        case .feature:
+            return Color(ColorPalette.neutral60)
+        }
+
+    }
+    private var foregroundColor: Color {
+        Color(ColorPalette.neutral7)
+    }
 
     @ScaledMetric var smallStarSize = 12.0
     @ScaledMetric var largeStarSize = 14.0
@@ -86,9 +108,7 @@ public struct StarRatingView: View {
             StarRatingView(
                 rating: num,
                 size: .large,
-                filledBackgroundColor: .yellow,
-                emptyBackgroundColor: .gray,
-                foregroundColor: .black
+                theme: .default
             )
         }
     }

@@ -4,15 +4,19 @@ import Source
 struct StarRatingBuilderView: View {
 
     private var sizes: [ComponentSize] = [.small, .large]
+    private var themes: [StarRatingView.Theme] = [.default, .feature]
     @State private var rating: Int = 0
     @State private var size: ComponentSize = .small
+    @State private var theme: StarRatingView.Theme = .default
+
     var body: some View {
         VStack {
-            StarRating(rating: rating, size: size)
+            StarRating(rating: rating, size: size, theme: theme)
                 .frame(width: 200)
             GroupBox {
                 ratingPicker
                 sizePicker
+                themePicker
             }
         }
         .padding()
@@ -31,6 +35,15 @@ struct StarRatingBuilderView: View {
         Picker("Size", selection: $size) {
             ForEach(sizes, id: \.self) { size in
                 Text(size.description)
+            }
+        }
+        .pickerStyle(.segmented)
+    }
+
+    var themePicker: some View {
+        Picker("Theme", selection: $theme) {
+            ForEach(themes, id: \.self) { theme in
+                Text(theme.description)
             }
         }
         .pickerStyle(.segmented)

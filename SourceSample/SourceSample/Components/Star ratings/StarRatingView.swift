@@ -5,30 +5,17 @@ struct StarRating: View {
 
     let rating: Int
     let size: ComponentSize
-
-    var foregroundColor: Color {
-        Color(ColorPalette.neutral7.cgColor)
-    }
-
-    var emptyBackgroundColor: Color {
-        .dynamicColor(light: Color(ColorPalette.neutral86.cgColor), dark: Color(ColorPalette.neutral60.cgColor))
-    }
-
-    var filledBackgroundColor: Color {
-        .dynamicColor(light: Color(ColorPalette.brandAlt400.cgColor), dark: Color(ColorPalette.brandAlt200.cgColor))
-    }
+    let theme: StarRatingView.Theme
 
     var body: some View {
         StarRatingView(
             rating: rating,
             size: size,
-            filledBackgroundColor: filledBackgroundColor,
-            emptyBackgroundColor: emptyBackgroundColor,
-            foregroundColor: foregroundColor
+            theme: theme
         )
     }
 }
 
 #Preview {
-    StarRating(rating: 3, size: .large)
+    StarRating(rating: 3, size: .large, theme: .default)
 }
