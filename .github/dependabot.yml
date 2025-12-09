@@ -12,7 +12,7 @@ updates:
       day: sunday
     open-pull-requests-limit: 5
     labels:
-      - "Dependency Update"
+      - "dependencies"
       - "Android"
     groups:
       # Request that all kotlin specific dependencies are grouped together
@@ -45,6 +45,6 @@ updates:
       interval: weekly
       day: sunday
     labels:
-      - "Dependency Update"
+      - "dependencies"
       - "Android"
     open-pull-requests-limit: 1
