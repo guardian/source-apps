@@ -12,4 +12,4 @@ jobs:
     name: Check Required Labels
     uses: guardian/check-labels/.github/workflows/check-labels.yml@13248b2fbdb7f170f9dd0f1f49c1b7c8b3edbf41
     with:
-      additional-labels: 'experiment'
+      additional-labels: 'not sure,dependencies'
