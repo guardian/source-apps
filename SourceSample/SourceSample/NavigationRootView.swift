@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NavigationRootView: View {
     enum ViewType: String, CaseIterable, Identifiable {
-        case colours, fonts, icons, buttons, buttonConfig, chips
+        case colours, fonts, icons, buttons, buttonConfig, chips, components
         var id: Self { self }
 
         var title: String {
@@ -20,6 +20,7 @@ struct NavigationRootView: View {
             case .buttons: "Buttons"
             case .buttonConfig: "Button Builder"
             case .chips: "Chips"
+            case .components: "Components"
             }
         }
     }
@@ -64,6 +65,8 @@ struct ContentDetailView: View {
             ButtonBuilderView()
         case .chips:
             ChipBuilderView()
+        case .components:
+            ComponentsView()
         }
     }
 }
