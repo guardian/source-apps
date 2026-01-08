@@ -52,6 +52,8 @@ public struct SubNavigationView: View {
                     ForEach(items, id: \.title) { item in
                         if item.isHidden == false {
                             Button {
+                                item.didSelectItem?(currentItem, item)
+                                currentItem = item
                             } label: {
                                 SubNavigationItemView(
                                     title: item.title,
@@ -62,12 +64,6 @@ public struct SubNavigationView: View {
                                 )
                             }
                             .buttonStyle(.plain)
-                            .simultaneousGesture(
-                                TapGesture().onEnded { _ in
-                                    item.didSelectItem?(currentItem, item)
-                                    currentItem = item
-                                }
-                            )
                         }
                     }
                 }
