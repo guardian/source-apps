@@ -21,7 +21,7 @@ jobs:
     outputs:
       android: ${{ steps.filter.outputs.android }}
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
     - uses: dorny/paths-filter@v3
       id: filter
       with:
@@ -45,7 +45,7 @@ jobs:
           private-key: ${{ secrets.GU_ANDROID_PRIVATE_KEY }}
           permission-contents: write
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
         with:
           token: ${{ steps.app-token.outputs.token }}
 
