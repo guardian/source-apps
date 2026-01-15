@@ -45,7 +45,7 @@ file is set in the version catalog under the property `versionFileName`.
 
 > [!Important]
 > Do not edit the `version.txt` file manually. It is automatically updated by the
-> [Release action](../../../.github/workflows/release.yml) when run on `main`.
+> [Release action](https://github.com/guardian/source-apps/actions/workflows/release.yml) when run on `main`.
 
 ### Metalava
 
@@ -57,7 +57,7 @@ The reusable releases workflow uses the `:source:metalavaGenerateSignatureReleas
 
 ### Automatic version increments
 
-The version number is automatically updated by the [Release action](../../../.github/workflows/release.yml)
+The version number is automatically updated by the [Release action](https://github.com/guardian/source-apps/actions/workflows/release.yml)
 when run on `main`. The action reads the version number from the `version.txt`, and uses the 
 [`source/api/source-api.txt`](source/api/source-api.txt) to calculate the next version based on the 
 changes made to the API. Broadly, the version is incremented based on the type of changes made:
