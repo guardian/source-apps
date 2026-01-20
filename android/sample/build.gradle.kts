@@ -43,10 +43,6 @@ android {
     }
 }
 
-detekt {
-    baseline = file("detekt-baseline.xml")
-}
-
 dependencies {
     implementation(project(path = ":source"))
     implementation(libs.androidx.activity.compose)
