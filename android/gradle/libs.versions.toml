@@ -38,7 +38,7 @@ androidx-test-core = "1.7.0"
 androidx-test-rules = "1.7.0"
 androidx-test-runner = "1.7.0"
 testparameterinjector = "1.20"
-paparazzi = "2.0.0-alpha02"
+paparazzi = "2.0.0-alpha04"
 
 # Convention plugin versions
 guardian-convention-plugins = "1"
