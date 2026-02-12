@@ -128,29 +128,75 @@ fun SourceTextButton(
 fun SourceTextButtonPreview() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(space = 8.dp),
         modifier = Modifier
             .fillMaxWidth()
             .padding(all = 16.dp),
     ) {
-        SourceTextButton.Priority.entries.forEach { priority ->
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(space = 8.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.background(color = priority.demoBackgroundColor()),
-            ) {
-                SourceTextButton.Size.entries.forEach { size ->
-                    SourceTextButton(
-                        text = when (size) {
-                            SourceTextButton.Size.SMALL -> "Small"
-                            SourceTextButton.Size.MEDIUM -> "Medium"
-                        },
-                        priority = priority,
-                        size = size,
-                        onClick = {},
-                    )
-                }
-            }
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(
+                alignment = Alignment.CenterHorizontally,
+                space = 8.dp,
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(color = Source.Palette.BrandAlt400),
+        ) {
+            SourceTextButton(
+                text = "Small",
+                priority = SourceTextButton.Priority.ON_YELLOW_BACKGROUND,
+                size = SourceTextButton.Size.SMALL,
+                onClick = {},
+            )
+            SourceTextButton(
+                text = "Medium",
+                priority = SourceTextButton.Priority.ON_YELLOW_BACKGROUND,
+                size = SourceTextButton.Size.MEDIUM,
+                onClick = {},
+            )
+        }
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(
+                alignment = Alignment.CenterHorizontally,
+                space = 8.dp,
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(color = Source.Palette.Neutral100),
+        ) {
+            SourceTextButton(
+                text = "Small",
+                priority = SourceTextButton.Priority.ON_WHITE_BACKGROUND,
+                size = SourceTextButton.Size.SMALL,
+                onClick = {},
+            )
+            SourceTextButton(
+                text = "Medium",
+                priority = SourceTextButton.Priority.ON_WHITE_BACKGROUND,
+                size = SourceTextButton.Size.MEDIUM,
+                onClick = {},
+            )
+        }
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(
+                alignment = Alignment.CenterHorizontally,
+                space = 8.dp,
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(color = Source.Palette.Brand400),
+        ) {
+            SourceTextButton(
+                text = "Small",
+                priority = SourceTextButton.Priority.ON_BLUE_BACKGROUND,
+                size = SourceTextButton.Size.SMALL,
+                onClick = {},
+            )
+            SourceTextButton(
+                text = "Medium",
+                priority = SourceTextButton.Priority.ON_BLUE_BACKGROUND,
+                size = SourceTextButton.Size.MEDIUM,
+                onClick = {},
+            )
         }
     }
 }
