@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
+import com.gu.source.components.theme.LocalSourceTheme
 import com.gu.source.foundation.palette.Brand400
 import com.gu.source.foundation.palette.BrandAlt400
 import com.gu.source.foundation.palette.Neutral0
@@ -86,8 +87,12 @@ object SourceTextButton {
          */
         ON_YELLOW_BACKGROUND, ;
 
-        internal fun textColor(): Color = when (this) {
-            ON_BLUE_BACKGROUND -> Source.Palette.Neutral100
+        internal fun textColor(theme: Source.Theme): Color = when (this) {
+            ON_BLUE_BACKGROUND -> if (theme == Source.Theme.ReaderRevenue) {
+                Source.Palette.BrandAlt400
+            } else {
+                Source.Palette.Neutral100
+            }
             ON_WHITE_BACKGROUND -> Source.Palette.Brand400
             ON_YELLOW_BACKGROUND -> Source.Palette.Neutral0
         }
@@ -119,6 +124,8 @@ fun SourceTextButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val currentTheme = LocalSourceTheme.current
+
     when (size) {
         SourceTextButton.Size.SMALL -> {
             TextButton(
@@ -128,7 +135,7 @@ fun SourceTextButton(
                 Text(
                     text = text,
                     style = size.textStyle.copy(
-                        color = priority.textColor(),
+                        color = priority.textColor(theme = currentTheme),
                     ),
                 )
             }
@@ -142,7 +149,7 @@ fun SourceTextButton(
                 Text(
                     text = text,
                     style = size.textStyle.copy(
-                        color = priority.textColor(),
+                        color = priority.textColor(theme = currentTheme),
                     ),
                 )
             }
