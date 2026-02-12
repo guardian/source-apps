@@ -125,7 +125,7 @@ fun SourceTextButton(
 @Composable
 @PreviewPhoneBothMode
 @PreviewTabletBothMode
-fun SourceTextButtonPreview() {
+internal fun SourceTextButtonPreview() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
