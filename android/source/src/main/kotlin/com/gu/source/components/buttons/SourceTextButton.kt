@@ -1,18 +1,18 @@
 package com.gu.source.components.buttons
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -93,27 +93,31 @@ fun SourceTextButton(
 ) {
     when (size) {
         SourceTextButton.Size.SMALL -> {
-            Text(
-                text = text,
-                style = size.textStyle.copy(
-                    color = priority.textColor(),
-                ),
-                modifier = modifier
-                    .defaultMinSize(minHeight = size.minButtonHeight)
-                    .clickable(onClick = onClick, role = Role.Button),
-            )
+            TextButton(
+                onClick = onClick,
+                modifier = modifier.defaultMinSize(minHeight = size.minButtonHeight),
+            ) {
+                Text(
+                    text = text,
+                    style = size.textStyle.copy(
+                        color = priority.textColor(),
+                    ),
+                )
+            }
         }
 
         SourceTextButton.Size.MEDIUM -> {
-            Text(
-                text = text,
-                style = size.textStyle.copy(
-                    color = priority.textColor(),
-                ),
-                modifier = modifier
-                    .defaultMinSize(minHeight = size.minButtonHeight)
-                    .clickable(onClick = onClick, role = Role.Button),
-            )
+            TextButton(
+                onClick = onClick,
+                modifier = modifier.defaultMinSize(minHeight = size.minButtonHeight),
+            ) {
+                Text(
+                    text = text,
+                    style = size.textStyle.copy(
+                        color = priority.textColor(),
+                    ),
+                )
+            }
         }
     }
 }
@@ -123,8 +127,11 @@ fun SourceTextButton(
 @PreviewTabletBothMode
 fun SourceTextButtonPreview() {
     Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(space = 8.dp),
-        modifier = Modifier.padding(all = 16.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(all = 16.dp),
     ) {
         SourceTextButton.Priority.entries.forEach { priority ->
             Row(
