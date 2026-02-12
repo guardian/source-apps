@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -34,6 +33,13 @@ import com.gu.source.utils.PreviewTabletBothMode
  */
 object SourceTextButton {
 
+    /**
+     * The size of the button, which determines
+     * the typography style of the text and the minimum height of the button.
+     *
+     * @property textStyle The typography style of the text inside the button.
+     * @property minButtonHeight The minimum height of the button.
+     */
     enum class Size(
         val textStyle: TextStyle,
         val minButtonHeight: Dp,
@@ -53,6 +59,10 @@ object SourceTextButton {
         );
     }
 
+    /**
+     * The priority of the button, which determines the color of the text.
+     * This should be chosen based on the background color of the button.
+     */
     enum class Priority {
         ON_BLUE_BACKGROUND,
         ON_WHITE_BACKGROUND,
@@ -126,77 +136,24 @@ fun SourceTextButton(
 @PreviewPhoneBothMode
 @PreviewTabletBothMode
 internal fun SourceTextButtonPreview() {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(all = 16.dp),
-    ) {
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(
-                alignment = Alignment.CenterHorizontally,
-                space = 8.dp,
-            ),
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(color = Source.Palette.BrandAlt400),
-        ) {
-            SourceTextButton(
-                text = "Small",
-                priority = SourceTextButton.Priority.ON_YELLOW_BACKGROUND,
-                size = SourceTextButton.Size.SMALL,
-                onClick = {},
-            )
-            SourceTextButton(
-                text = "Medium",
-                priority = SourceTextButton.Priority.ON_YELLOW_BACKGROUND,
-                size = SourceTextButton.Size.MEDIUM,
-                onClick = {},
-            )
-        }
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(
-                alignment = Alignment.CenterHorizontally,
-                space = 8.dp,
-            ),
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(color = Source.Palette.Neutral100),
-        ) {
-            SourceTextButton(
-                text = "Small",
-                priority = SourceTextButton.Priority.ON_WHITE_BACKGROUND,
-                size = SourceTextButton.Size.SMALL,
-                onClick = {},
-            )
-            SourceTextButton(
-                text = "Medium",
-                priority = SourceTextButton.Priority.ON_WHITE_BACKGROUND,
-                size = SourceTextButton.Size.MEDIUM,
-                onClick = {},
-            )
-        }
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(
-                alignment = Alignment.CenterHorizontally,
-                space = 8.dp,
-            ),
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(color = Source.Palette.Brand400),
-        ) {
-            SourceTextButton(
-                text = "Small",
-                priority = SourceTextButton.Priority.ON_BLUE_BACKGROUND,
-                size = SourceTextButton.Size.SMALL,
-                onClick = {},
-            )
-            SourceTextButton(
-                text = "Medium",
-                priority = SourceTextButton.Priority.ON_BLUE_BACKGROUND,
-                size = SourceTextButton.Size.MEDIUM,
-                onClick = {},
-            )
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        SourceTextButton.Priority.entries.forEach { priority ->
+            Row(
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                modifier = Modifier
+                    .background(priority.demoBackgroundColor())
+                    .fillMaxWidth(),
+            ) {
+                SourceTextButton.Size.entries.forEach { size ->
+                    SourceTextButton(
+                        text = size.name.lowercase(),
+                        priority = priority,
+                        size = size,
+                        onClick = {},
+                    )
+                }
+            }
+
         }
     }
 }

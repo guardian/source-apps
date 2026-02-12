@@ -16,8 +16,6 @@ import com.gu.source.components.buttons.ButtonColours
 import com.gu.source.components.buttons.PlainSourceButton
 import com.gu.source.components.buttons.SourceButton
 import com.gu.source.components.buttons.SourceIconButton
-import com.gu.source.components.buttons.SourceTextButton
-import com.gu.source.components.buttons.SourceTextButtonPreview
 import com.gu.source.components.theme.ReaderRevenueTheme
 import com.gu.source.daynight.AppColour
 import com.gu.source.foundation.icons.base.Checkmark
@@ -135,8 +133,6 @@ internal fun ButtonPreview(modifier: Modifier = Modifier) {
                 ),
             ),
         )
-
-        SourceTextButtonPreview()
     }
 }
 
