@@ -3,17 +3,18 @@ package com.gu.source.components.buttons
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
@@ -33,24 +34,42 @@ import com.gu.source.utils.PreviewTabletBothMode
  */
 object SourceTextButton {
 
-    enum class Size(val testStyle: TextStyle) {
+    enum class Size(
+        val textStyle: TextStyle,
+        val minButtonHeight: Dp,
+    ) {
         SMALL(
-            testStyle = Source.Typography.TextSansBold17.copy(lineHeight = 22.95.sp),
-        ),
-        MEDIUM(
-            testStyle = Source.Typography.TextSansBold17.copy(
+            textStyle = Source.Typography.TextSansBold17.copy(
                 fontSize = 15.sp,
                 lineHeight = 20.25.sp,
             ),
+            minButtonHeight = 20.dp,
+        ),
+        MEDIUM(
+            textStyle = Source.Typography.TextSansBold17.copy(
+                lineHeight = 22.95.sp,
+            ),
+            minButtonHeight = 23.dp,
         );
     }
 
     enum class Priority {
         ON_BLUE_BACKGROUND,
         ON_WHITE_BACKGROUND,
-        ON_YELLOW_BACKGROUND,
-    }
+        ON_YELLOW_BACKGROUND;
 
+        internal fun textColor(): Color = when (this) {
+            ON_BLUE_BACKGROUND -> Source.Palette.Neutral100
+            ON_WHITE_BACKGROUND -> Source.Palette.Brand400
+            ON_YELLOW_BACKGROUND -> Source.Palette.Neutral0
+        }
+
+        internal fun demoBackgroundColor(): Color = when (this) {
+            ON_BLUE_BACKGROUND -> Source.Palette.Brand400
+            ON_WHITE_BACKGROUND -> Source.Palette.Neutral100
+            ON_YELLOW_BACKGROUND -> Source.Palette.BrandAlt400
+        }
+    }
 }
 
 /**
@@ -62,7 +81,7 @@ object SourceTextButton {
  * This should be chosen based on the background color of the button.
  * @param size The size of the button, which determines the typography style of the text.
  * @param onClick The callback to be invoked when this button is clicked.
- * @param isUnderlined Whether the text should be underlined or not.
+ * @param modifier The [Modifier] to be applied to this button.
  */
 @Composable
 fun SourceTextButton(
@@ -70,52 +89,30 @@ fun SourceTextButton(
     priority: SourceTextButton.Priority,
     size: SourceTextButton.Size,
     onClick: () -> Unit,
-    isUnderlined: Boolean = false,
+    modifier: Modifier = Modifier,
 ) {
     when (size) {
         SourceTextButton.Size.SMALL -> {
             Text(
                 text = text,
-                style = size.testStyle.copy(
-                    color = when (priority) {
-                        SourceTextButton.Priority.ON_BLUE_BACKGROUND -> {
-                            Source.Palette.Neutral100
-                        }
-
-                        SourceTextButton.Priority.ON_WHITE_BACKGROUND -> {
-                            Source.Palette.Brand400
-                        }
-
-                        SourceTextButton.Priority.ON_YELLOW_BACKGROUND -> {
-                            Source.Palette.Neutral0
-                        }
-                    },
-                    textDecoration = if (isUnderlined) TextDecoration.Underline else null,
+                style = size.textStyle.copy(
+                    color = priority.textColor(),
                 ),
-                modifier = Modifier.clickable(onClick = onClick, role = Role.Button),
+                modifier = modifier
+                    .defaultMinSize(minHeight = size.minButtonHeight)
+                    .clickable(onClick = onClick, role = Role.Button),
             )
         }
 
         SourceTextButton.Size.MEDIUM -> {
             Text(
                 text = text,
-                style = size.testStyle.copy(
-                    color = when (priority) {
-                        SourceTextButton.Priority.ON_BLUE_BACKGROUND -> {
-                            Source.Palette.Neutral100
-                        }
-
-                        SourceTextButton.Priority.ON_WHITE_BACKGROUND -> {
-                            Source.Palette.Brand400
-                        }
-
-                        SourceTextButton.Priority.ON_YELLOW_BACKGROUND -> {
-                            Source.Palette.Neutral0
-                        }
-                    },
-                    textDecoration = if (isUnderlined) TextDecoration.Underline else null,
+                style = size.textStyle.copy(
+                    color = priority.textColor(),
                 ),
-                modifier = Modifier.clickable(onClick = onClick, role = Role.Button),
+                modifier = modifier
+                    .defaultMinSize(minHeight = size.minButtonHeight)
+                    .clickable(onClick = onClick, role = Role.Button),
             )
         }
     }
@@ -131,27 +128,20 @@ fun SourceTextButtonPreview() {
     ) {
         SourceTextButton.Priority.entries.forEach { priority ->
             Row(
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(space = 8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.background(color = priority.demoBackgroundColor()),
             ) {
                 SourceTextButton.Size.entries.forEach { size ->
-                    val background = when (priority) {
-                        SourceTextButton.Priority.ON_BLUE_BACKGROUND -> Source.Palette.Brand400
-                        SourceTextButton.Priority.ON_WHITE_BACKGROUND -> Source.Palette.Neutral100
-                        SourceTextButton.Priority.ON_YELLOW_BACKGROUND -> Source.Palette.BrandAlt400
-                    }
-                    Box(
-                        contentAlignment = Alignment.Center,
-                        modifier = Modifier
-                            .background(color = background)
-                            .padding(all = 16.dp)
-                    ) {
-                        SourceTextButton(
-                            text = "Hello world",
-                            priority = priority,
-                            size = size,
-                            onClick = {}
-                        )
-                    }
+                    SourceTextButton(
+                        text = when (size) {
+                            SourceTextButton.Size.SMALL -> "Small"
+                            SourceTextButton.Size.MEDIUM -> "Medium"
+                        },
+                        priority = priority,
+                        size = size,
+                        onClick = {},
+                    )
                 }
             }
         }
