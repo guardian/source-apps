@@ -44,6 +44,9 @@ object SourceTextButton {
         val textStyle: TextStyle,
         val minButtonHeight: Dp,
     ) {
+        /**
+         * The small size of the button.
+         */
         SMALL(
             textStyle = Source.Typography.TextSansBold17.copy(
                 fontSize = 15.sp,
@@ -51,12 +54,16 @@ object SourceTextButton {
             ),
             minButtonHeight = 20.dp,
         ),
+
+        /**
+         * The small size of the button.
+         */
         MEDIUM(
             textStyle = Source.Typography.TextSansBold17.copy(
                 lineHeight = 22.95.sp,
             ),
             minButtonHeight = 23.dp,
-        );
+        ),
     }
 
     /**
@@ -64,9 +71,20 @@ object SourceTextButton {
      * This should be chosen based on the background color of the button.
      */
     enum class Priority {
+        /**
+         * Use this priority when the button is on a blue background, such as the brand color.
+         */
         ON_BLUE_BACKGROUND,
+
+        /**
+         * Use this priority when the button is on a white background.
+         */
         ON_WHITE_BACKGROUND,
-        ON_YELLOW_BACKGROUND;
+
+        /**
+         * Use this priority when the button is on a yellow background, such as the brand alt color.
+         */
+        ON_YELLOW_BACKGROUND, ;
 
         internal fun textColor(): Color = when (this) {
             ON_BLUE_BACKGROUND -> Source.Palette.Neutral100
@@ -153,7 +171,6 @@ internal fun SourceTextButtonPreview() {
                     )
                 }
             }
-
         }
     }
 }
