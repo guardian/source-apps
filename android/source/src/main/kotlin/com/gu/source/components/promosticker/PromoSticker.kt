@@ -43,7 +43,7 @@ import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.toDp
 
 /** Supported sizes for the [PromoSticker]. */
-enum class PromoStickerSizes(
+enum class PromoStickerSize(
     internal val height: TextUnit,
     internal val padding: PaddingValues,
     internal val textStyle: TextStyle,
@@ -120,21 +120,17 @@ enum class PromoStickerStyle(
  * See [the design spec](https://www.figma.com/design/HYKpHfksrAD4YE8P8ukN3Q/Supporter-Revenue-Toolkit?node-id=4082-9246&m=dev) for more details.
  *
  * @param text The text to display inside the badge.
- * @param size The size of the badge, see [PromoStickerSizes].
+ * @param size The size of the badge, see [PromoStickerSize].
  * @param style The style of the badge, see [PromoStickerStyle].
  * @param modifier Optional [Modifier] for this badge.
- * @param maxLines Optional - Maximum number of lines to display. Default is 1.
- * @param textOverflow Optional - Overflow behaviour of the text. Default is
  * [TextOverflow.Ellipsis].
  */
 @Composable
 fun PromoSticker(
     text: String,
-    size: PromoStickerSizes,
+    size: PromoStickerSize,
     style: PromoStickerStyle,
     modifier: Modifier = Modifier,
-    maxLines: Int = 1,
-    textOverflow: TextOverflow = TextOverflow.Ellipsis,
 ) {
     Box(
         modifier = modifier
@@ -150,8 +146,8 @@ fun PromoSticker(
             text = text,
             color = style.textColour.current,
             style = size.textStyle,
-            maxLines = maxLines,
-            overflow = textOverflow,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
             modifier = Modifier.offset(y = (-0.5).dp),
         )
     }
@@ -171,7 +167,7 @@ internal fun PromoStickerPreview() {
         ) {
             PromoStickerStyle.entries.forEach { type ->
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    PromoStickerSizes.entries.forEach { size ->
+                    PromoStickerSize.entries.forEach { size ->
                         PromoSticker(
                             text = "New",
                             size = size,
@@ -195,14 +191,8 @@ internal fun PromoStickerLongPreview() {
         ) {
             PromoSticker(
                 text = "New but very long",
-                size = PromoStickerSizes.Small,
+                size = PromoStickerSize.Small,
                 style = PromoStickerStyle.Info,
-            )
-            PromoSticker(
-                text = "New but very long",
-                size = PromoStickerSizes.Small,
-                style = PromoStickerStyle.Info,
-                maxLines = 2,
             )
         }
     }
