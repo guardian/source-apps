@@ -9,6 +9,7 @@ import androidx.navigation3.ui.NavDisplay
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.navigation.Destination
 import com.gu.source.navigation.Navigator.Companion.rememberNavigator
+import com.gu.source.previews.AlertBannerPreview
 import com.gu.source.previews.ButtonPreview
 import com.gu.source.previews.IconsPreview
 import com.gu.source.previews.ImagePagerWithProgressIndicator
@@ -41,6 +42,18 @@ internal class MainActivity : ComponentActivity() {
                             ButtonPreview({ navigator.popBackStack() })
                         }
                         entry(Destination.IconsPreview) {
+                            IconsPreview({ navigator.popBackStack() })
+                        }
+                        entry(Destination.AlertBannerPreview) {
+                            AlertBannerPreview({ navigator.popBackStack() })
+                        }
+                        entry(Destination.ChipsPreview) {
+                            IconsPreview({ navigator.popBackStack() })
+                        }
+                        entry(Destination.BadgesPreview) {
+                            IconsPreview({ navigator.popBackStack() })
+                        }
+                        entry(Destination.StarRatingsPreview) {
                             IconsPreview({ navigator.popBackStack() })
                         }
                     },
