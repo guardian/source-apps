@@ -34,12 +34,12 @@ import com.gu.source.foundation.palette.Neutral100
 import com.gu.source.foundation.palette.Neutral97
 import com.gu.source.foundation.typography.HeadlineMedium20
 import com.gu.source.previews.AlertBannerPreview
-import com.gu.source.previews.BadgePreview
 import com.gu.source.previews.ButtonPreview
 import com.gu.source.previews.ChipsPreview
 import com.gu.source.previews.IconsPreview
 import com.gu.source.previews.ImagePagerWithProgressIndicator
 import com.gu.source.previews.Palette
+import com.gu.source.previews.PromoStickerPreview
 import com.gu.source.previews.RatingPreview
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.plus
@@ -135,7 +135,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
             HorizontalDivider()
 
             SourceButton(
-                text = "Open palette",
+                text = "Palette",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = {
                     sheetContentType = SheetContentType.Palette
@@ -146,7 +146,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
             )
 
             SourceButton(
-                text = "Open pager progress bar sample",
+                text = "Pager progress bar",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = {
                     sheetContentType = SheetContentType.PagerProgressBar
@@ -158,7 +158,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
             )
 
             SourceButton(
-                text = "Open buttons preview",
+                text = "Buttons",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = {
                     sheetContentType = SheetContentType.Buttons
@@ -169,7 +169,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
             )
 
             SourceButton(
-                text = "Open icons preview",
+                text = "Source icons",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = {
                     sheetContentType = SheetContentType.CoreIcons
@@ -180,7 +180,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
             )
 
             SourceButton(
-                text = "Open Alert banner preview",
+                text = "Alert banner",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = {
                     sheetContentType = SheetContentType.AlertBanner
@@ -191,7 +191,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
             )
 
             SourceButton(
-                text = "Open chips preview",
+                text = "Chips",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = {
                     sheetContentType = SheetContentType.Chips
@@ -213,7 +213,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
             )
 
             SourceButton(
-                text = "Open ratings preview",
+                text = "Star ratings",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = {
                     sheetContentType = SheetContentType.Ratings
