@@ -12,9 +12,11 @@ Four core button components are available:
 preset style and size variants corresponding to Source specifications. Both _Core_ and 
 _Reader Revenue_ themes are provided.
 
-| Core theme | Reader revenue theme |
-| --- | --- |
-| ![Core themed text only buttons](https://github.com/user-attachments/assets/e69393fb-675b-4f0e-9f52-62a28736bcfc) | ![Reader revenue themed text only buttons](https://github.com/user-attachments/assets/7ca3d409-252e-45e1-964f-efd03b1ebe39) |
+|  | Light | Dark |
+|--------|--------|--------|
+| Core |![core-light](https://github.com/user-attachments/assets/36ec4bbd-2fac-4ab3-b32a-8733aaeaceeb)|![core-dark](https://github.com/user-attachments/assets/77b4ae66-5943-48fb-983c-0b0ab30c6a36)|
+| Reader Revenue |![rr-light](https://github.com/user-attachments/assets/6a7aa129-acd9-4826-9846-553bf22c90e9)|![rr-dark](https://github.com/user-attachments/assets/e7e1f6ba-fd52-4dd6-acd4-1efaae9ce942)| 
+
 
 ### Usage examples
 
