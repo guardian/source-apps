@@ -19,7 +19,7 @@ Source designs & documentation in [Figma][1].
 
 ### Usage
 
-The `PromoSticker` component implements the chip design. See full [API documentation here][2].
+The `PromoSticker` component implements the sticker design. See full [API documentation here][2].
 
 Small sticker with `Info` style:
 ```kotlin

@@ -115,14 +115,14 @@ enum class PromoStickerStyle(
 }
 
 /**
- * A badge component to highlight important content.
+ * A promo sticker component to highlight important content.
  *
  * See [the design spec](https://www.figma.com/design/HYKpHfksrAD4YE8P8ukN3Q/Supporter-Revenue-Toolkit?node-id=4082-9246&m=dev) for more details.
  *
- * @param text The text to display inside the badge.
- * @param size The size of the badge, see [PromoStickerSize].
- * @param style The style of the badge, see [PromoStickerStyle].
- * @param modifier Optional [Modifier] for this badge.
+ * @param text The text to display inside the promo sticker.
+ * @param size The size of the sticker, see [PromoStickerSize].
+ * @param style The style of the sticker, see [PromoStickerStyle].
+ * @param modifier Optional [Modifier].
  * [TextOverflow.Ellipsis].
  */
 @Composable
