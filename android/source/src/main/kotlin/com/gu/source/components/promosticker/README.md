@@ -1,8 +1,11 @@
 # Promo stickers
 
-The Promo Sticker is a visual indicator used to signal new products, limited time offers, best value and recommended products. It appears on the outside top edge of product cards, but can also sit within text or within cards or beside text in certain use cases. 
+The Promo Sticker is a visual indicator used to signal new products, limited time offers, best value
+and recommended products. It appears on the outside top edge of product cards, but can also sit 
+within text or within cards or beside text in certain use cases. 
 
-It is a minimal yet effective way to draw user attention to new or recommended products without disrupting the interface.
+It is a minimal yet effective way to draw user attention to new or recommended products without 
+disrupting the interface.
 
 | Light|Dark|
 |---|---|
@@ -15,7 +18,8 @@ Source designs & documentation in [Figma][1].
 * Two sizes - `Small` and `Large`.
 * 4 styles - `Info`, `Success`, `Error` and `Lifestyle`.
 * Long text is truncated with an ellipsis.
-* They are non-interactive elements so do not support click events, selected states, or multi-select modes.
+* They are non-interactive elements so do not support click events, selected states, or multi-select 
+   modes.
 
 ### Usage
 

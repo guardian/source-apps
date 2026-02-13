@@ -3,9 +3,9 @@
 There are three pager components available:
 
 1. `PagerProgressBar` - a higher level component that combines the above two
-and has different phone and tablet behaviour.
+   and has different phone and tablet behaviour.
 2. `PagerProgressIndicator` - a set of highly customisable indicators to signify progress as a user
-progresses through the items in the pager.
+   progresses through the items in the pager.
 3. `PagerProgressButtons` - buttons to allow user to go to next/previous page in a pager.
 
 ## `PagerProgressBar`
