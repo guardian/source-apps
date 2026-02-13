@@ -25,8 +25,10 @@ detekt = "1.23.8"
 dokka = "2.1.0"
 inject = "1"
 kotlinx-collections-immutable = "0.4.0"
+kotlinx-serialisation-core = "1.10.0"
 licensee = "1.14.1"
 lint-gradle = "1.0.0-alpha05"
+nav = "1.0.1"
 timber = "5.0.1"
 
 metalava = "0.4.0-alpha03"
@@ -53,6 +55,8 @@ androidx-compose-material3-windowSize = { group = "androidx.compose.material3", 
 androidx-compose-uiTest = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lint-gradle = { module = "androidx.lint:lint-gradle", version.ref = "lint-gradle" }
+androidx-nav-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "nav" }
+androidx-nav-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "nav" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
@@ -61,6 +65,7 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 dokka-android = { module = "org.jetbrains.dokka:android-documentation-plugin", version.ref = "dokka" }
 javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "inject" }
+kotlin-serialisation-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialisation-core" }
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
 kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinx-collections-immutable" }
 other-timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
@@ -88,7 +93,7 @@ ktlint-compose = { group = "io.nlopez.compose.rules", name = "ktlint", version.r
 
 [plugins]
 
-android-lint = { id = "com.android.lint", version.ref = "agp"}
+android-lint = { id = "com.android.lint", version.ref = "agp" }
 agp-application = { id = "com.android.application", version.ref = "agp" }
 agp-library = { id = "com.android.library", version.ref = "agp" }
 agp-test = { id = "com.android.test", version.ref = "agp" }
@@ -97,9 +102,10 @@ licensee = { id = "app.cash.licensee", version.ref = "licensee" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kgp = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
-metalava = { id = "me.tylerbwong.gradle.metalava", version.ref = "metalava"}
+metalava = { id = "me.tylerbwong.gradle.metalava", version.ref = "metalava" }
 
 # Guardian's convention plugins
 guardian-application = { id = "com.theguardian.application", version.ref = "guardian-convention-plugins" }
