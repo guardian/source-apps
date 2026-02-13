@@ -192,7 +192,7 @@ fun SourceTextButton(
 @Composable
 @PreviewPhoneBothMode
 @PreviewTabletBothMode
-internal fun SourceTextButtonPreviewNoUnderline() {
+internal fun SourceTextButtonNoUnderlinePreview() {
     Column {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             SourceTextButton.Priority.entries.forEach { priority ->
@@ -240,7 +240,7 @@ internal fun SourceTextButtonPreviewNoUnderline() {
 @Composable
 @PreviewPhoneBothMode
 @PreviewTabletBothMode
-internal fun SourceTextButtonPreviewUnderline() {
+internal fun SourceTextButtonUnderlinePreview() {
     Column {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             SourceTextButton.Priority.entries.forEach { priority ->
