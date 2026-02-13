@@ -52,11 +52,23 @@ internal fun Home(modifier: Modifier = Modifier) {
     }
 
     Scaffold(
+        modifier = modifier,
+        topBar = {
+            SampleTopAppBar {
+                Text(
+                    text = "Welcome to Source.",
+                    style = Source.Typography.HeadlineMedium20,
+                    color = AppColour(
+                        light = Source.Palette.Brand400,
+                        dark = Source.Palette.Neutral97,
+                    ).current,
+                )
+            }
+        },
         containerColor = AppColour(
             Source.Palette.Neutral100,
             Source.Palette.Neutral10,
         ).current,
-        modifier = modifier,
     ) { paddingValues ->
         Column(
             modifier = Modifier
@@ -65,17 +77,7 @@ internal fun Home(modifier: Modifier = Modifier) {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Text(
-                text = "Welcome to Source.",
-                modifier = Modifier,
-                style = Source.Typography.HeadlineMedium20,
-                color = AppColour(
-                    light = Source.Palette.Brand400,
-                    dark = Source.Palette.Neutral97,
-                ).current,
-            )
-            Text(
                 text = "The Guardian's digital design system.",
-                modifier = Modifier,
                 style = Source.Typography.HeadlineMedium20,
                 color = AppColour(
                     light = Source.Palette.Brand400,
