@@ -10,6 +10,7 @@ import com.gu.source.daynight.AppColourMode
 import com.gu.source.navigation.Destination
 import com.gu.source.navigation.Navigator.Companion.rememberNavigator
 import com.gu.source.previews.ButtonPreview
+import com.gu.source.previews.IconsPreview
 import com.gu.source.previews.ImagePagerWithProgressIndicator
 import com.gu.source.previews.PalettePreview
 
@@ -38,6 +39,9 @@ internal class MainActivity : ComponentActivity() {
                         }
                         entry(Destination.ButtonsPreview) {
                             ButtonPreview({ navigator.popBackStack() })
+                        }
+                        entry(Destination.IconsPreview) {
+                            IconsPreview({ navigator.popBackStack() })
                         }
                     },
                 )

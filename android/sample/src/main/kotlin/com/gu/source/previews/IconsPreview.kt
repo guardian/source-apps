@@ -1,22 +1,17 @@
 package com.gu.source.previews
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -213,9 +208,8 @@ import com.gu.source.foundation.icons.base.Video
 import com.gu.source.foundation.icons.base.WhatsApp
 import com.gu.source.foundation.icons.base.WhatsAppBrand
 import com.gu.source.foundation.icons.base.WhiteArrowLeftStraightRound
-import com.gu.source.foundation.palette.Neutral0
-import com.gu.source.foundation.palette.Neutral100
-import com.gu.source.foundation.typography.HeadlineBold20
+import com.gu.source.foundation.palette.Brand400
+import com.gu.source.foundation.palette.Neutral97
 import com.gu.source.foundation.typography.TextSans15
 
 private val icons = listOf(
@@ -409,26 +403,21 @@ private val icons = listOf(
     Source.Icons.Base.Trophy,
     Source.Icons.Base.GuessPuzzles,
 )
-private const val GRID_COUNT = 4
 
 @Composable
-internal fun IconsPreview(modifier: Modifier = Modifier) {
-    Surface(
+internal fun IconsPreview(
+    onBackPress: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    PreviewScaffold(
+        "Icons",
         modifier = modifier,
-        color = AppColour(Source.Palette.Neutral100, Source.Palette.Neutral0).current,
-        contentColor = AppColour(Source.Palette.Neutral0, Source.Palette.Neutral100).current,
+        onBackPress = onBackPress,
     ) {
         LazyVerticalGrid(
-            columns = GridCells.Fixed(GRID_COUNT),
-            contentPadding = PaddingValues(all = 8.dp),
+            columns = GridCells.Fixed(getGridCount()),
+            modifier = it,
         ) {
-            item(span = { GridItemSpan(GRID_COUNT) }) {
-                Text(
-                    text = "Icons",
-                    style = Source.Typography.HeadlineBold20,
-                    modifier = Modifier.padding(8.dp),
-                )
-            }
             items(icons) { icon ->
                 Row(
                     modifier = Modifier
@@ -440,7 +429,7 @@ internal fun IconsPreview(modifier: Modifier = Modifier) {
                     Icon(
                         imageVector = icon,
                         contentDescription = null,
-                        tint = Color.Unspecified,
+                        tint = AppColour(Source.Palette.Brand400, Source.Palette.Neutral97).current,
                         modifier = Modifier.height(24.dp),
                     )
                     Text(
@@ -460,6 +449,6 @@ internal fun IconsPreview(modifier: Modifier = Modifier) {
 @Composable
 private fun Preview() {
     AppColourMode {
-        IconsPreview()
+        IconsPreview({})
     }
 }
