@@ -55,7 +55,7 @@ enum class PromoStickerSize(
     ),
     Large(
         height = 24.sp,
-        padding = PaddingValues(horizontal = 8.dp),
+        padding = PaddingValues(horizontal = 4.dp),
         textStyle = Source.Typography.TextSansBold15,
     ),
 }
