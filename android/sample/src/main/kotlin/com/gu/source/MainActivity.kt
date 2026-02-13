@@ -9,6 +9,7 @@ import androidx.navigation3.ui.NavDisplay
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.navigation.Destination
 import com.gu.source.navigation.Navigator.Companion.rememberNavigator
+import com.gu.source.previews.PalettePreview
 
 internal class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,18 +18,21 @@ internal class MainActivity : ComponentActivity() {
         setContent {
             val navigator = rememberNavigator(Destination.Home)
 
-            AppColourMode {
+            AppColourMode { modifier ->
                 NavDisplay(
                     backStack = navigator.backstack,
                     onBack = { navigator.popBackStack() },
-                    modifier = it,
-                    entryProvider = entries(),
+                    modifier = modifier,
+                    entryProvider = entryProvider {
+                        entry(Destination.Home) {
+                            Home { navigator.navigate(it) }
+                        }
+                        entry(Destination.PalettePreview) {
+                            PalettePreview({ navigator.popBackStack() })
+                        }
+                    },
                 )
             }
         }
     }
-}
-
-internal fun entries() = entryProvider<Destination> {
-    entry(Destination.Home) { Home() }
 }

@@ -9,4 +9,7 @@ internal sealed interface Destination {
     @Serializable
     object Home : Destination
 
+    @Serializable
+    object PalettePreview : Destination
+
 }

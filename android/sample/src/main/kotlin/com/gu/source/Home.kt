@@ -26,6 +26,7 @@ import com.gu.source.foundation.palette.Neutral10
 import com.gu.source.foundation.palette.Neutral100
 import com.gu.source.foundation.palette.Neutral97
 import com.gu.source.foundation.typography.HeadlineMedium20
+import com.gu.source.navigation.Destination
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.plus
 import kotlinx.coroutines.launch
@@ -43,7 +44,10 @@ private enum class SheetContentType {
 
 @SuppressLint("DiscouragedApi")
 @Composable
-internal fun Home(modifier: Modifier = Modifier) {
+internal fun Home(
+    modifier: Modifier = Modifier,
+    navigate: (Destination) -> Unit,
+) {
     val coroutineScope = rememberCoroutineScope()
     val scaffoldState = rememberBottomSheetScaffoldState()
 
@@ -90,12 +94,7 @@ internal fun Home(modifier: Modifier = Modifier) {
             SourceButton(
                 text = "Open palette",
                 priority = SourceButton.Priority.TertiaryOnWhite,
-                onClick = {
-                    sheetContentType = SheetContentType.Palette
-                    coroutineScope.launch {
-                        scaffoldState.bottomSheetState.expand()
-                    }
-                },
+                onClick = { navigate(Destination.PalettePreview) },
             )
 
             SourceButton(
@@ -331,6 +330,6 @@ internal fun Home(modifier: Modifier = Modifier) {
 @Composable
 private fun HomePreview() {
     AppColourMode {
-        Home()
+        Home {}
     }
 }
