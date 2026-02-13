@@ -10,12 +10,12 @@ import com.gu.source.daynight.AppColourMode
 import com.gu.source.navigation.Destination
 import com.gu.source.navigation.Navigator.Companion.rememberNavigator
 import com.gu.source.previews.AlertBannerPreview
-import com.gu.source.previews.BadgePreview
 import com.gu.source.previews.ButtonPreview
 import com.gu.source.previews.ChipsPreview
 import com.gu.source.previews.IconsPreview
 import com.gu.source.previews.ImagePagerWithProgressIndicator
 import com.gu.source.previews.PalettePreview
+import com.gu.source.previews.PromoStickerPreview
 import com.gu.source.previews.RatingPreview
 
 internal class MainActivity : ComponentActivity() {
@@ -54,7 +54,7 @@ internal class MainActivity : ComponentActivity() {
                             ChipsPreview(navigator::popBackStack)
                         }
                         entry(Destination.BadgesPreview) {
-                            BadgePreview(navigator::popBackStack)
+                            PromoStickerPreview(navigator::popBackStack)
                         }
                         entry(Destination.StarRatingsPreview) {
                             RatingPreview(navigator::popBackStack)

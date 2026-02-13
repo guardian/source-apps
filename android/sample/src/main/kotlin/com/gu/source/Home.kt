@@ -64,51 +64,51 @@ internal fun Home(modifier: Modifier = Modifier, navigate: (Destination) -> Unit
             HorizontalDivider()
 
             SourceButton(
-                text = "Open palette",
+                text = "Palette",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = { navigate(Destination.PalettePreview) },
             )
 
             SourceButton(
-                text = "Open pager progress bar sample",
-                priority = SourceButton.Priority.TertiaryOnWhite,
-                onClick = { navigate(Destination.PagerProgressBarPreview) },
-            )
-
-            SourceButton(
-                text = "Open buttons preview",
-                priority = SourceButton.Priority.TertiaryOnWhite,
-                onClick = { navigate(Destination.ButtonsPreview) },
-            )
-
-            SourceButton(
-                text = "Open icons preview",
+                text = "Icons",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = { navigate(Destination.IconsPreview) },
             )
 
             SourceButton(
-                text = "Open Alert banner preview",
+                text = "Buttons",
                 priority = SourceButton.Priority.TertiaryOnWhite,
-                onClick = { navigate(Destination.AlertBannerPreview) },
+                onClick = { navigate(Destination.ButtonsPreview) },
             )
 
             SourceButton(
-                text = "Open chips preview",
+                text = "Chips",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = { navigate(Destination.ChipsPreview) },
             )
 
             SourceButton(
-                text = "Open badges preview",
+                text = "Promo sticker",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = { navigate(Destination.BadgesPreview) },
             )
 
             SourceButton(
-                text = "Open ratings preview",
+                text = "Ratings",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = { navigate(Destination.StarRatingsPreview) },
+            )
+
+            SourceButton(
+                text = "Pager progress bar",
+                priority = SourceButton.Priority.TertiaryOnWhite,
+                onClick = { navigate(Destination.PagerProgressBarPreview) },
+            )
+
+            SourceButton(
+                text = "Alert banner",
+                priority = SourceButton.Priority.TertiaryOnWhite,
+                onClick = { navigate(Destination.AlertBannerPreview) },
             )
         }
     }

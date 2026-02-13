@@ -11,33 +11,33 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
-import com.gu.source.components.badge.SourceBadge
-import com.gu.source.components.badge.SourceBadgeSizes
-import com.gu.source.components.badge.SourceBadgeStyle
+import com.gu.source.components.promosticker.PromoSticker
+import com.gu.source.components.promosticker.PromoStickerSize
+import com.gu.source.components.promosticker.PromoStickerStyle
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.typography.TextSansBold17
 
 @Composable
-internal fun BadgePreview(onBackPress: () -> Unit, modifier: Modifier = Modifier) {
+internal fun PromoStickerPreview(onBackPress: () -> Unit, modifier: Modifier = Modifier) {
     PreviewScaffold("Promo sticker", onBackPress, modifier) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(getGridCount()),
             modifier = it,
             verticalArrangement = Arrangement.Center,
         ) {
-            items(SourceBadgeSizes.entries.size) { size ->
+            items(PromoStickerSize.entries.size) { size ->
                 Text(
-                    SourceBadgeSizes.entries[size].name,
+                    PromoStickerSize.entries[size].name,
                     style = Source.Typography.TextSansBold17,
                     modifier = Modifier
                         .wrapContentSize()
                         .padding(bottom = 16.dp),
                 )
             }
-            items(SourceBadgeSizes.entries.size * SourceBadgeStyle.entries.size) { index ->
-                val type = SourceBadgeStyle.entries[index / SourceBadgeSizes.entries.size]
-                val size = SourceBadgeSizes.entries[index % SourceBadgeSizes.entries.size]
-                SourceBadge(
+            items(PromoStickerSize.entries.size * PromoStickerStyle.entries.size) { index ->
+                val type = PromoStickerStyle.entries[index / PromoStickerSize.entries.size]
+                val size = PromoStickerSize.entries[index % PromoStickerSize.entries.size]
+                PromoSticker(
                     text = type.name,
                     size = size,
                     style = type,
@@ -53,5 +53,5 @@ internal fun BadgePreview(onBackPress: () -> Unit, modifier: Modifier = Modifier
 @PreviewLightDark
 @Composable
 private fun Preview() {
-    AppColourMode { BadgePreview({}) }
+    AppColourMode { PromoStickerPreview({}) }
 }
