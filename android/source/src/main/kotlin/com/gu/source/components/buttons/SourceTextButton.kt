@@ -61,7 +61,7 @@ object SourceTextButton {
         ),
 
         /**
-         * The small size of the button.
+         * The medium size of the button.
          */
         MEDIUM(
             textStyle = Source.Typography.TextSansBold17.copy(
@@ -89,7 +89,8 @@ object SourceTextButton {
         /**
          * Use this priority when the button is on a yellow background, such as the brand alt color.
          */
-        ON_YELLOW_BACKGROUND, ;
+        ON_YELLOW_BACKGROUND,
+        ;
 
         internal fun textColor(theme: Source.Theme): Color = when (this) {
             ON_BLUE_BACKGROUND -> if (theme == Source.Theme.ReaderRevenue) {
@@ -97,6 +98,7 @@ object SourceTextButton {
             } else {
                 Source.Palette.Neutral100
             }
+
             ON_WHITE_BACKGROUND -> Source.Palette.Brand400
             ON_YELLOW_BACKGROUND -> Source.Palette.Neutral0
         }
@@ -132,60 +134,29 @@ fun SourceTextButton(
 ) {
     val currentTheme = LocalSourceTheme.current
 
-    when (size) {
-        SourceTextButton.Size.SMALL -> {
-            TextButton(
-                shape = CircleShape,
-                elevation = ButtonDefaults.buttonElevation(
-                    defaultElevation = 0.dp,
-                    pressedElevation = 0.dp,
-                    focusedElevation = 0.dp,
-                    hoveredElevation = 0.dp,
-                    disabledElevation = 0.dp,
-                ),
-                onClick = onClick,
-                modifier = modifier.defaultMinSize(minHeight = size.minButtonHeight),
-            ) {
-                Text(
-                    text = text,
-                    style = size.textStyle.copy(
-                        color = priority.textColor(theme = currentTheme),
-                        textDecoration = if (hasUnderline) {
-                            TextDecoration.Underline
-                        } else {
-                            null
-                        },
-                    ),
-                )
-            }
-        }
-
-        SourceTextButton.Size.MEDIUM -> {
-            TextButton(
-                shape = CircleShape,
-                elevation = ButtonDefaults.buttonElevation(
-                    defaultElevation = 0.dp,
-                    pressedElevation = 0.dp,
-                    focusedElevation = 0.dp,
-                    hoveredElevation = 0.dp,
-                    disabledElevation = 0.dp,
-                ),
-                onClick = onClick,
-                modifier = modifier.defaultMinSize(minHeight = size.minButtonHeight),
-            ) {
-                Text(
-                    text = text,
-                    style = size.textStyle.copy(
-                        color = priority.textColor(theme = currentTheme),
-                        textDecoration = if (hasUnderline) {
-                            TextDecoration.Underline
-                        } else {
-                            null
-                        },
-                    ),
-                )
-            }
-        }
+    TextButton(
+        shape = CircleShape,
+        elevation = ButtonDefaults.buttonElevation(
+            defaultElevation = 0.dp,
+            pressedElevation = 0.dp,
+            focusedElevation = 0.dp,
+            hoveredElevation = 0.dp,
+            disabledElevation = 0.dp,
+        ),
+        onClick = onClick,
+        modifier = modifier.defaultMinSize(minHeight = size.minButtonHeight),
+    ) {
+        Text(
+            text = text,
+            style = size.textStyle.copy(
+                color = priority.textColor(theme = currentTheme),
+                textDecoration = if (hasUnderline) {
+                    TextDecoration.Underline
+                } else {
+                    null
+                },
+            ),
+        )
     }
 }
 
