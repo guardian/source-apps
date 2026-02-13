@@ -106,12 +106,7 @@ internal fun Home(
             SourceButton(
                 text = "Open buttons preview",
                 priority = SourceButton.Priority.TertiaryOnWhite,
-                onClick = {
-                    sheetContentType = SheetContentType.Buttons
-                    coroutineScope.launch {
-                        scaffoldState.bottomSheetState.expand()
-                    }
-                },
+                onClick = { navigate(Destination.ButtonsPreview) },
             )
 
             SourceButton(
