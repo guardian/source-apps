@@ -1,10 +1,11 @@
 package com.gu.source.navigation
 
+import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
 
 /** A marker interface for navigation destinations. */
 @Serializable
-internal sealed interface Destination {
+internal sealed interface Destination : NavKey {
 
     @Serializable
     object Home : Destination
