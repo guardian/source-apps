@@ -1,4 +1,4 @@
-package com.gu.source.components.badge
+package com.gu.source.components.promosticker
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -42,8 +42,8 @@ import com.gu.source.foundation.typography.TextSansBold15
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.toDp
 
-/** Supported sizes for the [SourceBadge]. */
-enum class SourceBadgeSizes(
+/** Supported sizes for the [PromoSticker]. */
+enum class PromoStickerSizes(
     internal val height: TextUnit,
     internal val padding: PaddingValues,
     internal val textStyle: TextStyle,
@@ -60,26 +60,57 @@ enum class SourceBadgeSizes(
     ),
 }
 
-/** Supported styles for the [SourceBadge]. */
-enum class SourceBadgeStyle(
+/** Styles for the [PromoSticker]. */
+enum class PromoStickerStyle(
     internal val fillColour: AppColour,
     internal val textColour: AppColour,
 ) {
+    /** Sticker style used for new content or information that needs to be highlighted. */
     Info(
-        fillColour = AppColour(Source.Palette.Sport400, Source.Palette.Sport800),
-        textColour = AppColour(Source.Palette.Neutral97, Source.Palette.Sport300),
+        fillColour = AppColour(
+            light = Source.Palette.Sport400,
+            dark = Source.Palette.Sport800,
+        ),
+        textColour = AppColour(
+            light = Source.Palette.Neutral97,
+            dark = Source.Palette.Sport300,
+        ),
     ),
+
+    /** Sticker style used to highlight errors or important information that needs attention. */
     Error(
-        fillColour = AppColour(Source.Palette.News400, Source.Palette.News800),
-        textColour = AppColour(Source.Palette.Neutral97, Source.Palette.News300),
+        fillColour = AppColour(
+            light = Source.Palette.News400,
+            dark = Source.Palette.News800,
+        ),
+        textColour = AppColour(
+            light = Source.Palette.Neutral97,
+            dark = Source.Palette.News300,
+        ),
     ),
+
+    /** Sticker style used as a softer alternative to [Error]. */
     Lifestyle(
-        fillColour = AppColour(Source.Palette.Lifestyle400, Source.Palette.Lifestyle800),
-        textColour = AppColour(Source.Palette.Neutral97, Source.Palette.Lifestyle300),
+        fillColour = AppColour(
+            light = Source.Palette.Lifestyle400,
+            dark = Source.Palette.Lifestyle800,
+        ),
+        textColour = AppColour(
+            light = Source.Palette.Neutral97,
+            dark = Source.Palette.Lifestyle300,
+        ),
     ),
+
+    /** Sticker style used to highlight successful actions or positive information. */
     Success(
-        fillColour = AppColour(Source.Palette.Labs200, Source.Palette.Labs700),
-        textColour = AppColour(Source.Palette.Neutral97, Source.Palette.Labs200),
+        fillColour = AppColour(
+            light = Source.Palette.Labs200,
+            dark = Source.Palette.Labs700,
+        ),
+        textColour = AppColour(
+            light = Source.Palette.Neutral97,
+            dark = Source.Palette.Labs200,
+        ),
     ),
 }
 
@@ -89,18 +120,18 @@ enum class SourceBadgeStyle(
  * See [the design spec](https://www.figma.com/design/HYKpHfksrAD4YE8P8ukN3Q/Supporter-Revenue-Toolkit?node-id=4082-9246&m=dev) for more details.
  *
  * @param text The text to display inside the badge.
- * @param size The size of the badge, see [SourceBadgeSizes].
- * @param style The style of the badge, see [SourceBadgeStyle].
+ * @param size The size of the badge, see [PromoStickerSizes].
+ * @param style The style of the badge, see [PromoStickerStyle].
  * @param modifier Optional [Modifier] for this badge.
  * @param maxLines Optional - Maximum number of lines to display. Default is 1.
  * @param textOverflow Optional - Overflow behaviour of the text. Default is
  * [TextOverflow.Ellipsis].
  */
 @Composable
-fun SourceBadge(
+fun PromoSticker(
     text: String,
-    size: SourceBadgeSizes,
-    style: SourceBadgeStyle,
+    size: PromoStickerSizes,
+    style: PromoStickerStyle,
     modifier: Modifier = Modifier,
     maxLines: Int = 1,
     textOverflow: TextOverflow = TextOverflow.Ellipsis,
@@ -128,7 +159,7 @@ fun SourceBadge(
 
 @PreviewPhoneBothMode
 @Composable
-internal fun SourceBadgePreview() {
+internal fun PromoStickerPreview() {
     AppColourMode {
         Column(
             modifier = Modifier.background(
@@ -138,10 +169,10 @@ internal fun SourceBadgePreview() {
                 ).current,
             ),
         ) {
-            SourceBadgeStyle.entries.forEach { type ->
+            PromoStickerStyle.entries.forEach { type ->
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    SourceBadgeSizes.entries.forEach { size ->
-                        SourceBadge(
+                    PromoStickerSizes.entries.forEach { size ->
+                        PromoSticker(
                             text = "New",
                             size = size,
                             style = type,
@@ -156,21 +187,21 @@ internal fun SourceBadgePreview() {
 
 @PreviewPhoneBothMode
 @Composable
-internal fun SourceBadgeLongPreview() {
+internal fun PromoStickerLongPreview() {
     AppColourMode {
         Column(
             modifier = Modifier.widthIn(max = 100.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            SourceBadge(
+            PromoSticker(
                 text = "New but very long",
-                size = SourceBadgeSizes.Small,
-                style = SourceBadgeStyle.Info,
+                size = PromoStickerSizes.Small,
+                style = PromoStickerStyle.Info,
             )
-            SourceBadge(
+            PromoSticker(
                 text = "New but very long",
-                size = SourceBadgeSizes.Small,
-                style = SourceBadgeStyle.Info,
+                size = PromoStickerSizes.Small,
+                style = PromoStickerStyle.Info,
                 maxLines = 2,
             )
         }

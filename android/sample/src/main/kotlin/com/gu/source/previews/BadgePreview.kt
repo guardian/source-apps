@@ -10,22 +10,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.gu.source.components.badge.SourceBadge
-import com.gu.source.components.badge.SourceBadgeSizes
-import com.gu.source.components.badge.SourceBadgeStyle
+import com.gu.source.components.promosticker.PromoSticker
+import com.gu.source.components.promosticker.PromoStickerSizes
+import com.gu.source.components.promosticker.PromoStickerStyle
 
 @Preview
 @Composable
 internal fun BadgePreview(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
-        SourceBadgeStyle.entries.forEach { type ->
+        PromoStickerStyle.entries.forEach { type ->
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                SourceBadgeSizes.entries.forEach { size ->
-                    SourceBadge(
+                PromoStickerSizes.entries.forEach { size ->
+                    PromoSticker(
                         text = "New!",
                         size = size,
                         style = type,
