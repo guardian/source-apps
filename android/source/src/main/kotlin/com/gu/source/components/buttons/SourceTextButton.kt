@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -13,11 +15,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
 import com.gu.source.components.theme.LocalSourceTheme
+import com.gu.source.components.theme.ReaderRevenueTheme
 import com.gu.source.foundation.palette.Brand400
 import com.gu.source.foundation.palette.BrandAlt400
 import com.gu.source.foundation.palette.Neutral0
@@ -115,6 +119,7 @@ object SourceTextButton {
  * @param size The size of the button, which determines the typography style of the text.
  * @param onClick The callback to be invoked when this button is clicked.
  * @param modifier The [Modifier] to be applied to this button.
+ * @param hasUnderline Whether the text inside the button should have an underline.
  */
 @Composable
 fun SourceTextButton(
@@ -123,12 +128,21 @@ fun SourceTextButton(
     size: SourceTextButton.Size,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    hasUnderline: Boolean = false,
 ) {
     val currentTheme = LocalSourceTheme.current
 
     when (size) {
         SourceTextButton.Size.SMALL -> {
             TextButton(
+                shape = CircleShape,
+                elevation = ButtonDefaults.buttonElevation(
+                    defaultElevation = 0.dp,
+                    pressedElevation = 0.dp,
+                    focusedElevation = 0.dp,
+                    hoveredElevation = 0.dp,
+                    disabledElevation = 0.dp,
+                ),
                 onClick = onClick,
                 modifier = modifier.defaultMinSize(minHeight = size.minButtonHeight),
             ) {
@@ -136,6 +150,11 @@ fun SourceTextButton(
                     text = text,
                     style = size.textStyle.copy(
                         color = priority.textColor(theme = currentTheme),
+                        textDecoration = if (hasUnderline) {
+                            TextDecoration.Underline
+                        } else {
+                            null
+                        },
                     ),
                 )
             }
@@ -143,6 +162,14 @@ fun SourceTextButton(
 
         SourceTextButton.Size.MEDIUM -> {
             TextButton(
+                shape = CircleShape,
+                elevation = ButtonDefaults.buttonElevation(
+                    defaultElevation = 0.dp,
+                    pressedElevation = 0.dp,
+                    focusedElevation = 0.dp,
+                    hoveredElevation = 0.dp,
+                    disabledElevation = 0.dp,
+                ),
                 onClick = onClick,
                 modifier = modifier.defaultMinSize(minHeight = size.minButtonHeight),
             ) {
@@ -150,6 +177,11 @@ fun SourceTextButton(
                     text = text,
                     style = size.textStyle.copy(
                         color = priority.textColor(theme = currentTheme),
+                        textDecoration = if (hasUnderline) {
+                            TextDecoration.Underline
+                        } else {
+                            null
+                        },
                     ),
                 )
             }
@@ -160,22 +192,95 @@ fun SourceTextButton(
 @Composable
 @PreviewPhoneBothMode
 @PreviewTabletBothMode
-internal fun SourceTextButtonPreview() {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        SourceTextButton.Priority.entries.forEach { priority ->
-            Row(
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                modifier = Modifier
-                    .background(priority.demoBackgroundColor())
-                    .fillMaxWidth(),
-            ) {
-                SourceTextButton.Size.entries.forEach { size ->
-                    SourceTextButton(
-                        text = size.name.lowercase(),
-                        priority = priority,
-                        size = size,
-                        onClick = {},
-                    )
+internal fun SourceTextButtonPreviewNoUnderline() {
+    Column {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            SourceTextButton.Priority.entries.forEach { priority ->
+                Row(
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    modifier = Modifier
+                        .background(priority.demoBackgroundColor())
+                        .fillMaxWidth(),
+                ) {
+                    SourceTextButton.Size.entries.forEach { size ->
+                        SourceTextButton(
+                            text = size.name.lowercase(),
+                            priority = priority,
+                            size = size,
+                            onClick = {},
+                        )
+                    }
+                }
+            }
+        }
+        ReaderRevenueTheme {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                SourceTextButton.Priority.entries.forEach { priority ->
+                    Row(
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        modifier = Modifier
+                            .background(priority.demoBackgroundColor())
+                            .fillMaxWidth(),
+                    ) {
+                        SourceTextButton.Size.entries.forEach { size ->
+                            SourceTextButton(
+                                text = size.name.lowercase(),
+                                priority = priority,
+                                size = size,
+                                onClick = {},
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+@PreviewPhoneBothMode
+@PreviewTabletBothMode
+internal fun SourceTextButtonPreviewUnderline() {
+    Column {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            SourceTextButton.Priority.entries.forEach { priority ->
+                Row(
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    modifier = Modifier
+                        .background(priority.demoBackgroundColor())
+                        .fillMaxWidth(),
+                ) {
+                    SourceTextButton.Size.entries.forEach { size ->
+                        SourceTextButton(
+                            text = size.name.lowercase(),
+                            priority = priority,
+                            size = size,
+                            hasUnderline = true,
+                            onClick = {},
+                        )
+                    }
+                }
+            }
+        }
+        ReaderRevenueTheme {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                SourceTextButton.Priority.entries.forEach { priority ->
+                    Row(
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        modifier = Modifier
+                            .background(priority.demoBackgroundColor())
+                            .fillMaxWidth(),
+                    ) {
+                        SourceTextButton.Size.entries.forEach { size ->
+                            SourceTextButton(
+                                text = size.name.lowercase(),
+                                priority = priority,
+                                size = size,
+                                hasUnderline = true,
+                                onClick = {},
+                            )
+                        }
+                    }
                 }
             }
         }
