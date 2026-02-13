@@ -25,6 +25,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.ui.NavDisplay
 import com.gu.source.components.buttons.SourceButton
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
@@ -33,6 +35,8 @@ import com.gu.source.foundation.palette.Neutral10
 import com.gu.source.foundation.palette.Neutral100
 import com.gu.source.foundation.palette.Neutral97
 import com.gu.source.foundation.typography.HeadlineMedium20
+import com.gu.source.navigation.Destination
+import com.gu.source.navigation.Navigator.Companion.rememberNavigator
 import com.gu.source.previews.AlertBannerPreview
 import com.gu.source.previews.ButtonPreview
 import com.gu.source.previews.ChipsPreview
@@ -50,11 +54,22 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val navigator = rememberNavigator(Destination.Home)
+
             AppColourMode {
-                Greeting(modifier = it)
+                NavDisplay(
+                    backStack = navigator.backstack,
+                    onBack = { navigator.popBackStack() },
+                    modifier = it,
+                    entryProvider = entries(),
+                )
             }
         }
     }
+}
+
+internal fun entries() = entryProvider<Destination> {
+    entry(Destination.Home) { Greeting() }
 }
 
 private enum class SheetContentType {
