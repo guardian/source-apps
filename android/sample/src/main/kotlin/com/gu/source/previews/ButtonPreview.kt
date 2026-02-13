@@ -25,10 +25,7 @@ import com.gu.source.foundation.palette.Culture800
 import com.gu.source.foundation.typography.TextSansBold17
 
 @Composable
-internal fun ButtonPreview(
-    onBackPress: () -> Unit,
-    modifier: Modifier = Modifier
-) {
+internal fun ButtonPreview(onBackPress: () -> Unit, modifier: Modifier = Modifier) {
     PreviewScaffold(
         title = "Button variants",
         onBackPress = onBackPress,

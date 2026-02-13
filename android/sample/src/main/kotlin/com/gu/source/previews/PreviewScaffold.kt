@@ -34,7 +34,6 @@ internal fun PreviewScaffold(
         topBar = {
             SampleTopAppBar(
                 title = { Text(text = title) },
-                modifier = modifier,
                 navigationIcon = {
                     IconButton(onClick = onBackPress) {
                         Icon(

@@ -29,12 +29,8 @@ private const val MIN_RATING = 0
 private const val MAX_RATING = 5
 
 @Composable
-internal fun RatingPreview(
-    onBackPress: () -> Unit,
-    modifier: Modifier = Modifier,
-) {
+internal fun RatingPreview(onBackPress: () -> Unit, modifier: Modifier = Modifier) {
     PreviewScaffold("Star ratings", onBackPress, modifier) {
-
         val labelColour = AppColour(light = Color.Black, dark = Color.White)
         val subtitleColour = AppColour(light = Color.Gray, dark = Color.LightGray)
         val scrollState = rememberScrollState()

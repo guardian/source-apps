@@ -2,7 +2,10 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
-    <ID>CognitiveComplexMethod:ChipsPreview.kt$@OptIn(ExperimentalLayoutApi::class) @Composable internal fun ChipsPreview(modifier: Modifier = Modifier)</ID>
-    <ID>UndocumentedPublicClass:MainActivity.kt$MainActivity : ComponentActivity</ID>
+    <ID>CognitiveComplexMethod:ChipsPreview.kt$@OptIn(ExperimentalLayoutApi::class) @Composable internal fun ChipsPreview(onBackPress: () -> Unit, modifier: Modifier = Modifier)</ID>
+    <ID>UnusedPrivateMember:BadgePreview.kt$@PreviewLightDark @Composable private fun Preview()</ID>
+    <ID>UnusedPrivateMember:ButtonPreview.kt$@PreviewLightDark @Composable private fun Preview()</ID>
+    <ID>UnusedPrivateMember:ChipsPreview.kt$@PreviewLightDark @Composable private fun Preview()</ID>
+    <ID>UnusedPrivateMember:RatingsPreview.kt$@PreviewLightDark @Composable private fun Preview()</ID>
   </CurrentIssues>
 </SmellBaseline>

@@ -37,10 +37,7 @@ import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-internal fun ChipsPreview(
-    onBackPress: () -> Unit,
-    modifier: Modifier = Modifier
-) {
+internal fun ChipsPreview(onBackPress: () -> Unit, modifier: Modifier = Modifier) {
     PreviewScaffold(
         title = "Chips",
         onBackPress = onBackPress,
@@ -199,5 +196,5 @@ internal fun ChipsPreview(
 @PreviewLightDark
 @Composable
 private fun Preview() {
-    AppColourMode{ ChipsPreview({}) }
+    AppColourMode { ChipsPreview({}) }
 }

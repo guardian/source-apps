@@ -17,7 +17,6 @@ private val topBarContentColour = AppColour(
     dark = Source.Palette.Neutral97,
 )
 
-
 @Composable
 internal fun SampleTopAppBar(
     modifier: Modifier = Modifier,

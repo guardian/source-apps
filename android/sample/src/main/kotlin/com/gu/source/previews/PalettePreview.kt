@@ -257,10 +257,7 @@ private val colours = mapOf(
 )
 
 @Composable
-internal fun PalettePreview(
-    onBackPress: () -> Unit,
-    modifier: Modifier = Modifier
-) {
+internal fun PalettePreview(onBackPress: () -> Unit, modifier: Modifier = Modifier) {
     val gridCount = getGridCount()
     PreviewScaffold(
         title = "Palette",

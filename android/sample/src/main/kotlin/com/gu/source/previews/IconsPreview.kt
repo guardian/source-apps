@@ -405,10 +405,7 @@ private val icons = listOf(
 )
 
 @Composable
-internal fun IconsPreview(
-    onBackPress: () -> Unit,
-    modifier: Modifier = Modifier,
-) {
+internal fun IconsPreview(onBackPress: () -> Unit, modifier: Modifier = Modifier) {
     PreviewScaffold(
         "Icons",
         modifier = modifier,

@@ -18,10 +18,7 @@ import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.typography.TextSansBold17
 
 @Composable
-internal fun BadgePreview(
-    onBackPress: () -> Unit,
-    modifier: Modifier = Modifier
-) {
+internal fun BadgePreview(onBackPress: () -> Unit, modifier: Modifier = Modifier) {
     PreviewScaffold("Promo sticker", onBackPress, modifier) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(getGridCount()),
@@ -46,7 +43,7 @@ internal fun BadgePreview(
                     style = type,
                     modifier = Modifier
                         .padding(vertical = 8.dp)
-                        .wrapContentSize()
+                        .wrapContentSize(),
                 )
             }
         }

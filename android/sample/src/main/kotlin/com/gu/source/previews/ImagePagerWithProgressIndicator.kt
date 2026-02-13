@@ -28,7 +28,7 @@ import com.gu.source.utils.PreviewTabletBothMode
 @Composable
 internal fun ImagePagerWithProgressIndicator(
     onBackPress: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     PreviewScaffold(
         title = "Pager progress bar sample",

@@ -17,10 +17,7 @@ import com.gu.source.components.banner.SourceAlertBanner
 
 @Suppress("StringLiteralDuplication")
 @Composable
-internal fun AlertBannerPreview(
-    onBackPress: () -> Unit,
-    modifier: Modifier = Modifier
-) {
+internal fun AlertBannerPreview(onBackPress: () -> Unit, modifier: Modifier = Modifier) {
     PreviewScaffold(
         title = "Alert Banner variants",
         onBackPress = onBackPress,
