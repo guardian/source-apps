@@ -9,13 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.gu.source.components.buttons.SourceButton
@@ -29,18 +23,6 @@ import com.gu.source.foundation.typography.HeadlineMedium20
 import com.gu.source.navigation.Destination
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.plus
-import kotlinx.coroutines.launch
-
-private enum class SheetContentType {
-    Palette,
-    PagerProgressBar,
-    Buttons,
-    CoreIcons,
-    AlertBanner,
-    Chips,
-    Badges,
-    Ratings,
-}
 
 @SuppressLint("DiscouragedApi")
 @Composable
@@ -48,13 +30,6 @@ internal fun Home(
     modifier: Modifier = Modifier,
     navigate: (Destination) -> Unit,
 ) {
-    val coroutineScope = rememberCoroutineScope()
-    val scaffoldState = rememberBottomSheetScaffoldState()
-
-    var sheetContentType by remember {
-        mutableStateOf(SheetContentType.Palette)
-    }
-
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -112,56 +87,31 @@ internal fun Home(
             SourceButton(
                 text = "Open icons preview",
                 priority = SourceButton.Priority.TertiaryOnWhite,
-                onClick = {
-                    sheetContentType = SheetContentType.CoreIcons
-                    coroutineScope.launch {
-                        scaffoldState.bottomSheetState.expand()
-                    }
-                },
+                onClick = { navigate(Destination.IconsPreview) },
             )
 
             SourceButton(
                 text = "Open Alert banner preview",
                 priority = SourceButton.Priority.TertiaryOnWhite,
-                onClick = {
-                    sheetContentType = SheetContentType.AlertBanner
-                    coroutineScope.launch {
-                        scaffoldState.bottomSheetState.expand()
-                    }
-                },
+                onClick = { navigate(Destination.AlertBannerPreview) },
             )
 
             SourceButton(
                 text = "Open chips preview",
                 priority = SourceButton.Priority.TertiaryOnWhite,
-                onClick = {
-                    sheetContentType = SheetContentType.Chips
-                    coroutineScope.launch {
-                        scaffoldState.bottomSheetState.expand()
-                    }
-                },
+                onClick = { navigate(Destination.ChipsPreview) },
             )
 
             SourceButton(
                 text = "Open badges preview",
                 priority = SourceButton.Priority.TertiaryOnWhite,
-                onClick = {
-                    sheetContentType = SheetContentType.Badges
-                    coroutineScope.launch {
-                        scaffoldState.bottomSheetState.expand()
-                    }
-                },
+                onClick = { navigate(Destination.BadgesPreview) },
             )
 
             SourceButton(
                 text = "Open ratings preview",
                 priority = SourceButton.Priority.TertiaryOnWhite,
-                onClick = {
-                    sheetContentType = SheetContentType.Ratings
-                    coroutineScope.launch {
-                        scaffoldState.bottomSheetState.expand()
-                    }
-                },
+                onClick = { navigate(Destination.StarRatingsPreview) },
             )
         }
     }

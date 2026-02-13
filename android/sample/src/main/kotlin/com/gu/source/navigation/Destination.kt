@@ -17,4 +17,19 @@ internal sealed interface Destination {
 
     @Serializable
     object ButtonsPreview : Destination
+
+    @Serializable
+    object IconsPreview : Destination
+
+    @Serializable
+    object AlertBannerPreview : Destination
+
+    @Serializable
+    object ChipsPreview : Destination
+
+    @Serializable
+    object BadgesPreview : Destination
+
+    @Serializable
+    object StarRatingsPreview : Destination
 }
