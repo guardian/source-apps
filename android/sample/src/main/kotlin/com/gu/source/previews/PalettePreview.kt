@@ -2,14 +2,19 @@
 
 package com.gu.source.previews
 
+import android.content.res.Configuration
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,7 +25,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
-import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.palette.Brand100
 import com.gu.source.foundation.palette.Brand300
@@ -114,7 +118,6 @@ import com.gu.source.foundation.palette.Sport800
 import com.gu.source.foundation.palette.Success300
 import com.gu.source.foundation.palette.Success400
 import com.gu.source.foundation.palette.Success500
-import com.gu.source.foundation.typography.HeadlineBold20
 import com.gu.source.foundation.typography.TextSans11
 import com.gu.source.foundation.typography.TextSansBold14
 import com.gu.source.foundation.typography.TextSansBold15
@@ -253,34 +256,20 @@ private val colours = mapOf(
     ),
 )
 
-private const val GRID_COUNT = 4
-
 @Composable
-internal fun Palette(modifier: Modifier = Modifier) {
-    Surface(
+internal fun PalettePreview(onBackPress: () -> Unit, modifier: Modifier = Modifier) {
+    val gridCount = getGridCount()
+    PreviewScaffold(
+        title = "Palette",
+        onBackPress = onBackPress,
         modifier = modifier,
-        color = AppColour(
-            Source.Palette.Neutral100,
-            Source.Palette.Neutral0,
-        ).current,
-        contentColor = AppColour(
-            Source.Palette.Neutral0,
-            Source.Palette.Neutral100,
-        ).current,
     ) {
         LazyVerticalGrid(
-            columns = GridCells.Fixed(GRID_COUNT),
-            contentPadding = PaddingValues(vertical = 8.dp),
+            columns = GridCells.Fixed(gridCount),
+            modifier = it,
         ) {
-            item {
-                Text(
-                    text = "Palette",
-                    style = Source.Typography.HeadlineBold20,
-                    modifier = Modifier.padding(8.dp),
-                )
-            }
             colours.keys.forEachIndexed { _, palette ->
-                item(span = { GridItemSpan(GRID_COUNT) }) {
+                item(span = { GridItemSpan(gridCount) }) {
                     Column {
                         Spacer(modifier = Modifier.height(8.dp))
                         HorizontalDivider()
@@ -292,11 +281,12 @@ internal fun Palette(modifier: Modifier = Modifier) {
                     }
                 }
                 items(colours[palette].orEmpty()) { colour ->
-                    val contentColour = if (colour.colour.luminance() > ContentColourThreshold) {
-                        Color.Black
-                    } else {
-                        Color.White
-                    }
+                    val contentColour =
+                        if (colour.colour.luminance() > ContentColourThreshold) {
+                            Color.Black
+                        } else {
+                            Color.White
+                        }
 
                     Box(
                         modifier = Modifier
@@ -328,9 +318,13 @@ internal fun Palette(modifier: Modifier = Modifier) {
 }
 
 @Preview(device = "spec:width=2160px,height=8340px,dpi=440")
+@Preview(
+    device = "spec:width=2160px,height=8340px,dpi=440",
+    uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL,
+)
 @Composable
 private fun Preview() {
     AppColourMode {
-        Palette()
+        PalettePreview({})
     }
 }

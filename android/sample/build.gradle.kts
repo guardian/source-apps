@@ -48,4 +48,9 @@ dependencies {
     implementation(libs.androidx.activity.compose)
 
     implementation(libs.coil.compose)
+
+    implementation(libs.kotlin.serialisation.core)
+
+    implementation(libs.androidx.nav.runtime)
+    implementation(libs.androidx.nav.ui)
 }
