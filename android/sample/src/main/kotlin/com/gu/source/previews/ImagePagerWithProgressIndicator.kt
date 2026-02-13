@@ -1,7 +1,13 @@
 package com.gu.source.previews
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -21,26 +27,35 @@ import com.gu.source.utils.PreviewTabletBothMode
 
 @Suppress("MagicNumber")
 @Composable
-internal fun ImagePagerWithProgressIndicator(modifier: Modifier = Modifier) {
-    val pagerState = rememberPagerState { 10 }
-    Column(
-        modifier = modifier
-            .padding(8.dp)
-            .widthIn(max = 695.dp),
+internal fun ImagePagerWithProgressIndicator(
+    onBackPress: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    PreviewScaffold(
+        title = "Pager progress bar sample",
+        onBackPress = onBackPress,
+        modifier = modifier,
     ) {
-        HorizontalPager(
-            state = pagerState,
-            modifier = Modifier
-                .aspectRatio(695 / 544f)
-                .clip(RoundedCornerShape(16.dp)),
-        ) { page ->
-            SampleImage(
-                randomKey = page,
-                modifier = Modifier.fillMaxWidth(),
-            )
-        }
+        val pagerState = rememberPagerState { 10 }
+        Column(
+            modifier = it
+                .padding(8.dp)
+                .widthIn(max = 695.dp),
+        ) {
+            HorizontalPager(
+                state = pagerState,
+                modifier = Modifier
+                    .aspectRatio(695 / 544f)
+                    .clip(RoundedCornerShape(16.dp)),
+            ) { page ->
+                SampleImage(
+                    randomKey = page,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
 
-        PagerProgressBar(pagerState = pagerState)
+            PagerProgressBar(pagerState = pagerState)
+        }
     }
 }
 
@@ -59,7 +74,10 @@ private fun Preview() {
                     ).current,
                 ),
         ) {
-            ImagePagerWithProgressIndicator(modifier = Modifier.align(Alignment.TopCenter))
+            ImagePagerWithProgressIndicator(
+                onBackPress = {},
+                modifier = Modifier.align(Alignment.TopCenter)
+            )
         }
     }
 }

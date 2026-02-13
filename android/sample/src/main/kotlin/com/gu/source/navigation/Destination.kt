@@ -12,4 +12,7 @@ internal sealed interface Destination {
     @Serializable
     object PalettePreview : Destination
 
+    @Serializable
+    object PagerProgressBarPreview : Destination
+
 }

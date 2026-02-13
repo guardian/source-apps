@@ -9,12 +9,14 @@ import androidx.navigation3.ui.NavDisplay
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.navigation.Destination
 import com.gu.source.navigation.Navigator.Companion.rememberNavigator
+import com.gu.source.previews.ImagePagerWithProgressIndicator
 import com.gu.source.previews.PalettePreview
 
 internal class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContent {
             val navigator = rememberNavigator(Destination.Home)
 
@@ -29,6 +31,9 @@ internal class MainActivity : ComponentActivity() {
                         }
                         entry(Destination.PalettePreview) {
                             PalettePreview({ navigator.popBackStack() })
+                        }
+                        entry(Destination.PagerProgressBarPreview) {
+                            ImagePagerWithProgressIndicator({ navigator.popBackStack() })
                         }
                     },
                 )

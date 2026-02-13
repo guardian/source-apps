@@ -100,13 +100,7 @@ internal fun Home(
             SourceButton(
                 text = "Open pager progress bar sample",
                 priority = SourceButton.Priority.TertiaryOnWhite,
-                onClick = {
-                    sheetContentType = SheetContentType.PagerProgressBar
-                    // TODO: 19/07/2024 Close and reexpand if already visible.
-                    coroutineScope.launch {
-                        scaffoldState.bottomSheetState.expand()
-                    }
-                },
+                onClick = { navigate(Destination.PagerProgressBarPreview) },
             )
 
             SourceButton(
