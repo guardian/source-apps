@@ -4,6 +4,10 @@ The Promo Sticker is a visual indicator used to signal new products, limited tim
 
 It is a minimal yet effective way to draw user attention to new or recommended products without disrupting the interface.
 
+| Light|Dark|
+|---|---|
+|![Light](https://github.com/user-attachments/assets/aa4f42e9-6c3e-4372-bbf7-c4cfc6bc364a)|![Dark](https://github.com/user-attachments/assets/2cb1b459-2338-4d19-89a3-5a274bf19799)|
+
 ### Details
 
 Source designs & documentation in [Figma][1].
@@ -34,12 +38,6 @@ PromoSticker(
     style = PromoStickerStyle.Error,
 )
 ```
-
-## Previews
-
-| Light|Dark|
-|---|---|
-|![Light](https://github.com/user-attachments/assets/aa4f42e9-6c3e-4372-bbf7-c4cfc6bc364a)|![Dark](https://github.com/user-attachments/assets/2cb1b459-2338-4d19-89a3-5a274bf19799)|
 
 [1]: https://www.figma.com/design/kSmjgtoTWiG8N7HXxFoGEE/%E2%97%90-Apps-library?node-id=15923-9318&t=ZvV0tz2sai766MUo-11
 [2]: https://guardian.github.io/source-apps/android/docs/-source%20for%20-android/com.gu.source.components.promosticker/-promo-sticker.html
