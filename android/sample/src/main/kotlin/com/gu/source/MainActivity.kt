@@ -16,6 +16,7 @@ import com.gu.source.previews.ChipsPreview
 import com.gu.source.previews.IconsPreview
 import com.gu.source.previews.ImagePagerWithProgressIndicator
 import com.gu.source.previews.PalettePreview
+import com.gu.source.previews.RatingPreview
 
 internal class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,7 +57,7 @@ internal class MainActivity : ComponentActivity() {
                             BadgePreview({ navigator.popBackStack() })
                         }
                         entry(Destination.StarRatingsPreview) {
-                            IconsPreview({ navigator.popBackStack() })
+                            RatingPreview({ navigator.popBackStack() })
                         }
                     },
                 )
