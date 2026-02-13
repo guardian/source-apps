@@ -11,6 +11,7 @@ import com.gu.source.navigation.Destination
 import com.gu.source.navigation.Navigator.Companion.rememberNavigator
 import com.gu.source.previews.AlertBannerPreview
 import com.gu.source.previews.ButtonPreview
+import com.gu.source.previews.ChipsPreview
 import com.gu.source.previews.IconsPreview
 import com.gu.source.previews.ImagePagerWithProgressIndicator
 import com.gu.source.previews.PalettePreview
@@ -48,7 +49,7 @@ internal class MainActivity : ComponentActivity() {
                             AlertBannerPreview({ navigator.popBackStack() })
                         }
                         entry(Destination.ChipsPreview) {
-                            IconsPreview({ navigator.popBackStack() })
+                            ChipsPreview({ navigator.popBackStack() })
                         }
                         entry(Destination.BadgesPreview) {
                             IconsPreview({ navigator.popBackStack() })
