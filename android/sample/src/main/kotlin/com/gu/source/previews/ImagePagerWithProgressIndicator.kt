@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -38,9 +37,8 @@ internal fun ImagePagerWithProgressIndicator(
     ) {
         val pagerState = rememberPagerState { 10 }
         Column(
-            modifier = it
-                .padding(8.dp)
-                .widthIn(max = 695.dp),
+            modifier = it.widthIn(max = 695.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             HorizontalPager(
                 state = pagerState,
@@ -76,7 +74,7 @@ private fun Preview() {
         ) {
             ImagePagerWithProgressIndicator(
                 onBackPress = {},
-                modifier = Modifier.align(Alignment.TopCenter)
+                modifier = Modifier.align(Alignment.TopCenter),
             )
         }
     }

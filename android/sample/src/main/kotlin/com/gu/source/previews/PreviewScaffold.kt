@@ -7,12 +7,20 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.gu.source.SampleTopAppBar
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.foundation.icons.base.ArrowLeftStraight
 import com.gu.source.foundation.palette.Neutral0
 import com.gu.source.foundation.palette.Neutral100
+import com.gu.source.utils.isTabletDevice
+
+private const val GRID_COUNT_TABLET = 4
+private const val GRID_COUNT_PHONE = 2
+
+@Composable
+internal fun getGridCount(): Int = if (isTabletDevice()) GRID_COUNT_TABLET else GRID_COUNT_PHONE
 
 @Composable
 internal fun PreviewScaffold(
@@ -46,6 +54,10 @@ internal fun PreviewScaffold(
             Source.Palette.Neutral100,
         ).current,
     ) {
-        content(Modifier.padding(it))
+        content(
+            Modifier
+                .padding(it)
+                .padding(16.dp),
+        )
     }
 }

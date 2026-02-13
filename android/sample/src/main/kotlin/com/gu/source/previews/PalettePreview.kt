@@ -6,7 +6,6 @@ import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -122,7 +121,6 @@ import com.gu.source.foundation.palette.Success500
 import com.gu.source.foundation.typography.TextSans11
 import com.gu.source.foundation.typography.TextSansBold14
 import com.gu.source.foundation.typography.TextSansBold15
-import com.gu.source.utils.isTabletDevice
 
 private data class Colour(
     val name: String,
@@ -258,15 +256,12 @@ private val colours = mapOf(
     ),
 )
 
-private const val GRID_COUNT_TABLET = 4
-private const val GRID_COUNT_PHONE = 2
-
 @Composable
 internal fun PalettePreview(
     onBackPress: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val gridCount = if (isTabletDevice()) GRID_COUNT_TABLET else GRID_COUNT_PHONE
+    val gridCount = getGridCount()
     PreviewScaffold(
         title = "Palette",
         onBackPress = onBackPress,
@@ -274,7 +269,6 @@ internal fun PalettePreview(
     ) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(gridCount),
-            contentPadding = PaddingValues(vertical = 8.dp),
             modifier = it,
         ) {
             colours.keys.forEachIndexed { _, palette ->
