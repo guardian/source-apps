@@ -41,6 +41,7 @@ import com.gu.source.previews.IconsPreview
 import com.gu.source.previews.ImagePagerWithProgressIndicator
 import com.gu.source.previews.Palette
 import com.gu.source.previews.RatingPreview
+import com.gu.source.previews.TextButtonPreview
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.plus
 import kotlinx.coroutines.launch
@@ -61,6 +62,7 @@ private enum class SheetContentType {
     Palette,
     PagerProgressBar,
     Buttons,
+    TextButtons,
     CoreIcons,
     AlertBanner,
     Chips,
@@ -85,6 +87,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
                 SheetContentType.Palette -> Palette(sheetModifier)
                 SheetContentType.PagerProgressBar -> ImagePagerWithProgressIndicator(sheetModifier)
                 SheetContentType.Buttons -> ButtonPreview(sheetModifier)
+                SheetContentType.TextButtons -> TextButtonPreview(sheetModifier)
                 SheetContentType.CoreIcons -> IconsPreview(sheetModifier)
                 SheetContentType.AlertBanner -> AlertBannerPreview(sheetModifier)
                 SheetContentType.Chips -> ChipsPreview(sheetModifier)
@@ -162,6 +165,17 @@ private fun Greeting(modifier: Modifier = Modifier) {
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = {
                     sheetContentType = SheetContentType.Buttons
+                    coroutineScope.launch {
+                        scaffoldState.bottomSheetState.expand()
+                    }
+                },
+            )
+
+            SourceButton(
+                text = "Open text buttons preview",
+                priority = SourceButton.Priority.TertiaryOnWhite,
+                onClick = {
+                    sheetContentType = SheetContentType.TextButtons
                     coroutineScope.launch {
                         scaffoldState.bottomSheetState.expand()
                     }

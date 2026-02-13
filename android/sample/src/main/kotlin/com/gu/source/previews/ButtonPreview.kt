@@ -1,6 +1,5 @@
 package com.gu.source.previews
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,18 +16,11 @@ import com.gu.source.components.buttons.ButtonColours
 import com.gu.source.components.buttons.PlainSourceButton
 import com.gu.source.components.buttons.SourceButton
 import com.gu.source.components.buttons.SourceIconButton
-import com.gu.source.components.buttons.SourceTextButton
-import com.gu.source.components.buttons.SourceTextButton.Priority.ON_BLUE_BACKGROUND
-import com.gu.source.components.buttons.SourceTextButton.Priority.ON_WHITE_BACKGROUND
-import com.gu.source.components.buttons.SourceTextButton.Priority.ON_YELLOW_BACKGROUND
 import com.gu.source.components.theme.ReaderRevenueTheme
 import com.gu.source.daynight.AppColour
 import com.gu.source.foundation.icons.base.Checkmark
-import com.gu.source.foundation.palette.Brand400
-import com.gu.source.foundation.palette.BrandAlt400
 import com.gu.source.foundation.palette.Culture200
 import com.gu.source.foundation.palette.Culture800
-import com.gu.source.foundation.palette.Neutral100
 import com.gu.source.foundation.typography.TextSansBold17
 
 @Composable
@@ -141,31 +133,6 @@ internal fun ButtonPreview(modifier: Modifier = Modifier) {
                 ),
             ),
         )
-
-        Column(horizontalAlignment = CenterHorizontally) {
-            SourceTextButton.Priority.entries.forEach { priority ->
-                val backgroundColor = when (priority) {
-                    ON_BLUE_BACKGROUND -> Source.Palette.Brand400
-                    ON_WHITE_BACKGROUND -> Source.Palette.Neutral100
-                    ON_YELLOW_BACKGROUND -> Source.Palette.BrandAlt400
-                }
-                Row(
-                    horizontalArrangement = Arrangement.SpaceEvenly,
-                    modifier = Modifier
-                        .background(color = backgroundColor)
-                        .fillMaxWidth(),
-                ) {
-                    SourceTextButton.Size.entries.forEach { size ->
-                        SourceTextButton(
-                            text = "text button - ${size.name.lowercase()}",
-                            priority = priority,
-                            size = size,
-                            onClick = {},
-                        )
-                    }
-                }
-            }
-        }
     }
 }
 
