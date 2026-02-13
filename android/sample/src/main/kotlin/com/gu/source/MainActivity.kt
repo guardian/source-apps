@@ -4,6 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
 import com.gu.source.daynight.AppColourMode
@@ -59,6 +64,25 @@ internal class MainActivity : ComponentActivity() {
                         entry(Destination.StarRatingsPreview) {
                             RatingPreview(navigator::popBackStack)
                         }
+                    },
+                    transitionSpec = {
+                        // Slide in from right when navigating forward
+                        slideInHorizontally(initialOffsetX = { it }) togetherWith
+                            slideOutHorizontally(targetOffsetX = { -it })
+                    },
+                    popTransitionSpec = {
+                        // Slide in from left when navigating back
+                        fadeIn(
+                            spring(dampingRatio = 1.0f, stiffness = 1600.0f),
+                        ) togetherWith
+                            slideOutHorizontally(targetOffsetX = { it })
+                    },
+                    predictivePopTransitionSpec = {
+                        // Slide in from left when navigating back
+                        fadeIn(
+                            spring(dampingRatio = 1.0f, stiffness = 1600.0f),
+                        ) togetherWith
+                            slideOutHorizontally(targetOffsetX = { it })
                     },
                 )
             }
