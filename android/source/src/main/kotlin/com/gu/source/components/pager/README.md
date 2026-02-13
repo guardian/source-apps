@@ -26,7 +26,7 @@ See the [full API Docs here][3].
 
 ```kotlin
 Column(
-    modifier = modifier .widthIn(max = 695.dp),
+    modifier = modifier.widthIn(max = 695.dp),
 ) {
     HorizontalPager(
         state = pagerState,

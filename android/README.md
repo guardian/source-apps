@@ -116,7 +116,7 @@ format.
 The Promo Sticker is a visual indicator used to draw user attention to new or recommended products 
 without disrupting the interface. They are available in two sizes and four styles.
 
-[See here for full details of the chip components.][promosticker]
+[See here for full details of the promo sticker components.][promosticker]
 
 ---
 
