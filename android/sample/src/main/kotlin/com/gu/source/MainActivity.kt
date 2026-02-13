@@ -36,28 +36,28 @@ internal class MainActivity : ComponentActivity() {
                             Home { navigator.navigate(it) }
                         }
                         entry(Destination.PalettePreview) {
-                            PalettePreview({ navigator.popBackStack() })
+                            PalettePreview(navigator::popBackStack)
                         }
                         entry(Destination.PagerProgressBarPreview) {
-                            ImagePagerWithProgressIndicator({ navigator.popBackStack() })
+                            ImagePagerWithProgressIndicator(navigator::popBackStack)
                         }
                         entry(Destination.ButtonsPreview) {
-                            ButtonPreview({ navigator.popBackStack() })
+                            ButtonPreview(navigator::popBackStack)
                         }
                         entry(Destination.IconsPreview) {
-                            IconsPreview({ navigator.popBackStack() })
+                            IconsPreview(navigator::popBackStack)
                         }
                         entry(Destination.AlertBannerPreview) {
-                            AlertBannerPreview({ navigator.popBackStack() })
+                            AlertBannerPreview(navigator::popBackStack)
                         }
                         entry(Destination.ChipsPreview) {
-                            ChipsPreview({ navigator.popBackStack() })
+                            ChipsPreview(navigator::popBackStack)
                         }
                         entry(Destination.BadgesPreview) {
-                            BadgePreview({ navigator.popBackStack() })
+                            BadgePreview(navigator::popBackStack)
                         }
                         entry(Destination.StarRatingsPreview) {
-                            RatingPreview({ navigator.popBackStack() })
+                            RatingPreview(navigator::popBackStack)
                         }
                     },
                 )
