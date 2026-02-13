@@ -16,7 +16,6 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,9 +25,7 @@ import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.gu.source.SampleTopAppBarWithBack
 import com.gu.source.Source
-import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.palette.Brand100
 import com.gu.source.foundation.palette.Brand300
@@ -122,10 +119,10 @@ import com.gu.source.foundation.palette.Sport800
 import com.gu.source.foundation.palette.Success300
 import com.gu.source.foundation.palette.Success400
 import com.gu.source.foundation.palette.Success500
-import com.gu.source.foundation.typography.HeadlineBold20
 import com.gu.source.foundation.typography.TextSans11
 import com.gu.source.foundation.typography.TextSansBold14
 import com.gu.source.foundation.typography.TextSansBold15
+import com.gu.source.utils.isTabletDevice
 
 private data class Colour(
     val name: String,
@@ -261,43 +258,27 @@ private val colours = mapOf(
     ),
 )
 
-private const val GRID_COUNT = 4
+private const val GRID_COUNT_TABLET = 4
+private const val GRID_COUNT_PHONE = 2
 
 @Composable
 internal fun PalettePreview(
     onBackPress: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Scaffold(
+    val gridCount = if (isTabletDevice()) GRID_COUNT_TABLET else GRID_COUNT_PHONE
+    PreviewScaffold(
+        title = "Palette",
+        onBackPress = onBackPress,
         modifier = modifier,
-        topBar = {
-            SampleTopAppBarWithBack(
-                onBackPress = onBackPress,
-                title = {
-                    Text(
-                        text = "Palette",
-                        style = Source.Typography.HeadlineBold20,
-                        modifier = Modifier.padding(8.dp),
-                    )
-                },
-            )
-        },
-        containerColor = AppColour(
-            Source.Palette.Neutral100,
-            Source.Palette.Neutral0,
-        ).current,
-        contentColor = AppColour(
-            Source.Palette.Neutral0,
-            Source.Palette.Neutral100,
-        ).current,
     ) {
         LazyVerticalGrid(
-            columns = GridCells.Fixed(GRID_COUNT),
+            columns = GridCells.Fixed(gridCount),
             contentPadding = PaddingValues(vertical = 8.dp),
-            modifier = Modifier.padding(it),
+            modifier = it,
         ) {
             colours.keys.forEachIndexed { _, palette ->
-                item(span = { GridItemSpan(GRID_COUNT) }) {
+                item(span = { GridItemSpan(gridCount) }) {
                     Column {
                         Spacer(modifier = Modifier.height(8.dp))
                         HorizontalDivider()
