@@ -64,7 +64,7 @@ private enum class SheetContentType {
     CoreIcons,
     AlertBanner,
     Chips,
-    Badges,
+    PromoSticker,
     Ratings,
 }
 
@@ -88,7 +88,7 @@ private fun Greeting(modifier: Modifier = Modifier) {
                 SheetContentType.CoreIcons -> IconsPreview(sheetModifier)
                 SheetContentType.AlertBanner -> AlertBannerPreview(sheetModifier)
                 SheetContentType.Chips -> ChipsPreview(sheetModifier)
-                SheetContentType.Badges -> BadgePreview(sheetModifier)
+                SheetContentType.PromoSticker -> PromoStickerPreview(sheetModifier)
                 SheetContentType.Ratings -> RatingPreview(sheetModifier)
             }
         },
@@ -202,10 +202,10 @@ private fun Greeting(modifier: Modifier = Modifier) {
             )
 
             SourceButton(
-                text = "Open badges preview",
+                text = "Promo stickers",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = {
-                    sheetContentType = SheetContentType.Badges
+                    sheetContentType = SheetContentType.PromoSticker
                     coroutineScope.launch {
                         scaffoldState.bottomSheetState.expand()
                     }

@@ -16,7 +16,7 @@ import com.gu.source.components.promosticker.PromoStickerStyle
 
 @Preview
 @Composable
-internal fun BadgePreview(modifier: Modifier = Modifier) {
+internal fun PromoStickerPreview(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         PromoStickerStyle.entries.forEach { type ->
             Row(
