@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
@@ -34,7 +33,6 @@ import com.gu.source.utils.PreviewTabletBothMode
  * Only Small and Medium sizes are supported.
  * @param onClick The callback to be invoked when the button is clicked.
  * @param modifier The [Modifier] to be applied to this button.
- * @param hasUnderline Whether the text should have an underline. Default is false.
  * @param theme An optional [Source.Theme] to apply to this button.
  * If not provided, the current theme from [LocalSourceTheme] will be used.
  */
@@ -45,7 +43,6 @@ fun SourceTextButton(
     size: SourceButton.Size,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    hasUnderline: Boolean = false,
     theme: Source.Theme? = null,
 ) {
     val appliedTheme = theme ?: LocalSourceTheme.current
@@ -82,11 +79,6 @@ fun SourceTextButton(
             softWrap = false,
             maxLines = 1,
             letterSpacing = 0.sp,
-            textDecoration = if (hasUnderline) {
-                TextDecoration.Underline
-            } else {
-                null
-            },
         )
     }
 }

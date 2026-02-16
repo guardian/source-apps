@@ -20,6 +20,9 @@ internal sealed interface Destination : NavKey {
     object ButtonsPreview : Destination
 
     @Serializable
+    object TextButtonPreview : Destination
+
+    @Serializable
     object IconsPreview : Destination
 
     @Serializable

@@ -82,6 +82,12 @@ internal fun Home(modifier: Modifier = Modifier, navigate: (Destination) -> Unit
             )
 
             SourceButton(
+                text = "Text buttons",
+                priority = SourceButton.Priority.TertiaryOnWhite,
+                onClick = { navigate(Destination.TextButtonPreview) },
+            )
+
+            SourceButton(
                 text = "Chips",
                 priority = SourceButton.Priority.TertiaryOnWhite,
                 onClick = { navigate(Destination.ChipsPreview) },

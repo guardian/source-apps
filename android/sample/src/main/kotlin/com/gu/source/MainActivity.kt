@@ -22,6 +22,7 @@ import com.gu.source.previews.ImagePagerWithProgressIndicator
 import com.gu.source.previews.PalettePreview
 import com.gu.source.previews.PromoStickerPreview
 import com.gu.source.previews.RatingPreview
+import com.gu.source.previews.TextButtonPreview
 
 internal class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +49,9 @@ internal class MainActivity : ComponentActivity() {
                         }
                         entry(Destination.ButtonsPreview) {
                             ButtonPreview(navigator::popBackStack)
+                        }
+                        entry(Destination.TextButtonPreview) {
+                            TextButtonPreview(navigator::popBackStack)
                         }
                         entry(Destination.IconsPreview) {
                             IconsPreview(navigator::popBackStack)
