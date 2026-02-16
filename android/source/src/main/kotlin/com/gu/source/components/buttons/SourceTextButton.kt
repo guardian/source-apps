@@ -1,5 +1,6 @@
 package com.gu.source.components.buttons
 
+import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -22,10 +23,15 @@ import androidx.compose.ui.unit.sp
 import com.gu.source.Source
 import com.gu.source.components.theme.LocalSourceTheme
 import com.gu.source.components.theme.ReaderRevenueTheme
+import com.gu.source.components.theme.SourceCoreTheme
+import com.gu.source.daynight.AppColour
+import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.palette.Brand400
+import com.gu.source.foundation.palette.BrandAlt200
 import com.gu.source.foundation.palette.BrandAlt400
 import com.gu.source.foundation.palette.Neutral0
 import com.gu.source.foundation.palette.Neutral100
+import com.gu.source.foundation.palette.Neutral86
 import com.gu.source.foundation.typography.TextSansBold17
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.PreviewTabletBothMode
@@ -92,15 +98,42 @@ object SourceTextButton {
         ON_YELLOW_BACKGROUND,
         ;
 
-        internal fun textColor(theme: Source.Theme): Color = when (this) {
-            ON_BLUE_BACKGROUND -> if (theme == Source.Theme.ReaderRevenue) {
-                Source.Palette.BrandAlt400
-            } else {
-                Source.Palette.Neutral100
+        internal fun textColor(theme: Source.Theme): AppColour = when (theme) {
+            Source.Theme.Core -> {
+                when (this) {
+                    ON_BLUE_BACKGROUND -> AppColour(
+                        light = Source.Palette.Neutral100,
+                        dark = Source.Palette.Neutral86,
+                    )
+
+                    ON_WHITE_BACKGROUND -> AppColour(
+                        light = Source.Palette.Brand400,
+                        dark = Source.Palette.Neutral86,
+                    )
+
+                    ON_YELLOW_BACKGROUND -> AppColour(
+                        light = Source.Palette.Neutral0,
+                    )
+                }
             }
 
-            ON_WHITE_BACKGROUND -> Source.Palette.Brand400
-            ON_YELLOW_BACKGROUND -> Source.Palette.Neutral0
+            Source.Theme.ReaderRevenue -> {
+                when (this) {
+                    ON_BLUE_BACKGROUND -> AppColour(
+                        light = Source.Palette.BrandAlt400,
+                        dark = Source.Palette.BrandAlt200,
+                    )
+
+                    ON_WHITE_BACKGROUND -> AppColour(
+                        light = Source.Palette.Brand400,
+                        dark = Source.Palette.BrandAlt200,
+                    )
+
+                    ON_YELLOW_BACKGROUND -> AppColour(
+                        light = Source.Palette.Neutral0,
+                    )
+                }
+            }
         }
 
         internal fun demoBackgroundColor(): Color = when (this) {
@@ -149,7 +182,7 @@ fun SourceTextButton(
         Text(
             text = text,
             style = size.textStyle.copy(
-                color = priority.textColor(theme = currentTheme),
+                color = priority.textColor(theme = currentTheme).current,
                 textDecoration = if (hasUnderline) {
                     TextDecoration.Underline
                 } else {
@@ -163,14 +196,15 @@ fun SourceTextButton(
 @Composable
 @PreviewPhoneBothMode
 @PreviewTabletBothMode
-internal fun SourceTextButtonNoUnderlinePreview() {
-    Column {
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+internal fun CoreTextButtonNoUnderlinePreview() = AppColourMode {
+    SourceCoreTheme {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             SourceTextButton.Priority.entries.forEach { priority ->
                 Row(
                     horizontalArrangement = Arrangement.SpaceEvenly,
                     modifier = Modifier
-                        .background(priority.demoBackgroundColor())
+                        .background(color = priority.demoBackgroundColor())
                         .fillMaxWidth(),
                 ) {
                     SourceTextButton.Size.entries.forEach { size ->
@@ -184,23 +218,30 @@ internal fun SourceTextButtonNoUnderlinePreview() {
                 }
             }
         }
-        ReaderRevenueTheme {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                SourceTextButton.Priority.entries.forEach { priority ->
-                    Row(
-                        horizontalArrangement = Arrangement.SpaceEvenly,
-                        modifier = Modifier
-                            .background(priority.demoBackgroundColor())
-                            .fillMaxWidth(),
-                    ) {
-                        SourceTextButton.Size.entries.forEach { size ->
-                            SourceTextButton(
-                                text = size.name.lowercase(),
-                                priority = priority,
-                                size = size,
-                                onClick = {},
-                            )
-                        }
+    }
+}
+
+@Composable
+@PreviewPhoneBothMode
+@PreviewTabletBothMode
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+internal fun RRTextButtonNoUnderlinePreview() = AppColourMode {
+    ReaderRevenueTheme {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            SourceTextButton.Priority.entries.forEach { priority ->
+                Row(
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    modifier = Modifier
+                        .background(color = priority.demoBackgroundColor())
+                        .fillMaxWidth(),
+                ) {
+                    SourceTextButton.Size.entries.forEach { size ->
+                        SourceTextButton(
+                            text = size.name.lowercase(),
+                            priority = priority,
+                            size = size,
+                            onClick = {},
+                        )
                     }
                 }
             }
@@ -211,8 +252,9 @@ internal fun SourceTextButtonNoUnderlinePreview() {
 @Composable
 @PreviewPhoneBothMode
 @PreviewTabletBothMode
-internal fun SourceTextButtonUnderlinePreview() {
-    Column {
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+internal fun CoreTextButtonUnderlinePreview() = AppColourMode {
+    SourceCoreTheme {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             SourceTextButton.Priority.entries.forEach { priority ->
                 Row(
@@ -233,24 +275,31 @@ internal fun SourceTextButtonUnderlinePreview() {
                 }
             }
         }
-        ReaderRevenueTheme {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                SourceTextButton.Priority.entries.forEach { priority ->
-                    Row(
-                        horizontalArrangement = Arrangement.SpaceEvenly,
-                        modifier = Modifier
-                            .background(priority.demoBackgroundColor())
-                            .fillMaxWidth(),
-                    ) {
-                        SourceTextButton.Size.entries.forEach { size ->
-                            SourceTextButton(
-                                text = size.name.lowercase(),
-                                priority = priority,
-                                size = size,
-                                hasUnderline = true,
-                                onClick = {},
-                            )
-                        }
+    }
+}
+
+@Composable
+@PreviewPhoneBothMode
+@PreviewTabletBothMode
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+internal fun RRTextButtonUnderlinePreview() = AppColourMode {
+    ReaderRevenueTheme {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            SourceTextButton.Priority.entries.forEach { priority ->
+                Row(
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    modifier = Modifier
+                        .background(priority.demoBackgroundColor())
+                        .fillMaxWidth(),
+                ) {
+                    SourceTextButton.Size.entries.forEach { size ->
+                        SourceTextButton(
+                            text = size.name.lowercase(),
+                            priority = priority,
+                            size = size,
+                            hasUnderline = true,
+                            onClick = {},
+                        )
                     }
                 }
             }
