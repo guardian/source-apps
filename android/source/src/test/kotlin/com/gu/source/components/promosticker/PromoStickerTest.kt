@@ -1,4 +1,4 @@
-package com.gu.source.components.badge
+package com.gu.source.components.promosticker
 
 import com.android.resources.NightMode
 import com.google.testing.junit.testparameterinjector.TestParameter
@@ -9,21 +9,21 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(TestParameterInjector::class)
-internal class SourceBadgeTest(@TestParameter private val nightMode: NightMode) {
+internal class PromoStickerTest(@TestParameter private val nightMode: NightMode) {
     @get:Rule
     val paparazzi = createComponentPaparazziRule(nightMode)
 
     @Test
-    fun badge() {
+    fun base() {
         paparazzi.snapshot {
-            SourceBadgePreview()
+            PromoStickerPreview()
         }
     }
 
     @Test
-    fun longBadge() {
+    fun longText() {
         paparazzi.snapshot {
-            SourceBadgeLongPreview()
+            PromoStickerLongPreview()
         }
     }
 }

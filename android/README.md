@@ -100,10 +100,6 @@ Four core button components are available - `SourceButton`, `SourceIconButton`, 
 
 [See here for full details of the button components.][buttons]
 
-| Core theme | Reader revenue theme |
-| --- | --- |
-| ![Core themed text only buttons](https://github.com/user-attachments/assets/e69393fb-675b-4f0e-9f52-62a28736bcfc) | ![Reader revenue themed text only buttons](https://github.com/user-attachments/assets/7ca3d409-252e-45e1-964f-efd03b1ebe39) |
-
 ---
 
 ### Chips
@@ -115,21 +111,26 @@ format.
 
 ---
 
+### Promo stickers
+
+The Promo Sticker is a visual indicator used to draw user attention to new or recommended products 
+without disrupting the interface. They are available in two sizes and four styles.
+
+[See here for full details of the promo sticker components.][promosticker]
+
+---
+
 ### Pager progress components
 
 Three pager progress components are available:
 
-1. `PagerProgressIndicator` - a set of indicators to signify progress as a user
-progresses through the items in the pager
-2. `PagerProgressButtons` - buttons to allow user to go to next/previous page
-in a pager
-3. `PagerProgressBar` - a higher level component that combines the above two
-and has different phone and tablet behaviour.
+1. `PagerProgressBar` - a higher level component that combines the two components below,
+   and has different phone and tablet behaviour.
+2. `PagerProgressIndicator` - a set of highly customisable indicators to signify progress as a user
+   progresses through the items in the pager.
+3. `PagerProgressButtons` - buttons to allow user to go to next/previous page in a pager.
 
 [See here for more details on pager progress components.][pager]
-
-
-![Progress bar for tablets](https://github.com/user-attachments/assets/ec1c2520-8c2c-42c0-9a8c-631054e77a67)
 
 ---
 
@@ -201,4 +202,5 @@ AlertBanner(
 [buttons]: ./source/src/main/kotlin/com/gu/source/components/buttons/README.md
 [pager]: ./source/src/main/kotlin/com/gu/source/components/pager/README.md
 [chips]: ./source/src/main/kotlin/com/gu/source/components/chips/README.md
+[promosticker]: ./source/src/main/kotlin/com/gu/source/components/promosticker/README.md
 [icons]: ./source/src/main/kotlin/com/gu/source/icons/README.md
