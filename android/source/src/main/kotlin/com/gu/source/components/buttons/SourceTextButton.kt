@@ -47,19 +47,12 @@ fun SourceTextButton(
 ) {
     val appliedTheme = theme ?: LocalSourceTheme.current
 
-    val supportedPriorities = listOf(
-        SourceButton.Priority.TertiaryOnWhite,
-        SourceButton.Priority.TertiaryOnBlue,
-    )
-
     require(size != SourceButton.Size.XSmall) {
-        "SourceTextButtonV2 does not support XSmall size."
+        "SourceTextButton does not support XSmall size."
     }
 
-    require(priority in supportedPriorities) {
-        "SourceTextButtonV2 only supports the following priorities: ${
-            supportedPriorities.joinToString(separator = ", ")
-        }."
+    require(priority.isTertiary()) {
+        "SourceTextButton only supports tertiary priorities (TertiaryOnWhite and TertiaryOnBlue)."
     }
 
     val buttonColours = priority.toColours(appliedTheme).copy(

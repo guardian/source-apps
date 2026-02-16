@@ -107,6 +107,8 @@ object SourceButton {
 
         internal fun isSecondary() = this in setOf(SecondaryOnWhite, SecondaryOnBlue)
 
+        internal fun isTertiary() = this in setOf(TertiaryOnWhite, TertiaryOnBlue)
+
         internal fun getBackdropColour() = when {
             name.endsWith("OnWhite") -> AppColour(
                 light = Source.Palette.Neutral100,
