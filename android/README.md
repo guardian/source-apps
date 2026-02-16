@@ -124,7 +124,7 @@ without disrupting the interface. They are available in two sizes and four style
 
 Three pager progress components are available:
 
-1. `PagerProgressBar` - a higher level component that combines the above two
+1. `PagerProgressBar` - a higher level component that combines the two components below,
    and has different phone and tablet behaviour.
 2. `PagerProgressIndicator` - a set of highly customisable indicators to signify progress as a user
    progresses through the items in the pager.
