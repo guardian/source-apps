@@ -56,30 +56,9 @@ class SourceButtonTest(@TestParameter private val nightMode: NightMode) {
     }
 
     @Test
-    fun coreSourceTextButtonNoUnderline() {
+    fun textButton() {
         paparazzi.snapshot {
-            CoreTextButtonNoUnderlinePreview()
-        }
-    }
-
-    @Test
-    fun readerRevenueSourceTextButtonNoUnderline() {
-        paparazzi.snapshot {
-            RRTextButtonNoUnderlinePreview()
-        }
-    }
-
-    @Test
-    fun coreSourceTextButtonUnderline() {
-        paparazzi.snapshot {
-            CoreTextButtonUnderlinePreview()
-        }
-    }
-
-    @Test
-    fun readerRevenueSourceTextButtonUnderline() {
-        paparazzi.snapshot {
-            RRTextButtonUnderlinePreview()
+            SourceTextButtonPreview()
         }
     }
 }
