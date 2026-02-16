@@ -7,10 +7,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.components.buttons.SourceButton
@@ -22,6 +25,7 @@ import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.palette.Brand400
 import com.gu.source.foundation.palette.Neutral0
 import com.gu.source.foundation.palette.Neutral100
+import com.gu.source.foundation.typography.TextSansBold17
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.PreviewTabletBothMode
 
@@ -59,6 +63,13 @@ internal fun TextButtonPreview(onBackPress: () -> Unit, modifier: Modifier = Mod
         modifier = modifier,
     ) { scaffoldModifier ->
         Column(modifier = scaffoldModifier.fillMaxSize()) {
+            Text(
+                text = "Source Core Theme",
+                style = Source.Typography.TextSansBold17,
+                textDecoration = TextDecoration.Underline,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth(),
+            )
             SourceCoreTheme {
                 Column {
                     validPriorities.forEach { priority ->
@@ -82,6 +93,15 @@ internal fun TextButtonPreview(onBackPress: () -> Unit, modifier: Modifier = Mod
                     }
                 }
             }
+            Text(
+                text = "Reader Revenue Theme",
+                style = Source.Typography.TextSansBold17,
+                textDecoration = TextDecoration.Underline,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 12.dp),
+            )
             ReaderRevenueTheme {
                 Column {
                     validPriorities.forEach { priority ->
