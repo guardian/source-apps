@@ -1,21 +1,5 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-$dokka.location:com.gu.source.components.badge////PointingToDeclaration/-source for -android/com.gu.source.components.badge/index.html
-$dokka.location:com.gu.source.components.badge//SourceBadge/#kotlin.String#com.gu.source.components.badge.SourceBadgeSizes#com.gu.source.components.badge.SourceBadgeStyle#androidx.compose.ui.Modifier#kotlin.Int#androidx.compose.ui.text.style.TextOverflow/PointingToDeclaration/-source for -android/com.gu.source.components.badge/-source-badge.html
-$dokka.location:com.gu.source.components.badge/SourceBadgeSizes.Large///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.badge/-source-badge-sizes/-large/index.html
-$dokka.location:com.gu.source.components.badge/SourceBadgeSizes.Small///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.badge/-source-badge-sizes/-small/index.html
-$dokka.location:com.gu.source.components.badge/SourceBadgeSizes///PointingToDeclaration/-source for -android/com.gu.source.components.badge/-source-badge-sizes/index.html
-$dokka.location:com.gu.source.components.badge/SourceBadgeSizes/entries/#/PointingToDeclaration/-source for -android/com.gu.source.components.badge/-source-badge-sizes/entries.html
-$dokka.location:com.gu.source.components.badge/SourceBadgeSizes/valueOf/#kotlin.String/PointingToDeclaration/-source for -android/com.gu.source.components.badge/-source-badge-sizes/value-of.html
-$dokka.location:com.gu.source.components.badge/SourceBadgeSizes/values/#/PointingToDeclaration/-source for -android/com.gu.source.components.badge/-source-badge-sizes/values.html
-$dokka.location:com.gu.source.components.badge/SourceBadgeStyle.Error///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.badge/-source-badge-style/-error/index.html
-$dokka.location:com.gu.source.components.badge/SourceBadgeStyle.Info///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.badge/-source-badge-style/-info/index.html
-$dokka.location:com.gu.source.components.badge/SourceBadgeStyle.Lifestyle///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.badge/-source-badge-style/-lifestyle/index.html
-$dokka.location:com.gu.source.components.badge/SourceBadgeStyle.Success///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.badge/-source-badge-style/-success/index.html
-$dokka.location:com.gu.source.components.badge/SourceBadgeStyle///PointingToDeclaration/-source for -android/com.gu.source.components.badge/-source-badge-style/index.html
-$dokka.location:com.gu.source.components.badge/SourceBadgeStyle/entries/#/PointingToDeclaration/-source for -android/com.gu.source.components.badge/-source-badge-style/entries.html
-$dokka.location:com.gu.source.components.badge/SourceBadgeStyle/valueOf/#kotlin.String/PointingToDeclaration/-source for -android/com.gu.source.components.badge/-source-badge-style/value-of.html
-$dokka.location:com.gu.source.components.badge/SourceBadgeStyle/values/#/PointingToDeclaration/-source for -android/com.gu.source.components.badge/-source-badge-style/values.html
 $dokka.location:com.gu.source.components.banner////PointingToDeclaration/-source for -android/com.gu.source.components.banner/index.html
 $dokka.location:com.gu.source.components.banner//SourceAlertBanner/#androidx.compose.ui.text.AnnotatedString#com.gu.source.components.banner.SourceAlertBanner.Priority#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean/PointingToDeclaration/-source for -android/com.gu.source.components.banner/-source-alert-banner.html
 $dokka.location:com.gu.source.components.banner//SourceAlertBanner/#kotlin.String#com.gu.source.components.banner.SourceAlertBanner.Priority#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean/PointingToDeclaration/-source for -android/com.gu.source.components.banner/-source-alert-banner.html
@@ -141,6 +125,22 @@ $dokka.location:com.gu.source.components.pager//PagerProgressBar/#androidx.compo
 $dokka.location:com.gu.source.components.pager//PagerProgressBar/#androidx.compose.foundation.pager.PagerState#com.gu.source.components.buttons.SourceButton.Priority#androidx.compose.ui.Modifier#com.gu.source.daynight.AppColour#com.gu.source.daynight.AppColour#kotlin.String?#kotlin.String?#kotlin.Boolean/PointingToDeclaration/-source for -android/com.gu.source.components.pager/-pager-progress-bar.html
 $dokka.location:com.gu.source.components.pager//PagerProgressButtons/#androidx.compose.foundation.pager.PagerState#kotlin.String?#kotlin.String?#androidx.compose.ui.Modifier#com.gu.source.components.buttons.ButtonColours#com.gu.source.components.buttons.ButtonColours?#androidx.compose.animation.core.AnimationSpec[kotlin.Float]/PointingToDeclaration/-source for -android/com.gu.source.components.pager/-pager-progress-buttons.html
 $dokka.location:com.gu.source.components.pager//PagerProgressIndicator/#androidx.compose.foundation.pager.PagerState#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#androidx.compose.ui.Modifier#kotlin.Int#androidx.compose.ui.unit.Dp#androidx.compose.ui.graphics.Shape#androidx.compose.ui.unit.Dp#kotlin.Float#kotlin.Int#androidx.compose.ui.Alignment.Vertical/PointingToDeclaration/-source for -android/com.gu.source.components.pager/-pager-progress-indicator.html
+$dokka.location:com.gu.source.components.promosticker////PointingToDeclaration/-source for -android/com.gu.source.components.promosticker/index.html
+$dokka.location:com.gu.source.components.promosticker//PromoSticker/#kotlin.String#com.gu.source.components.promosticker.PromoStickerSize#com.gu.source.components.promosticker.PromoStickerStyle#androidx.compose.ui.Modifier/PointingToDeclaration/-source for -android/com.gu.source.components.promosticker/-promo-sticker.html
+$dokka.location:com.gu.source.components.promosticker/PromoStickerSize.Large///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.promosticker/-promo-sticker-size/-large/index.html
+$dokka.location:com.gu.source.components.promosticker/PromoStickerSize.Small///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.promosticker/-promo-sticker-size/-small/index.html
+$dokka.location:com.gu.source.components.promosticker/PromoStickerSize///PointingToDeclaration/-source for -android/com.gu.source.components.promosticker/-promo-sticker-size/index.html
+$dokka.location:com.gu.source.components.promosticker/PromoStickerSize/entries/#/PointingToDeclaration/-source for -android/com.gu.source.components.promosticker/-promo-sticker-size/entries.html
+$dokka.location:com.gu.source.components.promosticker/PromoStickerSize/valueOf/#kotlin.String/PointingToDeclaration/-source for -android/com.gu.source.components.promosticker/-promo-sticker-size/value-of.html
+$dokka.location:com.gu.source.components.promosticker/PromoStickerSize/values/#/PointingToDeclaration/-source for -android/com.gu.source.components.promosticker/-promo-sticker-size/values.html
+$dokka.location:com.gu.source.components.promosticker/PromoStickerStyle.Error///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.promosticker/-promo-sticker-style/-error/index.html
+$dokka.location:com.gu.source.components.promosticker/PromoStickerStyle.Info///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.promosticker/-promo-sticker-style/-info/index.html
+$dokka.location:com.gu.source.components.promosticker/PromoStickerStyle.Lifestyle///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.promosticker/-promo-sticker-style/-lifestyle/index.html
+$dokka.location:com.gu.source.components.promosticker/PromoStickerStyle.Success///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.promosticker/-promo-sticker-style/-success/index.html
+$dokka.location:com.gu.source.components.promosticker/PromoStickerStyle///PointingToDeclaration/-source for -android/com.gu.source.components.promosticker/-promo-sticker-style/index.html
+$dokka.location:com.gu.source.components.promosticker/PromoStickerStyle/entries/#/PointingToDeclaration/-source for -android/com.gu.source.components.promosticker/-promo-sticker-style/entries.html
+$dokka.location:com.gu.source.components.promosticker/PromoStickerStyle/valueOf/#kotlin.String/PointingToDeclaration/-source for -android/com.gu.source.components.promosticker/-promo-sticker-style/value-of.html
+$dokka.location:com.gu.source.components.promosticker/PromoStickerStyle/values/#/PointingToDeclaration/-source for -android/com.gu.source.components.promosticker/-promo-sticker-style/values.html
 $dokka.location:com.gu.source.components.rating////PointingToDeclaration/-source for -android/com.gu.source.components.rating/index.html
 $dokka.location:com.gu.source.components.rating//SourceRating/#kotlin.Int#com.gu.source.components.rating.RatingSize#com.gu.source.components.rating.RatingStyle#androidx.compose.ui.Modifier/PointingToDeclaration/-source for -android/com.gu.source.components.rating/-source-rating.html
 $dokka.location:com.gu.source.components.rating/RatingSize.Large///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-source for -android/com.gu.source.components.rating/-rating-size/-large/index.html
@@ -629,11 +629,11 @@ $dokka.location:com.gu.source/Source.Typography///PointingToDeclaration/-source
 $dokka.location:com.gu.source/Source///PointingToDeclaration/-source for -android/com.gu.source/-source/index.html
 com.gu.source
 com.gu.source.components
-com.gu.source.components.badge
 com.gu.source.components.banner
 com.gu.source.components.buttons
 com.gu.source.components.chips
 com.gu.source.components.pager
+com.gu.source.components.promosticker
 com.gu.source.components.rating
 com.gu.source.components.theme
 com.gu.source.daynight
