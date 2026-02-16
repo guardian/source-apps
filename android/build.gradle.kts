@@ -11,6 +11,7 @@ plugins {
     alias(libs.plugins.dokka) apply false
     alias(libs.plugins.metalava) apply false
     alias(libs.plugins.licensee) apply false
+    alias(libs.plugins.kotlin.serialization) apply false
 }
 
 group = libs.versions.group.get()
