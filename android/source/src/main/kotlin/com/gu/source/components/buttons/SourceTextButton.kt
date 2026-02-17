@@ -67,7 +67,7 @@ fun SourceTextButton(
     ) {
         Text(
             text = text,
-            style = size.textStyle,
+            style = size.textButtonTextStyle,
             overflow = TextOverflow.Ellipsis,
             softWrap = false,
             maxLines = 1,
