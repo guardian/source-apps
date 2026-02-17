@@ -3,6 +3,7 @@
   <ManuallySuppressedIssues/>
   <CurrentIssues>
     <ID>CognitiveComplexMethod:ChipsPreview.kt$@OptIn(ExperimentalLayoutApi::class) @Composable internal fun ChipsPreview(onBackPress: () -> Unit, modifier: Modifier = Modifier)</ID>
+    <ID>LongMethod:MainActivity.kt$MainActivity$override fun onCreate(savedInstanceState: Bundle?)</ID>
     <ID>UnusedPrivateMember:ButtonPreview.kt$@PreviewLightDark @Composable private fun Preview()</ID>
     <ID>UnusedPrivateMember:ChipsPreview.kt$@PreviewLightDark @Composable private fun Preview()</ID>
     <ID>UnusedPrivateMember:PromoStickerPreview.kt$@PreviewLightDark @Composable private fun Preview()</ID>

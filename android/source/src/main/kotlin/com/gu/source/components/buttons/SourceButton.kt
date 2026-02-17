@@ -34,6 +34,7 @@ import com.gu.source.foundation.palette.Neutral100
 import com.gu.source.foundation.palette.Neutral38
 import com.gu.source.foundation.palette.Neutral7
 import com.gu.source.foundation.typography.TextSansBold14
+import com.gu.source.foundation.typography.TextSansBold15
 import com.gu.source.foundation.typography.TextSansBold17
 import com.gu.source.utils.PreviewPhoneBothMode
 
@@ -59,6 +60,7 @@ object SourceButton {
         /** This icon size is used for icons in [SourceIconButton]. */
         internal val iconSizeDp: Int,
         internal val textStyle: TextStyle,
+        internal val textButtonTextStyle: TextStyle = textStyle,
         internal val contentPadding: PaddingValues,
         internal val shortName: String,
     ) {
@@ -76,6 +78,7 @@ object SourceButton {
             heightDp = 36,
             iconSizeDp = 18,
             textStyle = Source.Typography.TextSansBold17.copy(letterSpacing = 0.sp),
+            textButtonTextStyle = Source.Typography.TextSansBold15.copy(letterSpacing = 0.sp),
             contentPadding = ContentPadding,
             shortName = "sm",
         ),
@@ -106,6 +109,8 @@ object SourceButton {
         ;
 
         internal fun isSecondary() = this in setOf(SecondaryOnWhite, SecondaryOnBlue)
+
+        internal fun isTertiary() = this in setOf(TertiaryOnWhite, TertiaryOnBlue)
 
         internal fun getBackdropColour() = when {
             name.endsWith("OnWhite") -> AppColour(
