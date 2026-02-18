@@ -15,8 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
-import com.gu.source.components.buttons.SourceButton.Priority.TertiaryOnBlue
-import com.gu.source.components.buttons.SourceButton.Priority.TertiaryOnWhite
 import com.gu.source.components.theme.LocalSourceTheme
 import com.gu.source.components.theme.ReaderRevenueTheme
 import com.gu.source.components.theme.SourceCoreTheme
@@ -95,7 +93,7 @@ private fun createRippleConfiguration(
     theme: Source.Theme,
     priority: SourceButton.Priority,
 ): RippleConfiguration = when (priority) {
-    TertiaryOnWhite -> {
+    SourceButton.Priority.TertiaryOnWhite -> {
         when (theme) {
             Source.Theme.Core -> RippleConfiguration(
                 color = AppColour(
@@ -113,7 +111,7 @@ private fun createRippleConfiguration(
         }
     }
 
-    TertiaryOnBlue -> {
+    SourceButton.Priority.TertiaryOnBlue -> {
         when (theme) {
             Source.Theme.Core -> RippleConfiguration(
                 color = AppColour(
