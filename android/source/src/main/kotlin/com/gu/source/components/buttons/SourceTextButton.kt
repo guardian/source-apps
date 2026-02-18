@@ -126,9 +126,11 @@ private fun rememberRippleConfiguration(
             }
         }
 
-        else -> throw IllegalArgumentException(
-            "Unsupported priority for SourceTextButton: $priority",
-        )
+        SourceButton.Priority.PrimaryOnBlue,
+        SourceButton.Priority.SecondaryOnBlue,
+        SourceButton.Priority.PrimaryOnWhite,
+        SourceButton.Priority.SecondaryOnWhite,
+        -> AppColour.Unspecified.current
     }
 
     return remember(theme, priority) {
