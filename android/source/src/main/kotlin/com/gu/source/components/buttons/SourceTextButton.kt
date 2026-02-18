@@ -11,6 +11,7 @@ import androidx.compose.material3.RippleConfiguration
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
@@ -68,7 +69,10 @@ fun SourceTextButton(
     )
 
     CompositionLocalProvider(
-        value = LocalRippleConfiguration provides createRippleConfiguration(appliedTheme, priority),
+        LocalRippleConfiguration provides rememberRippleConfiguration(
+            theme = appliedTheme,
+            priority = priority,
+        ),
     ) {
         PlainSourceContentButton(
             size = size,
@@ -89,47 +93,47 @@ fun SourceTextButton(
 }
 
 @Composable
-private fun createRippleConfiguration(
+private fun rememberRippleConfiguration(
     theme: Source.Theme,
     priority: SourceButton.Priority,
-): RippleConfiguration = when (priority) {
-    SourceButton.Priority.TertiaryOnWhite -> {
-        when (theme) {
-            Source.Theme.Core -> RippleConfiguration(
-                color = AppColour(
+): RippleConfiguration {
+    val colour = when (priority) {
+        SourceButton.Priority.TertiaryOnWhite -> {
+            when (theme) {
+                Source.Theme.Core -> AppColour(
                     light = Source.Palette.Brand400.copy(alpha = 0.1f),
                     dark = Source.Palette.Neutral86.copy(alpha = 0.2f),
-                ).current,
-            )
+                ).current
 
-            Source.Theme.ReaderRevenue -> RippleConfiguration(
-                color = AppColour(
+                Source.Theme.ReaderRevenue -> AppColour(
                     light = Source.Palette.Brand400.copy(alpha = 0.1f),
                     dark = Source.Palette.BrandAlt200.copy(alpha = 0.15f),
-                ).current,
-            )
+                ).current
+            }
         }
-    }
 
-    SourceButton.Priority.TertiaryOnBlue -> {
-        when (theme) {
-            Source.Theme.Core -> RippleConfiguration(
-                color = AppColour(
+        SourceButton.Priority.TertiaryOnBlue -> {
+            when (theme) {
+                Source.Theme.Core -> AppColour(
                     light = Source.Palette.Neutral100.copy(alpha = 0.2f),
                     dark = Source.Palette.Neutral86.copy(alpha = 0.2f),
-                ).current,
-            )
+                ).current
 
-            Source.Theme.ReaderRevenue -> RippleConfiguration(
-                color = AppColour(
+                Source.Theme.ReaderRevenue -> AppColour(
                     light = Source.Palette.BrandAlt400.copy(alpha = 0.15f),
                     dark = Source.Palette.BrandAlt200.copy(alpha = 0.15f),
-                ).current,
-            )
+                ).current
+            }
         }
+
+        else -> throw IllegalArgumentException(
+            "Unsupported priority for SourceTextButton: $priority",
+        )
     }
 
-    else -> throw IllegalArgumentException("Unsupported priority for SourceTextButton: $priority")
+    return remember(theme, priority) {
+        RippleConfiguration(color = colour)
+    }
 }
 
 @Composable
