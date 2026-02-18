@@ -93,7 +93,7 @@ fun SourceTextButton(
 @Composable
 private fun createRippleConfiguration(
     theme: Source.Theme,
-    priority: SourceButton.Priority
+    priority: SourceButton.Priority,
 ): RippleConfiguration = when (priority) {
     TertiaryOnWhite -> {
         when (theme) {
