@@ -97,45 +97,45 @@ private fun rememberRippleConfiguration(
     theme: Source.Theme,
     priority: SourceButton.Priority,
 ): RippleConfiguration {
-    val colour = when (priority) {
-        SourceButton.Priority.TertiaryOnWhite -> {
-            when (theme) {
-                Source.Theme.Core -> AppColour(
-                    light = Source.Palette.Brand400.copy(alpha = 0.1f),
-                    dark = Source.Palette.Neutral86.copy(alpha = 0.2f),
-                ).current
+    val appColour = remember(theme, priority) {
+        when (priority) {
+            SourceButton.Priority.TertiaryOnWhite -> {
+                when (theme) {
+                    Source.Theme.Core -> AppColour(
+                        light = Source.Palette.Brand400.copy(alpha = 0.1f),
+                        dark = Source.Palette.Neutral86.copy(alpha = 0.2f),
+                    )
 
-                Source.Theme.ReaderRevenue -> AppColour(
-                    light = Source.Palette.Brand400.copy(alpha = 0.1f),
-                    dark = Source.Palette.BrandAlt200.copy(alpha = 0.15f),
-                ).current
+                    Source.Theme.ReaderRevenue -> AppColour(
+                        light = Source.Palette.Brand400.copy(alpha = 0.1f),
+                        dark = Source.Palette.BrandAlt200.copy(alpha = 0.15f),
+                    )
+                }
             }
-        }
 
-        SourceButton.Priority.TertiaryOnBlue -> {
-            when (theme) {
-                Source.Theme.Core -> AppColour(
-                    light = Source.Palette.Neutral100.copy(alpha = 0.2f),
-                    dark = Source.Palette.Neutral86.copy(alpha = 0.2f),
-                ).current
+            SourceButton.Priority.TertiaryOnBlue -> {
+                when (theme) {
+                    Source.Theme.Core -> AppColour(
+                        light = Source.Palette.Neutral100.copy(alpha = 0.2f),
+                        dark = Source.Palette.Neutral86.copy(alpha = 0.2f),
+                    )
 
-                Source.Theme.ReaderRevenue -> AppColour(
-                    light = Source.Palette.BrandAlt400.copy(alpha = 0.15f),
-                    dark = Source.Palette.BrandAlt200.copy(alpha = 0.15f),
-                ).current
+                    Source.Theme.ReaderRevenue -> AppColour(
+                        light = Source.Palette.BrandAlt400.copy(alpha = 0.15f),
+                        dark = Source.Palette.BrandAlt200.copy(alpha = 0.15f),
+                    )
+                }
             }
-        }
 
-        SourceButton.Priority.PrimaryOnBlue,
-        SourceButton.Priority.SecondaryOnBlue,
-        SourceButton.Priority.PrimaryOnWhite,
-        SourceButton.Priority.SecondaryOnWhite,
-        -> AppColour.Unspecified.current
+            SourceButton.Priority.PrimaryOnBlue,
+            SourceButton.Priority.SecondaryOnBlue,
+            SourceButton.Priority.PrimaryOnWhite,
+            SourceButton.Priority.SecondaryOnWhite,
+            -> AppColour.Unspecified
+        }
     }
 
-    return remember(theme, priority) {
-        RippleConfiguration(color = colour)
-    }
+    return RippleConfiguration(color = appColour.current)
 }
 
 @Composable
