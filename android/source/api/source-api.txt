@@ -37,26 +37,6 @@ package com.gu.source.components {
 
 }
 
-package com.gu.source.components.badge {
-
-  public final class SourceBadgeKt {
-    method @androidx.compose.runtime.Composable public static void SourceBadge(String text, com.gu.source.components.badge.SourceBadgeSizes size, com.gu.source.components.badge.SourceBadgeStyle style, optional androidx.compose.ui.Modifier modifier, optional int maxLines, optional int textOverflow);
-  }
-
-  public enum SourceBadgeSizes {
-    enum_constant public static final com.gu.source.components.badge.SourceBadgeSizes Large;
-    enum_constant public static final com.gu.source.components.badge.SourceBadgeSizes Small;
-  }
-
-  public enum SourceBadgeStyle {
-    enum_constant public static final com.gu.source.components.badge.SourceBadgeStyle DarkBlue;
-    enum_constant public static final com.gu.source.components.badge.SourceBadgeStyle Gray;
-    enum_constant public static final com.gu.source.components.badge.SourceBadgeStyle LightBlue;
-    enum_constant public static final com.gu.source.components.badge.SourceBadgeStyle Red;
-  }
-
-}
-
 package com.gu.source.components.banner {
 
   public final class SourceAlertBanner {
@@ -132,6 +112,10 @@ package com.gu.source.components.buttons {
     method @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.ImageBitmap icon, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
     method @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.painter.Painter painter, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
     method @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.vector.ImageVector icon, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
+  }
+
+  public final class SourceTextButtonKt {
+    method @androidx.compose.runtime.Composable public static void SourceTextButton(String text, com.gu.source.components.buttons.SourceButton.Priority priority, com.gu.source.components.buttons.SourceButton.Size size, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.Source.Theme? theme);
   }
 
 }
@@ -329,6 +313,95 @@ package com.gu.source.components.pager {
 
   public final class PagerProgressIndicatorKt {
     method @androidx.compose.runtime.Composable public static void PagerProgressIndicator(androidx.compose.foundation.pager.PagerState pagerState, long selectedIndicatorColour, long unSelectedIndicatorColour, optional androidx.compose.ui.Modifier modifier, optional int maxIndicatorCount, optional float indicatorSpacing, optional androidx.compose.ui.graphics.Shape indicatorShape, optional float selectedItemSize, optional float unselectedItemScaleFactor, optional int numberOfItemsToScale, optional androidx.compose.ui.Alignment.Vertical itemsVerticalAlignment);
+  }
+
+}
+
+package com.gu.source.components.promosticker {
+
+  public final class PromoStickerKt {
+    method @androidx.compose.runtime.Composable public static void PromoSticker(String text, com.gu.source.components.promosticker.PromoStickerSize size, com.gu.source.components.promosticker.PromoStickerStyle style, optional androidx.compose.ui.Modifier modifier);
+  }
+
+  public enum PromoStickerSize {
+    enum_constant public static final com.gu.source.components.promosticker.PromoStickerSize Large;
+    enum_constant public static final com.gu.source.components.promosticker.PromoStickerSize Small;
+  }
+
+  public enum PromoStickerStyle {
+    enum_constant public static final com.gu.source.components.promosticker.PromoStickerStyle Error;
+    enum_constant public static final com.gu.source.components.promosticker.PromoStickerStyle Info;
+    enum_constant public static final com.gu.source.components.promosticker.PromoStickerStyle Lifestyle;
+    enum_constant public static final com.gu.source.components.promosticker.PromoStickerStyle Success;
+  }
+
+}
+
+package com.gu.source.components.rating {
+
+  public enum RatingSize {
+    method public float getCircleSize();
+    method public float getSpacing();
+    method public float getStarIconSize();
+    property public final float circleSize;
+    property public final float spacing;
+    property public final float starIconSize;
+    enum_constant public static final com.gu.source.components.rating.RatingSize Large;
+    enum_constant public static final com.gu.source.components.rating.RatingSize Medium;
+    enum_constant public static final com.gu.source.components.rating.RatingSize Small;
+  }
+
+  public sealed interface RatingStyle {
+    method public com.gu.source.daynight.AppColour getEmptyStarColor();
+    method public com.gu.source.daynight.AppColour getFilledStarColor();
+    method public com.gu.source.daynight.AppColour getStarIconColor();
+    property public abstract com.gu.source.daynight.AppColour emptyStarColor;
+    property public abstract com.gu.source.daynight.AppColour filledStarColor;
+    property public abstract com.gu.source.daynight.AppColour starIconColor;
+  }
+
+  public static final class RatingStyle.DefaultArticle implements com.gu.source.components.rating.RatingStyle {
+    method public com.gu.source.daynight.AppColour getEmptyStarColor();
+    method public com.gu.source.daynight.AppColour getFilledStarColor();
+    method public com.gu.source.daynight.AppColour getStarIconColor();
+    property public com.gu.source.daynight.AppColour emptyStarColor;
+    property public com.gu.source.daynight.AppColour filledStarColor;
+    property public com.gu.source.daynight.AppColour starIconColor;
+    field public static final com.gu.source.components.rating.RatingStyle.DefaultArticle INSTANCE;
+  }
+
+  public static final class RatingStyle.DefaultCards implements com.gu.source.components.rating.RatingStyle {
+    method public com.gu.source.daynight.AppColour getEmptyStarColor();
+    method public com.gu.source.daynight.AppColour getFilledStarColor();
+    method public com.gu.source.daynight.AppColour getStarIconColor();
+    property public com.gu.source.daynight.AppColour emptyStarColor;
+    property public com.gu.source.daynight.AppColour filledStarColor;
+    property public com.gu.source.daynight.AppColour starIconColor;
+    field public static final com.gu.source.components.rating.RatingStyle.DefaultCards INSTANCE;
+  }
+
+  public static final class RatingStyle.FeatureCards implements com.gu.source.components.rating.RatingStyle {
+    method public com.gu.source.daynight.AppColour getEmptyStarColor();
+    method public com.gu.source.daynight.AppColour getFilledStarColor();
+    method public com.gu.source.daynight.AppColour getStarIconColor();
+    property public com.gu.source.daynight.AppColour emptyStarColor;
+    property public com.gu.source.daynight.AppColour filledStarColor;
+    property public com.gu.source.daynight.AppColour starIconColor;
+    field public static final com.gu.source.components.rating.RatingStyle.FeatureCards INSTANCE;
+  }
+
+  public static final class RatingStyle.ImmersiveArticle implements com.gu.source.components.rating.RatingStyle {
+    method public com.gu.source.daynight.AppColour getEmptyStarColor();
+    method public com.gu.source.daynight.AppColour getFilledStarColor();
+    method public com.gu.source.daynight.AppColour getStarIconColor();
+    property public com.gu.source.daynight.AppColour emptyStarColor;
+    property public com.gu.source.daynight.AppColour filledStarColor;
+    property public com.gu.source.daynight.AppColour starIconColor;
+    field public static final com.gu.source.components.rating.RatingStyle.ImmersiveArticle INSTANCE;
+  }
+
+  public final class SourceRatingKt {
+    method @androidx.compose.runtime.Composable public static void SourceRating(int rating, com.gu.source.components.rating.RatingSize size, com.gu.source.components.rating.RatingStyle style, optional androidx.compose.ui.Modifier modifier);
   }
 
 }
@@ -1359,17 +1432,17 @@ package com.gu.source.foundation.typography {
 package com.gu.source.utils {
 
   public final class DensityExtensionsKt {
-    method @androidx.compose.runtime.Composable public static float dpToPx(float);
-    method @androidx.compose.runtime.Composable public static float dpToPx(int);
+    method @androidx.compose.runtime.Composable public static error.NonExistentClass dpToPx(float);
+    method @androidx.compose.runtime.Composable public static error.NonExistentClass dpToPx(int);
     method @androidx.compose.runtime.Stable public static operator long plus(long, long other);
-    method @androidx.compose.runtime.Composable public static float pxToDp(float);
-    method @androidx.compose.runtime.Composable public static float pxToDp(int);
-    method @androidx.compose.runtime.Composable public static long pxToSp(float);
-    method @androidx.compose.runtime.Composable public static long pxToSp(int);
-    method @androidx.compose.runtime.Composable public static float toDp(long);
-    method @androidx.compose.runtime.Composable public static float toPx(float);
-    method @androidx.compose.runtime.Composable public static float toPx(long);
-    method @androidx.compose.runtime.Composable public static long toSp(float);
+    method @androidx.compose.runtime.Composable public static error.NonExistentClass pxToDp(float);
+    method @androidx.compose.runtime.Composable public static error.NonExistentClass pxToDp(int);
+    method @androidx.compose.runtime.Composable public static error.NonExistentClass pxToSp(float);
+    method @androidx.compose.runtime.Composable public static error.NonExistentClass pxToSp(int);
+    method @androidx.compose.runtime.Composable public static error.NonExistentClass toDp(long);
+    method @androidx.compose.runtime.Composable public static error.NonExistentClass toPx(float);
+    method @androidx.compose.runtime.Composable public static error.NonExistentClass toPx(long);
+    method @androidx.compose.runtime.Composable public static error.NonExistentClass toSp(float);
   }
 
   public final class PaddingValuesExtensionsKt {
