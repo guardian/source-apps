@@ -2,14 +2,19 @@
 
 package com.gu.source.previews
 
+import android.content.res.Configuration
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,13 +25,102 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
-import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.presets.palette.*
-import com.gu.source.presets.typography.HeadlineBold20
-import com.gu.source.presets.typography.TextSans11
-import com.gu.source.presets.typography.TextSansBold14
-import com.gu.source.presets.typography.TextSansBold15
+import com.gu.source.foundation.palette.Brand100
+import com.gu.source.foundation.palette.Brand300
+import com.gu.source.foundation.palette.Brand400
+import com.gu.source.foundation.palette.Brand500
+import com.gu.source.foundation.palette.Brand600
+import com.gu.source.foundation.palette.Brand800
+import com.gu.source.foundation.palette.BrandAlt200
+import com.gu.source.foundation.palette.BrandAlt300
+import com.gu.source.foundation.palette.BrandAlt400
+import com.gu.source.foundation.palette.Culture100
+import com.gu.source.foundation.palette.Culture200
+import com.gu.source.foundation.palette.Culture300
+import com.gu.source.foundation.palette.Culture400
+import com.gu.source.foundation.palette.Culture450
+import com.gu.source.foundation.palette.Culture50
+import com.gu.source.foundation.palette.Culture500
+import com.gu.source.foundation.palette.Culture600
+import com.gu.source.foundation.palette.Culture700
+import com.gu.source.foundation.palette.Culture800
+import com.gu.source.foundation.palette.Error400
+import com.gu.source.foundation.palette.Error500
+import com.gu.source.foundation.palette.Labs100
+import com.gu.source.foundation.palette.Labs200
+import com.gu.source.foundation.palette.Labs300
+import com.gu.source.foundation.palette.Labs400
+import com.gu.source.foundation.palette.Labs500
+import com.gu.source.foundation.palette.Labs600
+import com.gu.source.foundation.palette.Labs700
+import com.gu.source.foundation.palette.Lifestyle100
+import com.gu.source.foundation.palette.Lifestyle200
+import com.gu.source.foundation.palette.Lifestyle300
+import com.gu.source.foundation.palette.Lifestyle400
+import com.gu.source.foundation.palette.Lifestyle450
+import com.gu.source.foundation.palette.Lifestyle500
+import com.gu.source.foundation.palette.Lifestyle600
+import com.gu.source.foundation.palette.Lifestyle800
+import com.gu.source.foundation.palette.Neutral0
+import com.gu.source.foundation.palette.Neutral10
+import com.gu.source.foundation.palette.Neutral100
+import com.gu.source.foundation.palette.Neutral20
+import com.gu.source.foundation.palette.Neutral38
+import com.gu.source.foundation.palette.Neutral46
+import com.gu.source.foundation.palette.Neutral60
+import com.gu.source.foundation.palette.Neutral7
+import com.gu.source.foundation.palette.Neutral73
+import com.gu.source.foundation.palette.Neutral86
+import com.gu.source.foundation.palette.Neutral93
+import com.gu.source.foundation.palette.Neutral97
+import com.gu.source.foundation.palette.News100
+import com.gu.source.foundation.palette.News200
+import com.gu.source.foundation.palette.News300
+import com.gu.source.foundation.palette.News400
+import com.gu.source.foundation.palette.News500
+import com.gu.source.foundation.palette.News550
+import com.gu.source.foundation.palette.News600
+import com.gu.source.foundation.palette.News700
+import com.gu.source.foundation.palette.News800
+import com.gu.source.foundation.palette.NotificationBlue400
+import com.gu.source.foundation.palette.Opinion100
+import com.gu.source.foundation.palette.Opinion200
+import com.gu.source.foundation.palette.Opinion300
+import com.gu.source.foundation.palette.Opinion400
+import com.gu.source.foundation.palette.Opinion450
+import com.gu.source.foundation.palette.Opinion500
+import com.gu.source.foundation.palette.Opinion550
+import com.gu.source.foundation.palette.Opinion600
+import com.gu.source.foundation.palette.Opinion700
+import com.gu.source.foundation.palette.Opinion800
+import com.gu.source.foundation.palette.SpecialReport100
+import com.gu.source.foundation.palette.SpecialReport200
+import com.gu.source.foundation.palette.SpecialReport300
+import com.gu.source.foundation.palette.SpecialReport400
+import com.gu.source.foundation.palette.SpecialReport450
+import com.gu.source.foundation.palette.SpecialReport500
+import com.gu.source.foundation.palette.SpecialReport700
+import com.gu.source.foundation.palette.SpecialReport800
+import com.gu.source.foundation.palette.SpecialReportAlt100
+import com.gu.source.foundation.palette.SpecialReportAlt200
+import com.gu.source.foundation.palette.SpecialReportAlt300
+import com.gu.source.foundation.palette.SpecialReportAlt700
+import com.gu.source.foundation.palette.SpecialReportAlt800
+import com.gu.source.foundation.palette.Sport100
+import com.gu.source.foundation.palette.Sport200
+import com.gu.source.foundation.palette.Sport300
+import com.gu.source.foundation.palette.Sport400
+import com.gu.source.foundation.palette.Sport500
+import com.gu.source.foundation.palette.Sport600
+import com.gu.source.foundation.palette.Sport700
+import com.gu.source.foundation.palette.Sport800
+import com.gu.source.foundation.palette.Success300
+import com.gu.source.foundation.palette.Success400
+import com.gu.source.foundation.palette.Success500
+import com.gu.source.foundation.typography.TextSans11
+import com.gu.source.foundation.typography.TextSansBold14
+import com.gu.source.foundation.typography.TextSansBold15
 
 private data class Colour(
     val name: String,
@@ -84,6 +178,7 @@ private val colours = mapOf(
         Colour("News500", Source.Palette.News500),
         Colour("News550", Source.Palette.News550),
         Colour("News600", Source.Palette.News600),
+        Colour("News700", Source.Palette.News700),
         Colour("News800", Source.Palette.News800),
     ),
     "Opinion" to listOf(
@@ -95,6 +190,7 @@ private val colours = mapOf(
         Colour("Opinion500", Source.Palette.Opinion500),
         Colour("Opinion550", Source.Palette.Opinion550),
         Colour("Opinion600", Source.Palette.Opinion600),
+        Colour("Opinion700", Source.Palette.Opinion700),
         Colour("Opinion800", Source.Palette.Opinion800),
     ),
     "Sport" to listOf(
@@ -104,6 +200,7 @@ private val colours = mapOf(
         Colour("Sport400", Source.Palette.Sport400),
         Colour("Sport500", Source.Palette.Sport500),
         Colour("Sport600", Source.Palette.Sport600),
+        Colour("Sport700", Source.Palette.Sport700),
         Colour("Sport800", Source.Palette.Sport800),
     ),
     "Culture" to listOf(
@@ -146,38 +243,33 @@ private val colours = mapOf(
         Colour("SpecialReportAlt800", Source.Palette.SpecialReportAlt800),
     ),
     "Labs" to listOf(
+        Colour("Labs100", Source.Palette.Labs100),
         Colour("Labs200", Source.Palette.Labs200),
         Colour("Labs300", Source.Palette.Labs300),
         Colour("Labs400", Source.Palette.Labs400),
+        Colour("Labs500", Source.Palette.Labs500),
+        Colour("Labs600", Source.Palette.Labs600),
+        Colour("Labs700", Source.Palette.Labs700),
+    ),
+    "NotificationBlue" to listOf(
+        Colour("NotificationBlue400", Source.Palette.NotificationBlue400),
     ),
 )
 
 @Composable
-internal fun Palette(modifier: Modifier = Modifier) {
-    Surface(
+internal fun PalettePreview(onBackPress: () -> Unit, modifier: Modifier = Modifier) {
+    val gridCount = getGridCount()
+    PreviewScaffold(
+        title = "Palette",
+        onBackPress = onBackPress,
         modifier = modifier,
-        color = AppColour(
-            Source.Palette.Neutral100,
-            Source.Palette.Neutral0,
-        ).current,
-        contentColor = AppColour(
-            Source.Palette.Neutral0,
-            Source.Palette.Neutral100,
-        ).current,
     ) {
         LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            contentPadding = PaddingValues(vertical = 8.dp),
+            columns = GridCells.Fixed(gridCount),
+            modifier = it,
         ) {
-            item {
-                Text(
-                    text = "Palette",
-                    style = Source.Typography.HeadlineBold20,
-                    modifier = Modifier.padding(8.dp),
-                )
-            }
-            colours.keys.forEachIndexed { paletteIndex, palette ->
-                item(span = { GridItemSpan(2) }) {
+            colours.keys.forEachIndexed { _, palette ->
+                item(span = { GridItemSpan(gridCount) }) {
                     Column {
                         Spacer(modifier = Modifier.height(8.dp))
                         HorizontalDivider()
@@ -189,11 +281,12 @@ internal fun Palette(modifier: Modifier = Modifier) {
                     }
                 }
                 items(colours[palette].orEmpty()) { colour ->
-                    val contentColour = if (colour.colour.luminance() > ContentColourThreshold) {
-                        Color.Black
-                    } else {
-                        Color.White
-                    }
+                    val contentColour =
+                        if (colour.colour.luminance() > ContentColourThreshold) {
+                            Color.Black
+                        } else {
+                            Color.White
+                        }
 
                     Box(
                         modifier = Modifier
@@ -224,10 +317,14 @@ internal fun Palette(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(device = "spec:width=1080px,height=8340px,dpi=440")
+@Preview(device = "spec:width=2160px,height=8340px,dpi=440")
+@Preview(
+    device = "spec:width=2160px,height=8340px,dpi=440",
+    uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL,
+)
 @Composable
 private fun Preview() {
     AppColourMode {
-        Palette()
+        PalettePreview({})
     }
 }

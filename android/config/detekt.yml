@@ -85,6 +85,7 @@ comments:
     searchInInnerObject: true
     searchInInnerInterface: true
     searchInProtectedClass: false
+    ignoreDefaultCompanionObject: true
     ignoreAnnotated:
       - 'Module'
   UndocumentedPublicFunction:
@@ -366,6 +367,9 @@ naming:
     excludeClassPattern: '$^'
     ignoreAnnotated:
       - 'Composable'
+      - 'Preview'
+      - 'PreviewPhoneBothMode'
+      - 'PreviewTabletBothMode'
   FunctionParameterNaming:
     active: true
     parameterPattern: '[a-z][A-Za-z0-9]*'

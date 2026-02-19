@@ -1,6 +1,15 @@
 plugins {
     alias(libs.plugins.guardian.application)
     alias(libs.plugins.guardian.compose.application)
+    alias(libs.plugins.licensee)
+}
+
+licensee {
+    allow("Apache-2.0")
+    allow("MIT")
+    allowUrl("https://jsoup.org/license") {
+        because("JSoup copy of MIT license")
+    }
 }
 
 android {
@@ -9,7 +18,7 @@ android {
     defaultConfig {
         applicationId = "com.gu.source.sample"
         versionCode = 1
-        versionName = libs.versions.libraryVersion.get()
+        versionName = rootProject.file(libs.versions.versionFileName.get()).readText().trim()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -34,13 +43,14 @@ android {
     }
 }
 
-detekt {
-    baseline = file("detekt-baseline.xml")
-}
-
 dependencies {
     implementation(project(path = ":source"))
     implementation(libs.androidx.activity.compose)
 
     implementation(libs.coil.compose)
+
+    implementation(libs.kotlin.serialisation.core)
+
+    implementation(libs.androidx.nav.runtime)
+    implementation(libs.androidx.nav.ui)
 }

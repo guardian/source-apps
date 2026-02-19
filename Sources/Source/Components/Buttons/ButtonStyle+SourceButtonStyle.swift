@@ -1,3 +1,5 @@
+//
+
 import SwiftUI
 import GuardianFonts
 
@@ -14,27 +16,26 @@ public struct SourceButtonStyle: ButtonStyle {
 
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .frame(maxWidth: .infinity)
+            .font(GuardianFont(style: .textSansBold, size: buttonSize.fontSize))
+            .scaleEffect(configuration.isPressed ? 0.95 : 1)
+            .foregroundColor(foregroundColor(for: buttonPriority))
             .padding(.vertical, buttonSize.verticalPad)
             .padding(.horizontal, buttonSize.horizontalPad)
-            .font(GuardianFont(style: .textSansBold, size: buttonSize.fontSize))
-            .foregroundColor(foregroundColor(for: buttonPriority))
             .background(backgroundShape(for: buttonPriority))
             .opacity(configuration.isPressed ? 0.8 : 1)
-            .scaleEffect(configuration.isPressed ? 0.95 : 1)
             .lineLimit(1)
     }
 
     private func foregroundColor(for priority: ButtonPriority) -> Color {
         switch priority {
         case .primary:
-            return Color(uiColor: buttonTheme.foregroundColorPrimary)
+            return Color(buttonTheme.foregroundColorPrimary)
         case .secondary:
-            return Color(uiColor: buttonTheme.foregroundColorSecondary)
+            return Color(buttonTheme.foregroundColorSecondary)
         case .tertiary:
-            return Color(uiColor: buttonTheme.foregroundColorTertiary)
-        case .subdubed:
-            return Color(uiColor: buttonTheme.foregroundColorSubdued)
+            return Color(buttonTheme.foregroundColorTertiary)
+        case .subdued:
+            return Color(buttonTheme.foregroundColorSubdued)
         }
     }
 
@@ -43,14 +44,14 @@ public struct SourceButtonStyle: ButtonStyle {
             switch priority {
             case .primary:
                 Capsule()
-                    .fill(Color(uiColor: buttonTheme.backgroundColorPrimary))
+                    .fill(Color(buttonTheme.backgroundColorPrimary))
             case .secondary:
                 Capsule()
-                    .fill(Color(uiColor: buttonTheme.backgroundColorSecondary))
+                    .fill(Color(buttonTheme.backgroundColorSecondary))
             case .tertiary:
                 Capsule()
-                    .stroke(Color(uiColor: buttonTheme.foregroundColorTertiary))
-            case .subdubed:
+                    .stroke(Color(buttonTheme.foregroundColorTertiary))
+            case .subdued:
                 EmptyView()
 
             }
@@ -68,7 +69,7 @@ public extension ButtonStyle where Self == SourceButtonStyle {
     ScrollView {
         VStack(alignment: .leading) {
 
-            Section {
+            Section("Medium") {
                 Button(action: {}) {
                     Text("Primary")
                 }
@@ -87,13 +88,11 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                 Button(action: {}) {
                     Text("Subdued")
                 }
-                .buttonStyle(.source(size: .medium, priority: .subdubed, theme: .brand))
+                .buttonStyle(.source(size: .medium, priority: .subdued, theme: .brand))
 
-            } header: {
-                Text("Medium")
             }
 
-            Section {
+            Section("Small") {
                 Button(action: {}) {
                     Text("Primary")
                 }
@@ -112,13 +111,11 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                 Button(action: {}) {
                     Text("Subdued")
                 }
-                .buttonStyle(.source(size: .small, priority: .subdubed, theme: .brand))
+                .buttonStyle(.source(size: .small, priority: .subdued, theme: .brand))
 
-            } header: {
-                Text("Small")
             }
 
-            Section {
+            Section("XSmall") {
                 Button(action: {}) {
                     Text("Primary")
                 }
@@ -137,10 +134,8 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                 Button(action: {}) {
                     Text("Subdued")
                 }
-                .buttonStyle(.source(size: .xsmall, priority: .subdubed, theme: .brand))
+                .buttonStyle(.source(size: .xsmall, priority: .subdued, theme: .brand))
 
-            } header: {
-                Text("Xsmall")
             }
         }
         .padding()

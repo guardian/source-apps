@@ -4,7 +4,14 @@ import androidx.annotation.Discouraged
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
+import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -16,13 +23,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.presets.palette.*
+import com.gu.source.foundation.palette.Culture200
+import com.gu.source.foundation.palette.Culture600
+import com.gu.source.foundation.palette.Neutral0
+import com.gu.source.foundation.palette.Neutral100
+import com.gu.source.foundation.palette.Neutral7
+import com.gu.source.foundation.palette.Sport200
+import com.gu.source.foundation.palette.Sport600
 import com.gu.source.utils.PreviewPhoneBothMode
+import com.gu.source.utils.copy
 
 private val PlainDefault: ButtonColours
     get() = ButtonColours(
@@ -58,6 +74,10 @@ internal fun Color.whenEnabled(enabled: Boolean, disabledColour: Color? = null) 
  * @param buttonColours Optional colours for the button. Use this to theme the button.
  * @param disabledButtonColours Optional colours for the button when it is disabled. If not
  * provided, the button colours are used with reduced opacity.
+ * @param overridePaddingStart Optional override for the start padding of the button content.
+ * If not provided, the default padding for the [size] is used.
+ * @param overridePaddingEnd Optional override for the end padding of the button content.
+ * If not provided, the default padding for the [size] is used.
  * @param content Slot for composable content to present inside the button.
  */
 @Discouraged(
@@ -73,8 +93,16 @@ fun PlainSourceContentButton(
     enabled: Boolean = true,
     buttonColours: ButtonColours = PlainDefault,
     disabledButtonColours: ButtonColours? = null,
+    overridePaddingStart: Dp? = null,
+    overridePaddingEnd: Dp? = null,
     content: @Composable () -> Unit,
 ) {
+    val contentPadding = size.contentPadding.copy(
+        start = overridePaddingStart
+            ?: size.contentPadding.calculateStartPadding(LayoutDirection.Ltr),
+        end = overridePaddingEnd
+            ?: size.contentPadding.calculateEndPadding(LayoutDirection.Ltr),
+    )
     Button(
         onClick = onClick,
         modifier = modifier.defaultMinSize(
@@ -109,7 +137,7 @@ fun PlainSourceContentButton(
                 disabledColour = disabledButtonColours?.border?.current,
             ),
         ),
-        contentPadding = size.contentPadding,
+        contentPadding = contentPadding,
         content = { content() },
     )
 }

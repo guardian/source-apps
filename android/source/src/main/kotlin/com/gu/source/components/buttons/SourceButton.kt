@@ -4,7 +4,13 @@ import android.annotation.SuppressLint
 import androidx.annotation.Discouraged
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,18 +23,19 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
+import com.gu.source.components.theme.LocalSourceTheme
+import com.gu.source.components.theme.ReaderRevenueTheme
+import com.gu.source.components.theme.SourceCoreTheme
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.base.Checkmark
-import com.gu.source.presets.palette.Brand400
-import com.gu.source.presets.palette.Neutral100
-import com.gu.source.presets.palette.Neutral38
-import com.gu.source.presets.palette.Neutral7
-import com.gu.source.presets.typography.TextSansBold14
-import com.gu.source.presets.typography.TextSansBold17
-import com.gu.source.theme.LocalSourceTheme
-import com.gu.source.theme.ReaderRevenueTheme
-import com.gu.source.theme.SourceCoreTheme
+import com.gu.source.foundation.icons.base.Checkmark
+import com.gu.source.foundation.palette.Brand400
+import com.gu.source.foundation.palette.Neutral100
+import com.gu.source.foundation.palette.Neutral38
+import com.gu.source.foundation.palette.Neutral7
+import com.gu.source.foundation.typography.TextSansBold14
+import com.gu.source.foundation.typography.TextSansBold15
+import com.gu.source.foundation.typography.TextSansBold17
 import com.gu.source.utils.PreviewPhoneBothMode
 
 /**
@@ -53,6 +60,7 @@ object SourceButton {
         /** This icon size is used for icons in [SourceIconButton]. */
         internal val iconSizeDp: Int,
         internal val textStyle: TextStyle,
+        internal val textButtonTextStyle: TextStyle = textStyle,
         internal val contentPadding: PaddingValues,
         internal val shortName: String,
     ) {
@@ -70,6 +78,7 @@ object SourceButton {
             heightDp = 36,
             iconSizeDp = 18,
             textStyle = Source.Typography.TextSansBold17.copy(letterSpacing = 0.sp),
+            textButtonTextStyle = Source.Typography.TextSansBold15.copy(letterSpacing = 0.sp),
             contentPadding = ContentPadding,
             shortName = "sm",
         ),
@@ -100,6 +109,8 @@ object SourceButton {
         ;
 
         internal fun isSecondary() = this in setOf(SecondaryOnWhite, SecondaryOnBlue)
+
+        internal fun isTertiary() = this in setOf(TertiaryOnWhite, TertiaryOnBlue)
 
         internal fun getBackdropColour() = when {
             name.endsWith("OnWhite") -> AppColour(

@@ -9,9 +9,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(TestParameterInjector::class)
-class SourceButtonTest(
-    @TestParameter private val nightMode: NightMode,
-) {
+class SourceButtonTest(@TestParameter private val nightMode: NightMode) {
     @get:Rule
     val paparazzi = createComponentPaparazziRule(nightMode)
 
@@ -54,6 +52,13 @@ class SourceButtonTest(
     fun readerRevenueIconAfter() {
         paparazzi.snapshot {
             RrButtonIconAfterPreview()
+        }
+    }
+
+    @Test
+    fun textButton() {
+        paparazzi.snapshot {
+            SourceTextButtonPreview()
         }
     }
 }

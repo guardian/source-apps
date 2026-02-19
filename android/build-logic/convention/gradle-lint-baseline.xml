@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 8.7.3" type="baseline" client="gradle" dependencies="false" name="AGP (8.7.3)" variant="all" version="8.7.3">
+<issues format="6" by="lint 8.10.1" type="baseline" client="gradle" dependencies="false" name="AGP (8.10.1)" variant="all" version="8.10.1">
 
     <issue
         id="GradleProjectIsolation"
-        message="Avoid using method getRootProject"
+        message="Use isolated.rootProject instead of getRootProject"
+        errorLine1="        val version = rootProject.file(versionFileName).readText().trim()"
+        errorLine2="                      ~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/theguardian/convention/shared/BaseModuleConfig.kt"
+            line="80"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="GradleProjectIsolation"
+        message="Use isolated.rootProject instead of getRootProject"
         errorLine1="                rootProject.layout.buildDirectory.file(&quot;reports/detekt/merge.sarif&quot;),"
         errorLine2="                ~~~~~~~~~~~">
         <location
@@ -14,12 +25,12 @@
 
     <issue
         id="GradleProjectIsolation"
-        message="Avoid using method getRootProject"
+        message="Use isolated.rootProject instead of getRootProject"
         errorLine1="            basePath = rootProject.projectDir.absolutePath"
         errorLine2="                       ~~~~~~~~~~~">
         <location
             file="src/main/kotlin/com/theguardian/convention/shared/SetupDetekt.kt"
-            line="57"
+            line="59"
             column="24"/>
     </issue>
 

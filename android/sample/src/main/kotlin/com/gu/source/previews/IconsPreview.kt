@@ -1,36 +1,220 @@
 package com.gu.source.previews
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
-import com.gu.source.components.buttons.SourceButton
-import com.gu.source.components.buttons.SourceIconButton
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
-import com.gu.source.icons.*
-import com.gu.source.icons.base.*
-import com.gu.source.presets.palette.Neutral0
-import com.gu.source.presets.palette.Neutral100
-import com.gu.source.presets.typography.HeadlineBold20
-import com.gu.source.presets.typography.TextSans15
-import com.gu.source.presets.typography.TextSansBold15
+import com.gu.source.foundation.icons.base.AddToBasket
+import com.gu.source.foundation.icons.base.AiIndicator
+import com.gu.source.foundation.icons.base.AlarmClockFilled
+import com.gu.source.foundation.icons.base.AlarmClockOutlined
+import com.gu.source.foundation.icons.base.AlarmClockSounded
+import com.gu.source.foundation.icons.base.AlertPhone
+import com.gu.source.foundation.icons.base.AlertRound
+import com.gu.source.foundation.icons.base.AlertTriangle
+import com.gu.source.foundation.icons.base.AllRecipes
+import com.gu.source.foundation.icons.base.AppleBrand
+import com.gu.source.foundation.icons.base.ArrowContract
+import com.gu.source.foundation.icons.base.ArrowDownStraight
+import com.gu.source.foundation.icons.base.ArrowExpand
+import com.gu.source.foundation.icons.base.ArrowLeftStraight
+import com.gu.source.foundation.icons.base.ArrowOutdent
+import com.gu.source.foundation.icons.base.ArrowPopOut
+import com.gu.source.foundation.icons.base.ArrowRightStraight
+import com.gu.source.foundation.icons.base.ArrowScroll
+import com.gu.source.foundation.icons.base.ArrowUpAndDownSmall
+import com.gu.source.foundation.icons.base.ArrowUpStraight
+import com.gu.source.foundation.icons.base.ArrowUpStraightSmall
+import com.gu.source.foundation.icons.base.Asterisk
+import com.gu.source.foundation.icons.base.Audio
+import com.gu.source.foundation.icons.base.AudioMute
+import com.gu.source.foundation.icons.base.Bin
+import com.gu.source.foundation.icons.base.BookOutlined
+import com.gu.source.foundation.icons.base.BookmarkCross
+import com.gu.source.foundation.icons.base.BookmarkFilled
+import com.gu.source.foundation.icons.base.BookmarkOutlined
+import com.gu.source.foundation.icons.base.BookmarkRoundFilled
+import com.gu.source.foundation.icons.base.BookmarkRoundOutlined
+import com.gu.source.foundation.icons.base.Calendar
+import com.gu.source.foundation.icons.base.Camera
+import com.gu.source.foundation.icons.base.CameraRoundOutlined
+import com.gu.source.foundation.icons.base.CameraSmall
+import com.gu.source.foundation.icons.base.Checkmark
+import com.gu.source.foundation.icons.base.Chef
+import com.gu.source.foundation.icons.base.ChevronDownDouble
+import com.gu.source.foundation.icons.base.ChevronDownSingle
+import com.gu.source.foundation.icons.base.ChevronDownSingleSmall
+import com.gu.source.foundation.icons.base.ChevronDownSingleXsmall
+import com.gu.source.foundation.icons.base.ChevronLeftDouble
+import com.gu.source.foundation.icons.base.ChevronLeftSingle
+import com.gu.source.foundation.icons.base.ChevronLeftSmall
+import com.gu.source.foundation.icons.base.ChevronRightDouble
+import com.gu.source.foundation.icons.base.ChevronRightSingle
+import com.gu.source.foundation.icons.base.ChevronRightSmall
+import com.gu.source.foundation.icons.base.ChevronUpAndDownSmall
+import com.gu.source.foundation.icons.base.ChevronUpDouble
+import com.gu.source.foundation.icons.base.ChevronUpSingle
+import com.gu.source.foundation.icons.base.ChevronUpSingleSmall
+import com.gu.source.foundation.icons.base.ClockBaselineSmall
+import com.gu.source.foundation.icons.base.ClockFilled
+import com.gu.source.foundation.icons.base.ClockOutlined
+import com.gu.source.foundation.icons.base.CreditCard
+import com.gu.source.foundation.icons.base.Cross
+import com.gu.source.foundation.icons.base.CrossRoundFilled
+import com.gu.source.foundation.icons.base.CrossRoundOutlined
+import com.gu.source.foundation.icons.base.CrossSmall
+import com.gu.source.foundation.icons.base.CrossedOutCloud
+import com.gu.source.foundation.icons.base.Crosswords
+import com.gu.source.foundation.icons.base.Cuisine
+import com.gu.source.foundation.icons.base.Diets
+import com.gu.source.foundation.icons.base.DirectDebit
+import com.gu.source.foundation.icons.base.DirectDebitWide
+import com.gu.source.foundation.icons.base.Discover
+import com.gu.source.foundation.icons.base.Document
+import com.gu.source.foundation.icons.base.Download
+import com.gu.source.foundation.icons.base.DragHandle
+import com.gu.source.foundation.icons.base.Edit
+import com.gu.source.foundation.icons.base.Ellipsis
+import com.gu.source.foundation.icons.base.Envelope
+import com.gu.source.foundation.icons.base.Exclamation
+import com.gu.source.foundation.icons.base.External
+import com.gu.source.foundation.icons.base.Eye
+import com.gu.source.foundation.icons.base.EyeStrike
+import com.gu.source.foundation.icons.base.Facebook
+import com.gu.source.foundation.icons.base.FacebookBrand
+import com.gu.source.foundation.icons.base.FacebookMessenger
+import com.gu.source.foundation.icons.base.Filter
+import com.gu.source.foundation.icons.base.FilterAndroidApp
+import com.gu.source.foundation.icons.base.FilterAndroidAppSmall
+import com.gu.source.foundation.icons.base.FilterIosApp
+import com.gu.source.foundation.icons.base.FilterIosAppSmall
+import com.gu.source.foundation.icons.base.FilterOutlinedWeb
+import com.gu.source.foundation.icons.base.Folder
+import com.gu.source.foundation.icons.base.FolderFilled
+import com.gu.source.foundation.icons.base.Gift
+import com.gu.source.foundation.icons.base.Globe
+import com.gu.source.foundation.icons.base.GoogleBrand
+import com.gu.source.foundation.icons.base.Gps
+import com.gu.source.foundation.icons.base.GuessPuzzles
+import com.gu.source.foundation.icons.base.HandPointed
+import com.gu.source.foundation.icons.base.HeadphonesFilled
+import com.gu.source.foundation.icons.base.HeadphonesOutlined
+import com.gu.source.foundation.icons.base.HeadphonesRoundFilled
+import com.gu.source.foundation.icons.base.HeadphonesRoundOutlined
+import com.gu.source.foundation.icons.base.HomeHouseFilled
+import com.gu.source.foundation.icons.base.HomeHouseOutlined
+import com.gu.source.foundation.icons.base.HomeSquareFilled
+import com.gu.source.foundation.icons.base.HomeSquareOutlined
+import com.gu.source.foundation.icons.base.HouseCross
+import com.gu.source.foundation.icons.base.HousePlus
+import com.gu.source.foundation.icons.base.HouseSetting
+import com.gu.source.foundation.icons.base.Indent
+import com.gu.source.foundation.icons.base.InfoRound
+import com.gu.source.foundation.icons.base.Ingredient1
+import com.gu.source.foundation.icons.base.Ingredient2
+import com.gu.source.foundation.icons.base.Ingredient3
+import com.gu.source.foundation.icons.base.KnifeAndFork
+import com.gu.source.foundation.icons.base.LinkedIn
+import com.gu.source.foundation.icons.base.List
+import com.gu.source.foundation.icons.base.LocationMarker
+import com.gu.source.foundation.icons.base.MagnifyingGlass
+import com.gu.source.foundation.icons.base.MagnifyingGlassMinus
+import com.gu.source.foundation.icons.base.MagnifyingGlassPlus
+import com.gu.source.foundation.icons.base.MagnifyingGlassSadFace
+import com.gu.source.foundation.icons.base.MealTypes
+import com.gu.source.foundation.icons.base.MediaControlsBack
+import com.gu.source.foundation.icons.base.MediaControlsForward
+import com.gu.source.foundation.icons.base.MediaControlsPause
+import com.gu.source.foundation.icons.base.MediaControlsPlay
+import com.gu.source.foundation.icons.base.MediaControlsStop
+import com.gu.source.foundation.icons.base.Menu
+import com.gu.source.foundation.icons.base.Message
+import com.gu.source.foundation.icons.base.MessageRound
+import com.gu.source.foundation.icons.base.Minus
+import com.gu.source.foundation.icons.base.Moon
+import com.gu.source.foundation.icons.base.Newsletter
+import com.gu.source.foundation.icons.base.NewsletterOutlined
+import com.gu.source.foundation.icons.base.NewspaperArchive
+import com.gu.source.foundation.icons.base.NoteFilled
+import com.gu.source.foundation.icons.base.NoteOutlined
+import com.gu.source.foundation.icons.base.NotificationsOff
+import com.gu.source.foundation.icons.base.NotificationsOffRound
+import com.gu.source.foundation.icons.base.NotificationsOn
+import com.gu.source.foundation.icons.base.NotificationsOnRound
+import com.gu.source.foundation.icons.base.Padlock
+import com.gu.source.foundation.icons.base.PadlockLocked
+import com.gu.source.foundation.icons.base.PadlockUnlocked
+import com.gu.source.foundation.icons.base.PartyOfThree
+import com.gu.source.foundation.icons.base.PartyPopperFilled
+import com.gu.source.foundation.icons.base.PartyPopperOutlined
+import com.gu.source.foundation.icons.base.PayPalBrand
+import com.gu.source.foundation.icons.base.Person
+import com.gu.source.foundation.icons.base.PersonCross
+import com.gu.source.foundation.icons.base.PersonPlus
+import com.gu.source.foundation.icons.base.PersonRoundFilled
+import com.gu.source.foundation.icons.base.PersonRoundOutlined
+import com.gu.source.foundation.icons.base.PersonTick
+import com.gu.source.foundation.icons.base.Phone
+import com.gu.source.foundation.icons.base.Pinned
+import com.gu.source.foundation.icons.base.Pinterest
+import com.gu.source.foundation.icons.base.Plus
+import com.gu.source.foundation.icons.base.PlusOnRound
+import com.gu.source.foundation.icons.base.Quote
+import com.gu.source.foundation.icons.base.Reload
+import com.gu.source.foundation.icons.base.Settings
+import com.gu.source.foundation.icons.base.ShareApp
+import com.gu.source.foundation.icons.base.ShareAppSmall
+import com.gu.source.foundation.icons.base.ShareCallout
+import com.gu.source.foundation.icons.base.ShareRoundFilled
+import com.gu.source.foundation.icons.base.ShareRoundOutline
+import com.gu.source.foundation.icons.base.ShareWeb
+import com.gu.source.foundation.icons.base.ShoppingBasket
+import com.gu.source.foundation.icons.base.ShoppingList
+import com.gu.source.foundation.icons.base.SignalBrand
+import com.gu.source.foundation.icons.base.Sort
+import com.gu.source.foundation.icons.base.SpeechBubble
+import com.gu.source.foundation.icons.base.SpeechBubbleCross
+import com.gu.source.foundation.icons.base.SpeechBubblePlus
+import com.gu.source.foundation.icons.base.Star
+import com.gu.source.foundation.icons.base.StarOutline
+import com.gu.source.foundation.icons.base.TelegramBrand
+import com.gu.source.foundation.icons.base.TextLarge
+import com.gu.source.foundation.icons.base.TextSize
+import com.gu.source.foundation.icons.base.TextSizeRoundFilled
+import com.gu.source.foundation.icons.base.TextSizeRoundOutline
+import com.gu.source.foundation.icons.base.TextSmall
+import com.gu.source.foundation.icons.base.TickRound
+import com.gu.source.foundation.icons.base.Timer
+import com.gu.source.foundation.icons.base.TransparentArrowLeftStraightRound
+import com.gu.source.foundation.icons.base.Trophy
+import com.gu.source.foundation.icons.base.Twitter
+import com.gu.source.foundation.icons.base.Upload
+import com.gu.source.foundation.icons.base.Video
+import com.gu.source.foundation.icons.base.WhatsApp
+import com.gu.source.foundation.icons.base.WhatsAppBrand
+import com.gu.source.foundation.icons.base.WhiteArrowLeftStraightRound
+import com.gu.source.foundation.palette.Brand400
+import com.gu.source.foundation.palette.Neutral97
+import com.gu.source.foundation.typography.TextSans15
 
 private val icons = listOf(
     Source.Icons.Base.AddToBasket,
+    Source.Icons.Base.AiIndicator,
     Source.Icons.Base.AlarmClockFilled,
     Source.Icons.Base.AlarmClockOutlined,
     Source.Icons.Base.AlarmClockSounded,
@@ -216,26 +400,21 @@ private val icons = listOf(
     Source.Icons.Base.WhatsApp,
     Source.Icons.Base.WhatsAppBrand,
     Source.Icons.Base.WhiteArrowLeftStraightRound,
+    Source.Icons.Base.Trophy,
+    Source.Icons.Base.GuessPuzzles,
 )
 
 @Composable
-internal fun IconsPreview(modifier: Modifier = Modifier) {
-    Surface(
+internal fun IconsPreview(onBackPress: () -> Unit, modifier: Modifier = Modifier) {
+    PreviewScaffold(
+        "Icons",
         modifier = modifier,
-        color = AppColour(Source.Palette.Neutral100, Source.Palette.Neutral0).current,
-        contentColor = AppColour(Source.Palette.Neutral0, Source.Palette.Neutral100).current,
+        onBackPress = onBackPress,
     ) {
         LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            contentPadding = PaddingValues(vertical = 8.dp),
+            columns = GridCells.Fixed(getGridCount()),
+            modifier = it,
         ) {
-            item(span = { GridItemSpan(2) }) {
-                Text(
-                    text = "Icons",
-                    style = Source.Typography.HeadlineBold20,
-                    modifier = Modifier.padding(8.dp),
-                )
-            }
             items(icons) { icon ->
                 Row(
                     modifier = Modifier
@@ -247,7 +426,7 @@ internal fun IconsPreview(modifier: Modifier = Modifier) {
                     Icon(
                         imageVector = icon,
                         contentDescription = null,
-                        tint = Color.Unspecified,
+                        tint = AppColour(Source.Palette.Brand400, Source.Palette.Neutral97).current,
                         modifier = Modifier.height(24.dp),
                     )
                     Text(
@@ -263,10 +442,10 @@ internal fun IconsPreview(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(device = "spec:width=1080px,height=8340px,dpi=440")
+@Preview(device = "spec:width=2160px,height=8340px,dpi=440")
 @Composable
 private fun Preview() {
     AppColourMode {
-        IconsPreview()
+        IconsPreview({})
     }
 }

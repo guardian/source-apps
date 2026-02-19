@@ -1,3 +1,5 @@
+//
+
 import SwiftUI
 
 /// This component used to signpost progression through a paginated view.
@@ -49,7 +51,7 @@ public struct PaginationProgressBar: View {
                 scrollingIndicator
             }
         }
-        .onChange(of: selectedIndex) { selectedIndex in
+        .onChange(of: selectedIndex, initial: true) { oldValue, newValue in
             updateButtonDisabledState()
         }
     }
@@ -82,13 +84,15 @@ struct PaginationProgressBar_Previews_Container: PreviewProvider {
                             .font(.largeTitle)
                     }
                 }
+                #if os(iOS)
                 .tabViewStyle(.page(indexDisplayMode: .never))
+                #endif
                 PaginationProgressBar(
                     pageCount: elementArray.count,
                     indicatorWidth: 16,
                     selectedIndex: $selectedIndex,
-                    primaryColor: Color(uiColor: ColorPalette.neutral0),
-                    secondaryColor: Color(uiColor: ColorPalette.neutral73)
+                    primaryColor: Color(ColorPalette.neutral0),
+                    secondaryColor: Color(ColorPalette.neutral73)
                 )
                 .padding()
             }

@@ -2,29 +2,25 @@ name: Release to Maven Central
 
 on:
   workflow_dispatch:
-  release:
+# Uncomment to enable automatic releases on pushes to the main branch.
+#  push:
+#      branches:
+#        - main
+#      paths:
+#        - 'android/**'
 
 jobs:
-  release:
+  version:
+    name: Release
     if: github.repository == 'guardian/source-apps'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-
-      - name: Release
-        env:
-          AUTOMATED_MAVEN_RELEASE_PGP_SECRET: ${{ secrets.AUTOMATED_MAVEN_RELEASE_PGP_SECRET }}
-          AUTOMATED_MAVEN_RELEASE_GITHUB_APP_PRIVATE_KEY: ${{ secrets.AUTOMATED_MAVEN_RELEASE_GITHUB_APP_PRIVATE_KEY }}
-          AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN: ${{ secrets.AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN }}
-        run: |
-          cd android
-          ./gradlew :source:publishToSonatype closeAndReleaseSonatypeStagingRepository
+    permissions: { contents: write, pull-requests: write }
+    uses: guardian/gha-gradle-library-release-workflow/.github/workflows/reusable-release.yml@b2bf9c33e58792d68d3338767d2f648758b6af1d
+    with:
+      SOURCE_DIR: 'android'
+      MODULES: 'source'
+      API_FILE: 'api/source-api.txt'
+      VERSION_FILE: 'version.txt'
+    secrets:
+      SONATYPE_TOKEN: ${{ secrets.AUTOMATED_MAVEN_RELEASE_SONATYPE_TOKEN }}
+      PGP_PRIVATE_KEY: ${{ secrets.AUTOMATED_MAVEN_RELEASE_PGP_SECRET }}
+      GITHUB_APP_PRIVATE_KEY: ${{ secrets.AUTOMATED_MAVEN_GRADLE_RELEASE_GITHUB_APP_PRIVATE_KEY }}

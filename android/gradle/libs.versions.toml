@@ -1,44 +1,46 @@
 [versions]
 group = "com.gu.source"
-libraryVersion = "0.8.1"
-compilesdk = "35"
+versionFileName = "version.txt"
+compilesdk = "36"
 minsdk = "26"
-targetsdk = "34"
-java = "17"
+targetsdk = "36"
+# When updating the java version, also update it in .tool-versions so github actions pick
+# it up
+java = "21"
 
-agp = "8.8.0"
-kotlin = "2.1.10"
+agp = "8.13.2"
+kotlin = "2.3.10"
 # Kotlinter version is tied closely to min & max Kotlin and Gradle versions. Update Kotlinter
 # when updating Kotlin. Check compatible versions here:
 # https://github.com/jeremymailen/kotlinter-gradle/blob/master/README.md#compatibility
 kotlinter = "5.0.1"
 
-activity = "1.10.0"
-appcompat = "1.7.0"
+activity = "1.12.2"
+appcompat = "1.7.1"
 coil = "2.7.0"
-composeBom = "2025.01.01"
-composeLint = "0.4.22"
-coreKtx = "1.15.0"
-detekt = "1.23.7"
-dokka = "2.0.0"
+composeBom = "2025.12.01"
+ktlint-compose = "0.5.6"
+coreKtx = "1.17.0"
+detekt = "1.23.8"
+dokka = "2.1.0"
 inject = "1"
-kotlinx-collections-immutable = "0.3.8"
-lifecycleRuntimeKtx = "2.8.7"
-lint-gradle = "1.0.0-alpha03"
-nexus-publish = "2.0.0"
+kotlinx-collections-immutable = "0.4.0"
+kotlinx-serialisation-core = "1.10.0"
+licensee = "1.14.1"
+lint-gradle = "1.0.0-alpha05"
+nav = "1.0.1"
 timber = "5.0.1"
 
-gradle-binary-compatibility = "0.17.0"
 metalava = "0.4.0-alpha03"
 
 junit = "4.13.2"
-espressoCore = "3.6.1"
-androidx-junit = "1.2.1"
-androidx-test-core = "1.6.1"
-androidx-test-rules = "1.6.1"
-androidx-test-runner = "1.6.2"
-testparameterinjector = "1.18"
-paparazzi = "1.3.5"
+espressoCore = "3.7.0"
+androidx-junit = "1.3.0"
+androidx-test-core = "1.7.0"
+androidx-test-rules = "1.7.0"
+androidx-test-runner = "1.7.0"
+testparameterinjector = "1.21"
+paparazzi = "2.0.0-alpha04"
 
 # Convention plugin versions
 guardian-convention-plugins = "1"
@@ -52,8 +54,9 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 androidx-compose-material3-windowSize = { group = "androidx.compose.material3", name = "material3-window-size-class" }
 androidx-compose-uiTest = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-lint-gradle = { module = "androidx.lint:lint-gradle", version.ref = "lint-gradle" }
+androidx-nav-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "nav" }
+androidx-nav-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "nav" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
@@ -62,12 +65,10 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 dokka-android = { module = "org.jetbrains.dokka:android-documentation-plugin", version.ref = "dokka" }
 javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "inject" }
+kotlin-serialisation-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialisation-core" }
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
 kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinx-collections-immutable" }
 other-timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
-
-# This is temporarily required till detekt catches up with the latest Kotlin version
-kotlin-compiler-embeddable = { module = "org.jetbrains.kotlin:kotlin-compiler-embeddable", version.ref = "kotlin" }
 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 kotlin-test-junit = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit", version.ref = "kotlin" }
@@ -88,24 +89,23 @@ dokka-gradlePlugin = { module = "org.jetbrains.dokka:dokka-gradle-plugin", versi
 
 # These rules are now maintained independently by Nacho Lopez who originally created them at
 # Twitter: https://github.com/mrmans0n/compose-rules
-other-composeLint = { group = "io.nlopez.compose.rules", name = "ktlint", version.ref = "composeLint" }
+ktlint-compose = { group = "io.nlopez.compose.rules", name = "ktlint", version.ref = "ktlint-compose" }
 
 [plugins]
 
-android-lint = { id = "com.android.lint", version.ref = "agp"}
+android-lint = { id = "com.android.lint", version.ref = "agp" }
 agp-application = { id = "com.android.application", version.ref = "agp" }
 agp-library = { id = "com.android.library", version.ref = "agp" }
 agp-test = { id = "com.android.test", version.ref = "agp" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+licensee = { id = "app.cash.licensee", version.ref = "licensee" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kgp = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
-gradle-binaryCompatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "gradle-binary-compatibility" }
-metalava = { id = "me.tylerbwong.gradle.metalava", version.ref = "metalava"}
-
-nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexus-publish" }
+metalava = { id = "me.tylerbwong.gradle.metalava", version.ref = "metalava" }
 
 # Guardian's convention plugins
 guardian-application = { id = "com.theguardian.application", version.ref = "guardian-convention-plugins" }

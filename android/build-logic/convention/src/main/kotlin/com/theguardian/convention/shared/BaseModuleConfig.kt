@@ -4,7 +4,12 @@ import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
-import org.gradle.kotlin.dsl.*
+import org.gradle.kotlin.dsl.assign
+import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.dependencies
+import org.gradle.kotlin.dsl.getByType
+import org.gradle.kotlin.dsl.named
+import org.gradle.kotlin.dsl.provideDelegate
 import org.gradle.plugin.use.PluginDependency
 import org.jetbrains.dokka.gradle.DokkaExtension
 import org.jetbrains.dokka.gradle.engine.plugins.DokkaHtmlPluginParameters
@@ -76,9 +81,10 @@ private inline fun <reified T : KotlinBaseExtension> Project.setupKotlinCompiler
 
 internal fun Project.dokkaConfig() {
     extensions.configure<DokkaExtension> {
-
+        val versionFileName = libs.findVersion("versionFileName").get().toString()
+        val version = rootProject.file(versionFileName).readText().trim()
         moduleName.set("Source for Android")
-        moduleVersion.set("v." + libs.findVersion("libraryVersion").get().toString())
+        moduleVersion.set("v.$version")
 
         dokkaPublications.named("html").configure {
             enabled = true

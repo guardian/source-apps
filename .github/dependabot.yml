@@ -12,10 +12,8 @@ updates:
       day: sunday
     open-pull-requests-limit: 5
     labels:
-      - "Dependency Update"
+      - "dependencies"
       - "Android"
-    reviewers:
-      - "guardian/android-developers"
     groups:
       # Request that all kotlin specific dependencies are grouped together
       kotlin:
@@ -35,15 +33,18 @@ updates:
           - "com.android.tools.lint:lint-api"
           - "com.android.tools.lint:lint-checks"
           - "com.android.tools.lint:lint-tests"
+    cooldown:
+      default-days: 5
+      semver-major-days: 14
+      semver-minor-days: 7
+      semver-patch-days: 3
 
   - package-ecosystem: github-actions
-    directory: /android/
+    directory: /
     schedule:
       interval: weekly
       day: sunday
     labels:
-      - "Dependency Update"
+      - "dependencies"
       - "Android"
-    reviewers:
-      - "guardian/android-developers"
     open-pull-requests-limit: 1

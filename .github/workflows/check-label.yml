@@ -1,0 +1,15 @@
+name: Check PR Labels
+
+on:
+  pull_request:
+    types: [opened, labeled, unlabeled, reopened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  check-labels:
+    name: Check Required Labels
+    uses: guardian/check-labels/.github/workflows/check-labels.yml@13248b2fbdb7f170f9dd0f1f49c1b7c8b3edbf41
+    with:
+      additional-labels: 'not sure,dependencies'
