@@ -6,8 +6,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.LocalRippleConfiguration
+import androidx.compose.material3.RippleConfiguration
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
@@ -17,7 +21,12 @@ import com.gu.source.components.theme.ReaderRevenueTheme
 import com.gu.source.components.theme.SourceCoreTheme
 import com.gu.source.daynight.AppColour
 import com.gu.source.daynight.AppColourMode
+import com.gu.source.foundation.palette.Brand400
+import com.gu.source.foundation.palette.BrandAlt200
+import com.gu.source.foundation.palette.BrandAlt400
+import com.gu.source.foundation.palette.Neutral100
 import com.gu.source.foundation.palette.Neutral38
+import com.gu.source.foundation.palette.Neutral86
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.PreviewTabletBothMode
 
@@ -59,21 +68,74 @@ fun SourceTextButton(
         border = AppColour.Transparent,
     )
 
-    PlainSourceContentButton(
-        size = size,
-        onClick = onClick,
-        buttonColours = buttonColours,
-        modifier = modifier,
+    CompositionLocalProvider(
+        LocalRippleConfiguration provides rememberRippleConfiguration(
+            theme = appliedTheme,
+            priority = priority,
+        ),
     ) {
-        Text(
-            text = text,
-            style = size.textButtonTextStyle,
-            overflow = TextOverflow.Ellipsis,
-            softWrap = false,
-            maxLines = 1,
-            letterSpacing = 0.sp,
-        )
+        PlainSourceContentButton(
+            size = size,
+            onClick = onClick,
+            buttonColours = buttonColours,
+            modifier = modifier,
+        ) {
+            Text(
+                text = text,
+                style = size.textButtonTextStyle,
+                overflow = TextOverflow.Ellipsis,
+                softWrap = false,
+                maxLines = 1,
+                letterSpacing = 0.sp,
+            )
+        }
     }
+}
+
+@Composable
+private fun rememberRippleConfiguration(
+    theme: Source.Theme,
+    priority: SourceButton.Priority,
+): RippleConfiguration {
+    val appColour = remember(theme, priority) {
+        when (priority) {
+            SourceButton.Priority.TertiaryOnWhite -> {
+                when (theme) {
+                    Source.Theme.Core -> AppColour(
+                        light = Source.Palette.Brand400.copy(alpha = 0.1f),
+                        dark = Source.Palette.Neutral86.copy(alpha = 0.2f),
+                    )
+
+                    Source.Theme.ReaderRevenue -> AppColour(
+                        light = Source.Palette.Brand400.copy(alpha = 0.1f),
+                        dark = Source.Palette.BrandAlt200.copy(alpha = 0.15f),
+                    )
+                }
+            }
+
+            SourceButton.Priority.TertiaryOnBlue -> {
+                when (theme) {
+                    Source.Theme.Core -> AppColour(
+                        light = Source.Palette.Neutral100.copy(alpha = 0.2f),
+                        dark = Source.Palette.Neutral86.copy(alpha = 0.2f),
+                    )
+
+                    Source.Theme.ReaderRevenue -> AppColour(
+                        light = Source.Palette.BrandAlt400.copy(alpha = 0.15f),
+                        dark = Source.Palette.BrandAlt200.copy(alpha = 0.15f),
+                    )
+                }
+            }
+
+            SourceButton.Priority.PrimaryOnBlue,
+            SourceButton.Priority.SecondaryOnBlue,
+            SourceButton.Priority.PrimaryOnWhite,
+            SourceButton.Priority.SecondaryOnWhite,
+            -> AppColour.Unspecified
+        }
+    }
+
+    return RippleConfiguration(color = appColour.current)
 }
 
 @Composable
