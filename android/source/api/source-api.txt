@@ -31,28 +31,8 @@ package com.gu.source {
 package com.gu.source.components {
 
   public final class HorizontalExpandingTextKt {
-    method @androidx.compose.runtime.Composable public static void HorizontalExpandingText(androidx.compose.ui.text.AnnotatedString text, long color, androidx.compose.ui.text.TextStyle style, optional androidx.compose.ui.Modifier modifier, optional int maxLines, optional int overflow);
-    method @androidx.compose.runtime.Composable public static void HorizontalExpandingText(String text, long colour, androidx.compose.ui.text.TextStyle style, optional androidx.compose.ui.Modifier modifier, optional int maxLines, optional int overflow);
-  }
-
-}
-
-package com.gu.source.components.badge {
-
-  public final class SourceBadgeKt {
-    method @androidx.compose.runtime.Composable public static void SourceBadge(String text, com.gu.source.components.badge.SourceBadgeSizes size, com.gu.source.components.badge.SourceBadgeStyle style, optional androidx.compose.ui.Modifier modifier, optional int maxLines, optional int textOverflow);
-  }
-
-  public enum SourceBadgeSizes {
-    enum_constant public static final com.gu.source.components.badge.SourceBadgeSizes Large;
-    enum_constant public static final com.gu.source.components.badge.SourceBadgeSizes Small;
-  }
-
-  public enum SourceBadgeStyle {
-    enum_constant public static final com.gu.source.components.badge.SourceBadgeStyle DarkBlue;
-    enum_constant public static final com.gu.source.components.badge.SourceBadgeStyle Gray;
-    enum_constant public static final com.gu.source.components.badge.SourceBadgeStyle LightBlue;
-    enum_constant public static final com.gu.source.components.badge.SourceBadgeStyle Red;
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void HorizontalExpandingText(androidx.compose.ui.text.AnnotatedString text, androidx.compose.ui.graphics.Color color, androidx.compose.ui.text.TextStyle style, optional androidx.compose.ui.Modifier modifier, optional int maxLines, optional androidx.compose.ui.text.style.TextOverflow overflow);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void HorizontalExpandingText(String text, androidx.compose.ui.graphics.Color colour, androidx.compose.ui.text.TextStyle style, optional androidx.compose.ui.Modifier modifier, optional int maxLines, optional androidx.compose.ui.text.style.TextOverflow overflow);
   }
 
 }
@@ -70,8 +50,8 @@ package com.gu.source.components.banner {
   }
 
   public final class SourceAlertBannerKt {
-    method @androidx.compose.runtime.Composable public static void SourceAlertBanner(androidx.compose.ui.text.AnnotatedString messageText, com.gu.source.components.banner.SourceAlertBanner.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onMessageClick, kotlin.jvm.functions.Function0<kotlin.Unit> onDismiss, optional androidx.compose.ui.Modifier modifier, optional boolean showDismiss);
-    method @androidx.compose.runtime.Composable public static void SourceAlertBanner(String messageText, com.gu.source.components.banner.SourceAlertBanner.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onMessageClick, kotlin.jvm.functions.Function0<kotlin.Unit> onDismiss, optional androidx.compose.ui.Modifier modifier, optional boolean showDismiss);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void SourceAlertBanner(androidx.compose.ui.text.AnnotatedString messageText, com.gu.source.components.banner.SourceAlertBanner.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onMessageClick, kotlin.jvm.functions.Function0<kotlin.Unit> onDismiss, optional androidx.compose.ui.Modifier modifier, optional boolean showDismiss);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void SourceAlertBanner(String messageText, com.gu.source.components.banner.SourceAlertBanner.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onMessageClick, kotlin.jvm.functions.Function0<kotlin.Unit> onDismiss, optional androidx.compose.ui.Modifier modifier, optional boolean showDismiss);
   }
 
 }
@@ -79,23 +59,23 @@ package com.gu.source.components.banner {
 package com.gu.source.components.buttons {
 
   public final class ButtonColours {
+    ctor @KotlinOnly public ButtonColours(androidx.compose.ui.graphics.Color border, androidx.compose.ui.graphics.Color container, androidx.compose.ui.graphics.Color content);
     ctor public ButtonColours(com.gu.source.daynight.AppColour border, com.gu.source.daynight.AppColour container, com.gu.source.daynight.AppColour content);
-    ctor public ButtonColours(long border, long container, long content);
     method public com.gu.source.daynight.AppColour component1();
     method public com.gu.source.daynight.AppColour component2();
     method public com.gu.source.daynight.AppColour component3();
-    method public com.gu.source.components.buttons.ButtonColours copy(com.gu.source.daynight.AppColour border, com.gu.source.daynight.AppColour container, com.gu.source.daynight.AppColour content);
-    method public com.gu.source.daynight.AppColour getBorder();
-    method public com.gu.source.daynight.AppColour getContainer();
-    method public com.gu.source.daynight.AppColour getContent();
-    property public final com.gu.source.daynight.AppColour border;
-    property public final com.gu.source.daynight.AppColour container;
-    property public final com.gu.source.daynight.AppColour content;
+    method public com.gu.source.components.buttons.ButtonColours copy(optional com.gu.source.daynight.AppColour border, optional com.gu.source.daynight.AppColour container, optional com.gu.source.daynight.AppColour content);
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getBorder();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getContainer();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getContent();
+    property public com.gu.source.daynight.AppColour border;
+    property public com.gu.source.daynight.AppColour container;
+    property public com.gu.source.daynight.AppColour content;
   }
 
   public final class PlainSourceButtonKt {
-    method @androidx.compose.runtime.Composable public static void PlainSourceButton(String text, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.components.buttons.SourceButton.IconSide iconSide, optional kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> icon);
-    method @Discouraged(message="Preferably use `PlainSourceButton`." + " It provides correct styling & size for text and icons." + " This variant is for supporting custom button designs only.") @androidx.compose.runtime.Composable public static void PlainSourceContentButton(com.gu.source.components.buttons.SourceButton.Size size, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional androidx.compose.ui.unit.Dp? overridePaddingStart, optional androidx.compose.ui.unit.Dp? overridePaddingEnd, kotlin.jvm.functions.Function0<kotlin.Unit> content);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void PlainSourceButton(String text, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.components.buttons.SourceButton.IconSide iconSide, optional kotlin.jvm.functions.Function1<androidx.compose.ui.Modifier,kotlin.Unit> icon);
+    method @KotlinOnly @Discouraged(message="Preferably use `PlainSourceButton`. It provides correct styling & size for text and icons. This variant is for supporting custom button designs only.") @androidx.compose.runtime.Composable public static void PlainSourceContentButton(com.gu.source.components.buttons.SourceButton.Size size, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional androidx.compose.ui.unit.Dp? overridePaddingStart, optional androidx.compose.ui.unit.Dp? overridePaddingEnd, kotlin.jvm.functions.Function0<kotlin.Unit> content);
   }
 
   public final class SourceButton {
@@ -123,38 +103,40 @@ package com.gu.source.components.buttons {
   }
 
   public final class SourceButtonKt {
-    method @androidx.compose.runtime.Composable public static void SourceButton(String text, com.gu.source.components.buttons.SourceButton.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme, optional com.gu.source.components.buttons.SourceButton.IconSide iconSide, optional kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> icon);
-    method @Discouraged(message="Preferably use `SourceButton`." + " It provides correct styling & size for text and icons." + " This variant is for supporting custom button designs only.") @androidx.compose.runtime.Composable public static void SourceContentButton(com.gu.source.components.buttons.SourceButton.Size size, com.gu.source.components.buttons.SourceButton.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.Source.Theme? theme, kotlin.jvm.functions.Function0<kotlin.Unit> content);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void SourceButton(String text, com.gu.source.components.buttons.SourceButton.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme, optional com.gu.source.components.buttons.SourceButton.IconSide iconSide, optional kotlin.jvm.functions.Function1<androidx.compose.ui.Modifier,kotlin.Unit> icon);
+    method @KotlinOnly @Discouraged(message="Preferably use `SourceButton`. It provides correct styling & size for text and icons. This variant is for supporting custom button designs only.") @androidx.compose.runtime.Composable public static void SourceContentButton(com.gu.source.components.buttons.SourceButton.Size size, com.gu.source.components.buttons.SourceButton.Priority priority, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.Source.Theme? theme, kotlin.jvm.functions.Function0<kotlin.Unit> content);
   }
 
   public final class SourceIconButtonKt {
-    method @androidx.compose.runtime.Composable public static void SourceBaseIconButton(com.gu.source.components.buttons.SourceButton.Size size, com.gu.source.components.buttons.ButtonColours buttonColours, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> icon);
-    method @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.ImageBitmap icon, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
-    method @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.painter.Painter painter, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
-    method @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.vector.ImageVector icon, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void SourceBaseIconButton(com.gu.source.components.buttons.SourceButton.Size size, com.gu.source.components.buttons.ButtonColours buttonColours, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional kotlin.jvm.functions.Function1<androidx.compose.ui.Modifier,kotlin.Unit> icon);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.ImageBitmap icon, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.painter.Painter painter, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void SourceIconButton(androidx.compose.ui.graphics.vector.ImageVector icon, com.gu.source.components.buttons.SourceButton.Priority priority, String? contentDescription, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean enabled, optional com.gu.source.components.buttons.SourceButton.Size size, optional com.gu.source.Source.Theme? theme);
+  }
+
+  public final class SourceTextButtonKt {
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void SourceTextButton(String text, com.gu.source.components.buttons.SourceButton.Priority priority, com.gu.source.components.buttons.SourceButton.Size size, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.Source.Theme? theme);
   }
 
 }
 
 package com.gu.source.components.chips {
 
-  public abstract sealed class ChipDecoration {
-    method public abstract kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
-    method public abstract float getHeight();
+  public abstract sealed exhaustive class ChipDecoration {
+    method @InaccessibleFromKotlin public abstract kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
     property public abstract kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
-    property public abstract float height;
+    property public abstract androidx.compose.ui.unit.Dp height;
   }
 
-  public abstract static sealed class ChipDecoration.Icon extends com.gu.source.components.chips.ChipDecoration {
-    method public float getHeight();
-    property public float height;
+  public abstract static sealed exhaustive class ChipDecoration.Icon extends com.gu.source.components.chips.ChipDecoration {
+    property public androidx.compose.ui.unit.Dp height;
   }
 
   public static final class ChipDecoration.Icon.Component extends com.gu.source.components.chips.ChipDecoration.Icon {
     ctor public ChipDecoration.Icon.Component(kotlin.jvm.functions.Function2<? super androidx.compose.foundation.layout.RowScope,? super androidx.compose.ui.Modifier,kotlin.Unit> content);
     method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> component1();
-    method public com.gu.source.components.chips.ChipDecoration.Icon.Component copy(kotlin.jvm.functions.Function2<? super androidx.compose.foundation.layout.RowScope,? super androidx.compose.ui.Modifier,kotlin.Unit> content);
-    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
+    method public com.gu.source.components.chips.ChipDecoration.Icon.Component copy(optional kotlin.jvm.functions.Function2<? super androidx.compose.foundation.layout.RowScope,? super androidx.compose.ui.Modifier,kotlin.Unit> content);
+    method @InaccessibleFromKotlin public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
     property public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
   }
 
@@ -162,38 +144,37 @@ package com.gu.source.components.chips {
     ctor public ChipDecoration.Icon.Painter(androidx.compose.ui.graphics.painter.Painter painter, optional String? contentDescription);
     method public androidx.compose.ui.graphics.painter.Painter component1();
     method public String? component2();
-    method public com.gu.source.components.chips.ChipDecoration.Icon.Painter copy(androidx.compose.ui.graphics.painter.Painter painter, String? contentDescription);
-    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
-    method public String? getContentDescription();
-    method public androidx.compose.ui.graphics.painter.Painter getPainter();
+    method public com.gu.source.components.chips.ChipDecoration.Icon.Painter copy(optional androidx.compose.ui.graphics.painter.Painter painter, optional String? contentDescription);
+    method @InaccessibleFromKotlin public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
+    method @InaccessibleFromKotlin public String? getContentDescription();
+    method @InaccessibleFromKotlin public androidx.compose.ui.graphics.painter.Painter getPainter();
     property public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
-    property public final String? contentDescription;
-    property public final androidx.compose.ui.graphics.painter.Painter painter;
+    property public String? contentDescription;
+    property public androidx.compose.ui.graphics.painter.Painter painter;
   }
 
   public static final class ChipDecoration.Icon.Vector extends com.gu.source.components.chips.ChipDecoration.Icon {
     ctor public ChipDecoration.Icon.Vector(androidx.compose.ui.graphics.vector.ImageVector imageVector, optional String? contentDescription);
     method public androidx.compose.ui.graphics.vector.ImageVector component1();
     method public String? component2();
-    method public com.gu.source.components.chips.ChipDecoration.Icon.Vector copy(androidx.compose.ui.graphics.vector.ImageVector imageVector, String? contentDescription);
-    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
-    method public String? getContentDescription();
-    method public androidx.compose.ui.graphics.vector.ImageVector getImageVector();
+    method public com.gu.source.components.chips.ChipDecoration.Icon.Vector copy(optional androidx.compose.ui.graphics.vector.ImageVector imageVector, optional String? contentDescription);
+    method @InaccessibleFromKotlin public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
+    method @InaccessibleFromKotlin public String? getContentDescription();
+    method @InaccessibleFromKotlin public androidx.compose.ui.graphics.vector.ImageVector getImageVector();
     property public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
-    property public final String? contentDescription;
-    property public final androidx.compose.ui.graphics.vector.ImageVector imageVector;
+    property public String? contentDescription;
+    property public androidx.compose.ui.graphics.vector.ImageVector imageVector;
   }
 
-  public abstract static sealed class ChipDecoration.Image extends com.gu.source.components.chips.ChipDecoration {
-    method public float getHeight();
-    property public float height;
+  public abstract static sealed exhaustive class ChipDecoration.Image extends com.gu.source.components.chips.ChipDecoration {
+    property public androidx.compose.ui.unit.Dp height;
   }
 
   public static final class ChipDecoration.Image.Component extends com.gu.source.components.chips.ChipDecoration.Image {
     ctor public ChipDecoration.Image.Component(kotlin.jvm.functions.Function2<? super androidx.compose.foundation.layout.RowScope,? super androidx.compose.ui.Modifier,kotlin.Unit> content);
     method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> component1();
-    method public com.gu.source.components.chips.ChipDecoration.Image.Component copy(kotlin.jvm.functions.Function2<? super androidx.compose.foundation.layout.RowScope,? super androidx.compose.ui.Modifier,kotlin.Unit> content);
-    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
+    method public com.gu.source.components.chips.ChipDecoration.Image.Component copy(optional kotlin.jvm.functions.Function2<? super androidx.compose.foundation.layout.RowScope,? super androidx.compose.ui.Modifier,kotlin.Unit> content);
+    method @InaccessibleFromKotlin public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
     property public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
   }
 
@@ -201,33 +182,32 @@ package com.gu.source.components.chips {
     ctor public ChipDecoration.Image.Painter(androidx.compose.ui.graphics.painter.Painter painter, optional String? contentDescription);
     method public androidx.compose.ui.graphics.painter.Painter component1();
     method public String? component2();
-    method public com.gu.source.components.chips.ChipDecoration.Image.Painter copy(androidx.compose.ui.graphics.painter.Painter painter, String? contentDescription);
-    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
-    method public String? getContentDescription();
-    method public androidx.compose.ui.graphics.painter.Painter getPainter();
+    method public com.gu.source.components.chips.ChipDecoration.Image.Painter copy(optional androidx.compose.ui.graphics.painter.Painter painter, optional String? contentDescription);
+    method @InaccessibleFromKotlin public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
+    method @InaccessibleFromKotlin public String? getContentDescription();
+    method @InaccessibleFromKotlin public androidx.compose.ui.graphics.painter.Painter getPainter();
     property public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
-    property public final String? contentDescription;
-    property public final androidx.compose.ui.graphics.painter.Painter painter;
+    property public String? contentDescription;
+    property public androidx.compose.ui.graphics.painter.Painter painter;
   }
 
   public static final class ChipDecoration.Image.Vector extends com.gu.source.components.chips.ChipDecoration.Image {
     ctor public ChipDecoration.Image.Vector(androidx.compose.ui.graphics.vector.ImageVector imageVector, optional String? contentDescription);
     method public androidx.compose.ui.graphics.vector.ImageVector component1();
     method public String? component2();
-    method public com.gu.source.components.chips.ChipDecoration.Image.Vector copy(androidx.compose.ui.graphics.vector.ImageVector imageVector, String? contentDescription);
-    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
-    method public String? getContentDescription();
-    method public androidx.compose.ui.graphics.vector.ImageVector getImageVector();
+    method public com.gu.source.components.chips.ChipDecoration.Image.Vector copy(optional androidx.compose.ui.graphics.vector.ImageVector imageVector, optional String? contentDescription);
+    method @InaccessibleFromKotlin public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
+    method @InaccessibleFromKotlin public String? getContentDescription();
+    method @InaccessibleFromKotlin public androidx.compose.ui.graphics.vector.ImageVector getImageVector();
     property public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
-    property public final String? contentDescription;
-    property public final androidx.compose.ui.graphics.vector.ImageVector imageVector;
+    property public String? contentDescription;
+    property public androidx.compose.ui.graphics.vector.ImageVector imageVector;
   }
 
   public static final class ChipDecoration.None extends com.gu.source.components.chips.ChipDecoration {
-    method public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
-    method public float getHeight();
+    method @InaccessibleFromKotlin public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> getContent();
     property public kotlin.jvm.functions.Function2<androidx.compose.foundation.layout.RowScope,androidx.compose.ui.Modifier,kotlin.Unit> content;
-    property public float height;
+    property public androidx.compose.ui.unit.Dp height;
     field public static final com.gu.source.components.chips.ChipDecoration.None INSTANCE;
   }
 
@@ -236,24 +216,22 @@ package com.gu.source.components.chips {
   }
 
   public static final class SourceBaseChip.Style {
-    ctor public SourceBaseChip.Style(long fillColour, androidx.compose.foundation.BorderStroke border, androidx.compose.ui.graphics.Shape shape, long rippleColour);
-    method public long component1-0d7_KjU();
+    ctor @KotlinOnly public SourceBaseChip.Style(androidx.compose.ui.graphics.Color fillColour, androidx.compose.foundation.BorderStroke border, androidx.compose.ui.graphics.Shape shape, androidx.compose.ui.graphics.Color rippleColour);
+    method @KotlinOnly public operator androidx.compose.ui.graphics.Color component1();
     method public androidx.compose.foundation.BorderStroke component2();
     method public androidx.compose.ui.graphics.Shape component3();
-    method public long component4-0d7_KjU();
-    method public com.gu.source.components.chips.SourceBaseChip.Style copy-Usj1iBs(long fillColour, androidx.compose.foundation.BorderStroke border, androidx.compose.ui.graphics.Shape shape, long rippleColour);
-    method public androidx.compose.foundation.BorderStroke getBorder();
-    method public long getFillColour();
-    method public long getRippleColour();
-    method public androidx.compose.ui.graphics.Shape getShape();
-    property public final androidx.compose.foundation.BorderStroke border;
-    property public final long fillColour;
-    property public final long rippleColour;
-    property public final androidx.compose.ui.graphics.Shape shape;
+    method @KotlinOnly public operator androidx.compose.ui.graphics.Color component4();
+    method @KotlinOnly public com.gu.source.components.chips.SourceBaseChip.Style copy(optional androidx.compose.ui.graphics.Color fillColour, optional androidx.compose.foundation.BorderStroke border, optional androidx.compose.ui.graphics.Shape shape, optional androidx.compose.ui.graphics.Color rippleColour);
+    method @InaccessibleFromKotlin public androidx.compose.foundation.BorderStroke getBorder();
+    method @InaccessibleFromKotlin public androidx.compose.ui.graphics.Shape getShape();
+    property public androidx.compose.foundation.BorderStroke border;
+    property public androidx.compose.ui.graphics.Color fillColour;
+    property public androidx.compose.ui.graphics.Color rippleColour;
+    property public androidx.compose.ui.graphics.Shape shape;
   }
 
   public final class SourceBaseChipKt {
-    method @Discouraged(message="Use SourceChip instead") @androidx.compose.runtime.Composable public static void SourceBaseChip(float height, com.gu.source.components.chips.SourceBaseChip.Style style, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean allowsMultiSelection, optional String? onClickLabel, optional kotlin.jvm.functions.Function0<kotlin.Unit>? badge, kotlin.jvm.functions.Function1<? super androidx.compose.foundation.layout.RowScope,kotlin.Unit> content);
+    method @KotlinOnly @Discouraged(message="Use SourceChip instead") @androidx.compose.runtime.Composable public static void SourceBaseChip(androidx.compose.ui.unit.Dp height, com.gu.source.components.chips.SourceBaseChip.Style style, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional boolean allowsMultiSelection, optional String? onClickLabel, optional kotlin.jvm.functions.Function0<kotlin.Unit>? badge, kotlin.jvm.functions.Function1<androidx.compose.foundation.layout.RowScope,kotlin.Unit> content);
   }
 
   public final class SourceChip {
@@ -266,7 +244,7 @@ package com.gu.source.components.chips {
   }
 
   public static final class SourceChip.Style {
-    ctor public SourceChip.Style(com.gu.source.daynight.AppColour contentColourUnselected, com.gu.source.daynight.AppColour contentColourSelected, com.gu.source.daynight.AppColour fillColourUnselected, com.gu.source.daynight.AppColour fillColourSelected, optional androidx.compose.ui.text.TextStyle textStyle, optional com.gu.source.daynight.AppColour borderColourUnselected, optional com.gu.source.daynight.AppColour borderColourSelected, optional float borderWidth, optional androidx.compose.ui.graphics.Shape shape, optional com.gu.source.daynight.AppColour badgeColour);
+    ctor @KotlinOnly public SourceChip.Style(com.gu.source.daynight.AppColour contentColourUnselected, com.gu.source.daynight.AppColour contentColourSelected, com.gu.source.daynight.AppColour fillColourUnselected, com.gu.source.daynight.AppColour fillColourSelected, optional androidx.compose.ui.text.TextStyle textStyle, optional com.gu.source.daynight.AppColour borderColourUnselected, optional com.gu.source.daynight.AppColour borderColourSelected, optional androidx.compose.ui.unit.Dp borderWidth, optional androidx.compose.ui.graphics.Shape shape, optional com.gu.source.daynight.AppColour badgeColour);
     method public com.gu.source.daynight.AppColour component1();
     method public com.gu.source.daynight.AppColour component10();
     method public com.gu.source.daynight.AppColour component2();
@@ -275,43 +253,42 @@ package com.gu.source.components.chips {
     method public androidx.compose.ui.text.TextStyle component5();
     method public com.gu.source.daynight.AppColour component6();
     method public com.gu.source.daynight.AppColour component7();
-    method public float component8-D9Ej5fM();
+    method @KotlinOnly public operator androidx.compose.ui.unit.Dp component8();
     method public androidx.compose.ui.graphics.Shape component9();
-    method public com.gu.source.components.chips.SourceChip.Style copy-1sJa4KU(com.gu.source.daynight.AppColour contentColourUnselected, com.gu.source.daynight.AppColour contentColourSelected, com.gu.source.daynight.AppColour fillColourUnselected, com.gu.source.daynight.AppColour fillColourSelected, androidx.compose.ui.text.TextStyle textStyle, com.gu.source.daynight.AppColour borderColourUnselected, com.gu.source.daynight.AppColour borderColourSelected, float borderWidth, androidx.compose.ui.graphics.Shape shape, com.gu.source.daynight.AppColour badgeColour);
-    method public com.gu.source.daynight.AppColour getBadgeColour();
-    method public com.gu.source.daynight.AppColour getBorderColourSelected();
-    method public com.gu.source.daynight.AppColour getBorderColourUnselected();
-    method public float getBorderWidth();
-    method public com.gu.source.daynight.AppColour getContentColourSelected();
-    method public com.gu.source.daynight.AppColour getContentColourUnselected();
-    method public com.gu.source.daynight.AppColour getFillColourSelected();
-    method public com.gu.source.daynight.AppColour getFillColourUnselected();
-    method public androidx.compose.ui.graphics.Shape getShape();
-    method public androidx.compose.ui.text.TextStyle getTextStyle();
-    property public final com.gu.source.daynight.AppColour badgeColour;
-    property public final com.gu.source.daynight.AppColour borderColourSelected;
-    property public final com.gu.source.daynight.AppColour borderColourUnselected;
-    property public final float borderWidth;
-    property public final com.gu.source.daynight.AppColour contentColourSelected;
-    property public final com.gu.source.daynight.AppColour contentColourUnselected;
-    property public final com.gu.source.daynight.AppColour fillColourSelected;
-    property public final com.gu.source.daynight.AppColour fillColourUnselected;
-    property public final androidx.compose.ui.graphics.Shape shape;
-    property public final androidx.compose.ui.text.TextStyle textStyle;
+    method @KotlinOnly public com.gu.source.components.chips.SourceChip.Style copy(optional com.gu.source.daynight.AppColour contentColourUnselected, optional com.gu.source.daynight.AppColour contentColourSelected, optional com.gu.source.daynight.AppColour fillColourUnselected, optional com.gu.source.daynight.AppColour fillColourSelected, optional androidx.compose.ui.text.TextStyle textStyle, optional com.gu.source.daynight.AppColour borderColourUnselected, optional com.gu.source.daynight.AppColour borderColourSelected, optional androidx.compose.ui.unit.Dp borderWidth, optional androidx.compose.ui.graphics.Shape shape, optional com.gu.source.daynight.AppColour badgeColour);
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getBadgeColour();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getBorderColourSelected();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getBorderColourUnselected();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getContentColourSelected();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getContentColourUnselected();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getFillColourSelected();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getFillColourUnselected();
+    method @InaccessibleFromKotlin public androidx.compose.ui.graphics.Shape getShape();
+    method @InaccessibleFromKotlin public androidx.compose.ui.text.TextStyle getTextStyle();
+    property public com.gu.source.daynight.AppColour badgeColour;
+    property public com.gu.source.daynight.AppColour borderColourSelected;
+    property public com.gu.source.daynight.AppColour borderColourUnselected;
+    property public androidx.compose.ui.unit.Dp borderWidth;
+    property public com.gu.source.daynight.AppColour contentColourSelected;
+    property public com.gu.source.daynight.AppColour contentColourUnselected;
+    property public com.gu.source.daynight.AppColour fillColourSelected;
+    property public com.gu.source.daynight.AppColour fillColourUnselected;
+    property public androidx.compose.ui.graphics.Shape shape;
+    property public androidx.compose.ui.text.TextStyle textStyle;
     field public static final com.gu.source.components.chips.SourceChip.Style.Companion Companion;
   }
 
   public static final class SourceChip.Style.Companion {
-    method public com.gu.source.components.chips.SourceChip.Style getDefault();
-    method public com.gu.source.components.chips.SourceChip.Style getSupportingButton();
-    property public final com.gu.source.components.chips.SourceChip.Style Default;
-    property public final com.gu.source.components.chips.SourceChip.Style SupportingButton;
+    method @InaccessibleFromKotlin public com.gu.source.components.chips.SourceChip.Style getDefault();
+    method @InaccessibleFromKotlin public com.gu.source.components.chips.SourceChip.Style getSupportingButton();
+    property public com.gu.source.components.chips.SourceChip.Style Default;
+    property public com.gu.source.components.chips.SourceChip.Style SupportingButton;
   }
 
   public final class SourceChipKt {
-    method @androidx.compose.runtime.Composable public static void SourceChip(String text, boolean isSelected, com.gu.source.components.chips.SourceChip.Size size, boolean showBadge, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.chips.SourceChip.Style style, optional String? onClickLabel, optional com.gu.source.components.chips.ChipDecoration iconOrImage);
-    method @androidx.compose.runtime.Composable public static void SourceChipSupportingButton(String text, com.gu.source.components.chips.SourceChip.Size size, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.chips.SourceChip.Style style, optional com.gu.source.components.chips.ChipDecoration iconOrImage);
-    method @androidx.compose.runtime.Composable public static void SourceMultiSelectChip(String text, boolean isSelected, com.gu.source.components.chips.SourceChip.Size size, boolean showBadge, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.chips.SourceChip.Style style, optional String? onClickLabel, optional com.gu.source.components.chips.ChipDecoration iconOrImage);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void SourceChip(String text, boolean isSelected, com.gu.source.components.chips.SourceChip.Size size, boolean showBadge, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.chips.SourceChip.Style style, optional String? onClickLabel, optional com.gu.source.components.chips.ChipDecoration iconOrImage);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void SourceChipSupportingButton(String text, com.gu.source.components.chips.SourceChip.Size size, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.chips.SourceChip.Style style, optional com.gu.source.components.chips.ChipDecoration iconOrImage);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void SourceMultiSelectChip(String text, boolean isSelected, com.gu.source.components.chips.SourceChip.Size size, boolean showBadge, kotlin.jvm.functions.Function0<kotlin.Unit> onClick, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.chips.SourceChip.Style style, optional String? onClickLabel, optional com.gu.source.components.chips.ChipDecoration iconOrImage);
   }
 
 }
@@ -319,16 +296,102 @@ package com.gu.source.components.chips {
 package com.gu.source.components.pager {
 
   public final class PagerProgressBarKt {
-    method @androidx.compose.runtime.Composable public static void PagerProgressBar(androidx.compose.foundation.pager.PagerState pagerState, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional com.gu.source.daynight.AppColour selectedIndicatorColour, optional com.gu.source.daynight.AppColour unSelectedIndicatorColour, optional String? prevButtonContentDescription, optional String? nextButtonContentDescription, optional boolean showProgressButtons);
-    method @androidx.compose.runtime.Composable public static void PagerProgressBar(androidx.compose.foundation.pager.PagerState pagerState, com.gu.source.components.buttons.SourceButton.Priority buttonPriority, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.daynight.AppColour selectedIndicatorColour, optional com.gu.source.daynight.AppColour unSelectedIndicatorColour, optional String? prevButtonContentDescription, optional String? nextButtonContentDescription, optional boolean showProgressButtons);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void PagerProgressBar(androidx.compose.foundation.pager.PagerState pagerState, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional com.gu.source.daynight.AppColour selectedIndicatorColour, optional com.gu.source.daynight.AppColour unSelectedIndicatorColour, optional String? prevButtonContentDescription, optional String? nextButtonContentDescription, optional boolean showProgressButtons);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void PagerProgressBar(androidx.compose.foundation.pager.PagerState pagerState, com.gu.source.components.buttons.SourceButton.Priority buttonPriority, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.daynight.AppColour selectedIndicatorColour, optional com.gu.source.daynight.AppColour unSelectedIndicatorColour, optional String? prevButtonContentDescription, optional String? nextButtonContentDescription, optional boolean showProgressButtons);
   }
 
   public final class PagerProgressButtonsKt {
-    method @androidx.compose.runtime.Composable public static void PagerProgressButtons(androidx.compose.foundation.pager.PagerState pagerState, String? prevButtonContentDescription, String? nextButtonContentDescription, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional androidx.compose.animation.core.AnimationSpec<java.lang.Float> pageSlideAnimationSpec);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void PagerProgressButtons(androidx.compose.foundation.pager.PagerState pagerState, String? prevButtonContentDescription, String? nextButtonContentDescription, optional androidx.compose.ui.Modifier modifier, optional com.gu.source.components.buttons.ButtonColours buttonColours, optional com.gu.source.components.buttons.ButtonColours? disabledButtonColours, optional androidx.compose.animation.core.AnimationSpec<java.lang.Float> pageSlideAnimationSpec);
   }
 
   public final class PagerProgressIndicatorKt {
-    method @androidx.compose.runtime.Composable public static void PagerProgressIndicator(androidx.compose.foundation.pager.PagerState pagerState, long selectedIndicatorColour, long unSelectedIndicatorColour, optional androidx.compose.ui.Modifier modifier, optional int maxIndicatorCount, optional float indicatorSpacing, optional androidx.compose.ui.graphics.Shape indicatorShape, optional float selectedItemSize, optional float unselectedItemScaleFactor, optional int numberOfItemsToScale, optional androidx.compose.ui.Alignment.Vertical itemsVerticalAlignment);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void PagerProgressIndicator(androidx.compose.foundation.pager.PagerState pagerState, androidx.compose.ui.graphics.Color selectedIndicatorColour, androidx.compose.ui.graphics.Color unSelectedIndicatorColour, optional androidx.compose.ui.Modifier modifier, optional int maxIndicatorCount, optional androidx.compose.ui.unit.Dp indicatorSpacing, optional androidx.compose.ui.graphics.Shape indicatorShape, optional androidx.compose.ui.unit.Dp selectedItemSize, optional float unselectedItemScaleFactor, optional int numberOfItemsToScale, optional androidx.compose.ui.Alignment.Vertical itemsVerticalAlignment);
+  }
+
+}
+
+package com.gu.source.components.promosticker {
+
+  public final class PromoStickerKt {
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void PromoSticker(String text, com.gu.source.components.promosticker.PromoStickerSize size, com.gu.source.components.promosticker.PromoStickerStyle style, optional androidx.compose.ui.Modifier modifier);
+  }
+
+  public enum PromoStickerSize {
+    enum_constant public static final com.gu.source.components.promosticker.PromoStickerSize Large;
+    enum_constant public static final com.gu.source.components.promosticker.PromoStickerSize Small;
+  }
+
+  public enum PromoStickerStyle {
+    enum_constant public static final com.gu.source.components.promosticker.PromoStickerStyle Error;
+    enum_constant public static final com.gu.source.components.promosticker.PromoStickerStyle Info;
+    enum_constant public static final com.gu.source.components.promosticker.PromoStickerStyle Lifestyle;
+    enum_constant public static final com.gu.source.components.promosticker.PromoStickerStyle Success;
+  }
+
+}
+
+package com.gu.source.components.rating {
+
+  public enum RatingSize {
+    property public androidx.compose.ui.unit.Dp circleSize;
+    property public androidx.compose.ui.unit.Dp spacing;
+    property public androidx.compose.ui.unit.Dp starIconSize;
+    enum_constant public static final com.gu.source.components.rating.RatingSize Large;
+    enum_constant public static final com.gu.source.components.rating.RatingSize Medium;
+    enum_constant public static final com.gu.source.components.rating.RatingSize Small;
+  }
+
+  public sealed exhaustive interface RatingStyle {
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getEmptyStarColor();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getFilledStarColor();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getStarIconColor();
+    property public abstract com.gu.source.daynight.AppColour emptyStarColor;
+    property public abstract com.gu.source.daynight.AppColour filledStarColor;
+    property public abstract com.gu.source.daynight.AppColour starIconColor;
+  }
+
+  public static final class RatingStyle.DefaultArticle implements com.gu.source.components.rating.RatingStyle {
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getEmptyStarColor();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getFilledStarColor();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getStarIconColor();
+    property public com.gu.source.daynight.AppColour emptyStarColor;
+    property public com.gu.source.daynight.AppColour filledStarColor;
+    property public com.gu.source.daynight.AppColour starIconColor;
+    field public static final com.gu.source.components.rating.RatingStyle.DefaultArticle INSTANCE;
+  }
+
+  public static final class RatingStyle.DefaultCards implements com.gu.source.components.rating.RatingStyle {
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getEmptyStarColor();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getFilledStarColor();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getStarIconColor();
+    property public com.gu.source.daynight.AppColour emptyStarColor;
+    property public com.gu.source.daynight.AppColour filledStarColor;
+    property public com.gu.source.daynight.AppColour starIconColor;
+    field public static final com.gu.source.components.rating.RatingStyle.DefaultCards INSTANCE;
+  }
+
+  public static final class RatingStyle.FeatureCards implements com.gu.source.components.rating.RatingStyle {
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getEmptyStarColor();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getFilledStarColor();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getStarIconColor();
+    property public com.gu.source.daynight.AppColour emptyStarColor;
+    property public com.gu.source.daynight.AppColour filledStarColor;
+    property public com.gu.source.daynight.AppColour starIconColor;
+    field public static final com.gu.source.components.rating.RatingStyle.FeatureCards INSTANCE;
+  }
+
+  public static final class RatingStyle.ImmersiveArticle implements com.gu.source.components.rating.RatingStyle {
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getEmptyStarColor();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getFilledStarColor();
+    method @InaccessibleFromKotlin public com.gu.source.daynight.AppColour getStarIconColor();
+    property public com.gu.source.daynight.AppColour emptyStarColor;
+    property public com.gu.source.daynight.AppColour filledStarColor;
+    property public com.gu.source.daynight.AppColour starIconColor;
+    field public static final com.gu.source.components.rating.RatingStyle.ImmersiveArticle INSTANCE;
+  }
+
+  public final class SourceRatingKt {
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void SourceRating(int rating, com.gu.source.components.rating.RatingSize size, com.gu.source.components.rating.RatingStyle style, optional androidx.compose.ui.Modifier modifier);
   }
 
 }
@@ -336,10 +399,10 @@ package com.gu.source.components.pager {
 package com.gu.source.components.theme {
 
   public final class ThemeKt {
-    method @androidx.compose.runtime.Composable public static void ReaderRevenueTheme(optional androidx.compose.ui.Modifier modifier, kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> content);
-    method @androidx.compose.runtime.Composable public static void SourceCoreTheme(optional androidx.compose.ui.Modifier modifier, kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> content);
-    method public static androidx.compose.runtime.ProvidableCompositionLocal<com.gu.source.Source.Theme> getLocalSourceTheme();
-    property public static final androidx.compose.runtime.ProvidableCompositionLocal<com.gu.source.Source.Theme> LocalSourceTheme;
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void ReaderRevenueTheme(optional androidx.compose.ui.Modifier modifier, kotlin.jvm.functions.Function1<androidx.compose.ui.Modifier,kotlin.Unit> content);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void SourceCoreTheme(optional androidx.compose.ui.Modifier modifier, kotlin.jvm.functions.Function1<androidx.compose.ui.Modifier,kotlin.Unit> content);
+    method @InaccessibleFromKotlin public static androidx.compose.runtime.ProvidableCompositionLocal<com.gu.source.Source.Theme> getLocalSourceTheme();
+    property public static androidx.compose.runtime.ProvidableCompositionLocal<com.gu.source.Source.Theme> LocalSourceTheme;
   }
 
 }
@@ -347,9 +410,10 @@ package com.gu.source.components.theme {
 package com.gu.source.daynight {
 
   public class AppColour {
-    ctor public AppColour(long light, optional long dark);
-    method @androidx.compose.runtime.Composable public final long getCurrent();
-    property @androidx.compose.runtime.Composable public final long current;
+    ctor @KotlinOnly public AppColour(androidx.compose.ui.graphics.Color light, optional androidx.compose.ui.graphics.Color dark);
+    property public final androidx.compose.ui.graphics.Color current;
+    property public final androidx.compose.ui.graphics.Color dark;
+    property public final androidx.compose.ui.graphics.Color light;
   }
 
   public static final class AppColour.Transparent extends com.gu.source.daynight.AppColour {
@@ -361,9 +425,9 @@ package com.gu.source.daynight {
   }
 
   public final class AppColourModeKt {
-    method @androidx.compose.runtime.Composable public static void AppColourMode(optional androidx.compose.ui.Modifier modifier, kotlin.jvm.functions.Function1<? super androidx.compose.ui.Modifier,kotlin.Unit> content);
-    method public static androidx.compose.runtime.ProvidableCompositionLocal<java.lang.Boolean> getLocalIsDarkModeActive();
-    property public static final androidx.compose.runtime.ProvidableCompositionLocal<java.lang.Boolean> LocalIsDarkModeActive;
+    method @KotlinOnly @androidx.compose.runtime.Composable public static void AppColourMode(optional androidx.compose.ui.Modifier modifier, kotlin.jvm.functions.Function1<androidx.compose.ui.Modifier,kotlin.Unit> content);
+    method @InaccessibleFromKotlin public static androidx.compose.runtime.ProvidableCompositionLocal<java.lang.Boolean> getLocalIsDarkModeActive();
+    property public static androidx.compose.runtime.ProvidableCompositionLocal<java.lang.Boolean> LocalIsDarkModeActive;
   }
 
 }
@@ -371,858 +435,948 @@ package com.gu.source.daynight {
 package com.gu.source.foundation.icons.base {
 
   public final class AddToBasketKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getAddToBasket(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getAddToBasket(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.AddToBasket;
   }
 
   public final class AiIndicatorKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getAiIndicator(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getAiIndicator(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.AiIndicator;
   }
 
   public final class AlarmClockFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getAlarmClockFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getAlarmClockFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.AlarmClockFilled;
   }
 
   public final class AlarmClockOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getAlarmClockOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getAlarmClockOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.AlarmClockOutlined;
   }
 
   public final class AlarmClockSoundedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getAlarmClockSounded(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getAlarmClockSounded(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.AlarmClockSounded;
   }
 
   public final class AlertPhoneKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getAlertPhone(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getAlertPhone(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.AlertPhone;
   }
 
   public final class AlertRoundKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getAlertRound(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getAlertRound(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.AlertRound;
   }
 
   public final class AlertTriangleKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getAlertTriangle(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getAlertTriangle(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.AlertTriangle;
   }
 
   public final class AllRecipesKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getAllRecipes(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getAllRecipes(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.AllRecipes;
   }
 
   public final class AppleBrandKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getAppleBrand(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getAppleBrand(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.AppleBrand;
   }
 
   public final class ArrowContractKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowContract(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getArrowContract(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ArrowContract;
   }
 
   public final class ArrowDownStraightKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowDownStraight(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getArrowDownStraight(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ArrowDownStraight;
   }
 
   public final class ArrowExpandKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowExpand(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getArrowExpand(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ArrowExpand;
   }
 
   public final class ArrowLeftStraightKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowLeftStraight(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getArrowLeftStraight(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ArrowLeftStraight;
   }
 
   public final class ArrowOutdentKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowOutdent(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getArrowOutdent(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ArrowOutdent;
   }
 
   public final class ArrowPopOutKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowPopOut(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getArrowPopOut(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ArrowPopOut;
   }
 
   public final class ArrowRightStraightKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowRightStraight(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getArrowRightStraight(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ArrowRightStraight;
   }
 
   public final class ArrowScrollKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowScroll(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getArrowScroll(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ArrowScroll;
   }
 
   public final class ArrowUpAndDownSmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowUpAndDownSmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getArrowUpAndDownSmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ArrowUpAndDownSmall;
   }
 
   public final class ArrowUpStraightKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowUpStraight(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getArrowUpStraight(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ArrowUpStraight;
   }
 
   public final class ArrowUpStraightSmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getArrowUpStraightSmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getArrowUpStraightSmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ArrowUpStraightSmall;
   }
 
   public final class AsteriskKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getAsterisk(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getAsterisk(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Asterisk;
   }
 
   public final class AudioKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getAudio(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getAudio(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Audio;
   }
 
   public final class AudioMuteKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getAudioMute(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getAudioMute(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.AudioMute;
   }
 
   public final class BinKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getBin(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getBin(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Bin;
   }
 
   public final class BookOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getBookOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getBookOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.BookOutlined;
   }
 
   public final class BookmarkCrossKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getBookmarkCross(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getBookmarkCross(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.BookmarkCross;
   }
 
   public final class BookmarkFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getBookmarkFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getBookmarkFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.BookmarkFilled;
   }
 
   public final class BookmarkOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getBookmarkOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getBookmarkOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.BookmarkOutlined;
   }
 
   public final class BookmarkRoundFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getBookmarkRoundFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getBookmarkRoundFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.BookmarkRoundFilled;
   }
 
   public final class BookmarkRoundOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getBookmarkRoundOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getBookmarkRoundOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.BookmarkRoundOutlined;
   }
 
   public final class CalendarKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getCalendar(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getCalendar(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Calendar;
   }
 
   public final class CameraKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getCamera(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getCamera(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Camera;
   }
 
   public final class CameraRoundOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getCameraRoundOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getCameraRoundOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.CameraRoundOutlined;
   }
 
   public final class CameraSmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getCameraSmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getCameraSmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.CameraSmall;
   }
 
   public final class CheckmarkKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getCheckmark(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getCheckmark(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Checkmark;
   }
 
   public final class ChefKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChef(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChef(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Chef;
   }
 
   public final class ChevronDownDoubleKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronDownDouble(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChevronDownDouble(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ChevronDownDouble;
   }
 
   public final class ChevronDownSingleKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronDownSingle(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChevronDownSingle(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ChevronDownSingle;
   }
 
   public final class ChevronDownSingleSmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronDownSingleSmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChevronDownSingleSmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ChevronDownSingleSmall;
   }
 
   public final class ChevronDownSingleXsmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronDownSingleXsmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChevronDownSingleXsmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ChevronDownSingleXsmall;
   }
 
   public final class ChevronLeftDoubleKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronLeftDouble(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChevronLeftDouble(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ChevronLeftDouble;
   }
 
   public final class ChevronLeftSingleKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronLeftSingle(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChevronLeftSingle(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ChevronLeftSingle;
   }
 
   public final class ChevronLeftSmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronLeftSmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChevronLeftSmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ChevronLeftSmall;
   }
 
   public final class ChevronRightDoubleKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronRightDouble(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChevronRightDouble(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ChevronRightDouble;
   }
 
   public final class ChevronRightSingleKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronRightSingle(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChevronRightSingle(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ChevronRightSingle;
   }
 
   public final class ChevronRightSmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronRightSmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChevronRightSmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ChevronRightSmall;
   }
 
   public final class ChevronUpAndDownSmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronUpAndDownSmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChevronUpAndDownSmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ChevronUpAndDownSmall;
   }
 
   public final class ChevronUpDoubleKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronUpDouble(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChevronUpDouble(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ChevronUpDouble;
   }
 
   public final class ChevronUpSingleKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronUpSingle(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChevronUpSingle(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ChevronUpSingle;
   }
 
   public final class ChevronUpSingleSmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getChevronUpSingleSmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getChevronUpSingleSmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ChevronUpSingleSmall;
   }
 
   public final class ClockBaselineSmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getClockBaselineSmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getClockBaselineSmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ClockBaselineSmall;
   }
 
   public final class ClockFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getClockFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getClockFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ClockFilled;
   }
 
   public final class ClockOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getClockOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getClockOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ClockOutlined;
   }
 
   public final class CreditCardKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getCreditCard(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getCreditCard(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.CreditCard;
   }
 
   public final class CrossKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getCross(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getCross(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Cross;
   }
 
   public final class CrossRoundFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getCrossRoundFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getCrossRoundFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.CrossRoundFilled;
   }
 
   public final class CrossRoundOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getCrossRoundOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getCrossRoundOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.CrossRoundOutlined;
   }
 
   public final class CrossSmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getCrossSmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getCrossSmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.CrossSmall;
   }
 
   public final class CrossedOutCloudKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getCrossedOutCloud(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getCrossedOutCloud(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.CrossedOutCloud;
   }
 
   public final class CrosswordsKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getCrosswords(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getCrosswords(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Crosswords;
   }
 
   public final class CuisineKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getCuisine(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getCuisine(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Cuisine;
   }
 
   public final class DietsKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getDiets(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getDiets(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Diets;
   }
 
   public final class DirectDebitKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getDirectDebit(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getDirectDebit(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.DirectDebit;
   }
 
   public final class DirectDebitWideKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getDirectDebitWide(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getDirectDebitWide(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.DirectDebitWide;
   }
 
   public final class DiscoverKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getDiscover(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getDiscover(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Discover;
   }
 
   public final class DocumentKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getDocument(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getDocument(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Document;
   }
 
   public final class DownloadKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getDownload(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getDownload(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Download;
   }
 
   public final class DragHandleKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getDragHandle(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getDragHandle(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.DragHandle;
   }
 
   public final class EditKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getEdit(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getEdit(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Edit;
   }
 
   public final class EllipsisKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getEllipsis(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getEllipsis(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Ellipsis;
   }
 
   public final class EnvelopeKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getEnvelope(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getEnvelope(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Envelope;
   }
 
   public final class ExclamationKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getExclamation(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getExclamation(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Exclamation;
   }
 
   public final class ExternalKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getExternal(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getExternal(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.External;
   }
 
   public final class EyeKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getEye(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getEye(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Eye;
   }
 
   public final class EyeStrikeKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getEyeStrike(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getEyeStrike(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.EyeStrike;
   }
 
   public final class FacebookBrandKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getFacebookBrand(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getFacebookBrand(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.FacebookBrand;
   }
 
   public final class FacebookKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getFacebook(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getFacebook(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Facebook;
   }
 
   public final class FacebookMessengerKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getFacebookMessenger(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getFacebookMessenger(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.FacebookMessenger;
   }
 
   public final class FilterAndroidAppKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getFilterAndroidApp(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getFilterAndroidApp(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.FilterAndroidApp;
   }
 
   public final class FilterAndroidAppSmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getFilterAndroidAppSmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getFilterAndroidAppSmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.FilterAndroidAppSmall;
   }
 
   public final class FilterIosAppKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getFilterIosApp(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getFilterIosApp(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.FilterIosApp;
   }
 
   public final class FilterIosAppSmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getFilterIosAppSmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getFilterIosAppSmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.FilterIosAppSmall;
   }
 
   public final class FilterKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getFilter(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getFilter(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Filter;
   }
 
   public final class FilterOutlinedWebKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getFilterOutlinedWeb(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getFilterOutlinedWeb(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.FilterOutlinedWeb;
   }
 
   public final class FolderFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getFolderFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getFolderFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.FolderFilled;
   }
 
   public final class FolderKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getFolder(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getFolder(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Folder;
   }
 
   public final class GiftKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getGift(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getGift(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Gift;
   }
 
   public final class GlobeKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getGlobe(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getGlobe(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Globe;
   }
 
   public final class GoogleBrandKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getGoogleBrand(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getGoogleBrand(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.GoogleBrand;
   }
 
   public final class GpsKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getGps(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getGps(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Gps;
   }
 
   public final class GuessPuzzlesKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getGuessPuzzles(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getGuessPuzzles(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.GuessPuzzles;
   }
 
   public final class HandPointedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getHandPointed(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getHandPointed(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.HandPointed;
   }
 
   public final class HeadphonesFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getHeadphonesFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getHeadphonesFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.HeadphonesFilled;
   }
 
   public final class HeadphonesOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getHeadphonesOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getHeadphonesOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.HeadphonesOutlined;
   }
 
   public final class HeadphonesRoundFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getHeadphonesRoundFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getHeadphonesRoundFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.HeadphonesRoundFilled;
   }
 
   public final class HeadphonesRoundOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getHeadphonesRoundOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getHeadphonesRoundOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.HeadphonesRoundOutlined;
   }
 
   public final class HomeHouseFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getHomeHouseFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getHomeHouseFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.HomeHouseFilled;
   }
 
   public final class HomeHouseOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getHomeHouseOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getHomeHouseOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.HomeHouseOutlined;
   }
 
   public final class HomeSquareFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getHomeSquareFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getHomeSquareFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.HomeSquareFilled;
   }
 
   public final class HomeSquareOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getHomeSquareOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getHomeSquareOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.HomeSquareOutlined;
   }
 
   public final class HouseCrossKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getHouseCross(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getHouseCross(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.HouseCross;
   }
 
   public final class HousePlusKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getHousePlus(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getHousePlus(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.HousePlus;
   }
 
   public final class HouseSettingKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getHouseSetting(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getHouseSetting(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.HouseSetting;
   }
 
   public final class IndentKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getIndent(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getIndent(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Indent;
   }
 
   public final class InfoRoundKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getInfoRound(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getInfoRound(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.InfoRound;
   }
 
   public final class Ingredient1Kt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getIngredient1(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getIngredient1(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Ingredient1;
   }
 
   public final class Ingredient2Kt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getIngredient2(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getIngredient2(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Ingredient2;
   }
 
   public final class Ingredient3Kt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getIngredient3(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getIngredient3(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Ingredient3;
   }
 
   public final class KnifeAndForkKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getKnifeAndFork(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getKnifeAndFork(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.KnifeAndFork;
   }
 
   public final class LinkedInKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getLinkedIn(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getLinkedIn(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.LinkedIn;
   }
 
   public final class ListKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getList(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getList(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.List;
   }
 
   public final class LocationMarkerKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getLocationMarker(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getLocationMarker(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.LocationMarker;
   }
 
   public final class MagnifyingGlassKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMagnifyingGlass(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMagnifyingGlass(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.MagnifyingGlass;
   }
 
   public final class MagnifyingGlassMinusKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMagnifyingGlassMinus(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMagnifyingGlassMinus(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.MagnifyingGlassMinus;
   }
 
   public final class MagnifyingGlassPlusKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMagnifyingGlassPlus(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMagnifyingGlassPlus(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.MagnifyingGlassPlus;
   }
 
   public final class MagnifyingGlassSadFaceKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMagnifyingGlassSadFace(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMagnifyingGlassSadFace(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.MagnifyingGlassSadFace;
   }
 
   public final class MealTypesKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMealTypes(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMealTypes(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.MealTypes;
   }
 
   public final class MediaControlsBackKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsBack(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsBack(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.MediaControlsBack;
   }
 
   public final class MediaControlsForwardKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsForward(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsForward(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.MediaControlsForward;
   }
 
   public final class MediaControlsPauseKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsPause(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsPause(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.MediaControlsPause;
   }
 
   public final class MediaControlsPlayKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsPlay(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsPlay(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.MediaControlsPlay;
   }
 
   public final class MediaControlsStopKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsStop(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMediaControlsStop(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.MediaControlsStop;
   }
 
   public final class MenuKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMenu(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMenu(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Menu;
   }
 
   public final class MessageKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMessage(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMessage(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Message;
   }
 
   public final class MessageRoundKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMessageRound(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMessageRound(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.MessageRound;
   }
 
   public final class MinusKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMinus(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMinus(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Minus;
   }
 
   public final class MoonKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getMoon(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getMoon(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Moon;
   }
 
   public final class NewsletterKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getNewsletter(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getNewsletter(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Newsletter;
   }
 
   public final class NewsletterOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getNewsletterOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getNewsletterOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.NewsletterOutlined;
   }
 
   public final class NewspaperArchiveKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getNewspaperArchive(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getNewspaperArchive(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.NewspaperArchive;
   }
 
   public final class NoteFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getNoteFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getNoteFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.NoteFilled;
   }
 
   public final class NoteOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getNoteOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getNoteOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.NoteOutlined;
   }
 
   public final class NotificationsOffKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getNotificationsOff(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getNotificationsOff(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.NotificationsOff;
   }
 
   public final class NotificationsOffRoundKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getNotificationsOffRound(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getNotificationsOffRound(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.NotificationsOffRound;
   }
 
   public final class NotificationsOnKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getNotificationsOn(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getNotificationsOn(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.NotificationsOn;
   }
 
   public final class NotificationsOnRoundKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getNotificationsOnRound(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getNotificationsOnRound(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.NotificationsOnRound;
   }
 
   public final class PadlockKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPadlock(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPadlock(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Padlock;
   }
 
   public final class PadlockLockedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPadlockLocked(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPadlockLocked(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.PadlockLocked;
   }
 
   public final class PadlockUnlockedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPadlockUnlocked(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPadlockUnlocked(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.PadlockUnlocked;
   }
 
   public final class PartyOfThreeKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPartyOfThree(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPartyOfThree(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.PartyOfThree;
   }
 
   public final class PartyPopperFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPartyPopperFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPartyPopperFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.PartyPopperFilled;
   }
 
   public final class PartyPopperOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPartyPopperOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPartyPopperOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.PartyPopperOutlined;
   }
 
   public final class PayPalBrandKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPayPalBrand(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPayPalBrand(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.PayPalBrand;
   }
 
   public final class PersonCrossKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPersonCross(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPersonCross(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.PersonCross;
   }
 
   public final class PersonKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPerson(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPerson(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Person;
   }
 
   public final class PersonPlusKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPersonPlus(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPersonPlus(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.PersonPlus;
   }
 
   public final class PersonRoundFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPersonRoundFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPersonRoundFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.PersonRoundFilled;
   }
 
   public final class PersonRoundOutlinedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPersonRoundOutlined(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPersonRoundOutlined(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.PersonRoundOutlined;
   }
 
   public final class PersonTickKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPersonTick(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPersonTick(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.PersonTick;
   }
 
   public final class PhoneKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPhone(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPhone(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Phone;
   }
 
   public final class PinnedKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPinned(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPinned(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Pinned;
   }
 
   public final class PinterestKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPinterest(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPinterest(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Pinterest;
   }
 
   public final class PlusKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPlus(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPlus(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Plus;
   }
 
   public final class PlusOnRoundKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getPlusOnRound(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getPlusOnRound(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.PlusOnRound;
   }
 
   public final class QuoteKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getQuote(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getQuote(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Quote;
   }
 
   public final class ReloadKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getReload(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getReload(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Reload;
   }
 
   public final class SettingsKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getSettings(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getSettings(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Settings;
   }
 
   public final class ShareAppKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getShareApp(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getShareApp(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ShareApp;
   }
 
   public final class ShareAppSmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getShareAppSmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getShareAppSmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ShareAppSmall;
   }
 
   public final class ShareCalloutKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getShareCallout(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getShareCallout(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ShareCallout;
   }
 
   public final class ShareRoundFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getShareRoundFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getShareRoundFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ShareRoundFilled;
   }
 
   public final class ShareRoundOutlineKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getShareRoundOutline(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getShareRoundOutline(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ShareRoundOutline;
   }
 
   public final class ShareWebKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getShareWeb(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getShareWeb(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ShareWeb;
   }
 
   public final class ShoppingBasketKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getShoppingBasket(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getShoppingBasket(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ShoppingBasket;
   }
 
   public final class ShoppingListKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getShoppingList(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getShoppingList(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.ShoppingList;
   }
 
   public final class SignalBrandKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getSignalBrand(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getSignalBrand(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.SignalBrand;
   }
 
   public final class SortKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getSort(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getSort(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Sort;
   }
 
   public final class SpeechBubbleCrossKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getSpeechBubbleCross(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getSpeechBubbleCross(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.SpeechBubbleCross;
   }
 
   public final class SpeechBubbleKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getSpeechBubble(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getSpeechBubble(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.SpeechBubble;
   }
 
   public final class SpeechBubblePlusKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getSpeechBubblePlus(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getSpeechBubblePlus(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.SpeechBubblePlus;
   }
 
   public final class StarKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getStar(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getStar(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Star;
   }
 
   public final class StarOutlineKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getStarOutline(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getStarOutline(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.StarOutline;
   }
 
   public final class TelegramBrandKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getTelegramBrand(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getTelegramBrand(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.TelegramBrand;
   }
 
   public final class TextLargeKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getTextLarge(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getTextLarge(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.TextLarge;
   }
 
   public final class TextSizeKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getTextSize(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getTextSize(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.TextSize;
   }
 
   public final class TextSizeRoundFilledKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getTextSizeRoundFilled(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getTextSizeRoundFilled(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.TextSizeRoundFilled;
   }
 
   public final class TextSizeRoundOutlineKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getTextSizeRoundOutline(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getTextSizeRoundOutline(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.TextSizeRoundOutline;
   }
 
   public final class TextSmallKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getTextSmall(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getTextSmall(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.TextSmall;
   }
 
   public final class TickRoundKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getTickRound(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getTickRound(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.TickRound;
   }
 
   public final class TimerKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getTimer(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getTimer(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Timer;
   }
 
   public final class TransparentArrowLeftStraightRoundKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getTransparentArrowLeftStraightRound(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getTransparentArrowLeftStraightRound(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.TransparentArrowLeftStraightRound;
   }
 
   public final class TrophyKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getTrophy(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getTrophy(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Trophy;
   }
 
   public final class TwitterKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getTwitter(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getTwitter(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Twitter;
   }
 
   public final class UploadKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getUpload(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getUpload(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Upload;
   }
 
   public final class VideoKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getVideo(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getVideo(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.Video;
   }
 
   public final class WhatsAppBrandKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getWhatsAppBrand(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getWhatsAppBrand(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.WhatsAppBrand;
   }
 
   public final class WhatsAppKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getWhatsApp(com.gu.source.Source.Icons.Base);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getWhatsApp(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.WhatsApp;
   }
 
   public final class WhiteArrowLeftStraightRoundKt {
-    method public static androidx.compose.ui.graphics.vector.ImageVector getWhiteArrowLeftStraightRound(com.gu.source.Source.Icons.Base);
-  }
-
-}
-
-package com.gu.source.foundation.palette {
-
-  public final class PaletteKt {
-    method public static long getBrand100(com.gu.source.Source.Palette);
-    method public static long getBrand300(com.gu.source.Source.Palette);
-    method public static long getBrand400(com.gu.source.Source.Palette);
-    method public static long getBrand500(com.gu.source.Source.Palette);
-    method public static long getBrand600(com.gu.source.Source.Palette);
-    method public static long getBrand800(com.gu.source.Source.Palette);
-    method public static long getBrandAlt200(com.gu.source.Source.Palette);
-    method public static long getBrandAlt300(com.gu.source.Source.Palette);
-    method public static long getBrandAlt400(com.gu.source.Source.Palette);
-    method public static long getCulture100(com.gu.source.Source.Palette);
-    method public static long getCulture200(com.gu.source.Source.Palette);
-    method public static long getCulture300(com.gu.source.Source.Palette);
-    method public static long getCulture400(com.gu.source.Source.Palette);
-    method public static long getCulture450(com.gu.source.Source.Palette);
-    method public static long getCulture50(com.gu.source.Source.Palette);
-    method public static long getCulture500(com.gu.source.Source.Palette);
-    method public static long getCulture600(com.gu.source.Source.Palette);
-    method public static long getCulture700(com.gu.source.Source.Palette);
-    method public static long getCulture800(com.gu.source.Source.Palette);
-    method public static long getError400(com.gu.source.Source.Palette);
-    method public static long getError500(com.gu.source.Source.Palette);
-    method public static long getLabs100(com.gu.source.Source.Palette);
-    method public static long getLabs200(com.gu.source.Source.Palette);
-    method public static long getLabs300(com.gu.source.Source.Palette);
-    method public static long getLabs400(com.gu.source.Source.Palette);
-    method public static long getLabs500(com.gu.source.Source.Palette);
-    method public static long getLabs600(com.gu.source.Source.Palette);
-    method public static long getLabs700(com.gu.source.Source.Palette);
-    method public static long getLifestyle100(com.gu.source.Source.Palette);
-    method public static long getLifestyle200(com.gu.source.Source.Palette);
-    method public static long getLifestyle300(com.gu.source.Source.Palette);
-    method public static long getLifestyle400(com.gu.source.Source.Palette);
-    method public static long getLifestyle450(com.gu.source.Source.Palette);
-    method public static long getLifestyle500(com.gu.source.Source.Palette);
-    method public static long getLifestyle600(com.gu.source.Source.Palette);
-    method public static long getLifestyle800(com.gu.source.Source.Palette);
-    method public static long getNeutral0(com.gu.source.Source.Palette);
-    method public static long getNeutral10(com.gu.source.Source.Palette);
-    method public static long getNeutral100(com.gu.source.Source.Palette);
-    method public static long getNeutral20(com.gu.source.Source.Palette);
-    method public static long getNeutral38(com.gu.source.Source.Palette);
-    method public static long getNeutral46(com.gu.source.Source.Palette);
-    method public static long getNeutral60(com.gu.source.Source.Palette);
-    method public static long getNeutral7(com.gu.source.Source.Palette);
-    method public static long getNeutral73(com.gu.source.Source.Palette);
-    method public static long getNeutral86(com.gu.source.Source.Palette);
-    method public static long getNeutral93(com.gu.source.Source.Palette);
-    method public static long getNeutral97(com.gu.source.Source.Palette);
-    method public static long getNews100(com.gu.source.Source.Palette);
-    method public static long getNews200(com.gu.source.Source.Palette);
-    method public static long getNews300(com.gu.source.Source.Palette);
-    method public static long getNews400(com.gu.source.Source.Palette);
-    method public static long getNews500(com.gu.source.Source.Palette);
-    method public static long getNews550(com.gu.source.Source.Palette);
-    method public static long getNews600(com.gu.source.Source.Palette);
-    method public static long getNews700(com.gu.source.Source.Palette);
-    method public static long getNews800(com.gu.source.Source.Palette);
-    method public static long getNotificationBlue400(com.gu.source.Source.Palette);
-    method public static long getOpinion100(com.gu.source.Source.Palette);
-    method public static long getOpinion200(com.gu.source.Source.Palette);
-    method @Deprecated public static long getOpinion300(com.gu.source.Source.Palette);
-    method public static long getOpinion400(com.gu.source.Source.Palette);
-    method public static long getOpinion450(com.gu.source.Source.Palette);
-    method public static long getOpinion500(com.gu.source.Source.Palette);
-    method public static long getOpinion550(com.gu.source.Source.Palette);
-    method public static long getOpinion600(com.gu.source.Source.Palette);
-    method public static long getOpinion700(com.gu.source.Source.Palette);
-    method public static long getOpinion800(com.gu.source.Source.Palette);
-    method public static long getSpecialReport100(com.gu.source.Source.Palette);
-    method public static long getSpecialReport200(com.gu.source.Source.Palette);
-    method public static long getSpecialReport300(com.gu.source.Source.Palette);
-    method public static long getSpecialReport400(com.gu.source.Source.Palette);
-    method public static long getSpecialReport450(com.gu.source.Source.Palette);
-    method public static long getSpecialReport500(com.gu.source.Source.Palette);
-    method public static long getSpecialReport700(com.gu.source.Source.Palette);
-    method public static long getSpecialReport800(com.gu.source.Source.Palette);
-    method public static long getSpecialReportAlt100(com.gu.source.Source.Palette);
-    method public static long getSpecialReportAlt200(com.gu.source.Source.Palette);
-    method public static long getSpecialReportAlt300(com.gu.source.Source.Palette);
-    method public static long getSpecialReportAlt700(com.gu.source.Source.Palette);
-    method public static long getSpecialReportAlt800(com.gu.source.Source.Palette);
-    method public static long getSport100(com.gu.source.Source.Palette);
-    method public static long getSport200(com.gu.source.Source.Palette);
-    method public static long getSport300(com.gu.source.Source.Palette);
-    method public static long getSport400(com.gu.source.Source.Palette);
-    method public static long getSport500(com.gu.source.Source.Palette);
-    method public static long getSport600(com.gu.source.Source.Palette);
-    method public static long getSport700(com.gu.source.Source.Palette);
-    method public static long getSport800(com.gu.source.Source.Palette);
-    method public static long getSuccess300(com.gu.source.Source.Palette);
-    method public static long getSuccess400(com.gu.source.Source.Palette);
-    method public static long getSuccess500(com.gu.source.Source.Palette);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.graphics.vector.ImageVector getWhiteArrowLeftStraightRound(com.gu.source.Source.Icons.Base);
+    property public static androidx.compose.ui.graphics.vector.ImageVector com.gu.source.Source.Icons.Base.WhiteArrowLeftStraightRound;
   }
 
 }
@@ -1230,128 +1384,250 @@ package com.gu.source.foundation.palette {
 package com.gu.source.foundation.typography {
 
   public final class TypographyKt {
-    method public static androidx.compose.ui.text.TextStyle getHeadlineBold14(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineBold15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineBold16(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineBold17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineBold18(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineBold20(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineBold22(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineBold24(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineBold28(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineBold34(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineBold42(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineBold50(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLight14(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLight15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLight16(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLight17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLight18(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLight20(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLight22(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLight24(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLight28(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLight34(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLight42(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLight50(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic14(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic16(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic18(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic20(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic22(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic24(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic28(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic34(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic42(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic50(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium14(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium16(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium18(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium20(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium22(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium24(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium28(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium34(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium42(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMedium50(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic14(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic16(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic18(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic20(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic22(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic24(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic28(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic34(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic42(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic50(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold14(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold16(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold18(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold20(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold22(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold24(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold28(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold34(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold42(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold50(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextArticle15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextArticle17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextArticleBold15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextArticleBold17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextArticleBoldItalic15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextArticleBoldItalic17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextArticleItalic15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextArticleItalic17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextEgyptian14(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextEgyptian15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextEgyptian17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextEgyptianBold14(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextEgyptianBold15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextEgyptianBold17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextEgyptianBoldItalic14(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextEgyptianBoldItalic15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextEgyptianBoldItalic17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextEgyptianItalic14(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextEgyptianItalic15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextEgyptianItalic17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSans11(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSans12(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSans14(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSans15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSans17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSans20(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSans24(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSans28(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSans34(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansBold11(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansBold12(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansBold14(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansBold15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansBold17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansBold20(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansBold24(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansBold28(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansBold34(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansItalic11(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansItalic12(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansItalic14(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansItalic15(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansItalic17(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansItalic20(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansItalic24(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansItalic28(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTextSansItalic34(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTitlepiece42(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTitlepiece50(com.gu.source.Source.Typography);
-    method public static androidx.compose.ui.text.TextStyle getTitlepiece70(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineBold14(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineBold15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineBold16(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineBold17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineBold18(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineBold20(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineBold22(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineBold24(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineBold28(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineBold34(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineBold42(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineBold50(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLight14(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLight15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLight16(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLight17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLight18(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLight20(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLight22(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLight24(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLight28(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLight34(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLight42(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLight50(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic14(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic16(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic18(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic20(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic22(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic24(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic28(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic34(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic42(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineLightItalic50(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMedium14(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMedium15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMedium16(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMedium17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMedium18(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMedium20(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMedium22(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMedium24(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMedium28(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMedium34(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMedium42(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMedium50(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic14(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic16(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic18(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic20(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic22(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic24(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic28(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic34(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic42(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineMediumItalic50(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold14(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold16(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold18(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold20(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold22(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold24(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold28(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold34(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold42(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getHeadlineSemiBold50(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextArticle15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextArticle17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextArticleBold15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextArticleBold17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextArticleBoldItalic15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextArticleBoldItalic17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextArticleItalic15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextArticleItalic17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextEgyptian14(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextEgyptian15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextEgyptian17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextEgyptianBold14(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextEgyptianBold15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextEgyptianBold17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextEgyptianBoldItalic14(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextEgyptianBoldItalic15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextEgyptianBoldItalic17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextEgyptianItalic14(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextEgyptianItalic15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextEgyptianItalic17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSans11(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSans12(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSans14(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSans15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSans17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSans20(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSans24(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSans28(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSans34(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansBold11(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansBold12(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansBold14(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansBold15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansBold17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansBold20(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansBold24(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansBold28(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansBold34(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansItalic11(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansItalic12(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansItalic14(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansItalic15(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansItalic17(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansItalic20(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansItalic24(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansItalic28(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTextSansItalic34(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTitlepiece42(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTitlepiece50(com.gu.source.Source.Typography);
+    method @InaccessibleFromKotlin public static androidx.compose.ui.text.TextStyle getTitlepiece70(com.gu.source.Source.Typography);
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineBold14;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineBold15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineBold16;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineBold17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineBold18;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineBold20;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineBold22;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineBold24;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineBold28;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineBold34;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineBold42;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineBold50;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLight14;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLight15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLight16;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLight17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLight18;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLight20;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLight22;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLight24;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLight28;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLight34;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLight42;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLight50;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLightItalic14;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLightItalic15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLightItalic16;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLightItalic17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLightItalic18;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLightItalic20;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLightItalic22;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLightItalic24;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLightItalic28;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLightItalic34;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLightItalic42;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineLightItalic50;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMedium14;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMedium15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMedium16;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMedium17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMedium18;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMedium20;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMedium22;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMedium24;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMedium28;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMedium34;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMedium42;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMedium50;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMediumItalic14;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMediumItalic15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMediumItalic16;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMediumItalic17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMediumItalic18;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMediumItalic20;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMediumItalic22;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMediumItalic24;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMediumItalic28;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMediumItalic34;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMediumItalic42;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineMediumItalic50;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineSemiBold14;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineSemiBold15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineSemiBold16;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineSemiBold17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineSemiBold18;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineSemiBold20;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineSemiBold22;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineSemiBold24;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineSemiBold28;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineSemiBold34;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineSemiBold42;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.HeadlineSemiBold50;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextArticle15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextArticle17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextArticleBold15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextArticleBold17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextArticleBoldItalic15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextArticleBoldItalic17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextArticleItalic15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextArticleItalic17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextEgyptian14;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextEgyptian15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextEgyptian17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextEgyptianBold14;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextEgyptianBold15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextEgyptianBold17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextEgyptianBoldItalic14;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextEgyptianBoldItalic15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextEgyptianBoldItalic17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextEgyptianItalic14;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextEgyptianItalic15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextEgyptianItalic17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSans11;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSans12;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSans14;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSans15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSans17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSans20;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSans24;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSans28;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSans34;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansBold11;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansBold12;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansBold14;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansBold15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansBold17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansBold20;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansBold24;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansBold28;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansBold34;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansItalic11;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansItalic12;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansItalic14;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansItalic15;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansItalic17;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansItalic20;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansItalic24;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansItalic28;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.TextSansItalic34;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.Titlepiece42;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.Titlepiece50;
+    property public static androidx.compose.ui.text.TextStyle com.gu.source.Source.Typography.Titlepiece70;
   }
 
 }
@@ -1359,21 +1635,21 @@ package com.gu.source.foundation.typography {
 package com.gu.source.utils {
 
   public final class DensityExtensionsKt {
-    method @androidx.compose.runtime.Composable public static float dpToPx(float);
-    method @androidx.compose.runtime.Composable public static float dpToPx(int);
-    method @androidx.compose.runtime.Stable public static operator long plus(long, long other);
-    method @androidx.compose.runtime.Composable public static float pxToDp(float);
-    method @androidx.compose.runtime.Composable public static float pxToDp(int);
-    method @androidx.compose.runtime.Composable public static long pxToSp(float);
-    method @androidx.compose.runtime.Composable public static long pxToSp(int);
-    method @androidx.compose.runtime.Composable public static float toDp(long);
-    method @androidx.compose.runtime.Composable public static float toPx(float);
-    method @androidx.compose.runtime.Composable public static float toPx(long);
-    method @androidx.compose.runtime.Composable public static long toSp(float);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static float dpToPx(float);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static float dpToPx(int);
+    method @KotlinOnly @androidx.compose.runtime.Stable public static operator androidx.compose.ui.unit.TextUnit plus(androidx.compose.ui.unit.TextUnit, androidx.compose.ui.unit.TextUnit other);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.Dp pxToDp(float);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.Dp pxToDp(int);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.TextUnit pxToSp(float);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.TextUnit pxToSp(int);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.Dp toDp(androidx.compose.ui.unit.TextUnit);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static float toPx(androidx.compose.ui.unit.Dp);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static float toPx(androidx.compose.ui.unit.TextUnit);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.TextUnit toSp(androidx.compose.ui.unit.Dp);
   }
 
   public final class PaddingValuesExtensionsKt {
-    method public static androidx.compose.foundation.layout.PaddingValues copy(androidx.compose.foundation.layout.PaddingValues, optional float top, optional float start, optional float end, optional float bottom);
+    method @KotlinOnly public static androidx.compose.foundation.layout.PaddingValues copy(androidx.compose.foundation.layout.PaddingValues, optional androidx.compose.ui.unit.Dp top, optional androidx.compose.ui.unit.Dp start, optional androidx.compose.ui.unit.Dp end, optional androidx.compose.ui.unit.Dp bottom);
     method public static infix operator androidx.compose.foundation.layout.PaddingValues plus(androidx.compose.foundation.layout.PaddingValues, androidx.compose.foundation.layout.PaddingValues other);
   }
 
@@ -1384,7 +1660,7 @@ package com.gu.source.utils {
   }
 
   public final class SizeKt {
-    method @androidx.compose.runtime.Composable public static boolean isTabletDevice();
+    method @KotlinOnly @androidx.compose.runtime.Composable public static boolean isTabletDevice();
   }
 
 }
