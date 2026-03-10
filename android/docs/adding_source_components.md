@@ -20,6 +20,7 @@ In the `source` module, note the folders components, foundation and daynight.
 ### 2. Code implementation
 
 **Overview**
+
 To implement a new component from the Figma Apps Library or core library, there are three steps
     1) Create the component (composable, preview and snapshot test)
     2) Add it to the sample (nav graph)
