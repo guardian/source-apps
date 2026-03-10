@@ -30,7 +30,7 @@ Note: all PRs that make changes to system design components should be reviewed b
 Once the component is implemented in the source library, you can do a preview release and use it in the android-news-app or feast apps. See [Here](https://github.com/guardian/source-apps/blob/main/android/RELEASING.md#preview-releases)
 When the component is ready for release, you can do a production release as described [Here](https://github.com/guardian/source-apps/blob/main/android/RELEASING.md#production-release)
 
-*Example Implementation steps*
+**Example Implementation steps**
 
 - Checkout a new branch in the `source-apps` repository.
 - Create a new Composable component in the source module, in the `components` folder:
