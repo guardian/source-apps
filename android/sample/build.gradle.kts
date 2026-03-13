@@ -53,4 +53,5 @@ dependencies {
 
     implementation(libs.androidx.nav.runtime)
     implementation(libs.androidx.nav.ui)
+    implementation(libs.androidx.nav.adaptive)
 }

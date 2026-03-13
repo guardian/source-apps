@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -32,7 +34,7 @@ internal fun Home(modifier: Modifier = Modifier, navigate: (Destination) -> Unit
         topBar = {
             SampleTopAppBar {
                 Text(
-                    text = "Welcome to Source.",
+                    text = "Source",
                     style = Source.Typography.HeadlineMedium20,
                     color = AppColour(
                         light = Source.Palette.Brand400,
@@ -49,7 +51,8 @@ internal fun Home(modifier: Modifier = Modifier, navigate: (Destination) -> Unit
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues + PaddingValues(16.dp)),
+                .padding(paddingValues + PaddingValues(16.dp))
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Text(
