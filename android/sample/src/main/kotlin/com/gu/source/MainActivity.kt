@@ -2,6 +2,7 @@ package com.gu.source
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
@@ -71,46 +72,55 @@ internal class MainActivity : ComponentActivity() {
                         entry<Destination.PalettePreview>(
                             metadata = ListDetailSceneStrategy.detailPane(),
                         ) {
+                            BackHandler { navigator.popBackStack() }
                             PalettePreview(navigator::popBackStack)
                         }
                         entry<Destination.PagerProgressBarPreview>(
                             metadata = ListDetailSceneStrategy.detailPane(),
                         ) {
+                            BackHandler { navigator.popBackStack() }
                             ImagePagerWithProgressIndicator(navigator::popBackStack)
                         }
                         entry<Destination.ButtonsPreview>(
                             metadata = ListDetailSceneStrategy.detailPane(),
                         ) {
+                            BackHandler { navigator.popBackStack() }
                             ButtonPreview(navigator::popBackStack)
                         }
                         entry<Destination.TextButtonPreview>(
                             metadata = ListDetailSceneStrategy.detailPane(),
                         ) {
+                            BackHandler { navigator.popBackStack() }
                             TextButtonPreview(navigator::popBackStack)
                         }
                         entry<Destination.IconsPreview>(
                             metadata = ListDetailSceneStrategy.detailPane(),
                         ) {
+                            BackHandler { navigator.popBackStack() }
                             IconsPreview(navigator::popBackStack)
                         }
                         entry<Destination.AlertBannerPreview>(
                             metadata = ListDetailSceneStrategy.detailPane(),
                         ) {
+                            BackHandler { navigator.popBackStack() }
                             AlertBannerPreview(navigator::popBackStack)
                         }
                         entry<Destination.ChipsPreview>(
                             metadata = ListDetailSceneStrategy.detailPane(),
                         ) {
+                            BackHandler { navigator.popBackStack() }
                             ChipsPreview(navigator::popBackStack)
                         }
                         entry<Destination.BadgesPreview>(
                             metadata = ListDetailSceneStrategy.detailPane(),
                         ) {
+                            BackHandler { navigator.popBackStack() }
                             PromoStickerPreview(navigator::popBackStack)
                         }
                         entry<Destination.StarRatingsPreview>(
                             metadata = ListDetailSceneStrategy.detailPane(),
                         ) {
+                            BackHandler { navigator.popBackStack() }
                             RatingPreview(navigator::popBackStack)
                         }
                     },
