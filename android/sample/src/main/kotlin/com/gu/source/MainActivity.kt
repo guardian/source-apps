@@ -4,11 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.animation.core.spring
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.animation.togetherWith
+import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
+import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
+import androidx.compose.material3.adaptive.layout.calculatePaneScaffoldDirective
+import androidx.compose.material3.adaptive.navigation3.ListDetailSceneStrategy
+import androidx.compose.material3.adaptive.navigation3.rememberListDetailSceneStrategy
+import androidx.compose.runtime.remember
+import androidx.compose.ui.unit.dp
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
 import com.gu.source.daynight.AppColourMode
@@ -25,6 +27,7 @@ import com.gu.source.previews.RatingPreview
 import com.gu.source.previews.TextButtonPreview
 
 internal class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3AdaptiveApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -32,61 +35,84 @@ internal class MainActivity : ComponentActivity() {
         setContent {
             val navigator = rememberNavigator(Destination.Home)
 
+            val windowInfo = currentWindowAdaptiveInfo()
+            val isHomeOnTop = navigator.backstack.lastOrNull() is Destination.Home
+
+            val directive = remember(windowInfo, isHomeOnTop) {
+                val isCompact = !windowInfo.windowSizeClass
+                    .isWidthAtLeastBreakpoint(widthDpBreakpoint = 600)
+                calculatePaneScaffoldDirective(windowInfo)
+                    .copy(
+                        horizontalPartitionSpacerSize = 0.dp,
+                        maxHorizontalPartitions = if (isCompact || isHomeOnTop) 1 else 2,
+                    )
+            }
+
             AppColourMode { modifier ->
                 NavDisplay(
                     backStack = navigator.backstack,
                     onBack = { navigator.popBackStack() },
                     modifier = modifier,
+                    sceneStrategy = rememberListDetailSceneStrategy(
+                        shouldHandleSinglePaneLayout = true,
+                        directive = directive,
+                    ),
                     entryProvider = entryProvider {
-                        entry(Destination.Home) {
-                            Home { navigator.navigate(it) }
+                        entry<Destination.Home>(
+                            metadata = ListDetailSceneStrategy.listPane(),
+                        ) {
+                            Home {
+                                if (!isHomeOnTop) {
+                                    navigator.popBackStack()
+                                }
+                                navigator.navigate(it)
+                            }
                         }
-                        entry(Destination.PalettePreview) {
+                        entry<Destination.PalettePreview>(
+                            metadata = ListDetailSceneStrategy.detailPane(),
+                        ) {
                             PalettePreview(navigator::popBackStack)
                         }
-                        entry(Destination.PagerProgressBarPreview) {
+                        entry<Destination.PagerProgressBarPreview>(
+                            metadata = ListDetailSceneStrategy.detailPane(),
+                        ) {
                             ImagePagerWithProgressIndicator(navigator::popBackStack)
                         }
-                        entry(Destination.ButtonsPreview) {
+                        entry<Destination.ButtonsPreview>(
+                            metadata = ListDetailSceneStrategy.detailPane(),
+                        ) {
                             ButtonPreview(navigator::popBackStack)
                         }
-                        entry(Destination.TextButtonPreview) {
+                        entry<Destination.TextButtonPreview>(
+                            metadata = ListDetailSceneStrategy.detailPane(),
+                        ) {
                             TextButtonPreview(navigator::popBackStack)
                         }
-                        entry(Destination.IconsPreview) {
+                        entry<Destination.IconsPreview>(
+                            metadata = ListDetailSceneStrategy.detailPane(),
+                        ) {
                             IconsPreview(navigator::popBackStack)
                         }
-                        entry(Destination.AlertBannerPreview) {
+                        entry<Destination.AlertBannerPreview>(
+                            metadata = ListDetailSceneStrategy.detailPane(),
+                        ) {
                             AlertBannerPreview(navigator::popBackStack)
                         }
-                        entry(Destination.ChipsPreview) {
+                        entry<Destination.ChipsPreview>(
+                            metadata = ListDetailSceneStrategy.detailPane(),
+                        ) {
                             ChipsPreview(navigator::popBackStack)
                         }
-                        entry(Destination.BadgesPreview) {
+                        entry<Destination.BadgesPreview>(
+                            metadata = ListDetailSceneStrategy.detailPane(),
+                        ) {
                             PromoStickerPreview(navigator::popBackStack)
                         }
-                        entry(Destination.StarRatingsPreview) {
+                        entry<Destination.StarRatingsPreview>(
+                            metadata = ListDetailSceneStrategy.detailPane(),
+                        ) {
                             RatingPreview(navigator::popBackStack)
                         }
-                    },
-                    transitionSpec = {
-                        // Slide in from right when navigating forward
-                        slideInHorizontally(initialOffsetX = { it }) togetherWith
-                            slideOutHorizontally(targetOffsetX = { -it })
-                    },
-                    popTransitionSpec = {
-                        // Slide in from left when navigating back
-                        fadeIn(
-                            spring(dampingRatio = 1.0f, stiffness = 1600.0f),
-                        ) togetherWith
-                            slideOutHorizontally(targetOffsetX = { it })
-                    },
-                    predictivePopTransitionSpec = {
-                        // Slide in from left when navigating back
-                        fadeIn(
-                            spring(dampingRatio = 1.0f, stiffness = 1600.0f),
-                        ) togetherWith
-                            slideOutHorizontally(targetOffsetX = { it })
                     },
                 )
             }
