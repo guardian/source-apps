@@ -150,3 +150,158 @@ Modules pick composable plugins from `build-logic/convention/`:
 | `com.theguardian.compose.application` | Adds Compose to an application module |
 
 These plugins are **additive and single-responsibility**. If a new module needs one-off config with no shared logic, put it directly in `build.gradle.kts` rather than creating a new plugin.
+
+---
+
+## Adding a New Component
+
+Follow these steps end-to-end when adding a new component to `:source`.
+
+### 1. Create the component in `:source`
+
+Create a new package under `source/src/main/kotlin/com/gu/source/components/<componentname>/`. Every component package needs at minimum:
+
+- **The main composable file** (e.g. `SourceWidget.kt`) — put all public enums and data classes on a companion `object` (e.g. `SourceWidget.Size`, `SourceWidget.Priority`). Follow `SourceButton.kt` or `PromoSticker.kt` as canonical examples.
+- **A colours file** if the component is themed (e.g. `WidgetColours.kt`) — map `Source.Theme` → a `ButtonColours`-style data class using a `when(theme)` extension, mirroring `ButtonColours.kt`.
+- Use `AppColour(light, dark)` for every colour value. Never pass raw `Color` to a component's internal layout.
+- Mark all `@Preview` composables `internal` and annotate them `@VisibleForTesting`.
+
+```kotlin
+// source/src/main/kotlin/com/gu/source/components/widget/SourceWidget.kt
+object SourceWidget {
+    enum class Size { Small, Medium, Large }
+    enum class Priority { Primary, Secondary }
+}
+
+@Composable
+fun SourceWidget(
+    priority: SourceWidget.Priority,
+    size: SourceWidget.Size,
+    modifier: Modifier = Modifier,
+    theme: Source.Theme = LocalSourceTheme.current,
+) { /* ... */ }
+
+@VisibleForTesting
+@PreviewPhoneBothMode
+@Composable
+internal fun SourceWidgetPreview() {
+    AppColourMode {
+        SourceWidget(priority = SourceWidget.Priority.Primary, size = SourceWidget.Size.Medium)
+    }
+}
+```
+
+If the component supports custom colours (not just preset themes), also create a **base variant** accepting a `ButtonColours`-style parameter directly (see `PlainSourceButton.kt` / `SourceBaseChip.kt`).
+
+### 2. Add `@Preview` composables and Paparazzi screenshot tests
+
+Internal `@Preview` functions live at the bottom of the component file (annotated `@PreviewPhoneBothMode` and/or `@PreviewTabletBothMode`). They are the source of truth for screenshot tests.
+
+Create a mirror test file at `source/src/test/kotlin/com/gu/source/components/<componentname>/SourceWidgetTest.kt`:
+
+```kotlin
+@RunWith(TestParameterInjector::class)
+class SourceWidgetTest(@TestParameter private val nightMode: NightMode) {
+    @get:Rule
+    val paparazzi = createComponentPaparazziRule(nightMode)
+
+    @Test fun primary() { paparazzi.snapshot { SourceWidgetPreview() } }
+}
+```
+
+Add `@TestParameter private val fontScale: FontScale` when the component renders text. After writing the test, record baselines:
+
+```bash
+./gradlew :source:recordPaparazziDebug
+```
+
+Commit the generated snapshots from `source/src/test/snapshots/`.
+
+### 3. Add a component README and link it from the parent README
+
+Create `source/src/main/kotlin/com/gu/source/components/<componentname>/README.md`. Include:
+- A one-paragraph description
+- A light/dark screenshot table (upload images to the GitHub PR and paste the URLs)
+- Usage code examples for both the themed and base variant (if applicable)
+- A link to the full API docs at `https://guardian.github.io/source-apps/android/docs/`
+
+Then open `android/README.md` and add an entry under the **Components** section, following the existing pattern:
+
+```markdown
+### My Widget
+
+Short description of the component.
+
+[See here for full details of the widget component.][mywidget]
+```
+
+Add the link reference at the bottom of `android/README.md` alongside the existing refs:
+
+```markdown
+[mywidget]: ./source/src/main/kotlin/com/gu/source/components/widget/README.md
+```
+
+### 4. Add a preview screen in `:sample`
+
+**a. Create the preview composable** — add `sample/src/main/kotlin/com/gu/source/previews/WidgetPreview.kt`. Wrap content in `PreviewScaffold` (provides top bar + back button) and `AppColourMode`. Use `@PreviewLightDark` for the Android Studio preview:
+
+```kotlin
+@Composable
+internal fun WidgetPreview(onBackPress: () -> Unit, modifier: Modifier = Modifier) {
+    PreviewScaffold("Widget", onBackPress, modifier) {
+        // Show all size/priority/style combinations
+    }
+}
+
+@PreviewLightDark
+@Composable
+private fun Preview() {
+    AppColourMode { WidgetPreview({}) }
+}
+```
+
+**b. Add a `Destination`** in `navigation/Destination.kt`:
+
+```kotlin
+@Serializable
+object WidgetPreview : Destination
+```
+
+**c. Wire the Home screen** — in `Home.kt` add a `SourceButton` nav entry inside the `Column`:
+
+```kotlin
+SourceButton(
+    text = "Widget",
+    priority = SourceButton.Priority.TertiaryOnWhite,
+    onClick = { navigate(Destination.WidgetPreview) },
+)
+```
+
+**d. Register the route** — in `MainActivity.kt` add an `entry` block inside the `entryProvider` lambda:
+
+```kotlin
+entry(Destination.WidgetPreview) {
+    WidgetPreview(navigator::popBackStack)
+}
+```
+
+### 5. Validate with a preview release
+
+Before merging, publish a preview release to test the component in a real consumer app:
+
+1. Push your branch to GitHub.
+2. Trigger the [Release workflow](https://github.com/guardian/source-apps/actions/workflows/release.yml) targeting **your branch** (not `main`).
+3. The action publishes to Maven Central and posts the version string (e.g. `9.1.0-PREVIEW.my-branch.2026-03-13T1045.abc1234`) as a PR comment.
+4. Update the consumer app's version catalog to the preview version and verify end-to-end rendering.
+
+### 6. Get PR approval from the design systems team
+
+All new components require at least one approval from a member of the **Guardian design systems team** before merging. Tag `@guardian/android-developers` as a reviewer and include light/dark screenshots in the PR description. Ensure the recorded Paparazzi snapshots are committed with the code changes.
+
+### 7. Produce a production release after merging
+
+Once the PR is merged to `main`:
+
+1. Trigger the [Release workflow](https://github.com/guardian/source-apps/actions/workflows/release.yml) targeting **`main`**.
+2. The workflow runs `metalavaCheckCompatibilityRelease` to determine the version bump (major / minor / patch), updates `version.txt`, updates `source/api/source-api.txt`, publishes to Maven Central, and creates a GitHub release.
+3. Do **not** edit `version.txt` or `source/api/source-api.txt` manually — these are owned by the release workflow.
