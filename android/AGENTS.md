@@ -162,7 +162,8 @@ Follow these steps end-to-end when adding a new component to `:source`.
 Create a new package under `source/src/main/kotlin/com/gu/source/components/<componentname>/`. Every component package needs at minimum:
 
 - **The main composable file** (e.g. `SourceWidget.kt`) — put all public enums and data classes on a companion `object` (e.g. `SourceWidget.Size`, `SourceWidget.Priority`). Follow `SourceButton.kt` or `PromoSticker.kt` as canonical examples.
-- **A colours file** if the component is themed (e.g. `WidgetColours.kt`) — map `Source.Theme` → a `ButtonColours`-style data class using a `when(theme)` extension, mirroring `ButtonColours.kt`.
+- **Default values and colours** — Create a `SourceWidgetDefaults` object to specify any default dimensions, padding, typography styles, colours etc. that the component needs. If the component has multiple colour inputs, create a `colours(...)` function inside `SourceWidgetDefaults` to allow consumers to easily create a `WidgetColours` data class with the correct defaults.
+- Keep the public API surface minimal — only the main composable function(s) and any necessary enums/data classes. All internal implementation details (including raw `Color` values) should be `private` to the file or `internal` to the library.
 - Use `AppColour(light, dark)` for every colour value. Never pass raw `Color` to a component's internal layout.
 - Mark all `@Preview` composables `internal` and annotate them `@VisibleForTesting`.
 
