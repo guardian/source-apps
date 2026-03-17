@@ -41,6 +41,9 @@ The design presets are available name spaced under the `com.gu.Source` object, e
 
 **[Full API documentation is available here.](https://guardian.github.io/source-apps/android/docs/index.html)**
 
+## Contributing
+If you want to add new components to the Source library, please follow the guide in [Adding Source components](docs/adding_source_components.md).
+
 ---
 
 ## Presets
@@ -193,7 +196,7 @@ AlertBanner(
        google()
    }
    ```
-
+   
 ### Other notes
 
 1. We use the `com.gu` package name and group id so we can use the Guardian's Sonatype infra for signing and publishing the library. See [this comment](https://github.com/guardian/source-android/pull/10/files?w=1#r1567071142) for reference. 
