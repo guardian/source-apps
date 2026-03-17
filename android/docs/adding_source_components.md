@@ -1,15 +1,15 @@
 # Adding Source Components
 
-Developers may wish to add components to our design system for use throughout the app. We have a separate repository for this called `source-apps`, which contains the Android and iOS components from a core library defined in Figma. The process to add components is outlined there, but is also here for reference.
+Developers may wish to add components to our design system for use throughout the app. This repository, `source-apps`, contains the Android and iOS components derived from our core libraries defined in Figma. The process to add components to these modules is outlined below for reference.
 
 ## Outline
 
-### 1. Verify Design Source of Truth
+### Verify Design Source of Truth
 
 As a developer, you should refer to the apps library Figma file which contains all of our components here: [Apps library](https://www.figma.com/design/kSmjgtoTWiG8N7HXxFoGEE/%E2%97%90-Apps-library?node-id=103-89&p=f&t=b9BxsPXbamFK9Zkw-0)
 We also have a Core library that defines core components: [Figma Core Library](https://www.figma.com/design/b2qv2OMLoNCYnP01ipfrP7/%E2%97%88-Core-library?node-id=4229-96590&t=Yx6Rt423B9TxRRqz-0)
 
-### 2. Familiarize yourself with the source-apps repository structure
+### Familiarize yourself with the source-apps repository structure
 
 The `source-apps` repository contains the Android and iOS components. The Android source project is in the `android` module.
 In the `source` module, note the folders components, foundation and daynight.
@@ -17,7 +17,7 @@ In the `source` module, note the folders components, foundation and daynight.
     - components contains the UI components that we can use in our apps (from the Figma apps library).
     - daynight contains our `AppColourMode` wrapper for dark mode, which composable heirarchies should be wrapped in to enable dark mode support.
 
-### 2. Code implementation
+### Code implementation
 
 **Overview**
 
@@ -58,7 +58,7 @@ When the component is ready for release, you can do a production release as desc
   @Test
   fun newComponent() {
       paparazzi.snapshot {
-          NewComponentPreview()
+          MyNewComponentPreview()
       }
   }
   ```
@@ -74,7 +74,7 @@ When the component is ready for release, you can do a production release as desc
 
   ```kotlin
   entry(Destination.NewComponentPreview) {
-      NewComponentPreview(navigator::popBackStack)
+      MyNewComponentPreview(navigator::popBackStack)
   }
   ```
 
