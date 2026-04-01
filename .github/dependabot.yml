@@ -23,8 +23,6 @@ updates:
           - "org.jetbrains.kotlin:kotlin-stdlib"
           - "org.jetbrains.kotlin:kotlin-gradle-plugin"
           - "org.jetbrains.compose.compiler"
-          - "com.google.dagger.hilt.android"
-          - "com.google.devtools.ksp"
       # Request that all AGP dependent upgrades are grouped together
       agp:
         patterns:

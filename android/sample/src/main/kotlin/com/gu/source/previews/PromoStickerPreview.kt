@@ -21,7 +21,7 @@ import com.gu.source.foundation.typography.TextSansBold17
 internal fun PromoStickerPreview(onBackPress: () -> Unit, modifier: Modifier = Modifier) {
     PreviewScaffold("Promo sticker", onBackPress, modifier) {
         LazyVerticalGrid(
-            columns = GridCells.Fixed(getGridCount()),
+            columns = GridCells.Fixed(2),
             modifier = it,
             verticalArrangement = Arrangement.Center,
         ) {
