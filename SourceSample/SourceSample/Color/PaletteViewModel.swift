@@ -129,6 +129,7 @@ struct PaletteViewModel {
         ColorSection(name: "Success", colors: [
             ColorSwatch(color: ColorPalette.success300, description: "300"),
             ColorSwatch(color: ColorPalette.success400, description: "400"),
+            ColorSwatch(color: ColorPalette.success450, description: "450"),
             ColorSwatch(color: ColorPalette.success500, description: "500")
         ]),
         ColorSection(name: "Notification Blue", colors: [
