@@ -123,5 +123,6 @@ public enum ColorPalette {
     // MARK: Success
     public static let success300 = PlatformColor(resource: .success300)
     public static let success400 = PlatformColor(resource: .success400)
+    public static let success450 = PlatformColor(resource: .success450)
     public static let success500 = PlatformColor(resource: .success500)
 }
