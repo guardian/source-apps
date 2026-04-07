@@ -41,6 +41,7 @@
     <!-- region Success -->
     <color name="success_300">#185e36</color>
     <color name="success_400">#22874d</color>
+    <color name="success_450">#28a85f</color>
     <color name="success_500">#58d08b</color>
     <!-- endregion -->
     

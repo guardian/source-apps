@@ -64,6 +64,8 @@ val Source.Palette.Success300: Color
     get() = Color(color = 0xff185e36)
 val Source.Palette.Success400: Color
     get() = Color(color = 0xff22874d)
+val Source.Palette.Success450: Color
+    get() = Color(color = 0xff28a85f)
 val Source.Palette.Success500: Color
     get() = Color(color = 0xff58d08b)
 
