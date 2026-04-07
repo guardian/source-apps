@@ -117,6 +117,7 @@ import com.gu.source.foundation.palette.Sport700
 import com.gu.source.foundation.palette.Sport800
 import com.gu.source.foundation.palette.Success300
 import com.gu.source.foundation.palette.Success400
+import com.gu.source.foundation.palette.Success450
 import com.gu.source.foundation.palette.Success500
 import com.gu.source.foundation.typography.TextSans11
 import com.gu.source.foundation.typography.TextSansBold14
@@ -168,6 +169,7 @@ private val colours = mapOf(
     "Success" to listOf(
         Colour("Success300", Source.Palette.Success300),
         Colour("Success400", Source.Palette.Success400),
+        Colour("Success450", Source.Palette.Success450),
         Colour("Success500", Source.Palette.Success500),
     ),
     "News" to listOf(
