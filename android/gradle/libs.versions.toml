@@ -16,7 +16,7 @@ kotlin = "2.3.20"
 kotlinter = "5.0.1"
 
 activity = "1.13.0"
-adaptive-navigation3 = "1.3.0-alpha09"
+adaptive-navigation3 = "1.3.0-alpha10"
 appcompat = "1.7.1"
 coil = "2.7.0"
 composeBom = "2026.03.01"
