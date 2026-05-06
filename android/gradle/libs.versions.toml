@@ -28,7 +28,7 @@ inject = "1"
 kotlinx-collections-immutable = "0.4.0"
 kotlinx-serialisation-core = "1.11.0"
 licensee = "1.14.1"
-lint-gradle = "1.0.0-alpha06"
+lint-gradle = "1.0.0-beta01"
 nav = "1.0.1"
 timber = "5.0.1"
 
