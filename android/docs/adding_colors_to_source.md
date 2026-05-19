@@ -1,21 +1,18 @@
 # Adding Colors to Source
 
-The design system team may want to add new colors from time to time. Developers are responsible for
-adding them to the Source repository to be used.
+The design system team may want to add new colors from time to time. Developers are responsible for adding them to the Source repository to be used.
 
 ## Outline
 
-The design system team will typically provide a color under a certain category in The Guardian app
-i.e. `Brand`, `Success`, `News`, `Opinion`, `Sport`, `Culture`, `Lifestyle`, etc.
+The design system team will typically provide a color under a certain category in The Guardian app i.e. `Brand`, `Success`, `News`, `Opinion`, `Sport`, `Culture`, `Lifestyle`, etc.
 
-The colors are defined in the Figma file [Here](https://www.figma.com/design/b2qv2OMLoNCYnP01ipfrP7/%E2%97%88-Core-library?node-id=4229-96590&t=Yx6Rt423B9TxRRqz-0)
+The colors are defined in the Figma file [Here](https://www.figma.com/design/b2qv2OMLoNCYnP01ipfrP7/%E2%97%88-Core-library?node-id=4229-96590&t=Yx6Rt423B9TxRRqz-0).
 
-We have a preview in the `source-apps` repository that displays all of our currently defined colors
-in `PalettePreview.kt`.
+We have a preview in the `source-apps` repository that displays all of our currently defined colors in `PalettePreview.kt`.
 
 ### Steps to add a new color
 
-Define the color in the `Pallette.kt` file, specifying the name of the Color and the Hex code
+Define the color in the `Pallette.kt` file, specifying the name of the Color and the Hex code.
 
 ```kotlin
     val Source.Palette.SuccessXYZ: Color // XYZ will usually represent a number like 450
