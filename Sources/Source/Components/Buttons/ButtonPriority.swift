@@ -16,4 +16,7 @@ public enum ButtonPriority: CaseIterable {
 
     /// Use only in a group with a primary button for low priority actions.
     case subdued
+    
+    /// Use for text-only buttons without borders, similar to tertiary but with a pressed state styling.
+    case textButton
 }
