@@ -94,7 +94,11 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                     Text("Subdued")
                 }
                 .buttonStyle(.source(size: .medium, priority: .subdued, theme: .brand))
-
+                
+                Button(action: {}) {
+                    Text("Text Button")
+                }
+                .buttonStyle(.source(size: .medium, priority: .textButton, theme: .brand))
             }
 
             Section("Small") {
@@ -117,7 +121,11 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                     Text("Subdued")
                 }
                 .buttonStyle(.source(size: .small, priority: .subdued, theme: .brand))
-
+                
+                Button(action: {}) {
+                    Text("Text Button")
+                }
+                .buttonStyle(.source(size: .small, priority: .textButton, theme: .brand))
             }
 
             Section("XSmall") {
