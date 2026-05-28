@@ -33,27 +33,9 @@ public struct SpinnerButtonStyle: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
             .foregroundColor(foregroundColor(for: buttonPriority))
             .padding(.horizontal, buttonSize.horizontalPad)
-            .background(backgroundShape(for: buttonPriority))
+            .background(backgroundShape(for: buttonPriority, isPressed: configuration.isPressed))
             .opacity(configuration.isPressed ? 0.8 : 1)
             .lineLimit(1)
-    }
-    
-    private func backgroundShape(for priority: ButtonPriority) -> some View {
-        Group {
-            switch priority {
-            case .primary:
-                Capsule()
-                    .fill(Color(buttonTheme.backgroundColorPrimary))
-            case .secondary:
-                Capsule()
-                    .fill(Color(buttonTheme.backgroundColorSecondary))
-            case .tertiary:
-                Capsule()
-                    .stroke(Color(buttonTheme.foregroundColorTertiary))
-            case .subdued:
-                EmptyView()
-            }
-        }
     }
     
     private func foregroundColor(for priority: ButtonPriority) -> Color {
@@ -66,6 +48,30 @@ public struct SpinnerButtonStyle: ButtonStyle {
             return Color(buttonTheme.foregroundColorTertiary)
         case .subdued:
             return Color(buttonTheme.foregroundColorSubdued)
+        case .textButton:
+            return Color(buttonTheme.foregroundColorTextButton)
+        }
+    }
+    
+    @ViewBuilder
+    private func backgroundShape(for priority: ButtonPriority, isPressed: Bool) -> some View {
+        switch priority {
+        case .primary:
+            Capsule()
+                .fill(Color(buttonTheme.backgroundColorPrimary))
+        case .secondary:
+            Capsule()
+                .fill(Color(buttonTheme.backgroundColorSecondary))
+        case .tertiary:
+            Capsule()
+                .stroke(Color(buttonTheme.foregroundColorTertiary))
+        case .subdued:
+            EmptyView()
+        case .textButton:
+            if isPressed {
+                Capsule()
+                    .fill(Color(buttonTheme.backgroundColorTextButtonPressed).opacity(colorScheme == .dark ? 0.2 : 0.1))
+            }
         }
     }
 }

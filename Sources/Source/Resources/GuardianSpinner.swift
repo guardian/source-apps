@@ -92,6 +92,8 @@ struct GuardianSpinner: View {
             return Color(theme.foregroundColorTertiary)
         case .subdued:
             return Color(theme.foregroundColorSubdued)
+        case .textButton:
+            return Color(theme.foregroundColorTertiary)
         }
     }
 }
