@@ -12,7 +12,7 @@ We have a preview in the `source-apps` repository that displays all of our curre
 
 ### Steps to add a new color
 
-Define the color in the `Pallette.kt` file, specifying the name of the Color and the Hex code.
+Define the color in the `Palette.kt` file, specifying the name of the Color and the Hex code.
 
 ```kotlin
     val Source.Palette.SuccessXYZ: Color // XYZ will usually represent a number like 450
