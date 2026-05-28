@@ -24,6 +24,7 @@ extension ButtonPriority {
         case .secondary: "Secondary"
         case .tertiary: "Tertiary"
         case .subdued: "Subdued"
+        case .textButton: "Text Button App"
         }
     }
 }

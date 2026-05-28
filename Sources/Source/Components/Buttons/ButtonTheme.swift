@@ -27,6 +27,12 @@ public struct ButtonTheme {
     /// The foreground color for the Subdued button style. By default, this is derived from `backgroundColorPrimary`.
     public let foregroundColorSubdued: PlatformColor
 
+    /// The foreground color for the TextButton button style. By default, this is derived from `foregroundColorTertiary`.
+    public let foregroundColorTextButton: PlatformColor
+
+    /// The background color for the TextButton button style when pressed.
+    public let backgroundColorTextButtonPressed: PlatformColor
+
     /// Initializes a new instance of `ButtonTheme`.
     ///
     /// - Parameters:
@@ -38,13 +44,19 @@ public struct ButtonTheme {
     ///   from `backgroundColorPrimary` if not specified.
     ///   - foregroundColorSubdued: The foreground color for the Subdued button style, derived
     ///   from `backgroundColorPrimary` if not specified.
+    ///   - foregroundColorTextButton: The foreground color for the TextButton button style, derived
+    ///   from `foregroundColorTertiary` if not specified.
+    ///   - backgroundColorTextButtonPressed: The background color for the TextButton button style when pressed, derived
+    ///   from `backgroundColorPrimary` if not specified.
     public init(
         foregroundColorPrimary: PlatformColor,
         backgroundColorPrimary: PlatformColor,
         foregroundColorSecondary: PlatformColor,
         backgroundColorSecondary: PlatformColor,
         foregroundColorTertiary: PlatformColor? = nil,
-        foregroundColorSubdued: PlatformColor? = nil
+        foregroundColorSubdued: PlatformColor? = nil,
+        foregroundColorTextButton: PlatformColor? = nil,
+        backgroundColorTextButtonPressed: PlatformColor? = nil
     ) {
         self.foregroundColorPrimary = foregroundColorPrimary
         self.backgroundColorPrimary = backgroundColorPrimary
@@ -52,6 +64,8 @@ public struct ButtonTheme {
         self.backgroundColorSecondary = backgroundColorSecondary
         self.foregroundColorTertiary = foregroundColorTertiary ?? backgroundColorPrimary
         self.foregroundColorSubdued = foregroundColorSubdued ?? backgroundColorPrimary
+        self.foregroundColorTextButton = foregroundColorTextButton ?? (foregroundColorTertiary ?? backgroundColorPrimary)
+        self.backgroundColorTextButtonPressed = backgroundColorTextButtonPressed ?? backgroundColorPrimary
     }
 }
 
@@ -73,6 +87,14 @@ public extension ButtonTheme {
         backgroundColorSecondary: .dynamicColor(
             light: ColorPalette.brand800,
             dark: ColorPalette.brand600
+        ),
+        foregroundColorTextButton: .dynamicColor(
+            light: ColorPalette.brand400,
+            dark: ColorPalette.neutral86
+        ),
+        backgroundColorTextButtonPressed: .dynamicColor(
+            light: ColorPalette.brand400,
+            dark: ColorPalette.neutral86
         )
     )
 }

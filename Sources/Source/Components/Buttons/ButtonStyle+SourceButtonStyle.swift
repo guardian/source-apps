@@ -21,7 +21,7 @@ public struct SourceButtonStyle: ButtonStyle {
             .foregroundColor(foregroundColor(for: buttonPriority))
             .padding(.vertical, buttonSize.verticalPad)
             .padding(.horizontal, buttonSize.horizontalPad)
-            .background(backgroundShape(for: buttonPriority))
+            .background(backgroundShape(for: buttonPriority, isPressed: configuration.isPressed))
             .opacity(configuration.isPressed ? 0.8 : 1)
             .lineLimit(1)
     }
@@ -36,24 +36,29 @@ public struct SourceButtonStyle: ButtonStyle {
             return Color(buttonTheme.foregroundColorTertiary)
         case .subdued:
             return Color(buttonTheme.foregroundColorSubdued)
+        case .textButton:
+            return Color(buttonTheme.foregroundColorTextButton)
         }
     }
 
-    private func backgroundShape(for priority: ButtonPriority) -> some View {
-        Group {
-            switch priority {
-            case .primary:
+    @ViewBuilder
+    private func backgroundShape(for priority: ButtonPriority, isPressed: Bool) -> some View {
+        switch priority {
+        case .primary:
+            Capsule()
+                .fill(Color(buttonTheme.backgroundColorPrimary))
+        case .secondary:
+            Capsule()
+                .fill(Color(buttonTheme.backgroundColorSecondary))
+        case .tertiary:
+            Capsule()
+                .stroke(Color(buttonTheme.foregroundColorTertiary))
+        case .subdued:
+            EmptyView()
+        case .textButton:
+            if isPressed {
                 Capsule()
-                    .fill(Color(buttonTheme.backgroundColorPrimary))
-            case .secondary:
-                Capsule()
-                    .fill(Color(buttonTheme.backgroundColorSecondary))
-            case .tertiary:
-                Capsule()
-                    .stroke(Color(buttonTheme.foregroundColorTertiary))
-            case .subdued:
-                EmptyView()
-
+                    .fill(Color(buttonTheme.backgroundColorTextButtonPressed).opacity(colorScheme == .dark ? 0.2 : 0.1))
             }
         }
     }
@@ -89,7 +94,11 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                     Text("Subdued")
                 }
                 .buttonStyle(.source(size: .medium, priority: .subdued, theme: .brand))
-
+                
+                Button(action: {}) {
+                    Text("Text Button")
+                }
+                .buttonStyle(.source(size: .medium, priority: .textButton, theme: .brand))
             }
 
             Section("Small") {
@@ -112,7 +121,11 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                     Text("Subdued")
                 }
                 .buttonStyle(.source(size: .small, priority: .subdued, theme: .brand))
-
+                
+                Button(action: {}) {
+                    Text("Text Button")
+                }
+                .buttonStyle(.source(size: .small, priority: .textButton, theme: .brand))
             }
 
             Section("XSmall") {
@@ -135,7 +148,11 @@ public extension ButtonStyle where Self == SourceButtonStyle {
                     Text("Subdued")
                 }
                 .buttonStyle(.source(size: .xsmall, priority: .subdued, theme: .brand))
-
+                
+                Button(action: {}) {
+                    Text("Text Button")
+                }
+                .buttonStyle(.source(size: .xsmall, priority: .textButton, theme: .brand))
             }
         }
         .padding()

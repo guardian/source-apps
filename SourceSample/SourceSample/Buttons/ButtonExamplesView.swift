@@ -139,6 +139,37 @@ struct ButtonExamplesView: View {
                         )
                 }
                 .padding()
+
+                // Text Button App
+                HStack(spacing: 12) {
+                    Button("Text Button Medium") { }
+                        .buttonStyle(
+                            .source(
+                                size: .medium,
+                                priority: .textButton,
+                                theme: .brand
+                            )
+                        )
+
+                    Button("Text Button Small") { }
+                        .buttonStyle(
+                            .source(
+                                size: .small,
+                                priority: .textButton,
+                                theme: .brand
+                            )
+                        )
+
+                    Button("Text Button XSmall") { }
+                        .buttonStyle(
+                            .source(
+                                size: .xsmall,
+                                priority: .textButton,
+                                theme: .brand
+                            )
+                        )
+                }
+                .padding()
            }
 
             // MARK: - Icon Only Buttons
