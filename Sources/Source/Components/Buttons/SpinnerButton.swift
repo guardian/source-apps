@@ -46,11 +46,11 @@ public struct SpinnerButton: View {
                         priority: priority,
                         lineWidth: size.spinnerLineWidth
                     )
-                    .padding(.vertical, -size.verticalPad)
-                    .padding(.top, 10)
+                    .padding(.vertical, size.spinnerVerticalPad)
                 }
                 
                 Text(title)
+                    .padding(.vertical, size.verticalPad)
                     
                 Spacer(minLength: 0)
                 
@@ -61,10 +61,11 @@ public struct SpinnerButton: View {
             }
         }
         .buttonStyle(
-            .source(
+            SpinnerButtonStyle(
                 size: size,
                 priority: priority,
-                theme: theme
+                theme: theme,
+                isLoading: state == .loading
             )
         )
         .disabled(state == .loading)
@@ -92,6 +93,10 @@ extension ButtonSize {
         case .xsmall:
             return 1.5
         }
+    }
+    
+    var spinnerVerticalPad: CGFloat {
+        return 10
     }
 }
 
