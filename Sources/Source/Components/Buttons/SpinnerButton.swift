@@ -46,6 +46,8 @@ public struct SpinnerButton: View {
                         priority: priority,
                         lineWidth: size.spinnerLineWidth
                     )
+                    .padding(.vertical, -size.verticalPad)
+                    .padding(.top, 10)
                 }
                 
                 Text(title)
@@ -57,7 +59,6 @@ public struct SpinnerButton: View {
                         .frame(width: size.spinnerSize, height: 0)
                 }
             }
-            .frame(height: size.spinnerSize, alignment: .center)
         }
         .buttonStyle(
             .source(
