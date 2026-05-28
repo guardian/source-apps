@@ -12,7 +12,7 @@ struct ButtonBuilderView: View {
     @State var buttonType: ButtonType = .regular
 
     enum ButtonType {
-        case icon, regular
+        case icon, regular, spinner
     }
 
     var body: some View {
@@ -22,6 +22,8 @@ struct ButtonBuilderView: View {
                 IconButtonBuilderView()
             case .regular:
                 StandardButtonBuilderView()
+            case .spinner:
+                SpinnerButtonBuilderView()
             }
         }
         .padding()
@@ -30,6 +32,7 @@ struct ButtonBuilderView: View {
                 Picker("Type", selection: $buttonType) {
                     Text("Standard").tag(ButtonType.regular)
                     Text("Icon").tag(ButtonType.icon)
+                    Text("Spinner").tag(ButtonType.spinner)
                 }
                 .pickerStyle(.segmented)
                 .labelsHidden()
@@ -146,6 +149,67 @@ struct StandardButtonBuilderView: View {
                         TextField("Title", text: $title)
                             .textFieldStyle(.roundedBorder)
                         IconPicker("Icon", selection: $icon)
+                        Picker("Size", selection: $size) {
+                            ForEach(ButtonSize.allCases, id: \.self) {  size in
+                                Text(size.displayName)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        Picker("Priority", selection: $priority) {
+                            ForEach(ButtonPriority.allCases, id: \.self) {  priority in
+                                Text(priority.displayName)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                    }
+                    .padding()
+                    .frame(maxWidth: 600)
+                }
+
+                GroupBox("Button Theme") {
+                    ButtonThemeBuilderView(theme: $theme)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                        .frame(maxWidth: 600)
+                }
+            }
+        }
+    }
+}
+
+struct SpinnerButtonBuilderView: View {
+    @State var title: String = "Submit"
+    @State var state: SpinnerButtonState = .loading
+    @State var size: ButtonSize = .medium
+    @State var priority: ButtonPriority = .primary
+    @State var theme: ButtonTheme = .brand
+
+    var body: some View {
+        VStack {
+            SpinnerButton(
+                title: title,
+                state: state,
+                size: size,
+                priority: priority,
+                theme: theme,
+                action: {}
+            )
+            .frame(
+                maxWidth: .infinity,
+                minHeight: 200,
+                maxHeight: .infinity
+            )
+
+            GroupBox {
+                GroupBox("Button Config") {
+                    VStack(alignment: .leading) {
+                        TextField("Title", text: $title)
+                            .textFieldStyle(.roundedBorder)
+                        Picker("State", selection: $state) {
+                            Text("Idle").tag(SpinnerButtonState.idle)
+                            Text("Loading").tag(SpinnerButtonState.loading)
+                        }
+                        .pickerStyle(.segmented)
                         Picker("Size", selection: $size) {
                             ForEach(ButtonSize.allCases, id: \.self) {  size in
                                 Text(size.displayName)
