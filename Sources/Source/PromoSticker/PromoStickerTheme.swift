@@ -5,6 +5,11 @@ import SwiftUI
 public struct PromoStickerTheme {
     let foregroundColor: Color
     let backgroundColor: Color
+
+    public init(foregroundColor: Color, backgroundColor: Color) {
+        self.foregroundColor = foregroundColor
+        self.backgroundColor = backgroundColor
+    }
 }
 
 public extension PromoStickerTheme {
