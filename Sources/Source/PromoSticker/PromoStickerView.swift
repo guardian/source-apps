@@ -6,8 +6,7 @@ struct PromoStickerView: View {
 
     let text: String
     let size: PromoStickerSize
-    let foregroundColor: Color
-    let backgroundColor: Color
+    let theme: PromoStickerTheme
     var alignment: CornerPlacement?
 
     var body: some View {
@@ -16,15 +15,17 @@ struct PromoStickerView: View {
             .padding(.horizontal, size == .small ? 4 : 8)
             .padding(.vertical, size == .small ? 4 : 6.5)
             .background {
-                roundedRectangle
-                    .fill(backgroundColor)
+                container
+                    .fill(theme.backgroundColor)
+
 
             }
-            .foregroundStyle(foregroundColor)
+            .foregroundStyle(theme.foregroundColor)
+            // dynamic type not supported on this component for now...
             .dynamicTypeSize(.medium)
     }
 
-    private var roundedRectangle: AnyShape {
+    private var container: AnyShape {
         if let alignment {
             AnyShape(
                 UnevenRoundedRectangle(
@@ -46,97 +47,84 @@ struct PromoStickerView: View {
             PromoStickerView(
                 text: "Save 30%",
                 size: .small,
-                foregroundColor: Color(uiColor: ColorPalette.neutral97),
-                backgroundColor: Color(uiColor: ColorPalette.sport400),
+                theme: .red
             )
             PromoStickerView(
                 text: "Save 30%",
                 size: .large,
-                foregroundColor: Color(uiColor: ColorPalette.neutral97),
-                backgroundColor: Color(uiColor: ColorPalette.sport400),
+                theme: .red
             )
         }
         HStack(alignment: .top) {
             PromoStickerView(
                 text: "Save 30%",
                 size: .small,
-                foregroundColor: Color(uiColor: ColorPalette.neutral97),
-                backgroundColor: Color(uiColor: ColorPalette.news400),
+                theme: .blue
             )
             PromoStickerView(
                 text: "Save 30%",
                 size: .large,
-                foregroundColor: Color(uiColor: ColorPalette.neutral97),
-                backgroundColor: Color(uiColor: ColorPalette.news400),
+                theme: .blue
             )
         }
         HStack(alignment: .top) {
             PromoStickerView(
                 text: "Save 30%",
                 size: .small,
-                foregroundColor: Color(uiColor: ColorPalette.neutral97),
-                backgroundColor: Color(uiColor: ColorPalette.lifestyle400),
+                theme: .purple
             )
             PromoStickerView(
                 text: "Save 30%",
                 size: .large,
-                foregroundColor: Color(uiColor: ColorPalette.neutral97),
-                backgroundColor: Color(uiColor: ColorPalette.lifestyle400),
+                theme: .purple
             )
         }
         HStack(alignment: .top) {
             PromoStickerView(
                 text: "Save 30%",
                 size: .small,
-                foregroundColor: Color(uiColor: ColorPalette.neutral97),
-                backgroundColor: Color(uiColor: ColorPalette.labs200),
+                theme: .green
             )
             PromoStickerView(
                 text: "Save 30%",
                 size: .large,
-                foregroundColor: Color(uiColor: ColorPalette.neutral97),
-                backgroundColor: Color(uiColor: ColorPalette.labs200),
+                theme: .green
             )
         }
         Divider()
         RoundedRectangle(cornerRadius: 4)
             .strokeBorder(lineWidth: 1)
             .frame(width: 150, height: 200)
-            .foregroundColor(.blue)
-
+            .foregroundColor(Color(uiColor: ColorPalette.sport400))
             .overlay(alignment: .bottomTrailing) {
                 PromoStickerView(
-                    text: "Beta",
+                    text: "B trailing",
                     size: .small,
-                    foregroundColor: .blue,
-                    backgroundColor: .blue,
+                    theme: .blue,
                     alignment: .bottomTrailing
                 )
             }
             .overlay(alignment: .topLeading) {
                 PromoStickerView(
-                    text: "Beta",
+                    text: "T leading",
                     size: .small,
-                    foregroundColor: .blue,
-                    backgroundColor: .blue,
+                    theme: .blue,
                     alignment: .topLeading
                 )
             }
             .overlay(alignment: .bottomLeading) {
                 PromoStickerView(
-                    text: "Beta",
+                    text: "B leading",
                     size: .small,
-                    foregroundColor: .blue,
-                    backgroundColor: .blue,
+                    theme: .blue,
                     alignment: .bottomLeading
                 )
             }
             .overlay(alignment: .topTrailing) {
                 PromoStickerView(
-                    text: "Beta",
+                    text: "T trailing",
                     size: .small,
-                    foregroundColor: .blue,
-                    backgroundColor: .blue,
+                    theme: .blue,
                     alignment: .topTrailing
                 )
             }
