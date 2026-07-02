@@ -2,14 +2,26 @@
 
 import SwiftUI
 
-struct PromoStickerView: View {
+public struct PromoStickerView: View {
 
     let text: String
     let size: PromoStickerSize
     let theme: PromoStickerTheme
     var alignment: CornerPlacement?
 
-    var body: some View {
+    public init(
+        text: String,
+        size: PromoStickerSize,
+        theme: PromoStickerTheme,
+        alignment: CornerPlacement? = nil
+    ) {
+        self.text = text
+        self.size = size
+        self.theme = theme
+        self.alignment = alignment
+    }
+
+    public var body: some View {
         Text(text)
             .font(size == .large ? Typography.textSansBld15 : Typography.textSansBld12)
             .padding(.horizontal, size == .small ? 4 : 8)

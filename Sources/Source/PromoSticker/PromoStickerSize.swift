@@ -1,5 +1,5 @@
 //
 
-enum PromoStickerSize {
+public enum PromoStickerSize {
     case small, large
 }

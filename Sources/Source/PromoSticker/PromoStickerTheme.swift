@@ -2,12 +2,12 @@
 
 import SwiftUI
 
-struct PromoStickerTheme {
+public struct PromoStickerTheme {
     let foregroundColor: Color
     let backgroundColor: Color
 }
 
-extension PromoStickerTheme {
+public extension PromoStickerTheme {
     static var blue: PromoStickerTheme {
         PromoStickerTheme(
             foregroundColor: Color(uiColor: ColorPalette.neutral97),

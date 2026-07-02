@@ -2,7 +2,7 @@
 
 import Foundation
 
-enum CornerPlacement {
+public enum CornerPlacement {
     case topLeading, bottomLeading, bottomTrailing, topTrailing
 
     var topLeadingRadius: CGFloat {
