@@ -30,7 +30,6 @@ public struct PromoStickerView: View {
                 container
                     .fill(theme.backgroundColor)
 
-
             }
             .foregroundStyle(theme.foregroundColor)
             // dynamic type not supported on this component for now...
