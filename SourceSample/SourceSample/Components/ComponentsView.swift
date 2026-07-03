@@ -13,6 +13,9 @@ struct ComponentsView: View {
             Section("Star Rating") {
                 StarRatingBuilderView()
             }
+            Section("Promo Sticker") {
+                PromoStickerBuilderView()
+            }
         }
     }
 }
