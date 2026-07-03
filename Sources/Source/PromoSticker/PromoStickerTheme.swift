@@ -15,29 +15,29 @@ public struct PromoStickerTheme {
 public extension PromoStickerTheme {
     static var blue: PromoStickerTheme {
         PromoStickerTheme(
-            foregroundColor: Color(uiColor: ColorPalette.neutral97),
-            backgroundColor: Color(uiColor: ColorPalette.sport400)
+            foregroundColor: Color(ColorPalette.neutral97),
+            backgroundColor: Color(ColorPalette.sport400)
         )
     }
 
     static var red: PromoStickerTheme {
         PromoStickerTheme(
-            foregroundColor: Color(uiColor: ColorPalette.neutral97),
-            backgroundColor: Color(uiColor: ColorPalette.news400)
+            foregroundColor: Color(ColorPalette.neutral97),
+            backgroundColor: Color(ColorPalette.news400)
         )
     }
 
     static var purple: PromoStickerTheme {
         PromoStickerTheme(
-            foregroundColor: Color(uiColor: ColorPalette.neutral97),
-            backgroundColor: Color(uiColor: ColorPalette.lifestyle400)
+            foregroundColor: Color(ColorPalette.neutral97),
+            backgroundColor: Color(ColorPalette.lifestyle400)
         )
     }
 
     static var green: PromoStickerTheme {
         PromoStickerTheme(
-            foregroundColor: Color(uiColor: ColorPalette.neutral97),
-            backgroundColor: Color(uiColor: ColorPalette.labs200)
+            foregroundColor: Color(ColorPalette.neutral97),
+            backgroundColor: Color(ColorPalette.labs200)
         )
     }
 }

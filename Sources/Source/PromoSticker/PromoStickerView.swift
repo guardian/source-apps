@@ -7,7 +7,7 @@ public struct PromoStickerView: View {
     let text: String
     let size: PromoStickerSize
     let theme: PromoStickerTheme
-    var alignment: CornerPlacement?
+    let placement: CornerPlacement?
 
     public init(
         text: String,
@@ -18,7 +18,7 @@ public struct PromoStickerView: View {
         self.text = text
         self.size = size
         self.theme = theme
-        self.alignment = alignment
+        self.placement = alignment
     }
 
     public var body: some View {
@@ -38,13 +38,13 @@ public struct PromoStickerView: View {
     }
 
     private var container: AnyShape {
-        if let alignment {
+        if let placement {
             AnyShape(
                 UnevenRoundedRectangle(
-                    topLeadingRadius: alignment.topLeadingRadius,
-                    bottomLeadingRadius: alignment.bottomLeadingRadiuus,
-                    bottomTrailingRadius: alignment.bottomTrailingRadius,
-                    topTrailingRadius: alignment.topTrailingRadius
+                    topLeadingRadius: placement.topLeadingRadius,
+                    bottomLeadingRadius: placement.bottomLeadingRadius,
+                    bottomTrailingRadius: placement.bottomTrailingRadius,
+                    topTrailingRadius: placement.topTrailingRadius
                 )
             )
         } else {
@@ -107,7 +107,7 @@ public struct PromoStickerView: View {
         RoundedRectangle(cornerRadius: 4)
             .strokeBorder(lineWidth: 1)
             .frame(width: 150, height: 200)
-            .foregroundColor(Color(uiColor: ColorPalette.sport400))
+            .foregroundColor(Color(ColorPalette.sport400))
             .overlay(alignment: .bottomTrailing) {
                 PromoStickerView(
                     text: "B trailing",

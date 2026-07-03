@@ -18,7 +18,7 @@ public enum CornerPlacement {
         }
     }
 
-    var bottomLeadingRadiuus: CGFloat {
+    var bottomLeadingRadius: CGFloat {
         switch self {
         case .topLeading:
             0

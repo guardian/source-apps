@@ -3,8 +3,6 @@ import Source
 
 struct PromoStickerBuilderView: View {
 
-    // Wrapper so we can select a `PromoStickerTheme` (which is a struct)
-    // from a `Picker` and iterate over the available options.
     private enum StickerTheme: String, CaseIterable, Identifiable {
         case red, purple, blue, green
         var id: Self { self }
@@ -85,7 +83,7 @@ struct PromoStickerBuilderView: View {
                     themePicker
                     sizePicker
 
-                    Toggle("Show in card", isOn: $showInCard.animation())
+                    Toggle("Show in card", isOn: $showInCard)
 
                     if showInCard {
                         alignmentPicker
@@ -130,7 +128,8 @@ struct PromoStickerBuilderView: View {
     private var themePicker: some View {
         Picker("Theme", selection: $theme) {
             ForEach(StickerTheme.allCases) { theme in
-                Text(theme.title).tag(theme)
+                Text(theme.title)
+                    .tag(theme)
             }
         }
         .pickerStyle(.segmented)
@@ -139,7 +138,8 @@ struct PromoStickerBuilderView: View {
     private var sizePicker: some View {
         Picker("Size", selection: $size) {
             ForEach(StickerSize.allCases) { size in
-                Text(size.title).tag(size)
+                Text(size.title)
+                    .tag(size)
             }
         }
         .pickerStyle(.segmented)
@@ -148,10 +148,11 @@ struct PromoStickerBuilderView: View {
     private var alignmentPicker: some View {
         Picker("Alignment", selection: $alignment) {
             ForEach(StickerAlignment.allCases) { alignment in
-                Text(alignment.title).tag(alignment)
+                Text(alignment.title)
+                    .tag(alignment)
             }
         }
-        .pickerStyle(.menu)
+        .pickerStyle(.automatic)
     }
 }
 
