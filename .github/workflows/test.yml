@@ -56,7 +56,7 @@ jobs:
           distribution: 'corretto'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@261794afacfbe7a93883fe9e989f80e083e3547f # v4.4.2
+        uses: gradle/actions/setup-gradle@b128da9bf0c2651a9fe51856df98ba6e611afc58 # v4.4.2
         with:
           gradle-version: wrapper
 
