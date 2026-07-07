@@ -27,7 +27,6 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
         with(target) {
             with(pluginManager) {
                 apply(libs.plugin("agp-application").pluginId)
-                apply(libs.plugin("kgp").pluginId)
                 apply(libs.plugin("kotlin-serialization").pluginId)
             }
 

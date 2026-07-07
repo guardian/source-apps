@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.guardian.library.android)
     alias(libs.plugins.guardian.compose.library)
     alias(libs.plugins.metalava)
+    alias(libs.plugins.ksp)
 }
 
 // Generates API signature files for use in API compatibility checks, and for automatic versioning.

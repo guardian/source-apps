@@ -3,6 +3,7 @@ package com.theguardian.convention.shared
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.ManagedVirtualDevice
 import org.gradle.api.Project
+import org.gradle.internal.Actions.with
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.invoke
 
@@ -10,7 +11,7 @@ import org.gradle.kotlin.dsl.invoke
  * Provides AndroidTest dependencies, and sets up Gradle Managed devices to run tests on CI.
  */
 internal fun Project.configureAndroidTests(
-    extension: CommonExtension<*, *, *, *, *, *>,
+    extension: CommonExtension,
     isTestModule: Boolean = false,
 ) {
     with(extension) {
@@ -18,7 +19,7 @@ internal fun Project.configureAndroidTests(
             configureGradleManagedDevices()
         }
 
-        defaultConfig {
+        defaultConfig.apply {
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         }
     }
@@ -36,20 +37,16 @@ internal fun Project.configureAndroidTests(
 /**
  * This extension function creates a gradle managed device for the receiver project.
  */
-private fun CommonExtension<*, *, *, *, *, *>.configureGradleManagedDevices() {
-    testOptions {
-        managedDevices {
-            allDevices {
-                maybeCreate("ciDevice", ManagedVirtualDevice::class.java).apply {
-                    // Use device profiles you typically see in Android Studio.
-                    device = "Pixel 8"
-                    // Use only API levels 27 and higher.
-                    apiLevel = 36
-                    // To include Google services, use the "google"/"google-atd" variants
-                    // "aosp-atd"/"google-atd"/"aosp"/"google"
-                    systemImageSource = "aosp-atd"
-                }
-            }
+private fun CommonExtension.configureGradleManagedDevices() {
+    testOptions.managedDevices.allDevices {
+        maybeCreate("ciDevice", ManagedVirtualDevice::class.java).apply {
+            // Use device profiles you typically see in Android Studio.
+            device = "Pixel 8"
+            // Use only API levels 27 and higher.
+            apiLevel = 36
+            // To include Google services, use the "google"/"google-atd" variants
+            // "aosp-atd"/"google-atd"/"aosp"/"google"
+            systemImageSource = "aosp-atd"
         }
     }
 }
