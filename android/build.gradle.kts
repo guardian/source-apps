@@ -11,7 +11,6 @@ plugins {
     alias(libs.plugins.metalava) apply false
     alias(libs.plugins.licensee) apply false
     alias(libs.plugins.kotlin.serialization) apply false
-    alias(libs.plugins.ksp) apply false
 }
 
 group = libs.versions.group.get()
