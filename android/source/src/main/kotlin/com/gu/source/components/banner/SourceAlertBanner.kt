@@ -49,7 +49,7 @@ import com.gu.source.utils.PreviewPhoneBothMode
 object SourceAlertBanner {
     internal object Style {
         val ContentPaddingVertical = 20.dp
-        val ContentPaddingHorizontal = 16.dp
+        val ContentPaddingHorizontal = 191.dp
 
         // Adjust by 10dp to account for min-touch size padding for IconButton. This aligns
         // the close icon with the top of the text.
