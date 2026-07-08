@@ -134,6 +134,6 @@ public enum ColorPalette {
     public static let success800 = PlatformColor(resource: .success800)
     public static let success950 = PlatformColor(resource: .success950)
 
-    //MARK: Informative
+    // MARK: Informative
     public static let informative950 = PlatformColor(resource: .informative950)
 }
