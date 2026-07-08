@@ -63,8 +63,6 @@ val Source.Palette.Error400: Color
     get() = Color(color = 0xffc70000)
 val Source.Palette.Error500: Color
     get() = Color(color = 0xffff9081)
-val Source.Palette.Error700: Color
-    get() = Color(color = 0xffff8080)
 val Source.Palette.Error800: Color
     get() = Color(color = 0xffffb3b3)
 val Source.Palette.Error950: Color
