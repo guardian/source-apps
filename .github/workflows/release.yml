@@ -14,7 +14,7 @@ jobs:
     name: Release
     if: github.repository == 'guardian/source-apps'
     permissions: { contents: write, pull-requests: write }
-    uses: guardian/gha-gradle-library-release-workflow/.github/workflows/reusable-release.yml@ab/health/read-api-file-content-from-file-not-from-variable
+    uses: guardian/gha-gradle-library-release-workflow/.github/workflows/reusable-release.yml@1829c7a3152b70a65ab1e1f81ca44463f11708fb
     with:
       SOURCE_DIR: 'android'
       MODULES: 'source'
