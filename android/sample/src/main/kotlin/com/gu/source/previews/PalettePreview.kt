@@ -45,8 +45,13 @@ import com.gu.source.foundation.palette.Culture500
 import com.gu.source.foundation.palette.Culture600
 import com.gu.source.foundation.palette.Culture700
 import com.gu.source.foundation.palette.Culture800
+import com.gu.source.foundation.palette.Error100
+import com.gu.source.foundation.palette.Error200
 import com.gu.source.foundation.palette.Error400
 import com.gu.source.foundation.palette.Error500
+import com.gu.source.foundation.palette.Error700
+import com.gu.source.foundation.palette.Error800
+import com.gu.source.foundation.palette.Error950
 import com.gu.source.foundation.palette.Labs100
 import com.gu.source.foundation.palette.Labs200
 import com.gu.source.foundation.palette.Labs300
@@ -167,8 +172,13 @@ private val colours = mapOf(
         Colour("Neutral100", Source.Palette.Neutral100),
     ),
     "Error" to listOf(
+        Colour("Error100", Source.Palette.Error100),
+        Colour("Error200", Source.Palette.Error200),
         Colour("Error400", Source.Palette.Error400),
         Colour("Error500", Source.Palette.Error500),
+        Colour("Error700", Source.Palette.Error700),
+        Colour("Error800", Source.Palette.Error800),
+        Colour("Error950", Source.Palette.Error950),
     ),
     "Success" to listOf(
         Colour("Success100", Source.Palette.Success100),
