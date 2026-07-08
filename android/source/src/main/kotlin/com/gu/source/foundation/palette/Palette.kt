@@ -60,6 +60,8 @@ val Source.Palette.Error400: Color
 val Source.Palette.Error500: Color
     get() = Color(color = 0xffff9081)
 
+val Source.Palette.Success100: Color
+    get() = Color(color = 0xff0e3921)
 val Source.Palette.Success300: Color
     get() = Color(color = 0xff185e36)
 val Source.Palette.Success400: Color
@@ -68,6 +70,12 @@ val Source.Palette.Success450: Color
     get() = Color(color = 0xff28a85f)
 val Source.Palette.Success500: Color
     get() = Color(color = 0xff58d08b)
+val Source.Palette.Success700: Color
+    get() = Color(color = 0xff99e5ba)
+val Source.Palette.Success800: Color
+    get() = Color(color = 0xffc2f0d5)
+val Source.Palette.Success950: Color
+    get() = Color(color = 0xffeffbf4)
 
 val Source.Palette.News100: Color
     get() = Color(color = 0xff660505)
