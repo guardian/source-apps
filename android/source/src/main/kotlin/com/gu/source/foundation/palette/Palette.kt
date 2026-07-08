@@ -87,6 +87,9 @@ val Source.Palette.Success800: Color
 val Source.Palette.Success950: Color
     get() = Color(color = 0xffeffbf4)
 
+val Source.Palette.Info950: Color
+    get() = Color(color = 0xffebf8ff)
+
 val Source.Palette.News100: Color
     get() = Color(color = 0xff660505)
 val Source.Palette.News200: Color
