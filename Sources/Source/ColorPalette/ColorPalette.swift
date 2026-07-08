@@ -32,8 +32,12 @@ public enum ColorPalette {
     public static let culture800 = PlatformColor(resource: .culture800)
 
     // MARK: Error
+    public static let error100 = PlatformColor(resource: .error100)
+    public static let error200 = PlatformColor(resource: .error200)
     public static let error400 = PlatformColor(resource: .error400)
     public static let error500 = PlatformColor(resource: .error500)
+    public static let error800 = PlatformColor(resource: .error800)
+    public static let error950 = PlatformColor(resource: .error950)
 
     // MARK: Labs
     public static let labs100 = PlatformColor(resource: .labs100)
@@ -121,8 +125,15 @@ public enum ColorPalette {
     public static let sport800 = PlatformColor(resource: .sport800)
 
     // MARK: Success
+    public static let success100 = PlatformColor(resource: .success100)
     public static let success300 = PlatformColor(resource: .success300)
     public static let success400 = PlatformColor(resource: .success400)
     public static let success450 = PlatformColor(resource: .success450)
     public static let success500 = PlatformColor(resource: .success500)
+    public static let success700 = PlatformColor(resource: .success700)
+    public static let success800 = PlatformColor(resource: .success800)
+    public static let success950 = PlatformColor(resource: .success950)
+
+    // MARK: Informative
+    public static let informative950 = PlatformColor(resource: .informative950)
 }

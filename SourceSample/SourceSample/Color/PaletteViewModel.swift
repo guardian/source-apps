@@ -123,17 +123,28 @@ struct PaletteViewModel {
             ColorSwatch(color: ColorPalette.labs700, description: "700")
         ]),
         ColorSection(name: "Error", colors: [
+            ColorSwatch(color: ColorPalette.error100, description: "100"),
+            ColorSwatch(color: ColorPalette.error200, description: "200"),
             ColorSwatch(color: ColorPalette.error400, description: "400"),
-            ColorSwatch(color: ColorPalette.error500, description: "500")
+            ColorSwatch(color: ColorPalette.error500, description: "500"),
+            ColorSwatch(color: ColorPalette.error800, description: "800"),
+            ColorSwatch(color: ColorPalette.error950, description: "950")
         ]),
         ColorSection(name: "Success", colors: [
+            ColorSwatch(color: ColorPalette.success100, description: "100"),
             ColorSwatch(color: ColorPalette.success300, description: "300"),
             ColorSwatch(color: ColorPalette.success400, description: "400"),
             ColorSwatch(color: ColorPalette.success450, description: "450"),
-            ColorSwatch(color: ColorPalette.success500, description: "500")
+            ColorSwatch(color: ColorPalette.success500, description: "500"),
+            ColorSwatch(color: ColorPalette.success700, description: "700"),
+            ColorSwatch(color: ColorPalette.success800, description: "800"),
+            ColorSwatch(color: ColorPalette.success950, description: "950")
         ]),
         ColorSection(name: "Notification Blue", colors: [
             ColorSwatch(color: ColorPalette.notificationBlue400, description: "400")
+        ]),
+        ColorSection(name: "Informative", colors: [
+            ColorSwatch(color: ColorPalette.informative950, description: "950")
         ])
     ]
 }
