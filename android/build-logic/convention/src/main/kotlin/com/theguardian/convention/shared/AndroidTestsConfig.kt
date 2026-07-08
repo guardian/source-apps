@@ -3,7 +3,6 @@ package com.theguardian.convention.shared
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.ManagedVirtualDevice
 import org.gradle.api.Project
-import org.gradle.internal.Actions.with
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.invoke
 
@@ -14,7 +13,8 @@ internal fun Project.configureAndroidTests(
     extension: CommonExtension,
     isTestModule: Boolean = false,
 ) {
-    with(extension) {
+
+    extension.apply {
         if (!isTestModule) {
             configureGradleManagedDevices()
         }
