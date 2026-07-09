@@ -69,7 +69,7 @@ jobs:
       - name: Run ktlint
         run: |
           cd android
-          ./gradlew :source:lint :sample:lint :build-logic:convention:lint --continue
+          ./gradlew lint lintKotlin :build-logic:convention:lint --continue
 
       - name: Run detekt
         if: success() || failure()
