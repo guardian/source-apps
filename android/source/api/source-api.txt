@@ -1635,17 +1635,17 @@ package com.gu.source.foundation.typography {
 package com.gu.source.utils {
 
   public final class DensityExtensionsKt {
-    method @KotlinOnly @androidx.compose.runtime.Composable public static float dpToPx(float);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static float dpToPx(int);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! dpToPx(float);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! dpToPx(int);
     method @KotlinOnly @androidx.compose.runtime.Stable public static operator androidx.compose.ui.unit.TextUnit plus(androidx.compose.ui.unit.TextUnit, androidx.compose.ui.unit.TextUnit other);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.Dp pxToDp(float);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.Dp pxToDp(int);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.TextUnit pxToSp(float);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.TextUnit pxToSp(int);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.Dp toDp(androidx.compose.ui.unit.TextUnit);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static float toPx(androidx.compose.ui.unit.Dp);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static float toPx(androidx.compose.ui.unit.TextUnit);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.TextUnit toSp(androidx.compose.ui.unit.Dp);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! pxToDp(float);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! pxToDp(int);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! pxToSp(float);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! pxToSp(int);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! toDp(androidx.compose.ui.unit.TextUnit);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! toPx(androidx.compose.ui.unit.Dp);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! toPx(androidx.compose.ui.unit.TextUnit);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! toSp(androidx.compose.ui.unit.Dp);
   }
 
   public final class PaddingValuesExtensionsKt {
