@@ -45,8 +45,13 @@ import com.gu.source.foundation.palette.Culture500
 import com.gu.source.foundation.palette.Culture600
 import com.gu.source.foundation.palette.Culture700
 import com.gu.source.foundation.palette.Culture800
+import com.gu.source.foundation.palette.Error100
+import com.gu.source.foundation.palette.Error200
 import com.gu.source.foundation.palette.Error400
 import com.gu.source.foundation.palette.Error500
+import com.gu.source.foundation.palette.Error800
+import com.gu.source.foundation.palette.Error950
+import com.gu.source.foundation.palette.Info950
 import com.gu.source.foundation.palette.Labs100
 import com.gu.source.foundation.palette.Labs200
 import com.gu.source.foundation.palette.Labs300
@@ -115,10 +120,14 @@ import com.gu.source.foundation.palette.Sport500
 import com.gu.source.foundation.palette.Sport600
 import com.gu.source.foundation.palette.Sport700
 import com.gu.source.foundation.palette.Sport800
+import com.gu.source.foundation.palette.Success100
 import com.gu.source.foundation.palette.Success300
 import com.gu.source.foundation.palette.Success400
 import com.gu.source.foundation.palette.Success450
 import com.gu.source.foundation.palette.Success500
+import com.gu.source.foundation.palette.Success700
+import com.gu.source.foundation.palette.Success800
+import com.gu.source.foundation.palette.Success950
 import com.gu.source.foundation.typography.TextSans11
 import com.gu.source.foundation.typography.TextSansBold14
 import com.gu.source.foundation.typography.TextSansBold15
@@ -161,16 +170,6 @@ private val colours = mapOf(
         Colour("Neutral93", Source.Palette.Neutral93),
         Colour("Neutral97", Source.Palette.Neutral97),
         Colour("Neutral100", Source.Palette.Neutral100),
-    ),
-    "Error" to listOf(
-        Colour("Error400", Source.Palette.Error400),
-        Colour("Error500", Source.Palette.Error500),
-    ),
-    "Success" to listOf(
-        Colour("Success300", Source.Palette.Success300),
-        Colour("Success400", Source.Palette.Success400),
-        Colour("Success450", Source.Palette.Success450),
-        Colour("Success500", Source.Palette.Success500),
     ),
     "News" to listOf(
         Colour("News100", Source.Palette.News100),
@@ -252,6 +251,27 @@ private val colours = mapOf(
         Colour("Labs500", Source.Palette.Labs500),
         Colour("Labs600", Source.Palette.Labs600),
         Colour("Labs700", Source.Palette.Labs700),
+    ),
+    "Error" to listOf(
+        Colour("Error100", Source.Palette.Error100),
+        Colour("Error200", Source.Palette.Error200),
+        Colour("Error400", Source.Palette.Error400),
+        Colour("Error500", Source.Palette.Error500),
+        Colour("Error800", Source.Palette.Error800),
+        Colour("Error950", Source.Palette.Error950),
+    ),
+    "Success" to listOf(
+        Colour("Success100", Source.Palette.Success100),
+        Colour("Success300", Source.Palette.Success300),
+        Colour("Success400", Source.Palette.Success400),
+        Colour("Success450", Source.Palette.Success450),
+        Colour("Success500", Source.Palette.Success500),
+        Colour("Success700", Source.Palette.Success700),
+        Colour("Success800", Source.Palette.Success800),
+        Colour("Success950", Source.Palette.Success950),
+    ),
+    "Info" to listOf(
+        Colour("Info950", Source.Palette.Info950),
     ),
     "NotificationBlue" to listOf(
         Colour("NotificationBlue400", Source.Palette.NotificationBlue400),
