@@ -19,9 +19,7 @@ internal fun Project.configureAndroidTests(
             configureGradleManagedDevices()
         }
 
-        defaultConfig.apply {
-            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        }
+        defaultConfig.testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     dependencies {

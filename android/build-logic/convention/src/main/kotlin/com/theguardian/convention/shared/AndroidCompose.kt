@@ -16,13 +16,12 @@ internal fun Project.configureAndroidCompose(
     }
 
     extension.apply {
-        buildFeatures.apply {
-            compose = true
-        }
+        buildFeatures.compose = true
 
         dependencies {
             val bom = libs.findLibrary("androidx-compose-bom").get()
             add("implementation", platform(bom))
+
             // View inter-op
             add("implementation", "androidx.compose.ui:ui-viewbinding")
             // Animations
