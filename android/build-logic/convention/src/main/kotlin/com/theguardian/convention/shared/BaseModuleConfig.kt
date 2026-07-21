@@ -29,10 +29,10 @@ internal fun VersionCatalog.plugin(alias: String): PluginDependency = findPlugin
  * Sets up core config for all Android modules - application and library.
  */
 internal inline fun <reified T : KotlinBaseExtension> Project.configureAndroidModule(
-    extension: CommonExtension<*, *, *, *, *, *>,
+    extension: CommonExtension,
 ) {
     extension.apply {
-        defaultConfig {
+        defaultConfig.apply {
             minSdk = libs.findVersion("minsdk").get().toString().toInt()
             compileSdk = libs.findVersion("compilesdk").get().toString().toInt()
         }

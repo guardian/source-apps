@@ -51,7 +51,9 @@ data class ButtonColours(
 /**
  * Maps a [SourceButton.Priority] to a set of colours based on the theme.
  */
-internal fun SourceButton.Priority.toColours(theme: Source.Theme) = when (theme) {
+internal fun SourceButton.Priority.toColours(
+    theme: Source.Theme,
+) = when (theme) {
     Core -> when (this) {
         PrimaryOnWhite -> {
             ButtonColours(

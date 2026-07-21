@@ -1,7 +1,7 @@
 package com.theguardian.convention
 
+import com.android.build.api.dsl.LibraryExtension
 import com.android.build.api.variant.LibraryAndroidComponentsExtension
-import com.android.build.gradle.LibraryExtension
 import com.theguardian.convention.shared.configureAndroidModule
 import com.theguardian.convention.shared.configureAndroidTests
 import com.theguardian.convention.shared.dokkaConfig
@@ -32,7 +32,6 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
             with(pluginManager) {
                 apply(libs.plugin("agp-library").pluginId)
-                apply(libs.plugin("kgp").pluginId)
                 apply(libs.plugin("dokka").pluginId)
             }
 

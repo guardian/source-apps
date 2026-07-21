@@ -340,6 +340,7 @@ private fun getSpacing(
         }
 
         is ChipDecoration.Image -> if (hasText) 8.dp else 0.dp
+
         ChipDecoration.None -> 0.dp
     }
 

@@ -1,6 +1,6 @@
 package com.theguardian.convention
 
-import com.android.build.gradle.LibraryExtension
+import com.android.build.api.dsl.LibraryExtension
 import com.theguardian.convention.shared.configureAndroidCompose
 import com.theguardian.convention.shared.libs
 import com.theguardian.convention.shared.plugin

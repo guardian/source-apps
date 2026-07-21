@@ -2,7 +2,6 @@ import org.jmailen.gradle.kotlinter.tasks.FormatTask
 
 plugins {
     alias(libs.plugins.agp.application) apply false
-    alias(libs.plugins.kgp) apply false
     alias(libs.plugins.agp.library) apply false
     alias(libs.plugins.kotlinter) apply false
     alias(libs.plugins.detekt) apply false

@@ -3,31 +3,25 @@ package com.theguardian.convention.shared
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
-import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginExtension
 
 /**
  * This extension function applies the correct flags and dependencies to the module represented by
  * the [Project].
  */
 internal fun Project.configureAndroidCompose(
-    extension: CommonExtension<*, *, *, *, *, *>,
+    extension: CommonExtension,
 ) {
     with(pluginManager) {
         apply(libs.findPlugin("compose-compiler").get().get().pluginId)
     }
 
     extension.apply {
-        buildFeatures {
-            compose = true
-        }
-
-        extensions.configure(ComposeCompilerGradlePluginExtension::class.java) {
-            reportsDestination.set(layout.buildDirectory.dir("compose_compiler"))
-        }
+        buildFeatures.compose = true
 
         dependencies {
             val bom = libs.findLibrary("androidx-compose-bom").get()
             add("implementation", platform(bom))
+
             // View inter-op
             add("implementation", "androidx.compose.ui:ui-viewbinding")
             // Animations

@@ -1,6 +1,6 @@
 package com.theguardian.convention
 
-import com.android.build.gradle.TestExtension
+import com.android.build.api.dsl.TestExtension
 import com.theguardian.convention.shared.configureAndroidModule
 import com.theguardian.convention.shared.configureAndroidTests
 import com.theguardian.convention.shared.libs
@@ -27,7 +27,6 @@ class AndroidTestConventionPlugin : Plugin<Project> {
         with(target) {
             with(pluginManager) {
                 apply(libs.plugin("agp-test").pluginId)
-                apply(libs.plugin("kgp").pluginId)
             }
 
             setupDetekt()
