@@ -77,14 +77,6 @@ jobs:
           cd android
           ./gradlew detekt --continue
 
-      - name: Upload SARIF report for code scanning report
-        uses: github/codeql-action/upload-sarif@7188fc363630916deb702c7fdcf4e481b751f97a # v4.37.1
-        if: success() || failure()
-        with:
-          sarif_file: android/build/reports/detekt/merge.sarif
-          # Used to differentiate multiple results for one commit
-          category: detekt
-
       - name: Run screenshot tests
         id: screenshot-tests
         if: success() || failure()
