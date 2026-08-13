@@ -38,7 +38,6 @@ import com.gu.source.Source
 import com.gu.source.components.HorizontalExpandingText
 import com.gu.source.components.chips.SourceChip.CheckIconHeight
 import com.gu.source.daynight.AppColour
-import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.icons.base.Checkmark
 import com.gu.source.foundation.icons.base.Plus
 import com.gu.source.foundation.palette.Neutral10
