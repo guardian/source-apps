@@ -3,8 +3,13 @@ package com.gu.source.utils
 import android.content.res.Configuration
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewWrapper
 
-/** Creates two previews on a Pixel 7 device for light and dark mode. */
+/**
+ * Creates four previews - for light and dark mode, scaled font, and a narrow device.
+ *
+ * Use [PreviewAllDeviceBothMode] to create previews for both phone and tablet devices.
+ */
 @Preview(
     name = "Day mode",
     device = Devices.PIXEL_7,
@@ -34,9 +39,14 @@ import androidx.compose.ui.tooling.preview.Preview
     showBackground = true,
     fontScale = 1.5f,
 )
+@PreviewWrapper(AppColourWrapper::class)
 annotation class PreviewPhoneBothMode
 
-/** Creates two previews on a Pixel tablet device for light and dark mode. */
+/**
+ * Creates three previews on a Pixel tablet device for light and dark mode, and for scaled font.
+ *
+ * Use [PreviewAllDeviceBothMode] to create previews for both phone and tablet devices.
+ */
 @Preview(
     name = "Day mode",
     device = "spec:parent=pixel_tablet,orientation=portrait",
@@ -59,4 +69,5 @@ annotation class PreviewPhoneBothMode
     showBackground = true,
     fontScale = 1.5f,
 )
+@PreviewWrapper(AppColourWrapper::class)
 annotation class PreviewTabletBothMode
