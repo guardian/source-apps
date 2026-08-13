@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
-import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.palette.Labs200
 import com.gu.source.foundation.palette.Labs700
 import com.gu.source.foundation.palette.Lifestyle300
@@ -156,25 +155,23 @@ fun PromoSticker(
 @PreviewPhoneBothMode
 @Composable
 internal fun PromoStickerPreview() {
-    AppColourMode {
-        Column(
-            modifier = Modifier.background(
-                AppColour(
-                    light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral0,
-                ).current,
-            ),
-        ) {
-            PromoStickerStyle.entries.forEach { type ->
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    PromoStickerSize.entries.forEach { size ->
-                        PromoSticker(
-                            text = "New",
-                            size = size,
-                            style = type,
-                            modifier = Modifier.padding(8.dp),
-                        )
-                    }
+    Column(
+        modifier = Modifier.background(
+            AppColour(
+                light = Source.Palette.Neutral100,
+                dark = Source.Palette.Neutral0,
+            ).current,
+        ),
+    ) {
+        PromoStickerStyle.entries.forEach { type ->
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                PromoStickerSize.entries.forEach { size ->
+                    PromoSticker(
+                        text = "New",
+                        size = size,
+                        style = type,
+                        modifier = Modifier.padding(8.dp),
+                    )
                 }
             }
         }
@@ -184,16 +181,14 @@ internal fun PromoStickerPreview() {
 @PreviewPhoneBothMode
 @Composable
 internal fun PromoStickerLongPreview() {
-    AppColourMode {
-        Column(
-            modifier = Modifier.widthIn(max = 100.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            PromoSticker(
-                text = "New but very long",
-                size = PromoStickerSize.Small,
-                style = PromoStickerStyle.Info,
-            )
-        }
+    Column(
+        modifier = Modifier.widthIn(max = 100.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        PromoSticker(
+            text = "New but very long",
+            size = PromoStickerSize.Small,
+            style = PromoStickerStyle.Info,
+        )
     }
 }

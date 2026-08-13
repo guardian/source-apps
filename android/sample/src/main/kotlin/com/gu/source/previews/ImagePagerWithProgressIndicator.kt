@@ -18,11 +18,9 @@ import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.components.pager.PagerProgressBar
 import com.gu.source.daynight.AppColour
-import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.palette.Neutral10
 import com.gu.source.foundation.palette.Neutral100
-import com.gu.source.utils.PreviewPhoneBothMode
-import com.gu.source.utils.PreviewTabletBothMode
+import com.gu.source.utils.PreviewAllDeviceBothMode
 
 @Suppress("MagicNumber")
 @Composable
@@ -57,25 +55,22 @@ internal fun ImagePagerWithProgressIndicator(
     }
 }
 
-@PreviewPhoneBothMode
-@PreviewTabletBothMode
+@PreviewAllDeviceBothMode
 @Composable
 private fun Preview() {
-    AppColourMode {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(
-                    AppColour(
-                        light = Source.Palette.Neutral100,
-                        dark = Source.Palette.Neutral10,
-                    ).current,
-                ),
-        ) {
-            ImagePagerWithProgressIndicator(
-                onBackPress = {},
-                modifier = Modifier.align(Alignment.TopCenter),
-            )
-        }
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
+                AppColour(
+                    light = Source.Palette.Neutral100,
+                    dark = Source.Palette.Neutral10,
+                ).current,
+            ),
+    ) {
+        ImagePagerWithProgressIndicator(
+            onBackPress = {},
+            modifier = Modifier.align(Alignment.TopCenter),
+        )
     }
 }

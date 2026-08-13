@@ -27,7 +27,6 @@ import com.gu.source.components.theme.LocalSourceTheme
 import com.gu.source.components.theme.ReaderRevenueTheme
 import com.gu.source.components.theme.SourceCoreTheme
 import com.gu.source.daynight.AppColour
-import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.icons.base.Checkmark
 import com.gu.source.foundation.palette.Brand400
 import com.gu.source.foundation.palette.Neutral100
@@ -261,10 +260,47 @@ fun SourceButton(
 @PreviewPhoneBothMode
 @Composable
 internal fun CoreButtonIconBeforePreview() {
-    AppColourMode {
-        SourceCoreTheme {
-            Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Priority.entries.forEach { priority ->
+    SourceCoreTheme {
+        Column(Modifier.background(Source.Palette.Neutral38)) {
+            SourceButton.Priority.entries.forEach { priority ->
+                Row(
+                    modifier = Modifier
+                        .background(priority.getBackdropColour().current)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceAround,
+                ) {
+                    SourceButton.Size.entries.forEach { size ->
+                        SourceButton(
+                            text = priority.getPreviewName(size),
+                            priority = priority,
+                            onClick = {},
+                            size = size,
+                            iconSide = SourceButton.IconSide.Left,
+                            icon = {
+                                Icon(
+                                    imageVector = Source.Icons.Base.Checkmark,
+                                    contentDescription = null,
+                                    modifier = it,
+                                )
+                            },
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@SuppressLint("DiscouragedApi")
+@Suppress("StringLiteralDuplication")
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+@PreviewPhoneBothMode
+@Composable
+internal fun RrButtonIconBeforePreview() {
+    ReaderRevenueTheme {
+        Column(Modifier.background(Source.Palette.Neutral38)) {
+            SourceButton.Priority.entries.forEach { priority ->
+                if (!priority.name.contains("Secondary")) {
                     Row(
                         modifier = Modifier
                             .background(priority.getBackdropColour().current)
@@ -294,40 +330,26 @@ internal fun CoreButtonIconBeforePreview() {
     }
 }
 
-@SuppressLint("DiscouragedApi")
-@Suppress("StringLiteralDuplication")
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PreviewPhoneBothMode
 @Composable
-internal fun RrButtonIconBeforePreview() {
-    AppColourMode {
-        ReaderRevenueTheme {
-            Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Priority.entries.forEach { priority ->
-                    if (!priority.name.contains("Secondary")) {
-                        Row(
-                            modifier = Modifier
-                                .background(priority.getBackdropColour().current)
-                                .fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceAround,
-                        ) {
-                            SourceButton.Size.entries.forEach { size ->
-                                SourceButton(
-                                    text = priority.getPreviewName(size),
-                                    priority = priority,
-                                    onClick = {},
-                                    size = size,
-                                    iconSide = SourceButton.IconSide.Left,
-                                    icon = {
-                                        Icon(
-                                            imageVector = Source.Icons.Base.Checkmark,
-                                            contentDescription = null,
-                                            modifier = it,
-                                        )
-                                    },
-                                )
-                            }
-                        }
+internal fun CoreButtonTextOnlyPreview() {
+    SourceCoreTheme {
+        Column(Modifier.background(Source.Palette.Neutral38)) {
+            SourceButton.Priority.entries.forEach { priority ->
+                Row(
+                    modifier = Modifier
+                        .background(priority.getBackdropColour().current)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceAround,
+                ) {
+                    SourceButton.Size.entries.forEach { size ->
+                        SourceButton(
+                            text = priority.getPreviewName(size),
+                            priority = priority,
+                            onClick = {},
+                            size = size,
+                        )
                     }
                 }
             }
@@ -338,11 +360,11 @@ internal fun RrButtonIconBeforePreview() {
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PreviewPhoneBothMode
 @Composable
-internal fun CoreButtonTextOnlyPreview() {
-    AppColourMode {
-        SourceCoreTheme {
-            Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Priority.entries.forEach { priority ->
+internal fun RrButtonTextOnlyPreview() {
+    ReaderRevenueTheme {
+        Column(Modifier.background(Source.Palette.Neutral38)) {
+            SourceButton.Priority.entries.forEach { priority ->
+                if (!priority.name.contains("Secondary")) {
                     Row(
                         modifier = Modifier
                             .background(priority.getBackdropColour().current)
@@ -364,30 +386,35 @@ internal fun CoreButtonTextOnlyPreview() {
     }
 }
 
+@SuppressLint("DiscouragedApi")
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PreviewPhoneBothMode
 @Composable
-internal fun RrButtonTextOnlyPreview() {
-    AppColourMode {
-        ReaderRevenueTheme {
-            Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Priority.entries.forEach { priority ->
-                    if (!priority.name.contains("Secondary")) {
-                        Row(
-                            modifier = Modifier
-                                .background(priority.getBackdropColour().current)
-                                .fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceAround,
-                        ) {
-                            SourceButton.Size.entries.forEach { size ->
-                                SourceButton(
-                                    text = priority.getPreviewName(size),
-                                    priority = priority,
-                                    onClick = {},
-                                    size = size,
+internal fun CoreButtonIconAfterPreview() {
+    SourceCoreTheme {
+        Column(Modifier.background(Source.Palette.Neutral38)) {
+            SourceButton.Priority.entries.forEach { priority ->
+                Row(
+                    modifier = Modifier
+                        .background(priority.getBackdropColour().current)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceAround,
+                ) {
+                    SourceButton.Size.entries.forEach { size ->
+                        SourceButton(
+                            text = priority.getPreviewName(size),
+                            priority = priority,
+                            onClick = {},
+                            size = size,
+                            iconSide = SourceButton.IconSide.Right,
+                            icon = {
+                                Icon(
+                                    imageVector = Source.Icons.Base.Checkmark,
+                                    contentDescription = null,
+                                    modifier = it,
                                 )
-                            }
-                        }
+                            },
+                        )
                     }
                 }
             }
@@ -399,11 +426,11 @@ internal fun RrButtonTextOnlyPreview() {
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PreviewPhoneBothMode
 @Composable
-internal fun CoreButtonIconAfterPreview() {
-    AppColourMode {
-        SourceCoreTheme {
-            Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Priority.entries.forEach { priority ->
+internal fun RrButtonIconAfterPreview() {
+    ReaderRevenueTheme {
+        Column(Modifier.background(Source.Palette.Neutral38)) {
+            SourceButton.Priority.entries.forEach { priority ->
+                if (!priority.name.contains("Secondary")) {
                     Row(
                         modifier = Modifier
                             .background(priority.getBackdropColour().current)
@@ -425,46 +452,6 @@ internal fun CoreButtonIconAfterPreview() {
                                     )
                                 },
                             )
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@SuppressLint("DiscouragedApi")
-@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-@PreviewPhoneBothMode
-@Composable
-internal fun RrButtonIconAfterPreview() {
-    AppColourMode {
-        ReaderRevenueTheme {
-            Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Priority.entries.forEach { priority ->
-                    if (!priority.name.contains("Secondary")) {
-                        Row(
-                            modifier = Modifier
-                                .background(priority.getBackdropColour().current)
-                                .fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceAround,
-                        ) {
-                            SourceButton.Size.entries.forEach { size ->
-                                SourceButton(
-                                    text = priority.getPreviewName(size),
-                                    priority = priority,
-                                    onClick = {},
-                                    size = size,
-                                    iconSide = SourceButton.IconSide.Right,
-                                    icon = {
-                                        Icon(
-                                            imageVector = Source.Icons.Base.Checkmark,
-                                            contentDescription = null,
-                                            modifier = it,
-                                        )
-                                    },
-                                )
-                            }
                         }
                     }
                 }

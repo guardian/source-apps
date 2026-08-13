@@ -16,7 +16,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.gu.source.components.buttons.SourceButton
 import com.gu.source.daynight.AppColour
-import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.palette.Brand400
 import com.gu.source.foundation.palette.Neutral10
 import com.gu.source.foundation.palette.Neutral100
@@ -126,7 +125,5 @@ internal fun Home(modifier: Modifier = Modifier, navigate: (Destination) -> Unit
 @PreviewPhoneBothMode
 @Composable
 private fun HomePreview() {
-    AppColourMode {
-        Home {}
-    }
+    Home {}
 }

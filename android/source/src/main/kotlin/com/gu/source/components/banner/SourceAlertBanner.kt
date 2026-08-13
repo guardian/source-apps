@@ -26,7 +26,6 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
-import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.icons.base.AlertRound
 import com.gu.source.foundation.icons.base.Cross
 import com.gu.source.foundation.icons.base.InfoRound
@@ -247,28 +246,26 @@ internal fun SourceAlertBannerPreview() {
         )
     }
 
-    AppColourMode {
-        Column {
-            SourceAlertBanner.Priority.entries.forEach { message ->
-                SourceAlertBanner(
-                    messageText = text,
-                    priority = message,
-                    onMessageClick = { },
-                    onDismiss = {},
-                    modifier = Modifier.fillMaxWidth(),
-                )
-            }
+    Column {
+        SourceAlertBanner.Priority.entries.forEach { message ->
+            SourceAlertBanner(
+                messageText = text,
+                priority = message,
+                onMessageClick = { },
+                onDismiss = {},
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
 
-            SourceAlertBanner.Priority.entries.forEach { message ->
-                SourceAlertBanner(
-                    messageText = annotatedText,
-                    priority = message,
-                    onMessageClick = { },
-                    onDismiss = {},
-                    modifier = Modifier.fillMaxWidth(),
-                    showDismiss = false,
-                )
-            }
+        SourceAlertBanner.Priority.entries.forEach { message ->
+            SourceAlertBanner(
+                messageText = annotatedText,
+                priority = message,
+                onMessageClick = { },
+                onDismiss = {},
+                modifier = Modifier.fillMaxWidth(),
+                showDismiss = false,
+            )
         }
     }
 }

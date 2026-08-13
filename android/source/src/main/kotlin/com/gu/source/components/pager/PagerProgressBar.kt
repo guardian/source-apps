@@ -42,8 +42,7 @@ import com.gu.source.foundation.palette.Neutral93
 import com.gu.source.foundation.palette.Neutral97
 import com.gu.source.foundation.palette.Sport500
 import com.gu.source.foundation.typography.Titlepiece70
-import com.gu.source.utils.PreviewPhoneBothMode
-import com.gu.source.utils.PreviewTabletBothMode
+import com.gu.source.utils.PreviewAllDeviceBothMode
 import com.gu.source.utils.isTabletDevice
 import kotlinx.coroutines.delay
 
@@ -215,8 +214,7 @@ fun PagerProgressBar(
 }
 
 @Suppress("MagicNumber")
-@PreviewPhoneBothMode
-@PreviewTabletBothMode
+@PreviewAllDeviceBothMode
 @Composable
 private fun AnimatedPreview() {
     AppColourMode {
@@ -279,35 +277,32 @@ private fun AnimatedPreview() {
 }
 
 @Suppress("MagicNumber")
-@PreviewPhoneBothMode
-@PreviewTabletBothMode
+@PreviewAllDeviceBothMode
 @Composable
 internal fun PagerProgressBarPreview() {
-    AppColourMode {
-        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Column(
-                modifier = Modifier
-                    .background(
-                        AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
-                    )
-                    .width(600.dp),
-            ) {
-                val pagerState = rememberPagerState(2) { 10 }
-                HorizontalPager(state = pagerState) {}
-                PagerProgressBar(pagerState = pagerState)
-            }
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Column(
+            modifier = Modifier
+                .background(
+                    AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
+                )
+                .width(600.dp),
+        ) {
+            val pagerState = rememberPagerState(2) { 10 }
+            HorizontalPager(state = pagerState) {}
+            PagerProgressBar(pagerState = pagerState)
+        }
 
-            Column(
-                modifier = Modifier
-                    .background(
-                        AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
-                    )
-                    .width(600.dp),
-            ) {
-                val pagerState = rememberPagerState(0) { 10 }
-                HorizontalPager(state = pagerState) {}
-                PagerProgressBar(pagerState = pagerState)
-            }
+        Column(
+            modifier = Modifier
+                .background(
+                    AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
+                )
+                .width(600.dp),
+        ) {
+            val pagerState = rememberPagerState(0) { 10 }
+            HorizontalPager(state = pagerState) {}
+            PagerProgressBar(pagerState = pagerState)
         }
     }
 }
