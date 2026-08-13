@@ -3,6 +3,7 @@ package com.gu.source.components.pager
 import com.android.resources.NightMode
 import com.google.testing.junit.testparameterinjector.TestParameter
 import com.google.testing.junit.testparameterinjector.TestParameterInjector
+import com.gu.source.daynight.AppColourMode
 import com.gu.source.utils.paparazzi.BaseDeviceConfig
 import com.gu.source.utils.paparazzi.createComponentPaparazziRule
 import org.junit.Rule
@@ -22,7 +23,7 @@ class PagerProgressBarTest(
     @Test
     fun pagerProgressBar() {
         paparazzi.snapshot {
-            PagerProgressBarPreview()
+            AppColourMode { PagerProgressBarPreview() }
         }
     }
 }
