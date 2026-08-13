@@ -71,3 +71,61 @@ annotation class PreviewPhoneBothMode
 )
 @PreviewWrapper(AppColourWrapper::class)
 annotation class PreviewTabletBothMode
+
+/**
+ * Creates 7 previews - for light and dark mode, and scaled fonts on both phone and tablet. Also
+ * adds a preview for a narrow phone device.
+ */
+@Preview(
+    name = "Day mode",
+    device = "spec:parent=pixel_tablet,orientation=portrait",
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+    backgroundColor = 0xFFFFFFFF,
+    showBackground = true,
+)
+@Preview(
+    name = "Night mode",
+    device = "spec:parent=pixel_tablet,orientation=portrait",
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    backgroundColor = 0xFF000000,
+    showBackground = true,
+)
+@Preview(
+    name = "Scaled font",
+    device = "spec:parent=pixel_tablet,orientation=portrait",
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+    backgroundColor = 0xFFFFFFFF,
+    showBackground = true,
+    fontScale = 1.5f,
+)
+@Preview(
+    name = "Day mode",
+    device = Devices.PIXEL_7,
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+    backgroundColor = 0xFFFFFFFF,
+    showBackground = true,
+)
+@Preview(
+    name = "Night mode",
+    device = Devices.PIXEL_7,
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    backgroundColor = 0xFF000000,
+    showBackground = true,
+)
+@Preview(
+    name = "Samsung S20 (narrow device)",
+    device = "spec:width=945px,height=2400px",
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+    backgroundColor = 0xFFFFFFFF,
+    showBackground = true,
+)
+@Preview(
+    name = "Scaled font",
+    device = Devices.PIXEL_7,
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+    backgroundColor = 0xFFFFFFFF,
+    showBackground = true,
+    fontScale = 1.5f,
+)
+@PreviewWrapper(AppColourWrapper::class)
+annotation class PreviewAllDeviceBothMode
