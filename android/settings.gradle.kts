@@ -21,7 +21,10 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Source for Android"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
+rootProject.name = "Source-Android"
 
 include(":sample")
 include(":source")
+include(":paparazzigen:testing")
