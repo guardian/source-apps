@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("paparazzigen-plugin")
     repositories {
         includeBuild("build-logic")
         google {
