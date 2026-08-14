@@ -10,8 +10,8 @@ import org.junit.Assume.assumeTrue
  * light mode screenshot.
  */
 fun filterScreenshots(
-    nightMode: NightMode,
-    deviceConfig: BaseDeviceConfig,
+    nightMode: NightMode = NightMode.NOTNIGHT,
+    deviceConfig: BaseDeviceConfig = BaseDeviceConfig.Phone,
     orientation: Orientation = Orientation.Portrait,
     fontScale: FontScale = FontScale.Normal,
 ) {

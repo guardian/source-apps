@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    testImplementation(projects.paparazzigen.testing)
 }
 
 publishing {
