@@ -4,11 +4,11 @@ import com.android.build.api.dsl.CommonExtension
 import com.google.devtools.ksp.gradle.KspExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.artifacts.Dependency
 import org.gradle.api.file.Directory
 import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.SourceSetContainer
 import org.gradle.api.tasks.SourceTask
-import java.io.File
 import java.util.Properties
 
 private const val KSP_PLUGIN_ID = "com.google.devtools.ksp"
@@ -43,13 +43,14 @@ class PaparazziGenPlugin : Plugin<Project> {
             val outputDir = layout.buildDirectory.dir(OUTPUT_DIR)
 
             disableKspIncrementalProcessing()
-            excludeGeneratedTestsFromSourceQualityTasks()
 
             pluginManager.withPlugin(KSP_PLUGIN_ID) {
                 extensions.configure(KspExtension::class.java) {
                     arg(OUTPUT_DIR_OPTION, outputDir.get().asFile.absolutePath)
                 }
-                afterEvaluate { configureKsp(extension, outputDir) }
+                addPaparazziGenDependencies(extension)
+                registerGeneratedTestSourceDirectory(outputDir)
+                afterEvaluate { configureTasks(extension, outputDir) }
             }
 
             verifyPrerequisitePluginsAreApplied()
@@ -64,17 +65,11 @@ private fun Project.createExtension(): PaparazziGenExtension =
         variant.convention("debug")
     }
 
-private fun Project.configureKsp(
+private fun Project.configureTasks(
     extension: PaparazziGenExtension,
     outputDir: Provider<Directory>,
 ) {
     val names = TaskNames(this, extension.variant.get())
-
-    if (extension.addDependencies.get()) {
-        addPaparazziGenDependencies(names.kspConfiguration, extension.dependencyVersion.get())
-    }
-
-    registerGeneratedTestSourceDirectory(outputDir)
 
     // KSP writes these tests with plain file I/O rather than through its CodeGenerator, because
     // CodeGenerator output is attached to the main compilation. Declaring the directory as an
@@ -88,10 +83,37 @@ private fun Project.configureKsp(
     }
 }
 
-private fun Project.addPaparazziGenDependencies(kspConfiguration: String, version: String) {
-    dependencies.add("compileOnly", "$ANNOTATIONS_ARTIFACT:$version")
-    dependencies.add(kspConfiguration, "$PROCESSOR_ARTIFACT:$version")
-    dependencies.add("testImplementation", "$TESTING_ARTIFACT:$version")
+/**
+ * Adds the paparazzigen artifacts by Maven coordinate.
+ *
+ * KSP copies the contents of its `ksp<Variant>` configuration when the project has finished
+ * evaluating, so adding these dependencies from an `afterEvaluate` block is too late for the
+ * processor to be picked up. They are instead registered eagerly, but as a lazy provider, so that
+ * the values configured in the `paparazzigen { }` block are still honoured.
+ */
+private fun Project.addPaparazziGenDependencies(extension: PaparazziGenExtension) {
+    val project = this
+    configurations.configureEach {
+        val configurationName = name
+        dependencies.addAllLater(
+            project.provider { project.paparazziGenDependenciesFor(configurationName, extension) },
+        )
+    }
+}
+
+private fun Project.paparazziGenDependenciesFor(
+    configurationName: String,
+    extension: PaparazziGenExtension,
+): List<Dependency> {
+    if (!extension.addDependencies.get()) return emptyList()
+
+    val artifact = when (configurationName) {
+        "compileOnly" -> ANNOTATIONS_ARTIFACT
+        "testImplementation" -> TESTING_ARTIFACT
+        TaskNames(this, extension.variant.get()).kspConfiguration -> PROCESSOR_ARTIFACT
+        else -> return emptyList()
+    }
+    return listOf(dependencies.create("$artifact:${extension.dependencyVersion.get()}"))
 }
 
 private fun Project.registerGeneratedTestSourceDirectory(outputDir: Provider<Directory>) {
@@ -120,21 +142,6 @@ private fun Project.disableKspIncrementalProcessing() {
         extensions.extraProperties[INCREMENTAL_PROPERTY] = "false"
     }
 }
-
-/** Generated code is not written to the project's style, so it is not linted. */
-private fun Project.excludeGeneratedTestsFromSourceQualityTasks() {
-    tasks.withType(SourceTask::class.java).configureEach {
-        if (name.startsWith("lintKotlin") ||
-            name.startsWith("formatKotlin") ||
-            name.startsWith("detekt")
-        ) {
-            exclude { it.file.absolutePath.contains(GENERATED_PATH_MARKER) }
-        }
-    }
-}
-
-private val GENERATED_PATH_MARKER =
-    "generated${File.separator}paparazzigen".replace('/', File.separatorChar)
 
 private fun Project.verifyPrerequisitePluginsAreApplied() {
     afterEvaluate {
