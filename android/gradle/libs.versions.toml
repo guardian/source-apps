@@ -27,6 +27,7 @@ dokka = "2.2.0"
 inject = "1"
 kotlinx-collections-immutable = "0.5.1"
 kotlinx-serialisation-core = "1.11.0"
+ksp = "2.3.11"
 licensee = "1.14.1"
 lint-gradle = "1.0.0"
 nav = "1.0.1"
@@ -42,6 +43,8 @@ androidx-test-rules = "1.7.0"
 androidx-test-runner = "1.7.0"
 testparameterinjector = "1.22"
 paparazzi = "2.0.0-alpha04"
+
+kotlin-poet = "2.3.0"
 
 # Convention plugin versions
 guardian-convention-plugins = "1"
@@ -80,12 +83,19 @@ androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidx-test-core" }
 androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidx-test-runner" }
 google-testParameterInjector = { group = "com.google.testparameterinjector", name = "test-parameter-injector", version.ref = "testparameterinjector" }
+paparazzi = { group = "app.cash.paparazzi", name = "paparazzi", version.ref = "paparazzi" }
+
+ksp-symbolProcessingApi = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "ksp" }
+kotlinpoet = { module = "com.squareup:kotlinpoet", version.ref = "kotlin-poet" }
+kotlinpoet-ksp = { module = "com.squareup:kotlinpoet-ksp", version.ref = "kotlin-poet" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 detekt-gradlePlugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
 kotlinter-gradlePlugin = { module = "org.jmailen.kotlinter:org.jmailen.kotlinter.gradle.plugin", version.ref = "kotlinter" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+paparazzi-gradlePlugin = { group = "app.cash.paparazzi", name = "paparazzi-gradle-plugin", version.ref = "paparazzi" }
 composeCompiler-gradlePlugin = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
 dokka-gradlePlugin = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
 
@@ -104,6 +114,7 @@ licensee = { id = "app.cash.licensee", version.ref = "licensee" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 metalava = { id = "me.tylerbwong.gradle.metalava", version.ref = "metalava" }
@@ -111,6 +122,7 @@ metalava = { id = "me.tylerbwong.gradle.metalava", version.ref = "metalava" }
 # Guardian's convention plugins
 guardian-application = { id = "com.theguardian.application", version.ref = "guardian-convention-plugins" }
 guardian-library-android = { id = "com.theguardian.library.android", version.ref = "guardian-convention-plugins" }
+guardian-library-kotlin = { id = "com.theguardian.library.kotlin", version.ref = "guardian-convention-plugins" }
 guardian-test-android = { id = "com.theguardian.test.android", version.ref = "guardian-convention-plugins" }
 guardian-compose-library = { id = "com.theguardian.compose.library", version.ref = "guardian-convention-plugins" }
 guardian-compose-application = { id = "com.theguardian.compose.application", version.ref = "guardian-convention-plugins" }
