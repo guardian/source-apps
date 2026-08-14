@@ -27,4 +27,5 @@ rootProject.name = "Source-Android"
 
 include(":sample")
 include(":source")
+include(":paparazzigen:annotations")
 include(":paparazzigen:testing")
