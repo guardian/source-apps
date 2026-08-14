@@ -81,6 +81,32 @@ private fun Project.configureTasks(
     tasks.matching { it.name in names.unitTestCompileTasks }.configureEach {
         dependsOn(names.kspTask)
     }
+
+    configureSourceQualityTasks(names.kspTask, outputDir)
+}
+
+/**
+ * Generated code is not written to the project's style, so it is filtered out of the source quality
+ * tasks.
+ *
+ * They still have to depend on the KSP task: the generated directory is part of the unit test
+ * source set, so Gradle rejects the build if a task reads from it without declaring the task that
+ * produces it.
+ */
+private fun Project.configureSourceQualityTasks(
+    kspTaskName: String,
+    outputDir: Provider<Directory>,
+) {
+    val generatedPath = outputDir.get().asFile.absolutePath
+    tasks.withType(SourceTask::class.java).configureEach {
+        if (name.startsWith("lintKotlin") ||
+            name.startsWith("formatKotlin") ||
+            name.startsWith("detekt")
+        ) {
+            dependsOn(kspTaskName)
+            exclude { it.file.absolutePath.startsWith(generatedPath) }
+        }
+    }
 }
 
 /**
