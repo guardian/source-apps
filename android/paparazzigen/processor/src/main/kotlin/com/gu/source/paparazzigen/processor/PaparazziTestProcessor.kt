@@ -137,7 +137,7 @@ internal class PaparazziTestProcessor(private val environment: SymbolProcessorEn
         target.parentFile?.mkdirs()
         target.writeText(
             // This does all the work of generating the test file.
-            testFile.toFileSpec().toString()
+            testFile.toFileSpec().toString(),
         )
     }
 

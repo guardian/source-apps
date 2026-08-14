@@ -165,7 +165,7 @@ private fun PreviewFunction.toFunSpec(packageName: String) = FunSpec.builder(tes
     .addCode(
         CodeBlock.builder()
             .beginControlFlow("paparazzi.snapshot")
-            // TODO: 14/08/2026 Later: add optional support for wrapping in `AppColourMode` 
+            // TODO: 14/08/2026 Later: add optional support for wrapping in `AppColourMode`
             .addStatement("%M()", MemberName(packageName, functionName))
             .endControlFlow()
             .build(),
