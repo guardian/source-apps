@@ -51,6 +51,7 @@ internal inline fun <reified T : KotlinBaseExtension> Project.configureAndroidMo
 internal inline fun <reified T : KotlinBaseExtension> Project.addBaseDependencies() {
     dependencies {
         add("implementation", libs.findLibrary("kotlin-stdlib").get())
+        add("testImplementation", libs.findLibrary("kotlin-test-junit").get())
     }
     setupKotlinCompilerOptions<T>()
 }
