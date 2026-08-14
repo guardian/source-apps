@@ -1,5 +1,3 @@
-import org.gradle.api.tasks.WriteProperties
-
 plugins {
     `kotlin-dsl`
     alias(libs.plugins.kotlinter)
