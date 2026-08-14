@@ -51,7 +51,6 @@ internal inline fun <reified T : KotlinBaseExtension> Project.configureAndroidMo
 internal inline fun <reified T : KotlinBaseExtension> Project.addBaseDependencies() {
     dependencies {
         add("implementation", libs.findLibrary("kotlin-stdlib").get())
-        add("implementation", libs.findLibrary("javax-inject").get())
     }
     setupKotlinCompilerOptions<T>()
 }
