@@ -39,6 +39,7 @@ import com.gu.source.foundation.palette.Sport400
 import com.gu.source.foundation.palette.Sport800
 import com.gu.source.foundation.typography.TextSansBold12
 import com.gu.source.foundation.typography.TextSansBold15
+import com.gu.source.paparazzigen.PaparazziTest
 import com.gu.source.utils.PreviewPhoneBothMode
 import com.gu.source.utils.toDp
 
@@ -154,6 +155,7 @@ fun PromoSticker(
 }
 
 @PreviewPhoneBothMode
+@PaparazziTest
 @Composable
 internal fun PromoStickerPreview() {
     AppColourMode {
@@ -182,6 +184,7 @@ internal fun PromoStickerPreview() {
 }
 
 @PreviewPhoneBothMode
+@PaparazziTest
 @Composable
 internal fun PromoStickerLongPreview() {
     AppColourMode {
