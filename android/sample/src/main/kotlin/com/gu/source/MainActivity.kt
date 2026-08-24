@@ -54,9 +54,11 @@ internal class MainActivity : ComponentActivity() {
                     backStack = navigator.backstack,
                     onBack = { navigator.popBackStack() },
                     modifier = modifier,
-                    sceneStrategy = rememberListDetailSceneStrategy(
-                        shouldHandleSinglePaneLayout = true,
-                        directive = directive,
+                    sceneStrategies = listOf(
+                        rememberListDetailSceneStrategy(
+                            shouldHandleSinglePaneLayout = true,
+                            directive = directive,
+                        ),
                     ),
                     entryProvider = entryProvider {
                         entry<Destination.Home>(
