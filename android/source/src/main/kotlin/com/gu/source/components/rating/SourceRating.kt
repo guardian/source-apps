@@ -23,7 +23,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
-import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.icons.base.Star
 import com.gu.source.foundation.icons.base.StarOutline
 import com.gu.source.foundation.palette.Neutral10
@@ -117,152 +116,150 @@ private const val MAX_STARS = 5
 @PreviewPhoneBothMode
 @Composable
 internal fun SourceRatingPreview(modifier: Modifier = Modifier) {
-    AppColourMode {
-        val labelColour = AppColour(
-            Source.Palette.Neutral10,
-            Source.Palette.Neutral93,
-        )
-        val subtitleColour = AppColour(
-            Source.Palette.Neutral60,
-            Source.Palette.Neutral86,
+    val labelColour = AppColour(
+        Source.Palette.Neutral10,
+        Source.Palette.Neutral93,
+    )
+    val subtitleColour = AppColour(
+        Source.Palette.Neutral60,
+        Source.Palette.Neutral86,
+    )
+
+    Column(
+        modifier = modifier.padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(20.dp),
+    ) {
+        // Show sizing and spacing
+        Text(
+            text = "Sizing & spacing",
+            style = Source.Typography.TextSansBold17,
+            color = labelColour.current,
         )
 
-        Column(
-            modifier = modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(20.dp),
-        ) {
-            // Show sizing and spacing
-            Text(
-                text = "Sizing & spacing",
-                style = Source.Typography.TextSansBold17,
-                color = labelColour.current,
-            )
+        Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+            // Fronts section
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(
+                    text = "Fronts",
+                    style = Source.Typography.TextSansBold17,
+                    color = labelColour.current,
+                )
 
-            Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-                // Fronts section
-                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                // Small - 18dp | 12dp star
+                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     Text(
-                        text = "Fronts",
+                        text = "18dp | 12dp star",
                         style = Source.Typography.TextSansBold17,
-                        color = labelColour.current,
+                        color = subtitleColour.current,
                     )
-
-                    // Small - 18dp | 12dp star
-                    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        Text(
-                            text = "18dp | 12dp star",
-                            style = Source.Typography.TextSansBold17,
-                            color = subtitleColour.current,
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        SourceRating(
+                            rating = 5,
+                            size = RatingSize.Small,
+                            style = RatingStyle.DefaultCards,
                         )
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            SourceRating(
-                                rating = 5,
-                                size = RatingSize.Small,
-                                style = RatingStyle.DefaultCards,
-                            )
-                            Spacer(modifier = Modifier.width(16.dp))
-                            Text(
-                                text = "→ 1dp gap",
-                                style = Source.Typography.TextSansBold17,
-                                color = AppColour(Color.Blue, Color.Cyan).current,
-                            )
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.height(4.dp))
-
-                    // Medium - 22dp | 14dp star
-                    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Spacer(modifier = Modifier.width(16.dp))
                         Text(
-                            text = "22dp | 14dp star",
+                            text = "→ 1dp gap",
                             style = Source.Typography.TextSansBold17,
-                            color = subtitleColour.current,
+                            color = AppColour(Color.Blue, Color.Cyan).current,
                         )
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            SourceRating(
-                                rating = 5,
-                                size = RatingSize.Medium,
-                                style = RatingStyle.DefaultCards,
-                            )
-                            Spacer(modifier = Modifier.width(16.dp))
-                            Text(
-                                text = "→ 2dp gap",
-                                style = Source.Typography.TextSansBold17,
-                                color = AppColour(Color.Blue, Color.Cyan).current,
-                            )
-                        }
                     }
                 }
 
-                // Articles section
-                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text(
-                        text = "Articles",
-                        style = Source.Typography.TextSansBold17,
-                        color = labelColour.current,
-                    )
+                Spacer(modifier = Modifier.height(4.dp))
 
-                    // Large - 28dp | 18dp star
-                    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        Text(
-                            text = "28dp | 18dp star",
-                            style = Source.Typography.TextSansBold17,
-                            color = subtitleColour.current,
+                // Medium - 22dp | 14dp star
+                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text(
+                        text = "22dp | 14dp star",
+                        style = Source.Typography.TextSansBold17,
+                        color = subtitleColour.current,
+                    )
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        SourceRating(
+                            rating = 5,
+                            size = RatingSize.Medium,
+                            style = RatingStyle.DefaultCards,
                         )
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            SourceRating(
-                                rating = 5,
-                                size = RatingSize.Large,
-                                style = RatingStyle.DefaultArticle,
-                            )
-                            Spacer(modifier = Modifier.width(16.dp))
-                            Text(
-                                text = "→ 2dp gap",
-                                style = Source.Typography.TextSansBold17,
-                                color = AppColour(Color.Blue, Color.Cyan).current,
-                            )
-                        }
+                        Spacer(modifier = Modifier.width(16.dp))
+                        Text(
+                            text = "→ 2dp gap",
+                            style = Source.Typography.TextSansBold17,
+                            color = AppColour(Color.Blue, Color.Cyan).current,
+                        )
                     }
                 }
             }
 
-            // Show style variations
-            Text(
-                text = "Color Styles",
-                style = Source.Typography.TextSansBold17,
-                color = labelColour.current,
-            )
+            // Articles section
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(
+                    text = "Articles",
+                    style = Source.Typography.TextSansBold17,
+                    color = labelColour.current,
+                )
 
-            // Show all four styles in a 2x2 grid
-            val styles = listOf(
-                "Default Cards" to RatingStyle.DefaultCards,
-                "Feature Cards" to RatingStyle.FeatureCards,
-                "Default Article" to RatingStyle.DefaultArticle,
-                "Immersive Article" to RatingStyle.ImmersiveArticle,
-            )
+                // Large - 28dp | 18dp star
+                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text(
+                        text = "28dp | 18dp star",
+                        style = Source.Typography.TextSansBold17,
+                        color = subtitleColour.current,
+                    )
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        SourceRating(
+                            rating = 5,
+                            size = RatingSize.Large,
+                            style = RatingStyle.DefaultArticle,
+                        )
+                        Spacer(modifier = Modifier.width(16.dp))
+                        Text(
+                            text = "→ 2dp gap",
+                            style = Source.Typography.TextSansBold17,
+                            color = AppColour(Color.Blue, Color.Cyan).current,
+                        )
+                    }
+                }
+            }
+        }
 
-            styles.chunked(2).forEach { stylePair ->
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                ) {
-                    stylePair.forEach { (styleName, style) ->
-                        Column(
-                            modifier = Modifier.weight(1f),
-                            verticalArrangement = Arrangement.spacedBy(4.dp),
-                        ) {
-                            Text(
-                                text = styleName,
-                                style = Source.Typography.TextSansBold17,
-                                color = labelColour.current,
+        // Show style variations
+        Text(
+            text = "Color Styles",
+            style = Source.Typography.TextSansBold17,
+            color = labelColour.current,
+        )
+
+        // Show all four styles in a 2x2 grid
+        val styles = listOf(
+            "Default Cards" to RatingStyle.DefaultCards,
+            "Feature Cards" to RatingStyle.FeatureCards,
+            "Default Article" to RatingStyle.DefaultArticle,
+            "Immersive Article" to RatingStyle.ImmersiveArticle,
+        )
+
+        styles.chunked(2).forEach { stylePair ->
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+            ) {
+                stylePair.forEach { (styleName, style) ->
+                    Column(
+                        modifier = Modifier.weight(1f),
+                        verticalArrangement = Arrangement.spacedBy(4.dp),
+                    ) {
+                        Text(
+                            text = styleName,
+                            style = Source.Typography.TextSansBold17,
+                            color = labelColour.current,
+                        )
+                        for (rating in MAX_STARS downTo MIN_RATING) {
+                            SourceRating(
+                                rating = rating,
+                                size = RatingSize.Medium,
+                                style = style,
                             )
-                            for (rating in MAX_STARS downTo MIN_RATING) {
-                                SourceRating(
-                                    rating = rating,
-                                    size = RatingSize.Medium,
-                                    style = style,
-                                )
-                            }
                         }
                     }
                 }

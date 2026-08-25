@@ -26,7 +26,6 @@ import com.gu.source.components.theme.LocalSourceTheme
 import com.gu.source.components.theme.ReaderRevenueTheme
 import com.gu.source.components.theme.SourceCoreTheme
 import com.gu.source.daynight.AppColour
-import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.icons.base.Checkmark
 import com.gu.source.foundation.palette.Culture200
 import com.gu.source.foundation.palette.Culture600
@@ -260,10 +259,38 @@ fun SourceIconButton(
 @PreviewPhoneBothMode
 @Composable
 internal fun CoreIconButtonPreview() {
-    AppColourMode {
-        SourceCoreTheme {
-            Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Priority.entries.forEach { priority ->
+    SourceCoreTheme {
+        Column(Modifier.background(Source.Palette.Neutral38)) {
+            SourceButton.Priority.entries.forEach { priority ->
+                Row(
+                    modifier = Modifier
+                        .background(priority.getBackdropColour().current)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceAround,
+                ) {
+                    SourceButton.Size.entries.forEach { size ->
+                        SourceIconButton(
+                            icon = Source.Icons.Base.Checkmark,
+                            priority = priority,
+                            contentDescription = null,
+                            onClick = {},
+                            size = size,
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+@PreviewPhoneBothMode
+@Composable
+internal fun RrIconButtonPreview() {
+    ReaderRevenueTheme {
+        Column(Modifier.background(Source.Palette.Neutral38)) {
+            SourceButton.Priority.entries.forEach { priority ->
+                if (!priority.name.contains("Secondary")) {
                     Row(
                         modifier = Modifier
                             .background(priority.getBackdropColour().current)
@@ -289,111 +316,77 @@ internal fun CoreIconButtonPreview() {
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @PreviewPhoneBothMode
 @Composable
-internal fun RrIconButtonPreview() {
-    AppColourMode {
-        ReaderRevenueTheme {
-            Column(Modifier.background(Source.Palette.Neutral38)) {
-                SourceButton.Priority.entries.forEach { priority ->
-                    if (!priority.name.contains("Secondary")) {
-                        Row(
-                            modifier = Modifier
-                                .background(priority.getBackdropColour().current)
-                                .fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceAround,
-                        ) {
-                            SourceButton.Size.entries.forEach { size ->
-                                SourceIconButton(
-                                    icon = Source.Icons.Base.Checkmark,
-                                    priority = priority,
-                                    contentDescription = null,
-                                    onClick = {},
-                                    size = size,
-                                )
-                            }
-                        }
-                    }
+internal fun SourceBaseIconButtonPreview() {
+    Column(
+        Modifier.background(
+            AppColour(
+                light = Source.Palette.Neutral100,
+                dark = Source.Palette.Neutral7,
+            ).current,
+        ),
+    ) {
+        Row {
+            // Variants with default disable state colours - alpha 0.5
+            repeat(2) {
+                SourceBaseIconButton(
+                    size = SourceButton.Size.Small,
+                    buttonColours = ButtonColours(
+                        border = AppColour(
+                            light = Source.Palette.Culture200,
+                            dark = Source.Palette.Culture600,
+                        ),
+                        container = AppColour.Transparent,
+                        content = AppColour(
+                            light = Source.Palette.Culture200,
+                            dark = Source.Palette.Culture600,
+                        ),
+                    ),
+                    onClick = { },
+                    enabled = it % 2 == 0,
+                ) { modifier ->
+                    Icon(
+                        imageVector = Source.Icons.Base.Checkmark,
+                        contentDescription = null,
+                        modifier = modifier,
+                    )
                 }
             }
         }
-    }
-}
-
-@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-@PreviewPhoneBothMode
-@Composable
-internal fun SourceBaseIconButtonPreview() {
-    AppColourMode {
-        Column(
-            Modifier.background(
-                AppColour(
-                    light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral7,
-                ).current,
-            ),
-        ) {
-            Row {
-                // Variants with default disable state colours - alpha 0.5
-                repeat(2) {
-                    SourceBaseIconButton(
-                        size = SourceButton.Size.Small,
-                        buttonColours = ButtonColours(
-                            border = AppColour(
-                                light = Source.Palette.Culture200,
-                                dark = Source.Palette.Culture600,
-                            ),
-                            container = AppColour.Transparent,
-                            content = AppColour(
-                                light = Source.Palette.Culture200,
-                                dark = Source.Palette.Culture600,
-                            ),
+        Row {
+            // Variants with explicitly provided disabled state colours
+            repeat(2) {
+                SourceBaseIconButton(
+                    size = SourceButton.Size.Small,
+                    buttonColours = ButtonColours(
+                        border = AppColour(
+                            light = Source.Palette.Culture200,
+                            dark = Source.Palette.Culture600,
                         ),
-                        onClick = { },
-                        enabled = it % 2 == 0,
-                    ) { modifier ->
-                        Icon(
-                            imageVector = Source.Icons.Base.Checkmark,
-                            contentDescription = null,
-                            modifier = modifier,
-                        )
-                    }
-                }
-            }
-            Row {
-                // Variants with explicitly provided disabled state colours
-                repeat(2) {
-                    SourceBaseIconButton(
-                        size = SourceButton.Size.Small,
-                        buttonColours = ButtonColours(
-                            border = AppColour(
-                                light = Source.Palette.Culture200,
-                                dark = Source.Palette.Culture600,
-                            ),
-                            container = AppColour.Transparent,
-                            content = AppColour(
-                                light = Source.Palette.Culture200,
-                                dark = Source.Palette.Culture600,
-                            ),
+                        container = AppColour.Transparent,
+                        content = AppColour(
+                            light = Source.Palette.Culture200,
+                            dark = Source.Palette.Culture600,
                         ),
-                        disabledButtonColours = ButtonColours(
-                            border = AppColour(
-                                light = Source.Palette.Sport200,
-                                dark = Source.Palette.Sport600,
-                            ),
-                            container = AppColour.Transparent,
-                            content = AppColour(
-                                light = Source.Palette.Sport200,
-                                dark = Source.Palette.Sport600,
-                            ),
+                    ),
+                    disabledButtonColours = ButtonColours(
+                        border = AppColour(
+                            light = Source.Palette.Sport200,
+                            dark = Source.Palette.Sport600,
                         ),
-                        onClick = { },
-                        enabled = it % 2 == 0,
-                    ) { modifier ->
-                        Icon(
-                            imageVector = Source.Icons.Base.Checkmark,
-                            contentDescription = null,
-                            modifier = modifier,
-                        )
-                    }
+                        container = AppColour.Transparent,
+                        content = AppColour(
+                            light = Source.Palette.Sport200,
+                            dark = Source.Palette.Sport600,
+                        ),
+                    ),
+                    onClick = { },
+                    enabled = it % 2 == 0,
+                ) { modifier ->
+                    Icon(
+                        imageVector = Source.Icons.Base.Checkmark,
+                        contentDescription = null,
+                        modifier = modifier,
+                    )
                 }
             }
         }

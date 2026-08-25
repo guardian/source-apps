@@ -27,8 +27,7 @@ import com.gu.source.foundation.palette.BrandAlt400
 import com.gu.source.foundation.palette.Neutral100
 import com.gu.source.foundation.palette.Neutral38
 import com.gu.source.foundation.palette.Neutral86
-import com.gu.source.utils.PreviewPhoneBothMode
-import com.gu.source.utils.PreviewTabletBothMode
+import com.gu.source.utils.PreviewAllDeviceBothMode
 
 /**
  * A text button that adheres to the Source design system.
@@ -139,8 +138,7 @@ private fun rememberRippleConfiguration(
 }
 
 @Composable
-@PreviewPhoneBothMode
-@PreviewTabletBothMode
+@PreviewAllDeviceBothMode
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 internal fun SourceTextButtonPreview() = AppColourMode {
     val validPriorities = listOf(

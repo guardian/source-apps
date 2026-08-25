@@ -29,7 +29,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gu.source.Source
 import com.gu.source.daynight.AppColour
-import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.palette.Culture200
 import com.gu.source.foundation.palette.Culture600
 import com.gu.source.foundation.palette.Neutral0
@@ -210,69 +209,67 @@ fun PlainSourceButton(
 @PreviewPhoneBothMode
 @Composable
 internal fun PlainSourceButtonPreview() {
-    AppColourMode {
-        Column(
-            Modifier.background(
-                AppColour(
-                    light = Source.Palette.Neutral100,
-                    dark = Source.Palette.Neutral7,
-                ).current,
-            ),
-        ) {
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                // Variants with default disable state colours - alpha 0.5
-                repeat(2) {
-                    PlainSourceButton(
-                        text = "Button",
-                        onClick = {},
-                        enabled = it % 2 == 0,
-                        size = SourceButton.Size.Small,
-                        buttonColours = ButtonColours(
-                            border = AppColour(
-                                light = Source.Palette.Culture200,
-                                dark = Source.Palette.Culture600,
-                            ),
-                            container = AppColour.Transparent,
-                            content = AppColour(
-                                light = Source.Palette.Culture200,
-                                dark = Source.Palette.Culture600,
-                            ),
+    Column(
+        Modifier.background(
+            AppColour(
+                light = Source.Palette.Neutral100,
+                dark = Source.Palette.Neutral7,
+            ).current,
+        ),
+    ) {
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            // Variants with default disable state colours - alpha 0.5
+            repeat(2) {
+                PlainSourceButton(
+                    text = "Button",
+                    onClick = {},
+                    enabled = it % 2 == 0,
+                    size = SourceButton.Size.Small,
+                    buttonColours = ButtonColours(
+                        border = AppColour(
+                            light = Source.Palette.Culture200,
+                            dark = Source.Palette.Culture600,
                         ),
-                    )
-                }
+                        container = AppColour.Transparent,
+                        content = AppColour(
+                            light = Source.Palette.Culture200,
+                            dark = Source.Palette.Culture600,
+                        ),
+                    ),
+                )
             }
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                // Variants with explicitly provided disabled state colours
-                repeat(2) {
-                    PlainSourceButton(
-                        text = "Button",
-                        onClick = {},
-                        enabled = it % 2 == 0,
-                        size = SourceButton.Size.Small,
-                        buttonColours = ButtonColours(
-                            border = AppColour(
-                                light = Source.Palette.Culture200,
-                                dark = Source.Palette.Culture600,
-                            ),
-                            container = AppColour.Transparent,
-                            content = AppColour(
-                                light = Source.Palette.Culture200,
-                                dark = Source.Palette.Culture600,
-                            ),
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            // Variants with explicitly provided disabled state colours
+            repeat(2) {
+                PlainSourceButton(
+                    text = "Button",
+                    onClick = {},
+                    enabled = it % 2 == 0,
+                    size = SourceButton.Size.Small,
+                    buttonColours = ButtonColours(
+                        border = AppColour(
+                            light = Source.Palette.Culture200,
+                            dark = Source.Palette.Culture600,
                         ),
-                        disabledButtonColours = ButtonColours(
-                            border = AppColour(
-                                light = Source.Palette.Sport200,
-                                dark = Source.Palette.Sport600,
-                            ),
-                            container = AppColour.Transparent,
-                            content = AppColour(
-                                light = Source.Palette.Sport200,
-                                dark = Source.Palette.Sport600,
-                            ),
+                        container = AppColour.Transparent,
+                        content = AppColour(
+                            light = Source.Palette.Culture200,
+                            dark = Source.Palette.Culture600,
                         ),
-                    )
-                }
+                    ),
+                    disabledButtonColours = ButtonColours(
+                        border = AppColour(
+                            light = Source.Palette.Sport200,
+                            dark = Source.Palette.Sport600,
+                        ),
+                        container = AppColour.Transparent,
+                        content = AppColour(
+                            light = Source.Palette.Sport200,
+                            dark = Source.Palette.Sport600,
+                        ),
+                    ),
+                )
             }
         }
     }

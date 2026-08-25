@@ -38,7 +38,6 @@ import com.gu.source.R
 import com.gu.source.Source
 import com.gu.source.components.HorizontalExpandingText
 import com.gu.source.daynight.AppColour
-import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.icons.base.Checkmark
 import com.gu.source.foundation.palette.Neutral10
 import com.gu.source.foundation.palette.Neutral46
@@ -136,39 +135,37 @@ private fun SourceBaseChipPreview() {
         }
     }
 
-    AppColourMode {
-        Box(modifier = it.background(Source.Palette.Neutral46)) {
-            SourceBaseChip(
-                height = SourceChip.Size.Medium.height,
-                style = SourceChip.Style.Default.toSourceBaseChipStyle(false),
-                onClick = { },
-                badge = {
-                    Badge(containerColor = Source.Palette.Sport400)
-                },
-            ) {
-                Spacer(modifier = Modifier.width(12.dp))
-                Image(
-                    painter = painterResource(R.drawable.marina_hyde),
-                    contentDescription = null,
-                    modifier = it.size(24.dp),
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                HorizontalExpandingText(
-                    text = text,
-                    style = Source.Typography.TextSansBold14,
-                    colour = textColor.current,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                Icon(
-                    imageVector = Source.Icons.Base.Checkmark,
-                    contentDescription = null,
-                    modifier = Modifier.size(18.dp),
-                    tint = textColor.current,
-                )
-                Spacer(modifier = Modifier.width(12.dp))
-            }
+    Box(modifier = Modifier.background(Source.Palette.Neutral46)) {
+        SourceBaseChip(
+            height = SourceChip.Size.Medium.height,
+            style = SourceChip.Style.Default.toSourceBaseChipStyle(false),
+            onClick = { },
+            badge = {
+                Badge(containerColor = Source.Palette.Sport400)
+            },
+        ) {
+            Spacer(modifier = Modifier.width(12.dp))
+            Image(
+                painter = painterResource(R.drawable.marina_hyde),
+                contentDescription = null,
+                modifier = Modifier.size(24.dp),
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            HorizontalExpandingText(
+                text = text,
+                style = Source.Typography.TextSansBold14,
+                colour = textColor.current,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Icon(
+                imageVector = Source.Icons.Base.Checkmark,
+                contentDescription = null,
+                modifier = Modifier.size(18.dp),
+                tint = textColor.current,
+            )
+            Spacer(modifier = Modifier.width(12.dp))
         }
     }
 }

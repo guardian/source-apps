@@ -21,13 +21,11 @@ import com.gu.source.components.buttons.SourceTextButton
 import com.gu.source.components.theme.ReaderRevenueTheme
 import com.gu.source.components.theme.SourceCoreTheme
 import com.gu.source.daynight.AppColour
-import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.palette.Brand400
 import com.gu.source.foundation.palette.Neutral0
 import com.gu.source.foundation.palette.Neutral100
 import com.gu.source.foundation.typography.TextSansBold17
-import com.gu.source.utils.PreviewPhoneBothMode
-import com.gu.source.utils.PreviewTabletBothMode
+import com.gu.source.utils.PreviewAllDeviceBothMode
 
 private const val BUTTON_TITLE = "txtbtn.%s"
 
@@ -130,8 +128,7 @@ internal fun TextButtonPreview(onBackPress: () -> Unit, modifier: Modifier = Mod
 }
 
 @Composable
-@PreviewPhoneBothMode
-@PreviewTabletBothMode
+@PreviewAllDeviceBothMode
 private fun SourceTextButtonPreview() {
-    AppColourMode { TextButtonPreview(onBackPress = {}) }
+    TextButtonPreview(onBackPress = {})
 }

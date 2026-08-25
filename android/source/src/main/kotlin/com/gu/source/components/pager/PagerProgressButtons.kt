@@ -20,13 +20,11 @@ import com.gu.source.components.buttons.ButtonColours
 import com.gu.source.components.buttons.SourceBaseIconButton
 import com.gu.source.components.buttons.SourceButton
 import com.gu.source.daynight.AppColour
-import com.gu.source.daynight.AppColourMode
 import com.gu.source.foundation.icons.base.ChevronLeftSingle
 import com.gu.source.foundation.icons.base.ChevronRightSingle
 import com.gu.source.foundation.palette.Neutral10
 import com.gu.source.foundation.palette.Neutral100
-import com.gu.source.utils.PreviewPhoneBothMode
-import com.gu.source.utils.PreviewTabletBothMode
+import com.gu.source.utils.PreviewAllDeviceBothMode
 import kotlinx.coroutines.launch
 
 /**
@@ -125,23 +123,19 @@ private suspend fun animateScrollToNext(
 }
 
 @Composable
-@PreviewPhoneBothMode
-@PreviewTabletBothMode
-@Suppress("MagicNumber")
+@PreviewAllDeviceBothMode
 internal fun PagerProgressButtonsPreview() {
-    val pagerState = rememberPagerState(0) { 10 }
-    AppColourMode {
-        Box(
-            modifier = Modifier.background(
-                AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
-            ),
-        ) {
-            HorizontalPager(state = pagerState) {}
-            PagerProgressButtons(
-                pagerState = pagerState,
-                prevButtonContentDescription = "Previous",
-                nextButtonContentDescription = "Next",
-            )
-        }
+    val pagerState = rememberPagerState(initialPage = 0) { 10 }
+    Box(
+        modifier = Modifier.background(
+            AppColour(Source.Palette.Neutral100, Source.Palette.Neutral10).current,
+        ),
+    ) {
+        HorizontalPager(state = pagerState) {}
+        PagerProgressButtons(
+            pagerState = pagerState,
+            prevButtonContentDescription = "Previous",
+            nextButtonContentDescription = "Next",
+        )
     }
 }
