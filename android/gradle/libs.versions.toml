@@ -1,14 +1,14 @@
 [versions]
 group = "com.gu.source"
 versionFileName = "version.txt"
-compilesdk = "36"
+compilesdk = "37"
 minsdk = "26"
 targetsdk = "36"
 # When updating the java version, also update it in .tool-versions so github actions pick
 # it up
 java = "21"
 
-agp = "9.0.1"
+agp = "9.3.2"
 kotlin = "2.4.10"
 # Kotlinter version is tied closely to min & max Kotlin and Gradle versions. Update Kotlinter
 # when updating Kotlin. Check compatible versions here:
@@ -16,10 +16,10 @@ kotlin = "2.4.10"
 kotlinter = "5.5.0"
 
 activity = "1.13.0"
-adaptive-navigation3 = "1.3.0-alpha09"
+adaptive-navigation3 = "1.3.0"
 appcompat = "1.8.0"
 coil = "2.7.0"
-composeBom = "2026.06.01"
+composeBom = "2026.08.00"
 ktlint-compose = "0.6.4"
 coreKtx = "1.19.0"
 detekt = "1.23.8"
@@ -29,7 +29,7 @@ kotlinx-collections-immutable = "0.5.1"
 kotlinx-serialisation-core = "1.11.0"
 licensee = "1.14.1"
 lint-gradle = "1.0.0"
-nav = "1.0.1"
+nav = "1.1.6"
 timber = "5.0.1"
 
 metalava = "0.5.0"
@@ -41,7 +41,7 @@ androidx-test-core = "1.7.0"
 androidx-test-rules = "1.7.0"
 androidx-test-runner = "1.7.0"
 testparameterinjector = "1.22"
-paparazzi = "2.0.0-alpha04"
+paparazzi = "2.0.0-alpha05"
 
 # Convention plugin versions
 guardian-convention-plugins = "1"
