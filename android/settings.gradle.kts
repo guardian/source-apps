@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("paparazzigen-plugin")
     repositories {
         includeBuild("build-logic")
         google {
@@ -21,7 +22,12 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Source for Android"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
+rootProject.name = "Source-Android"
 
 include(":sample")
 include(":source")
+include(":paparazzigen:annotations")
+include(":paparazzigen:processor")
+include(":paparazzigen:testing")

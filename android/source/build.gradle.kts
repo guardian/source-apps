@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.guardian.library.android)
     alias(libs.plugins.guardian.compose.library)
     alias(libs.plugins.metalava)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.guardian.paparazzigen)
 }
 
 // Generates API signature files for use in API compatibility checks, and for automatic versioning.
@@ -39,7 +41,19 @@ android {
     }
 }
 
-dependencies {
+// The paparazzigen annotations, processor and test helpers are added by the
+// com.gu.source.paparazzigen plugin, by Maven coordinate. Resolve those coordinates back to the
+// local projects so this repo builds them from source and consumers get the published artifacts,
+// without needing two different sets of dependency declarations.
+configurations.configureEach {
+    resolutionStrategy.dependencySubstitution {
+        substitute(module("com.gu.source:paparazzigen-annotations"))
+            .using(project(":paparazzigen:annotations"))
+        substitute(module("com.gu.source:paparazzigen-processor"))
+            .using(project(":paparazzigen:processor"))
+        substitute(module("com.gu.source:paparazzigen-testing"))
+            .using(project(":paparazzigen:testing"))
+    }
 }
 
 publishing {
