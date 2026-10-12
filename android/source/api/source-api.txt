@@ -411,9 +411,9 @@ package com.gu.source.daynight {
 
   public class AppColour {
     ctor @KotlinOnly public AppColour(androidx.compose.ui.graphics.Color light, optional androidx.compose.ui.graphics.Color dark);
-    property public final androidx.compose.ui.graphics.Color current;
-    property public final androidx.compose.ui.graphics.Color dark;
-    property public final androidx.compose.ui.graphics.Color light;
+    property @androidx.compose.runtime.Composable public final androidx.compose.ui.graphics.Color current;
+    property @VisibleForTesting(otherwise=androidx.annotation.VisibleForTesting.Companion.PRIVATE) public final androidx.compose.ui.graphics.Color dark;
+    property @VisibleForTesting(otherwise=androidx.annotation.VisibleForTesting.Companion.PRIVATE) public final androidx.compose.ui.graphics.Color light;
   }
 
   public static final class AppColour.Transparent extends com.gu.source.daynight.AppColour {
@@ -1381,6 +1381,115 @@ package com.gu.source.foundation.icons.base {
 
 }
 
+package com.gu.source.foundation.palette {
+
+  public final class PaletteKt {
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Brand100;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Brand300;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Brand400;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Brand500;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Brand600;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Brand800;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.BrandAlt200;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.BrandAlt300;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.BrandAlt400;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Culture100;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Culture200;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Culture300;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Culture400;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Culture450;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Culture50;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Culture500;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Culture600;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Culture700;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Culture800;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Error100;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Error200;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Error400;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Error500;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Error800;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Error950;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Info950;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Labs100;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Labs200;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Labs300;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Labs400;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Labs500;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Labs600;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Labs700;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Lifestyle100;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Lifestyle200;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Lifestyle300;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Lifestyle400;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Lifestyle450;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Lifestyle500;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Lifestyle600;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Lifestyle800;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Neutral0;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Neutral10;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Neutral100;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Neutral20;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Neutral38;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Neutral46;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Neutral60;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Neutral7;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Neutral73;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Neutral86;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Neutral93;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Neutral97;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.News100;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.News200;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.News300;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.News400;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.News500;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.News550;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.News600;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.News700;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.News800;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.NotificationBlue400;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Opinion100;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Opinion200;
+    property @Deprecated public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Opinion300;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Opinion400;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Opinion450;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Opinion500;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Opinion550;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Opinion600;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Opinion700;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Opinion800;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.SpecialReport100;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.SpecialReport200;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.SpecialReport300;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.SpecialReport400;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.SpecialReport450;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.SpecialReport500;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.SpecialReport700;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.SpecialReport800;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.SpecialReportAlt100;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.SpecialReportAlt200;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.SpecialReportAlt300;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.SpecialReportAlt700;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.SpecialReportAlt800;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Sport100;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Sport200;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Sport300;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Sport400;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Sport500;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Sport600;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Sport700;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Sport800;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Success100;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Success300;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Success400;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Success450;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Success500;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Success700;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Success800;
+    property public static androidx.compose.ui.graphics.Color com.gu.source.Source.Palette.Success950;
+  }
+
+}
+
 package com.gu.source.foundation.typography {
 
   public final class TypographyKt {
@@ -1635,17 +1744,17 @@ package com.gu.source.foundation.typography {
 package com.gu.source.utils {
 
   public final class DensityExtensionsKt {
-    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! dpToPx(float);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! dpToPx(int);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static float dpToPx(float);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static float dpToPx(int);
     method @KotlinOnly @androidx.compose.runtime.Stable public static operator androidx.compose.ui.unit.TextUnit plus(androidx.compose.ui.unit.TextUnit, androidx.compose.ui.unit.TextUnit other);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! pxToDp(float);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! pxToDp(int);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! pxToSp(float);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! pxToSp(int);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! toDp(androidx.compose.ui.unit.TextUnit);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! toPx(androidx.compose.ui.unit.Dp);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! toPx(androidx.compose.ui.unit.TextUnit);
-    method @KotlinOnly @androidx.compose.runtime.Composable public static ErrorType! toSp(androidx.compose.ui.unit.Dp);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.Dp pxToDp(float);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.Dp pxToDp(int);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.TextUnit pxToSp(float);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.TextUnit pxToSp(int);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.Dp toDp(androidx.compose.ui.unit.TextUnit);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static float toPx(androidx.compose.ui.unit.Dp);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static float toPx(androidx.compose.ui.unit.TextUnit);
+    method @KotlinOnly @androidx.compose.runtime.Composable public static androidx.compose.ui.unit.TextUnit toSp(androidx.compose.ui.unit.Dp);
   }
 
   public final class PaddingValuesExtensionsKt {
@@ -1653,10 +1762,10 @@ package com.gu.source.utils {
     method public static infix operator androidx.compose.foundation.layout.PaddingValues plus(androidx.compose.foundation.layout.PaddingValues, androidx.compose.foundation.layout.PaddingValues other);
   }
 
-  @androidx.compose.ui.tooling.preview.Preview(name="Day mode", device=androidx.compose.ui.tooling.preview.Devices.PIXEL_7, uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Night mode", device=androidx.compose.ui.tooling.preview.Devices.PIXEL_7, uiMode=android.content.res.Configuration.UI_MODE_NIGHT_YES, backgroundColor=4278190080L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Samsung S20 (narrow device)", device="spec:width=945px,height=2400px", uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Scaled font", device=androidx.compose.ui.tooling.preview.Devices.PIXEL_7, uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true, fontScale=1.5f) public @interface PreviewPhoneBothMode {
+  @androidx.compose.ui.tooling.preview.Preview(name="Day mode", device=androidx.compose.ui.tooling.preview.Devices.PIXEL_7, uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Night mode", device=androidx.compose.ui.tooling.preview.Devices.PIXEL_7, uiMode=android.content.res.Configuration.UI_MODE_NIGHT_YES, backgroundColor=4278190080L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Samsung S20 (narrow device)", device="spec:width=945px,height=2400px", uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Scaled font", device=androidx.compose.ui.tooling.preview.Devices.PIXEL_7, uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true, fontScale=1.5f) @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME) public @interface PreviewPhoneBothMode {
   }
 
-  @androidx.compose.ui.tooling.preview.Preview(name="Day mode", device="spec:parent=pixel_tablet,orientation=portrait", uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Night mode", device="spec:parent=pixel_tablet,orientation=portrait", uiMode=android.content.res.Configuration.UI_MODE_NIGHT_YES, backgroundColor=4278190080L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Scaled font", device="spec:parent=pixel_tablet,orientation=portrait", uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true, fontScale=1.5f) public @interface PreviewTabletBothMode {
+  @androidx.compose.ui.tooling.preview.Preview(name="Day mode", device="spec:parent=pixel_tablet,orientation=portrait", uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Night mode", device="spec:parent=pixel_tablet,orientation=portrait", uiMode=android.content.res.Configuration.UI_MODE_NIGHT_YES, backgroundColor=4278190080L, showBackground=true) @androidx.compose.ui.tooling.preview.Preview(name="Scaled font", device="spec:parent=pixel_tablet,orientation=portrait", uiMode=android.content.res.Configuration.UI_MODE_NIGHT_NO, backgroundColor=4294967295L, showBackground=true, fontScale=1.5f) @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME) public @interface PreviewTabletBothMode {
   }
 
   public final class SizeKt {
