@@ -13,14 +13,14 @@ kotlin = "2.4.20"
 # Kotlinter version is tied closely to min & max Kotlin and Gradle versions. Update Kotlinter
 # when updating Kotlin. Check compatible versions here:
 # https://github.com/jeremymailen/kotlinter-gradle/blob/master/README.md#compatibility
-kotlinter = "5.5.0"
+kotlinter = "5.7.0"
 
 activity = "1.13.0"
 adaptive-navigation3 = "1.3.0"
 appcompat = "1.8.0"
 coil = "2.7.0"
 composeBom = "2026.09.00"
-ktlint-compose = "0.6.7"
+ktlint-compose = "0.6.8"
 coreKtx = "1.19.1"
 detekt = "1.23.8"
 dokka = "2.2.0"
@@ -41,7 +41,7 @@ androidx-test-core = "1.7.0"
 androidx-test-rules = "1.7.0"
 androidx-test-runner = "1.7.0"
 testparameterinjector = "1.24"
-paparazzi = "2.0.0-alpha05"
+paparazzi = "2.0.0-alpha05.1"
 
 # Convention plugin versions
 guardian-convention-plugins = "1"
