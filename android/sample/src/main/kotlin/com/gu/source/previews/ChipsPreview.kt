@@ -166,6 +166,7 @@ internal fun ChipsPreview(onBackPress: () -> Unit, modifier: Modifier = Modifier
                         size = SourceChip.Size.Medium,
                         onClick = {},
                         style = SourceChip.Style.Default,
+                        animateText = true,
                         iconOrImage = ChipDecoration.Icon.Painter(
                             painter = painterResource(R.drawable.ic_list),
                         ),

@@ -191,6 +191,8 @@ object SourceChip {
  * more. See [SourceChip.Style]. Defaults to [SourceChip.Style.Default].
  * @param onClickLabel Optional label for the onClick action.
  * @param iconOrImage Optional content to display an icon/image before the title.
+ * @param animateText Whether to animate the text changes. If true, text changes will animate
+ * horizontally.
  */
 @Composable
 fun SourceChip(
@@ -203,18 +205,18 @@ fun SourceChip(
     style: SourceChip.Style = SourceChip.Style.Default,
     onClickLabel: String? = null,
     iconOrImage: ChipDecoration = ChipDecoration.None,
+    animateText: Boolean = false,
 ) {
     SourceChipInternal(
         text = text,
         isSelected = isSelected,
         size = size,
-        style = style,
         onClick = onClick,
         modifier = modifier,
-        allowsMultiSelection = false,
+        style = style,
         onClickLabel = onClickLabel,
         decorationBeforeText = iconOrImage,
-        decorationAfterText = ChipDecoration.None,
+        animateText = animateText,
         badge = if (showBadge) {
             { Badge(containerColor = it) }
         } else {
@@ -239,6 +241,8 @@ fun SourceChip(
  * more. See [SourceChip.Style]. Defaults to [SourceChip.Style.Default].
  * @param onClickLabel Optional label for the onClick action.
  * @param iconOrImage Optional content to display an icon/image before the title.
+ * @param animateText Whether to animate the text changes. If true, text changes will animate
+ * horizontally.
  */
 @Composable
 fun SourceMultiSelectChip(
@@ -251,14 +255,15 @@ fun SourceMultiSelectChip(
     style: SourceChip.Style = SourceChip.Style.Default,
     onClickLabel: String? = null,
     iconOrImage: ChipDecoration = ChipDecoration.None,
+    animateText: Boolean = false,
 ) {
     SourceChipInternal(
         text = text,
         isSelected = isSelected,
         size = size,
-        style = style,
         onClick = onClick,
         modifier = modifier,
+        style = style,
         allowsMultiSelection = true,
         onClickLabel = onClickLabel,
         decorationBeforeText = iconOrImage,
@@ -273,6 +278,7 @@ fun SourceMultiSelectChip(
         } else {
             ChipDecoration.None
         },
+        animateText = animateText,
         badge = if (showBadge) {
             { Badge(containerColor = it) }
         } else {
@@ -382,6 +388,8 @@ private fun getSpacing(
  * @param onClickLabel Optional label for the onClick action.
  * @param decorationBeforeText Optional content to display an icon/image before the title.
  * @param decorationAfterText Optional content to display an icon/image after the title.
+ * @param animateText Whether to animate the text changes. If true, text changes will animate
+ * horizontally.
  * @param badge Optional content to display a badge over the chip. Usually a [Badge]. Badge colour
  * is passed to the [badge] slot.
  */
@@ -399,6 +407,7 @@ internal fun SourceChipInternal(
     onClickLabel: String? = null,
     decorationBeforeText: ChipDecoration = ChipDecoration.None,
     decorationAfterText: ChipDecoration = ChipDecoration.None,
+    animateText: Boolean = false,
     badge: @Composable ((Color) -> Unit)? = null,
 ) {
     SourceBaseChip(
@@ -439,13 +448,23 @@ internal fun SourceChipInternal(
 
             Spacer(modifier = Modifier.width(spacing.betweenLeadingDecorationAndText))
 
-            HorizontalExpandingText(
-                text = text,
-                colour = contentColour,
-                style = style.textStyle,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
+            if (animateText) {
+                HorizontalExpandingText(
+                    text = text,
+                    colour = contentColour,
+                    style = style.textStyle,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            } else {
+                Text(
+                    text = text,
+                    color = contentColour,
+                    style = style.textStyle,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
 
             Spacer(modifier = Modifier.width(spacing.betweenTextAndCheckmark))
 
@@ -483,11 +502,11 @@ fun SourceChipSupportingButton(
         text = text,
         isSelected = false,
         size = size,
-        style = style,
         onClick = onClick,
         modifier = modifier,
+        style = style,
         decorationBeforeText = iconOrImage,
-        decorationAfterText = ChipDecoration.None,
+        animateText = false,
     )
 }
 
