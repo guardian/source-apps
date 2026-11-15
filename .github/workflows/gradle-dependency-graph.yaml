@@ -20,7 +20,7 @@ jobs:
 
       - name: Submit dependencies
         id: submit
-        uses: gradle/actions/dependency-submission@c8a326d85724fce2ae59a38810306f4a058f26a4 # v4.1.0
+        uses: gradle/actions/dependency-submission@445a164ce8dd7af4e36840ca2f5aa4e1faf842f2 # v4.1.0
         with:
           build-root-directory: android
 
