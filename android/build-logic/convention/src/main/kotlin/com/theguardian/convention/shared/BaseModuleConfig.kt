@@ -34,7 +34,9 @@ internal inline fun <reified T : KotlinBaseExtension> Project.configureAndroidMo
     extension.apply {
         defaultConfig.apply {
             minSdk = libs.findVersion("minsdk").get().toString().toInt()
+//            compileSdk = libs.findVersion("compilesdk").get().toString().toInt()
             compileSdk = libs.findVersion("compilesdk").get().toString().toInt()
+            compileSdkMinor = libs.findVersion("compilesdkminor").get().toString().toInt()
         }
 
         addBaseDependencies<T>()
